@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="ir_attachment_logo_ore_background_svg" model="ir.attachment">
+            <field name="datas_fname">logo_ORE_background.svg</field>
+            <field name="name">logo_ORE_background.svg</field>
+            <field name="public">True</field>
+            <field name="res_model">ir.ui.view</field>
+            <field name="type">url</field>
+            <field name="url">/ore/static/src/img/logo_ORE_background.svg</field>
+        </record>
+        <record id="ir_attachment_logo_ore_transparent_svg" model="ir.attachment">
+            <field name="datas_fname">logo_ORE_transparent.svg</field>
+            <field name="name">logo_ORE_transparent.svg</field>
+            <field name="public">True</field>
+            <field name="res_model">ir.ui.view</field>
+            <field name="type">url</field>
+            <field name="url">/ore/static/src/img/logo_ORE_transparent.svg</field>
+        </record>
+    </data>
+</odoo>

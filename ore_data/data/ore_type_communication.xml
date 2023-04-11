@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="ore_type_communication_choisir" model="ore.type.communication">
+            <field name="nom">Choisir</field>
+        </record>
+        <record id="ore_type_communication_courriel_email" model="ore.type.communication">
+            <field name="nom">Courriel (Email)</field>
+        </record>
+        <record id="ore_type_communication_courrier_traditionnel" model="ore.type.communication">
+            <field name="nom">Courrier traditionnel</field>
+        </record>
+        <record id="ore_type_communication_courrier_porte_a_porte" model="ore.type.communication">
+            <field name="nom">Courrier porte &#224; porte</field>
+        </record>
+    </data>
+</odoo>

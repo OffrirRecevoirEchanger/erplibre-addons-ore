@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="ore_workflow_relation_view_form" model="ir.ui.view">
+        <field name="name">ore_workflow_relation_form</field>
+        <field name="model">ore.workflow.relation</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                            <field name="active" widget="boolean_button" options='{"terminology": "active"}' />
+                        </button>
+                    </div>
+                    <group>
+                        <field name="name" />
+                    </group>
+                    <group>
+                        <field name="body_html" />
+                    </group>
+                    <group>
+                        <field name="icon" />
+                    </group>
+                    <group>
+                        <field name="is_dynamic" />
+                    </group>
+                    <group>
+                        <field name="state_src" />
+                    </group>
+                    <group>
+                        <field name="state_dst" />
+                    </group>
+                    <group>
+                        <field name="diagram_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ore_workflow_relation_view_kanban" model="ir.ui.view">
+        <field name="name">ore_workflow_relation_kanban</field>
+        <field name="model">ore.workflow.relation</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name" />
+                <field name="diagram_id" />
+                <field name="body_html" />
+                <field name="icon" />
+                <field name="is_dynamic" />
+                <field name="state_dst" />
+                <field name="state_src" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="name" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="body_html" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="icon" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="is_dynamic" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="state_src" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="state_dst" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="diagram_id" />
+                                        </strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="ore_workflow_relation_view_search" model="ir.ui.view">
+        <field name="name">ore_workflow_relation_search</field>
+        <field name="model">ore.workflow.relation</field>
+        <field name="arch" type="xml">
+            <search string="ORE workflow relation">
+                <filter domain="[('name','!=',False)]" name="name" string="Nom" />
+                <filter domain="[('body_html','!=',False)]" name="body_html" string="HTML" />
+                <filter domain="[('icon','!=',False)]" name="icon" string="Icon" />
+                <filter domain="[('is_dynamic','!=',False)]" name="dynamique" string="Est dynamique" />
+                <filter domain="[('state_src','!=',False)]" name="state_src" string="State source" />
+                <filter domain="[('state_dst','!=',False)]" name="state_dst" string="State destination" />
+                <filter domain="[('diagram_id','!=',False)]" name="diagram_id" string="Diagram" />
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]" />
+            </search>
+        </field>
+    </record>
+
+    <record id="ore_workflow_relation_view_tree" model="ir.ui.view">
+        <field name="name">ore_workflow_relation_tree</field>
+        <field name="model">ore.workflow.relation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="body_html" />
+                <field name="icon" />
+                <field name="is_dynamic" />
+                <field name="state_src" />
+                <field name="state_dst" />
+                <field name="diagram_id" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="ore_workflow_relation_action_window"
+        name="Relation de la navigation"
+        res_model="ore.workflow.relation"
+        view_mode="kanban,tree,form"
+    />
+</odoo>

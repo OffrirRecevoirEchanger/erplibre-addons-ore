@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="ore_arrondissement_desjardins" model="ore.arrondissement">
+            <field name="nom">Desjardins</field>
+            <field name="ville" ref="ore_ville_levis" />
+        </record>
+        <record id="ore_arrondissement_les_chutes_de_la_chaudiere_est" model="ore.arrondissement">
+            <field name="nom">Les Chutes-de-la-Chaudi&#232;re-Est</field>
+            <field name="ville" ref="ore_ville_levis" />
+        </record>
+        <record id="ore_arrondissement_les_chutes_de_la_chaudiere_ouest" model="ore.arrondissement">
+            <field name="nom">Les Chutes-de-la-Chaudi&#232;re-Ouest</field>
+            <field name="ville" ref="ore_ville_levis" />
+        </record>
+        <record id="ore_arrondissement_brompton" model="ore.arrondissement">
+            <field name="nom">Brompton</field>
+            <field name="ville" ref="ore_ville_sherbrooke" />
+        </record>
+        <record id="ore_arrondissement_fleurimont" model="ore.arrondissement">
+            <field name="nom">Fleurimont</field>
+            <field name="ville" ref="ore_ville_sherbrooke" />
+        </record>
+        <record id="ore_arrondissement_lennoxville" model="ore.arrondissement">
+            <field name="nom">Lennoxville</field>
+            <field name="ville" ref="ore_ville_sherbrooke" />
+        </record>
+        <record id="ore_arrondissement_mont_bellevue" model="ore.arrondissement">
+            <field name="nom">Mont-Bellevue</field>
+            <field name="ville" ref="ore_ville_sherbrooke" />
+        </record>
+        <record id="ore_arrondissement_rock_forest_saint_elie_deauville" model="ore.arrondissement">
+            <field name="nom">Rock Forest--Saint-&#201;lie--Deauville</field>
+            <field name="ville" ref="ore_ville_sherbrooke" />
+        </record>
+        <record id="ore_arrondissement_jacques_cartier" model="ore.arrondissement">
+            <field name="nom">Jacques-Cartier</field>
+            <field name="ville" ref="ore_ville_sherbrooke" />
+        </record>
+        <record id="ore_arrondissement_macnider" model="ore.arrondissement">
+            <field name="nom">MacNider</field>
+            <field name="ville" ref="ore_ville_metis_sur_mer" />
+        </record>
+        <record id="ore_arrondissement_newport" model="ore.arrondissement">
+            <field name="nom">Newport</field>
+            <field name="ville" ref="ore_ville_newport" />
+        </record>
+        <record id="ore_arrondissement_calumet" model="ore.arrondissement">
+            <field name="nom">Calumet</field>
+            <field name="ville" ref="ore_ville_grenville_sur_la_rouge" />
+        </record>
+        <record id="ore_arrondissement_grenville" model="ore.arrondissement">
+            <field name="nom">Grenville</field>
+            <field name="ville" ref="ore_ville_grenville_sur_la_rouge" />
+        </record>
+        <record id="ore_arrondissement_grosse_ile" model="ore.arrondissement">
+            <field name="nom">Grosse-&#206;le</field>
+            <field name="ville" ref="ore_ville_les_iles_de_la_madeleine" />
+        </record>
+        <record id="ore_arrondissement_le_vieux_longueuil" model="ore.arrondissement">
+            <field name="nom">Le Vieux-Longueuil</field>
+            <field name="ville" ref="ore_ville_longueuil" />
+        </record>
+        <record id="ore_arrondissement_greenfield_park" model="ore.arrondissement">
+            <field name="nom">Greenfield Park</field>
+            <field name="ville" ref="ore_ville_longueuil" />
+        </record>
+        <record id="ore_arrondissement_saint_hubert" model="ore.arrondissement">
+            <field name="nom">Saint-Hubert</field>
+            <field name="ville" ref="ore_ville_longueuil" />
+        </record>
+        <record id="ore_arrondissement_dorval_l_ile_dorval" model="ore.arrondissement">
+            <field name="nom">Dorval--L'&#206;le-Dorval</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_mont_royal" model="ore.arrondissement">
+            <field name="nom">Mont-Royal</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_kirkland" model="ore.arrondissement">
+            <field name="nom">Kirkland</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_westmount" model="ore.arrondissement">
+            <field name="nom">Westmount</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_outremont" model="ore.arrondissement">
+            <field name="nom">Outremont</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_l_ile_bizard_sainte_genevieve_sainte_anne_de_bel" model="ore.arrondissement">
+            <field name="nom">L'&#206;le-Bizard--Sainte-Genevi&#232;ve--Sainte-Anne-de-Bel</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_beaconsfield_baie_d_urfe" model="ore.arrondissement">
+            <field name="nom">Beaconsfield--Baie-D'Urf&#233;</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_pointe_claire" model="ore.arrondissement">
+            <field name="nom">Pointe-Claire</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_anjou" model="ore.arrondissement">
+            <field name="nom">Anjou</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_cote_saint_luc_hampstead_montreal_ouest" model="ore.arrondissement">
+            <field name="nom">C&#244;te-Saint-Luc--Hampstead--Montr&#233;al-Ouest</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_dollard_des_ormeaux_roxboro" model="ore.arrondissement">
+            <field name="nom">Dollard-Des Ormeaux--Roxboro</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_verdun" model="ore.arrondissement">
+            <field name="nom">Verdun</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_pierrefonds_senneville" model="ore.arrondissement">
+            <field name="nom">Pierrefonds-Senneville</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_saint_leonard" model="ore.arrondissement">
+            <field name="nom">Saint-L&#233;onard</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_saint_laurent" model="ore.arrondissement">
+            <field name="nom">Saint-Laurent</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_montreal_nord" model="ore.arrondissement">
+            <field name="nom">Montr&#233;al-Nord</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_lasalle" model="ore.arrondissement">
+            <field name="nom">LaSalle</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_ville_marie" model="ore.arrondissement">
+            <field name="nom">Ville-Marie</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_le_sud_ouest" model="ore.arrondissement">
+            <field name="nom">Le Sud-Ouest</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_le_plateau_mont_royal" model="ore.arrondissement">
+            <field name="nom">Le Plateau-Mont-Royal</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_mercier_hochelaga_maisonneuve" model="ore.arrondissement">
+            <field name="nom">Mercier--Hochelaga-Maisonneuve</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_ahuntsic_cartierville" model="ore.arrondissement">
+            <field name="nom">Ahuntsic-Cartierville</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_rosemont_la_petite_patrie" model="ore.arrondissement">
+            <field name="nom">Rosemont--La Petite-Patrie</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_villeray_saint_michel_parc_extension" model="ore.arrondissement">
+            <field name="nom">Villeray--Saint-Michel--Parc-Extension</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_cote_des_neiges_notre_dame_de_grace" model="ore.arrondissement">
+            <field name="nom">C&#244;te-des-Neiges--Notre-Dame-de-Gr&#226;ce</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_lachine" model="ore.arrondissement">
+            <field name="nom">Lachine</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_pierrefonds_roxboro" model="ore.arrondissement">
+            <field name="nom">Pierrefonds-Roxboro</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_l_ile_bizard_sainte_genevieve" model="ore.arrondissement">
+            <field name="nom">L'&#206;le-Bizard--Sainte-Genevi&#232;ve</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_riviere_des_prairies_pointe_aux_trembles" model="ore.arrondissement">
+            <field name="nom">Rivi&#232;re-des-Prairies--Pointe-aux-Trembles</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_cote_des_neiges_notre_dame_de_grace_1" model="ore.arrondissement">
+            <field name="nom">C&#244;te-des-Neiges--Notre-Dame-de-Gr&#226;ce</field>
+            <field name="ville" ref="ore_ville_montreal" />
+        </record>
+        <record id="ore_arrondissement_beauport" model="ore.arrondissement">
+            <field name="nom">Beauport</field>
+            <field name="ville" ref="ore_ville_quebec" />
+        </record>
+        <record id="ore_arrondissement_charlesbourg" model="ore.arrondissement">
+            <field name="nom">Charlesbourg</field>
+            <field name="ville" ref="ore_ville_quebec" />
+        </record>
+        <record id="ore_arrondissement_la_cite_limoilou" model="ore.arrondissement">
+            <field name="nom">La Cit&#233;-Limoilou</field>
+            <field name="ville" ref="ore_ville_quebec" />
+        </record>
+        <record id="ore_arrondissement_la_haute_saint_charles" model="ore.arrondissement">
+            <field name="nom">La Haute-Saint-Charles</field>
+            <field name="ville" ref="ore_ville_quebec" />
+        </record>
+        <record id="ore_arrondissement_les_rivieres" model="ore.arrondissement">
+            <field name="nom">Les Rivi&#232;res</field>
+            <field name="ville" ref="ore_ville_quebec" />
+        </record>
+        <record id="ore_arrondissement_ste_foy_sillery_cap_rouge" model="ore.arrondissement">
+            <field name="nom">Ste-Foy-Sillery-Cap-Rouge</field>
+            <field name="ville" ref="ore_ville_quebec" />
+        </record>
+        <record id="ore_arrondissement_chicoutimi" model="ore.arrondissement">
+            <field name="nom">Chicoutimi</field>
+            <field name="ville" ref="ore_ville_saguenay" />
+        </record>
+        <record id="ore_arrondissement_jonquiere" model="ore.arrondissement">
+            <field name="nom">Jonqui&#232;re</field>
+            <field name="ville" ref="ore_ville_saguenay" />
+        </record>
+        <record id="ore_arrondissement_la_baie" model="ore.arrondissement">
+            <field name="nom">La Baie</field>
+            <field name="ville" ref="ore_ville_saguenay" />
+        </record>
+        <record id="ore_arrondissement_cap_de_la_madeleine" model="ore.arrondissement">
+            <field name="nom">Cap-de-la-Madeleine</field>
+            <field name="ville" ref="ore_ville_trois_rivieres" />
+        </record>
+        <record id="ore_arrondissement_pointe_du_lac" model="ore.arrondissement">
+            <field name="nom">Pointe du Lac</field>
+            <field name="ville" ref="ore_ville_trois_rivieres" />
+        </record>
+        <record id="ore_arrondissement_sainte_marthe" model="ore.arrondissement">
+            <field name="nom">Sainte-Marthe</field>
+            <field name="ville" ref="ore_ville_trois_rivieres" />
+        </record>
+        <record id="ore_arrondissement_saint_louis_de_france" model="ore.arrondissement">
+            <field name="nom">Saint-Louis de France</field>
+            <field name="ville" ref="ore_ville_trois_rivieres" />
+        </record>
+        <record id="ore_arrondissement_trois_rivieres_centre" model="ore.arrondissement">
+            <field name="nom">Trois-Rivi&#232;res Centre</field>
+            <field name="ville" ref="ore_ville_trois_rivieres" />
+        </record>
+        <record id="ore_arrondissement_trois_rivieres_ouest" model="ore.arrondissement">
+            <field name="nom">Trois-Rivi&#232;res Ouest</field>
+            <field name="ville" ref="ore_ville_trois_rivieres" />
+        </record>
+        <record id="ore_arrondissement_douglastown_a_pointe_navarre" model="ore.arrondissement">
+            <field name="nom">Douglastown &#224; Pointe-Navarre</field>
+            <field name="ville" ref="ore_ville_gaspe" />
+        </record>
+        <record id="ore_arrondissement_st_majorique_a_cap_aux_os" model="ore.arrondissement">
+            <field name="nom">St-Majorique &#224; Cap-aux-Os</field>
+            <field name="ville" ref="ore_ville_gaspe" />
+        </record>
+        <record id="ore_arrondissement_cap_des_rosiers_a_l_anse_a_valleau" model="ore.arrondissement">
+            <field name="nom">Cap-des-Rosiers &#224; L'Anse-&#224;-Valleau</field>
+            <field name="ville" ref="ore_ville_gaspe" />
+        </record>
+    </data>
+</odoo>

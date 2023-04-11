@@ -1,0 +1,31 @@
+div.clickEffect {
+  animation: clickEffect 0.4s ease-out;
+  border-color: #008300;
+  border-radius: 50%;
+  border-style: solid;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 99999;
+}
+
+@keyframes clickEffect {
+  0% {
+    border-width: 0.5em;
+    height: 0.5em;
+    margin: -0.25em;
+    opacity: 1;
+    width: 0.5em;
+  }
+
+  100% {
+    border-width: 0.03em;
+    height: 15em;
+    margin: -7.5em;
+    opacity: 0.2;
+    width: 15em;
+  }
+}
+
+.help_show_col {
+  background-color: rgba(255, 255, 0, 0.5) !important;
+}

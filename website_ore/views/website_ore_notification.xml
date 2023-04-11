@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="website_ore_notification_loader" inherit_id="website.layout" name="ORE Notification">
+        <xpath expr="//div[@id='wrapwrap']" position="after">
+            <script>
+                <t t-translation="off">
+                    document.addEventListener("DOMContentLoaded", function(event) {
+                        odoo.define('website.ore_notification.instance', function (require) {
+                            var rootWidget = require('root.widget');
+                            var ore_notification = require('website.ore_notification');
+                            var button = new ore_notification.ORENotification(rootWidget);
+                            button.appendTo($('body'));
+                            window.ore_notification = button;
+                        });
+                    });
+                </t>
+            </script>
+        </xpath>
+    </template>
+</odoo>

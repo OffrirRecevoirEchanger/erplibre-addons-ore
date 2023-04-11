@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="ore_provenance_choisir" model="ore.provenance">
+            <field name="nom">Choisir</field>
+        </record>
+        <record id="ore_provenance_membre_ou_ami" model="ore.provenance">
+            <field name="nom">Membre ou ami</field>
+        </record>
+        <record id="ore_provenance_internet" model="ore.provenance">
+            <field name="nom">Internet</field>
+        </record>
+        <record id="ore_provenance_kiosque/rencontre_de_presentation" model="ore.provenance">
+            <field name="nom">Kiosque/Rencontre de pr&#233;sentation</field>
+        </record>
+        <record id="ore_provenance_medias_ou_promotion_speciale" model="ore.provenance">
+            <field name="nom">M&#233;dias ou promotion sp&#233;ciale</field>
+        </record>
+        <record id="ore_provenance_organisme_ou_institution" model="ore.provenance">
+            <field name="nom">Organisme ou institution</field>
+        </record>
+    </data>
+</odoo>

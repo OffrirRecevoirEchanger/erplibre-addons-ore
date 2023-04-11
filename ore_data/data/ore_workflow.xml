@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="ore_workflow_participer" model="ore.workflow">
+            <field name="name">Procédure de participation des membres</field>
+        </record>
+        <record id="ore_workflow_developpeur" model="ore.workflow">
+            <field name="name">Procédure de développement</field>
+        </record>
+    </data>
+</odoo>

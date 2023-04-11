@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="ore_demande_service_garder_mon_chien_svp" model="ore.demande.service">
+            <field name="ore" ref="ore_organisation_sainte_rose_du_nord" />
+            <field name="membre" ref="ore_membre_martin_petit" />
+            <field name="titre">Garder mon chien svp!</field>
+            <field name="membre_favoris_ids" eval="[(4, ref('ore_membre_administrateur_mathieu_benoit')), (4, ref('ore_membre_denis_lemarchand'))]" />
+        </record>
+        <record id="ore_demande_service_cours_de_violon" model="ore.demande.service">
+            <field name="ore" ref="ore_organisation_sainte_rose_du_nord" />
+            <field name="membre" ref="ore_membre_administrateur_mathieu_benoit" />
+            <field name="titre">J'aimerais apprendre un instrument de musique, à votre choix!</field>
+            <field name="membre_favoris_ids" eval="[(4, ref('ore_membre_administrateur_mathieu_benoit')), (4, ref('ore_membre_alice_poitier'))]" />
+        </record>
+    </data>
+</odoo>

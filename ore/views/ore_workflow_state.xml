@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="ore_workflow_state_view_form" model="ir.ui.view">
+        <field name="name">ore_workflow_state_form</field>
+        <field name="model">ore.workflow.state</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group string="Information">
+                        <field name="name" />
+                        <field name="type" />
+                        <field name="key" />
+                    </group>
+                    <div class="bg-warning">
+                        <h4>Le champs Identifiant :</h4>
+                        L'identifiant doit être la même que la précédente + ".nouveau"
+                    </div>
+                    <group string="Propriété" attrs="{'invisible': [('type','in',('null',))]}">
+                        <field name="message" />
+                        <field name="disable_question" />
+                        <field
+                            name="list_is_first_position"
+                            attrs="{'invisible': [('type','not in',('selection_dynamique'))]}"
+                        />
+                    </group>
+                    <group string="Fil d'ariane" attrs="{'invisible': [('type','in',('null',))]}">
+                        <field name="breadcrumb_value" />
+                        <field name="breadcrumb_show_only_last_item" />
+                        <field name="show_breadcrumb" />
+                        <field name="breadcrumb_field_value" />
+                    </group>
+                    <group string="Formulaire" attrs="{'invisible': [('type','in',('null','selection_static'))]}">
+                        <field name="data" />
+                        <field name="model_field_name" />
+                        <field name="model_field_depend" />
+                        <field name="model_field_name_alias" />
+                        <field
+                            name="data_update_url"
+                            attrs="{'invisible': [('type','not in',('selection_dynamique',))]}"
+                        />
+                        <field
+                            name="data_url_field"
+                            attrs="{'invisible': [('type','not in',('selection_dynamique',))]}"
+                        />
+                        <field
+                            name="force_update_data"
+                            attrs="{'invisible': [('type','not in',('selection_dynamique',))]}"
+                        />
+                        <field name="submit_button_text" attrs="{'invisible': [('type','not in',('form',))]}" />
+                        <field name="submit_response_title" attrs="{'invisible': [('type','not in',('form',))]}" />
+                        <field
+                            name="submit_response_description"
+                            attrs="{'invisible': [('type','not in',('form',))]}"
+                        />
+                    </group>
+                    <group string="Diagramme">
+                        <field name="state_dst_ids" />
+                        <field name="state_src_ids" attrs="{'invisible': [('type','in',('null',))]}" />
+                        <field name="diagram_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ore_workflow_state_view_kanban" model="ir.ui.view">
+        <field name="name">ore_workflow_state_kanban</field>
+        <field name="model">ore.workflow.state</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name" />
+                <field name="breadcrumb_show_only_last_item" />
+                <field name="breadcrumb_value" />
+                <field name="submit_button_text" />
+                <field name="submit_response_title" />
+                <field name="submit_response_description" />
+                <field name="data" />
+                <field name="diagram_id" />
+                <field name="disable_question" />
+                <field name="key" />
+                <field name="list_is_first_position" />
+                <field name="message" />
+                <field name="model_field_name" />
+                <field name="model_field_depend" />
+                <field name="model_field_name_alias" />
+                <field name="show_breadcrumb" />
+                <field name="type" />
+                <!--                <field name="xpos" />-->
+                <!--                <field name="ypos" />-->
+                <field name="state_dst_ids" />
+                <field name="state_src_ids" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="name" />
+                                        </strong>
+                                    </li>
+                                    <li
+                                        class="text-success float-right mb4"
+                                        t-if="record.breadcrumb_show_only_last_item.raw_value"
+                                    >
+                                        <i aria-label="Ok" class="fa fa-circle" role="img" title="Ok" />
+                                    </li>
+                                    <li
+                                        class="text-danger float-right mb4"
+                                        t-if="!record.breadcrumb_show_only_last_item.raw_value"
+                                    >
+                                        <i aria-label="Invalid" class="fa fa-circle" role="img" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="breadcrumb_value" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="submit_button_text" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="submit_response_title" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="submit_response_description" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="data" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="diagram_id" />
+                                        </strong>
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.disable_question.raw_value">
+                                        <i aria-label="Ok" class="fa fa-circle" role="img" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.disable_question.raw_value">
+                                        <i aria-label="Invalid" class="fa fa-circle" role="img" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="key" />
+                                        </strong>
+                                    </li>
+                                    <li
+                                        class="text-success float-right mb4"
+                                        t-if="record.list_is_first_position.raw_value"
+                                    >
+                                        <i aria-label="Ok" class="fa fa-circle" role="img" title="Ok" />
+                                    </li>
+                                    <li
+                                        class="text-danger float-right mb4"
+                                        t-if="!record.list_is_first_position.raw_value"
+                                    >
+                                        <i aria-label="Invalid" class="fa fa-circle" role="img" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="message" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="model_field_name" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="model_field_depend" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="model_field_name_alias" />
+                                        </strong>
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.show_breadcrumb.raw_value">
+                                        <i aria-label="Ok" class="fa fa-circle" role="img" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.show_breadcrumb.raw_value">
+                                        <i aria-label="Invalid" class="fa fa-circle" role="img" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="type" />
+                                        </strong>
+                                    </li>
+                                    <!--                                    <li class="mb4">-->
+                                    <!--                                        <strong>-->
+                                    <!--                                            <field name="xpos" />-->
+                                    <!--                                        </strong>-->
+                                    <!--                                    </li>-->
+                                    <!--                                    <li class="mb4">-->
+                                    <!--                                        <strong>-->
+                                    <!--                                            <field name="ypos" />-->
+                                    <!--                                        </strong>-->
+                                    <!--                                    </li>-->
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="state_dst_ids" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="state_src_ids" />
+                                        </strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="ore_workflow_state_view_search" model="ir.ui.view">
+        <field name="name">ore_workflow_state_search</field>
+        <field name="model">ore.workflow.state</field>
+        <field name="arch" type="xml">
+            <search string="ORE workflow state">
+                <filter domain="[('name','!=',False)]" name="name" string="Nom" />
+                <filter
+                    domain="[('breadcrumb_show_only_last_item','=',True)]"
+                    name="breadcrumb_show_only_last_item"
+                    string="Fil d'ariane affich&#233; dernier item seulement"
+                />
+                <filter
+                    domain="[('breadcrumb_value','!=',False)]"
+                    name="breadcrumb_value"
+                    string="Contenu fil d'ariane"
+                />
+                <filter
+                    domain="[('submit_button_text','!=',False)]"
+                    name="submit_button_text"
+                    string="Libellé bouton envoie"
+                />
+                <filter
+                    domain="[('submit_response_title','!=',False)]"
+                    name="submit_response_title"
+                    string="Titre formulaire réponse"
+                />
+                <filter
+                    domain="[('submit_response_description','!=',False)]"
+                    name="submit_response_description"
+                    string="Description formulaire réponse"
+                />
+                <filter domain="[('data','!=',False)]" name="data" string="Nom base de donn&#233;es" />
+                <filter domain="[('diagram_id','!=',False)]" name="diagram_id" string="Diagram" />
+                <filter
+                    domain="[('disable_question','=',True)]"
+                    name="disable_question"
+                    string="D&#233;sactiver la question"
+                />
+                <filter domain="[('key','!=',False)]" name="key" string="Identifiant" />
+                <filter
+                    domain="[('list_is_first_position','=',True)]"
+                    name="list_is_first_position"
+                    string="Premi&#232;re position dans la s&#233;lection"
+                />
+                <filter domain="[('message','!=',False)]" name="message" string="Message" />
+                <filter
+                    domain="[('model_field_name','!=',False)]"
+                    name="model_field_name"
+                    string="Champs du mod&#232;le"
+                />
+                <filter
+                    domain="[('model_field_depend','!=',False)]"
+                    name="model_field_depend"
+                    string="Dépendances de champs"
+                />
+                <filter
+                    domain="[('model_field_name_alias','!=',False)]"
+                    name="model_field_name_alias"
+                    string="Alias champs du mod&#232;le"
+                />
+                <filter
+                    domain="[('show_breadcrumb','=',True)]"
+                    name="show_breadcrumb"
+                    string="Afficher le fil d'ariane"
+                />
+                <filter domain="[('type','!=',False)]" name="type" string="Type" />
+                <!--                <filter domain="[('xpos','!=',False)]" name="xpos" string="Diagram position x" />-->
+                <!--                <filter domain="[('ypos','!=',False)]" name="ypos" string="Diagram position y" />-->
+                <filter domain="[('state_dst_ids','!=',False)]" name="state_dst_ids" string="Relation destination" />
+                <filter domain="[('state_src_ids','!=',False)]" name="state_src_ids" string="Relation source" />
+            </search>
+        </field>
+    </record>
+
+    <record id="ore_workflow_state_view_tree" model="ir.ui.view">
+        <field name="name">ore_workflow_state_tree</field>
+        <field name="model">ore.workflow.state</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="breadcrumb_show_only_last_item" />
+                <field name="breadcrumb_value" />
+                <field name="submit_button_text" />
+                <field name="submit_response_title" />
+                <field name="submit_response_description" />
+                <field name="data" />
+                <field name="diagram_id" />
+                <field name="disable_question" />
+                <field name="key" />
+                <field name="list_is_first_position" />
+                <field name="message" />
+                <field name="model_field_name" />
+                <field name="model_field_name_alias" />
+                <field name="model_field_depend" />
+                <field name="show_breadcrumb" />
+                <field name="state_dst_ids" />
+                <field name="state_src_ids" />
+                <field name="type" />
+                <!--                <field name="xpos" />-->
+                <!--                <field name="ypos" />-->
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="ore_workflow_state_action_window"
+        name="État de navigation"
+        res_model="ore.workflow.state"
+        view_mode="kanban,tree,form"
+    />
+</odoo>
