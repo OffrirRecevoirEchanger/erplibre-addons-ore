@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="ore_ore_view_form" model="ir.ui.view">
+        <field name="name">ore_ore_form</field>
+        <field name="model">ore.ore</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-archive" name="toggle_active" type="object">
+                            <field name="active" widget="boolean_button" />
+                        </button>
+                    </div>
+                    <field name="logo" widget="image" class="oe_avatar" />
+                    <div class="oe_title">
+                        <label for="nom" class="oe_edit_only" />
+                        <h1>
+                            <field name="nom" />
+                        </h1>
+                    </div>
+
+                    <notebook colspan="4">
+                        <page string="Contact">
+                            <group>
+                                <group>
+                                    <label for="street" string="Address" />
+                                    <div class="o_address_format">
+                                        <field name="adresse" placeholder="Adresse..." class="o_address_street" />
+                                        <field name="code_postal" placeholder="Code postale" class="o_address_zip" />
+                                    </div>
+                                    <field name="arrondissement" />
+                                    <field name="region" />
+                                    <field name="ville" />
+                                </group>
+                                <group>
+                                    <field name="courriel" widget="email" />
+                                    <field name="telephone" widget="phone" />
+                                    <field name="telecopieur" widget="phone" />
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Accueil">
+                            <group>
+                                <group>
+                                    <field name="url_public" widget="url" />
+                                    <field name="url_transactionnel" widget="url" />
+                                </group>
+                            </group>
+                            <label for="message_accueil" string="Message d'accueil" />
+                            <field name="message_accueil" />
+                        </page>
+                        <page string="Membre">
+                            <field name="membre" />
+                        </page>
+                        <page string="Achat">
+                            <group>
+                                <group>
+                                    <field name="grp_achat_administrateur" />
+                                    <field name="grp_achat_membre" />
+                                </group>
+                            </group>
+                            <label for="message_grp_achat" string="Message pour les groupes d'achats" />
+                            <field name="message_grp_achat" />
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="ore_ore_view_kanban" model="ir.ui.view">
+        <field name="name">ore_ore_kanban</field>
+        <field name="model">ore.ore</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="nom" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="nom" />
+                                        </strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="ore_ore_view_search" model="ir.ui.view">
+        <field name="name">ore_ore_search</field>
+        <field name="model">ore.ore</field>
+        <field name="arch" type="xml">
+            <search string="ORE">
+                <filter domain="[('active','=',False)]" name="inactive" string="Archivé" />
+                <field name="nom" />
+            </search>
+        </field>
+    </record>
+
+    <record id="ore_ore_view_tree" model="ir.ui.view">
+        <field name="name">ore_ore_tree</field>
+        <field name="model">ore.ore</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" string="Sequence" widget="handle" />
+                <field name="nom" />
+                <field name="adresse" />
+                <field name="code_postal" />
+                <field name="ville" />
+                <field name="region" />
+                <field name="arrondissement" />
+                <field name="courriel" />
+                <field name="telephone" />
+                <field name="grp_achat_administrateur" />
+                <field name="grp_achat_membre" />
+                <field name="membre" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window id="ore_ore_ore_action_window" name="ORE" res_model="ore.ore" view_mode="kanban,tree,form,activity" />
+</odoo>

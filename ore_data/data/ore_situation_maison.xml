@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="ore_situation_maison_choisir" model="ore.situation.maison">
+            <field name="nom">Choisir</field>
+        </record>
+        <record id="ore_situation_maison_vivant_seul" model="ore.situation.maison">
+            <field name="nom">Vivant seul</field>
+        </record>
+        <record id="ore_situation_maison_vivant_en_colocation" model="ore.situation.maison">
+            <field name="nom">Vivant en colocation</field>
+        </record>
+        <record id="ore_situation_maison_monoparental" model="ore.situation.maison">
+            <field name="nom">Monoparental</field>
+        </record>
+        <record id="ore_situation_maison_couple_sans_enfant" model="ore.situation.maison">
+            <field name="nom">Couple sans enfant</field>
+        </record>
+        <record id="ore_situation_maison_couple_avec_enfants" model="ore.situation.maison">
+            <field name="nom">Couple avec enfant(s)</field>
+        </record>
+    </data>
+</odoo>

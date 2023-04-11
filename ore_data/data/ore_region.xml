@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="ore_region_bas_saint_laurent" model="ore.region">
+            <field name="code">1</field>
+            <field name="nom">Bas-Saint-Laurent</field>
+        </record>
+        <record id="ore_region_saguenay_lac_saint_jean" model="ore.region">
+            <field name="code">2</field>
+            <field name="nom">Saguenay - Lac-Saint-Jean</field>
+        </record>
+        <record id="ore_region_capitale_nationale" model="ore.region">
+            <field name="code">3</field>
+            <field name="nom">Capitale-Nationale</field>
+        </record>
+        <record id="ore_region_mauricie" model="ore.region">
+            <field name="code">4</field>
+            <field name="nom">Mauricie</field>
+        </record>
+        <record id="ore_region_estrie" model="ore.region">
+            <field name="code">5</field>
+            <field name="nom">Estrie</field>
+        </record>
+        <record id="ore_region_montreal" model="ore.region">
+            <field name="code">6</field>
+            <field name="nom">Montr&#233;al</field>
+        </record>
+        <record id="ore_region_outaouais" model="ore.region">
+            <field name="code">7</field>
+            <field name="nom">Outaouais</field>
+        </record>
+        <record id="ore_region_abitibi_temiscamingue" model="ore.region">
+            <field name="code">8</field>
+            <field name="nom">Abitibi-T&#233;miscamingue</field>
+        </record>
+        <record id="ore_region_cote_nord" model="ore.region">
+            <field name="code">9</field>
+            <field name="nom">C&#244;te-Nord</field>
+        </record>
+        <record id="ore_region_nord_du_quebec" model="ore.region">
+            <field name="code">10</field>
+            <field name="nom">Nord-du-Qu&#233;bec</field>
+        </record>
+        <record id="ore_region_gaspesie_iles_de_la_madeleine" model="ore.region">
+            <field name="code">11</field>
+            <field name="nom">Gasp&#233;sie - &#206;les-de-la-Madeleine</field>
+        </record>
+        <record id="ore_region_chaudiere_appalaches" model="ore.region">
+            <field name="code">12</field>
+            <field name="nom">Chaudi&#232;re-Appalaches</field>
+        </record>
+        <record id="ore_region_laval" model="ore.region">
+            <field name="code">13</field>
+            <field name="nom">Laval</field>
+        </record>
+        <record id="ore_region_lanaudiere" model="ore.region">
+            <field name="code">14</field>
+            <field name="nom">Lanaudi&#232;re</field>
+        </record>
+        <record id="ore_region_laurentides" model="ore.region">
+            <field name="code">15</field>
+            <field name="nom">Laurentides</field>
+        </record>
+        <record id="ore_region_monteregie" model="ore.region">
+            <field name="code">16</field>
+            <field name="nom">Mont&#233;r&#233;gie</field>
+        </record>
+        <record id="ore_region_centre_du_quebec" model="ore.region">
+            <field name="code">17</field>
+            <field name="nom">Centre-du-Qu&#233;bec</field>
+        </record>
+    </data>
+</odoo>

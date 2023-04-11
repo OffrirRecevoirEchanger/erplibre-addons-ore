@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="ore_quartier_montcalm" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_la_cite_limoilou" />
+            <field name="nom">Montcalm</field>
+        </record>
+        <record id="ore_quartier_st_jean_baptiste" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_la_cite_limoilou" />
+            <field name="nom">St-Jean-Baptiste</field>
+        </record>
+        <record id="ore_quartier_st_roch" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_la_cite_limoilou" />
+            <field name="nom">St-Roch</field>
+        </record>
+        <record id="ore_quartier_st_sacrement" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_la_cite_limoilou" />
+            <field name="nom">St-Sacrement</field>
+        </record>
+        <record id="ore_quartier_st_sauveur" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_la_cite_limoilou" />
+            <field name="nom">St-Sauveur</field>
+        </record>
+        <record id="ore_quartier_vieux_quebec" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_la_cite_limoilou" />
+            <field name="nom">Vieux-Qu&#233;bec</field>
+        </record>
+        <record id="ore_quartier_lairet" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_la_cite_limoilou" />
+            <field name="nom">Lairet</field>
+        </record>
+        <record id="ore_quartier_maizerets" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_la_cite_limoilou" />
+            <field name="nom">Maizerets</field>
+        </record>
+        <record id="ore_quartier_vieux_limoilou" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_la_cite_limoilou" />
+            <field name="nom">Vieux-Limoilou</field>
+        </record>
+        <record id="ore_quartier_douglastown" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_douglastown_a_pointe_navarre" />
+            <field name="nom">Douglastown</field>
+        </record>
+        <record id="ore_quartier_haldimand" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_douglastown_a_pointe_navarre" />
+            <field name="nom">Haldimand</field>
+        </record>
+        <record id="ore_quartier_sandy_beach" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_douglastown_a_pointe_navarre" />
+            <field name="nom">Sandy-Beach</field>
+        </record>
+        <record id="ore_quartier_gaspe_centre_ville" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_douglastown_a_pointe_navarre" />
+            <field name="nom">Gasp&#233; centre-ville</field>
+        </record>
+        <record id="ore_quartier_york" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_douglastown_a_pointe_navarre" />
+            <field name="nom">York</field>
+        </record>
+        <record id="ore_quartier_sunny_bank" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_douglastown_a_pointe_navarre" />
+            <field name="nom">Sunny-Bank</field>
+        </record>
+        <record id="ore_quartier_pointe_navarre" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_douglastown_a_pointe_navarre" />
+            <field name="nom">Pointe-Navarre</field>
+        </record>
+        <record id="ore_quartier_st_majorique" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_st_majorique_a_cap_aux_os" />
+            <field name="nom">St-Majorique</field>
+        </record>
+        <record id="ore_quartier_penouille" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_st_majorique_a_cap_aux_os" />
+            <field name="nom">Penouille</field>
+        </record>
+        <record id="ore_quartier_cap_aux_os" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_st_majorique_a_cap_aux_os" />
+            <field name="nom">Cap-aux-Os</field>
+        </record>
+        <record id="ore_quartier_cap_des_rosiers" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_cap_des_rosiers_a_l_anse_a_valleau" />
+            <field name="nom">Cap-des-Rosiers</field>
+        </record>
+        <record id="ore_quartier_l_anse_au_griffon" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_cap_des_rosiers_a_l_anse_a_valleau" />
+            <field name="nom">L'Anse-au-Griffon</field>
+        </record>
+        <record id="ore_quartier_riviere_au_renard" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_cap_des_rosiers_a_l_anse_a_valleau" />
+            <field name="nom">Rivi&#232;re-au-Renard</field>
+        </record>
+        <record id="ore_quartier_petit_cap" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_cap_des_rosiers_a_l_anse_a_valleau" />
+            <field name="nom">Petit-Cap</field>
+        </record>
+        <record id="ore_quartier_st_maurice" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_cap_des_rosiers_a_l_anse_a_valleau" />
+            <field name="nom">St-Maurice</field>
+        </record>
+        <record id="ore_quartier_pointe_jaune" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_cap_des_rosiers_a_l_anse_a_valleau" />
+            <field name="nom">Pointe-Jaune</field>
+        </record>
+        <record id="ore_quartier_l_anse_a_valleau" model="ore.quartier">
+            <field name="arrondissement" ref="ore_arrondissement_cap_des_rosiers_a_l_anse_a_valleau" />
+            <field name="nom">L'Anse-&#224;-Valleau</field>
+        </record>
+    </data>
+</odoo>

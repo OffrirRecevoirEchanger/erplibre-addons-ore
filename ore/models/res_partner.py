@@ -1,0 +1,11 @@
+from odoo import SUPERUSER_ID, _, api, fields, models, tools
+
+
+class ResPartner(models.Model):
+    _inherit = "res.partner"
+
+    ore_membre_ids = fields.One2many(
+        comodel_name="ore.membre",
+        string="Membre",
+        inverse_name="partner_id",
+    )

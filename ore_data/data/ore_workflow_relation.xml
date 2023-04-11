@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <!--        <record id="ore_workflow_relation_init_pos" model="ore.workflow.relation">-->
+        <!--            <field name="name">Publier une offre de service</field>-->
+        <!--            <field name="body_html" type="html"><p>Vous souhaitez offrir vos services?<br />Cliquez ici pour publier votre offre en ligne.</p></field>-->
+        <!--            <field name="state_src" ref="ore_workflow_state_init" />-->
+        <!--            <field name="state_dst" ref="ore_workflow_state_pos" />-->
+        <!--            <field name="diagram_id" ref="ore_workflow_participer" />-->
+        <!--        </record>-->
+        <record id="ore_workflow_relation_init_pos" model="ore.workflow.relation">
+            <field name="name">Publier une offre de service</field>
+            <field name="body_html" type="html">
+                <img style="float: right;" src="/website_ore/static/src/img/O.svg" />
+                <p>
+                    Vous souhaitez offrir vos services?
+                    <br />
+                    Cliquez ici pour publier votre offre en ligne.
+                </p>
+            </field>
+            <field name="state_src" ref="ore_workflow_state_init" />
+            <field name="state_dst" ref="ore_workflow_state_pos_individuelle" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <!--        <record id="ore_workflow_relation_init_pds" model="ore.workflow.relation">-->
+        <!--            <field name="name">Publier une demande de service</field>-->
+        <!--            <field name="body_html">Vous avez besoin d'un service? Faites part de votre besoin aux membres du réseau en créant une demande ici.</field>-->
+        <!--            <field name="state_src" ref="ore_workflow_state_init" />-->
+        <!--            <field name="state_dst" ref="ore_workflow_state_pds" />-->
+        <!--            <field name="diagram_id" ref="ore_workflow_participer" />-->
+        <!--        </record>-->
+        <record id="ore_workflow_relation_init_pds" model="ore.workflow.relation">
+            <field name="name">Publier une demande de service</field>
+            <field name="body_html" type="html">
+                <img style="float: right;" src="/website_ore/static/src/img/R.svg" />
+                <p>Vous avez besoin d'un service? Faites part de votre besoin aux membres du réseau en créant une demande ici.</p>
+            </field>
+            <field name="state_src" ref="ore_workflow_state_init" />
+            <field name="state_dst" ref="ore_workflow_state_pds_individuelle" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_init_saa" model="ore.workflow.relation">
+            <field name="name">Créer un échange avec un autre membre</field>
+            <field name="body_html" type="html">
+                <img style="float: right;" src="/website_ore/static/src/img/E.svg" />
+                <p>Mettez vous d'accord à l'avance sur les modalités du service à donner ou recevoir.</p>
+            </field>
+            <field name="state_src" ref="ore_workflow_state_init" />
+            <field name="state_dst" ref="ore_workflow_state_saa" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+
+        <record id="ore_workflow_relation_pos_individuelle" model="ore.workflow.relation">
+            <field name="name">Individuelle</field>
+            <field name="body_html">Si vous offrez un service destiné à une personne à la fois.</field>
+            <field name="state_src" ref="ore_workflow_state_pos" />
+            <field name="state_dst" ref="ore_workflow_state_pos_individuelle" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_pos_individuelle_form" model="ore.workflow.relation">
+            <field name="state_src" ref="ore_workflow_state_pos_individuelle" />
+            <field name="state_dst" ref="ore_workflow_state_pos_individuelle_form" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_pds_individuelle" model="ore.workflow.relation">
+            <field name="name">Individuelle</field>
+            <field name="body_html">Si vous demandez un service destiné à une personne à la fois.</field>
+            <field name="state_src" ref="ore_workflow_state_pds" />
+            <field name="state_dst" ref="ore_workflow_state_pds_individuelle" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_pds_individuelle_form" model="ore.workflow.relation">
+            <field name="state_src" ref="ore_workflow_state_pds_individuelle" />
+            <field name="state_dst" ref="ore_workflow_state_pds_individuelle_form" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_state_pos_collective" model="ore.workflow.relation">
+            <field name="name">Collective</field>
+            <field name="active">false</field>
+            <field name="body_html">Si vous offrez un service destiné à plusieurs personnes à la fois (cours en groupe, ateliers, conférences, achats groupés, ...)</field>
+            <field name="state_src" ref="ore_workflow_state_pos" />
+            <field name="state_dst" ref="ore_workflow_state_null_collective" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_offrir" model="ore.workflow.relation">
+            <field name="name">Je veux offrir un service</field>
+            <field name="state_src" ref="ore_workflow_state_saa" />
+            <field name="state_dst" ref="ore_workflow_state_saa_offrir" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_offrir_nouveau" model="ore.workflow.relation">
+            <field name="name">Une nouvelle offre</field>
+            <field name="body_html" type="html">
+                <p>
+                    Créer une offre de service privée
+                    <br />
+                    (spécifiquement pour un autre membre).
+                </p>
+            </field>
+            <field name="icon">fa-plus-circle</field>
+            <field name="state_src" ref="ore_workflow_state_saa_offrir" />
+            <field name="state_dst" ref="ore_workflow_state_saa_offrir_nouveau" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_offrir_demande" model="ore.workflow.relation">
+            <field name="name">Une demande existante</field>
+            <field name="body_html" type="html">
+                <p>Offrir un service privé sur une demande existante.</p>
+            </field>
+            <field name="icon">fa-plus-circle</field>
+            <field name="state_src" ref="ore_workflow_state_saa_offrir" />
+            <field name="state_dst" ref="ore_workflow_state_saa_offrir_demande" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_offrir_demande_existante" model="ore.workflow.relation">
+            <field name="state_src" ref="ore_workflow_state_saa_offrir_demande" />
+            <field name="state_dst" ref="ore_workflow_state_saa_offrir_demande_existante" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_offrir_demande_existante_date" model="ore.workflow.relation">
+            <field name="state_src" ref="ore_workflow_state_saa_offrir_demande_existante" />
+            <field name="state_dst" ref="ore_workflow_state_saa_offrir_demande_existante_date" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_offrir_demande_existante_date_temps_dure" model="ore.workflow.relation">
+            <field name="name">Date choisi</field>
+            <field name="is_dynamic">True</field>
+            <field name="state_src" ref="ore_workflow_state_saa_offrir_demande_existante_date" />
+            <field name="state_dst" ref="ore_workflow_state_saa_offrir_demande_existante_date_temps_duree" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_offrir_demande_existante_date_temps_dure_form" model="ore.workflow.relation">
+            <field name="name">Temps choisi</field>
+            <field name="state_src" ref="ore_workflow_state_saa_offrir_demande_existante_date_temps_duree" />
+            <field name="state_dst" ref="ore_workflow_state_saa_offrir_demande_existante_date_temps_duree_form" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_offrir_existant" model="ore.workflow.relation">
+            <field name="name">Une offre existante</field>
+            <field name="is_dynamic">True</field>
+            <field name="state_src" ref="ore_workflow_state_saa_offrir" />
+            <field name="state_dst" ref="ore_workflow_state_saa_offrir_existant" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_offrir_existant_form" model="ore.workflow.relation">
+            <field name="state_src" ref="ore_workflow_state_saa_offrir_existant" />
+            <field name="state_dst" ref="ore_workflow_state_saa_offrir_existant_form" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_offrir_nouveau_categorie_service" model="ore.workflow.relation">
+            <field name="state_src" ref="ore_workflow_state_saa_offrir_nouveau" />
+            <field name="state_dst" ref="ore_workflow_state_saa_offrir_nouveau_categorie_service" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_offrir_nouveau_categorie_service_form" model="ore.workflow.relation">
+            <field name="state_src" ref="ore_workflow_state_saa_offrir_nouveau_categorie_service" />
+            <field name="state_dst" ref="ore_workflow_state_saa_offrir_nouveau_categorie_service_form" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_recevoir" model="ore.workflow.relation">
+            <field name="name">Je veux recevoir un service</field>
+            <field name="state_src" ref="ore_workflow_state_saa" />
+            <field name="state_dst" ref="ore_workflow_state_saa_recevoir" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_recevoir_choix" model="ore.workflow.relation">
+            <field name="state_src" ref="ore_workflow_state_saa_recevoir" />
+            <field name="state_dst" ref="ore_workflow_state_saa_recevoir_choix" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_recevoir_choix_nouveau" model="ore.workflow.relation">
+            <field name="name">Une nouvelle demande</field>
+            <field name="body_html" type="html">
+                <p>Créer une nouvelle demande de service</p>
+            </field>
+            <field name="icon">fa-plus-circle</field>
+            <field name="state_src" ref="ore_workflow_state_saa_recevoir_choix" />
+            <field name="state_dst" ref="ore_workflow_state_saa_recevoir_choix_nouveau" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_recevoir_choix_nouveau_form" model="ore.workflow.relation">
+            <field name="state_src" ref="ore_workflow_state_saa_recevoir_choix_nouveau" />
+            <field name="state_dst" ref="ore_workflow_state_saa_recevoir_choix_nouveau_form" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_recevoir_choix_existant" model="ore.workflow.relation">
+            <field name="name">Une offre existante</field>
+            <field name="is_dynamic">True</field>
+            <field name="state_src" ref="ore_workflow_state_saa_recevoir_choix" />
+            <field name="state_dst" ref="ore_workflow_state_saa_recevoir_choix_existant" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_recevoir_choix_existant_temps_dure" model="ore.workflow.relation">
+            <field name="name">Date choisi</field>
+            <field name="is_dynamic">True</field>
+            <field name="state_src" ref="ore_workflow_state_saa_recevoir_choix_existant" />
+            <field name="state_dst" ref="ore_workflow_state_saa_recevoir_choix_existant_temps_duree" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_saa_recevoir_choix_existant_temps_dure_formulaire" model="ore.workflow.relation">
+            <field name="name">Temps choisi</field>
+            <field name="state_src" ref="ore_workflow_state_saa_recevoir_choix_existant_temps_duree" />
+            <field name="state_dst" ref="ore_workflow_state_saa_recevoir_choix_existant_temps_duree_form" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_init_va" model="ore.workflow.relation">
+            <field name="name">Valider un échange</field>
+            <field name="body_html" type="html">
+                <img style="float: right;" src="/website_ore/static/src/img/E.svg" />
+                <p>Vous avez donné ou reçu un service? Déclarez ici la transaction pour donner ou percevoir les heures dues.</p>
+            </field>
+            <field name="state_src" ref="ore_workflow_state_init" />
+            <field name="state_dst" ref="ore_workflow_state_va" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_init_va_oui" model="ore.workflow.relation">
+            <field name="name">Oui</field>
+            <field name="state_src" ref="ore_workflow_state_va" />
+            <field name="state_dst" ref="ore_workflow_state_va_oui" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_init_va_oui_form" model="ore.workflow.relation">
+            <field name="is_dynamic">True</field>
+            <field name="state_src" ref="ore_workflow_state_va_oui" />
+            <field name="state_dst" ref="ore_workflow_state_va_oui_form" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non" model="ore.workflow.relation">
+            <field name="name">Non</field>
+            <field name="state_src" ref="ore_workflow_state_va" />
+            <field name="state_dst" ref="ore_workflow_state_va_non" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non_offert" model="ore.workflow.relation">
+            <field name="name">Je suis la personne qui a offert le service</field>
+            <field name="state_src" ref="ore_workflow_state_va_non" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_offert" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non_offert_nouveau" model="ore.workflow.relation">
+            <field name="name">Une nouvelle offre</field>
+            <field name="body_html" type="html">
+                <p>
+                    Aucune de ces offres.
+                    <br />
+                    Il s'agissait d'un service offert spécifiquement par vous.
+                </p>
+            </field>
+            <field name="state_src" ref="ore_workflow_state_va_non_offert" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_offert_nouveau" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non_offert_nouveau_cat" model="ore.workflow.relation">
+            <field name="state_src" ref="ore_workflow_state_va_non_offert_nouveau" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_offert_nouveau_cat" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non_offert_nouveau_cat_form" model="ore.workflow.relation">
+            <field name="state_src" ref="ore_workflow_state_va_non_offert_nouveau_cat" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_offert_nouveau_cat_formulaire" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non_offert_existant" model="ore.workflow.relation">
+            <field name="name">Une offre existante</field>
+            <field name="is_dynamic">True</field>
+            <field name="state_src" ref="ore_workflow_state_va_non_offert" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_offert_existant" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non_offert_existant_form" model="ore.workflow.relation">
+            <field name="state_src" ref="ore_workflow_state_va_non_offert_existant" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_offert_existant_formulaire" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non_recu" model="ore.workflow.relation">
+            <field name="name">Je suis la personne qui a reçu le service</field>
+            <field name="state_src" ref="ore_workflow_state_va_non" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_recu" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non_recu_choix" model="ore.workflow.relation">
+            <field name="state_src" ref="ore_workflow_state_va_non_recu" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_recu_choix" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non_recu_choix_nouveau" model="ore.workflow.relation">
+            <field name="name">Nouveau service reçu</field>
+            <field name="body_html" type="html">
+                <p>
+                    Aucune de ces offres.
+                    <br />
+                    Il s'agissait d'un service offert spécifiquement pour vous.
+                </p>
+            </field>
+            <field name="state_src" ref="ore_workflow_state_va_non_recu_choix" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_recu_choix_nouveau" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non_recu_choix_existant" model="ore.workflow.relation">
+            <field name="name">Service existant reçu</field>
+            <field name="is_dynamic">True</field>
+            <field name="state_src" ref="ore_workflow_state_va_non_recu_choix" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_recu_choix_existant_formulaire" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non_recu_choix_nouveau_formulaire" model="ore.workflow.relation">
+            <field name="state_src" ref="ore_workflow_state_va_non_recu_choix_nouveau" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_recu_choix_nouveau_formulaire" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+    </data>
+</odoo>

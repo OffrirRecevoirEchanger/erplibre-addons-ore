@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="ore_demande_service_view_form" model="ir.ui.view">
+        <field name="name">ore_demande_service_form</field>
+        <field name="model">ore.demande.service</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <header />
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-archive" name="toggle_active" type="object">
+                            <field name="active" widget="boolean_button" />
+                        </button>
+                        <button name="website_publish_button" class="oe_stat_button" type="object" icon="fa-globe">
+                            <field
+                                name="website_published"
+                                widget="website_button"
+                                options='{"terminology": {"string_true": "Published", "hover_false": "Publish"}}'
+                            />
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="titre" />
+                        </h1>
+                        <group>
+                            <field name="ore" />
+                        </group>
+                        <group>
+                            <field name="membre" />
+                        </group>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date_debut" />
+                        </group>
+                        <group>
+                            <field name="date_fin" />
+                        </group>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Description">
+                            <group>
+                                <field name="type_service_id" />
+                            </group>
+                            <field name="description" />
+                        </page>
+                        <page string="Commentaire">
+                            <field name="commentaire" />
+                        </page>
+                        <page string="Favoris">
+                            <group>
+                                <field name="membre_favoris_ids" widget="many2many_tags" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="ore_demande_service_view_graph" model="ir.ui.view">
+        <field name="name">ore_demande_service_graph</field>
+        <field name="model">ore.demande.service</field>
+        <field name="arch" type="xml">
+            <graph string="ORE demande service">
+                <field name="titre" type="row" />
+                <field name="ore" type="row" />
+                <field name="date_debut" type="row" />
+                <field name="date_fin" type="row" />
+                <field name="description" type="row" />
+                <field name="membre" type="row" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="ore_demande_service_view_kanban" model="ir.ui.view">
+        <field name="name">ore_demande_service_kanban</field>
+        <field name="model">ore.demande.service</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="titre" />
+                <field name="ore" />
+                <field name="date_debut" />
+                <field name="date_fin" />
+                <field name="membre" />
+                <field name="website_published" />
+                <field name="type_service_id" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="titre" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="ore" />
+                                        </strong>
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.website_published.raw_value">
+                                        <i aria-label="Publié" class="fa fa-globe" role="img" title="Publié" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.website_published.raw_value">
+                                        <i aria-label="Non publié" class="fa fa-globe" role="img" title="Non publié" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="date_debut" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="date_fin" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="type_service_id" />
+                                        </strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="ore_demande_service_view_pivot" model="ir.ui.view">
+        <field name="name">ore_demande_service_pivot</field>
+        <field name="model">ore.demande.service</field>
+        <field name="arch" type="xml">
+            <pivot string="ORE demande service">
+                <field name="titre" type="row" />
+                <field name="ore" type="row" />
+                <field name="date_debut" type="row" />
+                <field name="date_fin" type="row" />
+                <field name="description" type="row" />
+                <field name="membre" type="row" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="ore_demande_service_view_search" model="ir.ui.view">
+        <field name="name">ore_demande_service_search</field>
+        <field name="model">ore.demande.service</field>
+        <field name="arch" type="xml">
+            <search string="ORE demande service">
+                <filter domain="[('titre','!=',False)]" name="titre" string="Titre" />
+                <filter domain="[('ore','!=',False)]" name="ore" string="ORE" />
+                <filter domain="[('active','=',False)]" name="Inactive" string="Inactive" />
+                <filter domain="[('date_debut','!=',False)]" name="date_debut" string="Date d&#233;but" />
+                <filter domain="[('date_fin','!=',False)]" name="date_fin" string="Date fin" />
+                <filter domain="[('description','!=',False)]" name="description" string="Description" />
+                <filter domain="[('membre','!=',False)]" name="membre" string="Membre" />
+                <filter
+                    domain="[('membre_favoris_ids','!=',False)]"
+                    name="membre_favoris_ids"
+                    string="Favoris membre"
+                />
+                <filter domain="[('commentaire','!=',False)]" name="commentaire" string="Commentaire" />
+                <filter domain="[('website_published','=',True)]" name="website_published" string="Offre publi&#233;" />
+                <filter domain="[('type_service_id','!=',False)]" name="type_service_id" string="Type service" />
+            </search>
+        </field>
+    </record>
+
+    <record id="ore_demande_service_view_tree" model="ir.ui.view">
+        <field name="name">ore_demande_service_tree</field>
+        <field name="model">ore.demande.service</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date_debut" />
+                <field name="date_fin" />
+                <field name="titre" />
+                <field name="ore" />
+                <field name="type_service_id" />
+                <field name="membre" />
+                <field name="website_published" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="ore_demande_service_view_timeline" model="ir.ui.view">
+        <field name="model">ore.demande.service</field>
+        <field name="type">timeline</field>
+        <field name="arch" type="xml">
+            <timeline date_start="date_debut" date_stop="date_fin" default_group_by="ore" event_open_popup="true">
+                <field name="user_id" />
+                <templates>
+                    <t t-name="timeline-item">
+                        <div class="o_project_timeline_item">
+                            <img
+                                t-if="record.user_id"
+                                t-attf-src="/web/image/res.users/#{record.user_id[0]}/image/24x24"
+                                t-att-title="record.user_id[1]"
+                                width="24"
+                                height="24"
+                                class="mr8"
+                            />
+                            <span name="display_name">
+                                <t t-esc="record.display_name" />
+                            </span>
+                        </div>
+                    </t>
+                </templates>
+            </timeline>
+        </field>
+    </record>
+
+    <act_window
+        id="ore_demande_service_demande_de_services_action_window"
+        name="Demande de services"
+        res_model="ore.demande.service"
+        view_mode="kanban,tree,timeline,pivot,graph,form"
+    />
+</odoo>

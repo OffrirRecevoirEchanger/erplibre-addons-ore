@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="website_ore_notification_chat_loader" inherit_id="website.layout" name="ORE Notification Chat">
+        <xpath expr="//div[@id='wrapwrap']" position="after">
+            <script>
+                <t t-translation="off">
+                    document.addEventListener("DOMContentLoaded", function(event) {
+                        odoo.define('website.ore_angularjs_chat.instance', function (require) {
+                            var rootWidget = require('root.widget');
+                            var ore_angularjs_chat = require('website.ore_angularjs_chat');
+                            var button = new ore_angularjs_chat.OREAngularJSChat(rootWidget);
+                            button.appendTo($('body'));
+                            window.ore_angularjs_chat = button;
+                        });
+                    });
+                </t>
+            </script>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,912 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="ore_type_service_sous_categorie_premiere_sous_categorie" model="ore.type.service.sous.categorie">
+            <field name="active">False</field>
+            <field name="categorie" ref="ore_type_service_categorie_essai" />
+            <field name="nom">premi&#232;re sous-cat&#233;gorie</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_accompagnement_pour_rendez_vous_ou_demarches" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_accompagnement_/_gardiennage_/_animaux" />
+            <field name="nom">Accompagnement pour rendez-vous ou d&#233;marches</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_administration_et_gestion" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_administration_/_emploi_/_organisation" />
+            <field name="nom">Administration et gestion</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_formation_et_initiation_a_l_informatique" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_informatique_/_bureautique" />
+            <field name="nom">Formation et initiation &#224; l'informatique</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_transport_local_de_personnes" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_transport_/_demenagement" />
+            <field name="nom">Transport local de personnes</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_entretien_menager" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_travaux_/_entretien_/_jardinage" />
+            <field name="nom">Entretien m&#233;nager</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_cuisine_et_preparation_de_mets" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_cuisine_/_alimentation" />
+            <field name="nom">Cuisine et pr&#233;paration de mets</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_artisanat_et_bricolage" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_artisanat_/_couture_/_vetements" />
+            <field name="nom">Artisanat et bricolage</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_redaction_et_correction_de_textes" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_langues_/_litterature" />
+            <field name="nom">R&#233;daction et correction de textes</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_apprentissage_de_la_musique" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_arts_/_culture_/_education" />
+            <field name="nom">Apprentissage de la musique</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_pratique_de_sports_et_conditionnement_physique" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_sports_/_loisirs_/_animation" />
+            <field name="nom">Pratique de sports et conditionnement physique</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_informations_et_ressources_en_sante" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_sante_/_maternite_/_esthetique" />
+            <field name="nom">Informations et ressources en sant&#233;</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_hebergement" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_hebergement_/_voyage" />
+            <field name="nom">H&#233;bergement</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_eligibilite_a_la_location_solidaire" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_service_de_location_solidaire" />
+            <field name="nom">&#201;ligibilit&#233; &#224; la location solidaire</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_commande" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_achat_regroupe" />
+            <field name="nom">Commande</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_pret" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_credit_solidaire" />
+            <field name="nom">Pr&#234;t</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_echange_d_objet" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_service_d_echange_d_objets" />
+            <field name="nom">&#201;change d'objet</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_pret_projetordi" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_projetordi" />
+            <field name="nom">Pr&#234;t ProjetOrdi</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_participation_reseau_d_entraide_vers_l_emploi" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_entraide_vers_l_emploi" />
+            <field name="nom">Participation R&#233;seau d'Entraide vers l'emploi</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_participation_a_la_location_solidaire" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_location_solidaire" />
+            <field name="nom">Participation &#224; la location solidaire</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_administration_et_accueil" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_echanges_associatifs" />
+            <field name="nom">Administration et accueil</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_promotions_speciales" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_autres_transactions" />
+            <field name="nom">Promotions sp&#233;ciales</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_administration" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_reseau_ore" />
+            <field name="nom">Administration</field>
+            <field name="sous_categorie_service">A</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_accompagnement_pour_courses_et_magasinage" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_accompagnement_/_gardiennage_/_animaux" />
+            <field name="nom">Accompagnement pour courses et magasinage</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_comptabilite" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_administration_/_emploi_/_organisation" />
+            <field name="nom">Comptabilit&#233;</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_utilisation_de_logiciels_et_outils_informatiques" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_informatique_/_bureautique" />
+            <field name="nom">Utilisation de logiciels et outils informatiques</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_transport_de_materiel" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_transport_/_demenagement" />
+            <field name="nom">Transport de mat&#233;riel</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_peinture_et_travaux_manuels" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_travaux_/_entretien_/_jardinage" />
+            <field name="nom">Peinture et travaux manuels</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_cuisines_du_monde_et_specialisees" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_cuisine_/_alimentation" />
+            <field name="nom">Cuisines du monde et sp&#233;cialis&#233;es</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_bijoux_et_joaillerie" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_artisanat_/_couture_/_vetements" />
+            <field name="nom">Bijoux et joaillerie</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_traduction_et_interpretation" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_langues_/_litterature" />
+            <field name="nom">Traduction et interpr&#233;tation</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_musique_et_interpretation" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_arts_/_culture_/_education" />
+            <field name="nom">Musique et interpr&#233;tation</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_initiation_aux_sports" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_sports_/_loisirs_/_animation" />
+            <field name="nom">Initiation aux sports</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_medecines_alternatives_et_soins" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_sante_/_maternite_/_esthetique" />
+            <field name="nom">M&#233;decines alternatives et soins</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_sejours_et_vacances" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_hebergement_/_voyage" />
+            <field name="nom">S&#233;jours et vacances</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_administration_du_groupe_d_achats" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_achat_regroupe" />
+            <field name="nom">Administration du groupe d'achats</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_administration_du_credit_solidaire" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_credit_solidaire" />
+            <field name="nom">Administration du cr&#233;dit solidaire</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_administration_du_service_d_echange_d_objet" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_service_d_echange_d_objets" />
+            <field name="nom">Administration du service d'&#233;change d'objet</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_administration_du_projet_projetordi" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_projetordi" />
+            <field name="nom">Administration du projet ProjetOrdi</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_administration_de_l_entraide_vers_l_emploi" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_entraide_vers_l_emploi" />
+            <field name="nom">Administration de l'Entraide vers l'emploi</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_animation_de_la_location_solidaire" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_location_solidaire" />
+            <field name="nom">Animation de la location solidaire</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_animation_et_formation" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_echanges_associatifs" />
+            <field name="nom">Animation et formation</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_achat_d_objets" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_autres_transactions" />
+            <field name="nom">Achat d'objets</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_outils" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_reseau_ore" />
+            <field name="nom">Outils</field>
+            <field name="sous_categorie_service">B</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_accompagnement_pour_loisirs_et_activites" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_accompagnement_/_gardiennage_/_animaux" />
+            <field name="nom">Accompagnement pour loisirs et activit&#233;s</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_impot_et_finances_personnelles" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_administration_/_emploi_/_organisation" />
+            <field name="nom">Imp&#244;t et finances personnelles</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_internet_et_sites_web" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_informatique_/_bureautique" />
+            <field name="nom">Internet et sites web</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_main_d_oeuvre_pour_demenagement" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_transport_/_demenagement" />
+            <field name="nom">Main-d'oeuvre pour d&#233;m&#233;nagement</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_construction_et_renovation" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_travaux_/_entretien_/_jardinage" />
+            <field name="nom">Construction et r&#233;novation</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_formation_en_cuisine" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_cuisine_/_alimentation" />
+            <field name="nom">Formation en cuisine</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_couture_et_vetements" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_artisanat_/_couture_/_vetements" />
+            <field name="nom">Couture et v&#234;tements</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_formation_en_langues_et_conversation" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_langues_/_litterature" />
+            <field name="nom">Formation en langues et conversation</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_theatre_cinema_et_video" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_arts_/_culture_/_education" />
+            <field name="nom">Th&#233;&#226;tre, cin&#233;ma et vid&#233;o</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_activites_de_plein_air" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_sports_/_loisirs_/_animation" />
+            <field name="nom">Activit&#233;s de plein air</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_massotherapie_et_bien_etre" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_sante_/_maternite_/_esthetique" />
+            <field name="nom">Massoth&#233;rapie et bien-&#234;tre</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_tourisme_local" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_hebergement_/_voyage" />
+            <field name="nom">Tourisme local</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_animation_du_groupe_d_achats" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_achat_regroupe" />
+            <field name="nom">Animation du groupe d'achats</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_comite_de_pret" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_credit_solidaire" />
+            <field name="nom">Comit&#233; de pr&#234;t</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_animation_du_service_d_echange_d_objet" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_service_d_echange_d_objets" />
+            <field name="nom">Animation du service d'&#233;change d'objet</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_comite_de_pret_projetordi" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_projetordi" />
+            <field name="nom">Comit&#233; de pr&#234;t ProjetOrdi</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_animation_reseau_d_entraide_vers_l_emploi" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_entraide_vers_l_emploi" />
+            <field name="nom">Animation R&#233;seau d'Entraide vers l'emploi</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_administration_de_la_location_solidaire" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_location_solidaire" />
+            <field name="nom">Administration de la location solidaire</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_comite_d_echange_de_services" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_echanges_associatifs" />
+            <field name="nom">Comit&#233; d'&#233;change de services</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_annulation" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_autres_transactions" />
+            <field name="nom">Annulation</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_demarrage" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_reseau_ore" />
+            <field name="nom">D&#233;marrage</field>
+            <field name="sous_categorie_service">C</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_gardiennage_d_enfants" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_accompagnement_/_gardiennage_/_animaux" />
+            <field name="nom">Gardiennage d'enfants</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_aide_a_l_emploi" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_administration_/_emploi_/_organisation" />
+            <field name="nom">Aide &#224; l'emploi</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_installation_de_logiciels_et_depannage" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_informatique_/_bureautique" />
+            <field name="nom">Installation de logiciels et d&#233;pannage</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_covoiturage_interurbain_departs_de_quebec" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_transport_/_demenagement" />
+            <field name="nom">Covoiturage interurbain - D&#233;parts de Qu&#233;bec</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_amenagement_interieur_et_decoration" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_travaux_/_entretien_/_jardinage" />
+            <field name="nom">Am&#233;nagement int&#233;rieur et d&#233;coration</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_conseils_et_trucs_en_alimentation" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_cuisine_/_alimentation" />
+            <field name="nom">Conseils et trucs en alimentation</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_tricot_crochet_et_tissage" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_artisanat_/_couture_/_vetements" />
+            <field name="nom">Tricot, crochet et tissage</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_litterature_et_poesie" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_langues_/_litterature" />
+            <field name="nom">Litt&#233;rature et po&#233;sie</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_arts_de_la_scene_et_du_cirque" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_arts_/_culture_/_education" />
+            <field name="nom">Arts de la sc&#232;ne et du cirque</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_danse" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_sports_/_loisirs_/_animation" />
+            <field name="nom">Danse</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_maternite/paternite_et_sante_feminine" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_sante_/_maternite_/_esthetique" />
+            <field name="nom">Maternit&#233;/paternit&#233; et sant&#233; f&#233;minine</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_voyages" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_hebergement_/_voyage" />
+            <field name="nom">Voyages</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_autres_taches_du_groupe_d_achats" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_achat_regroupe" />
+            <field name="nom">Autres t&#226;ches du groupe d'achats</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_autres_taches_du_service_d_echange_d_objet" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_service_d_echange_d_objets" />
+            <field name="nom">Autres t&#226;ches du service d'&#233;change d'objet</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_taches_techniques_projetordi" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_projetordi" />
+            <field name="nom">T&#226;ches techniques ProjetOrdi</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_autres_taches_de_la_location_solidaire" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_location_solidaire" />
+            <field name="nom">Autres t&#226;ches de la location solidaire</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_autres_taches" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_echanges_associatifs" />
+            <field name="nom">Autres t&#226;ches</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_recherche" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_reseau_ore" />
+            <field name="nom">Recherche</field>
+            <field name="sous_categorie_service">D</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_gardiennage_divers" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_accompagnement_/_gardiennage_/_animaux" />
+            <field name="nom">Gardiennage divers</field>
+            <field name="sous_categorie_service">E</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_aide_a_l_organisation" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_administration_/_emploi_/_organisation" />
+            <field name="nom">Aide &#224; l'organisation</field>
+            <field name="sous_categorie_service">E</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_reparation_et_entretien_d_ordinateurs" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_informatique_/_bureautique" />
+            <field name="nom">R&#233;paration et entretien d'ordinateurs</field>
+            <field name="sous_categorie_service">E</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_covoiturage_interurbain_departs_de_trois_rivieres" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_transport_/_demenagement" />
+            <field name="nom">Covoiturage interurbain - D&#233;parts de Trois-Rivi&#232;res</field>
+            <field name="sous_categorie_service">E</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_meubles_et_appareils" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_travaux_/_entretien_/_jardinage" />
+            <field name="nom">Meubles et appareils</field>
+            <field name="sous_categorie_service">E</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_photographie" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_arts_/_culture_/_education" />
+            <field name="nom">Photographie</field>
+            <field name="sous_categorie_service">E</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_loisirs_et_jeux_divers" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_sports_/_loisirs_/_animation" />
+            <field name="nom">Loisirs et jeux divers</field>
+            <field name="sous_categorie_service">E</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_coiffure_et_esthetique" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_sante_/_maternite_/_esthetique" />
+            <field name="nom">Coiffure et esth&#233;tique</field>
+            <field name="sous_categorie_service">E</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_comite_de_financement" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_echanges_associatifs" />
+            <field name="nom">Comit&#233; de financement</field>
+            <field name="sous_categorie_service">E</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_promotion" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_reseau_ore" />
+            <field name="nom">Promotion</field>
+            <field name="sous_categorie_service">E</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_garde_de_lieux_animaux_plantes" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_accompagnement_/_gardiennage_/_animaux" />
+            <field name="nom">Garde de lieux, animaux, plantes</field>
+            <field name="sous_categorie_service">F</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_propriete_et_gestion_immobiliere" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_administration_/_emploi_/_organisation" />
+            <field name="nom">Propri&#233;t&#233; et gestion immobili&#232;re</field>
+            <field name="sous_categorie_service">F</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_utilisation_de_materiel_bureautique" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_informatique_/_bureautique" />
+            <field name="nom">Utilisation de mat&#233;riel bureautique</field>
+            <field name="sous_categorie_service">F</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_covoiturage_interurbain_departs_de_montreal" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_transport_/_demenagement" />
+            <field name="nom">Covoiturage interurbain - D&#233;parts de Montr&#233;al</field>
+            <field name="sous_categorie_service">F</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_vehicules_motorises" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_travaux_/_entretien_/_jardinage" />
+            <field name="nom">V&#233;hicules motoris&#233;s</field>
+            <field name="sous_categorie_service">F</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_graphisme_et_calligraphie" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_arts_/_culture_/_education" />
+            <field name="nom">Graphisme et calligraphie</field>
+            <field name="sous_categorie_service">F</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_animation_fetes_et_evenements" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_sports_/_loisirs_/_animation" />
+            <field name="nom">Animation, f&#234;tes et &#233;v&#233;nements</field>
+            <field name="sous_categorie_service">F</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_produits_de_soins_corporels" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_sante_/_maternite_/_esthetique" />
+            <field name="nom">Produits de soins corporels</field>
+            <field name="sous_categorie_service">F</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_comite_contact_communautaire" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_echanges_associatifs" />
+            <field name="nom">Comit&#233; contact communautaire</field>
+            <field name="sous_categorie_service">F</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_formation" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_reseau_ore" />
+            <field name="nom">Formation</field>
+            <field name="sous_categorie_service">F</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_animaux_de_compagnie" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_accompagnement_/_gardiennage_/_animaux" />
+            <field name="nom">Animaux de compagnie</field>
+            <field name="sous_categorie_service">G</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_communications_et_marketing" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_administration_/_emploi_/_organisation" />
+            <field name="nom">Communications et marketing</field>
+            <field name="sous_categorie_service">G</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_reparation_et_entretien_de_materiel_bureautique" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_informatique_/_bureautique" />
+            <field name="nom">R&#233;paration et entretien de mat&#233;riel bureautique</field>
+            <field name="sous_categorie_service">G</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_covoiturage_intra_urbain" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_transport_/_demenagement" />
+            <field name="nom">Covoiturage intra-urbain</field>
+            <field name="sous_categorie_service">G</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_velo_et_vehicules_non_motorises" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_travaux_/_entretien_/_jardinage" />
+            <field name="nom">V&#233;lo et v&#233;hicules non motoris&#233;s</field>
+            <field name="sous_categorie_service">G</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_dessin_peinture_et_arts_visuels" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_arts_/_culture_/_education" />
+            <field name="nom">Dessin, peinture et arts visuels</field>
+            <field name="sous_categorie_service">G</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_comite_jardin_collectif" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_echanges_associatifs" />
+            <field name="nom">Comit&#233; jardin collectif</field>
+            <field name="sous_categorie_service">G</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_aide_a_l_integration_des_personnes_immigrantes" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_accompagnement_/_gardiennage_/_animaux" />
+            <field name="nom">Aide &#224; l'int&#233;gration des personnes immigrantes</field>
+            <field name="sous_categorie_service">H</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_reseautique_et_securite_informatique" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_informatique_/_bureautique" />
+            <field name="nom">R&#233;seautique et s&#233;curit&#233; informatique</field>
+            <field name="sous_categorie_service">H</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_covoiturage_interurbain_departs_de_shawinigan" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_transport_/_demenagement" />
+            <field name="nom">Covoiturage interurbain - D&#233;parts de Shawinigan</field>
+            <field name="sous_categorie_service">H</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_plantes_et_jardinage" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_travaux_/_entretien_/_jardinage" />
+            <field name="nom">Plantes et jardinage</field>
+            <field name="sous_categorie_service">H</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_culture_et_histoire" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_arts_/_culture_/_education" />
+            <field name="nom">Culture et histoire</field>
+            <field name="sous_categorie_service">H</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_cafe_populaire_de_l_ore" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_echanges_associatifs" />
+            <field name="nom">Caf&#233; populaire du réseau</field>
+            <field name="sous_categorie_service">H</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_efface!_103_i_covoiturage_interurbain_departs_de_matane" model="ore.type.service.sous.categorie">
+            <field name="active">False</field>
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_accompagnement_/_gardiennage_/_animaux" />
+            <field name="nom">Effac&#233;! 103-I - Covoiturage interurbain - D&#233;parts de Matane</field>
+            <field name="sous_categorie_service">I</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_utilisation_/_entretien_d_appareils_mobiles" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_informatique_/_bureautique" />
+            <field name="nom">Utilisation / entretien d'appareils mobiles</field>
+            <field name="sous_categorie_service">I</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_covoiturage_interurbain_departs_de_matane" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_transport_/_demenagement" />
+            <field name="nom">Covoiturage interurbain - D&#233;parts de Matane</field>
+            <field name="sous_categorie_service">I</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_amenagement_et_entretien_de_terrain" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_travaux_/_entretien_/_jardinage" />
+            <field name="nom">Am&#233;nagement et entretien de terrain</field>
+            <field name="sous_categorie_service">I</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_education_et_formation" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_arts_/_culture_/_education" />
+            <field name="nom">&#201;ducation et formation</field>
+            <field name="sous_categorie_service">I</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_soutien_a_la_communaute" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_echanges_associatifs" />
+            <field name="nom">Soutien &#224; la communaut&#233;</field>
+            <field name="sous_categorie_service">I</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_soutien_aux_individus_1" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_accompagnement_/_gardiennage_/_animaux" />
+            <field name="nom">Soutien aux individus</field>
+            <field name="sous_categorie_service">J</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_lac_megantic" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_transport_/_demenagement" />
+            <field name="nom">Covoiturage interurbain - D&#233;parts de la r&#233;gion de Lac-M&#233;gantic</field>
+            <field name="sous_categorie_service">J</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_arts_du_livre_et_du_papier" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_arts_/_culture_/_education" />
+            <field name="nom">Arts du livre et du papier</field>
+            <field name="sous_categorie_service">J</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_soutien_aux_individus" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_echanges_associatifs" />
+            <field name="nom">Soutien aux individus</field>
+            <field name="sous_categorie_service">J</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_portneuf" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_transport_/_demenagement" />
+            <field name="nom">Covoiturage interurbain - D&#233;parts de la r&#233;gion de Portneuf</field>
+            <field name="sous_categorie_service">K</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_covoiturage_interurbain_departs_de_sherbrooke" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_transport_/_demenagement" />
+            <field name="nom">Covoiturage interurbain - D&#233;parts de Sherbrooke</field>
+            <field name="sous_categorie_service">L</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_cote_nord" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_transport_/_demenagement" />
+            <field name="nom">Covoiturage interurbain - D&#233;parts de la r&#233;gion de la Manicouagan (C&#244;te-Nord)</field>
+            <field name="sous_categorie_service">M</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_rimouski" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_transport_/_demenagement" />
+            <field name="nom">Covoiturage interurbain - D&#233;parts de la r&#233;gion de Rimouski</field>
+            <field name="sous_categorie_service">N</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_matapedia" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_transport_/_demenagement" />
+            <field name="nom">Covoiturage interurbain - D&#233;parts de la r&#233;gion de la Matap&#233;dia</field>
+            <field name="sous_categorie_service">O</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_autres_taches_1" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_reseau_ore" />
+            <field name="nom">Autres t&#226;ches</field>
+            <field name="sous_categorie_service">O</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_12" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_accompagnement_/_gardiennage_/_animaux" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_administration_/_emploi_/_organisation" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_1" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_informatique_/_bureautique" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_2" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_transport_/_demenagement" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_9" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_travaux_/_entretien_/_jardinage" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_3" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_cuisine_/_alimentation" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_10" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_artisanat_/_couture_/_vetements" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_13" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_langues_/_litterature" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_4" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_arts_/_culture_/_education" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_5" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_sports_/_loisirs_/_animation" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_14" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_sante_/_maternite_/_esthetique" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_15" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_hebergement_/_voyage" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_6" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_divers" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_16" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_achat_regroupe" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_17" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_credit_solidaire" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_18" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_service_d_echange_d_objets" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_7" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_echanges_associatifs" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_8" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_autres_transactions" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+        <record id="ore_type_service_sous_categorie_divers_11" model="ore.type.service.sous.categorie">
+            <field name="approuver">True</field>
+            <field name="categorie" ref="ore_type_service_categorie_reseau_ore" />
+            <field name="nom">Divers</field>
+            <field name="sous_categorie_service">Z</field>
+        </record>
+    </data>
+</odoo>

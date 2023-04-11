@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="ore_origine_quebec" model="ore.origine">
+            <field name="nom">Qu&#233;bec</field>
+        </record>
+        <record id="ore_origine_canada_hors_quebec" model="ore.origine">
+            <field name="nom">Canada hors Qu&#233;bec</field>
+        </record>
+        <record id="ore_origine_hors_du_canada" model="ore.origine">
+            <field name="nom">Hors du Canada</field>
+        </record>
+    </data>
+</odoo>

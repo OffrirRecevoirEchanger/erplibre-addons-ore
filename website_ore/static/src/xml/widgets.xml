@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template>
+    <!--t t-name="ore.OREForm">
+        <form>
+            <div class="form-group">
+                <label for="model">ORE à afficher</label>
+                <select id="model" class="form-control">
+                    <option t-att-value="0" t-att-selected="new_channel">
+                        <field>ORE à afficher</field>
+                    </option>
+                </select>
+            </div>
+        </form>
+    </t-->
+    <t t-name="ore.OREForm">
+        <form class="ore_form">
+            <p class="form_title">ORE à afficher</p>
+            <br />
+            <p>
+                Sur votre espace membre vous voyez toujours par défaut, toutes les offres / demandes
+            de services et actualités du réseau auquelle vous appartenez. Cependant, si vous
+            souhaitez voir les informations pour d'autres ores, vous pouvez l'indiquer ci-dessous.
+            </p>
+
+            <label class="radio_container">
+                Mon ore (Sherbrooke)
+                <input type="radio" checked="checked" name="monore" />
+                <span class="checkmark" />
+            </label>
+            <label class="radio_container">
+                Granby et région
+                <input type="radio" name="monore" />
+                <span class="checkmark" />
+            </label>
+            <label class="radio_container">
+                Granit
+                <input type="radio" name="monore" />
+                <span class="checkmark" />
+            </label>
+            <label class="radio_container">
+                La manicouagan
+                <input type="radio" name="monore" />
+                <span class="checkmark" />
+            </label>
+            <label class="radio_container">
+                La manicouagan
+                <input type="radio" name="monore" />
+                <span class="checkmark" />
+            </label>
+            <label class="radio_container">
+                Longueil
+                <input type="radio" name="monore" />
+                <span class="checkmark" />
+            </label>
+            <label class="radio_container">
+                Montréal-Nord
+                <input type="radio" name="monore" />
+                <span class="checkmark" />
+            </label>
+        </form>
+    </t>
+</template>
