@@ -3,7 +3,9 @@
 <odoo>
     <!-- Add stylesheet and Javascript -->
     <template id="assets_frontend" inherit_id="website.assets_frontend">
+
         <xpath expr="//link[last()]" position="after">
+
             <!--            <link-->
             <!--                rel="stylesheet"-->
             <!--                type="text/scss"-->
@@ -71,8 +73,10 @@
             <!-- participer -->
             <link rel="stylesheet" type="text/scss" href="/website_ore/static/src/scss/participer/participer.scss" />
             <link rel="stylesheet" type="text/scss" href="/website_ore/static/src/scss/participer/publier_offre.scss" />
+            <link rel="stylesheet" type="text/scss" href="/website_ore/static/src/scss/croppie/croppie.css" />
         </xpath>
         <xpath expr="//script[last()]" position="after">
+
             <!--            <script type="text/javascript" src="https://webrtchacks.github.io/adapter/adapter-latest.js" />-->
             <!--            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js" />-->
             <!--            <script-->
@@ -115,6 +119,8 @@
                 src="/website_ore/static/src/js/snippet_ore_liste_type_service_categorie.js"
             />
             <script type="text/javascript" src="/website_ore/static/src/js/adapt_font_color.js" />
+            <script type="text/javascript" src="/website_ore/static/src/js/lib/croppie.js"/>
+
         </xpath>
     </template>
 </odoo>
