@@ -223,6 +223,16 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 // let file = $scope.membre_info.ma_photo;
                 if (!_.isUndefined($scope.membre_info.ma_photo)) {
                     $scope.ask_modif_copy.membre_info.ma_photo = JSON.parse(JSON.stringify($scope.membre_info.ma_photo));
+
+                    // Initialize Cropper.js
+                    let cropper = new Cropper(document.getElementById('profile-picture'), {
+                        aspectRatio: 1, // Set aspect ratio to 1:1 (square)
+                        viewMode: 1, // Enable cropping within the container
+                        crop: function(event) {
+                            // Update the profile picture with the cropped image
+                            $scope.membre_info.ma_photo = cropper.getCroppedCanvas().toDataURL();
+                        }
+                    });
                 } else {
                     $scope.ask_modif_copy.membre_info.ma_photo = undefined;
                 }
