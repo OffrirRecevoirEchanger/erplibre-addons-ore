@@ -167,6 +167,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.modify_label_when_empty = "Modifiez moi!"
 
         // TODO créer environnement modification
+        $scope.show_croppie = false;
         $scope.ask_modification = false;
         $scope.ask_modification_profile = false;
         $scope.ask_modif_copy = {membre_info: {}, introduction: ""};
@@ -175,6 +176,49 @@ odoo.define('website.ore_angularjs_global', function (require) {
             reader.onload = function () {
                 $scope.$apply(function () {
                     $scope.membre_info.ma_photo = reader.result;
+                    $scope.show_croppie = true;
+                    if ($scope.show_croppie) {
+                        let croppie = new Croppie(document.getElementById('profile-picture'), {
+                            viewport: {width: 300, height: 300},
+                            boundary: {width: 300, height: 300},
+                            enableOrientation: true,
+                        });
+                        croppie.bind({
+                            url: $scope.membre_info.ma_photo,
+                            orientation: 1
+                        });
+                        $scope.destroyCroppie = function () {
+                            if (croppie) {
+                                croppie.destroy();
+                            }
+                        }
+                        $scope.clearData = function () {
+                            $scope.membre_info.ma_photo = $scope.ask_modif_copy.membre_info.ma_photo;
+                        }
+                        $scope.closeModalForm = function () {
+                            let modal = document.getElementsByClassName("modal_pub_offre");
+                            if (!_.isUndefined(modal) && !_.isEmpty(modal)) {
+                                modal[0].setAttribute('aria-hidden', 'true');
+                                // c'est nécessaire pour fermer le dialog
+                                modal[0].classList.remove('modal_shown');
+                                let backdrop = angular.element(document.querySelector(".modal-backdrop"));
+                                backdrop.remove();
+                                $scope.destroyCroppie();
+                            }
+                        }
+                        $scope.cropProfilePicture = function () {
+                            croppie.result('base64', {
+                                size: {width: 300, height: 300},
+                                type: 'base64',
+                                format: 'jpeg',
+                                quality: 1
+                            }).then(function (result) {
+                                $scope.membre_info.ma_photo = result;
+                                $scope.show_croppie = false;
+                                $scope.closeModalForm();
+                            });
+                        };
+                    }
                 });
             };
             reader.readAsDataURL(input.files[0]);
@@ -184,10 +228,13 @@ odoo.define('website.ore_angularjs_global', function (require) {
             $scope.membre_info.ma_photo = $scope.ask_modif_copy.membre_info.ma_photo;
             $scope.membre_info.introduction = $scope.ask_modif_copy.membre_info.introduction;
             $scope.ask_modification_profile = false;
+            $scope.show_croppie = false;
         };
+
         $scope.change_ask_modification_profile = function (enable) {
             console.debug(enable);
             $scope.ask_modification_profile = enable;
+
             if (!enable) {
                 // Recording, check diff and rpc to server
                 let form = {};
@@ -212,12 +259,12 @@ odoo.define('website.ore_angularjs_global', function (require) {
                                 $scope.error = "Empty data - " + url;
                             } else {
                             }
-
                             // Process all the angularjs watchers
                             $scope.$digest();
                         }
                     )
                 }
+                $scope.show_croppie = false;
             } else {
                 // Modification, make copy
                 // let file = $scope.membre_info.ma_photo;
@@ -226,6 +273,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 } else {
                     $scope.ask_modif_copy.membre_info.ma_photo = undefined;
                 }
+
                 if (!_.isUndefined($scope.membre_info.introduction)) {
                     if (_.isEmpty($scope.membre_info.introduction)) {
                         $scope.membre_info.introduction = $scope.modify_label_when_empty;
@@ -236,6 +284,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 } else {
                     $scope.ask_modif_copy.membre_info.introduction = undefined;
                 }
+                $scope.show_croppie = false;
             }
         };
         // End modification environnement
@@ -864,15 +913,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
             }
         }
-
-        // $scope.closeModalForm = function () {
-        //     console.debug("close");
-        //     $scope.show_submit_modal = false;
-        //     let modal = document.getElementsByClassName("modal_pub_offre");
-        //     if (!_.isUndefined(modal) && !_.isEmpty(modal)) {
-        //         modal[0].classList.remove("show");
-        //     }
-        // }
 
         $scope.load_page_offre_demande_echange_service();
 
