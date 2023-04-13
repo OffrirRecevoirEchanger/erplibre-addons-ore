@@ -73,7 +73,7 @@
             <!-- participer -->
             <link rel="stylesheet" type="text/scss" href="/website_ore/static/src/scss/participer/participer.scss" />
             <link rel="stylesheet" type="text/scss" href="/website_ore/static/src/scss/participer/publier_offre.scss" />
-            <link rel="stylesheet" type="text/scss" href="/website_ore/static/src/scss/cropper/cropper.scss" />
+            <link rel="stylesheet" type="text/scss" href="/website_ore/static/src/scss/croppie/croppie.css" />
         </xpath>
         <xpath expr="//script[last()]" position="after">
 
@@ -119,7 +119,8 @@
                 src="/website_ore/static/src/js/snippet_ore_liste_type_service_categorie.js"
             />
             <script type="text/javascript" src="/website_ore/static/src/js/adapt_font_color.js" />
-            <script src="/website_ore/static/src/js/lib/cropper.js" />
+            <script type="text/javascript" src="/website_ore/static/src/js/lib/croppie.js"/>
+
         </xpath>
     </template>
 </odoo>

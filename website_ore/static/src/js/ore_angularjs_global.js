@@ -214,6 +214,8 @@ odoo.define('website.ore_angularjs_global', function (require) {
                             }
 
                             // Process all the angularjs watchers
+
+
                             $scope.$digest();
                         }
                     )
@@ -224,15 +226,28 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 if (!_.isUndefined($scope.membre_info.ma_photo)) {
                     $scope.ask_modif_copy.membre_info.ma_photo = JSON.parse(JSON.stringify($scope.membre_info.ma_photo));
 
-                    // Initialize Cropper.js
-                    let cropper = new Cropper(document.getElementById('profile-picture'), {
-                        aspectRatio: 1, // Set aspect ratio to 1:1 (square)
-                        viewMode: 1, // Enable cropping within the container
-                        crop: function(event) {
-                            // Update the profile picture with the cropped image
-                            $scope.membre_info.ma_photo = cropper.getCroppedCanvas().toDataURL();
-                        }
+                    let croppie = new Croppie(document.getElementById('profile-picture'), {
+                        viewport: { width: 50, height: 50 },
+                        boundary: { width: 80, height: 80 },
+                        enableOrientation: true
                     });
+
+                    croppie.bind({
+                        url: $scope.membre_info.ma_photo,
+                        orientation: 1
+                    });
+
+                    $scope.crop_profile_picture = function() {
+                        croppie.result('base64', {
+                            size: { width: 300, height: 300 },
+                            type: 'base64',
+                            format: 'jpeg',
+                            quality: 0.8
+                        }).then(function(result) {
+                            $scope.membre_info.ma_photo = result;
+                            // document.getElementById("profile-picture").style.visibility = "hidden";
+                        });
+                    };
                 } else {
                     $scope.ask_modif_copy.membre_info.ma_photo = undefined;
                 }
