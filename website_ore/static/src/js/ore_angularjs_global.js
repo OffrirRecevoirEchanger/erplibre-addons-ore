@@ -214,18 +214,10 @@ odoo.define('website.ore_angularjs_global', function (require) {
                             }
 
                             // Process all the angularjs watchers
-
-
                             $scope.$digest();
                         }
                     )
-                }
-            } else {
-                // Modification, make copy
-                // let file = $scope.membre_info.ma_photo;
-                if (!_.isUndefined($scope.membre_info.ma_photo)) {
-                    $scope.ask_modif_copy.membre_info.ma_photo = JSON.parse(JSON.stringify($scope.membre_info.ma_photo));
-
+                    // document.getElementById("profile-picture").style.visibility = "visible";
                     let croppie = new Croppie(document.getElementById('profile-picture'), {
                         viewport: { width: 50, height: 50 },
                         boundary: { width: 80, height: 80 },
@@ -238,6 +230,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     });
 
                     $scope.crop_profile_picture = function() {
+
                         croppie.result('base64', {
                             size: { width: 300, height: 300 },
                             type: 'base64',
@@ -245,12 +238,21 @@ odoo.define('website.ore_angularjs_global', function (require) {
                             quality: 0.8
                         }).then(function(result) {
                             $scope.membre_info.ma_photo = result;
-                            // document.getElementById("profile-picture").style.visibility = "hidden";
+                            croppie.destroy()
                         });
                     };
+                }
+
+            } else {
+                // Modification, make copy
+                // let file = $scope.membre_info.ma_photo;
+                if (!_.isUndefined($scope.membre_info.ma_photo)) {
+                    $scope.ask_modif_copy.membre_info.ma_photo = JSON.parse(JSON.stringify($scope.membre_info.ma_photo));
+
                 } else {
                     $scope.ask_modif_copy.membre_info.ma_photo = undefined;
                 }
+
                 if (!_.isUndefined($scope.membre_info.introduction)) {
                     if (_.isEmpty($scope.membre_info.introduction)) {
                         $scope.membre_info.introduction = $scope.modify_label_when_empty;
@@ -261,6 +263,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 } else {
                     $scope.ask_modif_copy.membre_info.introduction = undefined;
                 }
+
             }
         };
         // End modification environnement
