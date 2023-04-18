@@ -4109,7 +4109,7 @@
                                                 <p>${{echange_service_info.frais_trajet}} CAD</p>
                                                 <p class="condition_desc">
                                                     Frais pour le matériel nécessaire à l'échange
-                                                    de service
+                                                    de service :
                                                 </p>
                                                 <p>${{echange_service_info.frais_materiel}} CAD</p>
                                             </div>
