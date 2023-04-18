@@ -22,7 +22,7 @@
                         <div class="modal-body">
                             <h2>Partager la page!</h2>
                         </div>
-                        <div id="qrcode" />
+                        <div id="qrcode" style="display: flex; justify-content: center; align-items: center;"/>
                     </div>
                 </div>
             </div>
