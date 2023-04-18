@@ -3300,7 +3300,7 @@
                                             <br />
                                             <a href="/participer#!?state=init.saa" class="footer_link">Cr&#233;er une entente de service</a>
                                             <br />
-                                            <a href="/participer#!?state=init.va" class="footer_link">Valider une service</a>
+                                            <a href="/participer#!?state=init.va" class="footer_link">Valider un service</a>
                                         </div>
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/monprofil" class="img bottom_menu_icon fa fa-user-circle-o" style="text-decoration:none;" />
