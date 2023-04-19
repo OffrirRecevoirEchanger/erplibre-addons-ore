@@ -90,6 +90,17 @@
     margin: -5% 0 0 -10%;
   }
 
+  .imgParticiper {
+    position: relative;
+
+    img {
+      width: 65px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) !important;
+      right: 0;
+    }
+  }
   .label {
     border-radius: 5px;
     border: 1px solid $beta;
@@ -101,6 +112,9 @@
 
     img {
       width: 65px;
+    }
+    p {
+      margin-right: 2em;
     }
   }
 

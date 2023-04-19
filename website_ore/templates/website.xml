@@ -807,7 +807,7 @@
                                             <label
                                                 for="{{option.id}}"
                                                 name="option_{{option.id}}"
-                                                class="btn label"
+                                                class="btn label imgParticiper"
                                                 ng-class="{checked: $parent.$parent.state.next_id == option.id}"
                                                 ng-click="click_statique(option)"
                                                 ng-dblclick="next_btn()"
