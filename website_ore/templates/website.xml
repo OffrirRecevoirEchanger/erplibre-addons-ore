@@ -1799,10 +1799,10 @@
                     <span ng-if="!contact_info.antecedent_judiciaire_verifier">non</span>
                     vérifiés
                 </p>
-                <p>
+                <p id="myParagraph">
                     <i class="fa fa-user-circle" />
                     {{contact_info.len_offre_service}} offre
-                    <span ng-if="contact_info.len_offre_service > 1">s</span>
+                    <span ng-if="contact_info.len_offre_service > 1" ng-init="removeSpace()">s</span>
                     de service
                 </p>
                 <p>
@@ -1816,6 +1816,7 @@
                     {{contact_info.show_bank_max_service_offert}} de service à son actif
                 </p>
             </div>
+            <div ng-init="removeSpace()"></div>
             <div class="summary" ng-if="!_.isEmpty(contact_info.introduction)">
                 <q>{{contact_info.introduction}}</q>
             </div>
