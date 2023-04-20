@@ -1095,7 +1095,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4 s_col_no_bgcolor text-center pt16 pb16" data-name="Box">
-                                            <div class="card bg-alpha">
+                                            <div class="card bg-alpha" style="border-radius: 0rem;">
                                                 <div class="text-center" style="background-color: white">
                                                     <img class="img-fluid o_we_custom_image" src="/web/image/website_ore.ir_attachment_o_svg/O.svg" data-original-title="" title="" aria-describedby="tooltip729222" style="width: 50%;" />
                                                 </div>
@@ -1120,7 +1120,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-4 s_col_no_bgcolor text-center pt16 pb0" data-name="Box">
-                                            <div class="card bg-beta">
+                                            <div class="card bg-beta" style="border-radius: 0rem;">
                                                 <div class="text-center" style="background-color: white">
                                                     <img class="img-fluid o_we_custom_image" src="/web/image/website_ore.ir_attachment_r_svg/R.svg" data-original-title="" title="" aria-describedby="tooltip729222" style="width: 50%;" />
                                                 </div>
@@ -1149,7 +1149,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-4 s_col_no_bgcolor text-center pt16 pb16" data-name="Box">
-                                            <div class="card bg-epsilon">
+                                            <div class="card bg-epsilon" style="border-radius: 0rem;">
                                                 <div class="text-center" style="background-color: white">
                                                     <img class="img-fluid o_we_custom_image" src="/web/image/website_ore.ir_attachment_e_svg/E.svg" data-original-title="" title="" aria-describedby="tooltip729222" style="width: 50%;" />
                                                 </div>
