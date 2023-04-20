@@ -1801,14 +1801,20 @@
                 </p>
                 <p>
                     <i class="fa fa-user-circle" />
-                    {{contact_info.len_offre_service}} offre
-                    <span ng-if="contact_info.len_offre_service > 1">s</span>
+                    {{contact_info.len_offre_service}}
+                    <span class="remove_Space">
+                        offre
+                        <span ng-if="contact_info.len_offre_service > 1">s</span>
+                    </span>
                     de service
                 </p>
                 <p>
                     <i class="fa fa-user-circle" />
-                    {{contact_info.len_demande_service}} demande
-                    <span ng-if="contact_info.len_demande_service > 1">s</span>
+                    {{contact_info.len_demande_service}}
+                    <span class="remove_Space" ng-init="removeSpace()">
+                        demande
+                        <span ng-if="contact_info.len_demande_service > 1">s</span>
+                    </span>
                     de service
                 </p>
                 <p>
