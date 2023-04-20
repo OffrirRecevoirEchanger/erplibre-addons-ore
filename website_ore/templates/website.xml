@@ -1843,7 +1843,7 @@
                 />
                 <div class="infos">
                     <h4 class="activite_title" ng-if="!_.isEmpty(service.titre)">{{service.titre}}</h4>
-                    <h4 class="activite_title" ng-if="_.isEmpty(service.titre)">Aucune titre</h4>
+                    <h4 class="activite_title" ng-if="_.isEmpty(service.titre)">Aucun titre</h4>
                     <h5
                         class="activite_desc"
                         ng-if="!_.isEmpty(service.description)"
