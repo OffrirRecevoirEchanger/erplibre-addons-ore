@@ -1799,15 +1799,13 @@
                     <span ng-if="!contact_info.antecedent_judiciaire_verifier">non</span>
                     vérifiés
                 </p>
-                <p>
-                    <i class="fa fa-user-circle" />
-                    {{contact_info.len_offre_service}} offre
+                <p class="pluriel">
+                    <i class="fa fa-user-circle" style="padding-right: 2.3em;"/>
                     <span ng-if="contact_info.len_offre_service > 1">s</span>
                     de service
                 </p>
-                <p>
-                    <i class="fa fa-user-circle" />
-                    {{contact_info.len_demande_service}} demande
+                <p class="pluriel">
+                    <i class="fa fa-user-circle" style="padding-right: 2.3em;"/>
                     <span ng-if="contact_info.len_demande_service > 1">s</span>
                     de service
                 </p>
