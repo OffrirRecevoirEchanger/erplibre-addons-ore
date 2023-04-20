@@ -2210,7 +2210,7 @@
                                                     <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
                                                         <h4 class="activite_title" ng-if="!_.isEmpty(offre_service.titre)">{{offre_service.titre}}</h4>
-                                                        <h4 class="activite_title" ng-if="_.isEmpty(offre_service.titre)">Aucune titre</h4>
+                                                        <h4 class="activite_title" ng-if="_.isEmpty(offre_service.titre)">Aucun titre</h4>
                                                         <h5 class="activite_desc" ng-if="!_.isEmpty(offre_service.description)" ng-bind-html="offre_service.description | unsafe" />
                                                     </div>
                                                 </a>
@@ -2236,7 +2236,7 @@
                                                     <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
                                                         <h4 class="activite_title" ng-if="!_.isEmpty(demande_service.titre)">{{demande_service.titre}}</h4>
-                                                        <h4 class="activite_title" ng-if="_.isEmpty(demande_service.titre)">Aucune titre</h4>
+                                                        <h4 class="activite_title" ng-if="_.isEmpty(demande_service.titre)">Aucun titre</h4>
                                                         <h5 class="activite_desc" ng-if="!_.isEmpty(demande_service.description)" ng-bind-html="demande_service.description | unsafe" />
                                                     </div>
                                                 </a>
