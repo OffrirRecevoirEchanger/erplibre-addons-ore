@@ -1799,7 +1799,7 @@
                     <span ng-if="!contact_info.antecedent_judiciaire_verifier">non</span>
                     vérifiés
                 </p>
-                <p>
+		<p>
                     <i class="fa fa-user-circle" />
                     {{contact_info.len_offre_service}}
                     <span class="remove_Space">

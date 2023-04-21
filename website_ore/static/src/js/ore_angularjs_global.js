@@ -1087,21 +1087,21 @@ odoo.define('website.ore_angularjs_global', function (require) {
             window.location.href = `/monactivite/echange${$scope.url_debug}#!?echange=${echange.id}`;
         }
        $scope.removeSpace = function() {
-          var paragraphs = document.querySelectorAll(".remove_Space");
-          for (var i = 0; i < paragraphs.length; i++) {
-            var nodes = paragraphs[i].childNodes;
-            for (var j = 0; j < nodes.length; j++) {
-              if (nodes[j].nodeType == Node.TEXT_NODE) {
-                nodes[j].textContent = nodes[j].textContent.trim();
-                nodes[j].nodeValue = nodes[j].nodeValue.trim() + '';
-              }
-            }
-            var lastNode = paragraphs[i].lastChild;
-            if (lastNode.nodeType == Node.TEXT_NODE) {
-              lastNode.textContent = " " + lastNode.textContent;
-            }
-          }
-        };
+	  var paragraphs = document.querySelectorAll(".remove_Space");
+	  for (var i = 0; i < paragraphs.length; i++) {
+		var nodes = paragraphs[i].childNodes;
+		for (var j = 0; j < nodes.length; j++) {
+		  if (nodes[j].nodeType == Node.TEXT_NODE) {
+			nodes[j].textContent = nodes[j].textContent.trim();
+			nodes[j].nodeValue = nodes[j].nodeValue.trim() + '';
+		  }
+		}
+		var lastNode = paragraphs[i].lastChild;
+		if (lastNode.nodeType == Node.TEXT_NODE) {
+		  lastNode.textContent = " " + lastNode.textContent;
+		}
+	  }
+	};
     }])
 
     let OREAngularJSGlobal = Widget.extend({
