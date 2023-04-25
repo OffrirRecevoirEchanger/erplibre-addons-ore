@@ -1225,7 +1225,7 @@
                                                 <p>Par ici pour découvrir</p>
                                                 <p>la communauté</p>
                                                 <div class="s_btn text-center pt16 pb16" data-name="Buttons">
-                                                    <a href="/communaute" class="btn btn-outline-black rounded-circle btn-sm text-beta" data-original-title="" title="" aria-describedby="tooltip376413" style="background-color: white;">DÉCOUVRIR</a>
+                                                    <a href="/communaute/actualite" class="btn btn-outline-black rounded-circle btn-sm text-beta" data-original-title="" title="" aria-describedby="tooltip376413" style="background-color: white;">DÉCOUVRIR</a>
                                                 </div>
                                             </div>
                                         </div>
