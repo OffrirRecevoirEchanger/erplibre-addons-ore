@@ -793,7 +793,7 @@
                                             <label
                                                 for="{{option.id}}"
                                                 name="option_{{option.id}}"
-                                                class="btn label"
+                                                class="btn label premierPage"
                                                 ng-class="{checked: $parent.$parent.state.next_id == option.id}"
                                                 ng-click="click_statique(option)"
                                                 ng-dblclick="next_btn()"
@@ -1816,7 +1816,6 @@
                     {{contact_info.show_bank_max_service_offert}} de service à son actif
                 </p>
             </div>
-            <div ng-init="removeSpace()"></div>
             <div class="summary" ng-if="!_.isEmpty(contact_info.introduction)">
                 <q>{{contact_info.introduction}}</q>
             </div>

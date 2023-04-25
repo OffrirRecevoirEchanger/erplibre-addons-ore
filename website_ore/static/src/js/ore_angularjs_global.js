@@ -1086,45 +1086,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             // TODO no need this, use instead <a href and not ng-click
             window.location.href = `/monactivite/echange${$scope.url_debug}#!?echange=${echange.id}`;
         }
-        $scope.removeSpace = function() {
-            var myParagraph = document.getElementById("myParagraph");
-            var nodes = myParagraph.childNodes;
-            var lastNode = myParagraph.lastChild;
 
-            for (var i = 0; i < nodes.length; i++) {
-            if (nodes[i].nodeType == Node.TEXT_NODE) {
-            nodes[i].textContent = nodes[i].textContent.trim();
-            nodes[i].nodeValue = nodes[i].nodeValue.trim() + '';
-            }
-            }
-            if (lastNode.nodeType == Node.TEXT_NODE) {
-            lastNode.textContent = " " + lastNode.textContent;
-            }
-            };
-            $scope.removeSpace2 = function() {
-            var myDiv = document.getElementById("myDiv");
-            var nodes = myDiv.getElementsByTagName("p");
-
-            for (var i = 0; i < nodes.length; i++) {
-            var paragraph = nodes[i];
-            var lastNode = paragraph.lastChild;
-
-            for (var j = 0; j < paragraph.childNodes.length; j++) {
-            var node = paragraph.childNodes[j];
-
-            if (node.nodeType == Node.TEXT_NODE) {
-            node.textContent = node.textContent.trim();
-            }
-
-        }
-
-        if (lastNode.nodeType == Node.TEXT_NODE) {
-        lastNode.textContent = " " + lastNode.textContent;
-        }
-
-        console.log("Trimmed text of paragraph " + (i + 1) + ": " + paragraph.textContent);
-        }
-        };
     }])
 
 
