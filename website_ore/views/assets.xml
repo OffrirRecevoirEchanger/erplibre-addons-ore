@@ -71,6 +71,8 @@
             <!-- participer -->
             <link rel="stylesheet" type="text/scss" href="/website_ore/static/src/scss/participer/participer.scss" />
             <link rel="stylesheet" type="text/scss" href="/website_ore/static/src/scss/participer/publier_offre.scss" />
+            <!-- librairie -->
+            <link rel="stylesheet" type="text/scss" href="/website_ore/static/src/scss/lib/croppie.css" />
         </xpath>
         <xpath expr="//script[last()]" position="after">
             <!--            <script type="text/javascript" src="https://webrtchacks.github.io/adapter/adapter-latest.js" />-->
@@ -92,6 +94,7 @@
             <script type="text/javascript" src="/website_ore/static/src/js/lib/angular.js" />
             <script type="text/javascript" src="/website_ore/static/src/js/lib/angular-sanitize.js" />
             <script type="text/javascript" src="/website_ore/static/src/js/lib/autoComplete.js" />
+            <script type="text/javascript" src="/website_ore/static/src/js/lib/croppie.js" />
 
             <script type="text/javascript" src="/bus/static/src/js/longpolling_bus.js" />
             <script type="text/javascript" src="/bus/static/src/js/crosstab_bus.js" />
