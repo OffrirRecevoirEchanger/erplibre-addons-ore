@@ -105,7 +105,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
     //     },
     // })
 
-    app.controller('MainController', ['$scope', '$location', function ($scope, $location) {
+    app.controller('MainController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         $scope._ = _;
         $scope.global = {
             dbname: undefined,
@@ -165,6 +165,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.animation_controller_enable = false;
         $scope.url_debug = "";
         $scope.modify_label_when_empty = "Modifiez moi!"
+        $scope.getUserLanguageCode = "";
 
         // TODO créer environnement modification
         $scope.show_croppie = false;
@@ -1126,6 +1127,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             // TODO no need this, use instead <a href and not ng-click
             window.location.href = `/monactivite/echange${$scope.url_debug}#!?echange=${echange.id}`;
         }
+
        $scope.removeSpace = function() {
           var nodeList = document.querySelectorAll(".remove_space");
           for (var i = 0; i < nodeList.length; i++) {
@@ -1137,6 +1139,38 @@ odoo.define('website.ore_angularjs_global', function (require) {
             }
           }
         };
+
+       $scope.getUserLanguage = function () {
+            ajax.rpc("/get_user_language", {}).then(function (response) {
+                $scope.userLanguage = response.name;
+                $scope.getUserLanguageCode = response.code;
+            });
+       };
+       $scope.getUserLanguage();
+
+       $scope.get_list_langue = function () {
+            event.preventDefault();
+            ajax.rpc("/get_available_languages", {}).then(function (response) {
+                $scope.numLanguages = response;
+                $scope.$digest();
+            });
+       };
+
+       $scope.changeLanguage = function (lang_code, event) {
+            if (event.target.nodeName === "BUTTON") {
+                event.preventDefault();
+                ajax.jsonRpc("/change_language", "", { lang_code: lang_code.code }).then(
+                    function (response) {
+                        $scope.getUserLanguageCode = lang_code;
+                        window.location.href = "/" + $scope.getUserLanguageCode.code + "/monprofil/mespreferences";
+                    },
+                    function (error) {
+                        console.log(error);
+                    }
+                );
+            }
+       };
+
     }])
 
     let OREAngularJSGlobal = Widget.extend({
