@@ -21,7 +21,7 @@
                             https://marvelapp.com/prototype/6dbaaf8/screen/84804853
                         </a>
                     </div>
-                    <section class="s_back ng-cloak" ng-if="offre_service_info.membre_id === personal.id">
+                    <section class="s_back" ng-if="offre_service_info.membre_id === personal.id">
                         <a href="/monprofil/mesannonces">
                             <i class="fa fa-arrow-left text-primary" />
                             Voir toutes mes annonces publiées
@@ -180,7 +180,11 @@
                                     </div>
                                 </div>
                                 <div class="right_cards_container">
-                                    <div class="card info-3" ng-if="offre_service_info.membre_id !== personal.id">
+                                    <div
+                                        class="card info-3"
+                                        ng-if="offre_service_info.membre_id !== personal.id"
+                                        ng-cloak=""
+                                    >
                                         <h2>Choisir une date</h2>
                                         {{ load_date() }}
                                         <div
@@ -197,6 +201,7 @@
                                             <button
                                                 class="btn btn-primary adapt-text-primary-color"
                                                 ng-click="demander_un_service_sur_une_offre()"
+                                                ng-cloak=""
                                             >
                                                 Recevoir un service de {{offre_service_info.membre.full_name}}
                                             </button>
@@ -219,7 +224,7 @@
         <t name="About us" t-name="website.aboutus">
             <t t-call="website.layout">
                 <div id="wrap">
-                    <section class="s_back ng-cloak" ng-if="demande_service_info.membre_id === personal.id">
+                    <section class="s_back" ng-if="demande_service_info.membre_id === personal.id">
                         <a href="/monprofil/mesannonces">
                             <i class="fa fa-arrow-left text-primary" />
                             Voir toutes mes annonces publiées
@@ -378,7 +383,11 @@
                                     </div>
                                 </div>
                                 <div class="right_cards_container" t-if="ore_demande_service_id">
-                                    <div class="card info-3" ng-if="demande_service_info.membre_id !== personal.id">
+                                    <div
+                                        class="card info-3"
+                                        ng-if="demande_service_info.membre_id !== personal.id"
+                                        ng-cloak=""
+                                    >
                                         <h2>Choisir une date</h2>
                                         {{ load_date() }}
                                         <div
@@ -395,6 +404,7 @@
                                             <button
                                                 class="btn btn-primary adapt-text-primary-color"
                                                 ng-click="offrir_un_service_sur_une_demande()"
+                                                ng-cloak=""
                                             >
                                                 Offrir un service à {{demande_service_info.membre.full_name}}
                                             </button>
@@ -702,7 +712,7 @@
         <t t-ignore="true">
             <t name="About us" t-name="website.aboutus">
                 <t t-call="website.layout">
-                    <div id="wrap" ng-controller="ParticiperController" class="ng-cloak">
+                    <div id="wrap" ng-controller="ParticiperController">
                         <div class="oe_structure">
                             <div class="debug_debug">
                                 Lien maquette :
@@ -712,7 +722,11 @@
                                 >
                                     https://marvelapp.com/prototype/1773h559/screen/86371515
                                 </a>
-                                <a ng-if="!_.isEmpty(state.maquette_link)" ng-href="{{state.maquette_link}}">
+                                <a
+                                    ng-if="!_.isEmpty(state.maquette_link)"
+                                    ng-href="{{state.maquette_link}}"
+                                    ng-cloak=""
+                                >
                                     {{state.maquette_link}}
                                 </a>
                                 <br />
@@ -725,10 +739,10 @@
                                 </a>
                                 <br />
                                 Debug form:
-                                <span>{{form || json}}</span>
+                                <span ng-cloak="">{{form || json}}</span>
                                 <br />
                                 Debug state:
-                                <span>{{state || json}}</span>
+                                <span ng-cloak="">{{state || json}}</span>
                                 <br />
                             </div>
                             <section class="s_buttons_form">
@@ -743,11 +757,11 @@
                                             ng-if="!_.isEmpty(link.html)"
                                             ng-bind-html="link.html | unsafe"
                                         />
-                                        <h1 ng-show="state.message">{{state.message}}</h1>
+                                        <h1 ng-show="state.message" ng-cloak="">{{state.message}}</h1>
                                     </div>
                                     <div ng-show="!_.isEmpty(error)">
                                         <br />
-                                        <span style="color:red;">Erreur : {{error}}</span>
+                                        <span style="color:red;" ng-cloak="">Erreur : {{error}}</span>
                                     </div>
                                 </div>
                                 <div id="participer_form">
@@ -774,7 +788,7 @@
                                                 <!--                                                class="activite_img img-fluid"-->
                                                 <!--                                                src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"-->
                                                 <!--                                            />-->
-                                                <h5 ng-if="option.title">{{option.title}}</h5>
+                                                <h5 ng-if="option.title" ng-cloak="">{{option.title}}</h5>
                                                 <p
                                                     ng-if="!_.isEmpty(option.html)"
                                                     ng-bind-html="option.html | unsafe"
@@ -799,7 +813,7 @@
                                                 ng-dblclick="next_btn()"
                                             >
                                                 <i class="fa {{option.icon}}" ng-if="option.icon" />
-                                                <h5 ng-if="option.title">{{option.title}}</h5>
+                                                <h5 ng-if="option.title" ng-cloak="">{{option.title}}</h5>
                                                 <p
                                                     ng-if="!_.isEmpty(option.html)"
                                                     ng-bind-html="option.html | unsafe"
@@ -824,7 +838,7 @@
                                                 <!--                                                class="activite_img img-fluid"-->
                                                 <!--                                                src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"-->
                                                 <!--                                            />-->
-                                                <h5 ng-if="option.title">{{option.title}}</h5>
+                                                <h5 ng-if="option.title" ng-cloak="">{{option.title}}</h5>
                                                 <p
                                                     ng-if="!_.isEmpty(option.html)"
                                                     ng-bind-html="option.html | unsafe"
@@ -845,7 +859,11 @@
                                             Aucune catégorie de service, veuillez communiquer avec votre administrateur.
                                         </div>
                                         <div ng-if="!_.isEmpty(actual_inner_state_name)" style="width:100%;">
-                                            <span style="cursor:pointer" ng-click="previous_inner_state_btn()">
+                                            <span
+                                                style="cursor:pointer"
+                                                ng-click="previous_inner_state_btn()"
+                                                ng-cloak=""
+                                            >
                                                 <i class="fa fa-chevron-left" />
                                                 {{actual_inner_state_name}}
                                             </span>
@@ -979,7 +997,7 @@
                                             ng-if="form_is_destinataire_du_service_de_qui(state) || form_is_destinataire_du_service(state)"
                                             ng-click="change_state_to_field_id('membre_id')"
                                         >
-                                            <span>{{form.membre_id.value}}</span>
+                                            <span ng-cloak="">{{form.membre_id.value}}</span>
                                             <i class="fa fa-chevron-right" />
                                         </div>
                                         <div
@@ -997,7 +1015,7 @@
                                                 class="form_box cursor-pointer"
                                                 ng-click="change_state_to_field_id('type_service_id')"
                                             >
-                                                <span>{{form.type_service_id.value}}</span>
+                                                <span ng-cloak="">{{form.type_service_id.value}}</span>
                                                 <i class="fa fa-chevron-right" />
                                             </div>
                                             <div>
@@ -1146,7 +1164,7 @@
                                         >
                                             Service
                                         </h2>
-                                        <div ng-if="form_is_service_and_service_prevu(state)">
+                                        <div ng-if="form_is_service_and_service_prevu(state)" ng-cloak="">
                                             <!-- load_date() will initialize date field -->
                                             {{load_date()}}
                                             <h4>
@@ -1170,6 +1188,7 @@
                                             </h4>
                                             <span
                                                 ng-if="!form_is_modifying_date_service &amp;&amp; form_is_service_to_modify(state)"
+                                                ng-cloak=""
                                             >
                                                 {{form_date_service}}
                                             </span>
@@ -1229,6 +1248,7 @@
                                             </h4>
                                             <span
                                                 ng-if="form_is_service_to_modify(state) &amp;&amp; !form_is_modifying_time_service"
+                                                ng-cloak=""
                                             >
                                                 {{form_time_service}}
                                             </span>
@@ -1362,7 +1382,7 @@
                                                 </div>
                                             </div>
                                             <div ng-if="form_is_service_to_modify(state)">
-                                                <span>{{form.distance_trajet}} km</span>
+                                                <span ng-cloak="">{{form.distance_trajet}} km</span>
                                             </div>
                                             <div
                                                 class="btn btn-primary adapt-text-primary-color px-4 py-2"
@@ -1530,7 +1550,7 @@
                                                 ng-if="form_is_service_and_service_prevu(state) &amp;&amp; !['init.saa.offrir.demande.existante.date.time.form'].includes(state.id)"
                                             >
                                                 <b>Montant total de temps à transférer</b>
-                                                <span>{{show_sum_total_time_echange()}}</span>
+                                                <span ng-cloak="">{{show_sum_total_time_echange()}}</span>
                                             </div>
                                         </span>
 
@@ -1562,7 +1582,11 @@
                                             </p>
                                         </span>
                                     </div>
-                                    <div class="buttons_form_container tab" ng-if="state.type == 'choix_membre'">
+                                    <div
+                                        class="buttons_form_container tab"
+                                        ng-if="state.type == 'choix_membre'"
+                                        ng-cloak=""
+                                    >
                                         <div class="search_member_container mx-auto">
                                             <img
                                                 style="width:50px; aspect-ratio:1;"
@@ -1596,7 +1620,11 @@
                                         </div>
                                         {{ load_member() }}
                                     </div>
-                                    <div class="buttons_form_container tab" ng-if="state.type == 'calendrier'">
+                                    <div
+                                        class="buttons_form_container tab"
+                                        ng-if="state.type == 'calendrier'"
+                                        ng-cloak=""
+                                    >
                                         {{ load_date() }}
                                         <div
                                             class="input-group date"
@@ -1609,7 +1637,11 @@
                                             date-max-year="true"
                                         />
                                     </div>
-                                    <div class="buttons_form_container tab" ng-if="state.type == 'temps_duree'">
+                                    <div
+                                        class="buttons_form_container tab"
+                                        ng-if="state.type == 'temps_duree'"
+                                        ng-cloak=""
+                                    >
                                         {{ load_date() }}
                                         <div
                                             class="input-group date"
@@ -1673,9 +1705,9 @@
                                         <!--                                        </div>-->
                                         <span style="font-size: 7rem;" class="fa fa-check-circle-o text-epsilon" />
                                         <div class="modal-body" ng-if="!_.isUndefined(state.submit_response_title)">
-                                            <h2>{{state.submit_response_title}}</h2>
+                                            <h2 ng-cloak="">{{state.submit_response_title}}</h2>
                                         </div>
-                                        <p ng-if="!_.isUndefined(state.submit_response_description)">
+                                        <p ng-if="!_.isUndefined(state.submit_response_description)" ng-cloak="">
                                             {{state.submit_response_description}}
                                         </p>
                                         <a ng-if="submitted_url" href="{{submitted_url}}">
@@ -1787,9 +1819,9 @@
             <h4>
                 <b>Votre contact :</b>
             </h4>
-            <h4>{{contact_info.full_name}}</h4>
+            <h4 ng-cloak="">{{contact_info.full_name}}</h4>
             <div class="stats">
-                <p>
+                <p ng-cloak="">
                     <i class="fa fa-user-circle" />
                     Membre depuis {{contact_info.show_date_creation}}
                 </p>
@@ -1799,7 +1831,7 @@
                     <span ng-if="!contact_info.antecedent_judiciaire_verifier">non</span>
                     vérifiés
                 </p>
-                <p>
+                <p ng-cloak="">
                     <i class="fa fa-user-circle" />
                     {{contact_info.len_offre_service}}
                     <span class="remove_space" ng-init="removeSpace()">
@@ -1808,7 +1840,7 @@
                     </span>
                     de service
                 </p>
-                <p>
+                <p ng-cloak="">
                     <i class="fa fa-user-circle" />
                     {{contact_info.len_demande_service}}
                     <span class="remove_space" ng-init="removeSpace()">
@@ -1817,19 +1849,19 @@
                     </span>
                     de service
                 </p>
-                <p>
+                <p ng-cloak="">
                     <i class="fa fa-clock-o" />
                     {{contact_info.show_bank_max_service_offert}} de service à son actif
                 </p>
             </div>
             <div class="summary" ng-if="!_.isEmpty(contact_info.introduction)">
-                <q>{{contact_info.introduction}}</q>
+                <q ng-cloak="">{{contact_info.introduction}}</q>
             </div>
             <div class="buttons">
                 <a class="no-underline" ng-href="/monprofil/mapresentation#!?membre_id={{contact_info.id}}">
                     <div class="btn btn-primary rounded-circle">
                         <span>En savoir plus</span>
-                        <span ng-if="!_.isUndefined(contact_info.prenom)">sur {{contact_info.prenom}}</span>
+                        <span ng-if="!_.isUndefined(contact_info.prenom)" ng-cloak="">sur {{contact_info.prenom}}</span>
                     </div>
                 </a>
             </div>
@@ -1848,20 +1880,24 @@
                     src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
                 />
                 <div class="infos">
-                    <h4 class="activite_title" ng-if="!_.isEmpty(service.titre)">{{service.titre}}</h4>
+                    <h4 class="activite_title" ng-if="!_.isEmpty(service.titre)" ng-cloak="">{{service.titre}}</h4>
                     <h4 class="activite_title" ng-if="_.isEmpty(service.titre)">Aucun titre</h4>
                     <h5
                         class="activite_desc"
                         ng-if="!_.isEmpty(service.description)"
                         ng-bind-html="service.description | unsafe"
                     />
-                    <h5 class="activite_auteur" ng-if="!_.isEmpty(service.membre)">{{service.membre.full_name}}</h5>
-                    <h5 class="activite_distance" ng-if="!_.isEmpty(service.distance)">{{service.distance}}</h5>
+                    <h5 class="activite_auteur" ng-if="!_.isEmpty(service.membre)" ng-cloak="">
+                        {{service.membre.full_name}}
+                    </h5>
+                    <h5 class="activite_distance" ng-if="!_.isEmpty(service.distance)" ng-cloak="">
+                        {{service.distance}}
+                    </h5>
                 </div>
             </a>
             <!--            <div class="infos right">-->
             <div class="infos_right">
-                <h5>{{service.diff_create_date}}</h5>
+                <h5 ng-cloak="">{{service.diff_create_date}}</h5>
                 <i
                     class="fa text-epsilon coeur"
                     ng-class="{'fa-heart': service.is_favorite, 'fa-heart-o': !service.is_favorite}"

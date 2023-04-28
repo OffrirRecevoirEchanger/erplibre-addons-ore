@@ -8,11 +8,7 @@
         </xpath>
 
         <xpath expr="//div[@id='wrapwrap']" position="inside">
-            <div
-                class="modal fade modal_pub_offre modal_shown show ng-cloak"
-                style="display:block"
-                ng-show="show_qrcode_modal"
-            >
+            <div class="modal fade modal_pub_offre modal_shown show" style="display:block" ng-show="show_qrcode_modal">
                 <div class="modal-dialog">
                     <div id="s_media_block_modal" class="modal-content">
                         <button class="btn btn-primary btn-lg" ng-click="show_qrcode_modal = false">
@@ -27,7 +23,7 @@
                 </div>
             </div>
             <div
-                class="modal fade modal_pub_offre modal_shown show ng-cloak"
+                class="modal fade modal_pub_offre modal_shown show"
                 style="display:block"
                 ng-show="show_camera_qrcode_modal"
             >
@@ -48,6 +44,7 @@
                                     class="btn btn-sm"
                                     ng-class="{'btn-primary': option.id === selectedCamera.id}"
                                     ng-click="show_camera_select(option)"
+                                    ng-cloak=""
                                 >
                                     Caméra {{option.label}}
                                 </button>
@@ -69,8 +66,10 @@
                             <div ng-if="show_camera_find_url" style="color:green;">
                                 Lien trouvé, redirection dans 2 secondes vers
                             </div>
-                            <div ng-if="!_.isUndefined(show_camera_link_find)">{{show_camera_link_find}}</div>
-                            <div style="color:red;" ng-if="!_.isEmpty(show_camera_error)">
+                            <div ng-if="!_.isUndefined(show_camera_link_find)" ng-cloak="">
+                                {{show_camera_link_find}}
+                            </div>
+                            <div style="color:red;" ng-if="!_.isEmpty(show_camera_error)" ng-cloak="">
                                 Erreur : {{show_camera_error}}
                             </div>
                         </div>
@@ -235,7 +234,7 @@
                                             ng-click="animationRecord.animationName = animation; animationRecord.stateAnimation = 1"
                                             ng-repeat="animation in animationRecord.lstAnimation"
                                         >
-                                            <p>
+                                            <p ng-cloak="">
                                                 <i class="fa fa-play" />
                                                 {{animation}}
                                             </p>
@@ -317,7 +316,7 @@
                                             <span ng-if="_.isEmpty(error_copy) &amp;&amp; !is_copied_url">
                                                 Copier le lien
                                             </span>
-                                            <span ng-if="!_.isEmpty(error_copy)" style="color:red;">
+                                            <span ng-if="!_.isEmpty(error_copy)" style="color:red;" ng-cloak="">
                                                 Erreur : {{error_copy}}
                                             </span>
                                         </p>
@@ -334,7 +333,7 @@
                                                 <span ng-if="!is_share_enable()">Non supporté</span>
                                                 <span ng-if="is_share_enable()">Partager le lien</span>
                                             </span>
-                                            <span ng-if="!_.isEmpty(error_share)" style="color:red;">
+                                            <span ng-if="!_.isEmpty(error_share)" style="color:red;" ng-cloak="">
                                                 Erreur : {{error_share}}
                                             </span>
                                         </p>
@@ -397,13 +396,15 @@
                                                             src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
                                                         />
                                                         <div class="infos">
-                                                            <span class="activite_title">{{offre_service.titre}}</span>
-                                                            <span class="activite_auteur">
+                                                            <span class="activite_title" ng-cloak="">
+                                                                {{offre_service.titre}}
+                                                            </span>
+                                                            <span class="activite_auteur" ng-cloak="">
                                                                 {{offre_service.membre.full_name}}
                                                             </span>
                                                         </div>
                                                         <div class="infos right">
-                                                            <span ng-if="offre_service.distance">
+                                                            <span ng-if="offre_service.distance" ng-cloak="">
                                                                 {{offre_service.distance}}
                                                             </span>
                                                         </div>
@@ -432,15 +433,15 @@
                                                             src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
                                                         />
                                                         <div class="infos">
-                                                            <span class="activite_title">
+                                                            <span class="activite_title" ng-cloak="">
                                                                 {{demande_service.titre}}
                                                             </span>
-                                                            <span class="activite_auteur">
+                                                            <span class="activite_auteur" ng-cloak="">
                                                                 {{demande_service.membre.full_name}}
                                                             </span>
                                                         </div>
                                                         <div class="infos right">
-                                                            <span ng-if="demande_service.distance">
+                                                            <span ng-if="demande_service.distance" ng-cloak="">
                                                                 {{demande_service.distance}}
                                                             </span>
                                                         </div>
@@ -480,14 +481,14 @@
                                                             ng-src="{{ membre_favoris.ma_photo }}"
                                                         />
                                                         <div class="infos">
-                                                            <span class="activite_title">
+                                                            <span class="activite_title" ng-cloak="">
                                                                 {{membre_favoris.full_name}}
                                                             </span>
                                                             <span
                                                                 class="activite_auteur"
                                                                 ng-if="membre_favoris.description"
                                                             >
-                                                                <q>{{membre_favoris.description}}</q>
+                                                                <q ng-cloak="">{{membre_favoris.description}}</q>
                                                             </span>
                                                         </div>
                                                         <!--                                                        <div class="infos right">-->
@@ -542,10 +543,12 @@
                                                             ng-src="{{ notif.membre_photo }}"
                                                         />
                                                         <div class="infos">
-                                                            <span class="activite_title">
+                                                            <span class="activite_title" ng-cloak="">
                                                                 {{notif.type_notification}}
                                                             </span>
-                                                            <span class="activite_auteur">{{notif.name}}</span>
+                                                            <span class="activite_auteur" ng-cloak="">
+                                                                {{notif.name}}
+                                                            </span>
                                                         </div>
                                                         <div class="infos right">
                                                             <span>5m</span>
@@ -685,8 +688,8 @@
                                         />
                                     </b>
                                     <br />
-                                    <b class="ng-cloak">
-                                        <p class="hours" ng-class="{neg_time: !personal.actual_bank_sign}">
+                                    <b>
+                                        <p class="hours" ng-class="{neg_time: !personal.actual_bank_sign}" ng-cloak="">
                                             {{personal.actual_bank_time_diff}}
                                         </p>
                                     </b>

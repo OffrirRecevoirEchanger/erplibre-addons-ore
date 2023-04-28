@@ -76,37 +76,37 @@
                                             <div ng-repeat="(month_key, echange_info) in personal.dct_echange_mensuel">
                                                 <div class="list_title s_title">
                                                     <div class="title">
-                                                        <h1>{{month_key | toTitleCase}}</h1>
+                                                        <h1 ng-cloak="">{{month_key | toTitleCase}}</h1>
                                                         <a class="text-epsilon" style="font-size:1.25rem;" ng-if="!echange_info.containTransactionValide">
                                                             <i class="fa fa-clock-o icon_padding_right" />
                                                             À venir
                                                         </a>
-                                                        <a style="font-size:1.25rem;" ng-if="echange_info.containTransactionValide">
+                                                        <a style="font-size:1.25rem;" ng-if="echange_info.containTransactionValide" ng-cloak="">
                                                             <i class="fa fa-clock-o icon_padding_right" />
                                                             {{echange_info.show_sum_time}}
                                                         </a>
                                                     </div>
                                                 </div>
                                                 <div ng-if="_.isEmpty(echange_info.lst_echange)">Aucun échange ce mois-ci</div>
-                                                <a ng-repeat="echange in echange_info.lst_echange" class="activite btn" ng-href="/monactivite/echange#!?echange={{echange.id}}">
+                                                <a ng-repeat="echange in echange_info.lst_echange" class="activite btn" ng-href="/monactivite/echange#!?echange={{echange.id}}" ng-cloak="">
                                                     <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="activite_infos">
                                                         <div class="activite_title">
-                                                            <p>{{echange.show_date | toTitleCase}}</p>
-                                                            <p class="time" ng-if="echange.show_start_time !== echange.show_end_time">{{echange.show_start_time}} - {{echange.show_end_time}}</p>
-                                                            <p class="time" ng-if="echange.show_start_time === echange.show_end_time">{{echange.show_start_time}}</p>
+                                                            <p ng-cloak="">{{echange.show_date | toTitleCase}}</p>
+                                                            <p class="time" ng-if="echange.show_start_time !== echange.show_end_time" ng-cloak="">{{echange.show_start_time}} - {{echange.show_end_time}}</p>
+                                                            <p class="time" ng-if="echange.show_start_time === echange.show_end_time" ng-cloak="">{{echange.show_start_time}}</p>
                                                         </div>
                                                         <div class="details">
-                                                            <span class="activite_auteur mt-auto">{{echange.membre.full_name}}</span>
-                                                            <span class="mb-auto" ng-show="!_.isEmpty(echange.sujet_offre_service)">{{echange.sujet_offre_service}}</span>
-                                                            <span class="mb-auto" ng-show="!_.isEmpty(echange.sujet_demande_service)">{{echange.sujet_demande_service}}</span>
+                                                            <span class="activite_auteur mt-auto" ng-cloak="">{{echange.membre.full_name}}</span>
+                                                            <span class="mb-auto" ng-show="!_.isEmpty(echange.sujet_offre_service)" ng-cloak="">{{echange.sujet_offre_service}}</span>
+                                                            <span class="mb-auto" ng-show="!_.isEmpty(echange.sujet_demande_service)" ng-cloak="">{{echange.sujet_demande_service}}</span>
                                                         </div>
                                                     </div>
-                                                    <p class="status" ng-class="{'red-o': echange.estAcheteur, 'blue-o': !echange.estAcheteur}" ng-if="!echange.transaction_valide">
+                                                    <p class="status" ng-class="{'red-o': echange.estAcheteur, 'blue-o': !echange.estAcheteur}" ng-if="!echange.transaction_valide" ng-cloak="">
                                                         {{echange.show_duree_total_estime}} à valider
                                                         <i class="fa fa-chevron-right" />
                                                     </p>
-                                                    <p class="status" ng-class="{'red': echange.estAcheteur, 'blue': !echange.estAcheteur}" ng-if="echange.transaction_valide">{{echange.show_duree_total}}</p>
+                                                    <p class="status" ng-class="{'red': echange.estAcheteur, 'blue': !echange.estAcheteur}" ng-if="echange.transaction_valide" ng-cloak="">{{echange.show_duree_total}}</p>
                                                 </a>
                                             </div>
                                             <div class="medium-btn btn btn-primary debug_unimplemented">Voir les transactions plus anciennes</div>
@@ -138,7 +138,7 @@
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
-                                            <p class="s_title_default text-bold text-bold text-color-title">{{personal.mon_ore.name}}</p>
+                                            <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.mon_ore.name}}</p>
                                         </div>
                                     </div>
                                 </section>
@@ -448,7 +448,7 @@
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
-                                            <p class="s_title_default text-bold text-color-title">{{personal.mon_ore.name}}</p>
+                                            <p class="s_title_default text-bold text-color-title" ng-cloak="">{{personal.mon_ore.name}}</p>
                                         </div>
                                     </div>
                                 </section>
@@ -737,7 +737,7 @@
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
-                                            <p class="s_title_default text-bold text-bold text-color-title">{{personal.mon_ore.name}}</p>
+                                            <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.mon_ore.name}}</p>
                                         </div>
                                     </div>
                                 </section>
@@ -1205,12 +1205,12 @@
                                     <div class="row">
                                         <div class="col-lg-4 bg-alpha">
                                             <div class="item" groups="base.group_public">
-                                                <h3>{{ nb_offre_service }} offres dans la communauté</h3>
+                                                <h3 ng-cloak="">{{ nb_offre_service }} offres dans la communauté</h3>
                                             </div>
                                             <div class="item" groups="base.group_user,base.group_portal">
                                                 <h3>Consulter les offres</h3>
                                                 <p groups="base.group_user,base.group_portal">Magasiner les offres avant de s'inscrire</p>
-                                                <p>{{ nb_offre_service }} offres dans la communauté</p>
+                                                <p ng-cloak="">{{ nb_offre_service }} offres dans la communauté</p>
                                                 <div class="s_btn text-center pt16 pb16" data-name="Buttons">
                                                     <a href="/explorer" class="btn btn-outline-black rounded-circle btn-sm text-alpha" data-original-title="" title="" aria-describedby="tooltip51707" style="background-color: white;">PARCOURIR</a>
                                                 </div>
@@ -1795,7 +1795,7 @@
             <field name="arch" type="xml">
                 <t name="About us" t-name="website.aboutus" groups="base.group_user,base.group_portal">
                     <t t-call="website.layout">
-                        <div id="wrap" class="ng-cloak">
+                        <div id="wrap">
                             <div class="oe_structure">
                                 <div class="debug_debug">
                                     Lien maquette :
@@ -1846,7 +1846,7 @@
                                             <span class="text desc" style="font-size: 1.4rem;">
                                                 Bonjour, je m'appelle
                                                 <br />
-                                                <font style="font-weight:bold;">{{membre_info.full_name}}</font>
+                                                <font style="font-weight:bold;" ng-cloak="">{{membre_info.full_name}}</font>
                                             </span>
                                             <div class="container_profil">
                                                 <nav class="profil_left">
@@ -1871,7 +1871,7 @@
                                                         <span class="img img-fluid mx-auto fa fa-save" />
                                                         Enregistrer le profil
                                                     </div>
-                                                    <div class="profil profil_right profil_box btn btn-primary btn_do_echange debug_unimplemented adapt-text-primary-color" ng-if="!membre_info.estPersonnel">Échanger avec {{membre_info.prenom}}</div>
+                                                    <div class="profil profil_right profil_box btn btn-primary btn_do_echange debug_unimplemented adapt-text-primary-color" ng-if="!membre_info.estPersonnel" ng-cloak="">Échanger avec {{membre_info.prenom}}</div>
                                                 </nav>
                                             </div>
                                         </div>
@@ -1880,7 +1880,7 @@
                                             <br />
                                             <br />
                                             <span class="nbr" ng-show="membre_info.introduction" ng-if="!ask_modification_profile">
-                                                <q>{{membre_info.introduction}}</q>
+                                                <q ng-cloak="">{{membre_info.introduction}}</q>
                                             </span>
                                             <span class="nbr" ng-if="ask_modification_profile">
                                                 <q class="editable-content-blue" contenteditable="true" ng-model="membre_info.introduction" />
@@ -1897,7 +1897,7 @@
                                             <br />
                                             <span class="desc-3">
                                                 <i class="fa fa-home" />
-                                                <span style="position: relative; left: -25px;">{{membre_info.location}}</span>
+                                                <span style="position: relative; left: -25px;" ng-cloak="">{{membre_info.location}}</span>
                                             </span>
                                             <br />
                                             <span class="desc-3">
@@ -1908,7 +1908,7 @@
                                             <br />
                                             <span class="desc-3">
                                                 <i class="fa fa-calendar" />
-                                                <span style="position: relative; left: -25px;">Membre depuis {{membre_info.diff_humain_creation_membre}}</span>
+                                                <span style="position: relative; left: -25px;" ng-cloak="">Membre depuis {{membre_info.diff_humain_creation_membre}}</span>
                                             </span>
                                         </div>
                                         <div class="information information-4">
@@ -1992,7 +1992,7 @@
                                                     <span ng-if="membre_info.estPersonnel">Mes offres de service</span>
                                                     <span ng-if="!membre_info.estPersonnel">Ses offres de service</span>
                                                     <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
-                                                        <u>Voir tout ({{membre_info.dct_offre_service | lengthKeys}})</u>
+                                                        <u ng-cloak="">Voir tout ({{membre_info.dct_offre_service | lengthKeys}})</u>
                                                     </a>
                                                 </span>
                                                 <div class="row vertical_list">
@@ -2000,12 +2000,12 @@
                                                         <a ng-href="/ore/ore_offre_service/{{offre.id}}">
                                                             <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                             <div class="infos">
-                                                                <p class="activite_title">{{offre.titre}}</p>
+                                                                <p class="activite_title" ng-cloak="">{{offre.titre}}</p>
                                                                 <p class="activite_desc" ng-if="!_.isEmpty(offre.description)" ng-bind-html="offre.description | unsafe" />
                                                             </div>
                                                         </a>
                                                         <div class="infos right">
-                                                            <p>{{offre.diff_create_date}}</p>
+                                                            <p ng-cloak="">{{offre.diff_create_date}}</p>
                                                             <p class="fa text-epsilon coeur" ng-class="{'fa-heart': offre.is_favorite, 'fa-heart-o': !offre.is_favorite}" ng-click="add_to_my_favorite('ore.offre.service', offre)" />
                                                         </div>
                                                     </div>
@@ -2022,7 +2022,7 @@
                                                     <span ng-if="membre_info.estPersonnel">Mes demandes de service</span>
                                                     <span ng-if="!membre_info.estPersonnel">Ses demandes de service</span>
                                                     <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
-                                                        <u>Voir tout ({{membre_info.dct_demande_service | lengthKeys}})</u>
+                                                        <u ng-cloak="">Voir tout ({{membre_info.dct_demande_service | lengthKeys}})</u>
                                                     </a>
                                                 </span>
                                                 <div class="row vertical_list">
@@ -2030,12 +2030,12 @@
                                                         <a ng-href="/ore/ore_demande_service/{{demande.id}}">
                                                             <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                             <div class="infos">
-                                                                <p class="activite_title">{{demande.titre}}</p>
+                                                                <p class="activite_title" ng-cloak="">{{demande.titre}}</p>
                                                                 <p class="activite_desc" ng-if="!_.isEmpty(demande.description)" ng-bind-html="demande.description | unsafe" />
                                                             </div>
                                                         </a>
                                                         <div class="infos right">
-                                                            <p>{{demande.diff_create_date}}</p>
+                                                            <p ng-cloak="">{{demande.diff_create_date}}</p>
                                                             <p class="fa text-epsilon coeur" ng-class="{'fa-heart': demande.is_favorite, 'fa-heart-o': !demande.is_favorite}" ng-click="add_to_my_favorite('ore.demande.service', demande)" />
                                                         </div>
                                                     </div>
@@ -2079,7 +2079,7 @@
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
-                                            <p class="s_title_default text-bold text-color-title">{{personal.mon_ore.name}}</p>
+                                            <p class="s_title_default text-bold text-color-title" ng-cloak="">{{personal.mon_ore.name}}</p>
                                         </div>
                                     </div>
                                 </section>
@@ -2139,17 +2139,17 @@
                                                         <icon class="fa coeur" ng-class="{'fa-heart': membre.is_favorite, 'fa-heart-o': !membre.is_favorite}" />
                                                     </div>
                                                     <div class="name text-black" style="text-align:center;">
-                                                        <span style="font-size: 1.2rem;">{{membre.full_name}}&amp;nbsp;</span>
+                                                        <span style="font-size: 1.2rem;" ng-cloak="">{{membre.full_name}}&amp;nbsp;</span>
                                                         <icon class="fa fa-shield" ng-if="membre.antecedent_judiciaire_verifier" style="font-size: 1.2rem;" />
                                                     </div>
                                                     <div class="infos text-black" style="text-align:center;">
-                                                        <span ng-if="membre.age > 0" style="font-size: 1.2rem;">{{membre.age}} ans</span>
+                                                        <span ng-if="membre.age > 0" style="font-size: 1.2rem;" ng-cloak="">{{membre.age}} ans</span>
                                                         <span ng-if="membre.age > 0 &amp;&amp; !_.isUndefined(membre.distance)" style="font-size: 1.2rem;">-</span>
-                                                        <span ng-if="!_.isUndefined(membre.distance)" style="font-size: 1.2rem;">{{membre.distance}} m</span>
+                                                        <span ng-if="!_.isUndefined(membre.distance)" style="font-size: 1.2rem;" ng-cloak="">{{membre.distance}} m</span>
                                                     </div>
                                                     <div class="item_desc centered" ng-if="!_.isEmpty(membre.introduction)">
                                                         <font style="color: rgb(99, 99, 99);">
-                                                            <q>{{membre.introduction}}</q>
+                                                            <q ng-cloak="">{{membre.introduction}}</q>
                                                         </font>
                                                     </div>
                                                     <div class="item_foot debug_unimplemented">
@@ -2220,16 +2220,16 @@
                                             <div class="activite btn" ng-if="_.isEmpty(personal.dct_offre_service)">Aucune offre de service n'est actuellement publiée dans vos activités.</div>
                                             <!--                                            <div ng-repeat="(service_id, service) in personal.dct_offre_service" ng-include="'/ore/template/offre_ou_demande_de_service_generic'" ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'offre'; " />-->
                                             <div class="activite btn" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service">
-                                                <a ng-href="/ore/ore_offre_service/{{offre_service.id}}">
+                                                <a ng-href="/ore/ore_offre_service/{{offre_service.id}}" ng-cloak="">
                                                     <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
-                                                        <h4 class="activite_title" ng-if="!_.isEmpty(offre_service.titre)">{{offre_service.titre}}</h4>
+                                                        <h4 class="activite_title" ng-if="!_.isEmpty(offre_service.titre)" ng-cloak="">{{offre_service.titre}}</h4>
                                                         <h4 class="activite_title" ng-if="_.isEmpty(offre_service.titre)">Aucun titre</h4>
                                                         <h5 class="activite_desc" ng-if="!_.isEmpty(offre_service.description)" ng-bind-html="offre_service.description | unsafe" />
                                                     </div>
                                                 </a>
                                                 <div class="infos_right">
-                                                    <p>{{offre_service.diff_create_date}}</p>
+                                                    <p ng-cloak="">{{offre_service.diff_create_date}}</p>
                                                     <i class="fa text-epsilon coeur" ng-class="{'fa-heart': offre_service.is_favorite, 'fa-heart-o': !offre_service.is_favorite}" style="font-size:1.5rem;" ng-click="add_to_my_favorite('ore.offre.service', offre_service)" />
                                                 </div>
                                             </div>
@@ -2246,16 +2246,16 @@
                                             <div class="activite btn" ng-if="_.isEmpty(personal.dct_demande_service)">Aucune demande de service n'est actuellement publiée dans vos activités.</div>
                                             <!--                                            <div ng-repeat="(service_id, service) in personal.dct_demande_service" ng-include="'/ore/template/offre_ou_demande_de_service_generic'"  ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'demande'; " />-->
                                             <div class="activite btn" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service">
-                                                <a ng-href="/ore/ore_demande_service/{{demande_service.id}}">
+                                                <a ng-href="/ore/ore_demande_service/{{demande_service.id}}" ng-cloak="">
                                                     <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
-                                                        <h4 class="activite_title" ng-if="!_.isEmpty(demande_service.titre)">{{demande_service.titre}}</h4>
+                                                        <h4 class="activite_title" ng-if="!_.isEmpty(demande_service.titre)" ng-cloak="">{{demande_service.titre}}</h4>
                                                         <h4 class="activite_title" ng-if="_.isEmpty(demande_service.titre)">Aucun titre</h4>
                                                         <h5 class="activite_desc" ng-if="!_.isEmpty(demande_service.description)" ng-bind-html="demande_service.description | unsafe" />
                                                     </div>
                                                 </a>
                                                 <div class="infos_right">
-                                                    <p>{{demande_service.diff_create_date}}</p>
+                                                    <p ng-cloak="">{{demande_service.diff_create_date}}</p>
                                                     <i class="fa text-epsilon coeur" ng-class="{'fa-heart': demande_service.is_favorite, 'fa-heart-o': !demande_service.is_favorite}" style="font-size:1.5rem;" ng-click="add_to_my_favorite('ore.demande.service', demande_service)" />
                                                 </div>
                                             </div>
@@ -2312,18 +2312,18 @@
                                                 </h5>
                                             </div>
                                             <div class="activite btn" ng-if="_.isEmpty(personal.dct_offre_service_favoris)">Aucune offre de services favoris dans votre liste.</div>
-                                            <div class="activite btn" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service_favoris">
+                                            <div class="activite btn" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service_favoris" ng-cloak="">
                                                 <a ng-href="/ore/ore_offre_service/{{offre_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
-                                                        <h4 class="activite_title">{{offre_service.titre}}</h4>
+                                                        <h4 class="activite_title" ng-cloak="">{{offre_service.titre}}</h4>
                                                         <p class="activite_desc" ng-if="!_.isEmpty(offre_service.description)" ng-bind-html="offre_service.description | unsafe" />
-                                                        <h5 class="activite_auteur">{{contact_info.full_name}}</h5>
-                                                        <h5 class="activite_distance">{{offre_service.distance}}</h5>
+                                                        <h5 class="activite_auteur" ng-cloak="">{{contact_info.full_name}}</h5>
+                                                        <h5 class="activite_distance" ng-cloak="">{{offre_service.distance}}</h5>
                                                     </div>
                                                 </a>
                                                 <div class="infos right">
-                                                    <h5>{{offre_service.diff_create_date}}</h5>
+                                                    <h5 ng-cloak="">{{offre_service.diff_create_date}}</h5>
                                                     <h2 class="fa text-epsilon coeur" ng-class="{'fa-heart': offre_service.is_favorite, 'fa-heart-o': !offre_service.is_favorite}" ng-click="add_to_my_favorite('ore.offre.service', offre_service)" />
                                                 </div>
                                             </div>
@@ -2336,18 +2336,18 @@
                                                 </h5>
                                             </div>
                                             <div class="activite btn" ng-if="_.isEmpty(personal.dct_demande_service_favoris)">Aucune demande de services favoris dans votre liste.</div>
-                                            <div class="activite btn" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service_favoris">
+                                            <div class="activite btn" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service_favoris" ng-cloak="">
                                                 <a ng-href="/ore/ore_demande_service/{{demande_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
-                                                        <h4 class="activite_title">{{demande_service.titre}}</h4>
+                                                        <h4 class="activite_title" ng-cloak="">{{demande_service.titre}}</h4>
                                                         <p class="activite_desc" ng-if="!_.isEmpty(demande_service.description)" ng-bind-html="demande_service.description | unsafe" />
-                                                        <h5 class="activite_auteur">{{demande_service.membre.full_name}}</h5>
-                                                        <h5 class="activite_distance">{{demande_service.distance}}</h5>
+                                                        <h5 class="activite_auteur" ng-cloak="">{{demande_service.membre.full_name}}</h5>
+                                                        <h5 class="activite_distance" ng-cloak="">{{demande_service.distance}}</h5>
                                                     </div>
                                                 </a>
                                                 <div class="infos right">
-                                                    <h5>{{demande_service.diff_create_date}}</h5>
+                                                    <h5 ng-cloak="">{{demande_service.diff_create_date}}</h5>
                                                     <h2 class="fa text-epsilon coeur" ng-class="{'fa-heart': demande_service.is_favorite, 'fa-heart-o': !demande_service.is_favorite}" ng-click="add_to_my_favorite('ore.demande.service', demande_service)" />
                                                 </div>
                                             </div>
@@ -2358,17 +2358,17 @@
                                             </div>
 
                                             <div class="activite btn" ng-if="_.isEmpty(personal.dct_membre_favoris)">Aucun membre favoris dans votre liste.</div>
-                                            <div class="activite btn" ng-repeat="(membre_id, membre_favoris) in personal.dct_membre_favoris">
+                                            <div class="activite btn" ng-repeat="(membre_id, membre_favoris) in personal.dct_membre_favoris" ng-cloak="">
                                                 <a ng-href="/monprofil/mapresentation#!?membre_id={{membre_favoris.id}}">
                                                     <img class="activite_img img-fluid rounded-circle" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
-                                                        <h4 class="activite_title">{{membre_favoris.full_name}}</h4>
-                                                        <h5 class="activite_age">{{membre_favoris.age}} ans</h5>
-                                                        <q ng-if="membre_favoris.description">{{membre_favoris.description}}</q>
+                                                        <h4 class="activite_title" ng-cloak="">{{membre_favoris.full_name}}</h4>
+                                                        <h5 class="activite_age" ng-cloak="">{{membre_favoris.age}} ans</h5>
+                                                        <q ng-if="membre_favoris.description" ng-cloak="">{{membre_favoris.description}}</q>
                                                     </div>
                                                 </a>
                                                 <div class="infos right">
-                                                    <h5>{{membre_favoris.distance}}</h5>
+                                                    <h5 ng-cloak="">{{membre_favoris.distance}}</h5>
                                                     <h2 class="fa text-epsilon coeur" ng-class="{'fa-heart': membre_favoris.is_favorite, 'fa-heart-o': !membre_favoris.is_favorite}" ng-click="add_to_my_favorite('ore.membre', membre_favoris)" />
                                                 </div>
                                             </div>
@@ -2724,7 +2724,7 @@
                     <t t-call="website.layout">
                         <div id="wrap" ng-controller="NotificationController">
                             <div class="oe_structure">
-                                <p class="alert alert-danger" ng-if="!_.isEmpty(error)" role="alert">{{error}}</p>
+                                <p class="alert alert-danger" ng-if="!_.isEmpty(error)" role="alert" ng-cloak="">{{error}}</p>
                                 <div class="debug_debug">
                                     <div ng-if="section==='notification'">
                                         Lien maquette :
@@ -2761,8 +2761,8 @@
                                                         </div>
 
                                                         <div class="infos">
-                                                            <h4 class="message_auteur">{{notif.type_notification}}</h4>
-                                                            <p class="message">{{notif.name}}</p>
+                                                            <h4 class="message_auteur" ng-cloak="">{{notif.type_notification}}</h4>
+                                                            <p class="message" ng-cloak="">{{notif.name}}</p>
                                                         </div>
                                                         <span class="debug_unimplemented">5 min</span>
                                                     </div>
@@ -2784,7 +2784,7 @@
             <field name="arch" type="xml">
                 <t name="About us" t-name="website.aboutus" groups="base.group_user,base.group_portal">
                     <t t-call="website.layout">
-                        <div id="wrap" class="ng-cloak">
+                        <div id="wrap">
                             <div class="oe_structure">
                                 <div class="debug_debug">
                                     Lien maquette :
@@ -2801,16 +2801,16 @@
                                                     <i class="fa fa-shield text-color-title" />
                                                 </div>
                                                 <div class="profile_banner_info" style="white-space: nowrap;">
-                                                    <p class="profile_name text-color-title">{{personal.full_name}}</p>
+                                                    <p class="profile_name text-color-title" ng-cloak="">{{personal.full_name}}</p>
                                                     <p class="profile_hrs text-color-title">
-                                                        <i class="fa fa-clock-o" />&amp;nbsp;<span ng-class="{neg_time_2: !personal.actual_bank_sign}">{{personal.actual_bank_time_human_simplify}}</span>
+                                                        <i class="fa fa-clock-o" />&amp;nbsp;<span ng-class="{neg_time_2: !personal.actual_bank_sign}" ng-cloak="">{{personal.actual_bank_time_human_simplify}}</span>
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="btn_ore_profil" class="profile_btn btn ore text-color-title debug_unimplemented" style="background-color: white; border-radius: 15px;">
                                             <i class="fa fa-smile-o" />
-                                            <span id="mon_reseau">Mon réseau: {{personal.mon_ore.name}}</span>
+                                            <span id="mon_reseau" ng-cloak="">Mon réseau: {{personal.mon_ore.name}}</span>
                                             <i class="fa fa-chevron-right" />
                                         </div>
                                         <a href="web/session/logout?redirect=/">
@@ -2902,7 +2902,7 @@
                                                 Solde de mon compte
                                                 <i class="fa fa-question-circle-o debug_unimplemented" />
                                             </div>
-                                            <div class="solde text-color-title" ng-class="{neg_time: !personal.actual_bank_sign}">{{personal.actual_bank_time_human_short | uppercase}}</div>
+                                            <div class="solde text-color-title" ng-class="{neg_time: !personal.actual_bank_sign}" ng-cloak="">{{personal.actual_bank_time_human_short | uppercase}}</div>
                                         </div>
                                     </div>
                                 </section>
@@ -2936,16 +2936,16 @@
                                     <nav class="bilan_left">
                                         <a href="/monactivite/echanges" class="bilan_left bilan-1 btn">
                                             <span class="txt-activite">Soldes en heures:</span>
-                                            <span class="nbr-activite">{{personal.actual_bank_time_human | uppercase}}</span>
+                                            <span class="nbr-activite" ng-cloak="">{{personal.actual_bank_time_human | uppercase}}</span>
                                         </a>
                                     </nav>
                                     <nav class="bilan_main">
                                         <a href="/monactivite/echanges" class="bilan_main bilan-2 btn">
-                                            <span class="nbr-activite">{{personal.nb_echange_a_venir}}</span>
+                                            <span class="nbr-activite" ng-cloak="">{{personal.nb_echange_a_venir}}</span>
                                             <span class="txt-activite">échange &#224; venir</span>
                                         </a>
                                         <a href="/monactivite/echanges" class="bilan_main bilan-3 btn">
-                                            <span class="nbr-activite">{{personal.actual_month_bank_time_human_short | uppercase}}</span>
+                                            <span class="nbr-activite" ng-cloak="">{{personal.actual_month_bank_time_human_short | uppercase}}</span>
                                             <span class="txt-activite">ce mois-ci</span>
                                         </a>
                                         <a href="/monprofil/mapresentation" class="bilan_main bilan-3 btn debug_unimplemented">
@@ -2955,7 +2955,7 @@
                                     </nav>
                                     <nav class="bilan_right">
                                         <a href="/monactivite/echanges" class="bilan_right bilan-4 btn">
-                                            <span class="nbr-activite">{{personal.nb_echange_en_cours}}</span>
+                                            <span class="nbr-activite" ng-cloak="">{{personal.nb_echange_en_cours}}</span>
                                             <span class="txt-activite">échange en cours</span>
                                         </a>
                                         <a href="/evenement" class="bilan_right bilan-5 btn debug_unimplemented">
@@ -3273,7 +3273,7 @@
                     <xpath expr="//div[@id='footer']" position="replace">
                         <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer and not user_id._is_public()">
                             <section class="s_text_block" style="">
-                                <div class="footer_container ng-cloak">
+                                <div class="footer_container">
                                     <div class="row footer_row">
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/explorer" class="img bottom_menu_icon fa fa-search" style="text-decoration:none;" />
@@ -3937,7 +3937,7 @@
                                 <section class="s_echange_informations pt72 pb72" ng-if="!_.isEmpty(echange_service_info)">
                                     <div class="informations_container">
                                         <div class="information information-1" ng-if="!echange_service_info.transaction_valide">
-                                            <span class="info_title">
+                                            <span class="info_title" ng-cloak="">
                                                 <font style="font-weight:bold;">Mon échange de service à venir avec</font>
                                                 <br />
                                                 {{contact_info.full_name}}
@@ -3968,7 +3968,7 @@
                                             </div>
                                         </div>
                                         <div class="information information-1" ng-if="echange_service_info.transaction_valide">
-                                            <span class="info_title">
+                                            <span class="info_title" ng-cloak="">
                                                 <h1>
                                                     Service
                                                     <span ng-if="!echange_service_info.estAcheteur">donné</span>
@@ -3983,7 +3983,7 @@
                                                 <span ng-if="!echange_service_info.estAcheteur">DÉPOT</span>
                                                 <span ng-if="echange_service_info.estAcheteur">RETRAIT</span>
                                                 SUR MON COMPTE
-                                                <div class="heures" ng-class="{'neg_time_b': echange_service_info.estAcheteur}">{{echange_service_info.transaction_valide ? echange_service_info.show_total_dure_pos : echange_service_info.show_total_dure_estime_pos}}</div>
+                                                <div class="heures" ng-class="{'neg_time_b': echange_service_info.estAcheteur}" ng-cloak="">{{echange_service_info.transaction_valide ? echange_service_info.show_total_dure_pos : echange_service_info.show_total_dure_estime_pos}}</div>
                                             </div>
                                         </div>
                                         <div class="information information-2">
@@ -3994,10 +3994,10 @@
                                             <span class="info_title">
                                                 <p style="font-weight:bold;">Date prévue du service</p>
                                                 <br />
-                                                <span>{{echange_service_info.show_date | toTitleCase}}</span>
+                                                <span ng-cloak="">{{echange_service_info.show_date | toTitleCase}}</span>
                                                 <span class="divider" />
-                                                <span ng-if="echange_service_info.show_start_time !== echange_service_info.show_end_time">{{echange_service_info.show_start_time}} - {{echange_service_info.show_end_time}}</span>
-                                                <span ng-if="echange_service_info.show_start_time === echange_service_info.show_end_time">{{echange_service_info.show_start_time}}</span>
+                                                <span ng-if="echange_service_info.show_start_time !== echange_service_info.show_end_time" ng-cloak="">{{echange_service_info.show_start_time}} - {{echange_service_info.show_end_time}}</span>
+                                                <span ng-if="echange_service_info.show_start_time === echange_service_info.show_end_time" ng-cloak="">{{echange_service_info.show_start_time}}</span>
                                             </span>
                                         </div>
                                         <div class="information information-4" ng-if="!echange_service_info.transaction_valide &amp;&amp; !_.isUndefined(echange_service_info.offre_service) || !_.isUndefined(echange_service_info.demande_service)">
@@ -4025,7 +4025,7 @@
                                             <div class="condition debug_unimplemented">
                                                 <b class="nbr">Coût possible supplémentaire à prévoir</b>
                                                 <p class="condition_desc">Frais pour trajet de</p>
-                                                <p>{{echange_service_info.distance_trajet}} km</p>
+                                                <p ng-cloak="">{{echange_service_info.distance_trajet}} km</p>
                                                 <p class="condition_desc debug_unimplemented">
                                                     Frais pour le matériel nécessaire à l'échange
                                                     de service
@@ -4036,12 +4036,12 @@
                                             <div class="condition">
                                                 <b class="nbr">Estimation de la durée de service</b>
                                                 <p class="condition_desc">Nombre d'heures estimé pour le service</p>
-                                                <p>{{echange_service_info.show_duree_estime_pos}}</p>
+                                                <p ng-cloak="">{{echange_service_info.show_duree_estime_pos}}</p>
                                                 <p class="condition_desc">Durée du trajet estimée à effectuer</p>
-                                                <p>{{echange_service_info.show_duree_trajet_estime_pos}}</p>
+                                                <p ng-cloak="">{{echange_service_info.show_duree_trajet_estime_pos}}</p>
                                                 <div class="bar_time" style="color:white;">
                                                     <b>Montant total de temps estimé :</b>
-                                                    <span>{{echange_service_info.show_total_dure_estime_pos}}</span>
+                                                    <span ng-cloak="">{{echange_service_info.show_total_dure_estime_pos}}</span>
                                                 </div>
                                             </div>
                                             <span class="debug_unimplemented">
@@ -4071,7 +4071,7 @@
                                                     <font style="font-weight:bold;">Commentaire</font>
                                                 </span>
                                                 <div class="condition">
-                                                    <p>{{echange_service_info.commentaire}}</p>
+                                                    <p ng-cloak="">{{echange_service_info.commentaire}}</p>
                                                 </div>
                                             </span>
                                         </div>
@@ -4082,12 +4082,12 @@
                                             </span>
                                             <div class="condition" ng-if="echange_service_info.has_offre_service &amp;&amp; !_.isEmpty(echange_service_info.categorie_offre_service)">
                                                 <b class="nbr">Catégorie du service</b>
-                                                <p class="condition_desc">{{echange_service_info.categorie_offre_service}}</p>
+                                                <p class="condition_desc" ng-cloak="">{{echange_service_info.categorie_offre_service}}</p>
                                             </div>
                                             <divider ng-if="echange_service_info.has_offre_service" />
                                             <div class="condition" ng-if="echange_service_info.has_offre_service">
                                                 <b class="nbr">Nom du service</b>
-                                                <p class="condition_desc">{{echange_service_info.sujet_offre_service}}</p>
+                                                <p class="condition_desc" ng-cloak="">{{echange_service_info.sujet_offre_service}}</p>
                                             </div>
                                             <divider ng-if="echange_service_info.has_offre_service &amp;&amp; !_.isEmpty(echange_service_info.description_offre_service)" />
                                             <div class="condition" ng-if="echange_service_info.has_offre_service &amp;&amp; !_.isEmpty(echange_service_info.description_offre_service)">
@@ -4100,12 +4100,12 @@
                                             </span>
                                             <div class="condition" ng-if="echange_service_info.has_demande_service &amp;&amp; !_.isEmpty(echange_service_info.categorie_demande_service)">
                                                 <b class="nbr">Catégorie du service</b>
-                                                <p class="condition_desc">{{echange_service_info.categorie_demande_service}}</p>
+                                                <p class="condition_desc" ng-cloak="">{{echange_service_info.categorie_demande_service}}</p>
                                             </div>
                                             <divider ng-if="echange_service_info.has_demande_service" />
                                             <div class="condition" ng-if="echange_service_info.has_demande_service">
                                                 <b class="nbr">Nom du service</b>
-                                                <p class="condition_desc">{{echange_service_info.sujet_demande_service}}</p>
+                                                <p class="condition_desc" ng-cloak="">{{echange_service_info.sujet_demande_service}}</p>
                                             </div>
                                             <divider ng-if="echange_service_info.has_demande_service &amp;&amp; !_.isEmpty(echange_service_info.description_demande_service)" />
                                             <div class="condition" ng-if="echange_service_info.has_demande_service &amp;&amp; !_.isEmpty(echange_service_info.description_demande_service)">
@@ -4120,29 +4120,29 @@
                                             <div class="condition">
                                                 <b class="nbr">Coût supplémentaires engagés</b>
                                                 <p class="condition_desc">Frais pour le trajet :</p>
-                                                <p>${{echange_service_info.frais_trajet}} CAD</p>
+                                                <p ng-cloak="">${{echange_service_info.frais_trajet}} CAD</p>
                                                 <p class="condition_desc">
                                                     Frais pour le matériel nécessaire à l'échange
                                                     de service :
                                                 </p>
-                                                <p>${{echange_service_info.frais_materiel}} CAD</p>
+                                                <p ng-cloak="">${{echange_service_info.frais_materiel}} CAD</p>
                                             </div>
                                             <divider />
                                             <div class="condition">
                                                 <b class="nbr">Durée du service reçu</b>
                                                 <p class="condition_desc">Durée de la réalisation du service</p>
-                                                <p>{{echange_service_info.show_duree_pos}}</p>
+                                                <p ng-cloak="">{{echange_service_info.show_duree_pos}}</p>
                                                 <p class="condition_desc">Durée du trajet aller-retour</p>
-                                                <p>{{echange_service_info.show_duree_trajet_pos}}</p>
+                                                <p ng-cloak="">{{echange_service_info.show_duree_trajet_pos}}</p>
                                             </div>
                                             <divider ng-if="!_.isEmpty(echange_service_info.commentaire)" />
                                             <div class="condition" ng-if="!_.isEmpty(echange_service_info.commentaire)">
                                                 <b class="nbr">Commentaires</b>
-                                                <p class="condition_desc">{{echange_service_info.commentaire}}</p>
+                                                <p class="condition_desc" ng-cloak="">{{echange_service_info.commentaire}}</p>
                                             </div>
                                             <div class="bar_time" style="color:white;">
                                                 <b>Montant total de temps transféré :</b>
-                                                <span>{{echange_service_info.show_total_dure_pos}}</span>
+                                                <span ng-cloak="">{{echange_service_info.show_total_dure_pos}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -4329,7 +4329,7 @@
                 <t name="Aide" t-name="website.aide">
                     <t t-call="website.layout">
                         <div id="wrap" class="oe_structure oe_empty" ng-controller="AideController">
-                            <p class="alert alert-danger" ng-if="!_.isEmpty(error)" role="alert">{{error}}</p>
+                            <p class="alert alert-danger" ng-if="!_.isEmpty(error)" role="alert" ng-cloak="">{{error}}</p>
                             <nav class="sub-navbar navbar-light bg-light second_navbar">
                                 <ul class="nav navbar-nav second_navbar">
                                     <li class="nav-item">
@@ -4377,7 +4377,7 @@
                                                     <div class="s_big_icons_icon bg-epsilon adapt-text-epsilon-color">
                                                         <span class="fa fa-desktop" />
                                                     </div>
-                                                    <h5 class="o_default_snippet_text">{{data.state.length}} guides utilisateurs</h5>
+                                                    <h5 class="o_default_snippet_text" ng-cloak="">{{data.state.length}} guides utilisateurs</h5>
                                                 </div>
                                             </div>
 
@@ -4386,7 +4386,7 @@
                                                     <div class="s_big_icons_icon bg-epsilon adapt-text-epsilon-color">
                                                         <span class="fa fa-users" />
                                                     </div>
-                                                    <h5 class="o_default_snippet_text">{{sizeStateValidated(data.state)}} validés</h5>
+                                                    <h5 class="o_default_snippet_text" ng-cloak="">{{sizeStateValidated(data.state)}} validés</h5>
                                                 </div>
                                             </div>
                                             <div class="col-lg-2 col-md-12 mt16 mb32">
@@ -4394,7 +4394,7 @@
                                                     <div class="s_big_icons_icon bg-epsilon adapt-text-epsilon-color">
                                                         <span class="fa fa-user" />
                                                     </div>
-                                                    <h5 class="o_default_snippet_text">{{sizeGuideEchangeService(data, data.state)}} guides échange de service</h5>
+                                                    <h5 class="o_default_snippet_text" ng-cloak="">{{sizeGuideEchangeService(data, data.state)}} guides échange de service</h5>
                                                 </div>
                                             </div>
                                             <div class="col-lg-2 col-md-12 mt16 mb32">
@@ -4402,7 +4402,7 @@
                                                     <div class="s_big_icons_icon bg-epsilon adapt-text-epsilon-color">
                                                         <span class="fa fa-globe" />
                                                     </div>
-                                                    <h5 class="o_default_snippet_text">{{sizeGuideImplemented(data.state)}} guides implémentés</h5>
+                                                    <h5 class="o_default_snippet_text" ng-cloak="">{{sizeGuideImplemented(data.state)}} guides implémentés</h5>
                                                 </div>
                                             </div>
                                             <!--                                            <div class="col-lg-2 col-md-12 mt16 mb32">-->
@@ -4421,7 +4421,7 @@
                                         <div class="row s_nb_column_fixed">
                                             <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
                                                 <h1 class="s_title_default text-bold">
-                                                    <font style="font-size: 62px;">{{section}}</font>
+                                                    <font style="font-size: 62px;" ng-cloak="">{{section}}</font>
                                                 </h1>
                                                 <select name="changeModeView" class="debug_debug" ng-model="guide_user_show">
                                                     <option value="item">Item</option>
@@ -4438,12 +4438,12 @@
                                             <table style="border:1px solid black">
                                                 <tr>
                                                     <th style="border:1px solid black">Caractéristiques</th>
-                                                    <th ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
+                                                    <th ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}" ng-cloak="">
                                                         {{state.title}}
                                                         <br />
-                                                        <span style="color:#00FF00">{{state.key_space}}</span>
+                                                        <span style="color:#00FF00" ng-cloak="">{{state.key_space}}</span>
                                                         <br />
-                                                        <span style="color:#0000FF;font-size:5px;">{{state.key}}</span>
+                                                        <span style="color:#0000FF;font-size:5px;" ng-cloak="">{{state.key}}</span>
                                                         <br />
                                                         <input type="checkbox" ng-model="state.table_col_check" />
                                                     </th>
@@ -4506,7 +4506,7 @@
                                                     <tr>
                                                         <td style="border:1px solid black">Date update</td>
                                                         <td ng-repeat="state in data.state" ng-if="state.section == section" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}" style="border:1px solid black;text-align: center;">
-                                                            <span ng-if="!_.isEmpty(state.date_last_update)">{{state.date_last_update}}</span>
+                                                            <span ng-if="!_.isEmpty(state.date_last_update)" ng-cloak="">{{state.date_last_update}}</span>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -4524,7 +4524,7 @@
                                                             <a href="#" role="tab" data-toggle="collapse" aria-expanded="false" class="card-header o_default_snippet_text collapsed" data-parent="#myCollapse" data-target="#myCollapseTab1668630708666" data-original-title="" title="" aria-describedby="tooltip222371">Affichage formulaire</a>
                                                             <div ng-controller="ParticiperController" class="collapse" role="tabpanel" id="myCollapseTab1668630708666" style="">
                                                                 <div class="card-body">
-                                                                    <div ng-repeat="(name, dctCB) in dctFormIsCall" style="cursor:pointer" ng-class="{'help_show_col': dctCB.enable}" ng-click="dctCB.cb(dctCB, $parent.data.state)">{{name}}</div>
+                                                                    <div ng-repeat="(name, dctCB) in dctFormIsCall" style="cursor:pointer" ng-class="{'help_show_col': dctCB.enable}" ng-click="dctCB.cb(dctCB, $parent.data.state)" ng-cloak="">{{name}}</div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -4536,25 +4536,25 @@
                                             <div class="row s_nb_column_fixed" ng-if="sub_section !== 'false'">
                                                 <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
                                                     <h1 class="s_title_default text-bold">
-                                                        <font style="font-size: 48px;">{{sub_section}}</font>
+                                                        <font style="font-size: 48px;" ng-cloak="">{{sub_section}}</font>
                                                     </h1>
                                                 </div>
                                             </div>
                                             <div class="row align-items-center" ng-repeat="state in lst_sub_section" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
-                                                <div class="col-lg-6 pt16 pb16">
-                                                    <h2>{{state.title}}</h2>
+                                                <div class="col-lg-6 pt16 pb16" ng-cloak="">
+                                                    <h2 ng-cloak="">{{state.title}}</h2>
                                                     {{state.description}}
-                                                    <span ng-if="!_.isEmpty(state.date_last_update)">
+                                                    <span ng-if="!_.isEmpty(state.date_last_update)" ng-cloak="">
                                                         <br />
                                                         Dernière mise à jour : {{state.date_last_update}}
                                                     </span>
                                                     <div class="s_btn text-left pt16 pb16 guide_buttons" data-name="Buttons" t-if="not user_id._is_public()">
-                                                        <a href="{{state.fast_btn_url}}" ng-if="!_.isEmpty(state.fast_btn_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">{{state.fast_btn_title}}</a>
+                                                        <a href="{{state.fast_btn_url}}" ng-if="!_.isEmpty(state.fast_btn_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943" ng-cloak="">{{state.fast_btn_title}}</a>
                                                         <a href="{{state.fast_btn_guide_url}}" ng-if="!_.isEmpty(state.fast_btn_guide_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Démarrer guide</a>
                                                         <a href="{{state.fast_btn_form_url}}" ng-if="!_.isEmpty(state.fast_btn_form_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Démarrer demo</a>
                                                     </div>
                                                     <div class="debug_debug">
-                                                        <span class="o_pill bg-200" ng-repeat="caract in state.lst_caract">{{caract}}</span>
+                                                        <span class="o_pill bg-200" ng-repeat="caract in state.lst_caract" ng-cloak="">{{caract}}</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 pt16 pb16">
