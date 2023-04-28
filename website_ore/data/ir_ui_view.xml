@@ -3273,7 +3273,7 @@
                     <xpath expr="//div[@id='footer']" position="replace">
                         <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer and not user_id._is_public()">
                             <section class="s_text_block" style="">
-                                <div class="footer_container ng-cloak">
+                                <div class="footer_container">
                                     <div class="row footer_row">
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/explorer" class="img bottom_menu_icon fa fa-search" style="text-decoration:none;" />

@@ -8,11 +8,7 @@
         </xpath>
 
         <xpath expr="//div[@id='wrapwrap']" position="inside">
-            <div
-                class="modal fade modal_pub_offre modal_shown show ng-cloak"
-                style="display:block"
-                ng-show="show_qrcode_modal"
-            >
+            <div class="modal fade modal_pub_offre modal_shown show" style="display:block" ng-show="show_qrcode_modal">
                 <div class="modal-dialog">
                     <div id="s_media_block_modal" class="modal-content">
                         <button class="btn btn-primary btn-lg" ng-click="show_qrcode_modal = false">
@@ -27,7 +23,7 @@
                 </div>
             </div>
             <div
-                class="modal fade modal_pub_offre modal_shown show ng-cloak"
+                class="modal fade modal_pub_offre modal_shown show"
                 style="display:block"
                 ng-show="show_camera_qrcode_modal"
             >
@@ -692,7 +688,7 @@
                                         />
                                     </b>
                                     <br />
-                                    <b class="ng-cloak">
+                                    <b>
                                         <p class="hours" ng-class="{neg_time: !personal.actual_bank_sign}" ng-cloak="">
                                             {{personal.actual_bank_time_diff}}
                                         </p>
