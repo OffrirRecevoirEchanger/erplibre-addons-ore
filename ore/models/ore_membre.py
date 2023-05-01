@@ -339,6 +339,28 @@ class OREMembre(models.Model):
         track_visibility="onchange",
     )
 
+    description = fields.Char(
+        help="Un petit texte qui décrit le membre.",
+        track_visibility="onchange",
+    )
+
+    motivation_membre = fields.Char(
+        help="Pourquoi devenir un membre de réseau.",
+        track_visibility="onchange",
+    )
+
+    interet = fields.Many2many(
+        string="Interet",
+        comodel_name="ore.membre.interet",
+        help="Liste interet des membres",
+    )
+
+    langue_parle = fields.Many2many(
+        string="Langue",
+        comodel_name="ore.membre.langue_parle",
+        help="Liste langues des membres",
+    )
+
     bank_time = fields.Float(
         string="Temps en banque",
         compute="_bank_time",
