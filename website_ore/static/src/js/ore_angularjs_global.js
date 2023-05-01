@@ -119,6 +119,10 @@ odoo.define('website.ore_angularjs_global', function (require) {
             actual_bank_hours: 0,
             actual_month_bank_hours: 0,
             introduction: "",
+            description: "",
+            interet: [],
+            langue: [],
+            motivation_membre: "",
             diff_humain_creation_membre: "",
             antecedent_judiciaire_verifier: false,
             mon_ore: {
@@ -174,7 +178,181 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.show_croppie = false;
         $scope.ask_modification = false;
         $scope.ask_modification_profile = false;
-        $scope.ask_modif_copy = {membre_info: {}, introduction: ""};
+        $scope.ask_modif_copy = {membre_info: {}, introduction: "", description: "", interet: [], motivation_membre: "", langue: []}
+        $scope.list_interets = [];
+        $scope.languesParlees = [];
+        $scope.afficherAjoutInteret = false;
+        $scope.afficherSupprimerInteret = false;
+        $scope.afficherAjoutLangue = false;
+        $scope.afficherSupprimerLangue = false;
+        $scope.nouvelleInteret = '';
+        $scope.nouvelleLangue = '';
+        $scope.supprimeLangue = '';
+        $scope.supprimeInteret = '';
+        $scope.interetsCount = 0;
+        $scope.languesCount = 0;
+
+        $scope.shouldHideBorder = function (titre) {
+            if (titre === "description") {
+                return !(
+                    !_.isUndefined($scope.membre_info.description) &&
+                    !_.isEmpty($scope.membre_info.description)
+                );
+            } else if (titre === "motivation_membre") {
+                return !(
+                    !_.isUndefined($scope.membre_info.motivation_membre) &&
+                    !_.isEmpty($scope.membre_info.motivation_membre)
+                );
+            } else if (titre === "interet") {
+                return !(
+                    !_.isUndefined($scope.membre_info.interet) &&
+                    !_.isEmpty($scope.membre_info.interet)
+                );
+            }
+        };
+
+        $scope.ajouterInteret = function() {
+            $scope.afficherSupprimerInteret = false;
+            $scope.afficherAjoutInteret = true;
+        };
+
+        $scope.supprimerInteret = function() {
+            $scope.afficherAjoutInteret = false;
+            $scope.afficherSupprimerInteret = true;
+        };
+
+        $scope.enregistrerInteret = function() {
+            if ($scope.nouvelleInteret) {
+                if (!$scope.list_interets) {
+                    $scope.list_interets = [];
+                }
+                if (!$scope.membre_info.interet) {
+                    $scope.membre_info.interet = [];
+                }
+                // Check if nouvelleInteret already exists in list_interets or membre_info.interet
+                let isNewInteret = $scope.list_interets.indexOf($scope.nouvelleInteret) === -1 &&
+                    $scope.membre_info.interet.findIndex(function(interet) {
+                        return interet.name === $scope.nouvelleInteret;
+                    }) === -1;
+                if (isNewInteret) {
+                    $scope.list_interets.push($scope.nouvelleInteret);
+                    $scope.interetsCount++;
+                    $scope.membre_info.interet.push({"name": $scope.nouvelleInteret, "id": 0});
+                }
+                $scope.afficherAjoutInteret = false;
+                $scope.nouvelleInteret = '';
+            }
+        };
+
+
+        $scope.annulerModifierInteret = function () {
+            $scope.afficherAjoutInteret = false;
+            $scope.afficherSupprimerInteret = false;
+        }
+
+        $scope.enleverDernieresInterets = function() {
+            if ($scope.interetsCount !== 0) {
+                $scope.list_interets.splice(-($scope.interetsCount));
+            }
+            $scope.interetsCount = 0;
+        };
+
+        $scope.enleverInteret = function (name) {
+            $scope.supprimeInteret = name;
+            if ($scope.supprimeInteret) {
+                let index = $scope.list_interets.indexOf($scope.supprimeInteret);
+                if (index > -1) {
+                  $scope.list_interets.splice(index, 1);
+                }
+                $scope.membre_info.interet = $scope.membre_info.interet.filter(function (interet) {
+                  return interet.name !== $scope.supprimeInteret;
+                });
+            }
+        };
+
+        $scope.ajouterLangue = function() {
+            $scope.afficherSupprimerLangue = false;
+            $scope.afficherAjoutLangue = true;
+        };
+
+        $scope.supprimerLangue = function() {
+            $scope.afficherAjoutLangue = false;
+            $scope.afficherSupprimerLangue = true;
+        };
+
+        $scope.enregistrerLangue = function() {
+            if ($scope.nouvelleLangue) {
+                if (!$scope.languesParlees) {
+                    $scope.languesParlees = [];
+                }
+                if (!$scope.membre_info.langue) {
+                    $scope.membre_info.langue = [];
+                }
+                // Check if nouvelleLangue already exists in languesParlees or membre_info.langue
+                let isNewLangue = $scope.languesParlees.indexOf($scope.nouvelleLangue) === -1 &&
+                    $scope.membre_info.langue.findIndex(function(langue) {
+                        return langue.name === $scope.nouvelleLangue;
+                    }) === -1;
+                if (isNewLangue) {
+                    $scope.languesParlees.push($scope.nouvelleLangue);
+                    $scope.languesCount++;
+                    $scope.membre_info.langue.push({"name": $scope.nouvelleLangue, "id": 0});
+                }
+                $scope.afficherAjoutLangue = false;
+                $scope.nouvelleLangue = '';
+            }
+        };
+
+
+        $scope.annulerModifierLangue = function () {
+            $scope.afficherSupprimerLangue = false;
+            $scope.afficherAjoutLangue = false;
+        }
+
+        $scope.enleverDernieresLangues = function() {
+            if ($scope.languesCount !== 0) {
+                $scope.languesParlees.splice(-($scope.languesCount));
+            }
+            $scope.languesCount = 0;
+        };
+
+        $scope.enleverLangue = function (name) {
+            $scope.supprimeLangue = name;
+            if ($scope.supprimeLangue) {
+                let index = $scope.languesParlees.indexOf($scope.supprimeLangue);
+                if (index > -1) {
+                  $scope.languesParlees.splice(index, 1);
+                }
+                $scope.membre_info.langue = $scope.membre_info.langue.filter(function (langue) {
+                  return langue.name !== $scope.supprimeLangue;
+                });
+            }
+        };
+
+        $(document).ready(function() {
+            // Define the list of languages
+            var languages = [
+                "Anglais",
+                "Français",
+                "Espagnol",
+                "Allemand",
+                "Turc",
+                "Arab",
+                "Chinois",
+                "Portugais",
+                // Add more languages as needed
+            ];
+
+            // Initialize the autocomplete for the "nouvelleLangue" input field
+            $("#nouvelleLangue").autocomplete({
+                source: languages,
+            });
+            // Initialize the autocomplete for the "supprimeLangue" input field
+            $("#supprimeLangue").autocomplete({
+                source: languages
+            });
+        });
+
         $scope.updateImage = function (input) {
             let reader = new FileReader();
             reader.onload = function () {
@@ -231,14 +409,23 @@ odoo.define('website.ore_angularjs_global', function (require) {
             // revert
             $scope.membre_info.ma_photo = $scope.ask_modif_copy.membre_info.ma_photo;
             $scope.membre_info.introduction = $scope.ask_modif_copy.membre_info.introduction;
+            $scope.membre_info.description = $scope.ask_modif_copy.membre_info.description;
+            $scope.membre_info.interet = $scope.ask_modif_copy.membre_info.interet;
+            $scope.membre_info.motivation_membre = $scope.ask_modif_copy.membre_info.motivation_membre;
+            $scope.membre_info.langue = $scope.ask_modif_copy.membre_info.langue;
             $scope.ask_modification_profile = false;
+            $scope.afficherAjoutLangue = false;
+            $scope.afficherSupprimerLangue = false;
+            $scope.afficherSupprimerInteret = false;
+            $scope.afficherAjoutInteret = false;
+            $scope.enleverDernieresLangues();
+            $scope.enleverDernieresInterets()
             $scope.show_croppie = false;
         };
 
         $scope.change_ask_modification_profile = function (enable) {
             console.debug(enable);
             $scope.ask_modification_profile = enable;
-
             if (!enable) {
                 // Recording, check diff and rpc to server
                 let form = {};
@@ -250,6 +437,36 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 if ($scope.ask_modif_copy.membre_info.introduction !== $scope.membre_info.introduction) {
                     form["introduction"] = $scope.membre_info.introduction;
+                }
+                if ($scope.membre_info.description === $scope.modify_label_when_empty) {
+                    $scope.membre_info.description = "";
+                }
+                if ($scope.ask_modif_copy.membre_info.description !== $scope.membre_info.description) {
+                    form["description"] = $scope.membre_info.description;
+                }
+                if ($scope.membre_info.interet === $scope.modify_label_when_empty) {
+                    $scope.membre_info.interet = [];
+                }
+                if ($scope.ask_modif_copy.membre_info.interet !== $scope.membre_info.interet) {
+                    form["interets"] = $scope.list_interets;
+                }
+                if ($scope.supprimeInteret) {
+                    form["supprimeInteret"] = $scope.supprimeInteret;
+                }
+                if ($scope.membre_info.motivation_membre === $scope.modify_label_when_empty) {
+                    $scope.membre_info.motivation_membre = "";
+                }
+                if ($scope.ask_modif_copy.membre_info.motivation_membre !== $scope.membre_info.motivation_membre) {
+                    form["motivation_membre"] = $scope.membre_info.motivation_membre;
+                }
+                if ($scope.membre_info.langue === $scope.modify_label_when_empty) {
+                    $scope.membre_info.langue = [];
+                }
+                if ($scope.ask_modif_copy.membre_info.langue !== $scope.membre_info.langue) {
+                    form["langues"] = $scope.languesParlees;
+                }
+                if ($scope.supprimeLangue) {
+                    form["supprimeLangue"] = $scope.supprimeLangue;
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit"
@@ -269,6 +486,10 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     )
                 }
                 $scope.show_croppie = false;
+                $scope.afficherAjoutLangue = false;
+                $scope.afficherSupprimerLangue = false;
+                $scope.afficherSupprimerInteret = false;
+                $scope.afficherAjoutInteret = false;
             } else {
                 // Modification, make copy
                 // let file = $scope.membre_info.ma_photo;
@@ -288,7 +509,57 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 } else {
                     $scope.ask_modif_copy.membre_info.introduction = undefined;
                 }
+
+                if (!_.isUndefined($scope.membre_info.description)) {
+                    if (_.isEmpty($scope.membre_info.description)) {
+                        $scope.membre_info.description = $scope.modify_label_when_empty;
+                        $scope.ask_modif_copy.membre_info.description = "";
+                    } else {
+                        $scope.ask_modif_copy.membre_info.description = JSON.parse(JSON.stringify($scope.membre_info.description));
+                    }
+                } else {
+                    $scope.ask_modif_copy.membre_info.description = undefined;
+                }
+
+                if (!_.isUndefined($scope.membre_info.interet)) {
+                    if (_.isEmpty($scope.membre_info.interet)) {
+                        $scope.membre_info.interet = [];
+                        $scope.ask_modif_copy.membre_info.interet = [];
+                    } else {
+                        $scope.ask_modif_copy.membre_info.interet = JSON.parse(JSON.stringify($scope.membre_info.interet));
+                    }
+                } else {
+                    $scope.ask_modif_copy.membre_info.interet = undefined;
+                }
+
+                if (!_.isUndefined($scope.membre_info.motivation_membre)) {
+                    if (_.isEmpty($scope.membre_info.motivation_membre)) {
+                        $scope.membre_info.motivation_membre = $scope.modify_label_when_empty;
+                        $scope.ask_modif_copy.membre_info.motivation_membre = "";
+                    } else {
+                        $scope.ask_modif_copy.membre_info.motivation_membre = JSON.parse(JSON.stringify($scope.membre_info.motivation_membre));
+                    }
+                } else {
+                    $scope.ask_modif_copy.membre_info.motivation_membre = undefined;
+                }
+
+                if (!_.isUndefined($scope.membre_info.langue)) {
+                    if (_.isEmpty($scope.membre_info.langue)) {
+                        $scope.membre_info.langue = [];
+                        $scope.ask_modif_copy.membre_info.langue = [];
+                    } else {
+                        $scope.ask_modif_copy.membre_info.langue = JSON.parse(JSON.stringify($scope.membre_info.langue));
+                    }
+                } else {
+                    $scope.ask_modif_copy.membre_info.langue = undefined;
+                }
                 $scope.show_croppie = false;
+                $scope.afficherAjoutLangue = false;
+                $scope.afficherSupprimerLangue = false;
+                $scope.afficherSupprimerInteret = false;
+                $scope.afficherAjoutInteret = false;
+                $scope.languesCount = 0;
+                $scope.interetsCount = 0;
             }
         };
         // End modification environnement
