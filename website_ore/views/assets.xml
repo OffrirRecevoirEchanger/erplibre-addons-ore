@@ -104,6 +104,7 @@
             <script type="text/javascript" src="/website_ore/static/src/js/ore_angularjs_global.js" />
             <script type="text/javascript" src="/website_ore/static/src/js/ore_animation.js" />
             <script type="text/javascript" src="/website_ore/static/src/js/ore_aide.js" />
+            <script type="text/javascript" src="/website_ore/static/src/js/ore_profil.js" />
             <script type="text/javascript" src="/website_ore/static/src/js/participer.js" />
             <script type="text/javascript" src="/website_ore/static/src/js/pub_offre.js" />
             <script type="text/javascript" src="/website_ore/static/src/js/navbar_tab.js" />
