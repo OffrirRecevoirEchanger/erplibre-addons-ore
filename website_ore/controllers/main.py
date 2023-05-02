@@ -1030,6 +1030,11 @@ class OREController(http.Controller):
             "personal": {
                 "id": membre_id.id,
                 "full_name": membre_id.nom,
+                "genre": membre_id.genre,
+                "date_naissance": membre_id.date_naissance,
+                "courriel": membre_id.courriel,
+                "telephone_1": membre_id.telephone_1,
+                "adresse": membre_id.adresse,
                 "ma_photo": membre_id.logo_attachment_id.local_url,
                 # "actual_bank_hours": bank_time,
                 "actual_bank_hours": membre_id.bank_time,
@@ -1086,6 +1091,13 @@ class OREController(http.Controller):
         supprimeInteret = kw.get("supprimeInteret")
         langues = kw.get("langues", [])
         supprimeLangue = kw.get("supprimeLangue")
+        nom = kw.get("full_name")
+        genre = kw.get("genre")
+        date_naissance = kw.get("date_naissance")
+        courriel = kw.get("courriel")
+        telephone_1 = kw.get("telephone_1")
+        adresse = kw.get("adresse")
+
         if "ma_photo" in kw.keys():
             # TODO do we need validation? like extension or supported file
             membre_id.logo = ma_photo.split(",")[1].encode("utf-8")
@@ -1150,6 +1162,18 @@ class OREController(http.Controller):
             )
             if langue_to_delete:
                 membre_id.langue_parle = [(3, langue_to_delete.id)]
+        if "full_name" in kw.keys():
+            membre_id.nom = nom
+        if "genre" in kw.keys():
+            membre_id.genre = genre
+        if "date_naissance" in kw.keys():
+            membre_id.date_naissance = date_naissance
+        if "courriel" in kw.keys():
+            membre_id.courriel = courriel
+        if "telephone_1" in kw.keys():
+            membre_id.telephone_1 = telephone_1
+        if "adresse" in kw.keys():
+            membre_id.adresse = adresse
         return status
 
     @http.route(
@@ -1221,6 +1245,10 @@ class OREController(http.Controller):
             "membre_info": {
                 "id": membre_id.id,
                 "full_name": membre_id.nom,
+                "date_naissance": membre_id.date_naissance,
+                "courriel": membre_id.courriel,
+                "telephone_1": membre_id.telephone_1,
+                "adresse": membre_id.adresse,
                 "ma_photo": membre_id.logo_attachment_id.local_url,
                 "bank_max_service_offert": membre_id.bank_max_service_offert,
                 "actual_bank_hours": membre_id.bank_time,
@@ -1241,7 +1269,7 @@ class OREController(http.Controller):
                 "date_creation": self.datetime_to_local(membre_id.create_date),
                 "location": membre_id.ville.nom,
                 "antecedent_judiciaire_verifier": membre_id.antecedent_judiciaire_verifier,
-                "sexe": membre_id.sexe,
+                "genre": membre_id.genre,
                 "mon_ore": {
                     "name": membre_id.ore.nom,
                     "id": membre_id.ore.id,
@@ -1323,7 +1351,11 @@ class OREController(http.Controller):
                 "age": a.age,
                 "ma_photo": a.logo_attachment_id.local_url,
                 "full_name": a.nom,
-                "annee_naissance": a.annee_naissance,
+                "date_naissance": a.date_naissance,
+                "genre": a.genre,
+                "courriel": a.courriel,
+                "telephone_1": a.telephone_1,
+                "adresse": a.adresse,
                 "antecedent_judiciaire_verifier": a.antecedent_judiciaire_verifier,
                 "bank_time": a.bank_time,
                 "bank_month_time": a.bank_month_time,
