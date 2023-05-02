@@ -51,6 +51,11 @@ class OREMembre(models.Model):
         track_visibility="onchange",
     )
 
+    date_naissance = fields.Date(
+        string="Date de naissance",
+        track_visibility="onchange",
+    )
+
     age = fields.Integer(
         string="Âge",
         compute="_compute_age",
@@ -245,8 +250,12 @@ class OREMembre(models.Model):
         string="Revenu familial",
     )
 
-    sexe = fields.Selection(
-        selection=[("femme", "Femme"), ("homme", "Homme"), ("autre", "Autre")],
+    genre = fields.Selection(
+        selection=[
+            ("femme", "Femme"),
+            ("homme", "Homme"),
+            ("autre", "Autre"),
+        ],
         track_visibility="onchange",
     )
 

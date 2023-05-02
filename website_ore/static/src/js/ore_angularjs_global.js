@@ -119,6 +119,12 @@ odoo.define('website.ore_angularjs_global', function (require) {
             actual_bank_hours: 0,
             actual_month_bank_hours: 0,
             introduction: "",
+            nom: "",
+            genre: "",
+            date_naissance: "",
+            courriel: "",
+            telephone_1: "",
+            adresse: "",
             diff_humain_creation_membre: "",
             antecedent_judiciaire_verifier: false,
             mon_ore: {
@@ -174,7 +180,8 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.show_croppie = false;
         $scope.ask_modification = false;
         $scope.ask_modification_profile = false;
-        $scope.ask_modif_copy = {membre_info: {}, introduction: ""};
+        $scope.ask_modif_copy = {membre_info: {}, introduction: "", full_name: "", genre: "", date_naissance: "", courriel: "", telephone_1: "", adresse: ""};
+
         $scope.updateImage = function (input) {
             let reader = new FileReader();
             reader.onload = function () {
@@ -227,6 +234,8 @@ odoo.define('website.ore_angularjs_global', function (require) {
             };
             reader.readAsDataURL(input.files[0]);
         };
+
+        //Changement des pages de Profil
         $scope.annuler_ask_modification_profile = function () {
             // revert
             $scope.membre_info.ma_photo = $scope.ask_modif_copy.membre_info.ma_photo;
@@ -290,6 +299,295 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 $scope.show_croppie = false;
             }
+        };
+
+        //Page d'Information
+        $scope.change_profile_name = function (nom) {
+            $scope.ask_modification_profile_nom = nom;
+
+            if (!nom) {
+                let form = {};
+                if ($scope.membre_info.full_name === $scope.modify_label_when_empty) {
+                    $scope.membre_info.full_name = "";
+                }
+                if ($scope.ask_modif_copy.membre_info.full_name !== $scope.membre_info.full_name) {
+                    form["full_name"] = $scope.membre_info.full_name;
+                }
+                if (!_.isEmpty(form)) {
+                    let url = "/ore/personal_information/submit";
+                    ajax.rpc(url, form).then(function (data) {
+                        console.debug("AJAX receive submit_form personal_information");
+                        console.debug(data);
+
+                        if (data.error) {
+                            $scope.error = data.error;
+                        } else if (_.isEmpty(data)) {
+                            $scope.error = "Empty data - " + url;
+                        } else {
+                        }
+                        // Process all the angularjs watchers
+                        $scope.$digest();
+                    });
+                }
+            } else {
+                if (!_.isUndefined($scope.membre_info.full_name)) {
+                    if (_.isEmpty($scope.membre_info.full_name)) {
+                        $scope.membre_info.full_name = $scope.modify_label_when_empty;
+                        $scope.ask_modif_copy.membre_info.full_name = "";
+                    } else {
+                        $scope.ask_modif_copy.membre_info.full_name = JSON.parse(JSON.stringify($scope.membre_info.full_name));
+                    }
+                } else {
+                    $scope.ask_modif_copy.membre_info.full_name = undefined;
+                }
+            }
+        };
+
+        $scope.annuler_profile_name = function () {
+            $scope.membre_info.full_name = $scope.ask_modif_copy.membre_info.full_name;
+            $scope.ask_modification_profile_nom = false;
+        };
+
+        $scope.change_profile_gender = function (genre) {
+            $scope.ask_modification_profile_genre = genre;
+
+            if (!genre) {
+                let form = {};
+                if ($scope.membre_info.genre === $scope.modify_label_when_empty) {
+                    $scope.membre_info.genre = "";
+                }
+                if ($scope.ask_modif_copy.membre_info.genre !== $scope.membre_info.genre) {
+                  var selectedOption = document.getElementById("genre").value;
+                  form["genre"] = selectedOption;
+                }
+                if (!_.isEmpty(form)) {
+                    let url = "/ore/personal_information/submit";
+                    ajax.rpc(url, form).then(function (data) {
+                        console.debug("AJAX receive submit_form personal_information");
+                        console.debug(data);
+
+                        if (data.error) {
+                            $scope.error = data.error;
+                        } else if (_.isEmpty(data)) {
+                            $scope.error = "Empty data - " + url;
+                        } else {
+                        }
+                        // Process all the angularjs watchers
+                        $scope.$digest();
+                    });
+                }
+            } else {
+                if (!_.isUndefined($scope.membre_info.genre)) {
+                    if (_.isEmpty($scope.membre_info.genre)) {
+                        $scope.membre_info.genre = "";
+                        $scope.ask_modif_copy.membre_info.genre = "";
+                    } else {
+                        $scope.ask_modif_copy.membre_info.genre = JSON.parse(JSON.stringify($scope.membre_info.genre));
+                    }
+                } else {
+                    $scope.ask_modif_copy.membre_info.genre = undefined;
+                }
+            }
+        };
+
+        $scope.annuler_profile_gender = function () {
+            $scope.membre_info.genre = $scope.ask_modif_copy.membre_info.genre;
+            $scope.ask_modification_profile_genre = false;
+        };
+
+        $scope.change_profile_date_naissance = function (date) {
+            $scope.ask_modification_profile_date = date;
+
+            if (!date) {
+                let form = {};
+                if ($scope.membre_info.date_naissance === "") {
+                    $scope.membre_info.date_naissance = "";
+                }
+                if ($scope.ask_modif_copy.membre_info.date_naissance !== $scope.membre_info.date_naissance) {
+                    form["date_naissance"] = $scope.membre_info.date_naissance;
+                }
+                if (!_.isEmpty(form)) {
+                    let url = "/ore/personal_information/submit";
+                    ajax.rpc(url, form).then(function (data) {
+                        console.debug("AJAX receive submit_form personal_information");
+                        console.debug(data);
+
+                        if (data.error) {
+                            $scope.error = data.error;
+                        } else if (_.isEmpty(data)) {
+                            $scope.error = "Empty data - " + url;
+                        } else {
+                        }
+                        // Process all the angularjs watchers
+                        $scope.$digest();
+                    });
+                }
+            } else {
+                if (!_.isUndefined($scope.membre_info.date_naissance)) {
+                    if (_.isEmpty($scope.membre_info.date_naissance)) {
+                        $scope.membre_info.date_naissance = "";
+                        $scope.ask_modif_copy.membre_info.date_naissance = "";
+                    } else {
+                        $scope.ask_modif_copy.membre_info.date_naissance = JSON.parse(JSON.stringify($scope.membre_info.date_naissance));
+                    }
+                } else {
+                    $scope.ask_modif_copy.membre_info.date_naissance = undefined;
+                }
+            }
+        };
+
+        $scope.annuler_profile_date = function () {
+            $scope.membre_info.date_naissance = $scope.ask_modif_copy.membre_info.date_naissance;
+            $scope.ask_modification_profile_date = false;
+        };
+
+        $scope.change_profile_courriel = function (courriel) {
+            $scope.ask_modification_profile_courriel = courriel;
+
+            if (!courriel) {
+                let form = {};
+                if ($scope.membre_info.courriel === $scope.modify_label_when_empty) {
+                    $scope.membre_info.courriel = "";
+                }
+                if ($scope.ask_modif_copy.membre_info.courriel !== $scope.membre_info.courriel) {
+                    if (!$scope.membre_info.courriel) {
+                        return;
+                    }else {
+                        form["courriel"] = $scope.membre_info.courriel;
+                    }
+                }
+                if (!_.isEmpty(form)) {
+                    let url = "/ore/personal_information/submit";
+                    ajax.rpc(url, form).then(function (data) {
+                        console.debug("AJAX receive submit_form personal_information");
+                        console.debug(data);
+
+                        if (data.error) {
+                            $scope.error = data.error;
+                        } else if (_.isEmpty(data)) {
+                            $scope.error = "Empty data - " + url;
+                        } else {
+                        }
+                        // Process all the angularjs watchers
+                        $scope.$digest();
+                    });
+                }
+            } else {
+                if (!_.isUndefined($scope.membre_info.courriel)) {
+                    if (_.isEmpty($scope.membre_info.courriel)) {
+                        $scope.membre_info.courriel = $scope.modify_label_when_empty;
+                        $scope.ask_modif_copy.membre_info.courriel = "";
+                    } else {
+                        $scope.ask_modif_copy.membre_info.courriel = JSON.parse(JSON.stringify($scope.membre_info.courriel));
+                    }
+                } else {
+                    $scope.ask_modif_copy.membre_info.courriel = undefined;
+                }
+            }
+        };
+
+        $scope.annuler_profile_courriel = function () {
+            console.log("TEST");
+            $scope.membre_info.courriel = $scope.ask_modif_copy.membre_info.courriel;
+            $scope.ask_modification_profile_courriel = false;
+        };
+
+        $scope.change_profile_telephone = function (telephone) {
+            $scope.ask_modification_profile_telephone = telephone;
+
+            if (!telephone) {
+                let form = {};
+                if ($scope.membre_info.telephone_1 === $scope.modify_label_when_empty) {
+                    $scope.membre_info.telephone_1 = "";
+                }
+                if ($scope.ask_modif_copy.membre_info.telephone_1 !== $scope.membre_info.telephone_1) {
+                    form["telephone_1"] = $scope.membre_info.telephone_1;
+                }
+                if (!_.isEmpty(form)) {
+                    let url = "/ore/personal_information/submit";
+                    ajax.rpc(url, form).then(function (data) {
+                        console.debug("AJAX receive submit_form personal_information");
+                        console.debug(data);
+
+                        if (data.error) {
+                            $scope.error = data.error;
+                        } else if (_.isEmpty(data)) {
+                            $scope.error = "Empty data - " + url;
+                        } else {
+                        }
+                        // Process all the angularjs watchers
+                        $scope.$digest();
+                    });
+                }
+            } else {
+                if (!_.isUndefined($scope.membre_info.telephone_1)) {
+                    if (_.isEmpty($scope.membre_info.telephone_1)) {
+                        $scope.membre_info.telephone_1 = $scope.modify_label_when_empty;
+                        $scope.ask_modif_copy.membre_info.telephone_1 = "";
+                    } else {
+                        $scope.ask_modif_copy.membre_info.telephone_1 = JSON.parse(JSON.stringify($scope.membre_info.telephone_1));
+                    }
+                } else {
+                    $scope.ask_modif_copy.membre_info.telephone_1 = undefined;
+                }
+            }
+        };
+
+        $scope.annuler_profile_telephone = function () {
+
+            $scope.membre_info.telephone_1 = $scope.ask_modif_copy.membre_info.telephone_1;
+            $scope.ask_modification_profile_telephone = false;
+        };
+
+        $scope.change_profile_adresse = function (adresse) {
+            $scope.ask_modification_profile_adresse = adresse;
+
+            if (!adresse) {
+                let form = {};
+                if ($scope.membre_info.adresse === $scope.modify_label_when_empty) {
+                    $scope.membre_info.adresse = "";
+                }
+                if ($scope.ask_modif_copy.membre_info.adresse !== $scope.membre_info.adresse) {
+                    form["adresse"] = $scope.membre_info.adresse;
+                }
+                if (!_.isEmpty(form)) {
+                    let url = "/ore/personal_information/submit";
+                    ajax.rpc(url, form).then(function (data) {
+                        console.debug("AJAX receive submit_form personal_information");
+                        console.debug(data);
+
+                        if (data.error) {
+                            $scope.error = data.error;
+                        } else if (_.isEmpty(data)) {
+                            $scope.error = "Empty data - " + url;
+                        } else {
+                        }
+                        // Process all the angularjs watchers
+                        $scope.$digest();
+                    });
+                }
+            } else {
+                if (!_.isUndefined($scope.membre_info.adresse)) {
+                    if (_.isEmpty($scope.membre_info.adresse)) {
+                        $scope.membre_info.adresse = $scope.modify_label_when_empty;
+                        $scope.ask_modif_copy.membre_info.adresse = "";
+                    } else {
+                        $scope.ask_modif_copy.membre_info.adresse = JSON.parse(JSON.stringify($scope.membre_info.adresse));
+                    }
+                } else {
+                    $scope.ask_modif_copy.membre_info.adresse = undefined;
+                }
+            }
+        };
+
+        $scope.annuler_profile_adresse = function () {
+            $scope.membre_info.adresse = $scope.ask_modif_copy.membre_info.adresse;
+            $scope.ask_modification_profile_adresse = false;
+        };
+        //END
+
+        $scope.isEmailEmpty = function() {
+            return _.isEmpty($scope.membre_info.courriel);
         };
         // End modification environnement
 
