@@ -2820,7 +2820,7 @@
 
                                 <section class="s_informations">
                                     <div class="informations_container">
-                                        <a class="information information-1 btn" href="monprofil/mapresentation">
+                                        <a class="information information-1 btn" href="#" ng-click="navigateToPage('monprofil/mapresentation')">
                                             <img src="/web/image/website_ore.ir_attachment_profil_presentation_png/Profil-Presentation.png" />
                                             <br />
                                             <span class="nbr">Ma pr&#233;sentation</span>

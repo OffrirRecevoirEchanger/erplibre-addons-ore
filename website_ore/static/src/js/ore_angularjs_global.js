@@ -174,6 +174,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.show_croppie = false;
         $scope.ask_modification = false;
         $scope.ask_modification_profile = false;
+        $scope.proxyUrl = 'https://cors-anywhere.herokuapp.com/';
         $scope.ask_modif_copy = {membre_info: {}, introduction: ""};
         $scope.updateImage = function (input) {
             let reader = new FileReader();
@@ -292,6 +293,37 @@ odoo.define('website.ore_angularjs_global', function (require) {
             }
         };
         // End modification environnement
+
+        // Changement de page
+        $scope.navigateToPage = function (path) {
+            // Get the base URL without the path segments
+            const baseUrl = window.location.protocol + '//' + window.location.host;
+
+            // Check whether the current URL already contains the 'monprofil/' prefix
+            const currentPath = window.location.pathname;
+            const newPath = currentPath.startsWith('/monprofil/') ? '/monprofil/' : '';
+
+            // Construct the new URL with the new path segment
+            const newUrl = baseUrl + newPath + path;
+
+            // Update the browser's URL without reloading the page
+            history.pushState(null, null, newUrl);
+
+            // Load the content for the new page using a proxy
+            fetch($scope.proxyUrl + newUrl)
+                .then(response => response.text())
+                .then(html => {
+                    console.log('Received HTML:', html);
+
+                    const parser = new DOMParser();
+                    const newDocument = parser.parseFromString(html, 'text/html');
+                    const newContent = newDocument.querySelector('.o_main_content');
+                    console.log('New content:', newContent);
+
+                    document.querySelector('.o_main_content').replaceWith(newContent);
+                })
+                .catch(error => console.error(error));
+        }
 
         // History
         $scope.$on('$locationChangeSuccess', function (object, newLocation, previousLocation) {
