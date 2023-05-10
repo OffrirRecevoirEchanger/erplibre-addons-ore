@@ -2820,28 +2820,28 @@
 
                                 <section class="s_informations">
                                     <div class="informations_container">
-                                        <a class="information information-1 btn" href="#" ng-click="navigateToPage('monprofil/mapresentation')">
+                                        <a class="information information-1 btn" href="/monprofil#!?section=mapresentation">
                                             <img src="/web/image/website_ore.ir_attachment_profil_presentation_png/Profil-Presentation.png" />
                                             <br />
                                             <span class="nbr">Ma pr&#233;sentation</span>
                                             <br />
                                             <span class="txt">Personnaliser la présentation affichée aux autres membres.</span>
                                         </a>
-                                        <a class="information information-2 btn debug_unimplemented" href="monprofil/mesinfos">
+                                        <a class="information information-2 btn debug_unimplemented" href="/monprofil#!?section=mesinfos">
                                             <img src="/web/image/website_ore.ir_attachment_profil_informationspersonnelles_png/Profil-InformationsPersonnelles.png" />
                                             <br />
                                             <span class="nbr">Mes informations personnelles</span>
                                             <br />
                                             <span class="txt">Modifier mes informations personnelles et vérifier mes antécédents judiciaires.</span>
                                         </a>
-                                        <a class="information information-3 btn" href="monprofil/mesannonces">
+                                        <a class="information information-3 btn" href="/monprofil#!?section=mesannonces">
                                             <img src="/web/image/website_ore.ir_attachment_profil_annonces_png/Profil-Annonces.png" />
                                             <br />
                                             <span class="nbr">Mes annonces publi&#233;es</span>
                                             <br />
                                             <span class="txt">Voir et gérer les annonces que j'ai publiées.</span>
                                         </a>
-                                        <a class="information information-4 btn" href="monprofil/mesfavoris">
+                                        <a class="information information-4 btn" href="/monprofil#!?section=mesfavoris">
                                             <img src="/web/image/website_ore.ir_attachment_profil_favoris_02_png/Profil-Favoris-02.png" />
                                             <br />
                                             <span class="nbr">Mes favoris</span>
@@ -2855,7 +2855,7 @@
                                             <br />
                                             <span class="txt">Voir mes notifications</span>
                                         </a>
-                                        <a class="information information-6 btn" href="monprofil/mespreferences">
+                                        <a class="information information-6 btn debug_unimplemented" href="/monprofil#!?section=mespreferences">
                                             <img src="/web/image/website_ore.ir_attachment_profil_preferences_png/Profil-Preferences.png" />
                                             <br />
                                             <span class="nbr">Mes pr&#233;f&#233;rences g&#233;n&#233;rales</span>
@@ -2945,7 +2945,7 @@
                                             <span class="nbr-activite" ng-cloak="">{{personal.actual_month_bank_time_human_short | uppercase}}</span>
                                             <span class="txt-activite">ce mois-ci</span>
                                         </a>
-                                        <a href="/monprofil/mapresentation" class="bilan_main bilan-3 btn debug_unimplemented">
+                                        <a href="/monprofil#!?section=mapresentation" class="bilan_main bilan-3 btn debug_unimplemented">
                                             <span class="nbr-activite">1</span>
                                             <span class="txt-activite">nouveau contact</span>
                                         </a>
@@ -3316,7 +3316,7 @@
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/monprofil" class="img bottom_menu_icon fa fa-user-circle-o" style="text-decoration:none;" />
                                             <h5>Mon profil</h5>
-                                            <a href="/monprofil/mapresentation" class="footer_link">Ma pr&#233;sentation publique</a>
+                                            <a href="/monprofil#!?section=mapresentation" class="footer_link">Ma pr&#233;sentation publique</a>
                                             <span class="debug_unimplemented">
                                                 <br />
                                                 <a href="/monprofil/mesinfos" class="footer_link">Mes informations personnelles</a>

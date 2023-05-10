@@ -21,7 +21,7 @@ odoo.define('website.ore_profil', function (require) {
         $scope.profil_show_is_concat = "concat" // or "normal"
 
         // constant
-        $scope.default_section = "mapresentation";
+        $scope.default_section = "monprofil";
         $scope.default_infos_section = "infos";
 
         $scope.trustSrc = function (src) {
@@ -29,21 +29,20 @@ odoo.define('website.ore_profil', function (require) {
         }
 
         $scope.$on('$locationChangeSuccess', function (object, newLocation, previousLocation) {
-            if (window.location.pathname !== "/profil") {
+            if (window.location.pathname !== "/monprofil") {
                 return;
             }
+
+            let sectionParam = {
+                "mapresentation": "ma_presentation",
+                "mesinfos": "mes_infos",
+                "mesannonces": "mes_annonces",
+                "mesfavoris": "mes_favoris",
+                "mespreferences": "mes_preferences"
+            }
+
             let section = $location.search()["section"];
-            if (!_.isEmpty(section)) {
-                $scope.section = section;
-            } else {
-                $scope.section = $scope.default_section;
-            }
-            let amelioration_section = $location.search()["infos_section"];
-            if (!_.isEmpty(amelioration_section)) {
-                $scope.infos_section = infos_section;
-            } else {
-                $scope.infos_section = $scope.default_infos_section;
-            }
+            $scope.section = sectionParam[section] || $scope.default_section;
         });
 
         $scope.sizeStateValidated = function (state) {
@@ -122,7 +121,7 @@ odoo.define('website.ore_profil', function (require) {
     });
 
     return {
-        OREAide: OREAide,
+        OREProfil: OREProfil,
     };
 
 });
