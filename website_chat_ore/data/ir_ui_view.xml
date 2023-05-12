@@ -128,7 +128,7 @@
             <field name="name">ir_ui_view_mon_profil</field>
             <field name="type">qweb</field>
         </record>
-        <record id="ir_ui_view_ma_presentation_inherit" model="ir.ui.view">
+<!--        <record id="ir_ui_view_ma_presentation_inherit" model="ir.ui.view">
             <field name="arch" type="xml">
                 <data inherit_id="website_ore.ir_ui_view_ma_presentation">
                     <xpath expr="//div[hasclass('btn_do_echange')]" position="after">
@@ -140,6 +140,6 @@
             <field name="key">website_chat_ore.ir_ui_view_ma_presentation_inherit</field>
             <field name="name">ir_ui_view_ma_presentation</field>
             <field name="type">qweb</field>
-        </record>
+        </record>-->
     </data>
 </odoo>

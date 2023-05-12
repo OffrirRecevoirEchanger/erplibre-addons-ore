@@ -1791,7 +1791,7 @@
             <field name="name">Explorer</field>
             <field name="type">qweb</field>
         </record>
-        <record id="ir_ui_view_ma_presentation" model="ir.ui.view">
+<!--<record id="ir_ui_view_ma_presentation" model="ir.ui.view">
             <field name="arch" type="xml">
                 <t name="About us" t-name="website.aboutus" groups="base.group_user,base.group_portal">
                     <t t-call="website.layout">
@@ -1833,7 +1833,7 @@
                                                 <div class="modal-dialog">
                                                     <div id="s_media_block_modal" class="modal-content">
                                                         <div class="modal-body">
-                                                            <!-- modal-body -->
+                                                            &lt;!&ndash; modal-body &ndash;&gt;
                                                             <div style="text-align: center;">
                                                                 <span id="profile-picture" />
                                                                 <button id="confirm-crop-btn" ng-click="cropProfilePicture()" data-toggle="modal" data-target=".modal_pub_offre" ng-if="show_croppie">Recadrer</button>
@@ -2063,6 +2063,7 @@
             <field name="name">Ma pr&#233;sentation</field>
             <field name="type">qweb</field>
         </record>
+-->
         <record id="ir_ui_view_membres" model="ir.ui.view">
             <field name="arch" type="xml">
                 <t name="About us" t-name="website.aboutus" groups="base.group_user,base.group_portal">
@@ -2777,221 +2778,221 @@
             <field name="name">Messages et notifications</field>
             <field name="type">qweb</field>
         </record>
+
         <record id="ir_ui_view_mon_profil" model="ir.ui.view">
-            <field name="arch" type="xml">
-                <t name="About us" t-name="website.aboutus" groups="base.group_user,base.group_portal">
-                    <t t-call="website.layout">
-                        <div id="wrap">
-                            <div class="oe_structure">
-                                <div class="debug_debug">
-                                    Lien maquette :
-                                    <a href="https://marvelapp.com/prototype/1773h559/screen/86371536">https://marvelapp.com/prototype/1773h559/screen/86371536</a>
-                                    <br />
-                                    Lien mobile :
-                                    <a href="https://marvelapp.com/prototype/6dbaaf8/screen/84804881">https://marvelapp.com/prototype/6dbaaf8/screen/84804881</a>
-                                </div>
-                                <section class="s_title_banner oe_img_bg oe_custom_bg pb64 pt56" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
-                                    <div class="banner_profile">
-                                        <div id="background_white_profil" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 10px;">
-                                            <div class="profile_infos" style="margin: 10px;">
-                                                <div class="profile_pic rounded-circle" ng-style="{'background-image': 'url(' + personal.ma_photo + ')'}">
-                                                    <i class="fa fa-shield text-color-title" />
-                                                </div>
-                                                <div class="profile_banner_info" style="white-space: nowrap;">
-                                                    <p class="profile_name text-color-title" ng-cloak="">{{personal.full_name}}</p>
-                                                    <p class="profile_hrs text-color-title">
+                <field name="arch" type="xml">
+                    <t name="About us" t-name="website.aboutus" groups="base.group_user,base.group_portal">
+                        <t t-call="website.layout">
+                            <div id="wrap" class="oe_structure oe_empty" ng-controller="ProfilController">
+                                <div class="">
+                                    <div class="debug_debug">
+                                        Lien maquette :
+                                        <a href="https://marvelapp.com/prototype/1773h559/screen/86371536">https://marvelapp.com/prototype/1773h559/screen/86371536</a>
+                                        <br />
+                                        Lien mobile :
+                                        <a href="https://marvelapp.com/prototype/6dbaaf8/screen/84804881">https://marvelapp.com/prototype/6dbaaf8/screen/84804881</a>
+                                    </div>
+                                    <section class="s_title_banner oe_img_bg oe_custom_bg pb64 pt56" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
+                                        <div class="banner_profile">
+                                            <div id="background_white_profil" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 10px;">
+                                                <div class="profile_infos" style="margin: 10px;">
+                                                    <div class="profile_pic rounded-circle" ng-style="{'background-image': 'url(' + personal.ma_photo + ')'}">
+                                                        <i class="fa fa-shield text-color-title" />
+                                                    </div>
+                                                    <div class="profile_banner_info" style="white-space: nowrap;">
+                                                        <p class="profile_name text-color-title" ng-cloak="">{{personal.full_name}}</p>
+                                                        <p class="profile_hrs text-color-title">
                                                         <i class="fa fa-clock-o" />&amp;nbsp;<span ng-class="{neg_time_2: !personal.actual_bank_sign}" ng-cloak="">{{personal.actual_bank_time_human_simplify}}</span>
                                                     </p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div id="btn_ore_profil" class="profile_btn btn ore text-color-title debug_unimplemented" style="background-color: white; border-radius: 15px;">
-                                            <i class="fa fa-smile-o" />
-                                            <span id="mon_reseau" ng-cloak="">Mon réseau: {{personal.mon_ore.name}}</span>
-                                            <i class="fa fa-chevron-right" />
-                                        </div>
-                                        <a href="web/session/logout?redirect=/">
-                                            <div id="btn_disconnect_profil" class="profile_btn btn disconnect text-color-title" style="background-color: white; border-radius: 15px;">
+                                            <div id="btn_ore_profil" class="profile_btn btn ore text-color-title debug_unimplemented" style="background-color: white; border-radius: 15px;">
+                                                <i class="fa fa-smile-o" />
+                                                <span id="mon_reseau" ng-cloak="">Mon réseau: {{personal.mon_ore.name}}</span>
+                                                <i class="fa fa-chevron-right" />
+                                            </div>
+                                            <a href="web/session/logout?redirect=/">
+                                                <div id="btn_disconnect_profil" class="profile_btn btn disconnect text-color-title" style="background-color: white; border-radius: 15px;">
                                                 <i class="fa fa-power-off" />&amp;nbsp;Se déconnecter
                                             </div>
-                                        </a>
-                                    </div>
-                                </section>
-
-                                <section class="s_informations">
-                                    <div class="informations_container">
-                                        <a class="information information-1 btn" href="/monprofil#!?section=mapresentation">
-                                            <img src="/web/image/website_ore.ir_attachment_profil_presentation_png/Profil-Presentation.png" />
-                                            <br />
-                                            <span class="nbr">Ma pr&#233;sentation</span>
-                                            <br />
-                                            <span class="txt">Personnaliser la présentation affichée aux autres membres.</span>
-                                        </a>
-                                        <a class="information information-2 btn debug_unimplemented" href="/monprofil#!?section=mesinfos">
-                                            <img src="/web/image/website_ore.ir_attachment_profil_informationspersonnelles_png/Profil-InformationsPersonnelles.png" />
-                                            <br />
-                                            <span class="nbr">Mes informations personnelles</span>
-                                            <br />
-                                            <span class="txt">Modifier mes informations personnelles et vérifier mes antécédents judiciaires.</span>
-                                        </a>
-                                        <a class="information information-3 btn" href="/monprofil#!?section=mesannonces">
-                                            <img src="/web/image/website_ore.ir_attachment_profil_annonces_png/Profil-Annonces.png" />
-                                            <br />
-                                            <span class="nbr">Mes annonces publi&#233;es</span>
-                                            <br />
-                                            <span class="txt">Voir et gérer les annonces que j'ai publiées.</span>
-                                        </a>
-                                        <a class="information information-4 btn" href="/monprofil#!?section=mesfavoris">
-                                            <img src="/web/image/website_ore.ir_attachment_profil_favoris_02_png/Profil-Favoris-02.png" />
-                                            <br />
-                                            <span class="nbr">Mes favoris</span>
-                                            <br />
-                                            <span class="txt">Voir mes offres, demandes et membres favoris.</span>
-                                        </a>
-                                        <a class="information information-5 btn btn_message_and_notification" href="notification">
-                                            <img src="/web/image/website_ore.ir_attachment_profil_preferences_png/Profil-Preferences.png" />
-                                            <br />
-                                            <span class="nbr">Mes notifications</span>
-                                            <br />
-                                            <span class="txt">Voir mes notifications</span>
-                                        </a>
-                                        <a class="information information-6 btn debug_unimplemented" href="/monprofil#!?section=mespreferences">
-                                            <img src="/web/image/website_ore.ir_attachment_profil_preferences_png/Profil-Preferences.png" />
-                                            <br />
-                                            <span class="nbr">Mes pr&#233;f&#233;rences g&#233;n&#233;rales</span>
-                                            <br />
-                                            <span class="txt">Gérer les paramètres de votre espace membre (langues, moyens de communications, ...)</span>
-                                        </a>
-                                        <a class="information logout btn" href="web/session/logout?redirect=/">
-                                            <span class="nbr">
+                                            </a>
+                                        </div>
+                                    </section>
+                                    <section class="s_informations">
+                                        <div class="informations_container">
+                                            <a class="information information-1 btn" href="/monprofil#!?section=ma_presentation">
+                                                <img src="/web/image/website_ore.ir_attachment_profil_presentation_png/Profil-Presentation.png" />
+                                                <br />
+                                                <span class="nbr">Ma pr&#233;sentation</span>
+                                                <br />
+                                                <span class="txt">Personnaliser la présentation affichée aux autres membres.</span>
+                                            </a>
+                                            <a class="information information-2 btn debug_unimplemented" href="/monprofil#!?section=mesinfos">
+                                                <img src="/web/image/website_ore.ir_attachment_profil_informationspersonnelles_png/Profil-InformationsPersonnelles.png" />
+                                                <br />
+                                                <span class="nbr">Mes informations personnelles</span>
+                                                <br />
+                                                <span class="txt">Modifier mes informations personnelles et vérifier mes antécédents judiciaires.</span>
+                                            </a>
+                                            <a class="information information-3 btn" href="/monprofil#!?section=mesannonces">
+                                                <img src="/web/image/website_ore.ir_attachment_profil_annonces_png/Profil-Annonces.png" />
+                                                <br />
+                                                <span class="nbr">Mes annonces publi&#233;es</span>
+                                                <br />
+                                                <span class="txt">Voir et gérer les annonces que j'ai publiées.</span>
+                                            </a>
+                                            <a class="information information-4 btn" href="/monprofil#!?section=mesfavoris">
+                                                <img src="/web/image/website_ore.ir_attachment_profil_favoris_02_png/Profil-Favoris-02.png" />
+                                                <br />
+                                                <span class="nbr">Mes favoris</span>
+                                                <br />
+                                                <span class="txt">Voir mes offres, demandes et membres favoris.</span>
+                                            </a>
+                                            <a class="information information-5 btn btn_message_and_notification" href="notification">
+                                                <img src="/web/image/website_ore.ir_attachment_profil_preferences_png/Profil-Preferences.png" />
+                                                <br />
+                                                <span class="nbr">Mes notifications</span>
+                                                <br />
+                                                <span class="txt">Voir mes notifications</span>
+                                            </a>
+                                            <a class="information information-6 btn debug_unimplemented" href="/monprofil#!?section=mespreferences">
+                                                <img src="/web/image/website_ore.ir_attachment_profil_preferences_png/Profil-Preferences.png" />
+                                                <br />
+                                                <span class="nbr">Mes pr&#233;f&#233;rences g&#233;n&#233;rales</span>
+                                                <br />
+                                                <span class="txt">Gérer les paramètres de votre espace membre (langues, moyens de communications, ...)</span>
+                                            </a>
+                                            <a class="information logout btn" href="web/session/logout?redirect=/">
+                                                <span class="nbr">
                                                 <i class="fa fa-power-off" />&amp;nbsp;D&#233;connecter
                                             </span>
-                                        </a>
-                                    </div>
-                                </section>
-                            </div>
-                            <div class="oe_structure" ng-show="section === 'ma_presentation'">
-                                <div class="debug_debug">
-                                    Lien maquette :
-                                    <a href="https://marvelapp.com/prototype/1773h559/screen/86371556">https://marvelapp.com/prototype/1773h559/screen/86371556</a>
-                                    <br />
-                                    Lien maquette :
-                                    <a href="https://marvelapp.com/prototype/1773h559/screen/86371573">https://marvelapp.com/prototype/1773h559/screen/86371573</a>
-                                    <br />
-                                    Lien maquette :
-                                    <a href="https://marvelapp.com/prototype/1773h559/screen/86589551">https://marvelapp.com/prototype/1773h559/screen/86589551</a>
-                                    <br />
-                                    Lien mobile :
-                                    <a href="https://marvelapp.com/prototype/6dbaaf8/screen/84804863">https://marvelapp.com/prototype/6dbaaf8/screen/84804863</a>
-                                </div>
-                                <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_finale_1521_x_980.png&quot;);">
-                                    <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb48" style="text-align: center;">
-                                            <h1 class="s_title_default text-bold" style="text-align: left;" />
+                                            </a>
                                         </div>
+                                    </section>
+                                </div>
+                                <div class="ng-class='{'active': ma_presentation === 'ma_presentation'}'" ng-show="section === 'ma_presentation'">
+                                    <div class="debug_debug">
+                                        Lien maquette :
+                                        <a href="https://marvelapp.com/prototype/1773h559/screen/86371556">https://marvelapp.com/prototype/1773h559/screen/86371556</a>
+                                        <br />
+                                        Lien maquette :
+                                        <a href="https://marvelapp.com/prototype/1773h559/screen/86371573">https://marvelapp.com/prototype/1773h559/screen/86371573</a>
+                                        <br />
+                                        Lien maquette :
+                                        <a href="https://marvelapp.com/prototype/1773h559/screen/86589551">https://marvelapp.com/prototype/1773h559/screen/86589551</a>
+                                        <br />
+                                        Lien mobile :
+                                        <a href="https://marvelapp.com/prototype/6dbaaf8/screen/84804863">https://marvelapp.com/prototype/6dbaaf8/screen/84804863</a>
                                     </div>
-                                </section>
-                                <section class="s_mes_informations">
-                                    <div class="informations_container">
-                                        <div class="information information-1">
-                                            <div class="profile_pic" style="width: 200px; height: 150px; position: relative; top: -1px;">
-                                                <img class="img img-fluid rounded-circle" ng-src="{{ membre_info.ma_photo }}" alt="Ma photo" style="position:relative; left:5px;" />
-                                                <input id="file-input" style="opacity:0;" ng-if="ask_modification_profile" type="file" ng-model="myImage" accept="image/*" onchange="angular.element(this).scope().updateImage(this)" />
-                                                <label for="file-input" class="file-label">
-                                                    <i class="white_box" style="padding-bottom: 1px; padding-right: 1px; border-radius: 10px; left: 55px; top: 50px; width: 40px; height: 40px" ng-if="ask_modification_profile" />
-                                                    <i class="fa fa-pencil-square text-primary" id="submitBtn" data-toggle="modal" data-target=".modal_pub_offre" style="padding-bottom: 50px; cursor: pointer;" ng-if="ask_modification_profile" />
-                                                    <i class="fa fa-shield text-epsilon" ng-if="membre_info.antecedent_judiciaire_verifier" />
-                                                </label>
+                                    <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_finale_1521_x_980.png&quot;);">
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="col-lg-12 s_title pt16 pb48" style="text-align: center;">
+                                                <h1 class="s_title_default text-bold" style="text-align: left;" />
                                             </div>
-                                            <div t-name="ore.ore_pub_offre_modal" class="modal fade modal_pub_offre modal_shown" backdrop="static" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div id="s_media_block_modal" class="modal-content">
-                                                        <div class="modal-body">
-                                                            <!-- modal-body -->
-                                                            <div style="text-align: center;">
-                                                                <span id="profile-picture" />
-                                                                <button id="confirm-crop-btn" ng-click="cropProfilePicture()" data-toggle="modal" data-target=".modal_pub_offre" ng-if="show_croppie">Recadrer</button>
-                                                                <button id="cancel-crop-btn" ng-click="closeModalForm(); clearData()" data-toggle="modal" data-target=".modal_pub_offre">Annuler</button>
+                                        </div>
+                                    </section>
+                                    <section class="s_mes_informations">
+                                        <div class="informations_container">
+                                            <div class="information information-1">
+                                                <div class="profile_pic" style="width: 200px; height: 150px; position: relative; top: -1px;">
+                                                    <img class="img img-fluid rounded-circle" ng-src="{{ membre_info.ma_photo }}" alt="Ma photo" style="position:relative; left:5px;" />
+                                                    <input id="file-input" style="opacity:0;" ng-if="ask_modification_profile" type="file" ng-model="myImage" accept="image/*" onchange="angular.element(this).scope().updateImage(this)" />
+                                                    <label for="file-input" class="file-label">
+                                                        <i class="white_box" style="padding-bottom: 1px; padding-right: 1px; border-radius: 10px; left: 55px; top: 50px; width: 40px; height: 40px" ng-if="ask_modification_profile" />
+                                                        <i class="fa fa-pencil-square text-primary" id="submitBtn" data-toggle="modal" data-target=".modal_pub_offre" style="padding-bottom: 50px; cursor: pointer;" ng-if="ask_modification_profile" />
+                                                        <i class="fa fa-shield text-epsilon" ng-if="membre_info.antecedent_judiciaire_verifier" />
+                                                    </label>
+                                                </div>
+                                                <div t-name="ore.ore_pub_offre_modal" class="modal fade modal_pub_offre modal_shown" backdrop="static" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div id="s_media_block_modal" class="modal-content">
+                                                            <div class="modal-body">
+                                                                <!-- modal-body -->
+                                                                <div style="text-align: center;">
+                                                                    <span id="profile-picture" />
+                                                                    <button id="confirm-crop-btn" ng-click="cropProfilePicture()" data-toggle="modal" data-target=".modal_pub_offre" ng-if="show_croppie">Recadrer</button>
+                                                                    <button id="cancel-crop-btn" ng-click="closeModalForm(); clearData()" data-toggle="modal" data-target=".modal_pub_offre">Annuler</button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <span class="text desc" style="font-size: 1.4rem;">
-                                                Bonjour, je m'appelle
-                                                <br />
-                                                <font style="font-weight:bold;" ng-cloak="">{{membre_info.full_name}}</font>
-                                            </span>
-                                            <div class="container_profil">
-                                                <nav class="profil_left">
-                                                    <div class="profil profil_left profil_box btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile" ng-click="change_ask_modification_profile(true)">
-                                                        <span class="img img-fluid mx-auto fa fa-pencil" />
-                                                        Modifier le profil
-                                                    </div>
-                                                    <div class="profil profil_right profil_box btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile" ng-click="annuler_ask_modification_profile(); destroyCroppie()">
-                                                        <span class="img img-fluid mx-auto fa fa-close" />
-                                                        Annuler les modifications
-                                                    </div>
-                                                </nav>
-                                                <nav class="profil_main">
-                                                    <div class="profil profil_main profil_box btn btn-primary adapt-text-primary-color" style="right: 50px;" ng-click="add_to_my_favorite('ore.membre', membre_info)">
-                                                        <span class="img img-fluid mx-auto fa coeur" ng-class="{'fa-heart': membre_info.is_favorite, 'fa-heart-o': !membre_info.is_favorite}" />
-                                                        <span class="adapt-text-primary-color" ng-if="!membre_info.is_favorite">Ajouter à mes favoris</span>
-                                                        <span class="adapt-text-primary-color" ng-if="membre_info.is_favorite">Retirer de mes favoris</span>
-                                                    </div>
-                                                </nav>
-                                                <nav class="profil_right">
-                                                    <div class="profil profil_left profil_box btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile" ng-click="change_ask_modification_profile(false); destroyCroppie()">
-                                                        <span class="img img-fluid mx-auto fa fa-save" />
-                                                        Enregistrer le profil
-                                                    </div>
-                                                    <div class="profil profil_right profil_box btn btn-primary btn_do_echange debug_unimplemented adapt-text-primary-color" ng-if="!membre_info.estPersonnel" ng-cloak="">Échanger avec {{membre_info.prenom}}</div>
-                                                </nav>
-                                            </div>
-                                        </div>
-                                        <div class="information information-2">
-                                            <span class="txt">Intro</span>
-                                            <br />
-                                            <br />
-                                            <span class="nbr" ng-show="membre_info.introduction" ng-if="!ask_modification_profile">
-                                                <q ng-cloak="">{{membre_info.introduction}}</q>
-                                            </span>
-                                            <span class="nbr" ng-if="ask_modification_profile">
-                                                <q class="editable-content-blue" contenteditable="true" ng-model="membre_info.introduction" />
-                                            </span>
-                                        </div>
-                                        <div class="information information-3">
-                                            <span class="txt">R&#233;sum&#233;</span>
-                                            <br />
-                                            <br />
-                                            <span class="desc-3 debug_unimplemented">
-                                                <i class="fa fa-map-marker" />
-                                                <span style="position: relative; left: -25px;">Habite &#224; 1.2km de votre domicile</span>
-                                            </span>
-                                            <br />
-                                            <span class="desc-3">
-                                                <i class="fa fa-home" />
-                                                <span style="position: relative; left: -25px;" ng-cloak="">{{membre_info.location}}</span>
-                                            </span>
-                                            <br />
-                                            <span class="desc-3">
-                                                <i class="fa fa-shield" />
-                                                <span style="position: relative; left: -25px;" ng-if="membre_info.antecedent_judiciaire_verifier">Ant&#233;c&#233;dents judificaires v&#233;rifi&#233;s</span>
-                                                <span style="position: relative; left: -25px;" ng-if="!membre_info.antecedent_judiciaire_verifier">Ant&#233;c&#233;dents judificaires non v&#233;rifi&#233;s</span>
-                                            </span>
-                                            <br />
-                                            <span class="desc-3">
-                                                <i class="fa fa-calendar" />
-                                                <span style="position: relative; left: -25px;" ng-cloak="">Membre depuis {{membre_info.diff_humain_creation_membre}}</span>
-                                            </span>
-                                        </div>
-                                        <div class="information information-4">
-                                            <div class="debug_unimplemented">
-                                                <span class="txt">Ma description</span>
-
-                                                <span>
+                                                <span class="text desc" style="font-size: 1.4rem;">
+                                                    Bonjour, je m'appelle
                                                     <br />
-                                                    Pellentesque feugiat arcu eu laoreet dignissim. Ut ut orci
+                                                    <font style="font-weight:bold;" ng-cloak="">{{membre_info.full_name}}</font>
+                                                </span>
+                                                <div class="container_profil">
+                                                    <nav class="profil_left">
+                                                        <div class="profil profil_left profil_box btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile" ng-click="change_ask_modification_profile(true)">
+                                                            <span class="img img-fluid mx-auto fa fa-pencil" />
+                                                            Modifier le profil
+                                                        </div>
+                                                        <div class="profil profil_right profil_box btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile" ng-click="annuler_ask_modification_profile(); destroyCroppie()">
+                                                            <span class="img img-fluid mx-auto fa fa-close" />
+                                                            Annuler les modifications
+                                                        </div>
+                                                    </nav>
+                                                    <nav class="profil_main">
+                                                        <div class="profil profil_main profil_box btn btn-primary adapt-text-primary-color" style="right: 50px;" ng-click="add_to_my_favorite('ore.membre', membre_info)">
+                                                            <span class="img img-fluid mx-auto fa coeur" ng-class="{'fa-heart': membre_info.is_favorite, 'fa-heart-o': !membre_info.is_favorite}" />
+                                                            <span class="adapt-text-primary-color" ng-if="!membre_info.is_favorite">Ajouter à mes favoris</span>
+                                                            <span class="adapt-text-primary-color" ng-if="membre_info.is_favorite">Retirer de mes favoris</span>
+                                                        </div>
+                                                    </nav>
+                                                    <nav class="profil_right">
+                                                        <div class="profil profil_left profil_box btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile" ng-click="change_ask_modification_profile(false); destroyCroppie()">
+                                                            <span class="img img-fluid mx-auto fa fa-save" />
+                                                            Enregistrer le profil
+                                                        </div>
+                                                        <div class="profil profil_right profil_box btn btn-primary btn_do_echange debug_unimplemented adapt-text-primary-color" ng-if="!membre_info.estPersonnel" ng-cloak="">Échanger avec {{membre_info.prenom}}</div>
+                                                    </nav>
+                                                </div>
+                                            </div>
+                                            <div class="information information-2">
+                                                <span class="txt">Intro</span>
+                                                <br />
+                                                <br />
+                                                <span class="nbr" ng-show="membre_info.introduction" ng-if="!ask_modification_profile">
+                                                    <q ng-cloak="">{{membre_info.introduction}}</q>
+                                                </span>
+                                                <span class="nbr" ng-if="ask_modification_profile">
+                                                    <q class="editable-content-blue" contenteditable="true" ng-model="membre_info.introduction" />
+                                                </span>
+                                            </div>
+                                            <div class="information information-3">
+                                                <span class="txt">R&#233;sum&#233;</span>
+                                                <br />
+                                                <br />
+                                                <span class="desc-3 debug_unimplemented">
+                                                    <i class="fa fa-map-marker" />
+                                                    <span style="position: relative; left: -25px;">Habite &#224; 1.2km de votre domicile</span>
+                                                </span>
+                                                <br />
+                                                <span class="desc-3">
+                                                    <i class="fa fa-home" />
+                                                    <span style="position: relative; left: -25px;" ng-cloak="">{{membre_info.location}}</span>
+                                                </span>
+                                                <br />
+                                                <span class="desc-3">
+                                                    <i class="fa fa-shield" />
+                                                    <span style="position: relative; left: -25px;" ng-if="membre_info.antecedent_judiciaire_verifier">Ant&#233;c&#233;dents judificaires v&#233;rifi&#233;s</span>
+                                                    <span style="position: relative; left: -25px;" ng-if="!membre_info.antecedent_judiciaire_verifier">Ant&#233;c&#233;dents judificaires non v&#233;rifi&#233;s</span>
+                                                </span>
+                                                <br />
+                                                <span class="desc-3">
+                                                    <i class="fa fa-calendar" />
+                                                    <span style="position: relative; left: -25px;" ng-cloak="">Membre depuis {{membre_info.diff_humain_creation_membre}}</span>
+                                                </span>
+                                            </div>
+                                            <div class="information information-4">
+                                                <div class="debug_unimplemented">
+                                                    <span class="txt">Ma description</span>
+
+                                                    <span>
+                                                        <br />
+                                                        Pellentesque feugiat arcu eu laoreet dignissim. Ut ut orci
                                                     ullamcorper erat lacinia mattis ac aliquet leo. Fusce et dui quis
                                                     odio pellentesque egestas sit amet in dui. Quisque elementum dapibus
                                                     magna, sed varius neque pellentesque pulvinar. Aenean at cursus
@@ -3002,9 +3003,9 @@
                                                     commodo
                                                     pretium ullamcorper, magna neque pharetra ante, ullamcorper iaculis
                                                     lectus lectus eu nulla.
-                                                    <br />
-                                                    <br />
-                                                    Nam consectetur bibendum rutrum. Cras dapibus ligula vitae est
+                                                        <br />
+                                                        <br />
+                                                        Nam consectetur bibendum rutrum. Cras dapibus ligula vitae est
                                                     euismod malesuada.
                                                     Class aptent taciti sociosqu ad litora torquent per conubia nostra,
                                                     per inceptos
@@ -3015,21 +3016,21 @@
                                                     sit amet pretium massa consectetur eu. Donec lorem ipsum, efficitur
                                                     imperdiet dui vitae, c
                                                     ommodo varius justo.
-                                                </span>
-                                            </div>
-                                            <div class="debug_unimplemented">
-                                                <span class="txt">Mes centres d'intérêt</span>
-                                                <br />
-                                                <div class="d-flex" style="gap:1%">
-                                                    <div class="tag">Marche</div>
-                                                    <div class="tag">Jardinage</div>
-                                                    <div class="tag">Tricot</div>
+                                                    </span>
                                                 </div>
-                                            </div>
-                                            <div class="debug_unimplemented">
-                                                <span class="txt">Pourquoi suis-je membre du réseau?</span>
-                                                <span>
-                                                    Nam consectetur bibendum rutrum. Cras dapibus ligula vitae est
+                                                <div class="debug_unimplemented">
+                                                    <span class="txt">Mes centres d'intérêt</span>
+                                                    <br />
+                                                    <div class="d-flex" style="gap:1%">
+                                                        <div class="tag">Marche</div>
+                                                        <div class="tag">Jardinage</div>
+                                                        <div class="tag">Tricot</div>
+                                                    </div>
+                                                </div>
+                                                <div class="debug_unimplemented">
+                                                    <span class="txt">Pourquoi suis-je membre du réseau?</span>
+                                                    <span>
+                                                        Nam consectetur bibendum rutrum. Cras dapibus ligula vitae est
                                                     euismod malesuada.
                                                     Class aptent taciti sociosqu ad litora torquent per conubia nostra,
                                                     per inceptos
@@ -3040,264 +3041,265 @@
                                                     sit amet pretium massa consectetur eu. Donec lorem ipsum, efficitur
                                                     imperdiet dui vitae, c
                                                     ommodo varius justo.
-                                                </span>
-                                            </div>
-                                            <div class="debug_unimplemented">
-                                                <span class="txt" ng-if="membre_info.estPersonnel">Les langues que je parle</span>
-                                                <span class="txt" ng-if="!membre_info.estPersonnel">Les langues parlées</span>
-                                                <span>
-                                                    <i class="fa fa-commenting" />
-                                                    Français
-                                                </span>
-                                                <br />
-                                                <span>
-                                                    <i class="fa fa-commenting" />
-                                                    Anglais
-                                                </span>
-                                            </div>
+                                                    </span>
+                                                </div>
+                                                <div class="debug_unimplemented">
+                                                    <span class="txt" ng-if="membre_info.estPersonnel">Les langues que je parle</span>
+                                                    <span class="txt" ng-if="!membre_info.estPersonnel">Les langues parlées</span>
+                                                    <span>
+                                                        <i class="fa fa-commenting" />
+                                                        Français
+                                                    </span>
+                                                    <br />
+                                                    <span>
+                                                        <i class="fa fa-commenting" />
+                                                        Anglais
+                                                    </span>
+                                                </div>
 
-                                            <div ng-if="_.isEmpty(membre_info.dct_offre_service)">
-                                                <span class="txt" ng-if="membre_info.estPersonnel">Mes offres de service</span>
-                                                <span class="txt" ng-if="!membre_info.estPersonnel">Ses offres de service</span>
-                                                <span>Aucune offre de service en cours actuellement.</span>
-                                            </div>
-                                            <div ng-if="!_.isEmpty(membre_info.dct_offre_service)">
-                                                <span class="txt">
-                                                    <span ng-if="membre_info.estPersonnel">Mes offres de service</span>
-                                                    <span ng-if="!membre_info.estPersonnel">Ses offres de service</span>
-                                                    <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
-                                                        <u ng-cloak="">Voir tout ({{membre_info.dct_offre_service | lengthKeys}})</u>
-                                                    </a>
-                                                </span>
-                                                <div class="row vertical_list">
-                                                    <div class="activite btn" ng-repeat="(offre_id, offre) in membre_info.dct_offre_service">
-                                                        <a ng-href="/ore/ore_offre_service/{{offre.id}}">
-                                                            <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                            <div class="infos">
-                                                                <p class="activite_title" ng-cloak="">{{offre.titre}}</p>
-                                                                <p class="activite_desc" ng-if="!_.isEmpty(offre.description)" ng-bind-html="offre.description | unsafe" />
-                                                            </div>
+                                                <div ng-if="_.isEmpty(membre_info.dct_offre_service)">
+                                                    <span class="txt" ng-if="membre_info.estPersonnel">Mes offres de service</span>
+                                                    <span class="txt" ng-if="!membre_info.estPersonnel">Ses offres de service</span>
+                                                    <span>Aucune offre de service en cours actuellement.</span>
+                                                </div>
+                                                <div ng-if="!_.isEmpty(membre_info.dct_offre_service)">
+                                                    <span class="txt">
+                                                        <span ng-if="membre_info.estPersonnel">Mes offres de service</span>
+                                                        <span ng-if="!membre_info.estPersonnel">Ses offres de service</span>
+                                                        <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
+                                                            <u ng-cloak="">Voir tout ({{membre_info.dct_offre_service | lengthKeys}})</u>
                                                         </a>
-                                                        <div class="infos right">
-                                                            <p ng-cloak="">{{offre.diff_create_date}}</p>
-                                                            <p class="fa text-epsilon coeur" ng-class="{'fa-heart': offre.is_favorite, 'fa-heart-o': !offre.is_favorite}" ng-click="add_to_my_favorite('ore.offre.service', offre)" />
+                                                    </span>
+                                                    <div class="row vertical_list">
+                                                        <div class="activite btn" ng-repeat="(offre_id, offre) in membre_info.dct_offre_service">
+                                                            <a ng-href="/ore/ore_offre_service/{{offre.id}}">
+                                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                                <div class="infos">
+                                                                    <p class="activite_title" ng-cloak="">{{offre.titre}}</p>
+                                                                    <p class="activite_desc" ng-if="!_.isEmpty(offre.description)" ng-bind-html="offre.description | unsafe" />
+                                                                </div>
+                                                            </a>
+                                                            <div class="infos right">
+                                                                <p ng-cloak="">{{offre.diff_create_date}}</p>
+                                                                <p class="fa text-epsilon coeur" ng-class="{'fa-heart': offre.is_favorite, 'fa-heart-o': !offre.is_favorite}" ng-click="add_to_my_favorite('ore.offre.service', offre)" />
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                            <div ng-if="_.isEmpty(membre_info.dct_demande_service)">
-                                                <span class="txt" ng-if="membre_info.estPersonnel">Mes demandes de service</span>
-                                                <span class="txt" ng-if="!membre_info.estPersonnel">Ses demandes de service</span>
-                                                <span>Aucune demande de service en cours actuellement.</span>
-                                            </div>
-                                            <div ng-if="!_.isEmpty(membre_info.dct_demande_service)">
-                                                <span class="txt">
-                                                    <span ng-if="membre_info.estPersonnel">Mes demandes de service</span>
-                                                    <span ng-if="!membre_info.estPersonnel">Ses demandes de service</span>
-                                                    <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
-                                                        <u ng-cloak="">Voir tout ({{membre_info.dct_demande_service | lengthKeys}})</u>
-                                                    </a>
-                                                </span>
-                                                <div class="row vertical_list">
-                                                    <div class="activite btn" ng-repeat="(demande_id, demande) in membre_info.dct_demande_service">
-                                                        <a ng-href="/ore/ore_demande_service/{{demande.id}}">
-                                                            <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                            <div class="infos">
-                                                                <p class="activite_title" ng-cloak="">{{demande.titre}}</p>
-                                                                <p class="activite_desc" ng-if="!_.isEmpty(demande.description)" ng-bind-html="demande.description | unsafe" />
-                                                            </div>
+                                                <div ng-if="_.isEmpty(membre_info.dct_demande_service)">
+                                                    <span class="txt" ng-if="membre_info.estPersonnel">Mes demandes de service</span>
+                                                    <span class="txt" ng-if="!membre_info.estPersonnel">Ses demandes de service</span>
+                                                    <span>Aucune demande de service en cours actuellement.</span>
+                                                </div>
+                                                <div ng-if="!_.isEmpty(membre_info.dct_demande_service)">
+                                                    <span class="txt">
+                                                        <span ng-if="membre_info.estPersonnel">Mes demandes de service</span>
+                                                        <span ng-if="!membre_info.estPersonnel">Ses demandes de service</span>
+                                                        <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
+                                                            <u ng-cloak="">Voir tout ({{membre_info.dct_demande_service | lengthKeys}})</u>
                                                         </a>
-                                                        <div class="infos right">
-                                                            <p ng-cloak="">{{demande.diff_create_date}}</p>
-                                                            <p class="fa text-epsilon coeur" ng-class="{'fa-heart': demande.is_favorite, 'fa-heart-o': !demande.is_favorite}" ng-click="add_to_my_favorite('ore.demande.service', demande)" />
+                                                    </span>
+                                                    <div class="row vertical_list">
+                                                        <div class="activite btn" ng-repeat="(demande_id, demande) in membre_info.dct_demande_service">
+                                                            <a ng-href="/ore/ore_demande_service/{{demande.id}}">
+                                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                                <div class="infos">
+                                                                    <p class="activite_title" ng-cloak="">{{demande.titre}}</p>
+                                                                    <p class="activite_desc" ng-if="!_.isEmpty(demande.description)" ng-bind-html="demande.description | unsafe" />
+                                                                </div>
+                                                            </a>
+                                                            <div class="infos right">
+                                                                <p ng-cloak="">{{demande.diff_create_date}}</p>
+                                                                <p class="fa text-epsilon coeur" ng-class="{'fa-heart': demande.is_favorite, 'fa-heart-o': !demande.is_favorite}" ng-click="add_to_my_favorite('ore.demande.service', demande)" />
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="debug_unimplemented">
-                                                <p>
+                                                <div class="debug_unimplemented">
+                                                    <p>
                                                     <icon class="fa fa-flag-o" />
                                                     &amp;nbsp
                                                     <a href="">
-                                                        <u>Signaler cet utilisateur</u>
-                                                    </a>
+                                                            <u>Signaler cet utilisateur</u>
+                                                        </a>
                                                 </p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </section>
-                            </div>
-                            <div class="oe_structure" ng-show="section === 'mes_annonces'">
-                                <div class="debug_debug">
-                                    Lien maquette :
-                                    <a href="https://marvelapp.com/prototype/1773h559/screen/86371565">https://marvelapp.com/prototype/1773h559/screen/86371565</a>
-                                    <br />
-                                    Lien mobile :
-                                    <a href="https://marvelapp.com/prototype/6dbaaf8/screen/84804996">https://marvelapp.com/prototype/6dbaaf8/screen/84804996</a>
+                                    </section>
                                 </div>
-                                <section class="s_page_title pb24 pt88 s" style="margin-left:14%;">
-                                    <p>
-                                        <a href="/monprofil">
-                                            Mon profil
-                                            <i class="fa fa-chevron-right" />
-                                            Mes annonces publiées
-                                        </a>
-                                    </p>
-                                    <div class="pt8 pb4 " style="text-align: center;">
-                                        <h1 class="s_title_default text-bold" style="text-align: left;">
-                                            Mes annonces publiées
-                                            <br />
-                                        </h1>
+                                <div class="" ng-show="section === 'mes_annonces'">
+                                    <div class="debug_debug">
+                                        Lien maquette :
+                                        <a href="https://marvelapp.com/prototype/1773h559/screen/86371565">https://marvelapp.com/prototype/1773h559/screen/86371565</a>
+                                        <br />
+                                        Lien mobile :
+                                        <a href="https://marvelapp.com/prototype/6dbaaf8/screen/84804996">https://marvelapp.com/prototype/6dbaaf8/screen/84804996</a>
                                     </div>
-                                </section>
-                                <section class="s_vertical_list_lg pt0">
-                                    <div class="container_lists">
-                                        <div class="row vertical_list">
-                                            <div class="list_title s_title pb40">
-                                                <h5>
-                                                    <font style="font-size: 1.5rem;" ng-if="membre_info.estPersonnel">Mes offres de service</font>
-                                                    <font style="font-size: 1.5rem;" ng-if="!membre_info.estPersonnel">Ses offres de service</font>
-                                                </h5>
-                                            </div>
-                                            <div class="activite btn" ng-if="_.isEmpty(personal.dct_offre_service)">Aucune offre de service n'est actuellement publiée dans vos activités.</div>
-                                            <!--                                            <div ng-repeat="(service_id, service) in personal.dct_offre_service" ng-include="'/ore/template/offre_ou_demande_de_service_generic'" ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'offre'; " />-->
-                                            <div class="activite btn" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service">
-                                                <a ng-href="/ore/ore_offre_service/{{offre_service.id}}" ng-cloak="">
-                                                    <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                    <div class="infos">
-                                                        <h4 class="activite_title" ng-if="!_.isEmpty(offre_service.titre)" ng-cloak="">{{offre_service.titre}}</h4>
-                                                        <h4 class="activite_title" ng-if="_.isEmpty(offre_service.titre)">Aucun titre</h4>
-                                                        <h5 class="activite_desc" ng-if="!_.isEmpty(offre_service.description)" ng-bind-html="offre_service.description | unsafe" />
-                                                    </div>
-                                                </a>
-                                                <div class="infos_right">
-                                                    <p ng-cloak="">{{offre_service.diff_create_date}}</p>
-                                                    <i class="fa text-epsilon coeur" ng-class="{'fa-heart': offre_service.is_favorite, 'fa-heart-o': !offre_service.is_favorite}" style="font-size:1.5rem;" ng-click="add_to_my_favorite('ore.offre.service', offre_service)" />
-                                                </div>
-                                            </div>
-                                            <a href="/participer#!?state=init.pos" class="btn btn-primary rounded-circle adapt-text-primary-color add_service">
-                                                <i class="fa fa-plus-circle icon_padding_right" />
-                                                Ajouter une offre de service
+                                    <section class="s_page_title pb24 pt88 s" style="margin-left:14%;">
+                                        <p>
+                                            <a href="/monprofil">
+                                                Mon profil
+                                                <i class="fa fa-chevron-right" />
+                                                Mes annonces publiées
                                             </a>
-                                            <div class="list_title s_title pb40">
-                                                <h5>
-                                                    <font style="font-size: 1.5rem;" ng-if="membre_info.estPersonnel">Mes demandes de service</font>
-                                                    <font style="font-size: 1.5rem;" ng-if="!membre_info.estPersonnel">Ses demandes de service</font>
-                                                </h5>
-                                            </div>
-                                            <div class="activite btn" ng-if="_.isEmpty(personal.dct_demande_service)">Aucune demande de service n'est actuellement publiée dans vos activités.</div>
-                                            <!--                                            <div ng-repeat="(service_id, service) in personal.dct_demande_service" ng-include="'/ore/template/offre_ou_demande_de_service_generic'"  ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'demande'; " />-->
-                                            <div class="activite btn" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service">
-                                                <a ng-href="/ore/ore_demande_service/{{demande_service.id}}" ng-cloak="">
-                                                    <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                    <div class="infos">
-                                                        <h4 class="activite_title" ng-if="!_.isEmpty(demande_service.titre)" ng-cloak="">{{demande_service.titre}}</h4>
-                                                        <h4 class="activite_title" ng-if="_.isEmpty(demande_service.titre)">Aucun titre</h4>
-                                                        <h5 class="activite_desc" ng-if="!_.isEmpty(demande_service.description)" ng-bind-html="demande_service.description | unsafe" />
-                                                    </div>
-                                                </a>
-                                                <div class="infos_right">
-                                                    <p ng-cloak="">{{demande_service.diff_create_date}}</p>
-                                                    <i class="fa text-epsilon coeur" ng-class="{'fa-heart': demande_service.is_favorite, 'fa-heart-o': !demande_service.is_favorite}" style="font-size:1.5rem;" ng-click="add_to_my_favorite('ore.demande.service', demande_service)" />
-                                                </div>
-                                            </div>
-                                            <a href="/participer#!?state=init.pds" class="btn btn-primary rounded-circle adapt-text-primary-color add_service">
-                                                <i class="fa fa-plus-circle icon_padding_right" />
-                                                Ajouter une demande de service
-                                            </a>
+                                        </p>
+                                        <div class="pt8 pb4 " style="text-align: center;">
+                                            <h1 class="s_title_default text-bold" style="text-align: left;">
+                                                Mes annonces publiées
+                                                <br />
+                                            </h1>
                                         </div>
-                                    </div>
-                                </section>
-                            </div>
-                            <div class="oe_structure" ng-show="section === 'mes_infos'">
-                                <div class="debug_debug">
-                                    Lien maquette :
-                                    <a href="https://marvelapp.com/prototype/1773h559/screen/86371551">https://marvelapp.com/prototype/1773h559/screen/86371551</a>
-                                    <br />
-                                    Lien mobile :
-                                    <a href="https://marvelapp.com/prototype/6dbaaf8/screen/84804998">https://marvelapp.com/prototype/6dbaaf8/screen/84804998</a>
+                                    </section>
+                                    <section class="s_vertical_list_lg pt0">
+                                        <div class="container_lists">
+                                            <div class="row vertical_list">
+                                                <div class="list_title s_title pb40">
+                                                    <h5>
+                                                        <font style="font-size: 1.5rem;" ng-if="membre_info.estPersonnel">Mes offres de service</font>
+                                                        <font style="font-size: 1.5rem;" ng-if="!membre_info.estPersonnel">Ses offres de service</font>
+                                                    </h5>
+                                                </div>
+                                                <div class="activite btn" ng-if="_.isEmpty(personal.dct_offre_service)">Aucune offre de service n'est actuellement publiée dans vos activités.</div>
+                                                <!--                                            <div ng-repeat="(service_id, service) in personal.dct_offre_service" ng-include="'/ore/template/offre_ou_demande_de_service_generic'" ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'offre'; " />-->
+                                                <div class="activite btn" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service">
+                                                    <a ng-href="/ore/ore_offre_service/{{offre_service.id}}" ng-cloak="">
+                                                        <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                        <div class="infos">
+                                                            <h4 class="activite_title" ng-if="!_.isEmpty(offre_service.titre)" ng-cloak="">{{offre_service.titre}}</h4>
+                                                            <h4 class="activite_title" ng-if="_.isEmpty(offre_service.titre)">Aucun titre</h4>
+                                                            <h5 class="activite_desc" ng-if="!_.isEmpty(offre_service.description)" ng-bind-html="offre_service.description | unsafe" />
+                                                        </div>
+                                                    </a>
+                                                    <div class="infos_right">
+                                                        <p ng-cloak="">{{offre_service.diff_create_date}}</p>
+                                                        <i class="fa text-epsilon coeur" ng-class="{'fa-heart': offre_service.is_favorite, 'fa-heart-o': !offre_service.is_favorite}" style="font-size:1.5rem;" ng-click="add_to_my_favorite('ore.offre.service', offre_service)" />
+                                                    </div>
+                                                </div>
+                                                <a href="/participer#!?state=init.pos" class="btn btn-primary rounded-circle adapt-text-primary-color add_service">
+                                                    <i class="fa fa-plus-circle icon_padding_right" />
+                                                    Ajouter une offre de service
+                                                </a>
+                                                <div class="list_title s_title pb40">
+                                                    <h5>
+                                                        <font style="font-size: 1.5rem;" ng-if="membre_info.estPersonnel">Mes demandes de service</font>
+                                                        <font style="font-size: 1.5rem;" ng-if="!membre_info.estPersonnel">Ses demandes de service</font>
+                                                    </h5>
+                                                </div>
+                                                <div class="activite btn" ng-if="_.isEmpty(personal.dct_demande_service)">Aucune demande de service n'est actuellement publiée dans vos activités.</div>
+                                                <!--                                            <div ng-repeat="(service_id, service) in personal.dct_demande_service" ng-include="'/ore/template/offre_ou_demande_de_service_generic'"  ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'demande'; " />-->
+                                                <div class="activite btn" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service">
+                                                    <a ng-href="/ore/ore_demande_service/{{demande_service.id}}" ng-cloak="">
+                                                        <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                        <div class="infos">
+                                                            <h4 class="activite_title" ng-if="!_.isEmpty(demande_service.titre)" ng-cloak="">{{demande_service.titre}}</h4>
+                                                            <h4 class="activite_title" ng-if="_.isEmpty(demande_service.titre)">Aucun titre</h4>
+                                                            <h5 class="activite_desc" ng-if="!_.isEmpty(demande_service.description)" ng-bind-html="demande_service.description | unsafe" />
+                                                        </div>
+                                                    </a>
+                                                    <div class="infos_right">
+                                                        <p ng-cloak="">{{demande_service.diff_create_date}}</p>
+                                                        <i class="fa text-epsilon coeur" ng-class="{'fa-heart': demande_service.is_favorite, 'fa-heart-o': !demande_service.is_favorite}" style="font-size:1.5rem;" ng-click="add_to_my_favorite('ore.demande.service', demande_service)" />
+                                                    </div>
+                                                </div>
+                                                <a href="/participer#!?state=init.pds" class="btn btn-primary rounded-circle adapt-text-primary-color add_service">
+                                                    <i class="fa fa-plus-circle icon_padding_right" />
+                                                    Ajouter une demande de service
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </section>
                                 </div>
-                                <section class="s_page_title pb24 pt88 s" style="margin-left:14%;">
-                                    <p>Mon profil > Mes informations personnelles</p>
-                                    <div class="pt8 pb4 " style="text-align: center;">
-                                        <h1 class="s_title_default text-bold" style="text-align: left;">
-                                            Mes informations personnelles
-                                            <br />
-                                        </h1>
+                                <div class="" ng-show="section === 'mes_infos'">
+                                    <div class="debug_debug">
+                                        Lien maquette :
+                                        <a href="https://marvelapp.com/prototype/1773h559/screen/86371551">https://marvelapp.com/prototype/1773h559/screen/86371551</a>
+                                        <br />
+                                        Lien mobile :
+                                        <a href="https://marvelapp.com/prototype/6dbaaf8/screen/84804998">https://marvelapp.com/prototype/6dbaaf8/screen/84804998</a>
                                     </div>
-                                </section>
-                                <section class="s_vertical_list_lg pt0 debug_unimplemented">
-                                    <div class="container_lists">
-                                        <div class="row vertical_list settings">
-                                            <div class="activite">
-                                                <a class="modif" href="">Modifier</a>
-                                                <div class="infos">
-                                                    <h4 class="item_title">Nom</h4>
-                                                    <h5 class="item_desc">Alice Poitier</h5>
+                                    <section class="s_page_title pb24 pt88 s" style="margin-left:14%;">
+                                        <p>Mon profil > Mes informations personnelles</p>
+                                        <div class="pt8 pb4 " style="text-align: center;">
+                                            <h1 class="s_title_default text-bold" style="text-align: left;">
+                                                Mes informations personnelles
+                                                <br />
+                                            </h1>
+                                        </div>
+                                    </section>
+                                    <section class="s_vertical_list_lg pt0 debug_unimplemented">
+                                        <div class="container_lists">
+                                            <div class="row vertical_list settings">
+                                                <div class="activite">
+                                                    <a class="modif" href="">Modifier</a>
+                                                    <div class="infos">
+                                                        <h4 class="item_title">Nom</h4>
+                                                        <h5 class="item_desc">Alice Poitier</h5>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="activite">
-                                                <a class="modif" href="">Modifier</a>
-                                                <div class="infos">
-                                                    <h4 class="item_title">Sexe</h4>
-                                                    <h5 class="item_desc">Incertain</h5>
+                                                <div class="activite">
+                                                    <a class="modif" href="">Modifier</a>
+                                                    <div class="infos">
+                                                        <h4 class="item_title">Sexe</h4>
+                                                        <h5 class="item_desc">Incertain</h5>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="activite">
-                                                <a class="modif" href="">Modifier</a>
-                                                <div class="infos">
-                                                    <h4 class="item_title">Date de naissance</h4>
-                                                    <h5 class="item_desc">14 avril 1988</h5>
+                                                <div class="activite">
+                                                    <a class="modif" href="">Modifier</a>
+                                                    <div class="infos">
+                                                        <h4 class="item_title">Date de naissance</h4>
+                                                        <h5 class="item_desc">14 avril 1988</h5>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="activite">
-                                                <a class="modif" href="">Modifier</a>
-                                                <div class="infos">
-                                                    <h4 class="item_title">Adresse courriel</h4>
-                                                    <h5 class="item_desc">loremipsum@loremipsum.com</h5>
+                                                <div class="activite">
+                                                    <a class="modif" href="">Modifier</a>
+                                                    <div class="infos">
+                                                        <h4 class="item_title">Adresse courriel</h4>
+                                                        <h5 class="item_desc">loremipsum@loremipsum.com</h5>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="activite">
-                                                <a class="modif" href="">Modifier</a>
-                                                <div class="infos">
-                                                    <h4 class="item_title">Num&#233;ro de t&#233;l&#233;phone</h4>
-                                                    <h5 class="item_desc">5135351134</h5>
+                                                <div class="activite">
+                                                    <a class="modif" href="">Modifier</a>
+                                                    <div class="infos">
+                                                        <h4 class="item_title">Num&#233;ro de t&#233;l&#233;phone</h4>
+                                                        <h5 class="item_desc">5135351134</h5>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="activite">
-                                                <a class="modif" href="">Modifier</a>
-                                                <div class="infos">
-                                                    <h4 class="item_title">Adresse</h4>
-                                                    <h5 class="item_desc">
+                                                <div class="activite">
+                                                    <a class="modif" href="">Modifier</a>
+                                                    <div class="infos">
+                                                        <h4 class="item_title">Adresse</h4>
+                                                        <h5 class="item_desc">
                                                         184 avenue Jacque Cartier
                                                         <br />
                                                         Qu&#233;bec J1J2M2, Canada
                                                     </h5>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="activite">
-                                                <a class="modif" href="">Modifier</a>
-                                                <div class="infos">
-                                                    <h4 class="item_title">V&#233;rification de vs ant&#233;c&#233;dents
+                                                <div class="activite">
+                                                    <a class="modif" href="">Modifier</a>
+                                                    <div class="infos">
+                                                        <h4 class="item_title">V&#233;rification de vs ant&#233;c&#233;dents
                                                         judiciaires
                                                     </h4>
-                                                    <h5 class="item_desc">Non fourni</h5>
+                                                        <h5 class="item_desc">Non fourni</h5>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </section>
+                                    </section>
+                                </div>
                             </div>
-                        </div>
+                        </t>
                     </t>
-                </t>
-            </field>
-            <field name="key">website.mon-profil</field>
-            <field name="name">Mon Profil</field>
-            <field name="type">qweb</field>
+                </field>
+                <field name="key">website.mon-profil</field>
+                <field name="name">Mon Profil</field>
+                <field name="type">qweb</field>
         </record>
+
         <record id="ir_ui_view_mon_activite" model="ir.ui.view">
             <field name="arch" type="xml">
                 <t name="About us" t-name="website.aboutus" groups="base.group_user,base.group_portal">

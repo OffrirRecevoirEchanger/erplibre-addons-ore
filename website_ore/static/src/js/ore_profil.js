@@ -32,6 +32,19 @@ odoo.define('website.ore_profil', function (require) {
             if (window.location.pathname !== "/monprofil") {
                 return;
             }
+            let section = $location.search()["section"];
+            if (!_.isEmpty(section)) {
+                $scope.section = section;
+            } else {
+                $scope.section = $scope.default_section;
+            }
+        });
+        /*$scope.$on('$locationChangeSuccess', function (object, newLocation, previousLocation) {
+        console.log("TEST:Enter");
+            if (window.location.pathname !== "/monprofil") {
+                console.log("TEST:NO");
+                return;
+            }
 
             let sectionParam = {
                 "mapresentation": "ma_presentation",
@@ -42,8 +55,9 @@ odoo.define('website.ore_profil', function (require) {
             }
 
             let section = $location.search()["section"];
+            console.log*("TEST:" + section);
             $scope.section = sectionParam[section] || $scope.default_section;
-        });
+        });*/
 
         $scope.sizeStateValidated = function (state) {
             let size = 0;
