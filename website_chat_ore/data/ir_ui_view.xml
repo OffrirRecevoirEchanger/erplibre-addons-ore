@@ -128,18 +128,18 @@
             <field name="name">ir_ui_view_mon_profil</field>
             <field name="type">qweb</field>
         </record>
-        <!--        <record id="ir_ui_view_ma_presentation_inherit" model="ir.ui.view">
+        <record id="ir_ui_view_mon_profil_inherit" model="ir.ui.view">
             <field name="arch" type="xml">
-                <data inherit_id="website_ore.ir_ui_view_ma_presentation">
+                <data inherit_id="website_ore.ir_ui_view_mon_profil">
                     <xpath expr="//div[hasclass('btn_do_echange')]" position="after">
                         <a class="profil profil_right profil_box modif_btn btn btn-primary adapt-text-primary-color" ng-if="!membre_info.estPersonnel" ng-href="/notification#!?section=message&amp;membre={{membre_info.id}}">Contacter {{membre_info.prenom}}</a>
                     </xpath>
                 </data>
             </field>
-            <field name="inherit_id" ref="website_ore.ir_ui_view_ma_presentation" />
-            <field name="key">website_chat_ore.ir_ui_view_ma_presentation_inherit</field>
-            <field name="name">ir_ui_view_ma_presentation</field>
+            <field name="inherit_id" ref="website_ore.ir_ui_view_mon_profil" />
+            <field name="key">website_chat_ore.ir_ui_view_mon_profil_inherit</field>
+            <field name="name">ir_ui_view_mon_profil</field>
             <field name="type">qweb</field>
-        </record>-->
+        </record>
     </data>
 </odoo>
