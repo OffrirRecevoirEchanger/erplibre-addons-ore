@@ -2784,7 +2784,7 @@
                 <t name="About us" t-name="website.aboutus" groups="base.group_user,base.group_portal">
                     <t t-call="website.layout">
                         <div id="wrap" class="oe_structure oe_empty" ng-controller="ProfilController">
-                            <div class="">
+                            <div ng-show="section === 'mon_profil'">
                                 <div class="debug_debug">
                                     Lien maquette :
                                     <a href="https://marvelapp.com/prototype/1773h559/screen/86371536">https://marvelapp.com/prototype/1773h559/screen/86371536</a>
@@ -3387,6 +3387,55 @@
                                     </div>
                                 </section>
                             </div>
+                            <div ng-show="section === 'notification'" ng-controller="NotificationController">
+                                <p class="alert alert-danger" ng-if="!_.isEmpty(error)" role="alert" ng-cloak="">{{error}}</p>
+                                <div class="debug_debug">
+                                    <div ng-if="section==='notification'">
+                                        Lien maquette :
+                                        <a href="https://marvelapp.com/prototype/1773h559/screen/86371534">https://marvelapp.com/prototype/1773h559/screen/86371534</a>
+                                    </div>
+                                </div>
+                                <!--                                <span ng-if="$parent.section_membre===''">-->
+                                <span class="span_section_message_and_notification_body">
+                                    <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
+                                        <!-- TODO missing link back -->
+                                        <!--                                        <p>Mon profil > Mes préférences générales</p>-->
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="col-lg-12 s_title pt16 pb16">
+                                                <p class="s_title_default text-bold text-gamma titre_message_and_notification">Notifications</p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <nav class="sub-navbar navbar-light bg-light second_navbar">
+                                        <ul class="nav navbar-nav second_navbar">
+                                            <li class="nav-item nav_notification">
+                                                <a class="nav-link" role="menu_item" href="/notification#!?section=notification" ng-class="{'active': section=='notification'}">
+                                                    <span>Notifications</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    <section class="s_vertical_list_lg pt0 section_notification" ng-if="section=='notification'">
+                                        <div class="container_lists">
+                                            <div class="row vertical_list">
+                                                <a ng-href="/monactivite/echange#!?echange={{notif.echange_service_id}}" ng-repeat="notif in lst_notification">
+                                                    <div class="activite message btn" ng-class="{'read':notif.is_read}">
+                                                        <div class="activite_img img-fluid rounded-circle" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg&quot;);">
+                                                            <div class="unread rounded-circle" ng-if="!notif.is_read" />
+                                                        </div>
+
+                                                        <div class="infos">
+                                                            <h4 class="message_auteur" ng-cloak="">{{notif.type_notification}}</h4>
+                                                            <p class="message" ng-cloak="">{{notif.name}}</p>
+                                                        </div>
+                                                        <span class="debug_unimplemented">5 min</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </span>
+                            </div>
                             <div ng-show="section === 'mes_preferences'">
                                 <div class="debug_debug">
                                     Lien maquette :
@@ -3397,24 +3446,21 @@
                                 </div>
                                 <section class="s_page_title pb24 pt88 s" style="margin-left:14%;">
                                     <p>Mon profil > Mes préférences générales</p>
-                                    <div class="pt8 pb4 " style="text-align: center;">
-                                        <h1 class="s_title_default text-bold" style="text-align: left;">
-                                            Mes préférences générales
-                                            <br />
-                                        </h1>
+                                    <div class="pt8 pb4 " style="text-align: center;" ng-init="get_list_langue()">
+                                        <h1 class="s_title_default text-bold" style="text-align: left;">Mes préférences générales</h1>
                                     </div>
                                 </section>
-                                <section class="s_vertical_list_lg pt0 debug_unimplemented">
+                                <section class="s_vertical_list_lg pt0">
                                     <div class="container_lists">
                                         <div class="row vertical_list settings">
-                                            <div class="activite">
-                                                <a class="modif" href="">Modifier</a>
+                                            <div class="activite" ng-if="language.list.length > 1">
                                                 <div class="infos">
                                                     <h4 class="item_title">Langues</h4>
-                                                    <h5 class="item_desc">Fran&#231;ais</h5>
+                                                    <select ng-model="language.selected" ng-options="lang.name for lang in language.list" ng-cloak="" />
+                                                    <button class="modif btn btn-primary adapt-text-primary-color" ng-class="{'disabled': language.selected.default}" ng-click="changeLanguage()">Changer la langue</button>
                                                 </div>
                                             </div>
-                                            <div class="activite">
+                                            <div class="activite debug_unimplemented">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">???????</h4>

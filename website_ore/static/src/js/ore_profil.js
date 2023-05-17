@@ -21,7 +21,7 @@ odoo.define('website.ore_profil', function (require) {
         $scope.profil_show_is_concat = "concat" // or "normal"
 
         // constant
-        $scope.default_section = "monprofil";
+        $scope.default_section = "mon_profil";
         $scope.default_infos_section = "infos";
 
         $scope.trustSrc = function (src) {

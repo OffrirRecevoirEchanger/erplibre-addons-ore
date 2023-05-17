@@ -1198,7 +1198,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     // window.location.href = `/website/lang/${$scope.language.selected.code}`;
                     // TODO rewrite actual url and not hardcode /monprofil/mespreferences
                     // TODO caution, other language is /en_CA/monprofil/mespreferences
-                    window.location.href = "/" + $scope.language.selected.code + `/monprofil/mespreferences${$scope.url_debug}`;
+                    window.location.href = "/" + $scope.language.selected.code + `/monprofil#!?section=mes_preferences${$scope.url_debug}`;
                 },
                 function (error) {
                     console.log(error);
