@@ -105,7 +105,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
     //     },
     // })
 
-    app.controller('MainController', ['$scope', '$location', function ($scope, $location) {
+    app.controller('MainController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         $scope._ = _;
         $scope.global = {
             dbname: undefined,
@@ -165,6 +165,10 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.animation_controller_enable = false;
         $scope.url_debug = "";
         $scope.modify_label_when_empty = "Modifiez moi!"
+        $scope.language = {
+            selected: undefined,
+            list: [],
+        }
 
         // TODO créer environnement modification
         $scope.show_croppie = false;
@@ -1126,16 +1130,48 @@ odoo.define('website.ore_angularjs_global', function (require) {
             // TODO no need this, use instead <a href and not ng-click
             window.location.href = `/monactivite/echange${$scope.url_debug}#!?echange=${echange.id}`;
         }
-       $scope.removeSpace = function() {
-          var nodeList = document.querySelectorAll(".remove_space");
-          for (var i = 0; i < nodeList.length; i++) {
-            var nodes = nodeList[i].childNodes;
-            for (var j = 0; j < nodes.length; j++) {
-              if (nodes[j].nodeType == Node.TEXT_NODE) {
-                nodes[j].textContent = nodes[j].textContent.trim();
-              }
+
+        $scope.removeSpace = function () {
+            let nodeList = document.querySelectorAll(".remove_space");
+            for (let i = 0; i < nodeList.length; i++) {
+                let nodes = nodeList[i].childNodes;
+                for (let j = 0; j < nodes.length; j++) {
+                    if (nodes[j].nodeType === Node.TEXT_NODE) {
+                        nodes[j].textContent = nodes[j].textContent.trim();
+                    }
+                }
             }
-          }
+        };
+
+        $scope.get_list_langue = function () {
+            ajax.rpc("/get_available_languages", {}).then(function (response) {
+                $scope.language.list = response;
+                for (const i in response) {
+                    let lang = response[i];
+                    if (lang.default) {
+                        $scope.language.selected = lang;
+                    }
+                }
+                $scope.$digest();
+            });
+        };
+
+        $scope.changeLanguage = function () {
+            if ($scope.language.selected.default) {
+                console.debug("Ignore update language.");
+                return;
+            }
+            ajax.jsonRpc("/change_language", "", {lang_code: $scope.language.selected.code}).then(
+                function (response) {
+                    // window.location.href = `/website/lang/${$scope.language.selected.code}`;
+                    // TODO rewrite actual url and not hardcode /monprofil/mespreferences
+                    // TODO caution, other language is /en_CA/monprofil/mespreferences
+                    window.location.href = "/" + $scope.language.selected.code + `/monprofil/mespreferences${$scope.url_debug}`;
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
         };
     }])
 

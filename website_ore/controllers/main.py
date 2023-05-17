@@ -2522,3 +2522,40 @@ class OREController(http.Controller):
         return request.env["ir.ui.view"].render_template(
             "website_ore.template_offre_ou_demande_de_service_generic",
         )
+
+    @http.route(
+        [
+            "/get_available_languages",
+        ],
+        type="json",
+        auth="public",
+        website=True,
+    )
+    def get_available_languages(self):
+        languages = request.env["res.lang"].search([])
+        user_lang = request.env.user.lang or request.website.default_lang_code
+        lang_list = [
+            {
+                "code": lang.code,
+                # replace "french (CA) / Français (CA)" to "Français (CA)"
+                "name": lang.name
+                if "/" not in lang.name
+                else lang.name.split("/")[1].strip(),
+                "default": user_lang == lang.code,
+            }
+            for lang in languages
+        ]
+        return lang_list
+
+    @http.route(["/change_language"], type="json", auth="user", website=True)
+    def change_language(self, lang_code):
+        lang = request.env["res.lang"].search(
+            [("code", "=", lang_code)], limit=1
+        )
+        if lang:
+            request.env.user.lang = lang.code
+            request.session.context.update({"lang": lang.code})
+        else:
+            raise Exception(
+                f"The requested language code '{lang_code}' does not exist."
+            )
