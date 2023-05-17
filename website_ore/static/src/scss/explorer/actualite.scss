@@ -198,6 +198,18 @@
   top: 0px;
   width: 94%;
 }
+.marginService {
+  margin-top: 2em;
+}
+.container_explorer {
+  border: 1px solid $beta !important;
+  margin-bottom: 1em;
+  padding: 1em !important;
+}
+.container_explorer:hover {
+  background-color: $delta;
+  text-decoration: none;
+}
 
 @media only screen and (max-width: 1050px) {
   .container_echange {

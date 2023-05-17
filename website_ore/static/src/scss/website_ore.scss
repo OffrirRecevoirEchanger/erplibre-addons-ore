@@ -5,6 +5,9 @@
 // Variables
 $font-size-base: $o-theme-font-size-base;
 $search_bar-height: 65px;
+.boite {
+  height: auto !important;
+}
 
 // Colors
 $alpha: theme-color("epsilon"); // cyan-ish

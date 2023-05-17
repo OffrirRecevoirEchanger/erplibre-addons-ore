@@ -85,7 +85,7 @@
                         <section class="s_vertical_list_lg pt0" ng-if="section==='message' &amp;&amp; section_membre===''">
                             <div class="container_lists">
                                 <div class="row vertical_list">
-                                    <a ng-href="/notification#!?section=message&amp;membre={{msg.id}}" ng-repeat="msg in lst_membre_message">
+                                    <a class="container_explorer" ng-href="/notification#!?section=message&amp;membre={{msg.id}}" ng-repeat="msg in lst_membre_message">
                                         <div class="activite message btn" ng-class="{'read':msg.is_read}">
                                             <div class="activite_img img-fluid rounded-circle" ng-style="{'background-image': 'url(' + msg.ma_photo + ')'}">
                                                 <div class="unread rounded-circle" ng-if="!msg.is_read" />
@@ -113,7 +113,7 @@
             <field name="arch" type="xml">
                 <data inherit_id="website_ore.ir_ui_view_mon_profil">
                     <xpath expr="//a[hasclass('btn_message_and_notification')]" position="replace">
-                        <a class="information information-5 btn btn_message_and_notification" href="notification">
+                        <a class="information information-5 btn btn_message_and_notification label" href="notification">
                             <img src="/web/image/website_ore.ir_attachment_profil_preferences_png/Profil-Preferences.png" />
                             <br />
                             <span class="nbr">Mes messages et notifications</span>
