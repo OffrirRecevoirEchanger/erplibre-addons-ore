@@ -551,17 +551,6 @@ class OREController(http.Controller):
         )
 
     @http.route(
-        ["/monprofil/mapresentation"],
-        type="http",
-        auth="user",
-        website=True,
-    )
-    def get_monprofil_mapresentation(self, **kw):
-        return request.env.ref(
-            "website_ore.ir_ui_view_ma_presentation"
-        ).render()
-
-    @http.route(
         ["/communaute/actualite"],
         type="http",
         auth="user",
@@ -569,17 +558,6 @@ class OREController(http.Controller):
     )
     def get_communaute_actualite(self, **kw):
         return request.env.ref("website_ore.ir_ui_view_communaute").render()
-
-    @http.route(
-        ["/monprofil/mesannonces"],
-        type="http",
-        auth="user",
-        website=True,
-    )
-    def get_monprofil_mesannonces(self, **kw):
-        return request.env.ref(
-            "website_ore.ir_ui_view_mes_annonces_publiees"
-        ).render()
 
     @http.route(
         ["/communaute/evenements"],
@@ -609,15 +587,6 @@ class OREController(http.Controller):
         return request.env.ref("website_ore.ir_ui_view_mes_groupes").render()
 
     @http.route(
-        ["/monprofil/mesfavoris"],
-        type="http",
-        auth="user",
-        website=True,
-    )
-    def get_monprofil_mesfavoris(self, **kw):
-        return request.env.ref("website_ore.ir_ui_view_mes_favoris").render()
-
-    @http.route(
         ["/communaute/groupes"],
         type="http",
         auth="user",
@@ -636,17 +605,6 @@ class OREController(http.Controller):
         return request.env.ref("website_ore.ir_ui_view_evenement").render()
 
     @http.route(
-        ["/monprofil/mespreferences"],
-        type="http",
-        auth="user",
-        website=True,
-    )
-    def get_monprofil_mespreferences(self, **kw):
-        return request.env.ref(
-            "website_ore.ir_ui_view_mes_preferences"
-        ).render()
-
-    @http.route(
         ["/communaute/membres"],
         type="http",
         auth="user",
@@ -656,17 +614,6 @@ class OREController(http.Controller):
         return request.env.ref("website_ore.ir_ui_view_membres").render()
 
     @http.route(
-        ["/monprofil/mesinfos"],
-        type="http",
-        auth="user",
-        website=True,
-    )
-    def get_monprofil_mesinfos(self, **kw):
-        return request.env.ref(
-            "website_ore.ir_ui_view_mes_informations_personnelles"
-        ).render()
-
-    @http.route(
         ["/monactivite/monreseau"],
         type="http",
         auth="user",
@@ -674,15 +621,6 @@ class OREController(http.Controller):
     )
     def get_monactivite_monreseau(self, **kw):
         return request.env.ref("website_ore.ir_ui_view_mon_reseau").render()
-
-    @http.route(
-        ["/monprofil"],
-        type="http",
-        auth="user",
-        website=True,
-    )
-    def get_monprofil(self, **kw):
-        return request.env.ref("website_ore.ir_ui_view_mon_profil").render()
 
     @http.route(
         ["/monactivite/echanges"],
