@@ -1,5 +1,4 @@
 import datetime as dt
-import json
 import logging
 import urllib.parse
 from datetime import datetime, timedelta
@@ -11,7 +10,6 @@ import requests
 from odoo import _, fields, http
 from odoo.http import request
 from odoo.tools.image import image_data_uri
-from odoo.tools.translate import _
 
 _logger = logging.getLogger(__name__)
 OSRM_URL = ""
@@ -2535,8 +2533,17 @@ class OREController(http.Controller):
     )
     def get_available_languages(self):
         languages = request.env["res.lang"].search([])
+        user_lang = request.env.user.lang or request.website.default_lang_code
         lang_list = [
-            {"code": lang.code, "name": lang.name} for lang in languages
+            {
+                "code": lang.code,
+                # replace "french (CA) / Français (CA)" to "Français (CA)"
+                "name": lang.name
+                if "/" not in lang.name
+                else lang.name.split("/")[1].strip(),
+                "default": user_lang == lang.code,
+            }
+            for lang in languages
         ]
         return lang_list
 
@@ -2548,19 +2555,7 @@ class OREController(http.Controller):
         if lang:
             request.env.user.lang = lang.code
             request.session.context.update({"lang": lang.code})
-            return request.redirect("/")
         else:
-            message = _("The requested language does not exist.")
-            request.session["website_sale.message"] = message
-            return request.redirect("/")
-
-    @http.route(["/get_user_language"], type="json", auth="user", website=True)
-    def get_user_language(self, **kwargs):
-        languages = request.env["res.lang"].search([])
-        lang_list = [
-            {"code": lang.code, "name": lang.name} for lang in languages
-        ]
-        user_lang = request.env.user.lang or request.website.default_lang_code
-        for lang in lang_list:
-            if lang["code"] == user_lang:
-                return lang
+            raise Exception(
+                f"The requested language code '{lang_code}' does not exist."
+            )

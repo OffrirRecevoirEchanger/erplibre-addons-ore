@@ -2683,25 +2683,20 @@
                                 <section class="s_page_title pb24 pt88 s" style="margin-left:14%;">
                                     <p>Mon profil > Mes préférences générales</p>
                                     <div class="pt8 pb4 " style="text-align: center;" ng-init="get_list_langue()">
-                                        <h1 class="s_title_default text-bold" style="text-align: left;">
-                                            Mes préférences générales
-                                            <br />
-                                        </h1>
+                                        <h1 class="s_title_default text-bold" style="text-align: left;">Mes préférences générales</h1>
                                     </div>
                                 </section>
                                 <section class="s_vertical_list_lg pt0">
                                     <div class="container_lists">
                                         <div class="row vertical_list settings">
-                                            <div class="activite" ng-if="numLanguages.length > 1">
+                                            <div class="activite" ng-if="language.list.length > 1">
                                                 <div class="infos">
                                                     <h4 class="item_title">Langues</h4>
-                                                    <select ng-model="selectedLanguage" ng-options="language.name for language in numLanguages | filter:{name: '!' + userLanguage}" ng-cloak="">
-                                                        <option value="">{{userLanguage}}</option>
-                                                    </select>
-                                                    <button class="modif" ng-click="changeLanguage(selectedLanguage, $event)">Changer la langue</button>
+                                                    <select ng-model="language.selected" ng-options="lang.name for lang in language.list" ng-cloak="" />
+                                                    <button class="modif btn btn-primary adapt-text-primary-color" ng-class="{'disabled': language.selected.default}" ng-click="changeLanguage()">Changer la langue</button>
                                                 </div>
                                             </div>
-                                            <div class="activite">
+                                            <div class="activite debug_unimplemented">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">???????</h4>
