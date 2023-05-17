@@ -1128,16 +1128,16 @@ odoo.define('website.ore_angularjs_global', function (require) {
             window.location.href = `/monactivite/echange${$scope.url_debug}#!?echange=${echange.id}`;
         }
 
-       $scope.removeSpace = function() {
-          var nodeList = document.querySelectorAll(".remove_space");
-          for (var i = 0; i < nodeList.length; i++) {
-            var nodes = nodeList[i].childNodes;
-            for (var j = 0; j < nodes.length; j++) {
-              if (nodes[j].nodeType == Node.TEXT_NODE) {
-                nodes[j].textContent = nodes[j].textContent.trim();
-              }
+        $scope.removeSpace = function () {
+            let nodeList = document.querySelectorAll(".remove_space");
+            for (let i = 0; i < nodeList.length; i++) {
+                let nodes = nodeList[i].childNodes;
+                for (let j = 0; j < nodes.length; j++) {
+                    if (nodes[j].nodeType === Node.TEXT_NODE) {
+                        nodes[j].textContent = nodes[j].textContent.trim();
+                    }
+                }
             }
-          }
         };
 
        $scope.getUserLanguage = function () {
