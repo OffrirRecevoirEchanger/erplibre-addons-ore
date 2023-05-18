@@ -19,7 +19,7 @@ class OREChatMessage(models.Model):
     )
 
     membre_writer_id = fields.Many2one(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         string="Membre writer",
         help="Membre qui écrit ce message.",
     )
@@ -54,10 +54,10 @@ class OREChatMessage(models.Model):
                         if a.id != membre_id.id
                     ][0]
                     data["membre_id"] = other_membre_id.id
-                    data["membre_name"] = other_membre_id.nom
+                    data["membre_name"] = other_membre_id.name
                 elif len(rec.msg_group_id.membre_ids) == 1:
                     data["membre_id"] = rec.msg_group_id.membre_ids[0].id
-                    data["membre_name"] = rec.msg_group_id.membre_ids[0].nom
+                    data["membre_name"] = rec.msg_group_id.membre_ids[0].name
                 else:
                     _logger.warning(
                         "Why message is missing members, len member is"

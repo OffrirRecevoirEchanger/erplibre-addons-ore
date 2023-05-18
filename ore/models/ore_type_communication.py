@@ -9,7 +9,7 @@ class ORETypeCommunication(models.Model):
     nom = fields.Char(string="Typecommunication")
 
     membre = fields.One2many(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         inverse_name="type_communication",
         help="Membre relation",
     )

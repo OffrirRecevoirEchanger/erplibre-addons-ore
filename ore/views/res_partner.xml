@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_partner_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.ore.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='sale']" position="before">
+                <group string="ORE" name="ore" priority="1">
+                    <field name="bank_time" />
+                    <field name="bank_month_time" />
+                </group>
+            </xpath>
+            <xpath expr="//group[@name='sale']" position="after">
+                <group string="test" name="ore" priority="1">
+                    <field name="offre_service_ids" />
+                </group>
+            </xpath>
+            <button name="toggle_active" position="before">
+                <button
+                    class="oe_stat_button o_res_partner_tip_opp"
+                    type="action"
+                    name="ore_offrir_button"
+                    icon="fa-star"
+                    context="{'search_default_partner_id': active_id}"
+                >
+                    <div class="o_stat_info">
+                        <field name="count_offre_service_ids" class="o_stat_value" />
+                        <span class="o_stat_text">
+                            <span style="color:red">Offres</span>
+                        </span>
+                    </div>
+                </button>
+                <button
+                    class="oe_stat_button o_res_partner_tip_opp"
+                    type="action"
+                    name="ore_recevoir_button"
+                    icon="fa-star"
+                    context="{'search_default_partner_id': active_id}"
+                >
+                    <div class="o_stat_info">
+                        <field name="count_offre_service_ids" class="o_stat_value" />
+                        <span class="o_stat_text">
+                            <span style="color:green">Demandes</span>
+                        </span>
+                    </div>
+                </button>
+                <button
+                    class="oe_stat_button o_res_partner_tip_opp"
+                    type="action"
+                    name="ore_echange_button"
+                    icon="fa-star"
+                    context="{'search_default_partner_id': active_id}"
+                >
+                    <div class="o_stat_info">
+                        <field name="count_echange_service_ids" class="o_stat_value" />
+                        <span class="o_stat_text">
+                            <span style="color:blue">Échanges</span>
+                        </span>
+                    </div>
+                </button>
+            </button>
+            <!--            <xpath expr="//page[@name='sales_purchases']" position="after">-->
+            <!--                <page name="statistic" string="Statistiques">-->
+            <!--                    <group name="container_row_ore">-->
+            <!--                        <group string="Sales" name="sale" priority="1">-->
+            <!--                            <field name="customer"/>-->
+            <!--                            <field name="user_id"/>-->
+            <!--                        </group>-->
+            <!--                    </group>-->
+            <!--                </page>-->
+            <!--            </xpath>-->
+        </field>
+    </record>
+
+    <record id="view_res_partner_filter_inherit" model="ir.ui.view">
+        <field name="name">res.partner.select.ore.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_by']" position="inside">
+                <filter name="group_network_ore" string="Réseau ORE" context="{'group_by': 'reseau_ore_id'}" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

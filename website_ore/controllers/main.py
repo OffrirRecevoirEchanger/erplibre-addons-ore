@@ -61,15 +61,15 @@ def find_distance_from_user(env, str_address):
     if not env.user or not env.user.active or not OSRM_URL or not str_address:
         # TODO Propose to open gps
         return ""
-    ore_membre_cls = env["ore.membre"]
-    membre_id = ore_membre_cls.search([("user_id", "=", env.user.id)])
+    res_partner_cls = env["res.partner"]
+    membre_id = res_partner_cls.search([("user_id", "=", env.user.id)])
     if not membre_id:
         return ""
-    if not membre_id.adresse:
+    if not membre_id.street:
         return "<font color='#FF0000'>Adresse non configuré</font>"
     lat2, lon2 = get_latitude_longitude(str_address)
     if lon2 and lat2:
-        lat1, lon1 = get_latitude_longitude(membre_id.adresse)
+        lat1, lon1 = get_latitude_longitude(membre_id.street)
         if lat1 and lon1:
             distance = get_distance_osrm(lon1, lat1, lon2, lat2)
         else:
@@ -101,7 +101,7 @@ class OREController(http.Controller):
 
             if ore_offre_service_id and ore_offre_service_id.membre:
                 str_distance = find_distance_from_user(
-                    env, ore_offre_service_id.membre.adresse
+                    env, ore_offre_service_id.membre.street
                 )
         else:
             ore_offre_service_id = None
@@ -127,7 +127,7 @@ class OREController(http.Controller):
         website=True,
     )
     def get_info_offre_service(self, offre_id, **kw):
-        me_membre_id = http.request.env.user.partner_id.ore_membre_ids
+        me_membre_id = http.request.env.user.partner_id
         return {
             "id": offre_id.id,
             "description": offre_id.description,
@@ -138,7 +138,7 @@ class OREController(http.Controller):
             "membre_id": offre_id.membre.id,
             "membre": {
                 "id": offre_id.membre.id,
-                "full_name": offre_id.membre.nom,
+                "full_name": offre_id.membre.name,
             },
             "diff_create_date": self._transform_str_diff_time_creation(
                 offre_id.create_date
@@ -154,7 +154,7 @@ class OREController(http.Controller):
         website=True,
     )
     def get_all_offre_service(self, **kw):
-        me_membre_id = http.request.env.user.partner_id.ore_membre_ids
+        me_membre_id = http.request.env.user.partner_id
         # don't return not website_published if not same member
         value = {
             a.id: {
@@ -167,7 +167,7 @@ class OREController(http.Controller):
                 "membre_id": a.membre.id,
                 "membre": {
                     "id": a.membre.id,
-                    "full_name": a.membre.nom,
+                    "full_name": a.membre.name,
                 },
                 "diff_create_date": self._transform_str_diff_time_creation(
                     a.create_date
@@ -187,7 +187,7 @@ class OREController(http.Controller):
         website=True,
     )
     def get_all_demande_service(self, **kw):
-        me_membre_id = http.request.env.user.partner_id.ore_membre_ids
+        me_membre_id = http.request.env.user.partner_id
         # don't return not website_published if not same member
         value = {
             a.id: {
@@ -199,7 +199,7 @@ class OREController(http.Controller):
                 "membre_id": a.membre.id,
                 "membre": {
                     "id": a.membre.id,
-                    "full_name": a.membre.nom,
+                    "full_name": a.membre.name,
                 },
                 "diff_create_date": self._transform_str_diff_time_creation(
                     a.create_date
@@ -219,7 +219,7 @@ class OREController(http.Controller):
         website=True,
     )
     def get_info_demande_service(self, demande_id, **kw):
-        me_membre_id = http.request.env.user.partner_id.ore_membre_ids
+        me_membre_id = http.request.env.user.partner_id
         return {
             "id": demande_id.id,
             "description": demande_id.description,
@@ -231,7 +231,7 @@ class OREController(http.Controller):
             "membre_id": demande_id.membre.id,
             "membre": {
                 "id": demande_id.membre.id,
-                "full_name": demande_id.membre.nom,
+                "full_name": demande_id.membre.name,
             },
             "diff_create_date": self._transform_str_diff_time_creation(
                 demande_id.create_date
@@ -247,7 +247,7 @@ class OREController(http.Controller):
         website=True,
     )
     def get_info_echange_service(self, echange_id, **kw):
-        me_membre_id = http.request.env.user.partner_id.ore_membre_ids
+        me_membre_id = http.request.env.user.partner_id
         if (
             me_membre_id.id not in echange_id.membre_vendeur.ids
             and me_membre_id.id not in echange_id.membre_acheteur.ids
@@ -306,7 +306,7 @@ class OREController(http.Controller):
 
         data["membre"] = {
             "id": membre.id,
-            "full_name": membre.nom,
+            "full_name": membre.name,
         }
         data["membre_id"] = membre.id
 
@@ -349,7 +349,7 @@ class OREController(http.Controller):
             dct_value["str_diff_time"] = str_diff_time
             if ore_demande_service_id and ore_demande_service_id.membre:
                 str_distance = find_distance_from_user(
-                    env, ore_demande_service_id.membre.adresse
+                    env, ore_demande_service_id.membre.street
                 )
                 dct_value["str_distance"] = str_distance
 
@@ -404,7 +404,7 @@ class OREController(http.Controller):
 
             distance = None
             if offre.membre:
-                distance = find_distance_from_user(env, offre.membre.adresse)
+                distance = find_distance_from_user(env, offre.membre.street)
             lst_distance_offre_service.append(distance)
 
         ore_demande_service_cls = env["ore.demande.service"]
@@ -774,15 +774,15 @@ class OREController(http.Controller):
 
     @staticmethod
     def get_membre_id():
-        partner_id = http.request.env.user.partner_id
+        membre_id = http.request.env.user.partner_id
         # TODO wrong algorithm, but use instead 'auth="user",'
-        if not partner_id or http.request.auth_method == "public":
+        if not membre_id or http.request.auth_method == "public":
             return {"error": _("User not connected")}
 
-        # membre_id = partner_id.ore_membre_ids
-        membre_id = request.env["ore.membre"].search(
-            [("partner_id", "=", partner_id.id)], limit=1
-        )
+        # # membre_id = partner_id.res_partner_ids
+        # membre_id = request.env["res.partner"].search(
+        #     [("partner_id", "=", partner_id.id)], limit=1
+        # )
 
         if not membre_id:
             return {
@@ -835,9 +835,9 @@ class OREController(http.Controller):
                 "id": echange_service_id.membre_vendeur.id
                 if est_acheteur
                 else echange_service_id.membre_acheteur.id,
-                "full_name": echange_service_id.membre_vendeur.nom
+                "full_name": echange_service_id.membre_vendeur.name
                 if est_acheteur
-                else echange_service_id.membre_acheteur.nom,
+                else echange_service_id.membre_acheteur.name,
             },
             "sujet_offre_service": echange_service_id.offre_service.titre,
             "description_offre_service": echange_service_id.offre_service.description,
@@ -892,8 +892,8 @@ class OREController(http.Controller):
                 ),
                 "membre": {
                     "id": a.membre.id,
-                    "full_name": a.membre.nom,
-                    "ma_photo": a.membre.logo_attachment_id.local_url,
+                    "full_name": a.membre.name,
+                    "ma_photo": a.membre.image_attachment_id.local_url,
                 },
                 "distance": "8m",
             }
@@ -911,8 +911,8 @@ class OREController(http.Controller):
                 ),
                 "membre": {
                     "id": a.membre.id,
-                    "full_name": a.membre.nom,
-                    "ma_photo": a.membre.logo_attachment_id.local_url,
+                    "full_name": a.membre.name,
+                    "ma_photo": a.membre.image_attachment_id.local_url,
                 },
                 "distance": "8m",
             }
@@ -934,8 +934,8 @@ class OREController(http.Controller):
                 ),
                 "membre": {
                     "id": a.membre.id,
-                    "full_name": a.membre.nom,
-                    "ma_photo": a.membre.logo_attachment_id.local_url,
+                    "full_name": a.membre.name,
+                    "ma_photo": a.membre.image_attachment_id.local_url,
                 },
                 "distance": "8m",
             }
@@ -953,8 +953,8 @@ class OREController(http.Controller):
                 ),
                 "membre": {
                     "id": a.membre.id,
-                    "full_name": a.membre.nom,
-                    "ma_photo": a.membre.logo_attachment_id.local_url,
+                    "full_name": a.membre.name,
+                    "ma_photo": a.membre.image_attachment_id.local_url,
                 },
                 "distance": "8m",
             }
@@ -967,11 +967,11 @@ class OREController(http.Controller):
         dct_membre_favoris = {
             a.membre_id.id: {
                 "id": a.membre_id.id,
-                "ma_photo": a.membre_id.logo_attachment_id.local_url,
+                "ma_photo": a.membre_id.image_attachment_id.local_url,
                 "description": a.membre_id.introduction,
                 "age": 35,
                 "is_favorite": True,
-                "full_name": a.membre_id.nom,
+                "full_name": a.membre_id.name,
                 "distance": "8m",
             }
             for a in membre_id.membre_favoris_ids
@@ -1029,13 +1029,14 @@ class OREController(http.Controller):
             "lst_notification": lst_notification,
             "personal": {
                 "id": membre_id.id,
-                "full_name": membre_id.nom,
+                "full_name": membre_id.name,
+                # TODO il est manquant
                 "genre": membre_id.genre,
                 "date_naissance": membre_id.date_naissance,
-                "courriel": membre_id.courriel,
-                "telephone_1": membre_id.telephone_1,
-                "adresse": membre_id.adresse,
-                "ma_photo": membre_id.logo_attachment_id.local_url,
+                "email": membre_id.email,
+                "phone": membre_id.phone,
+                "street": membre_id.street,
+                "ma_photo": membre_id.image_attachment_id.local_url,
                 # "actual_bank_hours": bank_time,
                 "actual_bank_hours": membre_id.bank_time,
                 # "actual_month_bank_hours": month_bank_time,
@@ -1094,13 +1095,13 @@ class OREController(http.Controller):
         nom = kw.get("full_name")
         genre = kw.get("genre")
         date_naissance = kw.get("date_naissance")
-        courriel = kw.get("courriel")
-        telephone_1 = kw.get("telephone_1")
-        adresse = kw.get("adresse")
+        email = kw.get("email")
+        phone = kw.get("phone")
+        street = kw.get("street")
 
         if "ma_photo" in kw.keys():
             # TODO do we need validation? like extension or supported file
-            membre_id.logo = ma_photo.split(",")[1].encode("utf-8")
+            membre_id.image = ma_photo.split(",")[1].encode("utf-8")
         if "introduction" in kw.keys():
             membre_id.introduction = introduction
         if "description" in kw.keys():
@@ -1168,17 +1169,17 @@ class OREController(http.Controller):
             membre_id.genre = genre
         if "date_naissance" in kw.keys():
             membre_id.date_naissance = date_naissance
-        if "courriel" in kw.keys():
-            membre_id.courriel = courriel
-        if "telephone_1" in kw.keys():
-            membre_id.telephone_1 = telephone_1
-        if "adresse" in kw.keys():
-            membre_id.adresse = adresse
+        if "email" in kw.keys():
+            membre_id.email = email
+        if "phone" in kw.keys():
+            membre_id.phone = phone
+        if "street" in kw.keys():
+            membre_id.street = street
         return status
 
     @http.route(
         [
-            "/ore/get_membre_information/<model('ore.membre'):membre_id>",
+            "/ore/get_membre_information/<model('res.partner'):membre_id>",
         ],
         type="json",
         auth="user",
@@ -1190,7 +1191,7 @@ class OREController(http.Controller):
         #     # This is an error
         #     return membre_id
 
-        me_membre_id = http.request.env.user.partner_id.ore_membre_ids
+        me_membre_id = http.request.env.user.partner_id
         actual_membre_id = self.get_membre_id()
         if type(actual_membre_id) is dict:
             # This is an error
@@ -1212,7 +1213,7 @@ class OREController(http.Controller):
                 ),
                 "membre": {
                     "id": a.membre.id,
-                    "full_name": a.membre.nom,
+                    "full_name": a.membre.name,
                 },
                 "distance": "8m",
             }
@@ -1230,7 +1231,7 @@ class OREController(http.Controller):
                 ),
                 "membre": {
                     "id": a.membre.id,
-                    "full_name": a.membre.nom,
+                    "full_name": a.membre.name,
                 },
                 "distance": "8m",
             }
@@ -1244,12 +1245,12 @@ class OREController(http.Controller):
         return {
             "membre_info": {
                 "id": membre_id.id,
-                "full_name": membre_id.nom,
+                "full_name": membre_id.name,
                 "date_naissance": membre_id.date_naissance,
-                "courriel": membre_id.courriel,
-                "telephone_1": membre_id.telephone_1,
-                "adresse": membre_id.adresse,
-                "ma_photo": membre_id.logo_attachment_id.local_url,
+                "email": membre_id.email,
+                "phone": membre_id.phone,
+                "street": membre_id.street,
+                "ma_photo": membre_id.image_attachment_id.local_url,
                 "bank_max_service_offert": membre_id.bank_max_service_offert,
                 "actual_bank_hours": membre_id.bank_time,
                 "actual_month_bank_hours": membre_id.bank_month_time,
@@ -1283,7 +1284,7 @@ class OREController(http.Controller):
 
     @http.route(
         [
-            "/ore/get_info/offre_service/<model('ore.membre'):membre_id>",
+            "/ore/get_info/offre_service/<model('res.partner'):membre_id>",
         ],
         type="json",
         auth="user",
@@ -1305,7 +1306,7 @@ class OREController(http.Controller):
 
     @http.route(
         [
-            "/ore/get_info/demande_service/<model('ore.membre'):membre_id>",
+            "/ore/get_info/demande_service/<model('res.partner'):membre_id>",
         ],
         type="json",
         auth="user",
@@ -1338,9 +1339,9 @@ class OREController(http.Controller):
     def get_info_list_membre(self, ore_id, **kw):
         my_favorite_membre_id = [
             a.membre_id.id
-            for a in http.request.env.user.partner_id.ore_membre_ids.membre_favoris_ids
+            for a in http.request.env.user.partner_id.membre_favoris_ids
         ]
-        lst_membre = http.request.env["ore.membre"].search(
+        lst_membre = http.request.env["res.partner"].search(
             [
                 ("ore", "=", ore_id),
                 ("profil_approuver", "=", True),
@@ -1349,13 +1350,14 @@ class OREController(http.Controller):
         dct_membre = {
             a.id: {
                 "age": a.age,
-                "ma_photo": a.logo_attachment_id.local_url,
-                "full_name": a.nom,
+                "ma_photo": a.image_attachment_id.local_url,
+                "full_name": a.name,
+                "annee_naissance": a.annee_naissance,
                 "date_naissance": a.date_naissance,
                 "genre": a.genre,
-                "courriel": a.courriel,
-                "telephone_1": a.telephone_1,
-                "adresse": a.adresse,
+                "email": a.email,
+                "phone": a.phone,
+                "street": a.street,
                 "antecedent_judiciaire_verifier": a.antecedent_judiciaire_verifier,
                 "bank_time": a.bank_time,
                 "bank_month_time": a.bank_month_time,
@@ -1391,7 +1393,7 @@ class OREController(http.Controller):
 
     # @http.route(
     #     [
-    #         "/ore/get_info/echange_service/<model('ore.membre'):membre_id>",
+    #         "/ore/get_info/echange_service/<model('res.partner'):membre_id>",
     #     ],
     #     type="json",
     #     auth="user",
@@ -1423,7 +1425,7 @@ class OREController(http.Controller):
 
     @http.route(
         [
-            "/ore/get_info/recevoir_service/<model('ore.membre'):membre_id>",
+            "/ore/get_info/recevoir_service/<model('res.partner'):membre_id>",
         ],
         type="json",
         auth="user",
@@ -1478,16 +1480,16 @@ class OREController(http.Controller):
         env = request.env(context=dict(request.env.context))
 
         # Remove itself member
-        ore_membre_ids = (
-            env["ore.membre"].sudo().search([("id", "!=", membre_id.id)])
+        res_partner_ids = (
+            env["res.partner"].sudo().search([("id", "!=", membre_id.id)])
         )
         lst_membre = [
             {
-                "title": a.nom,
+                "title": a.name,
                 "id": a.id,
-                "img": a.logo_attachment_id.local_url,
+                "img": a.image_attachment_id.local_url,
             }
-            for a in ore_membre_ids
+            for a in res_partner_ids
         ]
         ore_type_service_categorie_ids = (
             env["ore.type.service.categorie"].sudo().search([])
@@ -1544,7 +1546,7 @@ class OREController(http.Controller):
         lst_echange_acheteur = [
             {
                 "id": a.id,
-                "html": f"Par {a.membre_vendeur.nom}",
+                "html": f"Par {a.membre_vendeur.name}",
                 "right_html": self.datetime_to_local(a.create_date),
                 "title": a.titre,
             }
@@ -1556,7 +1558,7 @@ class OREController(http.Controller):
         lst_echange_vendeur = [
             {
                 "id": a.id,
-                "html": f"Pour {a.membre_acheteur.nom}",
+                "html": f"Pour {a.membre_acheteur.name}",
                 "right_html": self.datetime_to_local(a.create_date),
                 "title": a.titre,
             }
@@ -1862,7 +1864,7 @@ class OREController(http.Controller):
         }
         # Find already member
         membre_id = (
-            env["ore.membre"]
+            env["res.partner"]
             .sudo()
             .search(
                 [
@@ -1876,7 +1878,7 @@ class OREController(http.Controller):
             # Detect if user is public
             actual_membre_id = None
         else:
-            actual_membre_id = env["ore.membre"].search(
+            actual_membre_id = env["res.partner"].search(
                 [("partner_id.user_ids", "=", env.user.id)]
             )
 
@@ -2138,7 +2140,7 @@ class OREController(http.Controller):
             _logger.error(status["error"])
             return status
 
-        membre_id = http.request.env.user.partner_id.ore_membre_ids.id
+        membre_id = http.request.env.user.partner_id.id
 
         demande_service_id = None
         offre_service_id = None
@@ -2254,7 +2256,7 @@ class OREController(http.Controller):
 
             vals["type_echange"] = "offre_special"
 
-            membre_id = http.request.env.user.partner_id.ore_membre_ids.id
+            membre_id = http.request.env.user.partner_id.id
             # if str_state_id in (
             #     "init.saa.recevoir.choix.existant.time.form",
             #     "init.saa.recevoir.choix.nouveau.form",
@@ -2388,7 +2390,7 @@ class OREController(http.Controller):
     def ore_demande_publish_submit(self, demande_id, **kw):
         status = {}
         website_published = kw.get("website_published")
-        me_membre_id = http.request.env.user.partner_id.ore_membre_ids
+        me_membre_id = http.request.env.user.partner_id
         if demande_id.membre.id != me_membre_id.id:
             status["error"] = (
                 "You don't have permission to change publish state of this"
@@ -2409,7 +2411,7 @@ class OREController(http.Controller):
     )
     def ore_demande_supprimer_submit(self, demande_id, **kw):
         status = {}
-        me_membre_id = http.request.env.user.partner_id.ore_membre_ids
+        me_membre_id = http.request.env.user.partner_id
         if demande_id.membre.id != me_membre_id.id:
             status[
                 "error"
@@ -2430,7 +2432,7 @@ class OREController(http.Controller):
     def ore_offre_publish_submit(self, offre_id, **kw):
         status = {}
         website_published = kw.get("website_published")
-        me_membre_id = http.request.env.user.partner_id.ore_membre_ids
+        me_membre_id = http.request.env.user.partner_id
         if offre_id.membre.id != me_membre_id.id:
             status["error"] = (
                 "You don't have permission to change publish state of this"
@@ -2451,7 +2453,7 @@ class OREController(http.Controller):
     )
     def ore_offre_supprimer_submit(self, offre_id, **kw):
         status = {}
-        me_membre_id = http.request.env.user.partner_id.ore_membre_ids
+        me_membre_id = http.request.env.user.partner_id
         if offre_id.membre.id != me_membre_id.id:
             status["error"] = "You don't have permission to delete this offre."
         else:
@@ -2471,7 +2473,7 @@ class OREController(http.Controller):
         # Send from participer website
         status = {}
 
-        membre_id = http.request.env.user.partner_id.ore_membre_ids
+        membre_id = http.request.env.user.partner_id
 
         id_record = kw.get("id_record")
         model_name = kw.get("model")
@@ -2484,8 +2486,8 @@ class OREController(http.Controller):
                 )
             }
 
-        if model_name == "ore.membre":
-            favoris_membre_id = http.request.env["ore.membre"].browse(
+        if model_name == "res.partner":
+            favoris_membre_id = http.request.env["res.partner"].browse(
                 id_record
             )
             if favoris_membre_id.id in membre_id.membre_favoris_ids.ids:
@@ -2497,7 +2499,7 @@ class OREController(http.Controller):
             else:
                 # First, search if relation exist, or create it
                 favoris_membre_model_favoris_id = http.request.env[
-                    "ore.membre.favoris"
+                    "res.partner.favoris"
                 ].search([("membre_id", "=", favoris_membre_id.id)])
                 if not favoris_membre_model_favoris_id:
                     membre_id.write(
@@ -2569,15 +2571,15 @@ class OREController(http.Controller):
     def get_participer_member_from_ore(self, **kw):
         # TODO filter get member from ore
         env = request.env(context=dict(request.env.context))
-        ore_membre_ids = env["ore.membre"].sudo().search([])
+        res_partner_ids = env["res.partner"].sudo().search([])
         return {
             "list": [
                 {
-                    "text": a.nom,
+                    "text": a.name,
                     "id": a.id,
-                    "img": a.logo_attachment_id.local_url,
+                    "img": a.image_attachment_id.local_url,
                 }
-                for a in ore_membre_ids
+                for a in res_partner_ids
             ]
         }
 

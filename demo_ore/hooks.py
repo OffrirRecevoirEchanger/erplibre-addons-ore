@@ -19,41 +19,49 @@ def post_init_hook(cr, e):
         for adhesion_id in adhesion_ids:
             adhesion_id.en_attente = False
 
+        # company_id = env["res.partner"].browse(env.ref("base.main_company").id)
+        company_id = env["res.partner"].browse(env.ref("base.main_partner").id)
+        company_id.annee_naissance = 2000
+
         # TODO can move this in data
-        env.ref("demo_ore.ore_membre_administrateur_mathieu_benoit").write(
+        env.ref("base.partner_admin").write(
             {
                 "membre_favoris_ids": [
                     (
                         4,
-                        env.ref("demo_ore.ore_membre_favoris_martin_petit").id,
-                    ),
-                    (
-                        4,
                         env.ref(
-                            "demo_ore.ore_membre_favoris_administrateur_mathieu_benoit"
+                            "demo_ore.res_partner_favoris_martin_petit"
                         ).id,
                     ),
                     (
                         4,
                         env.ref(
-                            "demo_ore.ore_membre_favoris_alice_poitier"
+                            "demo_ore.res_partner_favoris_administrateur_mathieu_benoit"
+                        ).id,
+                    ),
+                    (
+                        4,
+                        env.ref(
+                            "demo_ore.res_partner_favoris_alice_poitier"
                         ).id,
                     ),
                 ]
             }
         )
 
-        env.ref("demo_ore.ore_membre_denis_lemarchand").write(
+        env.ref("demo_ore.partner_demo_denis_lemarchand").write(
             {
                 "membre_favoris_ids": [
                     (
                         4,
-                        env.ref("demo_ore.ore_membre_favoris_martin_petit").id,
+                        env.ref(
+                            "demo_ore.res_partner_favoris_martin_petit"
+                        ).id,
                     ),
                     (
                         4,
                         env.ref(
-                            "demo_ore.ore_membre_favoris_administrateur_mathieu_benoit"
+                            "demo_ore.res_partner_favoris_administrateur_mathieu_benoit"
                         ).id,
                     ),
                 ]
@@ -71,7 +79,3 @@ def post_init_hook(cr, e):
             [("name", "=", "ORE")]
         ):
             item.name = "Réseau"
-        for item in env["ore.ore"].search([("nom", "=", "ORE de Laval")]):
-            item.nom = "Municipalité de Sainte-Rose-Du-Nord"
-        for item in env["ore.membre"].search([("nom", "=", "ORE Laval")]):
-            item.nom = "Municipalité de Sainte-Rose-Du-Nord"

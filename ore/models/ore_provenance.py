@@ -9,7 +9,7 @@ class OREProvenance(models.Model):
     nom = fields.Char(string="Provenance")
 
     membre = fields.One2many(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         inverse_name="provenance",
         help="Membre relation",
     )

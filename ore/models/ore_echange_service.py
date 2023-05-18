@@ -29,17 +29,17 @@ class OREEchangeService(models.Model):
 
     # TODO compute membre_acheter from service
     membre_acheteur = fields.Many2one(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         string="Membre acheteur",
     )
 
     membre_vendeur = fields.Many2one(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         string="Membre vendeur",
     )
 
     membre_qui_a_valide = fields.Many2one(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         string="Membre qui a validé",
     )
 
@@ -83,11 +83,6 @@ class OREEchangeService(models.Model):
     offre_service = fields.Many2one(
         comodel_name="ore.offre.service",
         string="Offre de services",
-    )
-
-    point_service = fields.Many2one(
-        comodel_name="ore.point.service",
-        string="Point de services",
     )
 
     remarque = fields.Char()
@@ -158,7 +153,7 @@ class OREEchangeService(models.Model):
         res = super(OREEchangeService, self).create(vals_list)
         lst_notif_value = []
         for es in res:
-            owner_membre_id = es.write_uid.ore_membre_ids.exists()
+            owner_membre_id = es.write_uid.partner_id.exists()
             # Remove owner (membre who ask) to notif list
             if owner_membre_id:
                 lst_membre_notif = list(
@@ -213,16 +208,12 @@ class OREEchangeService(models.Model):
                     self.env["ore.echange.service.notification"].create(value)
         return res
 
-    @api.depends("type_echange", "point_service")
+    @api.depends("type_echange")
     def _compute_nom_complet(self):
         for rec in self:
             value = ""
             if rec.type_echange:
                 value += rec.type_echange
-            if rec.point_service and rec.point_service.nom:
-                if rec.type_echange:
-                    value += " - "
-                value += rec.point_service.nom
             if not value:
                 value = False
             rec.nom_complet = value

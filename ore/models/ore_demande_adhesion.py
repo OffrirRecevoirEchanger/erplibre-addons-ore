@@ -12,12 +12,6 @@ class OREDemandeAdhesion(models.Model):
         store=True,
     )
 
-    ore = fields.Many2one(
-        comodel_name="ore.ore",
-        string="Réseau",
-        required=True,
-    )
-
     active = fields.Boolean(
         string="Actif",
         default=True,

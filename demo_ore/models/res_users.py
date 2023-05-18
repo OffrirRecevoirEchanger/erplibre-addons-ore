@@ -12,10 +12,8 @@ class Users(models.Model):
     def create(self, vals_list):
         vals = super(Users, self).create(vals_list)
         lst_data = []
-        ore_id = self.env["ore.ore"].search([], limit=1)
         for val in vals:
             data = {
-                "ore": ore_id.id,
                 "courriel": val.email,
                 "nom": val.name,
                 "telephone": val.phone,

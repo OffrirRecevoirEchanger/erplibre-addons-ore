@@ -1,6 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-ore_ore_access_user_types_/_internal_user,ore_ore Access User types / Internal User,model_ore_ore,base.group_user,1,1,1,1
-ore_ore_access_user_types_/_portal,ore_ore Access User types / Portal,model_ore_ore,base.group_portal,1,1,1,1
 ore_arrondissement_access_user_types_/_internal_user,ore_arrondissement Access User types / Internal User,model_ore_arrondissement,base.group_user,1,1,1,1
 ore_arrondissement_access_user_types_/_portal,ore_arrondissement Access User types / Portal,model_ore_arrondissement,base.group_portal,1,1,1,1
 ore_commentaire_access_user_types_/_internal_user,ore_commentaire Access User types / Internal User,model_ore_commentaire,base.group_user,1,1,1,1
@@ -13,10 +11,8 @@ ore_echange_service_access_user_types_/_internal_user,ore_echange_service Access
 ore_echange_service_access_user_types_/_portal,ore_echange_service Access User types / Portal,model_ore_echange_service,base.group_portal,1,1,1,1
 ore_echange_service_notification_access_user_types_/_internal_user,ore_echange_service_notification Access User types / Internal User,model_ore_echange_service_notification,base.group_user,1,1,1,1
 ore_echange_service_notification_access_user_types_/_portal,ore_echange_service_notification Access User types / Portal,model_ore_echange_service_notification,base.group_portal,1,1,1,1
-ore_membre_access_user_types_/_internal_user,ore_membre Access User types / Internal User,model_ore_membre,base.group_user,1,1,1,1
-ore_membre_access_user_types_/_portal,ore_membre Access User types / Portal,model_ore_membre,base.group_portal,1,1,1,1
-ore_membre_favoris_access_user_types_/_internal_user,ore_membre_favoris Access User types / Internal User,model_ore_membre_favoris,base.group_user,1,1,1,1
-ore_membre_favoris_access_user_types_/_portal,ore_membre_favoris Access User types / Portal,model_ore_membre_favoris,base.group_portal,1,1,1,1
+res_partner_favoris_access_user_types_/_internal_user,res_partner_favoris Access User types / Internal User,model_res_partner_favoris,base.group_user,1,1,1,1
+res_partner_favoris_access_user_types_/_portal,res_partner_favoris Access User types / Portal,model_res_partner_favoris,base.group_portal,1,1,1,1
 access_ore_membre_interet,Access Ore Membre Interet,model_ore_membre_interet,base.group_user,1,1,1,1
 access_ore_membre_interet_portal,Access Ore Membre Interet (Portal),model_ore_membre_interet,base.group_portal,1,1,1,1
 access_ore_membre_langue_parle,Access Ore Membre Langue Parle,model_ore_membre_langue_parle,base.group_user,1,1,1,1
@@ -27,8 +23,6 @@ ore_offre_service_access_user_types_/_internal_user,ore_offre_service Access Use
 ore_offre_service_access_user_types_/_portal,ore_offre_service Access User types / Portal,model_ore_offre_service,base.group_portal,1,1,1,1
 ore_origine_access_user_types_/_internal_user,ore_origine Access User types / Internal User,model_ore_origine,base.group_user,1,1,1,1
 ore_origine_access_user_types_/_portal,ore_origine Access User types / Portal,model_ore_origine,base.group_portal,1,1,1,1
-ore_point_service_access_user_types_/_internal_user,ore_point_service Access User types / Internal User,model_ore_point_service,base.group_user,1,1,1,1
-ore_point_service_access_user_types_/_portal,ore_point_service Access User types / Portal,model_ore_point_service,base.group_portal,1,1,1,1
 ore_provenance_access_user_types_/_internal_user,ore_provenance Access User types / Internal User,model_ore_provenance,base.group_user,1,1,1,1
 ore_provenance_access_user_types_/_portal,ore_provenance Access User types / Portal,model_ore_provenance,base.group_portal,1,1,1,1
 ore_quartier_access_user_types_/_internal_user,ore_quartier Access User types / Internal User,model_ore_quartier,base.group_user,1,1,1,1
@@ -47,8 +41,6 @@ ore_type_service_categorie_access_user_types_/_internal_user,ore_type_service_ca
 ore_type_service_categorie_access_user_types_/_portal,ore_type_service_categorie Access User types / Portal,model_ore_type_service_categorie,base.group_portal,1,1,1,1
 ore_type_service_sous_categorie_access_user_types_/_internal_user,ore_type_service_sous_categorie Access User types / Internal User,model_ore_type_service_sous_categorie,base.group_user,1,1,1,1
 ore_type_service_sous_categorie_access_user_types_/_portal,ore_type_service_sous_categorie Access User types / Portal,model_ore_type_service_sous_categorie,base.group_portal,1,1,1,1
-ore_type_telephone_access_user_types_/_internal_user,ore_type_telephone Access User types / Internal User,model_ore_type_telephone,base.group_user,1,1,1,1
-ore_type_telephone_access_user_types_/_portal,ore_type_telephone Access User types / Portal,model_ore_type_telephone,base.group_portal,1,1,1,1
 ore_ville_access_user_types_/_internal_user,ore_ville Access User types / Internal User,model_ore_ville,base.group_user,1,1,1,1
 ore_ville_access_user_types_/_portal,ore_ville Access User types / Portal,model_ore_ville,base.group_portal,1,1,1,1
 ore_workflow_access_user_types_/_internal_user,ore_workflow Access User types / Internal User,model_ore_workflow,base.group_user,1,1,1,1

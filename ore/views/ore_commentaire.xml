@@ -61,9 +61,6 @@
                         <field name="offre_service_id" />
                     </group>
                     <group>
-                        <field name="point_service" />
-                    </group>
-                    <group>
                         <field name="resumer_situation" />
                     </group>
                     <group>
@@ -103,7 +100,6 @@
                 <field name="note_administrative" type="row" />
                 <field name="number" type="measure" />
                 <field name="offre_service_id" type="row" />
-                <field name="point_service" type="row" />
                 <field name="resumer_situation" type="row" />
                 <field name="situation_impliquant" type="row" />
                 <field name="solution_pour_regler" type="row" />
@@ -135,7 +131,6 @@
                 <field name="note_administrative" />
                 <field name="number" />
                 <field name="offre_service_id" />
-                <field name="point_service" />
                 <field name="resumer_situation" />
                 <field name="situation_impliquant" />
                 <field name="solution_pour_regler" />
@@ -239,11 +234,6 @@
                                     </li>
                                     <li class="mb4">
                                         <strong>
-                                            <field name="point_service" />
-                                        </strong>
-                                    </li>
-                                    <li class="mb4">
-                                        <strong>
                                             <field name="resumer_situation" />
                                         </strong>
                                     </li>
@@ -294,7 +284,6 @@
                 <field name="note_administrative" type="row" />
                 <field name="number" type="measure" />
                 <field name="offre_service_id" type="row" />
-                <field name="point_service" type="row" />
                 <field name="resumer_situation" type="row" />
                 <field name="situation_impliquant" type="row" />
                 <field name="solution_pour_regler" type="row" />
@@ -354,7 +343,6 @@
                 />
                 <filter domain="[('number','!=',False)]" name="number" string="# de commentaire" />
                 <filter domain="[('offre_service_id','!=',False)]" name="offre_service_id" string="Offre de services" />
-                <filter domain="[('point_service','!=',False)]" name="point_service" string="Point de services" />
                 <filter
                     domain="[('resumer_situation','!=',False)]"
                     name="resumer_situation"
@@ -398,7 +386,6 @@
                 <field name="note_administrative" />
                 <field name="number" />
                 <field name="offre_service_id" />
-                <field name="point_service" />
                 <field name="resumer_situation" />
                 <field name="situation_impliquant" />
                 <field name="solution_pour_regler" />

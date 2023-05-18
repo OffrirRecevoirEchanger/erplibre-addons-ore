@@ -1860,7 +1860,7 @@
                                                     </div>
                                                 </nav>
                                                 <nav class="profil_main">
-                                                    <div class="profil profil_main profil_box btn btn-primary adapt-text-primary-color" style="right: 50px;" ng-click="add_to_my_favorite('ore.membre', membre_info)">
+                                                    <div class="profil profil_main profil_box btn btn-primary adapt-text-primary-color" style="right: 50px;" ng-click="add_to_my_favorite('res.partner', membre_info)">
                                                         <span class="img img-fluid mx-auto fa coeur" ng-class="{'fa-heart': membre_info.is_favorite, 'fa-heart-o': !membre_info.is_favorite}" />
                                                         <span class="adapt-text-primary-color" ng-if="!membre_info.is_favorite">Ajouter à mes favoris</span>
                                                         <span class="adapt-text-primary-color" ng-if="membre_info.is_favorite">Retirer de mes favoris</span>
@@ -2350,7 +2350,7 @@
                                                 </a>
                                                 <div class="infos right">
                                                     <h5 ng-cloak="">{{membre_favoris.distance}}</h5>
-                                                    <h2 class="fa text-epsilon coeur" ng-class="{'fa-heart': membre_favoris.is_favorite, 'fa-heart-o': !membre_favoris.is_favorite}" ng-click="add_to_my_favorite('ore.membre', membre_favoris)" />
+                                                    <h2 class="fa text-epsilon coeur" ng-class="{'fa-heart': membre_favoris.is_favorite, 'fa-heart-o': !membre_favoris.is_favorite}" ng-click="add_to_my_favorite('res.partner', membre_favoris)" />
                                                 </div>
                                             </div>
                                         </div>
@@ -2631,50 +2631,50 @@
                                                 <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_date" ng-click="change_profile_date_naissance(false)">Enregistrer</div>
                                             </div>
                                             <div class="activite">
-                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_courriel" ng-click="change_profile_courriel(true)">Modifier</a>
-                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_courriel" ng-click="annuler_profile_courriel();">Annuler</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_email" ng-click="change_profile_email(true)">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_email" ng-click="annuler_profile_email();">Annuler</a>
                                                 <div class="infos">
-                                                    <h4 class="item_title">Adresse courriel</h4>
-                                                    <span class="nbr" ng-if="!ask_modification_profile_courriel">
-                                                        <span ng-cloak="">{{membre_info.courriel}}</span>
+                                                    <h4 class="item_title">Courriel</h4>
+                                                    <span class="nbr" ng-if="!ask_modification_profile_email">
+                                                        <span ng-cloak="">{{membre_info.email}}</span>
                                                     </span>
                                                 </div>
-                                                <div class="nbr" ng-if="ask_modification_profile_courriel">
-                                                    <input placeholder="Modifiez-moi!" type="email" ng-model="membre_info.courriel" />
-                                                    <span ng-if="!membre_info.courriel" style="color: red;">Courriel obligatoire!</span>
+                                                <div class="nbr" ng-if="ask_modification_profile_email">
+                                                    <input placeholder="Modifiez-moi!" type="email" ng-model="membre_info.email" />
+                                                    <span ng-if="!membre_info.email" style="color: red;">Courriel obligatoire!</span>
                                                 </div>
                                                 <br />
-                                                <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_courriel" ng-click="change_profile_courriel(false)" ng-hide="isEmailEmpty()">Enregistrer</div>
+                                                <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_email" ng-click="change_profile_email(false)" ng-hide="isEmailEmpty()">Enregistrer</div>
                                             </div>
                                             <div class="activite">
                                                 <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_telephone" ng-click="change_profile_telephone(true)">Modifier</a>
                                                 <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_telephone" ng-click="annuler_profile_telephone();">Annuler</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Num&#233;ro de t&#233;l&#233;phone</h4>
-                                                    <span class="nbr" ng-show="membre_info.telephone_1" ng-if="!ask_modification_profile_telephone">
-                                                        <span ng-cloak="">{{membre_info.telephone_1}}</span>
+                                                    <span class="nbr" ng-show="membre_info.phone" ng-if="!ask_modification_profile_telephone">
+                                                        <span ng-cloak="">{{membre_info.phone}}</span>
                                                     </span>
                                                 </div>
                                                 <div class="nbr" ng-if="ask_modification_profile_telephone">
-                                                    <input type="tel" placeholder="Modifiez-moi!" ng-model="membre_info.telephone_1" />
+                                                    <input type="tel" placeholder="Modifiez-moi!" ng-model="membre_info.phone" />
                                                 </div>
                                                 <br />
                                                 <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_telephone" ng-click="change_profile_telephone(false)">Enregistrer</div>
                                             </div>
                                             <div class="activite">
-                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_adresse" ng-click="change_profile_adresse(true)">Modifier</a>
-                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_adresse" ng-click="annuler_profile_adresse();">Annuler</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_street" ng-click="change_profile_street(true)">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_street" ng-click="annuler_profile_street();">Annuler</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Adresse</h4>
-                                                    <span class="nbr" ng-show="membre_info.adresse" ng-if="!ask_modification_profile_adresse">
-                                                        <span ng-cloak="">{{membre_info.adresse}}</span>
+                                                    <span class="nbr" ng-show="membre_info.street" ng-if="!ask_modification_profile_street">
+                                                        <span ng-cloak="">{{membre_info.street}}</span>
                                                     </span>
                                                 </div>
-                                                <div class="nbr" ng-if="ask_modification_profile_adresse">
-                                                    <input placeholder="Modifiez-moi!" type="text" ng-model="membre_info.adresse" />
+                                                <div class="nbr" ng-if="ask_modification_profile_street">
+                                                    <input placeholder="Modifiez-moi!" type="text" ng-model="membre_info.street" />
                                                 </div>
                                                 <br />
-                                                <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_adresse" ng-click="change_profile_adresse(false)">Enregistrer</div>
+                                                <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_street" ng-click="change_profile_street(false)">Enregistrer</div>
                                             </div>
                                             <div class="activite debug_unimplemented">
                                                 <a class="modif btn btn-primary adapt-text-primary-color" href="">Modifier</a>

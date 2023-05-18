@@ -8,13 +8,6 @@ class ORERegion(models.Model):
 
     nom = fields.Char()
 
-    ore = fields.One2many(
-        string="Réseau",
-        comodel_name="ore.ore",
-        inverse_name="region",
-        help="Relation du réseau",
-    )
-
     code = fields.Integer(
         string="Code de région",
         required=True,
@@ -22,7 +15,7 @@ class ORERegion(models.Model):
     )
 
     membre = fields.One2many(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         inverse_name="region",
         help="Membre relation",
     )

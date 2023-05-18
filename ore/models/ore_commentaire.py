@@ -70,14 +70,14 @@ class ORECommentaire(models.Model):
     )
 
     membre_source = fields.Many2one(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         string="Membre source",
         required=True,
         help="Membre duquel provient le commentaire",
     )
 
     membre_viser = fields.Many2one(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         string="Membre visé",
         help="Membre visé par le commentaire",
     )
@@ -101,12 +101,6 @@ class ORECommentaire(models.Model):
         comodel_name="ore.offre.service",
         string="Offre de services",
         help="L'offre de services qui est visée par ce commentaire.",
-    )
-
-    point_service = fields.Many2one(
-        comodel_name="ore.point.service",
-        string="Point de services",
-        required=True,
     )
 
     resumer_situation = fields.Text(string="Résumé de la situation")

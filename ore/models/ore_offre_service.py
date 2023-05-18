@@ -18,12 +18,6 @@ class OREOffreService(models.Model):
         help="Cette offre de service est réalisée.",
     )
 
-    ore = fields.Many2one(
-        string="Réseau",
-        comodel_name="ore.ore",
-        help="Réseau associée",
-    )
-
     active = fields.Boolean(
         string="Actif",
         default=True,
@@ -74,11 +68,11 @@ class OREOffreService(models.Model):
     entente_tarifiaire = fields.Html()
 
     membre = fields.Many2one(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         help="Membre qui offre le service",
     )
 
-    membre_favoris_ids = fields.Many2many(comodel_name="ore.membre")
+    membre_favoris_ids = fields.Many2many(comodel_name="res.partner")
 
     nb_consultation = fields.Integer(string="Nombre de consultations")
 
@@ -110,11 +104,7 @@ class OREOffreService(models.Model):
     def write(self, vals):
         status = super().write(vals)
         # Detect user
-        ore_member = (
-            self.env["res.users"]
-            .browse(self.write_uid.id)
-            .partner_id.ore_membre_ids
-        )
+        ore_member = self.env["res.users"].browse(self.write_uid.id).partner_id
         for rec in self:
             self.env["bus.bus"].sendone(
                 # f'["{self._cr.dbname}","{self._name}",{rec.id}]',

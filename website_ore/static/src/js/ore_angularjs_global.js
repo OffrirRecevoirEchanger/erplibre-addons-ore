@@ -126,9 +126,9 @@ odoo.define('website.ore_angularjs_global', function (require) {
             nom: "",
             genre: "",
             date_naissance: "",
-            courriel: "",
-            telephone_1: "",
-            adresse: "",
+            email: "",
+            phone: "",
+            street: "",
             diff_humain_creation_membre: "",
             antecedent_judiciaire_verifier: false,
             mon_ore: {
@@ -184,7 +184,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.show_croppie = false;
         $scope.ask_modification = false;
         $scope.ask_modification_profile = false;
-        $scope.ask_modif_copy = {membre_info: {}, introduction: "", full_name: "", genre: "", date_naissance: "", courriel: "", telephone_1: "", adresse: ""};
+        $scope.ask_modif_copy = {membre_info: {}, introduction: "", full_name: "", genre: "", date_naissance: "", email: "", phone: "", street: ""};
         $scope.list_interets = [];
         $scope.languesParlees = [];
         $scope.afficherAjoutInteret = false;
@@ -702,16 +702,16 @@ odoo.define('website.ore_angularjs_global', function (require) {
             $scope.ask_modification_profile_date = false;
         };
 
-        $scope.change_profile_courriel = function (courriel) {
-            $scope.ask_modification_profile_courriel = courriel;
+        $scope.change_profile_email = function (email) {
+            $scope.ask_modification_profile_email = email;
 
-            if (!courriel) {
+            if (!email) {
                 let form = {};
-                if ($scope.ask_modif_copy.membre_info.courriel !== $scope.membre_info.courriel) {
-                    if (!$scope.membre_info.courriel) {
+                if ($scope.ask_modif_copy.membre_info.email !== $scope.membre_info.email) {
+                    if (!$scope.membre_info.email) {
                         return;
                     }else {
-                        form["courriel"] = $scope.membre_info.courriel;
+                        form["email"] = $scope.membre_info.email;
                     }
                 }
                 if (!_.isEmpty(form)) {
@@ -730,23 +730,23 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     });
                 }
             } else {
-                if (!_.isUndefined($scope.membre_info.courriel)) {
-                    if (_.isEmpty($scope.membre_info.courriel)) {
-                        $scope.membre_info.courriel = "";
-                        $scope.ask_modif_copy.membre_info.courriel = "";
+                if (!_.isUndefined($scope.membre_info.email)) {
+                    if (_.isEmpty($scope.membre_info.email)) {
+                        $scope.membre_info.email = "";
+                        $scope.ask_modif_copy.membre_info.email = "";
                     } else {
-                        $scope.ask_modif_copy.membre_info.courriel = JSON.parse(JSON.stringify($scope.membre_info.courriel));
+                        $scope.ask_modif_copy.membre_info.email = JSON.parse(JSON.stringify($scope.membre_info.email));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.courriel = undefined;
+                    $scope.ask_modif_copy.membre_info.email = undefined;
                 }
             }
         };
 
-        $scope.annuler_profile_courriel = function () {
+        $scope.annuler_profile_email = function () {
             console.log("TEST");
-            $scope.membre_info.courriel = $scope.ask_modif_copy.membre_info.courriel;
-            $scope.ask_modification_profile_courriel = false;
+            $scope.membre_info.email = $scope.ask_modif_copy.membre_info.email;
+            $scope.ask_modification_profile_email = false;
         };
 
         $scope.change_profile_telephone = function (telephone) {
@@ -754,8 +754,8 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
             if (!telephone) {
                 let form = {};
-                if ($scope.ask_modif_copy.membre_info.telephone_1 !== $scope.membre_info.telephone_1) {
-                    form["telephone_1"] = $scope.membre_info.telephone_1;
+                if ($scope.ask_modif_copy.membre_info.phone !== $scope.membre_info.phone) {
+                    form["phone"] = $scope.membre_info.phone;
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit";
@@ -773,32 +773,32 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     });
                 }
             } else {
-                if (!_.isUndefined($scope.membre_info.telephone_1)) {
-                    if (_.isEmpty($scope.membre_info.telephone_1)) {
-                        $scope.membre_info.telephone_1 = "";
-                        $scope.ask_modif_copy.membre_info.telephone_1 = "";
+                if (!_.isUndefined($scope.membre_info.phone)) {
+                    if (_.isEmpty($scope.membre_info.phone)) {
+                        $scope.membre_info.phone = "";
+                        $scope.ask_modif_copy.membre_info.phone = "";
                     } else {
-                        $scope.ask_modif_copy.membre_info.telephone_1 = JSON.parse(JSON.stringify($scope.membre_info.telephone_1));
+                        $scope.ask_modif_copy.membre_info.phone = JSON.parse(JSON.stringify($scope.membre_info.phone));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.telephone_1 = undefined;
+                    $scope.ask_modif_copy.membre_info.phone = undefined;
                 }
             }
         };
 
         $scope.annuler_profile_telephone = function () {
 
-            $scope.membre_info.telephone_1 = $scope.ask_modif_copy.membre_info.telephone_1;
+            $scope.membre_info.phone = $scope.ask_modif_copy.membre_info.phone;
             $scope.ask_modification_profile_telephone = false;
         };
 
-        $scope.change_profile_adresse = function (adresse) {
-            $scope.ask_modification_profile_adresse = adresse;
+        $scope.change_profile_street = function (street) {
+            $scope.ask_modification_profile_street = street;
 
-            if (!adresse) {
+            if (!street) {
                 let form = {};
-                if ($scope.ask_modif_copy.membre_info.adresse !== $scope.membre_info.adresse) {
-                    form["adresse"] = $scope.membre_info.adresse;
+                if ($scope.ask_modif_copy.membre_info.street !== $scope.membre_info.street) {
+                    form["street"] = $scope.membre_info.street;
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit";
@@ -816,27 +816,27 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     });
                 }
             } else {
-                if (!_.isUndefined($scope.membre_info.adresse)) {
-                    if (_.isEmpty($scope.membre_info.adresse)) {
-                        $scope.membre_info.adresse = "";
-                        $scope.ask_modif_copy.membre_info.adresse = "";
+                if (!_.isUndefined($scope.membre_info.street)) {
+                    if (_.isEmpty($scope.membre_info.street)) {
+                        $scope.membre_info.street = "";
+                        $scope.ask_modif_copy.membre_info.street = "";
                     } else {
-                        $scope.ask_modif_copy.membre_info.adresse = JSON.parse(JSON.stringify($scope.membre_info.adresse));
+                        $scope.ask_modif_copy.membre_info.street = JSON.parse(JSON.stringify($scope.membre_info.street));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.adresse = undefined;
+                    $scope.ask_modif_copy.membre_info.street = undefined;
                 }
             }
         };
 
-        $scope.annuler_profile_adresse = function () {
-            $scope.membre_info.adresse = $scope.ask_modif_copy.membre_info.adresse;
-            $scope.ask_modification_profile_adresse = false;
+        $scope.annuler_profile_street = function () {
+            $scope.membre_info.street = $scope.ask_modif_copy.membre_info.street;
+            $scope.ask_modification_profile_street = false;
         };
         //END
 
         $scope.isEmailEmpty = function() {
-            return _.isEmpty($scope.membre_info.courriel);
+            return _.isEmpty($scope.membre_info.email);
         };
         // End modification environnement
 
@@ -880,7 +880,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 } else {
                     // $scope.nb_offre_service = data.nb_offre_service;
                     // record_obj.is_favorite = data.is_favorite;
-                    // if (model === "ore.membre" && data.is_favorite) {
+                    // if (model === "res.partner" && data.is_favorite) {
                     //     // TODO validate not already in list
                     //     $scope.personal.lst_membre_favoris.push(record_obj);
                     // }
@@ -1223,7 +1223,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 } else {
                     // $scope.nb_offre_service = data.nb_offre_service;
                     record_obj.is_favorite = data.is_favorite;
-                    // if (model === "ore.membre" && data.is_favorite) {
+                    // if (model === "res.partner" && data.is_favorite) {
                     //     // TODO validate not already in list
                     //     $scope.personal.lst_membre_favoris.push(record_obj);
                     // }

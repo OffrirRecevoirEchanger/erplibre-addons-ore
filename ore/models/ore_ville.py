@@ -8,13 +8,6 @@ class OREVille(models.Model):
 
     nom = fields.Char()
 
-    ore = fields.One2many(
-        string="Réseau",
-        comodel_name="ore.ore",
-        inverse_name="ville",
-        help="Relation du réseau",
-    )
-
     arrondissement = fields.One2many(
         comodel_name="ore.arrondissement",
         inverse_name="ville",
@@ -27,7 +20,7 @@ class OREVille(models.Model):
     )
 
     membre = fields.One2many(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         inverse_name="ville",
         help="Membre relation",
     )

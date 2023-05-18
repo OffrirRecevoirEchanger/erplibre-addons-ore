@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="ore_membre_view_form" model="ir.ui.view">
-        <field name="name">ore_membre_form</field>
-        <field name="model">ore.membre</field>
+    <record id="res_partner_view_form" model="ir.ui.view">
+        <field name="name">res_partner_form</field>
+        <field name="model">res.partner</field>
         <field name="arch" type="xml">
             <form string="Titre">
                 <sheet>
@@ -82,15 +82,6 @@
                                     <field name="revenu_familial" />
                                     <field name="genre" />
                                     <field name="situation_maison" />
-                                    <field name="telephone_1" />
-                                    <field name="telephone_2" />
-                                    <field name="telephone_3" />
-                                    <field name="telephone_poste_1" />
-                                    <field name="telephone_poste_2" />
-                                    <field name="telephone_poste_3" />
-                                    <field name="telephone_type_1" />
-                                    <field name="telephone_type_2" />
-                                    <field name="telephone_type_3" />
                                     <field name="transfert_ore" />
                                     <field name="type_communication" />
                                     <field name="user_id" />
@@ -132,9 +123,9 @@
         </field>
     </record>
 
-    <record id="ore_membre_view_kanban" model="ir.ui.view">
-        <field name="name">ore_membre_kanban</field>
-        <field name="model">ore.membre</field>
+    <record id="res_partner_view_kanban" model="ir.ui.view">
+        <field name="name">res_partner_kanban</field>
+        <field name="model">res.partner</field>
         <field name="arch" type="xml">
             <kanban class="o_kanban_mobile">
                 <field name="nom" />
@@ -157,9 +148,9 @@
         </field>
     </record>
 
-    <record id="ore_membre_view_search" model="ir.ui.view">
-        <field name="name">ore_membre_search</field>
-        <field name="model">ore.membre</field>
+    <record id="res_partner_view_search" model="ir.ui.view">
+        <field name="name">res_partner_search</field>
+        <field name="model">res.partner</field>
         <field name="arch" type="xml">
             <search string="ORE membre">
                 <field name="nom" />
@@ -251,9 +242,9 @@
                 />
                 <filter domain="[('region','!=',False)]" name="region" string="R&#233;gion" />
                 <filter domain="[('revenu_familial','!=',False)]" name="revenu_familial" string="Revenu familial" />
-                <filter domain="[('sexe','!=',False)]" name="sexe" string="Sexe" />
+                <filter domain="[('genre','!=',False)]" name="genre" string="Genre" />
                 <filter domain="[('situation_maison','!=',False)]" name="situation_maison" string="Situation maison" />
-                <filter domain="[('telephone_1','!=',False)]" name="telephone_1" string="1er t&#233;l&#233;phone" />
+                <filter domain="[('phone','!=',False)]" name="phone" string="1er t&#233;l&#233;phone" />
                 <filter domain="[('telephone_2','!=',False)]" name="telephone_2" string="2e t&#233;l&#233;phone" />
                 <filter domain="[('telephone_3','!=',False)]" name="telephone_3" string="3e t&#233;l&#233;phone" />
                 <filter
@@ -318,9 +309,9 @@
         </field>
     </record>
 
-    <record id="ore_membre_view_tree" model="ir.ui.view">
-        <field name="name">ore_membre_tree</field>
-        <field name="model">ore.membre</field>
+    <record id="res_partner_view_tree" model="ir.ui.view">
+        <field name="name">res_partner_tree</field>
+        <field name="model">res.partner</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="nom" />
@@ -332,9 +323,9 @@
     </record>
 
     <act_window
-        id="ore_membre_membre_action_window"
+        id="res_partner_membre_action_window"
         name="Membre"
-        res_model="ore.membre"
+        res_model="res.partner"
         view_mode="kanban,tree,form"
     />
 </odoo>

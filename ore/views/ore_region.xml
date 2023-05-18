@@ -13,9 +13,6 @@
                         <field name="code" />
                     </group>
                     <group>
-                        <field name="ore" />
-                    </group>
-                    <group>
                         <field name="membre" />
                     </group>
                     <group>
@@ -44,7 +41,6 @@
             <kanban class="o_kanban_mobile">
                 <field name="nom" />
                 <field name="code" />
-                <field name="ore" />
                 <field name="membre" />
                 <field name="ville" />
                 <templates>
@@ -60,11 +56,6 @@
                                     <li class="mb4">
                                         <strong>
                                             <field name="code" />
-                                        </strong>
-                                    </li>
-                                    <li class="mb4">
-                                        <strong>
-                                            <field name="ore" />
                                         </strong>
                                     </li>
                                     <li class="mb4">
@@ -104,7 +95,6 @@
             <search string="ORE region">
                 <filter domain="[('nom','!=',False)]" name="nom" string="Nom" />
                 <filter domain="[('code','!=',False)]" name="code" string="Code de r&#233;gion" />
-                <filter domain="[('ore','!=',False)]" name="ore" string="ORE" />
                 <filter domain="[('membre','!=',False)]" name="membre" string="Membre" />
                 <filter domain="[('ville','!=',False)]" name="ville" string="Ville" />
             </search>
@@ -118,7 +108,6 @@
             <tree>
                 <field name="nom" />
                 <field name="code" />
-                <field name="ore" />
                 <field name="membre" />
                 <field name="ville" />
             </tree>
