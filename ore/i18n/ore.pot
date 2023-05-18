@@ -1,0 +1,3466 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* ore
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-18 15:50+0000\n"
+"PO-Revision-Date: 2023-05-18 15:50+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__number
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "# de commentaire"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__telephone_poste_1
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "1er poste téléphone"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__telephone_type_1
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "1er type de téléphones"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__telephone_1
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "1er téléphone"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__telephone_poste_2
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "2 poste téléphone"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__telephone_type_2
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "2e type de téléphones"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__telephone_2
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "2e téléphone"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__telephone_poste_3
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "3 poste téléphone"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__telephone_type_3
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "3e type de téléphones"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__telephone_3
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "3e téléphone"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_kanban
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_kanban
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_kanban
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_categorie_view_kanban
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_sous_categorie_view_kanban
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_view_kanban
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_kanban
+msgid "<i aria-label=\"Invalid\" class=\"fa fa-circle\" role=\"img\" title=\"Invalid\"/>"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_kanban
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_kanban
+msgid "<i aria-label=\"Non publié\" class=\"fa fa-globe\" role=\"img\" title=\"Non publié\"/>"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_kanban
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_kanban
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_kanban
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_categorie_view_kanban
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_sous_categorie_view_kanban
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_view_kanban
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_kanban
+msgid "<i aria-label=\"Ok\" class=\"fa fa-circle\" role=\"img\" title=\"Ok\"/>"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_kanban
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_kanban
+msgid "<i aria-label=\"Publié\" class=\"fa fa-globe\" role=\"img\" title=\"Publié\"/>"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__membre_conjoint
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "A un membre conjoint"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.res_config_settings_view_form
+msgid "Accepter automatiquement les adhésions des membres sans validation"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.res_config_settings_view_form
+msgid "Accepter les adhésions automatiquement en membre sans validation."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__accompli
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Accomplie"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_ore_view_form
+msgid "Accueil"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_ore_view_form
+msgid "Achat"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__achat_regrouper
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Achat regroupé"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__active
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__active
+#: model:ir.model.fields,field_description:ore.field_ore_membre__active
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__active
+#: model:ir.model.fields,field_description:ore.field_ore_ore__active
+#: model:ir.model.fields,field_description:ore.field_ore_type_service__active
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_categorie__active
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_sous_categorie__active
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_relation__active
+msgid "Actif"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__message_needaction
+#: model:ir.model.fields,field_description:ore.field_ore_membre__message_needaction
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__message_needaction
+#: model:ir.model.fields,field_description:ore.field_ore_ore__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service_notification__active
+msgid "Active"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__activity_ids
+#: model:ir.model.fields,field_description:ore.field_ore_membre__activity_ids
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__activity_ids
+#: model:ir.model.fields,field_description:ore.field_ore_ore__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__activity_state
+#: model:ir.model.fields,field_description:ore.field_ore_membre__activity_state
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__activity_state
+#: model:ir.model.fields,field_description:ore.field_ore_ore__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_echange_service__transaction_valide
+msgid "Activé lorsque la transaction a été validé"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_ore_view_form
+msgid "Address"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.res_config_settings_view_form
+msgid "Adhésion"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Adresse"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_ore__courriel
+msgid "Adresse courriel"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__courriel
+msgid "Adresse courriel pour joindre le réseau."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__adresse
+msgid "Adresse du réseau"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_ore_view_form
+msgid "Adresse..."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__show_breadcrumb
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Afficher le fil d'ariane"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__help_description
+msgid "Aide - description de l'aide"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__help_video_url
+msgid "Aide - lien de la vidéo de l'aide"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__help_fast_btn_form_url
+msgid "Aide - lien du bouton formulaire"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__help_fast_btn_guide_url
+msgid "Aide - lien du bouton guide interactif animation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__help_fast_btn_url
+msgid "Aide - lien du bouton pour aller à la page associé"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__help_caract_lst
+msgid "Aide - liste des caractéristiques, séparé par ;"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__help_title
+msgid "Aide - nom de l'aide"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__help_section
+msgid "Aide - nom de la section"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__help_sub_section
+msgid "Aide - nom de la sous-section"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__help_fast_btn_title
+msgid "Aide - titre du bouton pour aller à la page associé"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__model_field_name_alias
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Alias champs du modèle"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__annee_naissance
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Année de naissance"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__antecedent_judiciaire_verifier
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Antécédents judiciaires vérifiés"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__approuve
+#: model:ir.model.fields,field_description:ore.field_ore_type_service__approuve
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_categorie__approuve
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_sous_categorie__approuver
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_categorie_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_sous_categorie_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_view_search
+msgid "Approuvé"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_relation_view_search
+msgid "Archived"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_ore_view_search
+msgid "Archivé"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_arrondissement_arrondissement_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_membre__arrondissement
+#: model:ir.model.fields,field_description:ore.field_ore_ore__arrondissement
+#: model:ir.model.fields,field_description:ore.field_ore_quartier__arrondissement
+#: model:ir.model.fields,field_description:ore.field_ore_ville__arrondissement
+#: model:ir.ui.menu,name:ore.arrondissement
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_quartier_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_ville_view_search
+msgid "Arrondissement"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_quartier__arrondissement
+msgid "Arrondissement associé au quartier"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ville__arrondissement
+msgid "Arrondissement relation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__message_attachment_count
+#: model:ir.model.fields,field_description:ore.field_ore_membre__message_attachment_count
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__message_attachment_count
+#: model:ir.model.fields,field_description:ore.field_ore_ore__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: ore
+#: selection:ore.commentaire,type_offre:0
+msgid "Aucun"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_res_config_settings__ore_auto_accept_adhesion
+msgid "Auto accept adhesion"
+msgstr ""
+
+#. module: ore
+#: selection:ore.commentaire,confidentiel:0
+msgid "Autorisé - J'autorise le réseau à divulguer mon identité lors de ses démarches auprès des personnes concernées par la situation."
+msgstr ""
+
+#. module: ore
+#: selection:ore.commentaire,situation_impliquant:0
+#: selection:ore.membre,sexe:0
+msgid "Autre"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__autre_situation
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Autre situation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__autre_commentaire
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Autres commentaires"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_offre_service__condition_autre
+msgid "Autres conditions à informer"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__bottin_courriel
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Bottin courriel"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__bottin_tel
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Bottin téléphone"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_form
+msgid "CA"
+msgstr ""
+
+#. module: ore
+#: selection:ore.workflow.state,type:0
+msgid "Calendrier"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__caract_echange_nouvel_existant
+msgid "Caract Echange Nouvel Existant"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__caract_offre_demande_nouveau_existante
+msgid "Caract Offre Demande Nouveau Existante"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__caract_service_offrir_recevoir
+msgid "Caract Service Offrir Recevoir"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__caract_valider_echange
+msgid "Caract Valider Echange"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_sous_categorie__categorie
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_sous_categorie_view_search
+msgid "Catégorie"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_type_service_categorie_categorie_de_services_action_window
+#: model:ir.ui.menu,name:ore.categorie_de_services
+#: model:ir.ui.menu,name:ore.group_categorie_de_services
+msgid "Catégorie de services"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_offre_service__accompli
+msgid "Cette offre de service est réalisée."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__model_field_name
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Champs du modèle"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_commentaire__situation_impliquant
+msgid "Choisir un type de groupes visé par ce commentaire."
+msgstr ""
+
+#. module: ore
+#: selection:ore.workflow.state,type:0
+msgid "Choix catégorie de service"
+msgstr ""
+
+#. module: ore
+#: selection:ore.workflow.state,type:0
+msgid "Choix membre"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_ville__code
+#: model_terms:ir.ui.view,arch_db:ore.ore_ville_view_search
+msgid "Code"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_region__code
+msgid "Code de la région administrative"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ville__code
+msgid "Code de la ville"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_region__code
+#: model_terms:ir.ui.view,arch_db:ore.ore_region_view_search
+msgid "Code de région"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_ore__code_postal
+msgid "Code postal"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__code_postal
+msgid "Code postal du réseau"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_ore_view_form
+msgid "Code postale"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Codepostal"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_commentaire_commentaire_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__commentaire
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__commentaire
+#: model:ir.model.fields,field_description:ore.field_ore_point_service__commentaire
+#: model:ir.ui.menu,name:ore.commentaire
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_point_service_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_point_service_view_search
+msgid "Commentaire"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__commentaire
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Commentaire membre source"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_membre__commentaire
+msgid "Commentaire membre source relation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__commentaire_ids
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Commentaire membre visé"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_membre__commentaire_ids
+msgid "Commentaire membre visé relation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_demande_service__commentaire
+#: model:ir.model.fields,help:ore.field_ore_point_service__commentaire
+msgid "Commentaire relation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_ore__logo
+msgid "Company Logo"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_ore__nom
+msgid "Company Name"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__condition_autre
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Condition autres"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__condition
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Conditions"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_offre_service__condition
+msgid "Conditions inhérentes à l'offre"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__confidentiel
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Confidentialité"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: ore
+#: model:ir.ui.menu,name:ore.configuration_configuration
+#: model:ir.ui.menu,name:ore.group_configuration
+#: model:ir.ui.menu,name:ore.parent_configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__consulter_reseau
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Consulté par le Réseau"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__consulter_ore
+msgid "Consulté par le réseau"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Consulté par une ORE"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_res_partner
+#: model_terms:ir.ui.view,arch_db:ore.ore_ore_view_form
+msgid "Contact"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__breadcrumb_value
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Contenu fil d'ariane"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__courriel
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Courriel"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_echange_service__frais_materiel
+msgid "Coût matériel nécessaire à l'échange de service."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_echange_service__frais_trajet
+msgid "Coût pour faire le trajet."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_arrondissement__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service_notification__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_membre__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_membre_favoris__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_occupation__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_ore__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_origine__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_point_service__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_provenance__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_quartier__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_region__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_revenu_familial__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_situation_maison__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_type_communication__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_type_service__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_categorie__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_sous_categorie__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_type_telephone__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_ville__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_workflow__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_relation__create_uid
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_arrondissement__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service_notification__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_membre__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_membre_favoris__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_occupation__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_ore__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_origine__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_point_service__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_provenance__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_quartier__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_region__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_revenu_familial__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_situation_maison__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_type_communication__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_type_service__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_categorie__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_sous_categorie__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_type_telephone__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_ville__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_workflow__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_relation__create_date
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__date_affichage
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Date d'affichage"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__date_debut
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Date de début"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__date_fin
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Date de fin"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__date_adhesion
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Date de l'adhésion"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__date_incident
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Date de l'indicent"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__date_echange
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Date de l'échange"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_commentaire__date_mise_a_jour
+#: model:ir.model.fields,help:ore.field_ore_demande_adhesion__date_mise_a_jour
+#: model:ir.model.fields,help:ore.field_ore_offre_service__date_mise_a_jour
+msgid "Date de la dernière mise à jour"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__date_valide
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Date de la validation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__help_date_last_update
+msgid "Date dernière mise à jour"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__date_debut
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_search
+msgid "Date début"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__datetime_creation
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Date et heure de création"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__date_fin
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_search
+msgid "Date fin"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_offre_service__date_fin
+msgid "Date jusqu'à laquelle l'offre est valide."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__help_date_last_update
+msgid "Date manuelle de la dernière mise à jour"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_offre_service__date_debut
+msgid "Date à partir de laquelle l'offre est valide."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__degre_satisfaction
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Degré de satisfaction"
+msgstr ""
+
+#. module: ore
+#: selection:ore.commentaire,type_offre:0
+#: selection:ore.echange.service,type_echange:0
+msgid "Demande"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_demande_adhesion_demande_d_adhesion_action_window
+#: model:ir.ui.menu,name:ore.demande_d_adhesion
+msgid "Demande d'adhésion"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__demande_service_ids
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+#: selection:ore.echange.service.notification,type_notification:0
+msgid "Demande de service"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_demande_service_demande_de_services_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__demande_service_id
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__demande_service
+#: model:ir.ui.menu,name:ore.demande_de_services
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Demande de services"
+msgstr ""
+
+#. module: ore
+#: selection:ore.workflow.state,caract_offre_demande_nouveau_existante:0
+msgid "Demande existante"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__website_published
+msgid "Demande publié"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__deplacement
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Deplacement"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__date_mise_a_jour
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__date_mise_a_jour
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__date_mise_a_jour
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Dernière mise à jour"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__description
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__description
+#: model:ir.model.fields,field_description:ore.field_ore_type_service__description
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_view_search
+msgid "Description"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__submit_response_description
+msgid "Description de la réponse d'envoie"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__description_membre
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Description du membre"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_type_service__description
+msgid "Description du type de services"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Description formulaire réponse"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_relation__diagram_id
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__diagram_id
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_relation_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Diagram"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__xpos
+msgid "Diagram position x"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__ypos
+msgid "Diagram position y"
+msgstr ""
+
+#. module: ore
+#: model:ir.ui.menu,name:ore.group_workflow
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_form
+msgid "Diagramme"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_workflow_action_window
+#: model:ir.ui.menu,name:ore.menu_workflow
+msgid "Diagramme de navigation"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_view_diagram
+msgid "Diagramme de navigation pour le processus de participation d'un membre sur le mécanisme d'échange de temps.                     Toutes modifications sont réels sans retour en arrière.                     L'état rectangle pour des choix de navigation et l'état cercle pour la saisie de données (formulaire)."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_arrondissement__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service_notification__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_membre__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_membre_favoris__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_occupation__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_ore__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_origine__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_point_service__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_provenance__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_quartier__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_region__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_revenu_familial__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_situation_maison__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_type_communication__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_type_service__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_categorie__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_sous_categorie__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_type_telephone__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_ville__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_workflow__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_relation__display_name
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__disponibilite
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Disponibilité"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__distance_trajet
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Distance du trajet"
+msgstr ""
+
+#. module: ore
+#: model:ir.ui.menu,name:ore.group_document
+msgid "Document"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__demarche
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Démarche"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_commentaire__demarche
+msgid "Démarche entreprise avant de faire le commentaire"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Dépendances de champs"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__disable_question
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Désactiver la question"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__courriel
+msgid "Email"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__en_attente
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_search
+msgid "En attente"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_arrondissement
+msgid "Ensemble des arrondissement du réseau ORE"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__entente_tarifiaire
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Entente Tarifiaire"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_relation_view_search
+msgid "Est dynamique"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__is_rectangle
+msgid "Est rectangle"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__est_un_point_service
+msgid "Est un point de service"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_form
+msgid "Favoris"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Favoris membre"
+msgstr ""
+
+#. module: ore
+#: selection:ore.membre,sexe:0
+msgid "Femme"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_form
+msgid "Fil d'ariane"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__breadcrumb_show_only_last_item
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Fil d'ariane affiché dernier item seulement"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__breadcrumb_field_value
+msgid "Fil d'ariane valeur dynamique"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__message_follower_ids
+#: model:ir.model.fields,field_description:ore.field_ore_membre__message_follower_ids
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__message_follower_ids
+#: model:ir.model.fields,field_description:ore.field_ore_ore__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__message_channel_ids
+#: model:ir.model.fields,field_description:ore.field_ore_membre__message_channel_ids
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__message_channel_ids
+#: model:ir.model.fields,field_description:ore.field_ore_ore__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__message_partner_ids
+#: model:ir.model.fields,field_description:ore.field_ore_membre__message_partner_ids
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__message_partner_ids
+#: model:ir.model.fields,field_description:ore.field_ore_ore__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_relation__not_implemented
+msgid "Fonctionnalité officiellement non supporté."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__caract_valider_echange
+msgid "Fonctionnalité si valider échange"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__caract_echange_nouvel_existant
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__caract_offre_demande_nouveau_existante
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__caract_service_offrir_recevoir
+msgid "Fonctionnalité un choix pour un état"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__force_update_data
+msgid "Forcer synchronisation data"
+msgstr ""
+
+#. module: ore
+#: selection:ore.workflow.state,type:0
+msgid "Form"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_form
+msgid "Formulaire"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Frais de matériel"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__frais_materiel
+msgid "Frais du matériel"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__frais_trajet
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Frais du trajet"
+msgstr ""
+
+#. module: ore
+#: selection:ore.commentaire,degre_satisfaction:0
+msgid "Grand satisfaction"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_ore__grp_achat_administrateur
+msgid "Groupe d'achats des administrateurs"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_ore__grp_achat_membre
+msgid "Groupe d'achats membre"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_relation__body_html
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_relation_view_search
+msgid "HTML"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__help_caract_lst
+msgid "Help caracteristic"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__help_description
+msgid "Help description"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__help_section
+msgid "Help section"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__help_sub_section
+msgid "Help sub section"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__help_title
+msgid "Help title"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__help_fast_btn_title
+msgid "Help title button"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__help_fast_btn_url
+msgid "Help url button"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__help_fast_btn_form_url
+msgid "Help url form button"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__help_fast_btn_guide_url
+msgid "Help url guide button"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__help_video_url
+msgid "Help video url"
+msgstr ""
+
+#. module: ore
+#: selection:ore.membre,sexe:0
+msgid "Homme"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_arrondissement__id
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__id
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__id
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__id
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__id
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service_notification__id
+#: model:ir.model.fields,field_description:ore.field_ore_membre__id
+#: model:ir.model.fields,field_description:ore.field_ore_membre_favoris__id
+#: model:ir.model.fields,field_description:ore.field_ore_occupation__id
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__id
+#: model:ir.model.fields,field_description:ore.field_ore_ore__id
+#: model:ir.model.fields,field_description:ore.field_ore_origine__id
+#: model:ir.model.fields,field_description:ore.field_ore_point_service__id
+#: model:ir.model.fields,field_description:ore.field_ore_provenance__id
+#: model:ir.model.fields,field_description:ore.field_ore_quartier__id
+#: model:ir.model.fields,field_description:ore.field_ore_region__id
+#: model:ir.model.fields,field_description:ore.field_ore_revenu_familial__id
+#: model:ir.model.fields,field_description:ore.field_ore_situation_maison__id
+#: model:ir.model.fields,field_description:ore.field_ore_type_communication__id
+#: model:ir.model.fields,field_description:ore.field_ore_type_service__id
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_categorie__id
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_sous_categorie__id
+#: model:ir.model.fields,field_description:ore.field_ore_type_telephone__id
+#: model:ir.model.fields,field_description:ore.field_ore_ville__id
+#: model:ir.model.fields,field_description:ore.field_ore_workflow__id
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_relation__id
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__id
+msgid "ID"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_categorie__icon
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_categorie_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_relation_view_search
+msgid "Icon"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_type_service_categorie__icon
+msgid "Icon représentant la catégorie"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_type_service__identifiant
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__key
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Identifiant"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_demande_service__message_unread
+#: model:ir.model.fields,help:ore.field_ore_membre__message_unread
+#: model:ir.model.fields,help:ore.field_ore_offre_service__message_unread
+#: model:ir.model.fields,help:ore.field_ore_ore__message_unread
+msgid "If checked new messages require your attention."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_demande_service__message_needaction
+#: model:ir.model.fields,help:ore.field_ore_membre__message_needaction
+#: model:ir.model.fields,help:ore.field_ore_offre_service__message_needaction
+#: model:ir.model.fields,help:ore.field_ore_ore__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_demande_service__message_has_error
+#: model:ir.model.fields,help:ore.field_ore_membre__message_has_error
+#: model:ir.model.fields,help:ore.field_ore_offre_service__message_has_error
+#: model:ir.model.fields,help:ore.field_ore_ore__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__logo
+msgid "Image"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_search
+msgid "Inactive"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_search
+msgid "Inactive ORE demande adhesion"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Inactive ORE membre"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Inactive ORE offre service"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_view_search
+msgid "Inactive ORE type service"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_categorie_view_search
+msgid "Inactive ORE type service categorie"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_sous_categorie_view_search
+msgid "Inactive ORE type service sous categorie"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_commentaire__solution_pour_regler
+msgid "Indiquer quels seraient la meilleur solution, selon vous, pour régler la situation."
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_form
+msgid "Information"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__help_validate_bug
+msgid "Information sur l'état, validation et bug connu"
+msgstr ""
+
+#. module: ore
+#: selection:ore.commentaire,degre_satisfaction:0
+msgid "Insatisfaction"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__introduction
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Introduction"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__message_is_follower
+#: model:ir.model.fields,field_description:ore.field_ore_membre__message_is_follower
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__message_is_follower
+#: model:ir.model.fields,field_description:ore.field_ore_ore__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_relation__is_dynamic
+msgid "Is dynamic"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service_notification__is_read
+msgid "Is read"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_form
+msgid "L'identifiant doit être la même que la précédente + \".nouveau\""
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_commentaire__offre_service_id
+msgid "L'offre de services qui est visée par ce commentaire."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_offre_service__website_published
+msgid "L'offre est publiée, sinon il est privée."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_commentaire__demande_service_id
+msgid "La demande de services qui est visée par ce commentaire."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_demande_service__website_published
+msgid "La demande est publiée, sinon il est privée."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_echange_service_notification__is_read
+msgid "La notification a été lu par le membre."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_arrondissement____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service_notification____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_membre____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_membre_favoris____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_occupation____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_ore____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_origine____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_point_service____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_provenance____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_quartier____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_region____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_revenu_familial____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_situation_maison____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_type_communication____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_type_service____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_categorie____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_sous_categorie____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_type_telephone____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_ville____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_workflow____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_relation____last_update
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_arrondissement__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service_notification__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_membre__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_membre_favoris__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_occupation__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_ore__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_origine__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_point_service__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_provenance__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_quartier__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_region__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_revenu_familial__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_situation_maison__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_type_communication__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_type_service__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_categorie__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_sous_categorie__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_type_telephone__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_ville__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_workflow__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_relation__write_uid
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_arrondissement__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service_notification__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_membre__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_membre_favoris__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_occupation__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_ore__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_origine__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_point_service__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_provenance__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_quartier__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_region__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_revenu_familial__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_situation_maison__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_type_communication__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_type_service__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_categorie__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_sous_categorie__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_type_telephone__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_ville__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_workflow__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_relation__write_date
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_form
+msgid "Le champs Identifiant :"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_type_service_categorie__nom
+msgid "Le nom de la catégorie des services"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_type_service_categorie
+msgid "Les catégories de types de services du réseau ORE"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_commentaire
+msgid "Les commentaires des membres envers d'autres membres sur des services et demandes"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_membre__demande_service_ids
+msgid "Les demandes de service du membre"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_membre__offre_service_ids
+msgid "Les offres de service du membre"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_ore
+msgid "Les organisations du réseau ORE"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_membre__echange_service_acheteur_ids
+msgid "Les échanges de service du membre acheteur"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_membre__echange_service_vendeur_ids
+msgid "Les échanges de service du membre vendeur"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Libellé bouton envoie"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__submit_button_text
+msgid "Libellé du bouton envoie"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_ore__url_public
+msgid "Lien du site web publique"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__url_public
+msgid "Lien du site web publique du réseau"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_ore__url_transactionnel
+msgid "Lien du site web transactionnel"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__url_transactionnel
+msgid "Lien du site web transactionnel du réseau"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__maquette_link
+msgid "Lien maquette"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__data_update_url
+msgid "Lien pour synchroniser la base de données lors d'une dépendance. Mettre %s pour ajouter les paramètres de 'data_url_field'"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__model_field_depend
+msgid "Liste de champs nécessaire pour cette état, séparé par ;. Il est nécessaire d'avoir dans les états précédents avec 'model_field_name' les éléments de ce champs indépendants."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_membre__membre_favoris_ids
+msgid "Liste des membres favoris"
+msgstr ""
+
+#. module: ore
+#: model:ir.ui.menu,name:ore.group_location
+msgid "Location"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__logo_attachment_id
+msgid "Logo Attachment"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_membre__logo
+msgid "Logo du membre"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__logo
+msgid "Logo du réseau"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_membre__active
+msgid "Lorsque non actif, ce membre n'est plus en fonction, mais demeure accessible."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_type_service__active
+msgid "Lorsque non actif, ce type de service n'est plus en fonction, mais demeure accessible."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_demande_adhesion__active
+msgid "Lorsque non actif, cet demande d'adhésion n'est plus en fonction, mais demeure accessible."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_demande_service__active
+msgid "Lorsque non actif, cet demande de services n'est plus en fonction, mais demeure accessible."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_offre_service__active
+msgid "Lorsque non actif, cet offre de services n'est plus en fonction, mais demeure accessible."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_type_service_categorie__active
+msgid "Lorsque non actif, cette catégorie n'est plus en fonction, mais demeure accessible."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__active
+msgid "Lorsque non actif, cette ore n'est plus en fonction, mais demeure accessible."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_relation__active
+msgid "Lorsque non actif, cette relation n'est plus visible."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_type_service_sous_categorie__active
+msgid "Lorsque non actif, cette sous-catégorie n'est plus en fonction, mais demeure accessible."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__message_main_attachment_id
+#: model:ir.model.fields,field_description:ore.field_ore_membre__message_main_attachment_id
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__message_main_attachment_id
+#: model:ir.model.fields,field_description:ore.field_ore_ore__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: ore
+#: model:ir.module.category,description:ore.module_ore_category
+msgid "Manage Rights for ORE."
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_membre_membre_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_arrondissement__membre
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__membre
+#: model:ir.model.fields,field_description:ore.field_ore_membre__partner_id
+#: model:ir.model.fields,field_description:ore.field_ore_membre_favoris__membre_id
+#: model:ir.model.fields,field_description:ore.field_ore_occupation__membre
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__membre
+#: model:ir.model.fields,field_description:ore.field_ore_ore__membre
+#: model:ir.model.fields,field_description:ore.field_ore_origine__membre
+#: model:ir.model.fields,field_description:ore.field_ore_point_service__membre
+#: model:ir.model.fields,field_description:ore.field_ore_provenance__membre
+#: model:ir.model.fields,field_description:ore.field_ore_quartier__membre
+#: model:ir.model.fields,field_description:ore.field_ore_region__membre
+#: model:ir.model.fields,field_description:ore.field_ore_revenu_familial__membre
+#: model:ir.model.fields,field_description:ore.field_ore_situation_maison__membre
+#: model:ir.model.fields,field_description:ore.field_ore_type_communication__membre
+#: model:ir.model.fields,field_description:ore.field_ore_ville__membre
+#: model:ir.model.fields,field_description:ore.field_res_partner__ore_membre_ids
+#: model:ir.model.fields,field_description:ore.field_res_users__ore_membre_ids
+#: model:ir.ui.menu,name:ore.group_membre
+#: model:ir.ui.menu,name:ore.membre
+#: model_terms:ir.ui.view,arch_db:ore.ore_arrondissement_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_occupation_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_ore_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_origine_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_point_service_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_point_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_provenance_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_quartier_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_region_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_revenu_familial_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_situation_maison_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_communication_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_ville_view_search
+msgid "Membre"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_type_telephone__membre
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_telephone_view_search
+msgid "Membre 1"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_type_telephone__membre
+msgid "Membre 1 relation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_type_telephone__membre_ids
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_telephone_view_search
+msgid "Membre 2"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_type_telephone__membre_ids
+msgid "Membre 2 relation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_type_telephone__membre_2_ids
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_telephone_view_search
+msgid "Membre 3"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_type_telephone__membre_2_ids
+msgid "Membre 3 relation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__membre_favoris_ids
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__membre_favoris_ids
+msgid "Membre Favoris"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service_notification__membre_logo
+msgid "Membre Logo"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service_notification__membre_name
+msgid "Membre Name"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__membre_acheteur
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Membre acheteur"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__membre_conjoint_id
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Membre conjoint"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__membre_ca
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Membre du CA"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_commentaire__membre_source
+msgid "Membre duquel provient le commentaire"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__membre_favoris_ids
+msgid "Membre favoris"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service_notification__membre_id
+msgid "Membre notifié"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__membre_principal
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Membre principal"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__membre_qui_a_valide
+msgid "Membre qui a validé"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_offre_service__membre
+msgid "Membre qui offre le service"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Membre qui valide"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_arrondissement__membre
+#: model:ir.model.fields,help:ore.field_ore_occupation__membre
+#: model:ir.model.fields,help:ore.field_ore_ore__membre
+#: model:ir.model.fields,help:ore.field_ore_origine__membre
+#: model:ir.model.fields,help:ore.field_ore_point_service__membre
+#: model:ir.model.fields,help:ore.field_ore_provenance__membre
+#: model:ir.model.fields,help:ore.field_ore_quartier__membre
+#: model:ir.model.fields,help:ore.field_ore_region__membre
+#: model:ir.model.fields,help:ore.field_ore_revenu_familial__membre
+#: model:ir.model.fields,help:ore.field_ore_situation_maison__membre
+#: model:ir.model.fields,help:ore.field_ore_type_communication__membre
+#: model:ir.model.fields,help:ore.field_ore_ville__membre
+msgid "Membre relation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__membre_source
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Membre source"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__membre_vendeur
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Membre vendeur"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__membre_viser
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Membre visé"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_commentaire__membre_viser
+msgid "Membre visé par le commentaire"
+msgstr ""
+
+#. module: ore
+#: model:ir.ui.menu,name:ore.menu
+msgid "Menu"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__message
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Message"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__message_has_error
+#: model:ir.model.fields,field_description:ore.field_ore_membre__message_has_error
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__message_has_error
+#: model:ir.model.fields,field_description:ore.field_ore_ore__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_ore__message_accueil
+#: model_terms:ir.ui.view,arch_db:ore.ore_ore_view_form
+msgid "Message d'accueil"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_ore__message_grp_achat
+msgid "Message groupe d'achats"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_ore_view_form
+msgid "Message pour les groupes d'achats"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__message_accueil
+msgid "Message à afficher pour accueillir les membres."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__message_grp_achat
+msgid "Message à afficher pour les groupes d'achats."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__message_ids
+#: model:ir.model.fields,field_description:ore.field_ore_membre__message_ids
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__message_ids
+#: model:ir.model.fields,field_description:ore.field_ore_ore__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__memo
+msgid "Mémo"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service_notification__name
+#: model:ir.model.fields,field_description:ore.field_ore_membre__nom
+msgid "Name"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__activity_date_deadline
+#: model:ir.model.fields,field_description:ore.field_ore_membre__activity_date_deadline
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__activity_date_deadline
+#: model:ir.model.fields,field_description:ore.field_ore_ore__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__activity_summary
+#: model:ir.model.fields,field_description:ore.field_ore_membre__activity_summary
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__activity_summary
+#: model:ir.model.fields,field_description:ore.field_ore_ore__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__activity_type_id
+#: model:ir.model.fields,field_description:ore.field_ore_membre__activity_type_id
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__activity_type_id
+#: model:ir.model.fields,field_description:ore.field_ore_ore__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_categorie__nocategorie
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_categorie_view_search
+msgid "Nocategorie"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_arrondissement__nom
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__nom
+#: model:ir.model.fields,field_description:ore.field_ore_point_service__nom
+#: model:ir.model.fields,field_description:ore.field_ore_region__nom
+#: model:ir.model.fields,field_description:ore.field_ore_type_service__nom
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_categorie__nom
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_sous_categorie__nom
+#: model:ir.model.fields,field_description:ore.field_ore_type_telephone__nom
+#: model:ir.model.fields,field_description:ore.field_ore_ville__nom
+#: model:ir.model.fields,field_description:ore.field_ore_workflow__name
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_relation__name
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__name
+#: model_terms:ir.ui.view,arch_db:ore.ore_arrondissement_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_point_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_region_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_categorie_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_sous_categorie_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_telephone_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_ville_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_relation_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_view_search
+msgid "Nom"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__data
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Nom base de données"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__nom_complet
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__nom_complet
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__nom_complet
+#: model:ir.model.fields,field_description:ore.field_ore_type_service__nom_complet
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_view_search
+msgid "Nom complet"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__arrondissement
+msgid "Nom de l'Arrondissement qui contient le réseau."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__nom_offre_special
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Nom de l'offre spéciale"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__region
+msgid "Nom de la région administrative du réseau"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__ville
+msgid "Nom de la ville du réseau"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__breadcrumb_field_value
+msgid "Nom des champs, séparé par ;."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__nom_comite
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Nom du comité"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__nom_utilisateur
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Nom du compte"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_point_service__nom
+msgid "Nom du point de service"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_quartier__nom
+#: model:ir.model.fields,help:ore.field_ore_quartier__nom
+#: model_terms:ir.ui.view,arch_db:ore.ore_quartier_view_search
+msgid "Nom du quartier"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__nom
+msgid "Nom du réseau"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_type_service__nom
+msgid "Nom du type de services"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_offre_service__nom_offre_special
+msgid "Nom ou brève description de l'offre spéciale"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__nb_heure
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Nombre d'heure"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Nombre d'heure de trajet"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__nb_heure_duree_trajet
+msgid "Nombre d'heure durée trajet"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_echange_service__nb_heure
+msgid "Nombre d'heure effectué au moment de l'échange."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_echange_service__nb_heure_duree_trajet
+msgid "Nombre d'heure effectué au moment de le trajet."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__nb_heure_estime
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Nombre d'heure estimé"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Nombre d'heure estimé de trajet"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__nb_heure_estime_duree_trajet
+msgid "Nombre d'heure estimé durée trajet"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_echange_service__nb_heure_estime
+msgid "Nombre d'heure estimé pour l'échange."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_echange_service__nb_heure_estime_duree_trajet
+msgid "Nombre d'heure estimé pour le trajet."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__nb_consultation
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Nombre de consultations"
+msgstr ""
+
+#. module: ore
+#: selection:ore.commentaire,confidentiel:0
+msgid "Non-autorisé - Je demande au réseau de ne pas divulguer mon identité lors de ses démarches auprès des personnes concernées par la situation."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__not_implemented
+msgid "Not implemented"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__note_administrative
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Note administrative"
+msgstr ""
+
+#. module: ore
+#: selection:ore.workflow.state,caract_echange_nouvel_existant:0
+msgid "Nouvel échange"
+msgstr ""
+
+#. module: ore
+#: selection:ore.workflow.state,caract_offre_demande_nouveau_existante:0
+msgid "Nouvelle demande"
+msgstr ""
+
+#. module: ore
+#: selection:ore.echange.service.notification,type_notification:0
+msgid "Nouvelle demande de service"
+msgstr ""
+
+#. module: ore
+#: selection:ore.workflow.state,caract_offre_demande_nouveau_existante:0
+msgid "Nouvelle offre"
+msgstr ""
+
+#. module: ore
+#: selection:ore.workflow.state,type:0
+msgid "Nulle"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__message_needaction_counter
+#: model:ir.model.fields,field_description:ore.field_ore_membre__message_needaction_counter
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__message_needaction_counter
+#: model:ir.model.fields,field_description:ore.field_ore_ore__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__message_has_error_counter
+#: model:ir.model.fields,field_description:ore.field_ore_membre__message_has_error_counter
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__message_has_error_counter
+#: model:ir.model.fields,field_description:ore.field_ore_ore__message_has_error_counter
+msgid "Number of error"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_demande_service__message_needaction_counter
+#: model:ir.model.fields,help:ore.field_ore_membre__message_needaction_counter
+#: model:ir.model.fields,help:ore.field_ore_offre_service__message_needaction_counter
+#: model:ir.model.fields,help:ore.field_ore_ore__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_demande_service__message_has_error_counter
+#: model:ir.model.fields,help:ore.field_ore_membre__message_has_error_counter
+#: model:ir.model.fields,help:ore.field_ore_offre_service__message_has_error_counter
+#: model:ir.model.fields,help:ore.field_ore_ore__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_demande_service__message_unread_counter
+#: model:ir.model.fields,help:ore.field_ore_membre__message_unread_counter
+#: model:ir.model.fields,help:ore.field_ore_offre_service__message_unread_counter
+#: model:ir.model.fields,help:ore.field_ore_ore__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_type_service__numero
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_view_search
+msgid "Numéro"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__telecopieur
+msgid "Numéro de télécopieur pour joindre le réseau."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__telephone
+msgid "Numéro de téléphone pour joindre le réseau."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_type_service__numero
+msgid "Numéro du type de services"
+msgstr ""
+
+#. module: ore
+#: model:ir.module.category,name:ore.module_ore_category
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_ore_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_point_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_region_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_ville_view_search
+msgid "ORE"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_demande_adhesion
+msgid "ORE Demande Adhesion DEMO"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_demande_service
+msgid "ORE Demande Service"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_echange_service
+msgid "ORE Echange Service"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_echange_service_notification
+msgid "ORE Echange Service Notification"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_membre
+msgid "ORE Membre"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_membre_favoris
+msgid "ORE Membre Favoris des membres"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_occupation
+msgid "ORE Occupation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_offre_service
+msgid "ORE Offre Service"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_origine
+msgid "ORE Origine"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_point_service
+msgid "ORE Point Service"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_provenance
+msgid "ORE Provenance"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_quartier
+msgid "ORE Quartier"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_region
+msgid "ORE Region"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_revenu_familial
+msgid "ORE Revenu Familial"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_situation_maison
+msgid "ORE Situation Maison"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_type_communication
+msgid "ORE Type Communication"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_type_telephone
+msgid "ORE Type Telephone"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_ville
+msgid "ORE Ville"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_workflow
+msgid "ORE Workflow"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_workflow_relation
+msgid "ORE Workflow Relation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_workflow_state
+msgid "ORE Workflow State"
+msgstr ""
+
+#. module: ore
+#: model:res.groups,name:ore.group_ore_admin
+msgid "ORE admin"
+msgstr ""
+
+#. module: ore
+#: model:res.groups,name:ore.group_ore_admin_chef
+msgid "ORE admin chef"
+msgstr ""
+
+#. module: ore
+#: model:res.groups,name:ore.group_ore_admin_reseau
+msgid "ORE admin reseau"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_arrondissement_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_arrondissement_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_arrondissement_view_search
+msgid "ORE arrondissement"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "ORE commentaire"
+msgstr ""
+
+#. module: ore
+#: model:res.groups,name:ore.group_ore_consulter_membre
+msgid "ORE consulter membre"
+msgstr ""
+
+#. module: ore
+#: model:res.groups,name:ore.group_ore_consulter_etat_ore
+msgid "ORE consulter état ORE"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_search
+msgid "ORE demande adhesion"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_search
+msgid "ORE demande service"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "ORE echange service"
+msgstr ""
+
+#. module: ore
+#: model:res.groups,name:ore.group_ore_gestion_achat
+msgid "ORE gestion achat"
+msgstr ""
+
+#. module: ore
+#: model:res.groups,name:ore.group_ore_gestion_demande_de_service
+msgid "ORE gestion demande de service"
+msgstr ""
+
+#. module: ore
+#: model:res.groups,name:ore.group_ore_gestion_echange
+msgid "ORE gestion echange"
+msgstr ""
+
+#. module: ore
+#: model:res.groups,name:ore.group_ore_gestion_fichier
+msgid "ORE gestion fichier"
+msgstr ""
+
+#. module: ore
+#: model:res.groups,name:ore.group_ore_gestion_membre
+msgid "ORE gestion membre"
+msgstr ""
+
+#. module: ore
+#: model:res.groups,name:ore.group_ore_gestion_offre_de_service
+msgid "ORE gestion offre de service"
+msgstr ""
+
+#. module: ore
+#: model:res.groups,name:ore.group_ore_gestion_type_service
+msgid "ORE gestion type de service"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "ORE membre"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_occupation_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_occupation_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_occupation_view_search
+msgid "ORE occupation"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "ORE offre service"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_origine_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_origine_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_origine_view_search
+msgid "ORE origine"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_point_service_view_search
+msgid "ORE point service"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_provenance_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_provenance_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_provenance_view_search
+msgid "ORE provenance"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_quartier_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_quartier_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_quartier_view_search
+msgid "ORE quartier"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_region_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_region_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_region_view_search
+msgid "ORE region"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_revenu_familial_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_revenu_familial_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_revenu_familial_view_search
+msgid "ORE revenu familial"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_situation_maison_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_situation_maison_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_situation_maison_view_search
+msgid "ORE situation maison"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_communication_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_communication_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_communication_view_search
+msgid "ORE type communication"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_view_search
+msgid "ORE type service"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_categorie_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_categorie_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_categorie_view_search
+msgid "ORE type service categorie"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_sous_categorie_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_sous_categorie_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_sous_categorie_view_search
+msgid "ORE type service sous categorie"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_telephone_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_telephone_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_telephone_view_search
+msgid "ORE type telephone"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_ville_view_graph
+#: model_terms:ir.ui.view,arch_db:ore.ore_ville_view_pivot
+#: model_terms:ir.ui.view,arch_db:ore.ore_ville_view_search
+msgid "ORE ville"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_view_search
+msgid "ORE workflow"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_relation_view_search
+msgid "ORE workflow relation"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "ORE workflow state"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_occupation_occupation_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_membre__occupation
+#: model:ir.model.fields,field_description:ore.field_ore_occupation__nom
+#: model:ir.ui.menu,name:ore.occupation
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_occupation_view_search
+msgid "Occupation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__offre_service_ids
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Offre de service"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_offre_service_offre_de_services_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__offre_service_id
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__offre_service
+#: model:ir.ui.menu,name:ore.offre_de_services
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Offre de services"
+msgstr ""
+
+#. module: ore
+#: selection:ore.workflow.state,caract_offre_demande_nouveau_existante:0
+msgid "Offre existante"
+msgstr ""
+
+#. module: ore
+#: selection:ore.commentaire,type_offre:0
+#: selection:ore.echange.service,type_echange:0
+msgid "Offre ordinaire"
+msgstr ""
+
+#. module: ore
+#: selection:ore.echange.service,type_echange:0
+msgid "Offre ponctuelle"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__website_published
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Offre publié"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__offre_special
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+#: selection:ore.commentaire,type_offre:0
+#: selection:ore.echange.service,type_echange:0
+msgid "Offre spéciale"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_origine_origine_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_membre__origine
+#: model:ir.model.fields,field_description:ore.field_ore_origine__nom
+#: model:ir.ui.menu,name:ore.origine
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_origine_view_search
+msgid "Origine"
+msgstr ""
+
+#. module: ore
+#: selection:ore.demande.service,activity_state:0
+#: selection:ore.membre,activity_state:0
+#: selection:ore.offre.service,activity_state:0
+#: selection:ore.ore,activity_state:0
+msgid "Overdue"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__data_url_field
+msgid "Paramètre url data"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__data_url_field
+msgid "Paramètre à envoyer au data_update_url. Separé par ';' pour en avoir plusieurs"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__part_social_paye
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Part social payé"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__pas_communication
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Pas de communication"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__not_implemented
+msgid "Pas encore implémenté, ignoré pour le moment"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_relation__not_implemented
+msgid "Pas implémenté"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_offre_service__approuve
+#: model:ir.model.fields,help:ore.field_ore_type_service__approuve
+msgid "Permet d'approuver ce type de services."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_type_service_categorie__approuve
+msgid "Permet d'approuver cette catégorie."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_type_service_sous_categorie__approuver
+msgid "Permet d'approuver cette sous-catégorie."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__grp_achat_administrateur
+msgid "Permet de rendre accessible les achats pour les administrateurs."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__breadcrumb_value
+msgid "Peut être dynamique, utiliser les %s, et remplir 'breadcrumb_field_value'"
+msgstr ""
+
+#. module: ore
+#: selection:ore.demande.service,activity_state:0
+#: selection:ore.membre,activity_state:0
+#: selection:ore.offre.service,activity_state:0
+#: selection:ore.ore,activity_state:0
+msgid "Planned"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__point_service
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Point de service"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_membre__point_service
+msgid "Point de service associé"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_point_service_point_de_services_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__point_service
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__point_service
+#: model:ir.ui.menu,name:ore.point_de_services
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Point de services"
+msgstr ""
+
+#. module: ore
+#: selection:ore.commentaire,type_offre:0
+msgid "Ponctuel"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__poste
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_search
+msgid "Poste"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__list_is_first_position
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Première position dans la sélection"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__profil_approuver
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Profil approuvé"
+msgstr ""
+
+#. module: ore
+#: selection:ore.echange.service.notification,type_notification:0
+msgid "Proposition de service"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_form
+msgid "Propriété"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_provenance_provenance_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_membre__provenance
+#: model:ir.model.fields,field_description:ore.field_ore_provenance__nom
+#: model:ir.ui.menu,name:ore.provenance
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_provenance_view_search
+msgid "Provenance"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__prenom
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_search
+msgid "Prénom"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__pret_actif
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Prêt actif"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_quartier_quartier_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_membre__quartier
+#: model:ir.ui.menu,name:ore.quartier
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Quartier"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__quoi_apporter
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Quoi Apporter"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow__diagram_relation_ids
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_view_search
+msgid "Relation"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_workflow_relation_action_window
+msgid "Relation de la navigation"
+msgstr ""
+
+#. module: ore
+#: model:ir.ui.menu,name:ore.menu_workflow_relation
+msgid "Relation de navigation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__state_src_ids
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Relation destination"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_region__ore
+#: model:ir.model.fields,help:ore.field_ore_ville__ore
+msgid "Relation du réseau"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__state_dst_ids
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Relation source"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__remarque
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Remarque"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__grp_achat_membre
+msgid "Rend accessible les achats pour les membres."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__activity_user_id
+#: model:ir.model.fields,field_description:ore.field_ore_membre__activity_user_id
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__activity_user_id
+#: model:ir.model.fields,field_description:ore.field_ore_ore__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_revenu_familial__nom
+#: model_terms:ir.ui.view,arch_db:ore.ore_revenu_familial_view_search
+msgid "Revenu"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_revenu_familial_revenu_familial_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_membre__revenu_familial
+#: model:ir.ui.menu,name:ore.revenu_familial
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Revenu familial"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__maquette_link
+msgid "Référence de la conception de l'état vers une maquette."
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_region_region_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_membre__region
+#: model:ir.model.fields,field_description:ore.field_ore_ville__region
+#: model:ir.ui.menu,name:ore.region
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_ville_view_search
+msgid "Région"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_ore__region
+msgid "Région administrative"
+msgstr ""
+
+#. module: ore
+#: selection:ore.echange.service.notification,type_notification:0
+msgid "Réponse à votre demande"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_ore_ore_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__ore
+#: model:ir.model.fields,field_description:ore.field_ore_point_service__ore
+#: model:ir.model.fields,field_description:ore.field_ore_region__ore
+#: model:ir.model.fields,field_description:ore.field_ore_ville__ore
+#: model:ir.ui.menu,name:ore.group_ore
+#: model:ir.ui.menu,name:ore.ore
+#: model:ir.ui.menu,name:ore.ore_ore
+#: model:ir.ui.menu,name:ore.parent_ore
+msgid "Réseau"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_membre__ore
+#: model:ir.model.fields,help:ore.field_ore_offre_service__ore
+msgid "Réseau associée"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_offre_service__titre
+msgid "Résumé de l'offre, mise en valeur de la description."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__resumer_situation
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Résumé de la situation"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_ore_view_tree
+#: model_terms:ir.ui.view,arch_db:ore.ore_point_service_view_tree
+msgid "Sequence"
+msgstr ""
+
+#. module: ore
+#: model:ir.ui.menu,name:ore.group_service
+#: model:ir.ui.menu,name:ore.parent_service
+msgid "Service"
+msgstr ""
+
+#. module: ore
+#: selection:ore.workflow.state,caract_service_offrir_recevoir:0
+msgid "Service à offrir"
+msgstr ""
+
+#. module: ore
+#: selection:ore.workflow.state,caract_service_offrir_recevoir:0
+msgid "Service à recevoir"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_config_settings_action
+msgid "Settings"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__sexe
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Sexe"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_situation_maison__nom
+#: model_terms:ir.ui.view,arch_db:ore.ore_situation_maison_view_search
+msgid "Situation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__situation_impliquant
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Situation impliquant"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_situation_maison_situation_maison_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_membre__situation_maison
+#: model:ir.ui.menu,name:ore.situation_maison
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Situation maison"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__solution_pour_regler
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Solution pour régler la situation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_type_service__sous_categorie_id
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_sous_categorie__sous_categorie_service
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_sous_categorie_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_view_search
+msgid "Sous-catégorie"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_type_service_sous_categorie_sous_categorie_de_services_action_window
+#: model:ir.model.fields,help:ore.field_ore_type_service__sous_categorie_id
+#: model:ir.ui.menu,name:ore.sous_categorie_de_services
+msgid "Sous-catégorie de services"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow__diagram_state_ids
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_view_search
+msgid "State"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_relation__state_dst
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_relation_view_search
+msgid "State destination"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_relation__state_src
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_relation_view_search
+msgid "State source"
+msgstr ""
+
+#. module: ore
+#: model:ir.ui.menu,name:ore.group_statistique
+msgid "Statistique"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_demande_service__activity_state
+#: model:ir.model.fields,help:ore.field_ore_membre__activity_state
+#: model:ir.model.fields,help:ore.field_ore_offre_service__activity_state
+#: model:ir.model.fields,help:ore.field_ore_ore__activity_state
+msgid "Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__adresse
+#: model:ir.model.fields,field_description:ore.field_ore_ore__adresse
+msgid "Street"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_commentaire__note_administrative
+msgid "Suivi du commentaire, visible par le Réseau et les administrateurs-chefs seulement."
+msgstr ""
+
+#. module: ore
+#: selection:ore.workflow.state,type:0
+msgid "Sélection dynamique"
+msgstr ""
+
+#. module: ore
+#: selection:ore.workflow.state,type:0
+msgid "Sélection statique"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_ore__sequence
+#: model:ir.model.fields,field_description:ore.field_ore_point_service__sequence
+msgid "Séquence"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_ore__sequence
+#: model:ir.model.fields,help:ore.field_ore_point_service__sequence
+msgid "Séquence d'affichage"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__tarif
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Tarif"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_form
+msgid "Temps"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__bank_time
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Temps en banque"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__bank_month_time
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Temps en banque du présent mois"
+msgstr ""
+
+#. module: ore
+#: selection:ore.workflow.state,type:0
+msgid "Temps et durée"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__bank_max_service_offert
+msgid "Temps maximal de service offert"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_membre__is_time_updated
+msgid "This variable is a trigger to update time."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__is_time_updated
+msgid "Time is updated"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__titre
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__titre
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__titre
+#: model_terms:ir.ui.view,arch_db:ore.ore_arrondissement_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_occupation_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_ore_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_origine_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_point_service_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_provenance_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_quartier_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_region_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_revenu_familial_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_situation_maison_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_communication_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_categorie_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_sous_categorie_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_telephone_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_ville_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_relation_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_form
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_view_form
+msgid "Titre"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_echange_service__titre
+msgid "Titre de l'offre de service ou de la demande de service, ou les deux"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__submit_response_title
+msgid "Titre de la réponse d'envoie"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Titre formulaire réponse"
+msgstr ""
+
+#. module: ore
+#: selection:ore.demande.service,activity_state:0
+#: selection:ore.membre,activity_state:0
+#: selection:ore.offre.service,activity_state:0
+#: selection:ore.ore,activity_state:0
+msgid "Today"
+msgstr ""
+
+#. module: ore
+#: selection:ore.echange.service.notification,type_notification:0
+msgid "Transaction validée"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__transfert_ore
+msgid "Transfert d'un réseau"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Transfert d'une organisation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__transferer
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_search
+msgid "Transféré"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__type
+#: model_terms:ir.ui.view,arch_db:ore.ore_workflow_state_view_search
+msgid "Type"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service_notification__type_notification
+msgid "Type Notification"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_sous_categorie__type_service
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_sous_categorie_view_search
+msgid "Type Service"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_type_service_categorie__type_service_sous_categorie
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_service_categorie_view_search
+msgid "Type Service Sous Categorie"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_type_service_categorie__type_service_sous_categorie
+msgid "Type Service Sous Categorie relation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_type_service_sous_categorie__type_service
+msgid "Type Service relation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__type_echange
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Type d'échange"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_type_communication_type_de_communications_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_membre__type_communication
+#: model:ir.ui.menu,name:ore.type_de_communications
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Type de communications"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_commentaire__type_offre
+#: model_terms:ir.ui.view,arch_db:ore.ore_commentaire_view_search
+msgid "Type de l'offre"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_type_service_type_de_services_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__type_service_id
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__type_service_id
+#: model:ir.ui.menu,name:ore.type_de_services
+#: model_terms:ir.ui.view,arch_db:ore.ore_offre_service_view_search
+msgid "Type de services"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_type_service
+msgid "Type de services du réseau ORE"
+msgstr ""
+
+#. module: ore
+#: model:ir.model,name:ore.model_ore_type_service_sous_categorie
+msgid "Type de services sous-catégorie"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_type_telephone_type_de_telephones_action_window
+#: model:ir.ui.menu,name:ore.type_de_telephones
+msgid "Type de téléphones"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_service_view_search
+msgid "Type service"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_type_communication__nom
+#: model_terms:ir.ui.view,arch_db:ore.ore_type_communication_view_search
+msgid "Typecommunication"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_ore__telecopieur
+msgid "Télécopieur"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__telephone
+#: model:ir.model.fields,field_description:ore.field_ore_ore__telephone
+#: model_terms:ir.ui.view,arch_db:ore.ore_demande_adhesion_view_search
+msgid "Téléphone"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__data_update_url
+msgid "URL sync data"
+msgstr ""
+
+#. module: ore
+#: selection:ore.commentaire,situation_impliquant:0
+msgid "Un comité"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_membre__introduction
+msgid "Un petit texte qui décrit le membre."
+msgstr ""
+
+#. module: ore
+#: selection:ore.commentaire,situation_impliquant:0
+msgid "UnE employéE"
+msgstr ""
+
+#. module: ore
+#: selection:ore.commentaire,situation_impliquant:0
+msgid "UnE ou des membres"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_echange_service__distance_trajet
+msgid "Unité par défaut le km."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__message_unread
+#: model:ir.model.fields,field_description:ore.field_ore_membre__message_unread
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__message_unread
+#: model:ir.model.fields,field_description:ore.field_ore_ore__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__message_unread_counter
+#: model:ir.model.fields,field_description:ore.field_ore_membre__message_unread_counter
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__message_unread_counter
+#: model:ir.model.fields,field_description:ore.field_ore_ore__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_relation__is_dynamic
+msgid "Use for type selection_dynamique"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_adhesion__user_id
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__user_id
+#: model:ir.model.fields,field_description:ore.field_ore_membre__user_id
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__user_id
+msgid "User"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Utilisateur"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__help_validate_bug
+msgid "Validate bug"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service__transaction_valide
+#: model_terms:ir.ui.view,arch_db:ore.ore_echange_service_view_search
+msgid "Validé"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__recevoir_courriel_groupe
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+msgid "Veut recevoir courriel de groupes"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_ville_ville_action_window
+#: model:ir.model.fields,field_description:ore.field_ore_arrondissement__ville
+#: model:ir.model.fields,field_description:ore.field_ore_membre__ville
+#: model:ir.model.fields,field_description:ore.field_ore_ore__ville
+#: model:ir.model.fields,field_description:ore.field_ore_region__ville
+#: model:ir.ui.menu,name:ore.ville
+#: model_terms:ir.ui.view,arch_db:ore.ore_arrondissement_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_search
+#: model_terms:ir.ui.view,arch_db:ore.ore_region_view_search
+msgid "Ville"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_region__ville
+msgid "Ville relation"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_form
+msgid "Vérification"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_membre__antecedent_judiciaire_verifier
+msgid "Vérifier par l'organisation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_demande_service__website_message_ids
+#: model:ir.model.fields,field_description:ore.field_ore_membre__website_message_ids
+#: model:ir.model.fields,field_description:ore.field_ore_offre_service__website_message_ids
+#: model:ir.model.fields,field_description:ore.field_ore_ore__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_demande_service__website_message_ids
+#: model:ir.model.fields,help:ore.field_ore_membre__website_message_ids
+#: model:ir.model.fields,help:ore.field_ore_offre_service__website_message_ids
+#: model:ir.model.fields,help:ore.field_ore_ore__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__codepostal
+msgid "Zip"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_relation__icon
+msgid "icon"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,help:ore.field_ore_workflow_state__force_update_data
+msgid "À chaque load du state, on va forcer la mise à jour de la base de données."
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__age
+msgid "Âge"
+msgstr ""
+
+#. module: ore
+#: model_terms:ir.ui.view,arch_db:ore.ore_membre_view_form
+msgid "Échange"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_echange_service_notification__echange_service_id
+msgid "Échange de service"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__echange_service_acheteur_ids
+msgid "Échange de service acheteur"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_membre__echange_service_vendeur_ids
+msgid "Échange de service vendeur"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_echange_service_echange_de_services_action_window
+#: model:ir.ui.menu,name:ore.echange_de_services
+msgid "Échange de services"
+msgstr ""
+
+#. module: ore
+#: selection:ore.workflow.state,caract_echange_nouvel_existant:0
+msgid "Échange existant"
+msgstr ""
+
+#. module: ore
+#: model:ir.actions.act_window,name:ore.ore_workflow_state_action_window
+#: model:ir.ui.menu,name:ore.menu_workflow_state
+msgid "État de navigation"
+msgstr ""
+
+#. module: ore
+#: model:ir.model.fields,field_description:ore.field_ore_workflow_state__model_field_depend
+msgid "État qui dépend de champs"
+msgstr ""
+
