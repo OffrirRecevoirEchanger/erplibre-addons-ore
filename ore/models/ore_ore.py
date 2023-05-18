@@ -63,7 +63,7 @@ class OREORE(models.Model):
     logo = fields.Binary(help="Logo du réseau")
 
     membre = fields.One2many(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         inverse_name="ore",
         help="Membre relation",
     )

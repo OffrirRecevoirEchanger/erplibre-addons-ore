@@ -12,7 +12,7 @@ def pre_init_hook(cr):
     with api.Environment.manage():
         env = api.Environment(cr, SUPERUSER_ID, {})
 
-        company_id = env["res.partner"].browse(env.ref("base.main_company").id)
+        company_id = env["res.partner"].browse(env.ref("base.main_partner").id)
         company_id.website = "https://ore.quebec"
         company_id.name = "ORE"
         company_id.email = "info@ore.quebec"
@@ -29,9 +29,9 @@ def pre_init_hook(cr):
         user_admin_id = env["res.partner"].browse(
             env.ref("base.partner_admin").id
         )
-        user_admin_id.website = "https://technolibre.ca"
+        user_admin_id.website = "https://ore.quebec"
         user_admin_id.name = "Mathieu Benoit"
-        user_admin_id.email = "mathieu.benoit@technolibre.ca"
+        user_admin_id.email = "mathieu.benoit@ore.quebec"
         user_admin_id.country_id = env.ref("base.ca")
         user_admin_id.state_id = env["res.country.state"].search(
             [("code", "ilike", "QC")], limit=1
@@ -42,7 +42,7 @@ def post_init_hook(cr, e):
     with api.Environment.manage():
         env = api.Environment(cr, SUPERUSER_ID, {})
 
-        partner_id = env["res.partner"].browse(env.ref("base.main_company").id)
+        partner_id = env["res.partner"].browse(env.ref("base.main_partner").id)
 
         partner_img_attachment = env.ref(
             "ore.ir_attachment_logo_ore_transparent_svg"
@@ -51,6 +51,6 @@ def post_init_hook(cr, e):
             partner_img_attachment.local_url[1:], "rb"
         ) as desc_file:
             image_data = base64.b64encode(desc_file.read())
-            partner_id.image = image_data
+            partner_id.logo = image_data
             # Update favicon web
             env["res.company"].browse(1).favicon = image_data

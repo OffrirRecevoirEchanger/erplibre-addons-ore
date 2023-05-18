@@ -1,8 +1,8 @@
 from odoo import _, api, fields, models
 
 
-class OREMembre(models.Model):
-    _inherit = "ore.membre"
+class ResPartner(models.Model):
+    _inherit = "res.partner"
 
     company_id = fields.Many2one(
         comodel_name="res.company",

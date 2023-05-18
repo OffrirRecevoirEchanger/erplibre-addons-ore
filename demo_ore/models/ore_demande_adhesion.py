@@ -32,7 +32,7 @@ class OREDemandeAdhesion(models.Model):
                     ).id,
                 }
                 lst_data.append(data)
-            membre_ids = self.env["ore.membre"].create(lst_data)
+            membre_ids = self.env["res.partner"].create(lst_data)
             # Force add initial time
             lst_data = []
             for membre_id in membre_ids:
@@ -42,7 +42,7 @@ class OREDemandeAdhesion(models.Model):
                     "type_echange": "offre_ponctuel",
                     "transaction_valide": True,
                     "membre_acheteur": self.env.ref(
-                        "demo_ore.ore_membre_ore_laval"
+                        "demo_ore.res_partner_ore_laval"
                     ).id,
                     "membre_vendeur": membre_id.id,
                 }

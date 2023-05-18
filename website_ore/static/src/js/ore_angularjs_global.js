@@ -333,7 +333,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 } else {
                     // $scope.nb_offre_service = data.nb_offre_service;
                     // record_obj.is_favorite = data.is_favorite;
-                    // if (model === "ore.membre" && data.is_favorite) {
+                    // if (model === "res.partner" && data.is_favorite) {
                     //     // TODO validate not already in list
                     //     $scope.personal.lst_membre_favoris.push(record_obj);
                     // }
@@ -676,7 +676,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 } else {
                     // $scope.nb_offre_service = data.nb_offre_service;
                     record_obj.is_favorite = data.is_favorite;
-                    // if (model === "ore.membre" && data.is_favorite) {
+                    // if (model === "res.partner" && data.is_favorite) {
                     //     // TODO validate not already in list
                     //     $scope.personal.lst_membre_favoris.push(record_obj);
                     // }

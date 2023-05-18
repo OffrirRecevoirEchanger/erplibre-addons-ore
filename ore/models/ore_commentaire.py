@@ -70,14 +70,14 @@ class ORECommentaire(models.Model):
     )
 
     membre_source = fields.Many2one(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         string="Membre source",
         required=True,
         help="Membre duquel provient le commentaire",
     )
 
     membre_viser = fields.Many2one(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         string="Membre visé",
         help="Membre visé par le commentaire",
     )

@@ -48,11 +48,11 @@ class OREDemandeService(models.Model):
     )
 
     membre = fields.Many2one(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         track_visibility="onchange",
     )
 
-    membre_favoris_ids = fields.Many2many(comodel_name="ore.membre")
+    membre_favoris_ids = fields.Many2many(comodel_name="res.partner")
 
     type_service_id = fields.Many2one(
         comodel_name="ore.type.service",
@@ -76,7 +76,7 @@ class OREDemandeService(models.Model):
         ore_member = (
             self.env["res.users"]
             .browse(self.write_uid.id)
-            .partner_id.ore_membre_ids
+            .partner_id.res_partner_ids
         )
         for rec in self:
             self.env["bus.bus"].sendone(

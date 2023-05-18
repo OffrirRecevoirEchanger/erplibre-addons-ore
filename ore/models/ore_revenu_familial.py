@@ -9,7 +9,7 @@ class ORERevenuFamilial(models.Model):
     nom = fields.Char(string="Revenu")
 
     membre = fields.One2many(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         inverse_name="revenu_familial",
         help="Membre relation",
     )

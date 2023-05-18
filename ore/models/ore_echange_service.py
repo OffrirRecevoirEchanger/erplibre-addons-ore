@@ -29,17 +29,17 @@ class OREEchangeService(models.Model):
 
     # TODO compute membre_acheter from service
     membre_acheteur = fields.Many2one(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         string="Membre acheteur",
     )
 
     membre_vendeur = fields.Many2one(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         string="Membre vendeur",
     )
 
     membre_qui_a_valide = fields.Many2one(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         string="Membre qui a validé",
     )
 
@@ -158,7 +158,7 @@ class OREEchangeService(models.Model):
         res = super(OREEchangeService, self).create(vals_list)
         lst_notif_value = []
         for es in res:
-            owner_membre_id = es.write_uid.ore_membre_ids.exists()
+            owner_membre_id = es.write_uid.res_partner_ids.exists()
             # Remove owner (membre who ask) to notif list
             if owner_membre_id:
                 lst_membre_notif = list(

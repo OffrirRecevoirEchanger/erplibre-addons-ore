@@ -52,7 +52,7 @@ odoo.define('website.ore_notification', function (require) {
             this.call('bus_service', 'addChannel', "ore.notification.favorite");
             this.call('bus_service', 'addChannel', "ore.notification.echange");
             // TODO a bug can occur if the scope not exist or dbname is not sync fast, block in willStart with angular watch
-            // this._canal_membre_update = JSON.stringify([this._global_scope.global.dbname, "ore.membre", this._global_scope.personal.id]);
+            // this._canal_membre_update = JSON.stringify([this._global_scope.global.dbname, "res.partner", this._global_scope.personal.id]);
             // console.warn(this._canal_membre_update);
             // this.call('bus_service', 'addChannel', this._canal_membre_update);
             this.call('bus_service', 'startPolling');
@@ -98,7 +98,7 @@ odoo.define('website.ore_notification', function (require) {
             let has_update = false;
             let $scope = angular.element($("[ng-app]")).scope();
             // Recreate it solves a strange bug
-            let canal_membre_update = JSON.stringify([$scope.global.dbname, "ore.membre", $scope.personal.id]);
+            let canal_membre_update = JSON.stringify([$scope.global.dbname, "res.partner", $scope.personal.id]);
             let canal_offre_service_update = JSON.stringify([$scope.global.dbname, "ore.offre.service", $scope.personal.id]);
             let canal_demande_service_update = JSON.stringify([$scope.global.dbname, "ore.demande.service", $scope.personal.id]);
             let canal_notif_echange_new = JSON.stringify([$scope.global.dbname, "ore.echange.service.notification", $scope.personal.id]);
@@ -161,7 +161,7 @@ odoo.define('website.ore_notification', function (require) {
                                     has_update = true;
                                 }
                             } else {
-                                console.error("Not support value '" + value + "' from membre_favoris_ids channel '" + channel + "' model 'ore.membre'");
+                                console.error("Not support value '" + value + "' from membre_favoris_ids channel '" + channel + "' model 'res.partner'");
                             }
                         }
                     }

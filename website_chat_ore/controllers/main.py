@@ -14,7 +14,7 @@ class OREController(http.Controller):
         if not partner_id or http.request.auth_method == "public":
             return {"error": _("User not connected")}
 
-        membre_id = request.env["ore.membre"].search(
+        membre_id = request.env["res.partner"].search(
             [("partner_id", "=", partner_id.id)], limit=1
         )
 
@@ -63,7 +63,7 @@ class OREController(http.Controller):
         msg = kw.get("msg")
         group_id = kw.get("group_id")
         membre_id = kw.get("membre_id")
-        me_membre_id = http.request.env.user.partner_id.ore_membre_ids
+        me_membre_id = http.request.env.user.partner_id.res_partner_ids
         if not group_id:
             group_value = {
                 "membre_ids": [(6, 0, [membre_id, me_membre_id.id])]

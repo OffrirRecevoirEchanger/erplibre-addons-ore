@@ -74,11 +74,11 @@ class OREOffreService(models.Model):
     entente_tarifiaire = fields.Html()
 
     membre = fields.Many2one(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         help="Membre qui offre le service",
     )
 
-    membre_favoris_ids = fields.Many2many(comodel_name="ore.membre")
+    membre_favoris_ids = fields.Many2many(comodel_name="res.partner")
 
     nb_consultation = fields.Integer(string="Nombre de consultations")
 
@@ -113,7 +113,7 @@ class OREOffreService(models.Model):
         ore_member = (
             self.env["res.users"]
             .browse(self.write_uid.id)
-            .partner_id.ore_membre_ids
+            .partner_id.res_partner_ids
         )
         for rec in self:
             self.env["bus.bus"].sendone(

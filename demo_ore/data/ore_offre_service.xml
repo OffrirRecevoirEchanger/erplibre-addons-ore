@@ -9,9 +9,9 @@
             <field name="titre">Initiation GNU/Linux et logiciels libres</field>
             <field name="description">Expert depuis 2007, tester moi!</field>
             <field name="quoi_apporter">Votre laptop</field>
-            <field name="membre" ref="ore_membre_administrateur_mathieu_benoit" />
+            <field name="membre" ref="res_partner_administrateur_mathieu_benoit" />
             <field name="type_service_id" ref="ore_data.ore_type_service_102_a_6_initiation_linux_et_logiciels_libres" />
-            <field name="membre_favoris_ids" eval="[(4, ref('ore_membre_administrateur_mathieu_benoit')), (4, ref('ore_membre_denis_lemarchand'))]" />
+            <field name="membre_favoris_ids" eval="[(4, ref('res_partner_administrateur_mathieu_benoit')), (4, ref('partner_demo_denis_lemarchand'))]" />
         </record>
         <record id="ore_offre_service_cours_de_piano" model="ore.offre.service">
             <field name="ore" ref="ore_organisation_sainte_rose_du_nord" />
@@ -21,9 +21,9 @@
             <field name="titre">Cours de piano débutant</field>
             <field name="description">J'ai 5 ans d'expérience en piano, je peux vous aider pour les débutants.</field>
             <field name="quoi_apporter">Votre piano</field>
-            <field name="membre" ref="ore_membre_administrateur_mathieu_benoit" />
+            <field name="membre" ref="res_partner_administrateur_mathieu_benoit" />
             <field name="type_service_id" ref="ore_data.ore_type_service_108_a_12_apprentissage_du_piano" />
-            <field name="membre_favoris_ids" eval="[(4, ref('ore_membre_administrateur_mathieu_benoit')), (4, ref('ore_membre_denis_lemarchand'))]" />
+            <field name="membre_favoris_ids" eval="[(4, ref('res_partner_administrateur_mathieu_benoit')), (4, ref('partner_demo_denis_lemarchand'))]" />
         </record>
         <record id="ore_offre_service_conception_site_web" model="ore.offre.service">
             <field name="ore" ref="ore_organisation_sainte_rose_du_nord" />
@@ -33,9 +33,9 @@
             <field name="titre">Aide conception site web</field>
             <field name="description">J'adore faire des sites web, je peux vous aider!</field>
             <field name="quoi_apporter">Votre ordinateur</field>
-            <field name="membre" ref="ore_membre_administrateur_mathieu_benoit" />
+            <field name="membre" ref="res_partner_administrateur_mathieu_benoit" />
             <field name="type_service_id" ref="ore_data.ore_type_service_102_c_3_conception_site_web" />
-            <field name="membre_favoris_ids" eval="[(4, ref('ore_membre_alice_poitier')), (4, ref('ore_membre_denis_lemarchand'))]" />
+            <field name="membre_favoris_ids" eval="[(4, ref('partner_demo_alice_poitier')), (4, ref('partner_demo_denis_lemarchand'))]" />
         </record>
         <record id="ore_offre_service_cours_de_violon" model="ore.offre.service">
             <field name="ore" ref="ore_organisation_sainte_rose_du_nord" />
@@ -45,9 +45,9 @@
             <field name="titre">Cours de violon</field>
             <field name="description">Je suis professeur depuis 40 ans en violon, j'offre des cours pour débutant</field>
             <field name="quoi_apporter">Votre violon</field>
-            <field name="membre" ref="ore_membre_martin_bergeron" />
+            <field name="membre" ref="partner_demo_martin_bergeron" />
             <field name="type_service_id" ref="ore_data.ore_type_service_108_a_13_apprentissage_du_violon" />
-            <field name="membre_favoris_ids" eval="[(4, ref('ore_membre_administrateur_mathieu_benoit')), (4, ref('ore_membre_denis_lemarchand'))]" />
+            <field name="membre_favoris_ids" eval="[(4, ref('res_partner_administrateur_mathieu_benoit')), (4, ref('partner_demo_denis_lemarchand'))]" />
         </record>
         <record id="ore_offre_service_je_vous_fais_decouvrir_la_ville_et_toutes_les_bonnes_choses_a_savoir" model="ore.offre.service">
             <field name="ore" ref="ore_organisation_sainte_rose_du_nord" />
@@ -56,9 +56,9 @@
             <field name="entente_tarifiaire">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Selon le tarif de l'ore: 1h = 1h&lt;br //&gt;&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Les achats suppl&#233;mentaires n&#233;cessaires au service sont &#224; vos frais.</field>
             <field name="titre">Je vous fais découvrir la ville et toutes les bonnes choses à savoir.</field>
             <field name="description">Je connais très bien la ville, c'est ma ville natale!</field>
-            <field name="membre" ref="ore_membre_alice_poitier" />
+            <field name="membre" ref="partner_demo_alice_poitier" />
             <field name="type_service_id" ref="ore_data.ore_type_service_111_c_2_guide_touristique_ville_de_quebec" />
-            <field name="membre_favoris_ids" eval="[(4, ref('ore_membre_administrateur_mathieu_benoit')), (4, ref('ore_membre_denis_lemarchand'))]" />
+            <field name="membre_favoris_ids" eval="[(4, ref('res_partner_administrateur_mathieu_benoit')), (4, ref('partner_demo_denis_lemarchand'))]" />
         </record>
         <record id="ore_offre_service_faire_visiter_une_maison_a_louer" model="ore.offre.service">
             <field name="ore" ref="ore_organisation_sainte_rose_du_nord" />
@@ -67,9 +67,9 @@
             <field name="deplacement">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Je me déplace: En voiture&lt;br //&gt;&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Accepte de me déplacer: En région</field>
             <field name="titre">Faire visiter une maison à louer</field>
             <field name="description">Je peux visiter vos maisons à louer, je suis expert immobilier et j'adore faire cette activité dans mes temps libres.</field>
-            <field name="membre" ref="ore_membre_denis_lemarchand" />
+            <field name="membre" ref="partner_demo_denis_lemarchand" />
             <field name="type_service_id" ref="ore_data.ore_type_service_101_f_4_conseils_valorisation_immobiliere" />
-            <field name="membre_favoris_ids" eval="[(4, ref('ore_membre_administrateur_mathieu_benoit')), (4, ref('ore_membre_denis_lemarchand'))]" />
+            <field name="membre_favoris_ids" eval="[(4, ref('res_partner_administrateur_mathieu_benoit')), (4, ref('partner_demo_denis_lemarchand'))]" />
         </record>
     </data>
 </odoo>

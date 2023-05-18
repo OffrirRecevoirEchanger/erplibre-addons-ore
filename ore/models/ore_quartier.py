@@ -18,7 +18,7 @@ class OREQuartier(models.Model):
     )
 
     membre = fields.One2many(
-        comodel_name="ore.membre",
+        comodel_name="res.partner",
         inverse_name="quartier",
         help="Membre relation",
     )

@@ -13,6 +13,11 @@
         <field name="tz">America/Montreal</field>
         <field name="email">alice_poitier@exemple.ca</field>
         <field name="phone">(514) 555-5555</field>
+        <field name="ore" ref="ore_organisation_sainte_rose_du_nord" />
+        <field name="profil_approuver" eval="True" />
+        <field name="antecedent_judiciaire_verifier" eval="True" />
+        <field name="logo" type="base64" file="base/static/img/res_partner_address_32.jpg" />
+        <field name="ville" ref="ore_data.ore_ville_sainte_rose_du_nord" />
     </record>
 
     <record id="user_demo_alice_poitier" model="res.users">
@@ -44,6 +49,11 @@
         <field name="tz">America/Montreal</field>
         <field name="email">martin_petit@exemple.ca</field>
         <field name="phone">(514) 555-5555</field>
+        <field name="ore" ref="ore_organisation_sainte_rose_du_nord" />
+        <field name="profil_approuver" eval="True" />
+        <field name="logo" type="base64" file="base/static/img/res_partner_address_25.jpg" />
+        <field name="region" ref="ore_data.ore_region_saguenay_lac_saint_jean" />
+        <field name="ville" ref="ore_data.ore_ville_sainte_rose_du_nord" />
     </record>
 
     <record id="user_demo_martin_petit" model="res.users">
@@ -75,6 +85,11 @@
         <field name="tz">America/Montreal</field>
         <field name="email">denis_lemarchand@exemple.ca</field>
         <field name="phone">(514) 555-5555</field>
+        <field name="ore" ref="ore_organisation_sainte_rose_du_nord" />
+        <field name="profil_approuver" eval="True" />
+        <field name="logo" type="base64" file="base/static/img/res_partner_address_24.jpg" />
+        <field name="region" ref="ore_data.ore_region_saguenay_lac_saint_jean" />
+        <field name="ville" ref="ore_data.ore_ville_sainte_rose_du_nord" />
     </record>
 
     <record id="user_demo_denis_lemarchand" model="res.users">
@@ -98,7 +113,7 @@
         <field name="name">Martin Bergeron</field>
         <field name="company_id" ref="base.main_company" />
         <field name="parent_id" ref="base.main_company" />
-        <field name="street">4545, Avenue Pierre-De Coubertin</field>
+        <field name="street">4777 Pierre-de Coubertin Ave, Montreal, Quebec H1V 1B3</field>
         <field name="city">Montréal</field>
         <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />
         <field name="zip">H1V 3N7</field>
@@ -106,6 +121,10 @@
         <field name="tz">America/Montreal</field>
         <field name="email">martin_bergeron@exemple.ca</field>
         <field name="phone">(514) 555-5555</field>
+        <field name="ore" ref="ore_organisation_sainte_rose_du_nord" />
+        <field name="profil_approuver" eval="True" />
+        <field name="region" ref="ore_data.ore_region_saguenay_lac_saint_jean" />
+        <field name="ville" ref="ore_data.ore_ville_sainte_rose_du_nord" />
     </record>
 
     <record id="user_demo_martin_bergeron" model="res.users">
