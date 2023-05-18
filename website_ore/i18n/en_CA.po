@@ -1,24 +1,27 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* website_ore
+# 	* website_ore
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-18 15:54+0000\n"
-"PO-Revision-Date: 2023-05-18 15:54+0000\n"
+"PO-Revision-Date: 2023-05-18 11:57-0400\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: en_CA\n"
+"X-Generator: Poedit 2.3\n"
 
 #. module: website_ore
 #: model:ir.ui.view,website_meta_description:website_ore.ir_ui_view_home
 #: model:website.page,website_meta_description:website_ore.website_page_home
-msgid "\n"
+msgid ""
+"\n"
 "                Offrir - Recevoir - Échanger\n"
 "                Plateforme québécoise d'échange de temps\n"
 "            "
@@ -47,57 +50,66 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_communaute_2
-msgid "&amp;nbsp;\n"
+msgid ""
+"&amp;nbsp;\n"
 "                                                                Groupe privé"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_communaute_1
-msgid "&amp;nbsp;\n"
+msgid ""
+"&amp;nbsp;\n"
 "                                                            <font class=\"adapt-text-primary-color\" style=\"\">Je participe</font>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_communaute_1
-msgid "&amp;nbsp;\n"
+msgid ""
+"&amp;nbsp;\n"
 "                                                        1551 Rue Dunant, Sherbrooke, J1H 5N6, QC"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_communaute_1
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "&amp;nbsp;\n"
+msgid ""
+"&amp;nbsp;\n"
 "                                                        20h00 - 21h30"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "&amp;nbsp;\n"
+msgid ""
+"&amp;nbsp;\n"
 "                                                        <font class=\"adapt-text-primary-color\" style=\"\">Je participe</font>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_demandes_service
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_offres_service
-msgid "&amp;nbsp;\n"
+msgid ""
+"&amp;nbsp;\n"
 "                                                        Filtrer et trier"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "&amp;nbsp;\n"
+msgid ""
+"&amp;nbsp;\n"
 "                                                    1551 Rue Dunant, Sherbrooke, J1H 5N6, QC"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "&amp;nbsp;\n"
+msgid ""
+"&amp;nbsp;\n"
 "                                                    20h00 - 21h30"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_communaute_1
-msgid "&amp;nbsp;\n"
+msgid ""
+"&amp;nbsp;\n"
 "                                                    Filtrer et trier"
 msgstr ""
 
@@ -105,7 +117,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_membres
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_agenda
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_reseau
-msgid "&amp;nbsp;\n"
+msgid ""
+"&amp;nbsp;\n"
 "                                                Filtrer et trier"
 msgstr ""
 
@@ -170,7 +183,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mes_informations_personnelles
-msgid "184 avenue Jacque Cartier\n"
+msgid ""
+"184 avenue Jacque Cartier\n"
 "                                                        <br/>\n"
 "                                                        Québec J1J2M2, Canada"
 msgstr ""
@@ -253,7 +267,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_contact_us
 #: model_terms:website.page,arch_db:website_ore.website_page_contact_us
-msgid "<b class=\"o_default_snippet_text\">Les belles histoires\n"
+msgid ""
+"<b class=\"o_default_snippet_text\">Les belles histoires\n"
 "                                                                    ont du caractère.\n"
 "                                                                </b>\n"
 "                                                                Considérez que raconter une belle histoire donne du\n"
@@ -268,7 +283,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_contact_us
 #: model_terms:website.page,arch_db:website_ore.website_page_contact_us
-msgid "<b class=\"o_default_snippet_text\">Les meilleures\n"
+msgid ""
+"<b class=\"o_default_snippet_text\">Les meilleures\n"
 "                                                                    histoires sont pour tout le monde, même si\n"
 "                                                                    elles ont été écrites seulement pour\n"
 "                                                                    une personne.\n"
@@ -282,7 +298,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "<b>\n"
+msgid ""
+"<b>\n"
 "                                                                <b>\n"
 "                                                                    <font style=\"color: rgb(255, 255, 255);\">\n"
 "                                                                        d'offrir un\n"
@@ -298,7 +315,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "<b>\n"
+msgid ""
+"<b>\n"
 "                                                                <font style=\"color: rgb(255, 255, 255);\">As-tu déjà\n"
 "                                                                    osé essayer\n"
 "                                                                </font>\n"
@@ -307,7 +325,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "<b>\n"
+msgid ""
+"<b>\n"
 "                                                            <b>\n"
 "                                                                <font style=\"color: rgb(255, 255, 255);\">\n"
 "                                                                    communauté\n"
@@ -319,7 +338,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "<b>\n"
+msgid ""
+"<b>\n"
 "                                                            <font style=\"color: rgb(255, 255, 255);\">Découvrir ma\n"
 "                                                            </font>\n"
 "                                                        </b>"
@@ -327,7 +347,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "<b>Adresse</b>\n"
+msgid ""
+"<b>Adresse</b>\n"
 "                                                        <br/>\n"
 "                                                        1551 Rue Dunant, Sherbrooke, J1H QN5, QC"
 msgstr ""
@@ -339,14 +360,16 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<b>Catégorie:</b>\n"
+msgid ""
+"<b>Catégorie:</b>\n"
 "                                            <span ng-repeat=\"link in lst_label_breadcrumb\" ng-click=\"change_breadcrumb_index(link.index)\" class=\"cursor-pointer\" ng-if=\"!_.isEmpty(link.html)\" ng-bind-html=\"link.html | unsafe\"/>\n"
 "                                            <i class=\"fa fa-chevron-right\"/>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "<b>Détails pour vous y rendre</b>\n"
+msgid ""
+"<b>Détails pour vous y rendre</b>\n"
 "                                                        <br/>\n"
 "                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n"
 "                                                        sed do eiusmod tempor incididunt ut labore et dolore magna\n"
@@ -366,19 +389,22 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<b>Montant total de temps estimé :</b>\n"
+msgid ""
+"<b>Montant total de temps estimé :</b>\n"
 "                                                    <span ng-cloak=\"\">{{echange_service_info.show_total_dure_estime_pos}}</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<b>Montant total de temps transféré :</b>\n"
+msgid ""
+"<b>Montant total de temps transféré :</b>\n"
 "                                                <span ng-cloak=\"\">{{echange_service_info.show_total_dure_pos}}</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<b>Montant total de temps à transférer</b>\n"
+msgid ""
+"<b>Montant total de temps à transférer</b>\n"
 "                                                <span ng-cloak=\"\">{{show_sum_total_time_echange()}}</span>"
 msgstr ""
 
@@ -394,7 +420,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                                                    <br/>\n"
 "                                                    <span class=\"desc\">\n"
 "                                                        <i class=\"fa fa-user-circle-o text-epsilon\"/>\n"
@@ -423,7 +450,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                                                <span ng-cloak=\"\">{{echange_service_info.show_date | toTitleCase}}</span>\n"
 "                                                <span class=\"divider\"/>\n"
 "                                                <span ng-if=\"echange_service_info.show_start_time !== echange_service_info.show_end_time\" ng-cloak=\"\">{{echange_service_info.show_start_time}} - {{echange_service_info.show_end_time}}</span>\n"
@@ -432,7 +460,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_profil
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                                            <span class=\"nbr\">Ma présentation</span>\n"
 "                                            <br/>\n"
 "                                            <span class=\"txt\">Personnaliser la présentation affichée aux autres membres.</span>"
@@ -440,7 +469,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_profil
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                                            <span class=\"nbr\">Mes annonces publiées</span>\n"
 "                                            <br/>\n"
 "                                            <span class=\"txt\">Voir et gérer les annonces que j'ai publiées.</span>"
@@ -448,7 +478,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_profil
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                                            <span class=\"nbr\">Mes favoris</span>\n"
 "                                            <br/>\n"
 "                                            <span class=\"txt\">Voir mes offres, demandes et membres favoris.</span>"
@@ -456,7 +487,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_profil
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                                            <span class=\"nbr\">Mes informations personnelles</span>\n"
 "                                            <br/>\n"
 "                                            <span class=\"txt\">Modifier mes informations personnelles et vérifier mes antécédents judiciaires.</span>"
@@ -464,7 +496,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_profil
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                                            <span class=\"nbr\">Mes notifications</span>\n"
 "                                            <br/>\n"
 "                                            <span class=\"txt\">Voir mes notifications</span>"
@@ -472,7 +505,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_profil
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                                            <span class=\"nbr\">Mes préférences générales</span>\n"
 "                                            <br/>\n"
 "                                            <span class=\"txt\">Gérer les paramètres de votre espace membre (langues, moyens de communications, ...)</span>"
@@ -480,13 +514,15 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                                        <span style=\"color:red;\" ng-cloak=\"\">Erreur : {{error}}</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_ma_presentation
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                                    Lien maquette :"
 msgstr ""
 
@@ -508,13 +544,15 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_profil
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_reseau
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_offres_service
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                                    Lien mobile :"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                                Debug form:\n"
 "                                <span ng-cloak=\"\">{{form || json}}</span>\n"
 "                                <br/>\n"
@@ -525,31 +563,36 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                                Lien mobile :"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                                Mobile :"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_offre_service_unit_liste_offre_et_demande_service
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                        Mobile :"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_offre_service_unit_liste_offre_et_demande_service
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                        Son offre :"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_login
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                    Mobile :"
 msgstr ""
 
@@ -560,7 +603,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "<font class=\"adapt-text-gamma-color\" style=\"\">Découvrir les membres\n"
+msgid ""
+"<font class=\"adapt-text-gamma-color\" style=\"\">Découvrir les membres\n"
 "                                                        </font>"
 msgstr ""
 
@@ -596,7 +640,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<font class=\"adapt-text-primary-color\" style=\"font-size: 1rem;\" ng-if=\"membre_info.estPersonnel\">\n"
+msgid ""
+"<font class=\"adapt-text-primary-color\" style=\"font-size: 1rem;\" ng-if=\"membre_info.estPersonnel\">\n"
 "                                                        Voir toutes mes demandes favorites\n"
 "                                                    </font>\n"
 "                                                    <font class=\"adapt-text-primary-color\" style=\"font-size: 1rem;\" ng-if=\"!membre_info.estPersonnel\">\n"
@@ -606,28 +651,32 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<font class=\"adapt-text-primary-color\" style=\"font-size: 1rem;\">\n"
+msgid ""
+"<font class=\"adapt-text-primary-color\" style=\"font-size: 1rem;\">\n"
 "                                                        Voir tous mes membres favoris\n"
 "                                                    </font>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<font class=\"adapt-text-primary-color\" style=\"font-size: 1rem;\">\n"
+msgid ""
+"<font class=\"adapt-text-primary-color\" style=\"font-size: 1rem;\">\n"
 "                                                        Voir toutes les notifications\n"
 "                                                    </font>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<font class=\"adapt-text-primary-color\" style=\"font-size: 1rem;\">\n"
+msgid ""
+"<font class=\"adapt-text-primary-color\" style=\"font-size: 1rem;\">\n"
 "                                                        Voir toutes mes offres favorites\n"
 "                                                    </font>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "<font class=\"text-gamma\">Vous ne savez pas comment fonctionne\n"
+msgid ""
+"<font class=\"text-gamma\">Vous ne savez pas comment fonctionne\n"
 "                                                    le réseau ou vous avez des difficultés à utiliser votre\n"
 "                                                    espace membre? Ne vous inquiétez pas, nous sommes tous déjà\n"
 "                                                    passé par là. Nous sommes là pour vous aider.\n"
@@ -641,7 +690,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "<font id=\"aide_btn_txt\" class=\"adapt-text-primary-color\">\n"
+msgid ""
+"<font id=\"aide_btn_txt\" class=\"adapt-text-primary-color\">\n"
 "                                                    Contacter un\n"
 "                                                    mentor\n"
 "                                                </font>"
@@ -655,7 +705,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "<font style=\"color: rgb(255, 255, 255);\">&amp;nbsp;C'est très\n"
+msgid ""
+"<font style=\"color: rgb(255, 255, 255);\">&amp;nbsp;C'est très\n"
 "                                                                simple, tu peux commencer par publier une offre de\n"
 "                                                                service et ensuite attendre qu'une personne te contacte.\n"
 "                                                            </font>"
@@ -663,7 +714,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "<font style=\"color: rgb(255, 255, 255);\">&amp;nbsp;Découvrez\n"
+msgid ""
+"<font style=\"color: rgb(255, 255, 255);\">&amp;nbsp;Découvrez\n"
 "                                                            les membres et les groupes du réseau qui se trouvent\n"
 "                                                            autour de chez vous.\n"
 "                                                        </font>"
@@ -671,14 +723,16 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_membres
-msgid "<font style=\"color: rgb(99, 99, 99);\">\n"
+msgid ""
+"<font style=\"color: rgb(99, 99, 99);\">\n"
 "                                                            <q ng-cloak=\"\">{{membre.introduction}}</q>\n"
 "                                                        </font>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mes_groupes
-msgid "<font style=\"color: rgb(99, 99, 99);\">\n"
+msgid ""
+"<font style=\"color: rgb(99, 99, 99);\">\n"
 "                                                            Lorem ipsum dolor sit amet,\n"
 "                                                            consectetur adipiscing elit, sed do eiusmod tempor\n"
 "                                                            incididunt ut\n"
@@ -688,32 +742,37 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_reseau
-msgid "<font style=\"color: rgb(99, 99, 99);\">\n"
+msgid ""
+"<font style=\"color: rgb(99, 99, 99);\">\n"
 "                                                        &amp;nbsp;J'adore rencontrer de nouvelles personnes, n'hésitez pas à me contacter&amp;nbsp;\n"
 "                                                    </font>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mes_groupes
-msgid "<font style=\"color: rgb(99, 99, 99);\">5 membres - 2 publications&amp;nbsp;\n"
+msgid ""
+"<font style=\"color: rgb(99, 99, 99);\">5 membres - 2 publications&amp;nbsp;\n"
 "                                                        </font>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mes_annonces_publiees
-msgid "<font style=\"font-size: 1.5rem;\" ng-if=\"membre_info.estPersonnel\">Mes demandes de service</font>\n"
+msgid ""
+"<font style=\"font-size: 1.5rem;\" ng-if=\"membre_info.estPersonnel\">Mes demandes de service</font>\n"
 "                                                    <font style=\"font-size: 1.5rem;\" ng-if=\"!membre_info.estPersonnel\">Ses demandes de service</font>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mes_annonces_publiees
-msgid "<font style=\"font-size: 1.5rem;\" ng-if=\"membre_info.estPersonnel\">Mes offres de service</font>\n"
+msgid ""
+"<font style=\"font-size: 1.5rem;\" ng-if=\"membre_info.estPersonnel\">Mes offres de service</font>\n"
 "                                                    <font style=\"font-size: 1.5rem;\" ng-if=\"!membre_info.estPersonnel\">Ses offres de service</font>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mes_favoris
-msgid "<font style=\"font-size: 1.5rem;\">\n"
+msgid ""
+"<font style=\"font-size: 1.5rem;\">\n"
 "                                                        Les demandes de\n"
 "                                                        service\n"
 "                                                    </font>"
@@ -732,7 +791,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_demandes_service
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_offres_service
-msgid "<font style=\"font-size: 18px;\" class=\"adapt-text-primary-color\">\n"
+msgid ""
+"<font style=\"font-size: 18px;\" class=\"adapt-text-primary-color\">\n"
 "                                                                    <i class=\"img img-fluid mx-auto fa fa-search\"/>\n"
 "                                                                    Rechercher\n"
 "                                                                </font>"
@@ -740,7 +800,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "<font style=\"font-size: 18px;\" class=\"adapt-text-primary-color\">\n"
+msgid ""
+"<font style=\"font-size: 18px;\" class=\"adapt-text-primary-color\">\n"
 "                                                                <i class=\"img img-fluid mx-auto fa fa-search\"/>\n"
 "                                                                Rechercher\n"
 "                                                            </font>"
@@ -749,7 +810,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_home
 #: model_terms:website.page,arch_db:website_ore.website_page_home
-msgid "<font style=\"font-size: 24px;\" class=\"text-alpha\">Offrir</font>\n"
+msgid ""
+"<font style=\"font-size: 24px;\" class=\"text-alpha\">Offrir</font>\n"
 "                                                <font style=\"font-size: 24px;\">-</font>\n"
 "                                                <font style=\"font-size: 24px;\" class=\"text-beta\">Recevoir</font>\n"
 "                                                <font style=\"font-size: 24px;\">-</font>\n"
@@ -760,7 +822,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_home
 #: model_terms:website.page,arch_db:website_ore.website_page_home
-msgid "<font style=\"font-size: 24px;\">\n"
+msgid ""
+"<font style=\"font-size: 24px;\">\n"
 "                                                    Devenez membre dès aujourd'hui d'une communauté où l'entraide et vos\n"
 "                                                    talents sont reconnus à leur juste valeur.\n"
 "                                                </font>"
@@ -769,7 +832,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_home
 #: model_terms:website.page,arch_db:website_ore.website_page_home
-msgid "<font style=\"font-size: 24px;\">\n"
+msgid ""
+"<font style=\"font-size: 24px;\">\n"
 "                                                    Plateforme d'échange de temps, inscription facile, rapide et\n"
 "                                                    gratuite.\n"
 "                                                </font>"
@@ -795,7 +859,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_unit_liste_type_service_categorie
-msgid "<font style=\"font-size: 62px;\">\n"
+msgid ""
+"<font style=\"font-size: 62px;\">\n"
 "                                            ore_type_service_categorie_id non existante\n"
 "                                        </font>"
 msgstr ""
@@ -812,7 +877,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "<font style=\"font-size:1.25rem;\">\n"
+msgid ""
+"<font style=\"font-size:1.25rem;\">\n"
 "                                                    Voir Tout\n"
 "                                                    (+10)\n"
 "                                                </font>"
@@ -845,44 +911,51 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_agenda
-msgid "<i class=\"fa fa-arrow-left text-primary\"/>\n"
+msgid ""
+"<i class=\"fa fa-arrow-left text-primary\"/>\n"
 "                                        Retour"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<i class=\"fa fa-arrow-left text-primary\"/>\n"
+msgid ""
+"<i class=\"fa fa-arrow-left text-primary\"/>\n"
 "                                        Voir tous mes échanges"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_demande_service_unit_liste_offre_et_demande_service
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_offre_service_unit_liste_offre_et_demande_service
-msgid "<i class=\"fa fa-arrow-left text-primary\"/>\n"
+msgid ""
+"<i class=\"fa fa-arrow-left text-primary\"/>\n"
 "                            Voir toutes mes annonces publiées"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_activite
-msgid "<i class=\"fa fa-calendar\"/> &amp;nbsp\n"
+msgid ""
+"<i class=\"fa fa-calendar\"/> &amp;nbsp\n"
 "                                                Voir mon agenda"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "<i class=\"fa fa-calendar\"/>&amp;nbsp\n"
+msgid ""
+"<i class=\"fa fa-calendar\"/>&amp;nbsp\n"
 "                                                    Mercredi 1 octobre de 19h - 21h30"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<i class=\"fa fa-camera\"/>\n"
+msgid ""
+"<i class=\"fa fa-camera\"/>\n"
 "                                            Lecteur Code QR"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<i class=\"fa fa-check text-epsilon checker mt-0\"/>\n"
+msgid ""
+"<i class=\"fa fa-check text-epsilon checker mt-0\"/>\n"
 "                                                    <span>\n"
 "                                                        Les aliments nécessaires pour la confection du dessert\n"
 "                                                        sont à vos frais\n"
@@ -892,37 +965,43 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<i class=\"fa fa-check text-epsilon checker\"/>\n"
+msgid ""
+"<i class=\"fa fa-check text-epsilon checker\"/>\n"
 "                                                        Il doit y avoir au moins 4 personnes pour le déménagement"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<i class=\"fa fa-check\"/>\n"
+msgid ""
+"<i class=\"fa fa-check\"/>\n"
 "                                                    <span>Service effectué</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "<i class=\"fa fa-check-circle-o\"/>&amp;nbsp\n"
+msgid ""
+"<i class=\"fa fa-check-circle-o\"/>&amp;nbsp\n"
 "                                                Je participe"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echanges
-msgid "<i class=\"fa fa-clock-o icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-clock-o icon_padding_right\"/>\n"
 "                                                            {{echange_info.show_sum_time}}"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echanges
-msgid "<i class=\"fa fa-clock-o icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-clock-o icon_padding_right\"/>\n"
 "                                                            À venir"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.template_votre_contact_full
-msgid "<i class=\"fa fa-clock-o\"/>\n"
+msgid ""
+"<i class=\"fa fa-clock-o\"/>\n"
 "                    {{contact_info.show_bank_max_service_offert}} de service à son actif"
 msgstr ""
 
@@ -933,19 +1012,22 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<i class=\"fa fa-edit icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-edit icon_padding_right\"/>\n"
 "                                                    Remplacer la photo"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<i class=\"fa fa-eye icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-eye icon_padding_right\"/>\n"
 "                                        Mon ore"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<i class=\"fa fa-files-o\"/>\n"
+msgid ""
+"<i class=\"fa fa-files-o\"/>\n"
 "                                            <span ng-if=\"is_copied_url\" style=\"color:green;\">Copié!</span>\n"
 "                                            <span ng-if=\"_.isEmpty(error_copy) &amp;&amp; !is_copied_url\">\n"
 "                                                Copier le lien\n"
@@ -957,62 +1039,72 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "<i class=\"fa fa-flag-o\"/>\n"
+msgid ""
+"<i class=\"fa fa-flag-o\"/>\n"
 "                                                        &amp;nbsp"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_demande_service_unit_liste_offre_et_demande_service
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_offre_service_unit_liste_offre_et_demande_service
-msgid "<i class=\"fa fa-flag-o\"/>\n"
+msgid ""
+"<i class=\"fa fa-flag-o\"/>\n"
 "                                                &amp;nbsp"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<i class=\"fa fa-gear icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-gear icon_padding_right\"/>\n"
 "                                        Mes préférences générales"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<i class=\"fa fa-newspaper-o icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-newspaper-o icon_padding_right\"/>\n"
 "                                        Mes annonces publiées"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_demande_service_unit_liste_offre_et_demande_service
-msgid "<i class=\"fa fa-pencil text-primary icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-pencil text-primary icon_padding_right\"/>\n"
 "                                Modifier ma demande de service"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_offre_service_unit_liste_offre_et_demande_service
-msgid "<i class=\"fa fa-pencil text-primary icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-pencil text-primary icon_padding_right\"/>\n"
 "                                Modifier mon offre de service"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<i class=\"fa fa-phone text-primary icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-phone text-primary icon_padding_right\"/>\n"
 "                                            Contacter le réseau"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<i class=\"fa fa-play\"/>\n"
+msgid ""
+"<i class=\"fa fa-play\"/>\n"
 "                                                {{animation}}"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<i class=\"fa fa-plus rounded-dashed\"/>\n"
+msgid ""
+"<i class=\"fa fa-plus rounded-dashed\"/>\n"
 "                                                    <span>Ajouter un élément à la liste</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<i class=\"fa fa-plus\"/>\n"
+msgid ""
+"<i class=\"fa fa-plus\"/>\n"
 "                                                <span class=\"mr-auto ml-3\" ng-if=\"'init.saa.offrir.nouveau.cat.form' === state.id\">\n"
 "                                                    Conditions de l'échange de service\n"
 "                                                </span>\n"
@@ -1023,31 +1115,36 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<i class=\"fa fa-plus\"/>\n"
+msgid ""
+"<i class=\"fa fa-plus\"/>\n"
 "                                                <span class=\"mr-auto ml-3\">Commentaires</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<i class=\"fa fa-plus\"/>\n"
+msgid ""
+"<i class=\"fa fa-plus\"/>\n"
 "                                                <span class=\"mr-auto ml-3\">Matériel nécessaire</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mes_annonces_publiees
-msgid "<i class=\"fa fa-plus-circle icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-plus-circle icon_padding_right\"/>\n"
 "                                                Ajouter une demande de service"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mes_annonces_publiees
-msgid "<i class=\"fa fa-plus-circle icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-plus-circle icon_padding_right\"/>\n"
 "                                                Ajouter une offre de service"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<i class=\"fa fa-power-off icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-power-off icon_padding_right\"/>\n"
 "                                        Déconnexion"
 msgstr ""
 
@@ -1058,51 +1155,59 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<i class=\"fa fa-print text-primary icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-print text-primary icon_padding_right\"/>\n"
 "                                            Imprimer la validation"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "<i class=\"fa fa-qrcode icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-qrcode icon_padding_right\"/>\n"
 "                                            Code QR"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_demande_service_unit_liste_offre_et_demande_service
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_offre_service_unit_liste_offre_et_demande_service
-msgid "<i class=\"fa fa-qrcode icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-qrcode icon_padding_right\"/>\n"
 "                                    Code QR"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<i class=\"fa fa-qrcode\"/>\n"
+msgid ""
+"<i class=\"fa fa-qrcode\"/>\n"
 "                                            Code QR"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "<i class=\"fa fa-send-o\"/>&amp;nbsp\n"
+msgid ""
+"<i class=\"fa fa-send-o\"/>&amp;nbsp\n"
 "                                                Inviter"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "<i class=\"fa fa-share-alt icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-share-alt icon_padding_right\"/>\n"
 "                                            Partager"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_demande_service_unit_liste_offre_et_demande_service
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_offre_service_unit_liste_offre_et_demande_service
-msgid "<i class=\"fa fa-share-alt icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-share-alt icon_padding_right\"/>\n"
 "                                    Partager"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<i class=\"fa fa-share-alt\"/>\n"
+msgid ""
+"<i class=\"fa fa-share-alt\"/>\n"
 "                                            <span ng-if=\"_.isEmpty(error_share)\">\n"
 "                                                <span ng-if=\"!is_share_enable()\">Non supporté</span>\n"
 "                                                <span ng-if=\"is_share_enable()\">Partager le lien</span>\n"
@@ -1114,7 +1219,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.template_votre_contact_full
-msgid "<i class=\"fa fa-shield\" ng-class=\"{'neg_time': !contact_info.antecedent_judiciaire_verifier}\"/>\n"
+msgid ""
+"<i class=\"fa fa-shield\" ng-class=\"{'neg_time': !contact_info.antecedent_judiciaire_verifier}\"/>\n"
 "                    Antécédents judiciaires\n"
 "                    <span ng-if=\"!contact_info.antecedent_judiciaire_verifier\">non</span>\n"
 "                    vérifiés"
@@ -1122,13 +1228,15 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<i class=\"fa fa-signal icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-signal icon_padding_right\"/>\n"
 "                                        Mon activité"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_communaute
-msgid "<i class=\"fa fa-sliders text-epsilon\"/>\n"
+msgid ""
+"<i class=\"fa fa-sliders text-epsilon\"/>\n"
 "                                                Filtrer et trier"
 msgstr ""
 
@@ -1136,71 +1244,82 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_communaute_1
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_communaute_2
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_membres
-msgid "<i class=\"fa fa-sliders text-epsilon\"/>\n"
+msgid ""
+"<i class=\"fa fa-sliders text-epsilon\"/>\n"
 "                                            Filtrer et trier"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_demandes_service
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_offres_service
-msgid "<i class=\"fa fa-sliders\"/>\n"
+msgid ""
+"<i class=\"fa fa-sliders\"/>\n"
 "                                                        Filtrer et trier"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echanges
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_agenda
-msgid "<i class=\"fa fa-sliders\"/>\n"
+msgid ""
+"<i class=\"fa fa-sliders\"/>\n"
 "                                                    Filtrer et trier"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_reseau
-msgid "<i class=\"fa fa-sliders\"/>\n"
+msgid ""
+"<i class=\"fa fa-sliders\"/>\n"
 "                                            Filtrer et trier"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_profil
-msgid "<i class=\"fa fa-smile-o\"/>\n"
+msgid ""
+"<i class=\"fa fa-smile-o\"/>\n"
 "                                            <span id=\"mon_reseau\" ng-cloak=\"\">Mon réseau: {{personal.mon_ore.name}}</span>\n"
 "                                            <i class=\"fa fa-chevron-right\"/>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "<i class=\"fa fa-star-o\"/>&amp;nbsp\n"
+msgid ""
+"<i class=\"fa fa-star-o\"/>&amp;nbsp\n"
 "                                                Ça m'intéresse"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<i class=\"fa fa-times-circle\"/>\n"
+msgid ""
+"<i class=\"fa fa-times-circle\"/>\n"
 "                            Fermer"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_demande_service_unit_liste_offre_et_demande_service
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_offre_service_unit_liste_offre_et_demande_service
-msgid "<i class=\"fa fa-trash text-primary icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-trash text-primary icon_padding_right\"/>\n"
 "                                Supprimer"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<i class=\"fa fa-user-circle icon_padding_right\"/>\n"
+msgid ""
+"<i class=\"fa fa-user-circle icon_padding_right\"/>\n"
 "                                        Ma présentation"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.template_votre_contact_full
-msgid "<i class=\"fa fa-user-circle\"/>\n"
+msgid ""
+"<i class=\"fa fa-user-circle\"/>\n"
 "                    Membre depuis {{contact_info.show_date_creation}}"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.template_votre_contact_full
-msgid "<i class=\"fa fa-user-circle\"/>\n"
+msgid ""
+"<i class=\"fa fa-user-circle\"/>\n"
 "                    {{contact_info.len_demande_service}}\n"
 "                    <span class=\"remove_space\" ng-init=\"removeSpace()\">\n"
 "                        demande\n"
@@ -1211,7 +1330,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.template_votre_contact_full
-msgid "<i class=\"fa fa-user-circle\"/>\n"
+msgid ""
+"<i class=\"fa fa-user-circle\"/>\n"
 "                    {{contact_info.len_offre_service}}\n"
 "                    <span class=\"remove_space\" ng-init=\"removeSpace()\">\n"
 "                        offre\n"
@@ -1222,14 +1342,16 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_demande_service_unit_liste_offre_et_demande_service
-msgid "<i class=\"fa icon_padding_right\" ng-class=\"{'fa-heart': demande_service_info.is_favorite, 'fa-heart-o': !demande_service_info.is_favorite}\"/>\n"
+msgid ""
+"<i class=\"fa icon_padding_right\" ng-class=\"{'fa-heart': demande_service_info.is_favorite, 'fa-heart-o': !demande_service_info.is_favorite}\"/>\n"
 "                                    <span ng-show=\"!demande_service_info.is_favorite\">Ajouter à mes favoris</span>\n"
 "                                    <span ng-show=\"demande_service_info.is_favorite\">Retirer de mes favoris</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_offre_service_unit_liste_offre_et_demande_service
-msgid "<i class=\"fa icon_padding_right\" ng-class=\"{'fa-heart': offre_service_info.is_favorite, 'fa-heart-o': !offre_service_info.is_favorite}\"/>\n"
+msgid ""
+"<i class=\"fa icon_padding_right\" ng-class=\"{'fa-heart': offre_service_info.is_favorite, 'fa-heart-o': !offre_service_info.is_favorite}\"/>\n"
 "                                    <span ng-show=\"!offre_service_info.is_favorite\">Ajouter à mes favoris</span>\n"
 "                                    <span ng-show=\"offre_service_info.is_favorite\">Retirer de mes favoris</span>"
 msgstr ""
@@ -1237,7 +1359,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_home
 #: model_terms:website.page,arch_db:website_ore.website_page_home
-msgid "<i>\n"
+msgid ""
+"<i>\n"
 "                                                            Consulter en un seul endroit les offres ou écrire une\n"
 "                                                            demande\n"
 "                                                            particulière\n"
@@ -1268,26 +1391,30 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echanges
-msgid "<span class=\"activite_auteur mt-auto\" ng-cloak=\"\">{{echange.membre.full_name}}</span>\n"
+msgid ""
+"<span class=\"activite_auteur mt-auto\" ng-cloak=\"\">{{echange.membre.full_name}}</span>\n"
 "                                                            <span class=\"mb-auto\" ng-show=\"!_.isEmpty(echange.sujet_offre_service)\" ng-cloak=\"\">{{echange.sujet_offre_service}}</span>\n"
 "                                                            <span class=\"mb-auto\" ng-show=\"!_.isEmpty(echange.sujet_demande_service)\" ng-cloak=\"\">{{echange.sujet_demande_service}}</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_agenda
-msgid "<span class=\"activite_auteur mt-auto\">Denis Lemarchand</span>\n"
+msgid ""
+"<span class=\"activite_auteur mt-auto\">Denis Lemarchand</span>\n"
 "                                                        <span class=\"mb-auto\">Faire visiter une maison à louer</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_agenda
-msgid "<span class=\"activite_auteur mt-auto\">Évènement</span>\n"
+msgid ""
+"<span class=\"activite_auteur mt-auto\">Évènement</span>\n"
 "                                                        <span class=\"mb-auto\">Soirée au café Baobab</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<span class=\"activite_title\" ng-cloak=\"\">\n"
+msgid ""
+"<span class=\"activite_title\" ng-cloak=\"\">\n"
 "                                                                {{demande_service.titre}}\n"
 "                                                            </span>\n"
 "                                                            <span class=\"activite_auteur\" ng-cloak=\"\">\n"
@@ -1297,7 +1424,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<span class=\"activite_title\" ng-cloak=\"\">\n"
+msgid ""
+"<span class=\"activite_title\" ng-cloak=\"\">\n"
 "                                                                {{membre_favoris.full_name}}\n"
 "                                                            </span>\n"
 "                                                            <span class=\"activite_auteur\" ng-if=\"membre_favoris.description\">\n"
@@ -1307,7 +1435,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<span class=\"activite_title\" ng-cloak=\"\">\n"
+msgid ""
+"<span class=\"activite_title\" ng-cloak=\"\">\n"
 "                                                                {{notif.type_notification}}\n"
 "                                                            </span>\n"
 "                                                            <span class=\"activite_auteur\" ng-cloak=\"\">\n"
@@ -1317,7 +1446,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<span class=\"activite_title\" ng-cloak=\"\">\n"
+msgid ""
+"<span class=\"activite_title\" ng-cloak=\"\">\n"
 "                                                                {{offre_service.titre}}\n"
 "                                                            </span>\n"
 "                                                            <span class=\"activite_auteur\" ng-cloak=\"\">\n"
@@ -1327,14 +1457,16 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_communaute
-msgid "<span class=\"comment_count\">4 commentaires</span>\n"
+msgid ""
+"<span class=\"comment_count\">4 commentaires</span>\n"
 "                                                <span>•</span>\n"
 "                                                <span class=\"view_count\">10 vues</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "<span class=\"comment_count\">4 commentaires</span>\n"
+msgid ""
+"<span class=\"comment_count\">4 commentaires</span>\n"
 "                                            <span>•</span>\n"
 "                                            <span class=\"view_count\">10 vues</span>"
 msgstr ""
@@ -1346,45 +1478,52 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<span class=\"fa fa-2x fa-edit\" data-oe-model=\"website.menu\" data-oe-id=\"10\" data-oe-field=\"name\" data-oe-type=\"char\" data-oe-expression=\"submenu.name\"/>\n"
+msgid ""
+"<span class=\"fa fa-2x fa-edit\" data-oe-model=\"website.menu\" data-oe-id=\"10\" data-oe-field=\"name\" data-oe-type=\"char\" data-oe-expression=\"submenu.name\"/>\n"
 "                                    <span style=\"font-size:15px;margin-left: 10px;float:right\">Publier</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_ma_presentation
-msgid "<span class=\"img img-fluid mx-auto fa coeur\" ng-class=\"{'fa-heart': membre_info.is_favorite, 'fa-heart-o': !membre_info.is_favorite}\"/>\n"
+msgid ""
+"<span class=\"img img-fluid mx-auto fa coeur\" ng-class=\"{'fa-heart': membre_info.is_favorite, 'fa-heart-o': !membre_info.is_favorite}\"/>\n"
 "                                                        <span class=\"adapt-text-primary-color\" ng-if=\"!membre_info.is_favorite\">Ajouter à mes favoris</span>\n"
 "                                                        <span class=\"adapt-text-primary-color\" ng-if=\"membre_info.is_favorite\">Retirer de mes favoris</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_ma_presentation
-msgid "<span class=\"img img-fluid mx-auto fa fa-close\"/>\n"
+msgid ""
+"<span class=\"img img-fluid mx-auto fa fa-close\"/>\n"
 "                                                        Annuler les modifications"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_ma_presentation
-msgid "<span class=\"img img-fluid mx-auto fa fa-pencil\"/>\n"
+msgid ""
+"<span class=\"img img-fluid mx-auto fa fa-pencil\"/>\n"
 "                                                        Modifier le profil"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_ma_presentation
-msgid "<span class=\"img img-fluid mx-auto fa fa-save\"/>\n"
+msgid ""
+"<span class=\"img img-fluid mx-auto fa fa-save\"/>\n"
 "                                                        Enregistrer le profil"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<span class=\"info_title debug_unimplemented\">\n"
+msgid ""
+"<span class=\"info_title debug_unimplemented\">\n"
 "                                                <font style=\"font-weight:bold;\">Conditions de l'entente</font>\n"
 "                                            </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<span class=\"info_title\" ng-cloak=\"\">\n"
+msgid ""
+"<span class=\"info_title\" ng-cloak=\"\">\n"
 "                                                <font style=\"font-weight:bold;\">Mon échange de service à venir avec</font>\n"
 "                                                <br/>\n"
 "                                                {{contact_info.full_name}}\n"
@@ -1393,80 +1532,92 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<span class=\"info_title\" ng-if=\"echange_service_info.has_demande_service\">\n"
+msgid ""
+"<span class=\"info_title\" ng-if=\"echange_service_info.has_demande_service\">\n"
 "                                                <font style=\"font-weight:bold;\">Demande de service privé</font>\n"
 "                                            </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<span class=\"info_title\" ng-if=\"echange_service_info.has_offre_service\">\n"
+msgid ""
+"<span class=\"info_title\" ng-if=\"echange_service_info.has_offre_service\">\n"
 "                                                <font style=\"font-weight:bold;\">Offre de service privée</font>\n"
 "                                            </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<span class=\"info_title\">\n"
+msgid ""
+"<span class=\"info_title\">\n"
 "                                                    <font style=\"font-weight:bold;\">Commentaire</font>\n"
 "                                                </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<span class=\"info_title\">\n"
+msgid ""
+"<span class=\"info_title\">\n"
 "                                                    <font style=\"font-weight:bold;\">Demande de service</font>\n"
 "                                                </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<span class=\"info_title\">\n"
+msgid ""
+"<span class=\"info_title\">\n"
 "                                                    <font style=\"font-weight:bold;\">Offre de service</font>\n"
 "                                                </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<span class=\"info_title\">\n"
+msgid ""
+"<span class=\"info_title\">\n"
 "                                                <font style=\"font-weight:bold;\">Détails sur le service reçu</font>\n"
 "                                            </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_profil
-msgid "<span class=\"nbr\">\n"
+msgid ""
+"<span class=\"nbr\">\n"
 "                                                <i class=\"fa fa-power-off\"/>&amp;nbsp;Déconnecter\n"
 "                                            </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_activite
-msgid "<span class=\"nbr-activite\" ng-cloak=\"\">{{personal.actual_month_bank_time_human_short | uppercase}}</span>\n"
+msgid ""
+"<span class=\"nbr-activite\" ng-cloak=\"\">{{personal.actual_month_bank_time_human_short | uppercase}}</span>\n"
 "                                            <span class=\"txt-activite\">ce mois-ci</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_activite
-msgid "<span class=\"nbr-activite\" ng-cloak=\"\">{{personal.nb_echange_a_venir}}</span>\n"
+msgid ""
+"<span class=\"nbr-activite\" ng-cloak=\"\">{{personal.nb_echange_a_venir}}</span>\n"
 "                                            <span class=\"txt-activite\">échange à venir</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_activite
-msgid "<span class=\"nbr-activite\" ng-cloak=\"\">{{personal.nb_echange_en_cours}}</span>\n"
+msgid ""
+"<span class=\"nbr-activite\" ng-cloak=\"\">{{personal.nb_echange_en_cours}}</span>\n"
 "                                            <span class=\"txt-activite\">échange en cours</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_activite
-msgid "<span class=\"nbr-activite\">1</span>\n"
+msgid ""
+"<span class=\"nbr-activite\">1</span>\n"
 "                                            <span class=\"txt-activite\">nouveau contact</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_activite
-msgid "<span class=\"nbr-activite\">1</span>\n"
+msgid ""
+"<span class=\"nbr-activite\">1</span>\n"
 "                                            <span class=\"txt-activite\">évènement</span>"
 msgstr ""
 
@@ -1479,23 +1630,31 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_membres
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_reseau
-msgid "<span class=\"tag\">Marche</span>\n"
+msgid ""
+"<span class=\"tag\">Marche</span>\n"
 "                                                        <span class=\"tag\">Violoncelle</span>\n"
 "                                                        <span class=\"tag\">Gym</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_ma_presentation
-msgid "<span class=\"text desc\" style=\"font-size: 1.4rem;\">\n"
+msgid ""
+"<span class=\"text desc\" style=\"font-size: 1.4rem;\">\n"
 "                                                Bonjour, je m'appelle\n"
 "                                                <br/>\n"
 "                                                <font style=\"font-weight:bold;\" ng-cloak=\"\">{{membre_info.full_name}}</font>\n"
 "                                            </span>"
 msgstr ""
+"<span class=\"text desc\" style=\"font-size: 1.4rem;\">\n"
+"                                                Hi, my name is\n"
+"                                                <br/>\n"
+"                                                <font style=\"font-weight:bold;\" ng-cloak=\"\">{{membre_info.full_name}}</font>\n"
+"                                            </span>"
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_ma_presentation
-msgid "<span class=\"txt\" ng-if=\"membre_info.estPersonnel\">Les langues que je parle</span>\n"
+msgid ""
+"<span class=\"txt\" ng-if=\"membre_info.estPersonnel\">Les langues que je parle</span>\n"
 "                                                <span class=\"txt\" ng-if=\"!membre_info.estPersonnel\">Les langues parlées</span>\n"
 "                                                <span>\n"
 "                                                    <i class=\"fa fa-commenting\"/>\n"
@@ -1510,21 +1669,24 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_ma_presentation
-msgid "<span class=\"txt\" ng-if=\"membre_info.estPersonnel\">Mes demandes de service</span>\n"
+msgid ""
+"<span class=\"txt\" ng-if=\"membre_info.estPersonnel\">Mes demandes de service</span>\n"
 "                                                <span class=\"txt\" ng-if=\"!membre_info.estPersonnel\">Ses demandes de service</span>\n"
 "                                                <span>Aucune demande de service en cours actuellement.</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_ma_presentation
-msgid "<span class=\"txt\" ng-if=\"membre_info.estPersonnel\">Mes offres de service</span>\n"
+msgid ""
+"<span class=\"txt\" ng-if=\"membre_info.estPersonnel\">Mes offres de service</span>\n"
 "                                                <span class=\"txt\" ng-if=\"!membre_info.estPersonnel\">Ses offres de service</span>\n"
 "                                                <span>Aucune offre de service en cours actuellement.</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_ma_presentation
-msgid "<span class=\"txt\">Intro</span>\n"
+msgid ""
+"<span class=\"txt\">Intro</span>\n"
 "                                            <br/>\n"
 "                                            <br/>\n"
 "                                            <span class=\"nbr\" ng-show=\"membre_info.introduction\" ng-if=\"!ask_modification_profile\">\n"
@@ -1537,7 +1699,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_ma_presentation
-msgid "<span class=\"txt\">Ma description</span>\n"
+msgid ""
+"<span class=\"txt\">Ma description</span>\n"
 "\n"
 "                                                <span>\n"
 "                                                    <br/>\n"
@@ -1570,13 +1733,15 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_ma_presentation
-msgid "<span class=\"txt\">Mes centres d'intérêt</span>\n"
+msgid ""
+"<span class=\"txt\">Mes centres d'intérêt</span>\n"
 "                                                <br/>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_ma_presentation
-msgid "<span class=\"txt\">Pourquoi suis-je membre du réseau?</span>\n"
+msgid ""
+"<span class=\"txt\">Pourquoi suis-je membre du réseau?</span>\n"
 "                                                <span>\n"
 "                                                    Nam consectetur bibendum rutrum. Cras dapibus ligula vitae est\n"
 "                                                    euismod malesuada.\n"
@@ -1594,7 +1759,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_ma_presentation
-msgid "<span class=\"txt\">Résumé</span>\n"
+msgid ""
+"<span class=\"txt\">Résumé</span>\n"
 "                                            <br/>\n"
 "                                            <br/>\n"
 "                                            <span class=\"desc-3 debug_unimplemented\">\n"
@@ -1621,39 +1787,45 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_activite
-msgid "<span class=\"txt-activite\">Soldes en heures:</span>\n"
+msgid ""
+"<span class=\"txt-activite\">Soldes en heures:</span>\n"
 "                                            <span class=\"nbr-activite\" ng-cloak=\"\">{{personal.actual_bank_time_human | uppercase}}</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<span data-oe-model=\"website.menu\" data-oe-id=\"1\" data-oe-field=\"name\" data-oe-type=\"char\" data-oe-expression=\"submenu.name\">\n"
+msgid ""
+"<span data-oe-model=\"website.menu\" data-oe-id=\"1\" data-oe-field=\"name\" data-oe-type=\"char\" data-oe-expression=\"submenu.name\">\n"
 "                                        Explorer\n"
 "                                    </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<span data-oe-model=\"website.menu\" data-oe-id=\"2\" data-oe-field=\"name\" data-oe-type=\"char\" data-oe-expression=\"submenu.name\">Communauté\n"
+msgid ""
+"<span data-oe-model=\"website.menu\" data-oe-id=\"2\" data-oe-field=\"name\" data-oe-type=\"char\" data-oe-expression=\"submenu.name\">Communauté\n"
 "                                    </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<span data-oe-model=\"website.menu\" data-oe-id=\"3\" data-oe-field=\"name\" data-oe-type=\"char\" data-oe-expression=\"submenu.name\" id=\"participer_navbar_ore\">\n"
+msgid ""
+"<span data-oe-model=\"website.menu\" data-oe-id=\"3\" data-oe-field=\"name\" data-oe-type=\"char\" data-oe-expression=\"submenu.name\" id=\"participer_navbar_ore\">\n"
 "                                        ORE-Participer\n"
 "                                    </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<span data-oe-model=\"website.menu\" data-oe-id=\"4\" data-oe-field=\"name\" data-oe-type=\"char\" data-oe-expression=\"submenu.name\">Mon activité\n"
+msgid ""
+"<span data-oe-model=\"website.menu\" data-oe-id=\"4\" data-oe-field=\"name\" data-oe-type=\"char\" data-oe-expression=\"submenu.name\">Mon activité\n"
 "                                    </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<span data-oe-model=\"website.menu\" data-oe-id=\"5\" data-oe-field=\"name\" data-oe-type=\"char\" data-oe-expression=\"submenu.name\">\n"
+msgid ""
+"<span data-oe-model=\"website.menu\" data-oe-id=\"5\" data-oe-field=\"name\" data-oe-type=\"char\" data-oe-expression=\"submenu.name\">\n"
 "                                        Mon profil\n"
 "                                    </span>"
 msgstr ""
@@ -1665,13 +1837,15 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<span ng-cloak=\"\">{{form.membre_id.value}}</span>\n"
+msgid ""
+"<span ng-cloak=\"\">{{form.membre_id.value}}</span>\n"
 "                                            <i class=\"fa fa-chevron-right\"/>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<span ng-cloak=\"\">{{form.type_service_id.value}}</span>\n"
+msgid ""
+"<span ng-cloak=\"\">{{form.type_service_id.value}}</span>\n"
 "                                                <i class=\"fa fa-chevron-right\"/>"
 msgstr ""
 
@@ -1683,61 +1857,70 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "<span ng-if=\"!echange_service_info.estAcheteur\">DÉPOT</span>\n"
+msgid ""
+"<span ng-if=\"!echange_service_info.estAcheteur\">DÉPOT</span>\n"
 "                                                <span ng-if=\"echange_service_info.estAcheteur\">RETRAIT</span>\n"
 "                                                SUR MON COMPTE"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<span ng-if=\"!form_is_modifying_date_service &amp;&amp; form_is_service_to_modify(state)\" ng-cloak=\"\">\n"
+msgid ""
+"<span ng-if=\"!form_is_modifying_date_service &amp;&amp; form_is_service_to_modify(state)\" ng-cloak=\"\">\n"
 "                                                {{form_date_service}}\n"
 "                                            </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<span ng-if=\"demande_service.distance\" ng-cloak=\"\">\n"
+msgid ""
+"<span ng-if=\"demande_service.distance\" ng-cloak=\"\">\n"
 "                                                                {{demande_service.distance}}\n"
 "                                                            </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<span ng-if=\"form_is_service_to_modify(state) &amp;&amp; !form_is_modifying_time_service\" ng-cloak=\"\">\n"
+msgid ""
+"<span ng-if=\"form_is_service_to_modify(state) &amp;&amp; !form_is_modifying_time_service\" ng-cloak=\"\">\n"
 "                                                {{form_time_service}}\n"
 "                                            </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_membres
-msgid "<span ng-if=\"membre.age &gt; 0\" style=\"font-size: 1.2rem;\" ng-cloak=\"\">{{membre.age}} ans</span>\n"
+msgid ""
+"<span ng-if=\"membre.age &gt; 0\" style=\"font-size: 1.2rem;\" ng-cloak=\"\">{{membre.age}} ans</span>\n"
 "                                                        <span ng-if=\"membre.age &gt; 0 &amp;&amp; !_.isUndefined(membre.distance)\" style=\"font-size: 1.2rem;\">-</span>\n"
 "                                                        <span ng-if=\"!_.isUndefined(membre.distance)\" style=\"font-size: 1.2rem;\" ng-cloak=\"\">{{membre.distance}} m</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_ma_presentation
-msgid "<span ng-if=\"membre_info.estPersonnel\">Mes demandes de service</span>\n"
+msgid ""
+"<span ng-if=\"membre_info.estPersonnel\">Mes demandes de service</span>\n"
 "                                                    <span ng-if=\"!membre_info.estPersonnel\">Ses demandes de service</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_ma_presentation
-msgid "<span ng-if=\"membre_info.estPersonnel\">Mes offres de service</span>\n"
+msgid ""
+"<span ng-if=\"membre_info.estPersonnel\">Mes offres de service</span>\n"
 "                                                    <span ng-if=\"!membre_info.estPersonnel\">Ses offres de service</span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "<span ng-if=\"offre_service.distance\" ng-cloak=\"\">\n"
+msgid ""
+"<span ng-if=\"offre_service.distance\" ng-cloak=\"\">\n"
 "                                                                {{offre_service.distance}}\n"
 "                                                            </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<span style=\"cursor:pointer\" ng-click=\"previous_inner_state_btn()\" ng-cloak=\"\">\n"
+msgid ""
+"<span style=\"cursor:pointer\" ng-click=\"previous_inner_state_btn()\" ng-cloak=\"\">\n"
 "                                                <i class=\"fa fa-chevron-left\"/>\n"
 "                                                {{actual_inner_state_name}}\n"
 "                                            </span>"
@@ -1755,7 +1938,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_demande_service_unit_liste_offre_et_demande_service
-msgid "<span/>\n"
+msgid ""
+"<span/>\n"
 "                                    <span class=\"css_publish\" ng-if=\"!demande_service_info.website_published\">\n"
 "                                        Dépublier la demande\n"
 "                                    </span>\n"
@@ -1766,7 +1950,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_offre_service_unit_liste_offre_et_demande_service
-msgid "<span/>\n"
+msgid ""
+"<span/>\n"
 "                                    <span class=\"css_publish\" ng-if=\"!offre_service_info.website_published\">\n"
 "                                        Dépublier l'offre\n"
 "                                    </span>\n"
@@ -1777,7 +1962,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "<span>\n"
+msgid ""
+"<span>\n"
 "                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n"
 "                                                        sed do eiusmod tempor incididunt ut labore et dolore magna\n"
 "                                                        aliqua.\n"
@@ -1791,7 +1977,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<span>\n"
+msgid ""
+"<span>\n"
 "                                                    Importer une liste\n"
 "                                                    <i class=\"fa fa-download ml-3\"/>\n"
 "                                                </span>"
@@ -1801,14 +1988,16 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echanges
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_activite
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_reseau
-msgid "<span>\n"
+msgid ""
+"<span>\n"
 "                                                    Mon réseau\n"
 "                                                </span>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<span>\n"
+msgid ""
+"<span>\n"
 "                                                <i class=\"fa fa-check checker text-epsilon icon_padding_right\"/>\n"
 "                                                Il doit y avoir au moins 4 personnes pour le déménagement.\n"
 "                                            </span>"
@@ -1882,7 +2071,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<span>Destination spécifique:</span>\n"
+msgid ""
+"<span>Destination spécifique:</span>\n"
 "                                                <span>Aucune</span>\n"
 "                                                <i class=\"fa fa-chevron-right\"/>"
 msgstr ""
@@ -1895,7 +2085,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.template_votre_contact_full
-msgid "<span>En savoir plus</span>\n"
+msgid ""
+"<span>En savoir plus</span>\n"
 "                        <span ng-if=\"!_.isUndefined(contact_info.prenom)\" ng-cloak=\"\">sur {{contact_info.prenom}}</span>"
 msgstr ""
 
@@ -1939,7 +2130,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<span>J'accepte de me déplacer:</span>\n"
+msgid ""
+"<span>J'accepte de me déplacer:</span>\n"
 "                                                <span>Dans la région</span>\n"
 "                                                <i class=\"fa fa-chevron-right\"/>"
 msgstr ""
@@ -1952,13 +2144,15 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "<span>Je me déplace: En voiture</span>\n"
+msgid ""
+"<span>Je me déplace: En voiture</span>\n"
 "                                                    <br/>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "<span>Je me déplace:</span>\n"
+msgid ""
+"<span>Je me déplace:</span>\n"
 "                                                <span>En voiture</span>\n"
 "                                                <i class=\"fa fa-chevron-right\"/>"
 msgstr ""
@@ -1976,7 +2170,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "<span>Les achats supplémentaires nécessaires au service\n"
+msgid ""
+"<span>Les achats supplémentaires nécessaires au service\n"
 "                                                        sont à vos frais.\n"
 "                                                    </span>"
 msgstr ""
@@ -2046,7 +2241,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "<span>Pour des raisons sanitaire, être arrivé au\n"
+msgid ""
+"<span>Pour des raisons sanitaire, être arrivé au\n"
 "                                                        Québec depuis 14 jours au moins pour la covid\n"
 "                                                    </span>"
 msgstr ""
@@ -2065,7 +2261,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "<span>Selon le tarif de l'ore: 1h = 1h</span>\n"
+msgid ""
+"<span>Selon le tarif de l'ore: 1h = 1h</span>\n"
 "                                                    <br/>"
 msgstr ""
 
@@ -2200,7 +2397,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_page_aide
 #: model_terms:website.page,arch_db:website_ore.website_page_aide
-msgid "Afin de pouvoir vous contacter pour le suivi ou si nous avons des questions\n"
+msgid ""
+"Afin de pouvoir vous contacter pour le suivi ou si nous avons des questions\n"
 "                                                                        <br/>"
 msgstr ""
 
@@ -2331,7 +2529,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "Avant tout échange de services, nous vous conseillons de vous rejoindre\n"
+msgid ""
+"Avant tout échange de services, nous vous conseillons de vous rejoindre\n"
 "                                                sur un terrain neutre pour vous rencontrer et vous mettre d'accord sur\n"
 "                                                les détails.\n"
 "                                                <br/>\n"
@@ -2393,7 +2592,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_demandes_service
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_offres_service
-msgid "Catégorie\n"
+msgid ""
+"Catégorie\n"
 "                                                        <i class=\"fa fa-chevron-down\"/>"
 msgstr ""
 
@@ -2505,7 +2705,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_contact_us
 #: model_terms:website.page,arch_db:website_ore.website_page_contact_us
-msgid "Contactez-nous pour toutes questions relatives à\n"
+msgid ""
+"Contactez-nous pour toutes questions relatives à\n"
 "                                                                notre société ou nos services.\n"
 "                                                                <br/>\n"
 "                                                                Nous ferons notre possible pour revenir vers vous au\n"
@@ -2650,7 +2851,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_page_aide
 #: model_terms:website.page,arch_db:website_ore.website_page_aide
-msgid "Donnez-nous votre appréciation de cette plateforme, votre retour, vos impressions et tout autre commentaire.\n"
+msgid ""
+"Donnez-nous votre appréciation de cette plateforme, votre retour, vos impressions et tout autre commentaire.\n"
 "                                                                        <br/>"
 msgstr ""
 
@@ -2700,7 +2902,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_page_aide
 #: model_terms:website.page,arch_db:website_ore.website_page_aide
-msgid "Décrire le résultat s'il\n"
+msgid ""
+"Décrire le résultat s'il\n"
 "                                                                        n'avait pas eu le bogue\n"
 "                                                                        <br/>"
 msgstr ""
@@ -2708,7 +2911,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_page_aide
 #: model_terms:website.page,arch_db:website_ore.website_page_aide
-msgid "Décrire les étapes pour produire le bogue, définir ce qu'est le bogue à reporter\n"
+msgid ""
+"Décrire les étapes pour produire le bogue, définir ce qu'est le bogue à reporter\n"
 "                                                                        <br/>"
 msgstr ""
 
@@ -2758,7 +2962,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_contact_us
 #: model_terms:website.page,arch_db:website_ore.website_page_contact_us
-msgid "Ecrivez une citation\n"
+msgid ""
+"Ecrivez une citation\n"
 "                                                                    d'un de vos clients ici. Les citations sont une\n"
 "                                                                    superbe manière de construire la confiance dans\n"
 "                                                                    vos produits ou services."
@@ -2809,7 +3014,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_page_aide
 #: model_terms:website.page,arch_db:website_ore.website_page_aide
-msgid "Expliquez l'amélioration suggérée. Mettez les URL en question s'il y\n"
+msgid ""
+"Expliquez l'amélioration suggérée. Mettez les URL en question s'il y\n"
 "                                                                        a lieu.\n"
 "                                                                        <br/>"
 msgstr ""
@@ -2849,13 +3055,15 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "Frais pour le matériel nécessaire à l'échange\n"
+msgid ""
+"Frais pour le matériel nécessaire à l'échange\n"
 "                                                    de service"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "Frais pour le matériel nécessaire à l'échange\n"
+msgid ""
+"Frais pour le matériel nécessaire à l'échange\n"
 "                                                    de service :"
 msgstr ""
 
@@ -2941,7 +3149,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "Importer une\n"
+msgid ""
+"Importer une\n"
 "                                                        liste\n"
 "                                                        <i class=\"fa fa-download\"/>"
 msgstr ""
@@ -3029,7 +3238,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_publier_offre
-msgid "Les achats supplémentaires nécessaires au service sont à vos\n"
+msgid ""
+"Les achats supplémentaires nécessaires au service sont à vos\n"
 "                                        frais"
 msgstr ""
 
@@ -3134,7 +3344,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_communaute_2
-msgid "Lorem ipsum dolor sit amet,\n"
+msgid ""
+"Lorem ipsum dolor sit amet,\n"
 "                                                        consectetur adipiscing elit, sed do eiusmod tempor\n"
 "                                                        incididunt ut\n"
 "                                                        labore et dolore magna aliqua."
@@ -3142,7 +3353,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n"
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n"
 "                                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n"
 "                                                        Faucibus purus in massa tempor nec feugiat nisl pretium fusce.\n"
 "                                                        Aliquam malesuada bibendum arcu vitae elementum curabitur vitae\n"
@@ -3152,7 +3364,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_communaute
-msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n"
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n"
 "                                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut\n"
 "                                                        enim ad minim veniam, quis nostrud exercitation ullamco laboris\n"
 "                                                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor\n"
@@ -3162,7 +3375,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n"
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n"
 "                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim\n"
 "                                                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\n"
 "                                                    aliquip ex ea commodo consequat. Duis aute irure dolor in\n"
@@ -3179,7 +3393,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_communaute_1
-msgid "MER.\n"
+msgid ""
+"MER.\n"
 "                                                            <br/>\n"
 "                                                            1\n"
 "                                                            <br/>\n"
@@ -3188,7 +3403,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_communaute_1
-msgid "MER.\n"
+msgid ""
+"MER.\n"
 "                                                            <br/>\n"
 "                                                            2\n"
 "                                                            <br/>\n"
@@ -3197,7 +3413,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "MER.\n"
+msgid ""
+"MER.\n"
 "                                                        <br/>\n"
 "                                                        1\n"
 "                                                        <br/>\n"
@@ -3206,7 +3423,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "MER.\n"
+msgid ""
+"MER.\n"
 "                                                        <br/>\n"
 "                                                        2\n"
 "                                                        <br/>\n"
@@ -3215,7 +3433,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "MER.\n"
+msgid ""
+"MER.\n"
 "                                            <br/>\n"
 "                                            1\n"
 "                                            <br/>\n"
@@ -3224,7 +3443,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_evenement
-msgid "MER.\n"
+msgid ""
+"MER.\n"
 "                                            <br/>\n"
 "                                            2\n"
 "                                            <br/>\n"
@@ -3299,7 +3519,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mes_annonces_publiees
-msgid "Mes annonces publiées\n"
+msgid ""
+"Mes annonces publiées\n"
 "                                            <br/>"
 msgstr ""
 
@@ -3311,7 +3532,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mes_favoris
-msgid "Mes favoris\n"
+msgid ""
+"Mes favoris\n"
 "                                            <br/>"
 msgstr ""
 
@@ -3327,7 +3549,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mes_informations_personnelles
-msgid "Mes informations personnelles\n"
+msgid ""
+"Mes informations personnelles\n"
 "                                            <br/>"
 msgstr ""
 
@@ -3338,19 +3561,22 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echanges
-msgid "Mes échanges de service\n"
+msgid ""
+"Mes échanges de service\n"
 "                                                <br/>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_activite
-msgid "Messages et\n"
+msgid ""
+"Messages et\n"
 "                                                        notifications"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "Mettez vous d'accord à l'avance sur les modalités exactes du service à donner ou\n"
+msgid ""
+"Mettez vous d'accord à l'avance sur les modalités exactes du service à donner ou\n"
 "                                        recevoir."
 msgstr ""
 
@@ -3408,14 +3634,16 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mes_annonces_publiees
-msgid "Mon profil\n"
+msgid ""
+"Mon profil\n"
 "                                            <i class=\"fa fa-chevron-right\"/>\n"
 "                                            Mes annonces publiées"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mes_favoris
-msgid "Mon profil\n"
+msgid ""
+"Mon profil\n"
 "                                            <i class=\"fa fa-chevron-right\"/>\n"
 "                                            Mes favoris"
 msgstr ""
@@ -3446,7 +3674,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_page_aide
 #: model_terms:website.page,arch_db:website_ore.website_page_aide
-msgid "Niveau d'importance à devoir\n"
+msgid ""
+"Niveau d'importance à devoir\n"
 "                                                                        corriger ce problème\n"
 "                                                                        <br/>"
 msgstr ""
@@ -3677,7 +3906,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_home
 #: model_terms:website.page,arch_db:website_ore.website_page_home
-msgid "Que vous soyez un professionnel, un étudiant, un retraité, peu importe\n"
+msgid ""
+"Que vous soyez un professionnel, un étudiant, un retraité, peu importe\n"
 "                                                votre formation, vous pouvez donner de votre temps et l'échanger pour un\n"
 "                                                service."
 msgstr ""
@@ -3750,7 +3980,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "Retourner à\n"
+msgid ""
+"Retourner à\n"
 "                                                l'accueil"
 msgstr ""
 
@@ -3780,7 +4011,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_login
-msgid "Select\n"
+msgid ""
+"Select\n"
 "                                        <i class=\"fa fa-database\" role=\"img\" aria-label=\"Database\" title=\"Database\"/>"
 msgstr ""
 
@@ -3802,7 +4034,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echange
-msgid "Service\n"
+msgid ""
+"Service\n"
 "                                                    <span ng-if=\"!echange_service_info.estAcheteur\">donné</span>\n"
 "                                                    <span ng-if=\"echange_service_info.estAcheteur\">reçu</span>\n"
 "                                                    le :"
@@ -3823,7 +4056,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_activite
-msgid "Solde de mon compte\n"
+msgid ""
+"Solde de mon compte\n"
 "                                                <i class=\"fa fa-question-circle-o debug_unimplemented\"/>"
 msgstr ""
 
@@ -3838,7 +4072,8 @@ msgstr ""
 #: code:addons/addons/ORE_erplibre-addons-ore/website_ore/static/src/xml/widgets.xml:19
 #: code:addons/website_ore/static/src/xml/widgets.xml:19
 #, python-format
-msgid "Sur votre espace membre vous voyez toujours par défaut, toutes les offres / demandes\n"
+msgid ""
+"Sur votre espace membre vous voyez toujours par défaut, toutes les offres / demandes\n"
 "            de services et actualités du réseau auquelle vous appartenez. Cependant, si vous\n"
 "            souhaitez voir les informations pour d'autres ores, vous pouvez l'indiquer ci-dessous."
 msgstr ""
@@ -3882,14 +4117,16 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_page_aide
 #: model_terms:website.page,arch_db:website_ore.website_page_aide
-msgid "This placeholder prevents its parent from\n"
+msgid ""
+"This placeholder prevents its parent from\n"
 "                                                                    disappearing when emptied"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_page_aide
 #: model_terms:website.page,arch_db:website_ore.website_page_aide
-msgid "This placeholder prevents its parent from disappearing\n"
+msgid ""
+"This placeholder prevents its parent from disappearing\n"
 "                                                                    when emptied"
 msgstr ""
 
@@ -3945,7 +4182,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_page_aide
 #: model_terms:website.page,arch_db:website_ore.website_page_aide
-msgid "Téléverser une deuxième image\n"
+msgid ""
+"Téléverser une deuxième image\n"
 "                                                                        pour montrer le problème\n"
 "                                                                        <br/>"
 msgstr ""
@@ -3953,7 +4191,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_page_aide
 #: model_terms:website.page,arch_db:website_ore.website_page_aide
-msgid "Téléverser une image pour\n"
+msgid ""
+"Téléverser une image pour\n"
 "                                                                        montrer le problème\n"
 "                                                                        <br/>"
 msgstr ""
@@ -3975,7 +4214,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_home
 #: model_terms:website.page,arch_db:website_ore.website_page_home
-msgid "Valider qu'un échange a été réalisé avec un autre membre de la\n"
+msgid ""
+"Valider qu'un échange a été réalisé avec un autre membre de la\n"
 "                                                        communauté"
 msgstr ""
 
@@ -3996,19 +4236,22 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_activite
-msgid "Voir\n"
+msgid ""
+"Voir\n"
 "                                                        Tout (+40)"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_activite
-msgid "Voir\n"
+msgid ""
+"Voir\n"
 "                                                        tout (+500)"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "Voir Tout\n"
+msgid ""
+"Voir Tout\n"
 "                                                (+10)"
 msgstr ""
 
@@ -4055,13 +4298,15 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echanges
-msgid "Voir mes favoris\n"
+msgid ""
+"Voir mes favoris\n"
 "                                                    <i class=\"fa fa-chevron-down\"/>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_reseau
-msgid "Voir mes favoris\n"
+msgid ""
+"Voir mes favoris\n"
 "                                            <i class=\"fa fa-chevron-down\"/>"
 msgstr ""
 
@@ -4078,19 +4323,22 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mon_agenda
-msgid "Voir tous\n"
+msgid ""
+"Voir tous\n"
 "                                                    <i class=\"fa fa-chevron-down\"/>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "Voir tous mes\n"
+msgid ""
+"Voir tous mes\n"
 "                                                échanges"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ore_type_service_categorie_list_publication
-msgid "Voir toutes mes\n"
+msgid ""
+"Voir toutes mes\n"
 "                                                annonces"
 msgstr ""
 
@@ -4103,19 +4351,22 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_page_aide
 #: model_terms:website.page,arch_db:website_ore.website_page_aide
-msgid "Votre institution, votre niveau de scolarité, votre relation avec ce projet\n"
+msgid ""
+"Votre institution, votre niveau de scolarité, votre relation avec ce projet\n"
 "                                                                        <br/>"
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "Vous avez besoin d'un service? Faites part de votre besoin aux membres de\n"
+msgid ""
+"Vous avez besoin d'un service? Faites part de votre besoin aux membres de\n"
 "                                        le réseau en créant une demande ici."
 msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "Vous avez donné ou reçu un service? Déclarer ici la transaction pour donner ou\n"
+msgid ""
+"Vous avez donné ou reçu un service? Déclarer ici la transaction pour donner ou\n"
 "                                        percevoir les heures dues."
 msgstr ""
 
@@ -4133,7 +4384,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_explorer
-msgid "Vous pouvez déjà à présent valider votre échange de service en allant dans le section\n"
+msgid ""
+"Vous pouvez déjà à présent valider votre échange de service en allant dans le section\n"
 "                                            contribuer ou en cliquant sur le bouton ci-dessous."
 msgstr ""
 
@@ -4144,7 +4396,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.layout
-msgid "Vous souhaitez offrir vos services?\n"
+msgid ""
+"Vous souhaitez offrir vos services?\n"
 "                                        <br/>\n"
 "                                        Cliquez ici pour publier votre offre en ligne."
 msgstr ""
@@ -4162,7 +4415,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_mes_informations_personnelles
-msgid "Vérification de vs antécédents\n"
+msgid ""
+"Vérification de vs antécédents\n"
 "                                                        judiciaires"
 msgstr ""
 
@@ -4552,7 +4806,8 @@ msgstr ""
 
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_echanges
-msgid "{{echange.show_duree_total_estime}} à valider\n"
+msgid ""
+"{{echange.show_duree_total_estime}} à valider\n"
 "                                                        <i class=\"fa fa-chevron-right\"/>"
 msgstr ""
 
@@ -4785,7 +5040,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_page_aide
 #: model_terms:website.page,arch_db:website_ore.website_page_aide
-msgid "{{state.description}}\n"
+msgid ""
+"{{state.description}}\n"
 "                                                    <span ng-if=\"!_.isEmpty(state.date_last_update)\" ng-cloak=\"\">\n"
 "                                                        <br/>\n"
 "                                                        Dernière mise à jour : {{state.date_last_update}}\n"
@@ -4827,7 +5083,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_page_aide
 #: model_terms:website.page,arch_db:website_ore.website_page_aide
-msgid "{{state.title}}\n"
+msgid ""
+"{{state.title}}\n"
 "                                                        <br/>\n"
 "                                                        <span style=\"color:#00FF00\" ng-cloak=\"\">{{state.key_space}}</span>\n"
 "                                                        <br/>\n"
@@ -4900,8 +5157,8 @@ msgstr ""
 #. module: website_ore
 #: model_terms:ir.ui.view,arch_db:website_ore.ir_ui_view_contact_us
 #: model_terms:website.page,arch_db:website_ore.website_page_contact_us
-msgid "— Jane DOE,\n"
+msgid ""
+"— Jane DOE,\n"
 "                                                                    PDG de\n"
 "                                                                    <b class=\"o_default_snippet_text\">MaSociété</b>"
 msgstr ""
-
