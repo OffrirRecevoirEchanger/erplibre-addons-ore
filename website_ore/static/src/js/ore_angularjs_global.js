@@ -337,7 +337,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
         $(document).ready(function() {
             // Define the list of languages
-            var languages = [
+            let languages = [
                 "Anglais",
                 "Français",
                 "Espagnol",
@@ -577,9 +577,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
             if (!nom) {
                 let form = {};
-                if ($scope.membre_info.full_name === $scope.modify_label_when_empty) {
-                    $scope.membre_info.full_name = "";
-                }
                 if ($scope.ask_modif_copy.membre_info.full_name !== $scope.membre_info.full_name) {
                     form["full_name"] = $scope.membre_info.full_name;
                 }
@@ -593,7 +590,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
                             $scope.error = data.error;
                         } else if (_.isEmpty(data)) {
                             $scope.error = "Empty data - " + url;
-                        } else {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
@@ -602,7 +598,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             } else {
                 if (!_.isUndefined($scope.membre_info.full_name)) {
                     if (_.isEmpty($scope.membre_info.full_name)) {
-                        $scope.membre_info.full_name = $scope.modify_label_when_empty;
+                        $scope.membre_info.full_name = "";
                         $scope.ask_modif_copy.membre_info.full_name = "";
                     } else {
                         $scope.ask_modif_copy.membre_info.full_name = JSON.parse(JSON.stringify($scope.membre_info.full_name));
@@ -623,11 +619,8 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
             if (!genre) {
                 let form = {};
-                if ($scope.membre_info.genre === $scope.modify_label_when_empty) {
-                    $scope.membre_info.genre = "";
-                }
                 if ($scope.ask_modif_copy.membre_info.genre !== $scope.membre_info.genre) {
-                  var selectedOption = document.getElementById("genre").value;
+                  let selectedOption = document.getElementById("genre").value;
                   form["genre"] = selectedOption;
                 }
                 if (!_.isEmpty(form)) {
@@ -640,7 +633,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
                             $scope.error = data.error;
                         } else if (_.isEmpty(data)) {
                             $scope.error = "Empty data - " + url;
-                        } else {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
@@ -686,7 +678,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
                             $scope.error = data.error;
                         } else if (_.isEmpty(data)) {
                             $scope.error = "Empty data - " + url;
-                        } else {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
@@ -716,9 +707,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
             if (!courriel) {
                 let form = {};
-                if ($scope.membre_info.courriel === $scope.modify_label_when_empty) {
-                    $scope.membre_info.courriel = "";
-                }
                 if ($scope.ask_modif_copy.membre_info.courriel !== $scope.membre_info.courriel) {
                     if (!$scope.membre_info.courriel) {
                         return;
@@ -736,7 +724,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
                             $scope.error = data.error;
                         } else if (_.isEmpty(data)) {
                             $scope.error = "Empty data - " + url;
-                        } else {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
@@ -745,7 +732,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             } else {
                 if (!_.isUndefined($scope.membre_info.courriel)) {
                     if (_.isEmpty($scope.membre_info.courriel)) {
-                        $scope.membre_info.courriel = $scope.modify_label_when_empty;
+                        $scope.membre_info.courriel = "";
                         $scope.ask_modif_copy.membre_info.courriel = "";
                     } else {
                         $scope.ask_modif_copy.membre_info.courriel = JSON.parse(JSON.stringify($scope.membre_info.courriel));
@@ -767,9 +754,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
             if (!telephone) {
                 let form = {};
-                if ($scope.membre_info.telephone_1 === $scope.modify_label_when_empty) {
-                    $scope.membre_info.telephone_1 = "";
-                }
                 if ($scope.ask_modif_copy.membre_info.telephone_1 !== $scope.membre_info.telephone_1) {
                     form["telephone_1"] = $scope.membre_info.telephone_1;
                 }
@@ -783,7 +767,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
                             $scope.error = data.error;
                         } else if (_.isEmpty(data)) {
                             $scope.error = "Empty data - " + url;
-                        } else {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
@@ -792,7 +775,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             } else {
                 if (!_.isUndefined($scope.membre_info.telephone_1)) {
                     if (_.isEmpty($scope.membre_info.telephone_1)) {
-                        $scope.membre_info.telephone_1 = $scope.modify_label_when_empty;
+                        $scope.membre_info.telephone_1 = "";
                         $scope.ask_modif_copy.membre_info.telephone_1 = "";
                     } else {
                         $scope.ask_modif_copy.membre_info.telephone_1 = JSON.parse(JSON.stringify($scope.membre_info.telephone_1));
@@ -814,9 +797,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
             if (!adresse) {
                 let form = {};
-                if ($scope.membre_info.adresse === $scope.modify_label_when_empty) {
-                    $scope.membre_info.adresse = "";
-                }
                 if ($scope.ask_modif_copy.membre_info.adresse !== $scope.membre_info.adresse) {
                     form["adresse"] = $scope.membre_info.adresse;
                 }
@@ -830,7 +810,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
                             $scope.error = data.error;
                         } else if (_.isEmpty(data)) {
                             $scope.error = "Empty data - " + url;
-                        } else {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
@@ -839,7 +818,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             } else {
                 if (!_.isUndefined($scope.membre_info.adresse)) {
                     if (_.isEmpty($scope.membre_info.adresse)) {
-                        $scope.membre_info.adresse = $scope.modify_label_when_empty;
+                        $scope.membre_info.adresse = "";
                         $scope.ask_modif_copy.membre_info.adresse = "";
                     } else {
                         $scope.ask_modif_copy.membre_info.adresse = JSON.parse(JSON.stringify($scope.membre_info.adresse));

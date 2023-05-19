@@ -2582,8 +2582,8 @@
                                     <div class="container_lists">
                                         <div class="row vertical_list settings">
                                             <div class="activite">
-                                                <a class="modif" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_nom" ng-click="change_profile_name(true)">Modifier</a>
-                                                <a class="modif" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_nom" ng-click="annuler_profile_name();">Annuler</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_nom" ng-click="change_profile_name(true)">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_nom" ng-click="annuler_profile_name();">Annuler</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Nom</h4>
                                                     <span class="nbr" ng-if="!ask_modification_profile_nom">
@@ -2591,14 +2591,14 @@
                                                     </span>
                                                 </div>
                                                 <div class="nbr" ng-if="ask_modification_profile_nom">
-                                                    <input type="text" ng-model="membre_info.full_name" />
+                                                    <input placeholder="Modifiez-moi!" type="text" ng-model="membre_info.full_name" />
                                                 </div>
                                                 <br />
                                                 <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_nom" ng-click="change_profile_name(false)">Enregistrer</div>
                                             </div>
                                             <div class="activite">
-                                                <a class="modif" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_genre" ng-click="change_profile_gender(true)">Modifier</a>
-                                                <a class="modif" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_genre" ng-click="annuler_profile_gender();">Annuler</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_genre" ng-click="change_profile_gender(true)">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_genre" ng-click="annuler_profile_gender();">Annuler</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Genre</h4>
                                                     <span class="nbr" ng-if="!ask_modification_profile_genre">
@@ -2616,8 +2616,8 @@
                                                 <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_genre" ng-click="change_profile_gender(false)">Enregistrer</div>
                                             </div>
                                             <div class="activite">
-                                                <a class="modif" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_date" ng-click="change_profile_date_naissance(true)">Modifier</a>
-                                                <a class="modif" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_date" ng-click="annuler_profile_date();">Annuler</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_date" ng-click="change_profile_date_naissance(true)">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_date" ng-click="annuler_profile_date();">Annuler</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Date de naissance</h4>
                                                     <span class="nbr" ng-if="!ask_modification_profile_date">
@@ -2631,8 +2631,8 @@
                                                 <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_date" ng-click="change_profile_date_naissance(false)">Enregistrer</div>
                                             </div>
                                             <div class="activite">
-                                                <a class="modif" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_courriel" ng-click="change_profile_courriel(true)">Modifier</a>
-                                                <a class="modif" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_courriel" ng-click="annuler_profile_courriel();">Annuler</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_courriel" ng-click="change_profile_courriel(true)">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_courriel" ng-click="annuler_profile_courriel();">Annuler</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Adresse courriel</h4>
                                                     <span class="nbr" ng-if="!ask_modification_profile_courriel">
@@ -2640,15 +2640,15 @@
                                                     </span>
                                                 </div>
                                                 <div class="nbr" ng-if="ask_modification_profile_courriel">
-                                                    <input type="email" ng-model="membre_info.courriel" />
+                                                    <input placeholder="Modifiez-moi!" type="email" ng-model="membre_info.courriel" />
                                                     <span ng-if="!membre_info.courriel" style="color: red;">Courriel obligatoire!</span>
                                                 </div>
                                                 <br />
                                                 <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_courriel" ng-click="change_profile_courriel(false)" ng-hide="isEmailEmpty()">Enregistrer</div>
                                             </div>
                                             <div class="activite">
-                                                <a class="modif" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_telephone" ng-click="change_profile_telephone(true)">Modifier</a>
-                                                <a class="modif" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_telephone" ng-click="annuler_profile_telephone();">Annuler</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_telephone" ng-click="change_profile_telephone(true)">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_telephone" ng-click="annuler_profile_telephone();">Annuler</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Num&#233;ro de t&#233;l&#233;phone</h4>
                                                     <span class="nbr" ng-show="membre_info.telephone_1" ng-if="!ask_modification_profile_telephone">
@@ -2656,14 +2656,14 @@
                                                     </span>
                                                 </div>
                                                 <div class="nbr" ng-if="ask_modification_profile_telephone">
-                                                    <input type="tel" ng-model="membre_info.telephone_1" />
+                                                    <input type="tel" placeholder="Modifiez-moi!" ng-model="membre_info.telephone_1" />
                                                 </div>
                                                 <br />
                                                 <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_telephone" ng-click="change_profile_telephone(false)">Enregistrer</div>
                                             </div>
                                             <div class="activite">
-                                                <a class="modif" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_adresse" ng-click="change_profile_adresse(true)">Modifier</a>
-                                                <a class="modif" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_adresse" ng-click="annuler_profile_adresse();">Annuler</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_adresse" ng-click="change_profile_adresse(true)">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_adresse" ng-click="annuler_profile_adresse();">Annuler</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Adresse</h4>
                                                     <span class="nbr" ng-show="membre_info.adresse" ng-if="!ask_modification_profile_adresse">
@@ -2671,13 +2671,13 @@
                                                     </span>
                                                 </div>
                                                 <div class="nbr" ng-if="ask_modification_profile_adresse">
-                                                    <input type="text" ng-model="membre_info.adresse" />
+                                                    <input placeholder="Modifiez-moi!" type="text" ng-model="membre_info.adresse" />
                                                 </div>
                                                 <br />
                                                 <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_adresse" ng-click="change_profile_adresse(false)">Enregistrer</div>
                                             </div>
                                             <div class="activite debug_unimplemented">
-                                                <a class="modif" href="">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">V&#233;rification de vs ant&#233;c&#233;dents
                                                         judiciaires
@@ -2857,7 +2857,7 @@
                                             <span class="txt">Personnaliser la présentation affichée aux autres membres.</span>
                                         </a>
 
-                                        <a class="information information-2 btn" href="monprofil/mesinfos">
+                                        <a class="information information-2 btn label" href="monprofil/mesinfos">
                                             <img src="/web/image/website_ore.ir_attachment_profil_informationspersonnelles_png/Profil-InformationsPersonnelles.png" />
                                             <br />
                                             <span class="nbr">Mes informations personnelles</span>
