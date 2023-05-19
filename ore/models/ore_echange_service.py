@@ -158,7 +158,7 @@ class OREEchangeService(models.Model):
         res = super(OREEchangeService, self).create(vals_list)
         lst_notif_value = []
         for es in res:
-            owner_membre_id = es.write_uid.res_partner_ids.exists()
+            owner_membre_id = es.write_uid.partner_id.exists()
             # Remove owner (membre who ask) to notif list
             if owner_membre_id:
                 lst_membre_notif = list(

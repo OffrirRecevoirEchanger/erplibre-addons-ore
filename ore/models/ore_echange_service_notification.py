@@ -68,7 +68,7 @@ class OREEchangeServiceNotification(models.Model):
                 != rec.membre_id.id
             ):
                 lst_msg.append(
-                    f"Membre : '{rec.echange_service_id.membre_acheteur.nom}'"
+                    f"Membre : '{rec.echange_service_id.membre_acheteur.name}'"
                 )
                 rec.membre_logo = (
                     rec.echange_service_id.membre_acheteur.logo_attachment_id.local_url
@@ -79,7 +79,7 @@ class OREEchangeServiceNotification(models.Model):
                 != rec.membre_id.id
             ):
                 lst_msg.append(
-                    f"Membre : '{rec.echange_service_id.membre_vendeur.nom}'"
+                    f"Membre : '{rec.echange_service_id.membre_vendeur.name}'"
                 )
                 rec.membre_logo = (
                     rec.echange_service_id.membre_vendeur.logo_attachment_id.local_url
@@ -98,10 +98,7 @@ class OREEchangeServiceNotification(models.Model):
     @api.depends("membre_id")
     def _compute_membre_name(self):
         for rec in self:
-            if rec.membre_id:
-                rec.membre_name = rec.membre_id.nom
-            else:
-                rec.membre_name = ""
+            rec.membre_name = rec.membre_id.name if rec.membre_id else ""
 
     @api.model_create_multi
     def create(self, vals_list):

@@ -42,7 +42,7 @@ class OREDemandeAdhesion(models.Model):
                     "type_echange": "offre_ponctuel",
                     "transaction_valide": True,
                     "membre_acheteur": self.env.ref(
-                        "demo_ore.res_partner_ore_laval"
+                        "base.main_partner"
                     ).id,
                     "membre_vendeur": membre_id.id,
                 }

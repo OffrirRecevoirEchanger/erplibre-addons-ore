@@ -113,7 +113,7 @@ class OREOffreService(models.Model):
         ore_member = (
             self.env["res.users"]
             .browse(self.write_uid.id)
-            .partner_id.res_partner_ids
+            .partner_id
         )
         for rec in self:
             self.env["bus.bus"].sendone(

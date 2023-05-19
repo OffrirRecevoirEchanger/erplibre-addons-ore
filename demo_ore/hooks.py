@@ -24,7 +24,7 @@ def post_init_hook(cr, e):
         company_id.annee_naissance = 2000
 
         # TODO can move this in data
-        env.ref("demo_ore.res_partner_administrateur_mathieu_benoit").write(
+        env.ref("base.partner_admin").write(
             {
                 "membre_favoris_ids": [
                     (
@@ -77,5 +77,5 @@ def post_init_hook(cr, e):
             item.name = "Réseau"
         for item in env["ore.ore"].search([("nom", "=", "ORE de Laval")]):
             item.nom = "Municipalité de Sainte-Rose-Du-Nord"
-        for item in env["res.partner"].search([("nom", "=", "ORE Laval")]):
+        for item in env["res.partner"].search([("name", "=", "ORE Laval")]):
             item.nom = "Municipalité de Sainte-Rose-Du-Nord"
