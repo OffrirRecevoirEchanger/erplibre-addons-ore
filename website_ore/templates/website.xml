@@ -446,7 +446,7 @@
                         </div>
                     </div>
                     <div t-if="offre_services">
-                        <div t-foreach="offre_services" t-as="offre_service">
+                        <div class="container_explorer" t-foreach="offre_services" t-as="offre_service">
                             <a
                                 class="activite btn"
                                 t-if="offre_service"
@@ -514,7 +514,7 @@
                         </div>
                     </div>
                     <div t-if="demande_services">
-                        <div t-foreach="demande_services" t-as="demande_service">
+                        <div class="container_explorer" t-foreach="demande_services" t-as="demande_service">
                             <a
                                 class="activite btn"
                                 t-if="demande_service"
@@ -1870,16 +1870,21 @@
     <template id="template_offre_ou_demande_de_service_generic" name="Offre ou demande de service generic">
         <!-- Need angularjs scope variable service_enable_href, service_enable_favorite, service_id, service, model, type_service (offre ou demande) -->
         <div
-            class="activite"
+            class="activite container_explorer"
             ng-class="{'btn': service_enable_href}"
             ng-if="!_.isUndefined(service_enable_href) &amp;&amp; !_.isUndefined(service_enable_favorite) &amp;&amp; !_.isUndefined(service_id) &amp;&amp; !_.isUndefined(service)"
+            style="height: auto; padding: 5em;"
         >
-            <a ng-href="{{service_enable_href ? ('/ore/ore_' + type_service + '_service/' + service_id) : ''}}">
+            <a
+                ng-href="{{service_enable_href ? ('/ore/ore_' + type_service + '_service/' + service_id) : ''}}"
+                style="text-decoration: none; display: flex; align-items: center;"
+            >
                 <img
                     class="activite_img img-fluid"
                     src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
+                    style="flex: 0 0 auto; margin-right: 1em; width: 100px;"
                 />
-                <div class="infos">
+                <div class="infos" style="flex: 1;">
                     <h4 class="activite_title" ng-if="!_.isEmpty(service.titre)" ng-cloak="">{{service.titre}}</h4>
                     <h4 class="activite_title" ng-if="_.isEmpty(service.titre)">Aucun titre</h4>
                     <h5
@@ -1896,7 +1901,7 @@
                 </div>
             </a>
             <!--            <div class="infos right">-->
-            <div class="infos_right">
+            <div class="infos_right" style="width: 5em; flex: 0 0 auto; display: flex; flex-direction: column; justify-content: center;">
                 <h5 ng-cloak="">{{service.diff_create_date}}</h5>
                 <i
                     class="fa text-epsilon coeur"

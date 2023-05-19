@@ -242,4 +242,10 @@
   .profil {
     font-size: 12px;
   }
+
+  .buttons_form_container .label:hover {
+    background-color: $delta;
+    text-decoration: none;
+    height: 0 !important;
+  }
 }
