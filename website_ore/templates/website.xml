@@ -1901,7 +1901,10 @@
                 </div>
             </a>
             <!--            <div class="infos right">-->
-            <div class="infos_right" style="width: 5em; flex: 0 0 auto; display: flex; flex-direction: column; justify-content: center;">
+            <div
+                class="infos_right"
+                style="width: 5em; flex: 0 0 auto; display: flex; flex-direction: column; justify-content: center;"
+            >
                 <h5 ng-cloak="">{{service.diff_create_date}}</h5>
                 <i
                     class="fa text-epsilon coeur"

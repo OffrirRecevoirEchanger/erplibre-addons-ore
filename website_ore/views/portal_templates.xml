@@ -8,7 +8,12 @@
         </xpath>
 
         <xpath expr="//div[@id='wrapwrap']" position="inside">
-            <div class="modal fade modal_pub_offre modal_shown show" style="display:block" ng-show="show_qrcode_modal">
+            <div
+                class="modal fade modal_pub_offre modal_shown show"
+                style="display:block"
+                ng-show="show_qrcode_modal"
+                ng-cloak=""
+            >
                 <div class="modal-dialog">
                     <div id="s_media_block_modal" class="modal-content">
                         <button class="btn btn-primary btn-lg" ng-click="show_qrcode_modal = false">
@@ -26,6 +31,7 @@
                 class="modal fade modal_pub_offre modal_shown show"
                 style="display:block"
                 ng-show="show_camera_qrcode_modal"
+                ng-cloak=""
             >
                 <div class="modal-dialog">
                     <div id="s_media_block_modal" class="modal-content">

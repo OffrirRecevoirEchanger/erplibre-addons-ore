@@ -1879,7 +1879,7 @@
                                             <span class="txt">Intro</span>
                                             <br />
                                             <br />
-                                            <span class="nbr" ng-show="membre_info.introduction" ng-if="!ask_modification_profile">
+                                            <span class="nbr" ng-if="!ask_modification_profile &amp;&amp; !_.isUndefined(membre_info.introduction) &amp;&amp; !_.isEmpty(membre_info.introduction)">
                                                 <q ng-cloak="">{{membre_info.introduction}}</q>
                                             </span>
                                             <span class="nbr" ng-if="ask_modification_profile">
@@ -1912,74 +1912,56 @@
                                             </span>
                                         </div>
                                         <div class="information information-4">
-                                            <div class="debug_unimplemented">
+                                            <div class="nbr" ng-class="{'hide-border': shouldHideBorder('description')}" ng-show="ask_modification_profile || !_.isUndefined(membre_info.description) &amp;&amp; !_.isEmpty(membre_info.description)">
                                                 <span class="txt">Ma description</span>
-
-                                                <span>
-                                                    <br />
-                                                    Pellentesque feugiat arcu eu laoreet dignissim. Ut ut orci
-                                                    ullamcorper erat lacinia mattis ac aliquet leo. Fusce et dui quis
-                                                    odio pellentesque egestas sit amet in dui. Quisque elementum dapibus
-                                                    magna, sed varius neque pellentesque pulvinar. Aenean at cursus
-                                                    nibh. Praesent
-                                                    rhoncus ex purus, quis ultricies eros tristique sed. Mauris augue
-                                                    dolor,
-                                                    euismod sed maximus nec, bibendum et nunc. Morbi condimentum, nulla
-                                                    commodo
-                                                    pretium ullamcorper, magna neque pharetra ante, ullamcorper iaculis
-                                                    lectus lectus eu nulla.
-                                                    <br />
-                                                    <br />
-                                                    Nam consectetur bibendum rutrum. Cras dapibus ligula vitae est
-                                                    euismod malesuada.
-                                                    Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-                                                    per inceptos
-                                                    himenaeos. Etiam et quam eu sem lobortis ornare pretium non mi. In
-                                                    non felis eget ipsum
-                                                    sollicitudin lacinia. Duis vel tortor eu elit mollis facilisis. Ut
-                                                    pretium sodales sapien,
-                                                    sit amet pretium massa consectetur eu. Donec lorem ipsum, efficitur
-                                                    imperdiet dui vitae, c
-                                                    ommodo varius justo.
-                                                </span>
+                                                <div ng-if="!ask_modification_profile" ng-cloak="">{{membre_info.description}}</div>
+                                                <q ng-if="ask_modification_profile" class="editable-content-blue" contenteditable="true" ng-model="membre_info.description" />
                                             </div>
-                                            <div class="debug_unimplemented">
-                                                <span class="txt">Mes centres d'intérêt</span>
+
+                                            <div ng-class="{'hide-border': shouldHideBorder('interet')}" ng-show="ask_modification_profile || !_.isUndefined(membre_info.interet) &amp;&amp; !_.isEmpty(membre_info.interet)">
+                                                <span class="txt" ng-if="membre_info.estPersonnel">Mes centres d'intérêt</span>
+                                                <span class="txt" ng-if="!membre_info.estPersonnel">Les centres d'intérêt</span>
+                                                <button class="fa fa-plus btn-add" ng-if="ask_modification_profile" ng-click="ajouterInteret()" />
+                                                <button class="fa fa-minus btn-add" ng-if="ask_modification_profile &amp;&amp; !_.isEmpty(membre_info.interet)" ng-click="supprimerInteret()" />
                                                 <br />
-                                                <div class="d-flex" style="gap:1%">
-                                                    <div class="tag">Marche</div>
-                                                    <div class="tag">Jardinage</div>
-                                                    <div class="tag">Tricot</div>
+                                                <span ng-repeat="interet in membre_info.interet">
+                                                    <span class="interet">{{interet.name}}</span>
+                                                    <span style="margin-right: 12px;" class="delete-icon" ng-if="afficherSupprimerInteret" ng-click="enleverInteret(interet.name)">x</span>
+                                                </span>
+                                                <div ng-show="afficherAjoutInteret" style="display: flex; align-items: flex-start;">
+                                                    <label for="nouvelleInteret" style="margin-right: 10px;">Nouveau intérêt:</label>
+                                                    <input type="text" id="nouvelleInteret" ng-model="nouvelleInteret" style="margin-right: 10px;" />
+                                                    <button class="fa fa-save btn-add" ng-click="enregistrerInteret()" style="margin-right: 10px;" />
+                                                    <button class="fa fa-times btn-add" ng-click="annulerModifierInteret()" style="margin-right: 10px;" />
                                                 </div>
                                             </div>
-                                            <div class="debug_unimplemented">
+
+                                            <div class="nbr" ng-class="{'hide-border': shouldHideBorder('motivation_membre')}" ng-show="ask_modification_profile || !_.isUndefined(membre_info.motivation_membre) &amp;&amp; !_.isEmpty(membre_info.motivation_membre)">
                                                 <span class="txt">Pourquoi suis-je membre du réseau?</span>
-                                                <span>
-                                                    Nam consectetur bibendum rutrum. Cras dapibus ligula vitae est
-                                                    euismod malesuada.
-                                                    Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-                                                    per inceptos
-                                                    himenaeos. Etiam et quam eu sem lobortis ornare pretium non mi. In
-                                                    non felis eget ipsum
-                                                    sollicitudin lacinia. Duis vel tortor eu elit mollis facilisis. Ut
-                                                    pretium sodales sapien,
-                                                    sit amet pretium massa consectetur eu. Donec lorem ipsum, efficitur
-                                                    imperdiet dui vitae, c
-                                                    ommodo varius justo.
-                                                </span>
+                                                <div ng-if="!ask_modification_profile" class="nbr" ng-cloak="">{{membre_info.motivation_membre}}</div>
+                                                <q ng-if="ask_modification_profile" class="editable-content-blue" contenteditable="true" ng-model="membre_info.motivation_membre" />
                                             </div>
-                                            <div class="debug_unimplemented">
+
+                                            <div ng-show="ask_modification_profile || !_.isUndefined(membre_info.langue) &amp;&amp; !_.isEmpty(membre_info.langue)">
                                                 <span class="txt" ng-if="membre_info.estPersonnel">Les langues que je parle</span>
                                                 <span class="txt" ng-if="!membre_info.estPersonnel">Les langues parlées</span>
-                                                <span>
-                                                    <i class="fa fa-commenting" />
-                                                    Français
-                                                </span>
+                                                <button class="fa fa-plus btn-add" ng-if="ask_modification_profile" ng-click="ajouterLangue()" />
+                                                <button class="fa fa-minus btn-add" ng-if="ask_modification_profile &amp;&amp; !_.isEmpty(membre_info.langue)" ng-click="supprimerLangue()" />
                                                 <br />
-                                                <span>
-                                                    <i class="fa fa-commenting" />
-                                                    Anglais
+                                                <span ng-repeat="langue in membre_info.langue" ng-show="membre_info.langue">
+                                                    <span ng-cloak="">
+                                                        <i class="fa fa-commenting" />
+                                                        {{langue.name}}
+                                                        <span style="margin-left: 5px;" class="delete-icon" ng-if="afficherSupprimerLangue" ng-click="enleverLangue(langue.name)">x</span>
+                                                    </span>
+                                                    <br />
                                                 </span>
+                                                <div ng-show="afficherAjoutLangue" style="display: flex; align-items: flex-start;">
+                                                    <label for="nouvelleLangue" style="margin-right: 10px;">Nouvelle langue:</label>
+                                                    <input type="text" id="nouvelleLangue" ng-model="nouvelleLangue" style="margin-right: 10px;" />
+                                                    <button class="fa fa-save btn-add" ng-click="enregistrerLangue()" style="margin-right: 10px;" />
+                                                    <button class="fa fa-times btn-add" ng-click="annulerModifierLangue()" style="margin-right: 10px;" />
+                                                </div>
                                             </div>
 
                                             <div ng-if="_.isEmpty(membre_info.dct_offre_service)">
@@ -2600,53 +2582,102 @@
                                     <div class="container_lists">
                                         <div class="row vertical_list settings">
                                             <div class="activite">
-                                                <a class="modif" href="">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_nom" ng-click="change_profile_name(true)">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_nom" ng-click="annuler_profile_name();">Annuler</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Nom</h4>
-                                                    <h5 class="item_desc">Alice Poitier</h5>
+                                                    <span class="nbr" ng-if="!ask_modification_profile_nom">
+                                                        <span ng-cloak="">{{membre_info.full_name}}</span>
+                                                    </span>
                                                 </div>
+                                                <div class="nbr" ng-if="ask_modification_profile_nom">
+                                                    <input placeholder="Modifiez-moi!" type="text" ng-model="membre_info.full_name" />
+                                                </div>
+                                                <br />
+                                                <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_nom" ng-click="change_profile_name(false)">Enregistrer</div>
                                             </div>
                                             <div class="activite">
-                                                <a class="modif" href="">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_genre" ng-click="change_profile_gender(true)">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_genre" ng-click="annuler_profile_gender();">Annuler</a>
                                                 <div class="infos">
-                                                    <h4 class="item_title">Sexe</h4>
-                                                    <h5 class="item_desc">Incertain</h5>
+                                                    <h4 class="item_title">Genre</h4>
+                                                    <span class="nbr" ng-if="!ask_modification_profile_genre">
+                                                        <span ng-cloak="">{{membre_info.genre ? (membre_info.genre == 'femme' ? 'Femme' : membre_info.genre == 'homme' ? 'Homme' : (membre_info.genre == 'autre' ? 'Autre' : '')) : ""}}</span>
+                                                    </span>
                                                 </div>
+                                                <div class="nbr" ng-if="ask_modification_profile_genre">
+                                                    <select id="genre" ng-model="membre_info.genre">
+                                                        <option value="femme">Femme</option>
+                                                        <option value="homme">Homme</option>
+                                                        <option value="autre">Autre</option>
+                                                    </select>
+                                                </div>
+                                                <br />
+                                                <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_genre" ng-click="change_profile_gender(false)">Enregistrer</div>
                                             </div>
                                             <div class="activite">
-                                                <a class="modif" href="">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_date" ng-click="change_profile_date_naissance(true)">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_date" ng-click="annuler_profile_date();">Annuler</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Date de naissance</h4>
-                                                    <h5 class="item_desc">14 avril 1988</h5>
+                                                    <span class="nbr" ng-if="!ask_modification_profile_date">
+                                                        <span ng-if="membre_info.date_naissance" ng-cloak="">{{membre_info.date_naissance | date:'MM/dd/yyyy'}}</span>
+                                                    </span>
                                                 </div>
+                                                <div class="nbr" ng-if="ask_modification_profile_date">
+                                                    <input type="date" ng-model="membre_info.date_naissance" min="1900-01-01" max="2099-12-31" value="{{membre_info.date_naissance}}" default="false" />
+                                                </div>
+                                                <br />
+                                                <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_date" ng-click="change_profile_date_naissance(false)">Enregistrer</div>
                                             </div>
                                             <div class="activite">
-                                                <a class="modif" href="">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_courriel" ng-click="change_profile_courriel(true)">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_courriel" ng-click="annuler_profile_courriel();">Annuler</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Adresse courriel</h4>
-                                                    <h5 class="item_desc">loremipsum@loremipsum.com</h5>
+                                                    <span class="nbr" ng-if="!ask_modification_profile_courriel">
+                                                        <span ng-cloak="">{{membre_info.courriel}}</span>
+                                                    </span>
                                                 </div>
+                                                <div class="nbr" ng-if="ask_modification_profile_courriel">
+                                                    <input placeholder="Modifiez-moi!" type="email" ng-model="membre_info.courriel" />
+                                                    <span ng-if="!membre_info.courriel" style="color: red;">Courriel obligatoire!</span>
+                                                </div>
+                                                <br />
+                                                <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_courriel" ng-click="change_profile_courriel(false)" ng-hide="isEmailEmpty()">Enregistrer</div>
                                             </div>
                                             <div class="activite">
-                                                <a class="modif" href="">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_telephone" ng-click="change_profile_telephone(true)">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_telephone" ng-click="annuler_profile_telephone();">Annuler</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Num&#233;ro de t&#233;l&#233;phone</h4>
-                                                    <h5 class="item_desc">5135351134</h5>
+                                                    <span class="nbr" ng-show="membre_info.telephone_1" ng-if="!ask_modification_profile_telephone">
+                                                        <span ng-cloak="">{{membre_info.telephone_1}}</span>
+                                                    </span>
                                                 </div>
+                                                <div class="nbr" ng-if="ask_modification_profile_telephone">
+                                                    <input type="tel" placeholder="Modifiez-moi!" ng-model="membre_info.telephone_1" />
+                                                </div>
+                                                <br />
+                                                <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_telephone" ng-click="change_profile_telephone(false)">Enregistrer</div>
                                             </div>
                                             <div class="activite">
-                                                <a class="modif" href="">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; !ask_modification_profile_adresse" ng-click="change_profile_adresse(true)">Modifier</a>
+                                                <a class="modif btn btn-primary adapt-text-primary-color" ng-if="membre_info.estPersonnel &amp;&amp; ask_modification_profile_adresse" ng-click="annuler_profile_adresse();">Annuler</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Adresse</h4>
-                                                    <h5 class="item_desc">
-                                                        184 avenue Jacque Cartier
-                                                        <br />
-                                                        Qu&#233;bec J1J2M2, Canada
-                                                    </h5>
+                                                    <span class="nbr" ng-show="membre_info.adresse" ng-if="!ask_modification_profile_adresse">
+                                                        <span ng-cloak="">{{membre_info.adresse}}</span>
+                                                    </span>
                                                 </div>
+                                                <div class="nbr" ng-if="ask_modification_profile_adresse">
+                                                    <input placeholder="Modifiez-moi!" type="text" ng-model="membre_info.adresse" />
+                                                </div>
+                                                <br />
+                                                <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_adresse" ng-click="change_profile_adresse(false)">Enregistrer</div>
                                             </div>
-                                            <div class="activite">
-                                                <a class="modif" href="">Modifier</a>
+                                            <div class="activite debug_unimplemented">
+                                                <a class="modif btn btn-primary adapt-text-primary-color" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">V&#233;rification de vs ant&#233;c&#233;dents
                                                         judiciaires
@@ -2825,7 +2856,8 @@
                                             <br />
                                             <span class="txt">Personnaliser la présentation affichée aux autres membres.</span>
                                         </a>
-                                        <a class="information information-2 btn debug_unimplemented label" href="monprofil/mesinfos">
+
+                                        <a class="information information-2 btn label" href="monprofil/mesinfos">
                                             <img src="/web/image/website_ore.ir_attachment_profil_informationspersonnelles_png/Profil-InformationsPersonnelles.png" />
                                             <br />
                                             <span class="nbr">Mes informations personnelles</span>

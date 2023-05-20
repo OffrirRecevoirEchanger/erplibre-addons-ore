@@ -51,6 +51,11 @@ class OREMembre(models.Model):
         track_visibility="onchange",
     )
 
+    date_naissance = fields.Date(
+        string="Date de naissance",
+        track_visibility="onchange",
+    )
+
     age = fields.Integer(
         string="Âge",
         compute="_compute_age",
@@ -245,8 +250,12 @@ class OREMembre(models.Model):
         string="Revenu familial",
     )
 
-    sexe = fields.Selection(
-        selection=[("femme", "Femme"), ("homme", "Homme"), ("autre", "Autre")],
+    genre = fields.Selection(
+        selection=[
+            ("femme", "Femme"),
+            ("homme", "Homme"),
+            ("autre", "Autre"),
+        ],
         track_visibility="onchange",
     )
 
@@ -337,6 +346,28 @@ class OREMembre(models.Model):
     introduction = fields.Char(
         help="Un petit texte qui décrit le membre.",
         track_visibility="onchange",
+    )
+
+    description = fields.Char(
+        help="Un petit texte qui décrit le membre.",
+        track_visibility="onchange",
+    )
+
+    motivation_membre = fields.Char(
+        help="Pourquoi devenir un membre de réseau.",
+        track_visibility="onchange",
+    )
+
+    interet = fields.Many2many(
+        string="Interet",
+        comodel_name="ore.membre.interet",
+        help="Liste interet des membres",
+    )
+
+    langue_parle = fields.Many2many(
+        string="Langue",
+        comodel_name="ore.membre.langue_parle",
+        help="Liste langues des membres",
     )
 
     bank_time = fields.Float(

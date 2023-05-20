@@ -1030,6 +1030,11 @@ class OREController(http.Controller):
             "personal": {
                 "id": membre_id.id,
                 "full_name": membre_id.nom,
+                "genre": membre_id.genre,
+                "date_naissance": membre_id.date_naissance,
+                "courriel": membre_id.courriel,
+                "telephone_1": membre_id.telephone_1,
+                "adresse": membre_id.adresse,
                 "ma_photo": membre_id.logo_attachment_id.local_url,
                 # "actual_bank_hours": bank_time,
                 "actual_bank_hours": membre_id.bank_time,
@@ -1037,6 +1042,16 @@ class OREController(http.Controller):
                 "actual_month_bank_hours": membre_id.bank_month_time,
                 "is_favorite": is_favorite,
                 "introduction": membre_id.introduction,
+                "description": membre_id.description,
+                "motivation_membre": membre_id.motivation_membre,
+                "interet": [
+                    {"name": rec.name, "id": rec.id}
+                    for rec in membre_id.interet
+                ],
+                "langue": [
+                    {"name": rec.name, "id": rec.id}
+                    for rec in membre_id.langue_parle
+                ],
                 "diff_humain_creation_membre": str_diff_time_creation,
                 "location": membre_id.ville.nom,
                 "antecedent_judiciaire_verifier": membre_id.antecedent_judiciaire_verifier,
@@ -1070,11 +1085,95 @@ class OREController(http.Controller):
         status = True
         ma_photo = kw.get("ma_photo")
         introduction = kw.get("introduction")
+        description = kw.get("description")
+        motivation_membre = kw.get("motivation_membre")
+        interets = kw.get("interets", [])
+        supprimeInteret = kw.get("supprimeInteret")
+        langues = kw.get("langues", [])
+        supprimeLangue = kw.get("supprimeLangue")
+        nom = kw.get("full_name")
+        genre = kw.get("genre")
+        date_naissance = kw.get("date_naissance")
+        courriel = kw.get("courriel")
+        telephone_1 = kw.get("telephone_1")
+        adresse = kw.get("adresse")
+
         if "ma_photo" in kw.keys():
             # TODO do we need validation? like extension or supported file
             membre_id.logo = ma_photo.split(",")[1].encode("utf-8")
         if "introduction" in kw.keys():
             membre_id.introduction = introduction
+        if "description" in kw.keys():
+            membre_id.description = description
+        if "motivation_membre" in kw.keys():
+            membre_id.motivation_membre = motivation_membre
+        if "interets" in kw.keys():
+            interet_model = request.env["ore.membre.interet"]
+
+            # Retrieve existing interest records
+            existing_interets = membre_id.interet
+
+            # Create new interest records
+            for interet_name in interets:
+                existing_interet = interet_model.search(
+                    [("name", "=", interet_name)]
+                )
+                if not existing_interet:
+                    interet_model.create({"name": interet_name})
+
+            # Combine existing and new interest records
+            interets_records = existing_interets + interet_model.search(
+                [("name", "in", interets)]
+            )
+
+            if interets_records:
+                membre_id.interet = [(6, 0, interets_records.ids)]
+
+        if "supprimeInteret" in kw.keys():
+            interet_to_delete = interet_model.search(
+                [("name", "=", supprimeInteret)], limit=1
+            )
+            if interet_to_delete:
+                membre_id.interet = [(3, interet_to_delete.id)]
+        if "langues" in kw.keys():
+            langue_model = request.env["ore.membre.langue_parle"]
+
+            # Retrieve existing language records
+            existing_langues = membre_id.langue_parle
+
+            # Create new language records
+            for langue_name in langues:
+                existing_langue = langue_model.search(
+                    [("name", "=", langue_name)]
+                )
+                if not existing_langue:
+                    langue_model.create({"name": langue_name})
+            # Combine existing and new language records
+            langues_records = existing_langues + langue_model.search(
+                [("name", "in", langues)]
+            )
+
+            if langues_records:
+                membre_id.langue_parle = [(6, 0, langues_records.ids)]
+
+        if "supprimeLangue" in kw.keys():
+            langue_to_delete = langue_model.search(
+                [("name", "=", supprimeLangue)], limit=1
+            )
+            if langue_to_delete:
+                membre_id.langue_parle = [(3, langue_to_delete.id)]
+        if "full_name" in kw.keys():
+            membre_id.nom = nom
+        if "genre" in kw.keys():
+            membre_id.genre = genre
+        if "date_naissance" in kw.keys():
+            membre_id.date_naissance = date_naissance
+        if "courriel" in kw.keys():
+            membre_id.courriel = courriel
+        if "telephone_1" in kw.keys():
+            membre_id.telephone_1 = telephone_1
+        if "adresse" in kw.keys():
+            membre_id.adresse = adresse
         return status
 
     @http.route(
@@ -1142,22 +1241,35 @@ class OREController(http.Controller):
         is_favorite = membre_id.id in [
             a.membre_id.id for a in actual_membre_id.membre_favoris_ids
         ]
-
         return {
             "membre_info": {
                 "id": membre_id.id,
                 "full_name": membre_id.nom,
+                "date_naissance": membre_id.date_naissance,
+                "courriel": membre_id.courriel,
+                "telephone_1": membre_id.telephone_1,
+                "adresse": membre_id.adresse,
                 "ma_photo": membre_id.logo_attachment_id.local_url,
                 "bank_max_service_offert": membre_id.bank_max_service_offert,
                 "actual_bank_hours": membre_id.bank_time,
                 "actual_month_bank_hours": membre_id.bank_month_time,
                 "is_favorite": is_favorite,
                 "introduction": membre_id.introduction,
+                "description": membre_id.description,
+                "motivation_membre": membre_id.motivation_membre,
+                "interet": [
+                    {"name": rec.name, "id": rec.id}
+                    for rec in membre_id.interet
+                ],
+                "langue": [
+                    {"name": rec.name, "id": rec.id}
+                    for rec in membre_id.langue_parle
+                ],
                 "diff_humain_creation_membre": str_diff_time_creation,
                 "date_creation": self.datetime_to_local(membre_id.create_date),
                 "location": membre_id.ville.nom,
                 "antecedent_judiciaire_verifier": membre_id.antecedent_judiciaire_verifier,
-                "sexe": membre_id.sexe,
+                "genre": membre_id.genre,
                 "mon_ore": {
                     "name": membre_id.ore.nom,
                     "id": membre_id.ore.id,
@@ -1239,12 +1351,22 @@ class OREController(http.Controller):
                 "age": a.age,
                 "ma_photo": a.logo_attachment_id.local_url,
                 "full_name": a.nom,
-                "annee_naissance": a.annee_naissance,
+                "date_naissance": a.date_naissance,
+                "genre": a.genre,
+                "courriel": a.courriel,
+                "telephone_1": a.telephone_1,
+                "adresse": a.adresse,
                 "antecedent_judiciaire_verifier": a.antecedent_judiciaire_verifier,
                 "bank_time": a.bank_time,
                 "bank_month_time": a.bank_month_time,
                 "date_adhesion": a.date_adhesion,
                 "introduction": a.introduction if a.introduction else "",
+                "description": a.description if a.description else "",
+                "motivation_membre": a.motivation_membre
+                if a.motivation_membre
+                else "",
+                "interet": a.interet if a.interet else [],
+                "langue": a.langue_parle if a.langue_parle else [],
                 "is_favorite": a.id in my_favorite_membre_id,
             }
             for a in lst_membre

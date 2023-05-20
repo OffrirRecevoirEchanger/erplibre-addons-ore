@@ -52,13 +52,18 @@
                                         <field name="codepostal" placeholder="Code postale" class="o_address_zip" />
                                     </div>
                                     <field name="introduction" />
-                                    <field name="membre_favoris_ids" />
+                                    <field name="description" />
+                                    <field name="motivation_membre" />
+                                    <field name="interet" widget="many2many_tags" />
+                                    <field name="langue_parle" widget="many2many_tags" />
+                                    <field name="membre_favoris_ids" widget="many2many_tags" />
                                     <field name="annee_naissance" />
                                     <field name="arrondissement" />
                                     <field name="bottin_courriel" />
                                     <field name="bottin_tel" />
                                     <field name="courriel" />
                                     <field name="date_adhesion" />
+                                    <field name="date_naissance" />
                                     <field name="description_membre" />
                                     <field name="membre_conjoint" />
                                     <field name="membre_conjoint_id" />
@@ -75,7 +80,7 @@
                                     <field name="recevoir_courriel_groupe" />
                                     <field name="region" />
                                     <field name="revenu_familial" />
-                                    <field name="sexe" />
+                                    <field name="genre" />
                                     <field name="situation_maison" />
                                     <field name="telephone_1" />
                                     <field name="telephone_2" />
@@ -184,12 +189,29 @@
                 <filter domain="[('codepostal','!=',False)]" name="codepostal" string="Codepostal" />
                 <filter domain="[('courriel','!=',False)]" name="courriel" string="Courriel" />
                 <filter domain="[('date_adhesion','!=',False)]" name="date_adhesion" string="Date de l'adh&#233;sion" />
+                <filter domain="[('date_naissance','!=',False)]" name="date_naissance" string="Date de naissance" />
                 <filter
                     domain="[('description_membre','=',True)]"
                     name="description_membre"
                     string="Description du membre"
                 />
                 <filter domain="[('introduction','!=',False)]" name="introduction" string="Introduction" />
+                <filter domain="[('description','!=',False)]" name="description" string="description" />
+                <filter
+                    domain="[('motivation_membre','!=',False)]"
+                    name="motivation_membre"
+                    string="motivation_membre"
+                />
+                <filter
+                    domain="['|', ('interet', '!=', False), ('interet', '!=', [])]"
+                    name="interet"
+                    string="interet"
+                />
+                <filter
+                    domain="['|', ('langue_parle', '!=', False), ('langue_parle', '!=', [])]"
+                    name="langue_parle"
+                    string="langue_parle"
+                />
                 <filter domain="[('membre_ca','=',True)]" name="membre_ca" string="Membre du CA" />
                 <filter domain="[('membre_conjoint','=',True)]" name="membre_conjoint" string="A un membre conjoint" />
                 <filter

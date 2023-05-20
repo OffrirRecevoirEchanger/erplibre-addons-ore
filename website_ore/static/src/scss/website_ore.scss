@@ -31,6 +31,37 @@ $bg-red-2-alert: #9f0808;
 $bg-red-alert: #d8746f;
 $bg-green-alert: #70a6a8;
 
+.btn-add {
+  background-color: #9f0808;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-add:hover {
+  background-color: #d8746f;
+}
+
+.interet {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-bottom: 16px;
+  background-color: pink;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  color: #333333;
+  margin-right: 16px;
+}
+
 .text-color-title {
   color: white;
 }
@@ -136,4 +167,18 @@ $bg-green-alert: #70a6a8;
 
 .editable-content-blue {
   background-color: $bg-green-alert;
+}
+
+.delete-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background-color: red;
+  color: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
 }
