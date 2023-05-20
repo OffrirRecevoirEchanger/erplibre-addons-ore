@@ -30,7 +30,8 @@ $bg-alpha: white;
 $bg-red-2-alert: #9f0808;
 $bg-red-alert: #d8746f;
 $bg-green-alert: #70a6a8;
-#btn-add {
+
+.btn-add {
   background-color: #9f0808;
   border: none;
   border-radius: 4px;
@@ -45,11 +46,11 @@ $bg-green-alert: #70a6a8;
   transition: background-color 0.3s ease;
 }
 
-#btn-add:hover {
+.btn-add:hover {
   background-color: #d8746f;
 }
 
-#interet {
+.interet {
   display: inline-block;
   padding: 4px 8px;
   margin-bottom: 16px;

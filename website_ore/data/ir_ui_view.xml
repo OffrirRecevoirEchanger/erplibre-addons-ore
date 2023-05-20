@@ -1912,53 +1912,44 @@
                                             </span>
                                         </div>
                                         <div class="information information-4">
-                                            <div ng-class="{'hide-border': shouldHideBorder('description')}">
-                                                <div ng-if="!ask_modification_profile &amp;&amp; !_.isUndefined(membre_info.description) &amp;&amp; !_.isEmpty(membre_info.description)">
-                                                    <span class="txt">Ma description</span>
-                                                    <span class="nbr" ng-cloak="">{{membre_info.description}}</span>
-                                                </div>
-                                                <span class="nbr" ng-if="ask_modification_profile">
-                                                    <span class="txt">Ma description</span>
-                                                    <br />
-                                                    <q class="editable-content-blue" contenteditable="true" ng-model="membre_info.description" />
-                                                </span>
+                                            <div class="nbr" ng-class="{'hide-border': shouldHideBorder('description')}" ng-show="ask_modification_profile || !_.isUndefined(membre_info.description) &amp;&amp; !_.isEmpty(membre_info.description)">
+                                                <span class="txt">Ma description</span>
+                                                <div ng-if="!ask_modification_profile" ng-cloak="">{{membre_info.description}}</div>
+                                                <q ng-if="ask_modification_profile" class="editable-content-blue" contenteditable="true" ng-model="membre_info.description" />
                                             </div>
-                                            <div>
+
+                                            <div ng-class="{'hide-border': shouldHideBorder('interet')}" ng-show="ask_modification_profile || !_.isUndefined(membre_info.interet) &amp;&amp; !_.isEmpty(membre_info.interet)">
                                                 <span class="txt" ng-if="membre_info.estPersonnel">Mes centres d'intérêt</span>
                                                 <span class="txt" ng-if="!membre_info.estPersonnel">Les centres d'intérêt</span>
-                                                <button class="fa fa-plus" ng-if="ask_modification_profile" id="btn-add" ng-click="ajouterInteret()" />
-                                                <button class="fa fa-minus" ng-if="ask_modification_profile" id="btn-add" ng-click="supprimerInteret()" />
+                                                <button class="fa fa-plus btn-add" ng-if="ask_modification_profile" ng-click="ajouterInteret()" />
+                                                <button class="fa fa-minus btn-add" ng-if="ask_modification_profile &amp;&amp; !_.isEmpty(membre_info.interet)" ng-click="supprimerInteret()" />
                                                 <br />
-                                                <span ng-repeat="interet in membre_info.interet" ng-show="membre_info.interet">
-                                                    <span id="interet">{{interet.name}}</span>
+                                                <span ng-repeat="interet in membre_info.interet">
+                                                    <span class="interet">{{interet.name}}</span>
                                                     <span style="margin-right: 12px;" class="delete-icon" ng-if="afficherSupprimerInteret" ng-click="enleverInteret(interet.name)">x</span>
                                                 </span>
                                                 <div ng-show="afficherAjoutInteret" style="display: flex; align-items: flex-start;">
                                                     <label for="nouvelleInteret" style="margin-right: 10px;">Nouveau intérêt:</label>
                                                     <input type="text" id="nouvelleInteret" ng-model="nouvelleInteret" style="margin-right: 10px;" />
-                                                    <button class="fa fa-save" ng-click="enregistrerInteret()" id="btn-add" style="margin-right: 10px;" />
-                                                    <button class="fa fa-times" ng-click="annulerModifierInteret()" id="btn-add" style="margin-right: 10px;" />
+                                                    <button class="fa fa-save btn-add" ng-click="enregistrerInteret()" style="margin-right: 10px;" />
+                                                    <button class="fa fa-times btn-add" ng-click="annulerModifierInteret()" style="margin-right: 10px;" />
                                                 </div>
                                             </div>
-                                            <div ng-class="{'hide-border': shouldHideBorder('motivation_membre')}">
-                                                <div ng-if="!ask_modification_profile &amp;&amp; !_.isUndefined(membre_info.motivation_membre) &amp;&amp; !_.isEmpty(membre_info.motivation_membre)">
-                                                    <span class="txt">Pourquoi suis-je membre du réseau?</span>
-                                                    <span class="nbr" ng-cloak="">{{membre_info.motivation_membre}}</span>
-                                                </div>
-                                                <span class="nbr" ng-if="ask_modification_profile">
-                                                    <span class="txt">Pourquoi suis-je membre du réseau?</span>
-                                                    <br />
-                                                    <q class="editable-content-blue" contenteditable="true" ng-model="membre_info.motivation_membre" />
-                                                </span>
+
+                                            <div class="nbr" ng-class="{'hide-border': shouldHideBorder('motivation_membre')}" ng-show="ask_modification_profile || !_.isUndefined(membre_info.motivation_membre) &amp;&amp; !_.isEmpty(membre_info.motivation_membre)">
+                                                <span class="txt">Pourquoi suis-je membre du réseau?</span>
+                                                <div ng-if="!ask_modification_profile" class="nbr" ng-cloak="">{{membre_info.motivation_membre}}</div>
+                                                <q ng-if="ask_modification_profile" class="editable-content-blue" contenteditable="true" ng-model="membre_info.motivation_membre" />
                                             </div>
-                                            <div>
+
+                                            <div ng-show="ask_modification_profile || !_.isUndefined(membre_info.langue) &amp;&amp; !_.isEmpty(membre_info.langue)">
                                                 <span class="txt" ng-if="membre_info.estPersonnel">Les langues que je parle</span>
                                                 <span class="txt" ng-if="!membre_info.estPersonnel">Les langues parlées</span>
-                                                <button class="fa fa-plus" ng-if="ask_modification_profile" id="btn-add" ng-click="ajouterLangue()" />
-                                                <button class="fa fa-minus" ng-if="ask_modification_profile" id="btn-add" ng-click="supprimerLangue()" />
+                                                <button class="fa fa-plus btn-add" ng-if="ask_modification_profile" ng-click="ajouterLangue()" />
+                                                <button class="fa fa-minus btn-add" ng-if="ask_modification_profile &amp;&amp; !_.isEmpty(membre_info.langue)" ng-click="supprimerLangue()" />
                                                 <br />
                                                 <span ng-repeat="langue in membre_info.langue" ng-show="membre_info.langue">
-                                                    <span>
+                                                    <span ng-cloak="">
                                                         <i class="fa fa-commenting" />
                                                         {{langue.name}}
                                                         <span style="margin-left: 5px;" class="delete-icon" ng-if="afficherSupprimerLangue" ng-click="enleverLangue(langue.name)">x</span>
@@ -1968,8 +1959,8 @@
                                                 <div ng-show="afficherAjoutLangue" style="display: flex; align-items: flex-start;">
                                                     <label for="nouvelleLangue" style="margin-right: 10px;">Nouvelle langue:</label>
                                                     <input type="text" id="nouvelleLangue" ng-model="nouvelleLangue" style="margin-right: 10px;" />
-                                                    <button class="fa fa-save" ng-click="enregistrerLangue()" id="btn-add" style="margin-right: 10px;" />
-                                                    <button class="fa fa-times" ng-click="annulerModifierLangue()" id="btn-add" style="margin-right: 10px;" />
+                                                    <button class="fa fa-save btn-add" ng-click="enregistrerLangue()" style="margin-right: 10px;" />
+                                                    <button class="fa fa-times btn-add" ng-click="annulerModifierLangue()" style="margin-right: 10px;" />
                                                 </div>
                                             </div>
 
