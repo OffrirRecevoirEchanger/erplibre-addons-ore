@@ -167,9 +167,10 @@ class OREEchangeService(models.Model):
                 # Create notification
                 value = {}
                 if not es.demande_service and not es.offre_service:
-                    _logger.warning(
-                        "How doing notification without offre/demande service"
-                        " on échange?"
+                    # TODO support echange without offre et recevoir
+                    _logger.info(
+                        "No notification for ore.echange.service id"
+                        f" {es.id} for member id {membre_id.id}"
                     )
                     continue
                 value["echange_service_id"] = es.id
