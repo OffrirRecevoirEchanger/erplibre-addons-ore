@@ -487,7 +487,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit"
-                    ajax.rpc(url, form).then(function (data) {
+                    ajax.jsonRpc(url, "call", form).then(function (data) {
                             console.debug("AJAX receive submit_form personal_information");
                             console.debug(data);
 
@@ -500,7 +500,12 @@ odoo.define('website.ore_angularjs_global', function (require) {
                             // Process all the angularjs watchers
                             $scope.$digest();
                         }
-                    )
+                    ).fail(function (error, ev) {
+                        console.error(error);
+                        if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                            window.location.href = `/web/login?redirect=${window.location.href}`
+                        }
+                    })
                 }
                 $scope.show_croppie = false;
                 $scope.afficherAjoutLangue = false;
@@ -591,7 +596,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit";
-                    ajax.rpc(url, form).then(function (data) {
+                    ajax.jsonRpc(url, "call", form).then(function (data) {
                         console.debug("AJAX receive submit_form personal_information");
                         console.debug(data);
 
@@ -602,7 +607,12 @@ odoo.define('website.ore_angularjs_global', function (require) {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
-                    });
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                            window.location.href = `/web/login?redirect=${window.location.href}`
+                        }
+                    })
                 }
             } else {
                 if (!_.isUndefined($scope.membre_info.full_name)) {
@@ -634,7 +644,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit";
-                    ajax.rpc(url, form).then(function (data) {
+                    ajax.jsonRpc(url, "call", form).then(function (data) {
                         console.debug("AJAX receive submit_form personal_information");
                         console.debug(data);
 
@@ -645,7 +655,12 @@ odoo.define('website.ore_angularjs_global', function (require) {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
-                    });
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                            window.location.href = `/web/login?redirect=${window.location.href}`
+                        }
+                    })
                 }
             } else {
                 if (!_.isUndefined($scope.membre_info.genre)) {
@@ -679,7 +694,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit";
-                    ajax.rpc(url, form).then(function (data) {
+                    ajax.jsonRpc(url, "call", form).then(function (data) {
                         console.debug("AJAX receive submit_form personal_information");
                         console.debug(data);
 
@@ -690,7 +705,12 @@ odoo.define('website.ore_angularjs_global', function (require) {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
-                    });
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                            window.location.href = `/web/login?redirect=${window.location.href}`
+                        }
+                    })
                 }
             } else {
                 if (!_.isUndefined($scope.membre_info.date_naissance)) {
@@ -725,7 +745,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit";
-                    ajax.rpc(url, form).then(function (data) {
+                    ajax.jsonRpc(url, "call", form).then(function (data) {
                         console.debug("AJAX receive submit_form personal_information");
                         console.debug(data);
 
@@ -736,7 +756,12 @@ odoo.define('website.ore_angularjs_global', function (require) {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
-                    });
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                            window.location.href = `/web/login?redirect=${window.location.href}`
+                        }
+                    })
                 }
             } else {
                 if (!_.isUndefined($scope.membre_info.email)) {
@@ -768,7 +793,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit";
-                    ajax.rpc(url, form).then(function (data) {
+                    ajax.jsonRpc(url, "call", form).then(function (data) {
                         console.debug("AJAX receive submit_form personal_information");
                         console.debug(data);
 
@@ -779,7 +804,12 @@ odoo.define('website.ore_angularjs_global', function (require) {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
-                    });
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                            window.location.href = `/web/login?redirect=${window.location.href}`
+                        }
+                    })
                 }
             } else {
                 if (!_.isUndefined($scope.membre_info.phone)) {
@@ -811,7 +841,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit";
-                    ajax.rpc(url, form).then(function (data) {
+                    ajax.jsonRpc(url, "call", form).then(function (data) {
                         console.debug("AJAX receive submit_form personal_information");
                         console.debug(data);
 
@@ -822,7 +852,12 @@ odoo.define('website.ore_angularjs_global', function (require) {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
-                    });
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                            window.location.href = `/web/login?redirect=${window.location.href}`
+                        }
+                    })
                 }
             } else {
                 if (!_.isUndefined($scope.membre_info.street)) {
@@ -878,7 +913,10 @@ odoo.define('website.ore_angularjs_global', function (require) {
         }
 
         $scope.add_to_my_favorite_field_id = function (model, record_id) {
-            ajax.rpc("/ore/submit/my_favorite", {"model": model, "id_record": record_id}).then(function (data) {
+            ajax.jsonRpc("/ore/submit/my_favorite", "call", {
+                "model": model,
+                "id_record": record_id
+            }).then(function (data) {
                 console.debug("AJAX receive add_to_my_favorite");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -897,11 +935,16 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                    window.location.href = `/web/login?redirect=${window.location.href}`
+                }
             })
         }
 
         $scope.supprimer_offre_service = function (offre_id) {
-            ajax.rpc(`/ore/submit/offre/supprimer/${offre_id}`).then(function (data) {
+            ajax.jsonRpc(`/ore/submit/offre/supprimer/${offre_id}`, "call", {}).then(function (data) {
                 console.debug("AJAX receive supprimer_offre_service");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -916,11 +959,16 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 // $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                    window.location.href = `/web/login?redirect=${window.location.href}`
+                }
             })
         }
 
         $scope.supprimer_demande_service = function (demande_id) {
-            ajax.rpc(`/ore/submit/demande/supprimer/${demande_id}`).then(function (data) {
+            ajax.jsonRpc(`/ore/submit/demande/supprimer/${demande_id}`, "call", {}).then(function (data) {
                 console.debug("AJAX receive supprimer_demande_service");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -935,11 +983,16 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 // $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                    window.location.href = `/web/login?redirect=${window.location.href}`
+                }
             })
         }
 
         $scope.change_publication_offre_service = function (offre_id, website_published) {
-            ajax.rpc(`/ore/submit/offre/publish/${offre_id}`, {"website_published": website_published}).then(function (data) {
+            ajax.jsonRpc(`/ore/submit/offre/publish/${offre_id}`, "call", {"website_published": website_published}).then(function (data) {
                 console.debug("AJAX receive change_publication_offre_service");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -951,11 +1004,16 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 // $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                    window.location.href = `/web/login?redirect=${window.location.href}`
+                }
             })
         }
 
         $scope.change_publication_demande_service = function (demande_id, website_published) {
-            ajax.rpc(`/ore/submit/demande/publish/${demande_id}`, {"website_published": website_published}).then(function (data) {
+            ajax.jsonRpc(`/ore/submit/demande/publish/${demande_id}`, "call", {"website_published": website_published}).then(function (data) {
                 console.debug("AJAX receive change_publication_demande_service");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -967,6 +1025,11 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 // $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                    window.location.href = `/web/login?redirect=${window.location.href}`
+                }
             })
         }
 
@@ -1221,7 +1284,10 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
         $scope.add_to_my_favorite = function (model, record_obj) {
             let id_record = record_obj.id;
-            ajax.rpc("/ore/submit/my_favorite", {"model": model, "id_record": id_record}).then(function (data) {
+            ajax.jsonRpc("/ore/submit/my_favorite", "call", {
+                "model": model,
+                "id_record": id_record
+            }).then(function (data) {
                 console.debug("AJAX receive add_to_my_favorite");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -1240,11 +1306,16 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                    window.location.href = `/web/login?redirect=${window.location.href}`
+                }
             })
         }
 
         $scope.update_db_my_personal_info = function () {
-            ajax.rpc("/ore/get_personal_information", {}).then(function (data) {
+            ajax.jsonRpc("/ore/get_personal_information", "call", {}).then(function (data) {
                 console.debug("AJAX receive get_personal_information");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -1278,13 +1349,18 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                    window.location.href = `/web/login?redirect=${window.location.href}`
+                }
             })
         }
 
         $scope.update_db_my_personal_info();
 
         $scope.update_membre_info = function (membre_id, scope_var_name_to_update) {
-            ajax.rpc("/ore/get_membre_information/" + membre_id).then(function (data) {
+            ajax.jsonRpc("/ore/get_membre_information/" + membre_id, "call", {}).then(function (data) {
                 console.debug("AJAX receive get_membre_information");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -1302,6 +1378,11 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 // Process all the angularjs watchers
                 $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                    window.location.href = `/web/login?redirect=${window.location.href}`
+                }
             })
         }
 
@@ -1320,7 +1401,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         }
 
         $scope.update_db_nb_offre_service = function () {
-            ajax.rpc("/ore/get_info/nb_offre_service", {}).then(function (data) {
+            ajax.jsonRpc("/ore/get_info/nb_offre_service", "call", {}).then(function (data) {
                 console.debug("AJAX receive get_nb_offre_service");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -1334,6 +1415,11 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                    window.location.href = `/web/login?redirect=${window.location.href}`
+                }
             })
         }
 
@@ -1344,7 +1430,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 let params = window.location.pathname.substring(key.length);
                 params = parseInt(params, 10);
                 if (!Number.isNaN(params)) {
-                    ajax.rpc("/ore/get_info/get_offre_service/" + params).then(function (data) {
+                    ajax.jsonRpc("/ore/get_info/get_offre_service/" + params, "call", {}).then(function (data) {
                         console.debug("AJAX receive /ore/get_info/get_offre_service");
                         if (data.error || !_.isUndefined(data.error)) {
                             $scope.error = data.error;
@@ -1359,13 +1445,18 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                         // Process all the angularjs watchers
                         $scope.$digest();
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                            window.location.href = `/web/login?redirect=${window.location.href}`
+                        }
                     })
                 }
             }
             // Remove optimisation, need it for "my favorite"
             // key = "/offresservice";
             // if (window.location.pathname.indexOf(key) === 0) {
-            ajax.rpc("/ore/get_info/all_offre_service").then(function (data) {
+            ajax.jsonRpc("/ore/get_info/all_offre_service", "call", {}).then(function (data) {
                 console.debug("AJAX receive /ore/get_info/all_offre_service");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -1379,11 +1470,16 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                    window.location.href = `/web/login?redirect=${window.location.href}`
+                }
             })
             // }
             // key = "/demandesservice";
             // if (window.location.pathname.indexOf(key) === 0) {
-            ajax.rpc("/ore/get_info/all_demande_service").then(function (data) {
+            ajax.jsonRpc("/ore/get_info/all_demande_service", "call", {}).then(function (data) {
                 console.debug("AJAX receive /ore/get_info/all_demande_service");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -1397,6 +1493,11 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                    window.location.href = `/web/login?redirect=${window.location.href}`
+                }
             })
             // }
             key = "/ore/ore_demande_service/";
@@ -1405,7 +1506,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 let params = window.location.pathname.substring(key.length);
                 params = parseInt(params, 10);
                 if (!Number.isNaN(params)) {
-                    ajax.rpc("/ore/get_info/get_demande_service/" + params).then(function (data) {
+                    ajax.jsonRpc("/ore/get_info/get_demande_service/" + params, "call", {}).then(function (data) {
                         console.debug("AJAX receive /ore/get_info/get_demande_service");
                         if (data.error || !_.isUndefined(data.error)) {
                             $scope.error = data.error;
@@ -1420,6 +1521,11 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                         // Process all the angularjs watchers
                         $scope.$digest();
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                            window.location.href = `/web/login?redirect=${window.location.href}`
+                        }
                     })
                 }
             }
@@ -1431,7 +1537,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             if (!_.isEmpty(echange_id)) {
                 echange_id = parseInt(echange_id, 10);
                 if (!Number.isNaN(echange_id)) {
-                    ajax.rpc("/ore/get_info/get_echange_service/" + echange_id).then(function (data) {
+                    ajax.jsonRpc("/ore/get_info/get_echange_service/" + echange_id, "call", {}).then(function (data) {
                         console.debug("AJAX receive /ore/get_info/get_echange_service");
                         if (data.error || !_.isUndefined(data.error)) {
                             $scope.error = data.error;
@@ -1469,6 +1575,11 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                         // Process all the angularjs watchers
                         $scope.$digest();
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                            window.location.href = `/web/login?redirect=${window.location.href}`
+                        }
                     })
                 }
             }
@@ -1477,7 +1588,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.load_page_offre_demande_echange_service();
 
         $scope.update_db_list_membre = function (reseau_ore_id) {
-            ajax.rpc("/ore/get_info/list_membre", {"reseau_ore_id": reseau_ore_id}).then(function (data) {
+            ajax.jsonRpc("/ore/get_info/list_membre", "call", {"reseau_ore_id": reseau_ore_id}).then(function (data) {
                 console.debug("AJAX receive /ore/get_info/list_membre");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -1492,6 +1603,11 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                    window.location.href = `/web/login?redirect=${window.location.href}`
+                }
             })
         }
 
@@ -1700,7 +1816,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         };
 
         $scope.get_list_langue = function () {
-            ajax.rpc("/get_available_languages", {}).then(function (response) {
+            ajax.jsonRpc("/get_available_languages", "call", {}).then(function (response) {
                 $scope.language.list = response;
                 for (const i in response) {
                     let lang = response[i];
@@ -1709,7 +1825,12 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     }
                 }
                 $scope.$digest();
-            });
+            }).fail(function (error, ev) {
+                console.error(error);
+                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                    window.location.href = `/web/login?redirect=${window.location.href}`
+                }
+            })
         };
 
         $scope.changeLanguage = function () {
@@ -1717,17 +1838,16 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 console.debug("Ignore update language.");
                 return;
             }
-            ajax.jsonRpc("/change_language", "", {lang_code: $scope.language.selected.code}).then(
+            ajax.jsonRpc("/change_language", "call", {lang_code: $scope.language.selected.code}).then(
                 function (response) {
                     // window.location.href = `/website/lang/${$scope.language.selected.code}`;
                     // TODO rewrite actual url and not hardcode /monprofil/mespreferences
                     // TODO caution, other language is /en_CA/monprofil/mespreferences
                     window.location.href = "/" + $scope.language.selected.code + `/monprofil/mespreferences${$scope.url_debug}`;
-                },
-                function (error) {
+                }).fail(function (error, ev) {
                     console.log(error);
                 }
-            );
+            )
         };
     }])
 

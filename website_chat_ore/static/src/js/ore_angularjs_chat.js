@@ -24,7 +24,7 @@ odoo.define('website.ore_angularjs_chat', function (require) {
         $scope.$scope_main.hide_votre_contact_to_contact = false;
 
         $scope.update_db_my_personal_chat = function () {
-            ajax.rpc("/ore/get_personal_chat_information", {}).then(function (data) {
+            ajax.jsonRpc("/ore/get_personal_chat_information", "call", {}).then(function (data) {
                 console.debug("AJAX receive get_personal_chat_information");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -39,6 +39,11 @@ odoo.define('website.ore_angularjs_chat', function (require) {
 
                 // Process all the angularjs watchers
                 $scope.$scope_main.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                    window.location.href = `/web/login?redirect=${window.location.href}`
+                }
             })
         }
 
@@ -115,7 +120,7 @@ odoo.define('website.ore_angularjs_chat', function (require) {
             console.debug("Send msg : '" + msg + "'");
             ele.value = "";
             // let msg = $scope.chat_msg;
-            ajax.rpc('/ore/submit/chat_msg', {
+            ajax.jsonRpc('/ore/submit/chat_msg', "call", {
                 "msg": msg,
                 "group_id": $scope.$scope_main.section_membre_dct.id_group,
                 "membre_id": $scope.$scope_main.section_membre,
@@ -143,6 +148,11 @@ odoo.define('website.ore_angularjs_chat', function (require) {
 
                 // Process all the angularjs watchers
                 // $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
+                    window.location.href = `/web/login?redirect=${window.location.href}`
+                }
             })
             // $scope.chat_msg = "";
         }
