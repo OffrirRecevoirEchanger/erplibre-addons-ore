@@ -131,7 +131,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             street: "",
             diff_humain_creation_membre: "",
             antecedent_judiciaire_verifier: false,
-            mon_ore: {
+            my_network: {
                 name: "-",
                 id: 0,
             },
@@ -184,7 +184,16 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.show_croppie = false;
         $scope.ask_modification = false;
         $scope.ask_modification_profile = false;
-        $scope.ask_modif_copy = {membre_info: {}, introduction: "", full_name: "", genre: "", date_naissance: "", email: "", phone: "", street: ""};
+        $scope.ask_modif_copy = {
+            membre_info: {},
+            introduction: "",
+            full_name: "",
+            genre: "",
+            date_naissance: "",
+            email: "",
+            phone: "",
+            street: ""
+        };
         $scope.list_interets = [];
         $scope.languesParlees = [];
         $scope.afficherAjoutInteret = false;
@@ -217,17 +226,17 @@ odoo.define('website.ore_angularjs_global', function (require) {
             }
         };
 
-        $scope.ajouterInteret = function() {
+        $scope.ajouterInteret = function () {
             $scope.afficherSupprimerInteret = false;
             $scope.afficherAjoutInteret = true;
         };
 
-        $scope.supprimerInteret = function() {
+        $scope.supprimerInteret = function () {
             $scope.afficherAjoutInteret = false;
             $scope.afficherSupprimerInteret = true;
         };
 
-        $scope.enregistrerInteret = function() {
+        $scope.enregistrerInteret = function () {
             if ($scope.nouvelleInteret) {
                 if (!$scope.list_interets) {
                     $scope.list_interets = [];
@@ -237,7 +246,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 // Check if nouvelleInteret already exists in list_interets or membre_info.interet
                 let isNewInteret = $scope.list_interets.indexOf($scope.nouvelleInteret) === -1 &&
-                    $scope.membre_info.interet.findIndex(function(interet) {
+                    $scope.membre_info.interet.findIndex(function (interet) {
                         return interet.name === $scope.nouvelleInteret;
                     }) === -1;
                 if (isNewInteret) {
@@ -256,7 +265,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             $scope.afficherSupprimerInteret = false;
         }
 
-        $scope.enleverDernieresInterets = function() {
+        $scope.enleverDernieresInterets = function () {
             if ($scope.interetsCount !== 0) {
                 $scope.list_interets.splice(-($scope.interetsCount));
             }
@@ -268,25 +277,25 @@ odoo.define('website.ore_angularjs_global', function (require) {
             if ($scope.supprimeInteret) {
                 let index = $scope.list_interets.indexOf($scope.supprimeInteret);
                 if (index > -1) {
-                  $scope.list_interets.splice(index, 1);
+                    $scope.list_interets.splice(index, 1);
                 }
                 $scope.membre_info.interet = $scope.membre_info.interet.filter(function (interet) {
-                  return interet.name !== $scope.supprimeInteret;
+                    return interet.name !== $scope.supprimeInteret;
                 });
             }
         };
 
-        $scope.ajouterLangue = function() {
+        $scope.ajouterLangue = function () {
             $scope.afficherSupprimerLangue = false;
             $scope.afficherAjoutLangue = true;
         };
 
-        $scope.supprimerLangue = function() {
+        $scope.supprimerLangue = function () {
             $scope.afficherAjoutLangue = false;
             $scope.afficherSupprimerLangue = true;
         };
 
-        $scope.enregistrerLangue = function() {
+        $scope.enregistrerLangue = function () {
             if ($scope.nouvelleLangue) {
                 if (!$scope.languesParlees) {
                     $scope.languesParlees = [];
@@ -296,7 +305,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 // Check if nouvelleLangue already exists in languesParlees or membre_info.langue
                 let isNewLangue = $scope.languesParlees.indexOf($scope.nouvelleLangue) === -1 &&
-                    $scope.membre_info.langue.findIndex(function(langue) {
+                    $scope.membre_info.langue.findIndex(function (langue) {
                         return langue.name === $scope.nouvelleLangue;
                     }) === -1;
                 if (isNewLangue) {
@@ -315,7 +324,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             $scope.afficherAjoutLangue = false;
         }
 
-        $scope.enleverDernieresLangues = function() {
+        $scope.enleverDernieresLangues = function () {
             if ($scope.languesCount !== 0) {
                 $scope.languesParlees.splice(-($scope.languesCount));
             }
@@ -327,15 +336,15 @@ odoo.define('website.ore_angularjs_global', function (require) {
             if ($scope.supprimeLangue) {
                 let index = $scope.languesParlees.indexOf($scope.supprimeLangue);
                 if (index > -1) {
-                  $scope.languesParlees.splice(index, 1);
+                    $scope.languesParlees.splice(index, 1);
                 }
                 $scope.membre_info.langue = $scope.membre_info.langue.filter(function (langue) {
-                  return langue.name !== $scope.supprimeLangue;
+                    return langue.name !== $scope.supprimeLangue;
                 });
             }
         };
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Define the list of languages
             let languages = [
                 "Anglais",
@@ -620,8 +629,8 @@ odoo.define('website.ore_angularjs_global', function (require) {
             if (!genre) {
                 let form = {};
                 if ($scope.ask_modif_copy.membre_info.genre !== $scope.membre_info.genre) {
-                  let selectedOption = document.getElementById("genre").value;
-                  form["genre"] = selectedOption;
+                    let selectedOption = document.getElementById("genre").value;
+                    form["genre"] = selectedOption;
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit";
@@ -710,7 +719,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 if ($scope.ask_modif_copy.membre_info.email !== $scope.membre_info.email) {
                     if (!$scope.membre_info.email) {
                         return;
-                    }else {
+                    } else {
                         form["email"] = $scope.membre_info.email;
                     }
                 }
@@ -835,7 +844,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         };
         //END
 
-        $scope.isEmailEmpty = function() {
+        $scope.isEmailEmpty = function () {
             return _.isEmpty($scope.membre_info.email);
         };
         // End modification environnement
@@ -1252,7 +1261,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     $scope.update_personal_data();
                     console.debug($scope.personal);
 
-                    $scope.update_db_list_membre($scope.personal.mon_ore.id);
+                    $scope.update_db_list_membre($scope.personal.my_network.id);
 
                     // Special case, when need to get information of another member
                     let membre_id = $location.search()["membre_id"];
@@ -1467,8 +1476,8 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
         $scope.load_page_offre_demande_echange_service();
 
-        $scope.update_db_list_membre = function (ore_id) {
-            ajax.rpc("/ore/get_info/list_membre", {"ore_id": ore_id}).then(function (data) {
+        $scope.update_db_list_membre = function (reseau_ore_id) {
+            ajax.rpc("/ore/get_info/list_membre", {"reseau_ore_id": reseau_ore_id}).then(function (data) {
                 console.debug("AJAX receive /ore/get_info/list_membre");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;

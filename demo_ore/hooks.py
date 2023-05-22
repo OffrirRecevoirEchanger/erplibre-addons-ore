@@ -19,10 +19,6 @@ def post_init_hook(cr, e):
         for adhesion_id in adhesion_ids:
             adhesion_id.en_attente = False
 
-        # company_id = env["res.partner"].browse(env.ref("base.main_company").id)
-        company_id = env["res.partner"].browse(env.ref("base.main_partner").id)
-        company_id.annee_naissance = 2000
-
         # TODO can move this in data
         env.ref("base.partner_admin").write(
             {
@@ -74,8 +70,3 @@ def post_init_hook(cr, e):
         }
         event_config = env["res.config.settings"].sudo().create(values)
         event_config.execute()
-
-        for item in env["ir.actions.act_window"].search(
-            [("name", "=", "ORE")]
-        ):
-            item.name = "Réseau"

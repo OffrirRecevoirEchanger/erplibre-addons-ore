@@ -1022,51 +1022,52 @@ class OREController(http.Controller):
             ].search([("membre_id", "=", membre_id.id)])
         ]
 
+        personnal_data = {
+            "id": membre_id.id,
+            "full_name": membre_id.name,
+            "genre": membre_id.genre,
+            "date_naissance": membre_id.date_naissance,
+            "email": membre_id.email,
+            "phone": membre_id.phone,
+            "street": membre_id.street,
+            "ma_photo": membre_id.image_attachment_id.local_url,
+            # "actual_bank_hours": bank_time,
+            "actual_bank_hours": membre_id.bank_time,
+            # "actual_month_bank_hours": month_bank_time,
+            "actual_month_bank_hours": membre_id.bank_month_time,
+            "is_favorite": is_favorite,
+            "introduction": membre_id.introduction,
+            "description": membre_id.description,
+            "motivation_membre": membre_id.motivation_membre,
+            "interet": [
+                {"name": rec.name, "id": rec.id} for rec in membre_id.interet
+            ],
+            "langue": [
+                {"name": rec.name, "id": rec.id}
+                for rec in membre_id.langue_parle
+            ],
+            "diff_humain_creation_membre": str_diff_time_creation,
+            "location": membre_id.ville.nom,
+            "antecedent_judiciaire_verifier": membre_id.antecedent_judiciaire_verifier,
+            "dct_offre_service": dct_offre_service,
+            "dct_demande_service": dct_demande_service,
+            "dct_offre_service_favoris": dct_offre_service_favoris,
+            "dct_demande_service_favoris": dct_demande_service_favoris,
+            "dct_membre_favoris": dct_membre_favoris,
+            "dct_echange": dct_echange,
+        }
+        if membre_id.reseau_ore_id:
+            personnal_data["my_network"] = {
+                "name": membre_id.reseau_ore_id.name,
+                "id": membre_id.reseau_ore_id.id,
+            }
+
         data = {
             "global": {
                 "dbname": http.request.env.cr.dbname,
             },
             "lst_notification": lst_notification,
-            "personal": {
-                "id": membre_id.id,
-                "full_name": membre_id.name,
-                # TODO il est manquant
-                "genre": membre_id.genre,
-                "date_naissance": membre_id.date_naissance,
-                "email": membre_id.email,
-                "phone": membre_id.phone,
-                "street": membre_id.street,
-                "ma_photo": membre_id.image_attachment_id.local_url,
-                # "actual_bank_hours": bank_time,
-                "actual_bank_hours": membre_id.bank_time,
-                # "actual_month_bank_hours": month_bank_time,
-                "actual_month_bank_hours": membre_id.bank_month_time,
-                "is_favorite": is_favorite,
-                "introduction": membre_id.introduction,
-                "description": membre_id.description,
-                "motivation_membre": membre_id.motivation_membre,
-                "interet": [
-                    {"name": rec.name, "id": rec.id}
-                    for rec in membre_id.interet
-                ],
-                "langue": [
-                    {"name": rec.name, "id": rec.id}
-                    for rec in membre_id.langue_parle
-                ],
-                "diff_humain_creation_membre": str_diff_time_creation,
-                "location": membre_id.ville.nom,
-                "antecedent_judiciaire_verifier": membre_id.antecedent_judiciaire_verifier,
-                "mon_ore": {
-                    "name": membre_id.ore.nom,
-                    "id": membre_id.ore.id,
-                },
-                "dct_offre_service": dct_offre_service,
-                "dct_demande_service": dct_demande_service,
-                "dct_offre_service_favoris": dct_offre_service_favoris,
-                "dct_demande_service_favoris": dct_demande_service_favoris,
-                "dct_membre_favoris": dct_membre_favoris,
-                "dct_echange": dct_echange,
-            },
+            "personal": personnal_data,
         }
         return data
 
@@ -1242,45 +1243,45 @@ class OREController(http.Controller):
         is_favorite = membre_id.id in [
             a.membre_id.id for a in actual_membre_id.membre_favoris_ids
         ]
-        return {
-            "membre_info": {
-                "id": membre_id.id,
-                "full_name": membre_id.name,
-                "date_naissance": membre_id.date_naissance,
-                "email": membre_id.email,
-                "phone": membre_id.phone,
-                "street": membre_id.street,
-                "ma_photo": membre_id.image_attachment_id.local_url,
-                "bank_max_service_offert": membre_id.bank_max_service_offert,
-                "actual_bank_hours": membre_id.bank_time,
-                "actual_month_bank_hours": membre_id.bank_month_time,
-                "is_favorite": is_favorite,
-                "introduction": membre_id.introduction,
-                "description": membre_id.description,
-                "motivation_membre": membre_id.motivation_membre,
-                "interet": [
-                    {"name": rec.name, "id": rec.id}
-                    for rec in membre_id.interet
-                ],
-                "langue": [
-                    {"name": rec.name, "id": rec.id}
-                    for rec in membre_id.langue_parle
-                ],
-                "diff_humain_creation_membre": str_diff_time_creation,
-                "date_creation": self.datetime_to_local(membre_id.create_date),
-                "location": membre_id.ville.nom,
-                "antecedent_judiciaire_verifier": membre_id.antecedent_judiciaire_verifier,
-                "genre": membre_id.genre,
-                "mon_ore": {
-                    "name": membre_id.ore.nom,
-                    "id": membre_id.ore.id,
-                },
-                "dct_offre_service": dct_offre_service,
-                "len_offre_service": len(dct_offre_service),
-                "dct_demande_service": dct_demande_service,
-                "len_demande_service": len(dct_demande_service),
-            }
+
+        data_membre_info = {
+            "id": membre_id.id,
+            "full_name": membre_id.name,
+            "date_naissance": membre_id.date_naissance,
+            "email": membre_id.email,
+            "phone": membre_id.phone,
+            "street": membre_id.street,
+            "ma_photo": membre_id.image_attachment_id.local_url,
+            "bank_max_service_offert": membre_id.bank_max_service_offert,
+            "actual_bank_hours": membre_id.bank_time,
+            "actual_month_bank_hours": membre_id.bank_month_time,
+            "is_favorite": is_favorite,
+            "introduction": membre_id.introduction,
+            "description": membre_id.description,
+            "motivation_membre": membre_id.motivation_membre,
+            "interet": [
+                {"name": rec.name, "id": rec.id} for rec in membre_id.interet
+            ],
+            "langue": [
+                {"name": rec.name, "id": rec.id}
+                for rec in membre_id.langue_parle
+            ],
+            "diff_humain_creation_membre": str_diff_time_creation,
+            "date_creation": self.datetime_to_local(membre_id.create_date),
+            "location": membre_id.ville.nom,
+            "antecedent_judiciaire_verifier": membre_id.antecedent_judiciaire_verifier,
+            "genre": membre_id.genre,
+            "dct_offre_service": dct_offre_service,
+            "len_offre_service": len(dct_offre_service),
+            "dct_demande_service": dct_demande_service,
+            "len_demande_service": len(dct_demande_service),
         }
+        if membre_id.reseau_ore_id:
+            data_membre_info["my_network"] = {
+                "name": membre_id.reseau_ore_id.name,
+                "id": membre_id.reseau_ore_id.id,
+            }
+        return {"membre_info": data_membre_info}
 
     @http.route(
         [
@@ -1336,14 +1337,14 @@ class OREController(http.Controller):
         auth="user",
         website=True,
     )
-    def get_info_list_membre(self, ore_id, **kw):
+    def get_info_list_membre(self, reseau_ore_id, **kw):
         my_favorite_membre_id = [
             a.membre_id.id
             for a in http.request.env.user.partner_id.membre_favoris_ids
         ]
         lst_membre = http.request.env["res.partner"].search(
             [
-                ("ore", "=", ore_id),
+                ("reseau_ore_id", "=", reseau_ore_id),
                 ("profil_approuver", "=", True),
             ]
         )

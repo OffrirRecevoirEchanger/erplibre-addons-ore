@@ -18,7 +18,7 @@ class OREDemandeAdhesion(models.Model):
             lst_data = []
             for val in vals:
                 data = {
-                    "ore": val.ore.id,
+                    # "ore": val.ore.id,
                     "profil_approuver": True,
                     "nom": val.nom,
                     # "prenom": val.prenom,

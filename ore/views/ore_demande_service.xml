@@ -187,7 +187,7 @@
         <field name="model">ore.demande.service</field>
         <field name="type">timeline</field>
         <field name="arch" type="xml">
-            <timeline date_start="date_debut" date_stop="date_fin" default_group_by="ore" event_open_popup="true">
+            <timeline date_start="date_debut" date_stop="date_fin" default_group_by="membre" event_open_popup="true">
                 <field name="user_id" />
                 <templates>
                     <t t-name="timeline-item">
