@@ -5,18 +5,35 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form" />
         <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="after">
+                <group>
+                    <field name="reseau_ore_id" widget="res_partner_many2one" placeholder="Réseau ORE" />
+                </group>
+            </xpath>
             <xpath expr="//group[@name='sale']" position="before">
                 <group string="ORE" name="ore" priority="1">
                     <field name="bank_time" />
                     <field name="bank_month_time" />
                 </group>
             </xpath>
-            <xpath expr="//group[@name='sale']" position="after">
-                <group string="test" name="ore" priority="1">
-                    <field name="offre_service_ids" />
-                </group>
-            </xpath>
+            <!--            <xpath expr="//group[@name='sale']" position="after">-->
+            <!--                <group string="test" name="ore" priority="1">-->
+            <!--                    <field name="offre_service_ids" />-->
+            <!--                </group>-->
+            <!--            </xpath>-->
             <button name="toggle_active" position="before">
+                <button
+                    class="oe_stat_button o_res_partner_tip_opp"
+                    type="action"
+                    name="ore_total_time_button"
+                    icon="fa-star"
+                    context="{'search_default_partner_id': active_id}"
+                >
+                    <div class="o_stat_info">
+                        <field name="bank_time" class="o_stat_value" />
+                        <span class="o_stat_text">Heures au total</span>
+                    </div>
+                </button>
                 <button
                     class="oe_stat_button o_res_partner_tip_opp"
                     type="action"

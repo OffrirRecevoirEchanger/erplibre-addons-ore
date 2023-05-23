@@ -122,7 +122,7 @@ class ResPartner(models.Model):
 
     reseau_ore_id = fields.Many2one(
         "res.partner",
-        string="Related network",
+        string="Réseau ORE",
         help="Relation d'un réseau ORE, les responsables du membre.",
         index=True,
     )
