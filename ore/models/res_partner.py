@@ -4,14 +4,16 @@ from odoo import _, api, fields, models
 
 
 class ResPartner(models.Model):
-    _name = "res.partner"
-    _inherit = "res.partner"
+    _name = "ore.membre"
+    _inherits = {"res.partner": "partner_id"}
 
-    # partner_id = fields.Many2one(
-    #     comodel_name="res.partner",
-    #     string="Membre",
-    #     track_visibility="onchange",
-    # )
+    partner_id = fields.Many2one(
+        comodel_name="res.partner",
+        string="Membre",
+        required=True,
+        ondelete="cascade",
+        track_visibility="onchange",
+    )
 
     achat_regrouper = fields.Boolean(
         string="Achat regroupé",
@@ -121,7 +123,7 @@ class ResPartner(models.Model):
     )
 
     reseau_ore_id = fields.Many2one(
-        "res.partner",
+        "ore.membre",
         string="Réseau ORE",
         help="Relation d'un réseau ORE, les responsables du membre.",
         index=True,
@@ -354,7 +356,7 @@ class ResPartner(models.Model):
                 {
                     "name": f"image_res_partner_{stat.id}",
                     "datas": stat.image,
-                    "res_model": "res.partner",
+                    "res_model": "ore.membre",
                     "res_id": stat.id,
                     "type": "url",
                 }
@@ -378,7 +380,7 @@ class ResPartner(models.Model):
                         {
                             "name": f"image_res_partner_{rec.id}",
                             "datas": image,
-                            "res_model": "res.partner",
+                            "res_model": "ore.membre",
                             "res_id": rec.id,
                             "type": "url",
                         }

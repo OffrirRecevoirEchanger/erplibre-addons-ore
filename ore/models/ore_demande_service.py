@@ -42,11 +42,11 @@ class OREDemandeService(models.Model):
     )
 
     membre = fields.Many2one(
-        comodel_name="res.partner",
+        comodel_name="ore.membre",
         track_visibility="onchange",
     )
 
-    membre_favoris_ids = fields.Many2many(comodel_name="res.partner")
+    membre_favoris_ids = fields.Many2many(comodel_name="ore.membre")
 
     type_service_id = fields.Many2one(
         comodel_name="ore.type.service",

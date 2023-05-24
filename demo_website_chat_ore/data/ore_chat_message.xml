@@ -4,13 +4,13 @@
         <record id="msg_1" model="ore.chat.message">
             <field name="name">Bonjour!</field>
             <field name="is_read" eval="True" />
-            <field name="membre_writer_id" ref="base.partner_admin" />
+            <field name="membre_writer_id" ref="demo_ore.base_partner_admin" />
             <field name="msg_group_id" ref="msg_group_1" />
         </record>
         <record id="msg_2" model="ore.chat.message">
             <field name="name">Ça va bien?</field>
             <field name="is_read" eval="True" />
-            <field name="membre_writer_id" ref="base.partner_admin" />
+            <field name="membre_writer_id" ref="demo_ore.base_partner_admin" />
             <field name="msg_group_id" ref="msg_group_1" />
         </record>
         <record id="msg_3" model="ore.chat.message">

@@ -68,11 +68,11 @@ class OREOffreService(models.Model):
     entente_tarifiaire = fields.Html()
 
     membre = fields.Many2one(
-        comodel_name="res.partner",
+        comodel_name="ore.membre",
         help="Membre qui offre le service",
     )
 
-    membre_favoris_ids = fields.Many2many(comodel_name="res.partner")
+    membre_favoris_ids = fields.Many2many(comodel_name="ore.membre")
 
     nb_consultation = fields.Integer(string="Nombre de consultations")
 

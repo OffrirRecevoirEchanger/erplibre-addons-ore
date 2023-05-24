@@ -927,7 +927,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 } else {
                     // $scope.nb_offre_service = data.nb_offre_service;
                     // record_obj.is_favorite = data.is_favorite;
-                    // if (model === "res.partner" && data.is_favorite) {
+                    // if (model === "ore.membre" && data.is_favorite) {
                     //     // TODO validate not already in list
                     //     $scope.personal.lst_membre_favoris.push(record_obj);
                     // }
@@ -1298,7 +1298,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 } else {
                     // $scope.nb_offre_service = data.nb_offre_service;
                     record_obj.is_favorite = data.is_favorite;
-                    // if (model === "res.partner" && data.is_favorite) {
+                    // if (model === "ore.membre" && data.is_favorite) {
                     //     // TODO validate not already in list
                     //     $scope.personal.lst_membre_favoris.push(record_obj);
                     // }
@@ -1332,7 +1332,12 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     $scope.update_personal_data();
                     console.debug($scope.personal);
 
-                    $scope.update_db_list_membre($scope.personal.my_network.id);
+                    if (!_.isUndefined($scope.personal.my_network)) {
+                        $scope.update_db_list_membre($scope.personal.my_network.id);
+                    } else {
+                        console.error("Cannot associate personal variable with his network data. " +
+                            "Talk to an administrator, your are lost!");
+                    }
 
                     // Special case, when need to get information of another member
                     let membre_id = $location.search()["membre_id"];

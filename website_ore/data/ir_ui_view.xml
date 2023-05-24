@@ -1860,7 +1860,7 @@
                                                     </div>
                                                 </nav>
                                                 <nav class="profil_main">
-                                                    <div class="profil profil_main profil_box btn btn-primary adapt-text-primary-color" style="right: 50px;" ng-click="add_to_my_favorite('res.partner', membre_info)">
+                                                    <div class="profil profil_main profil_box btn btn-primary adapt-text-primary-color" style="right: 50px;" ng-click="add_to_my_favorite('ore.membre', membre_info)">
                                                         <span class="img img-fluid mx-auto fa coeur" ng-class="{'fa-heart': membre_info.is_favorite, 'fa-heart-o': !membre_info.is_favorite}" />
                                                         <span class="adapt-text-primary-color" ng-if="!membre_info.is_favorite">Ajouter à mes favoris</span>
                                                         <span class="adapt-text-primary-color" ng-if="membre_info.is_favorite">Retirer de mes favoris</span>
@@ -2350,7 +2350,7 @@
                                                 </a>
                                                 <div class="infos right">
                                                     <h5 ng-cloak="">{{membre_favoris.distance}}</h5>
-                                                    <h2 class="fa text-epsilon coeur" ng-class="{'fa-heart': membre_favoris.is_favorite, 'fa-heart-o': !membre_favoris.is_favorite}" ng-click="add_to_my_favorite('res.partner', membre_favoris)" />
+                                                    <h2 class="fa text-epsilon coeur" ng-class="{'fa-heart': membre_favoris.is_favorite, 'fa-heart-o': !membre_favoris.is_favorite}" ng-click="add_to_my_favorite('ore.membre', membre_favoris)" />
                                                 </div>
                                             </div>
                                         </div>

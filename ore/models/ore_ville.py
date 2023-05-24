@@ -20,7 +20,7 @@ class OREVille(models.Model):
     )
 
     membre = fields.One2many(
-        comodel_name="res.partner",
+        comodel_name="ore.membre",
         inverse_name="ville",
         help="Membre relation",
     )

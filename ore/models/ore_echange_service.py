@@ -29,17 +29,17 @@ class OREEchangeService(models.Model):
 
     # TODO compute membre_acheter from service
     membre_acheteur = fields.Many2one(
-        comodel_name="res.partner",
+        comodel_name="ore.membre",
         string="Membre acheteur",
     )
 
     membre_vendeur = fields.Many2one(
-        comodel_name="res.partner",
+        comodel_name="ore.membre",
         string="Membre vendeur",
     )
 
     membre_qui_a_valide = fields.Many2one(
-        comodel_name="res.partner",
+        comodel_name="ore.membre",
         string="Membre qui a validé",
     )
 

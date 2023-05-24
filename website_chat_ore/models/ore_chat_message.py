@@ -19,7 +19,7 @@ class OREChatMessage(models.Model):
     )
 
     membre_writer_id = fields.Many2one(
-        comodel_name="res.partner",
+        comodel_name="ore.membre",
         string="Membre writer",
         help="Membre qui écrit ce message.",
     )

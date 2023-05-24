@@ -15,7 +15,7 @@ class OREChatGroup(models.Model):
     active = fields.Boolean(default=True)
 
     membre_ids = fields.Many2many(
-        comodel_name="res.partner",
+        comodel_name="ore.membre",
         string="Membres",
         help="Membres du groupe.",
     )

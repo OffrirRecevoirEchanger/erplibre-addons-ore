@@ -9,7 +9,7 @@ class OREOrigine(models.Model):
     nom = fields.Char(string="Origine")
 
     membre = fields.One2many(
-        comodel_name="res.partner",
+        comodel_name="ore.membre",
         inverse_name="origine",
         help="Membre relation",
     )

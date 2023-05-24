@@ -4,12 +4,12 @@
         <record id="ore_demande_service_garder_mon_chien_svp" model="ore.demande.service">
             <field name="membre" ref="partner_demo_martin_petit" />
             <field name="titre">Garder mon chien svp!</field>
-            <field name="membre_favoris_ids" eval="[(4, ref('base.partner_admin')), (4, ref('partner_demo_denis_lemarchand'))]" />
+            <field name="membre_favoris_ids" eval="[(4, ref('demo_ore.base_partner_admin')), (4, ref('partner_demo_denis_lemarchand'))]" />
         </record>
         <record id="ore_demande_service_cours_de_violon" model="ore.demande.service">
-            <field name="membre" ref="base.partner_admin" />
+            <field name="membre" ref="demo_ore.base_partner_admin" />
             <field name="titre">J'aimerais apprendre un instrument de musique, à votre choix!</field>
-            <field name="membre_favoris_ids" eval="[(4, ref('base.partner_admin')), (4, ref('partner_demo_alice_poitier'))]" />
+            <field name="membre_favoris_ids" eval="[(4, ref('demo_ore.base_partner_admin')), (4, ref('partner_demo_alice_poitier'))]" />
         </record>
     </data>
 </odoo>

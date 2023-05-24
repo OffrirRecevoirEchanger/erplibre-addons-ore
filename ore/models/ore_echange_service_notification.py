@@ -36,7 +36,7 @@ class OREEchangeServiceNotification(models.Model):
     )
 
     membre_id = fields.Many2one(
-        comodel_name="res.partner",
+        comodel_name="ore.membre",
         string="Membre notifié",
     )
 

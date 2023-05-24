@@ -2,7 +2,7 @@
 <odoo>
     <record id="res_partner_view_form" model="ir.ui.view">
         <field name="name">res_partner_form</field>
-        <field name="model">res.partner</field>
+        <field name="model">ore.membre</field>
         <field name="arch" type="xml">
             <form string="Titre">
                 <sheet>
@@ -125,7 +125,7 @@
 
     <record id="res_partner_view_kanban" model="ir.ui.view">
         <field name="name">res_partner_kanban</field>
-        <field name="model">res.partner</field>
+        <field name="model">ore.membre</field>
         <field name="arch" type="xml">
             <kanban class="o_kanban_mobile">
                 <field name="nom" />
@@ -150,7 +150,7 @@
 
     <record id="res_partner_view_search" model="ir.ui.view">
         <field name="name">res_partner_search</field>
-        <field name="model">res.partner</field>
+        <field name="model">ore.membre</field>
         <field name="arch" type="xml">
             <search string="ORE membre">
                 <field name="nom" />
@@ -311,7 +311,7 @@
 
     <record id="res_partner_view_tree" model="ir.ui.view">
         <field name="name">res_partner_tree</field>
-        <field name="model">res.partner</field>
+        <field name="model">ore.membre</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="nom" />
@@ -325,7 +325,7 @@
     <act_window
         id="res_partner_membre_action_window"
         name="Membre"
-        res_model="res.partner"
+        res_model="ore.membre"
         view_mode="kanban,tree,form"
     />
 </odoo>

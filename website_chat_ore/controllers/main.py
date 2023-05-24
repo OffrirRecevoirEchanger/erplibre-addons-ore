@@ -14,7 +14,7 @@ class OREController(http.Controller):
         if not partner_id or http.request.auth_method == "public":
             return {"error": _("User not connected")}
 
-        membre_id = request.env["res.partner"].browse(partner_id.id)
+        membre_id = request.env["ore.membre"].browse(partner_id.id)
 
         if not membre_id:
             return {

@@ -8,9 +8,9 @@
             <field name="titre">Initiation GNU/Linux et logiciels libres</field>
             <field name="description">Expert depuis 2007, tester moi!</field>
             <field name="quoi_apporter">Votre laptop</field>
-            <field name="membre" ref="base.partner_admin" />
+            <field name="membre" ref="demo_ore.base_partner_admin" />
             <field name="type_service_id" ref="ore_data.ore_type_service_102_a_6_initiation_linux_et_logiciels_libres" />
-            <field name="membre_favoris_ids" eval="[(4, ref('base.partner_admin')), (4, ref('partner_demo_denis_lemarchand'))]" />
+            <field name="membre_favoris_ids" eval="[(4, ref('demo_ore.base_partner_admin')), (4, ref('partner_demo_denis_lemarchand'))]" />
         </record>
         <record id="ore_offre_service_cours_de_piano" model="ore.offre.service">
             <field name="condition">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Pour des raisons sanitaire, &#234;tre arriv&#233; au Qu&#233;bec depuis 14 jours au moins pour la covid</field>
@@ -19,9 +19,9 @@
             <field name="titre">Cours de piano débutant</field>
             <field name="description">J'ai 5 ans d'expérience en piano, je peux vous aider pour les débutants.</field>
             <field name="quoi_apporter">Votre piano</field>
-            <field name="membre" ref="base.partner_admin" />
+            <field name="membre" ref="demo_ore.base_partner_admin" />
             <field name="type_service_id" ref="ore_data.ore_type_service_108_a_12_apprentissage_du_piano" />
-            <field name="membre_favoris_ids" eval="[(4, ref('base.partner_admin')), (4, ref('partner_demo_denis_lemarchand'))]" />
+            <field name="membre_favoris_ids" eval="[(4, ref('demo_ore.base_partner_admin')), (4, ref('partner_demo_denis_lemarchand'))]" />
         </record>
         <record id="ore_offre_service_conception_site_web" model="ore.offre.service">
             <field name="condition">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Pour des raisons sanitaire, &#234;tre arriv&#233; au Qu&#233;bec depuis 14 jours au moins pour la covid</field>
@@ -30,7 +30,7 @@
             <field name="titre">Aide conception site web</field>
             <field name="description">J'adore faire des sites web, je peux vous aider!</field>
             <field name="quoi_apporter">Votre ordinateur</field>
-            <field name="membre" ref="base.partner_admin" />
+            <field name="membre" ref="demo_ore.base_partner_admin" />
             <field name="type_service_id" ref="ore_data.ore_type_service_102_c_3_conception_site_web" />
             <field name="membre_favoris_ids" eval="[(4, ref('partner_demo_alice_poitier')), (4, ref('partner_demo_denis_lemarchand'))]" />
         </record>
@@ -43,7 +43,7 @@
             <field name="quoi_apporter">Votre violon</field>
             <field name="membre" ref="partner_demo_martin_bergeron" />
             <field name="type_service_id" ref="ore_data.ore_type_service_108_a_13_apprentissage_du_violon" />
-            <field name="membre_favoris_ids" eval="[(4, ref('base.partner_admin')), (4, ref('partner_demo_denis_lemarchand'))]" />
+            <field name="membre_favoris_ids" eval="[(4, ref('demo_ore.base_partner_admin')), (4, ref('partner_demo_denis_lemarchand'))]" />
         </record>
         <record id="ore_offre_service_je_vous_fais_decouvrir_la_ville_et_toutes_les_bonnes_choses_a_savoir" model="ore.offre.service">
             <field name="condition">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Pour des raisons sanitaire, &#234;tre arriv&#233; au Qu&#233;bec depuis 14 jours au moins pour la covid</field>
@@ -53,7 +53,7 @@
             <field name="description">Je connais très bien la ville, c'est ma ville natale!</field>
             <field name="membre" ref="partner_demo_alice_poitier" />
             <field name="type_service_id" ref="ore_data.ore_type_service_111_c_2_guide_touristique_ville_de_quebec" />
-            <field name="membre_favoris_ids" eval="[(4, ref('base.partner_admin')), (4, ref('partner_demo_denis_lemarchand'))]" />
+            <field name="membre_favoris_ids" eval="[(4, ref('demo_ore.base_partner_admin')), (4, ref('partner_demo_denis_lemarchand'))]" />
         </record>
         <record id="ore_offre_service_faire_visiter_une_maison_a_louer" model="ore.offre.service">
             <field name="condition">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Pour des raisons sanitaire, &#234;tre arriv&#233; au Qu&#233;bec depuis 14 jours au moins pour la covid</field>
@@ -63,7 +63,7 @@
             <field name="description">Je peux visiter vos maisons à louer, je suis expert immobilier et j'adore faire cette activité dans mes temps libres.</field>
             <field name="membre" ref="partner_demo_denis_lemarchand" />
             <field name="type_service_id" ref="ore_data.ore_type_service_101_f_4_conseils_valorisation_immobiliere" />
-            <field name="membre_favoris_ids" eval="[(4, ref('base.partner_admin')), (4, ref('partner_demo_denis_lemarchand'))]" />
+            <field name="membre_favoris_ids" eval="[(4, ref('demo_ore.base_partner_admin')), (4, ref('partner_demo_denis_lemarchand'))]" />
         </record>
     </data>
 </odoo>

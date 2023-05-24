@@ -9,6 +9,6 @@ class ResPartner(models.Model):
     _rec_name = "membre_id"
 
     membre_id = fields.Many2one(
-        comodel_name="res.partner",
+        comodel_name="ore.membre",
         string="Membre",
     )

@@ -7,7 +7,7 @@
             <field name="type_echange">offre_ponctuel</field>
             <field name="transaction_valide">true</field>
             <field name="membre_acheteur" ref="societe_province_quebec_pays_canada" />
-            <field name="membre_vendeur" ref="base.partner_admin" />
+            <field name="membre_vendeur" ref="demo_ore.base_partner_admin" />
         </record>
         <record id="ore_echange_service_new_membre_alice_poitier" model="ore.echange.service">
             <field name="date_echange" eval="(DateTime.today() - timedelta(minutes=30)).strftime('%Y-%m-%d %H:%M')" />
@@ -47,7 +47,7 @@
             <field name="nb_heure_estime">2.5</field>
             <field name="type_echange">offre_ordinaire</field>
             <field name="membre_acheteur" ref="partner_demo_alice_poitier" />
-            <field name="membre_vendeur" ref="base.partner_admin" />
+            <field name="membre_vendeur" ref="demo_ore.base_partner_admin" />
         </record>
         <record id="ore_echange_service_cours_violon" model="ore.echange.service">
             <field name="date_echange" eval="(DateTime.today() + timedelta(minutes=16)).strftime('%Y-%m-%d %H:%M')" />
@@ -55,7 +55,7 @@
             <field name="demande_service" ref="ore_demande_service_cours_de_violon" />
             <field name="nb_heure_estime">1</field>
             <field name="type_echange">offre_ordinaire</field>
-            <field name="membre_acheteur" ref="base.partner_admin" />
+            <field name="membre_acheteur" ref="demo_ore.base_partner_admin" />
             <field name="membre_vendeur" ref="partner_demo_martin_bergeron" />
         </record>
         <record id="ore_echange_service_decouvrir_la_ville" model="ore.echange.service">
@@ -64,7 +64,7 @@
             <field name="nb_heure">4</field>
             <field name="type_echange">offre_ordinaire</field>
             <field name="transaction_valide">true</field>
-            <field name="membre_acheteur" ref="base.partner_admin" />
+            <field name="membre_acheteur" ref="demo_ore.base_partner_admin" />
             <field name="membre_vendeur" ref="partner_demo_alice_poitier" />
         </record>
         <record id="ore_echange_service_initiation_gnu_linux" model="ore.echange.service">
@@ -74,7 +74,7 @@
             <field name="type_echange">offre_ordinaire</field>
             <field name="transaction_valide">true</field>
             <field name="membre_acheteur" ref="partner_demo_denis_lemarchand" />
-            <field name="membre_vendeur" ref="base.partner_admin" />
+            <field name="membre_vendeur" ref="demo_ore.base_partner_admin" />
         </record>
         <record id="ore_echange_service_garder_chien" model="ore.echange.service">
             <field name="date_echange" eval="(DateTime.today() + timedelta(hours=5)).strftime('%Y-%m-%d %H:%M')" />
@@ -82,7 +82,7 @@
             <field name="nb_heure_estime">7.75</field>
             <field name="type_echange">offre_ordinaire</field>
             <field name="membre_acheteur" ref="partner_demo_martin_petit" />
-            <field name="membre_vendeur" ref="base.partner_admin" />
+            <field name="membre_vendeur" ref="demo_ore.base_partner_admin" />
         </record>
     </data>
 </odoo>

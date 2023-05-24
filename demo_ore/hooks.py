@@ -20,7 +20,7 @@ def post_init_hook(cr, e):
             adhesion_id.en_attente = False
 
         # TODO can move this in data
-        env.ref("base.partner_admin").write(
+        env.ref("demo_ore.base_partner_admin").write(
             {
                 "membre_favoris_ids": [
                     (
