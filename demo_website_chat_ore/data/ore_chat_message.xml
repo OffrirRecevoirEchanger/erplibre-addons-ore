@@ -15,7 +15,7 @@
         </record>
         <record id="msg_3" model="ore.chat.message">
             <field name="name">Oui toi?</field>
-            <field name="membre_writer_id" ref="demo_ore.partner_demo_alice_poitier" />
+            <field name="membre_writer_id" ref="demo_ore.ore_membre_demo_alice_poitier" />
             <field name="msg_group_id" ref="msg_group_1" />
         </record>
     </data>

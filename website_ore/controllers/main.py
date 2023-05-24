@@ -1110,7 +1110,7 @@ class OREController(http.Controller):
         supprimeInteret = kw.get("supprimeInteret")
         langues = kw.get("langues", [])
         supprimeLangue = kw.get("supprimeLangue")
-        nom = kw.get("full_name")
+        name = kw.get("full_name")
         genre = kw.get("genre")
         date_naissance = kw.get("date_naissance")
         email = kw.get("email")
@@ -1182,7 +1182,7 @@ class OREController(http.Controller):
             if langue_to_delete:
                 membre_id.langue_parle = [(3, langue_to_delete.id)]
         if "full_name" in kw.keys():
-            membre_id.nom = nom
+            membre_id.name = name
         if "genre" in kw.keys():
             membre_id.genre = genre
         if "date_naissance" in kw.keys():
@@ -2401,9 +2401,11 @@ class OREController(http.Controller):
             new_ore_echange_service.write(value_new_service)
             status["echange_service_id"] = new_ore_echange_service.id
             # Force update time per member
+            new_ore_echange_service.membre_acheteur._bank_time()
+            new_ore_echange_service.membre_vendeur._bank_time()
             # TODO remplacer is_time_updated par la méthode pour forcer la mise à jour du compute
-            new_ore_echange_service.membre_acheteur.is_time_updated = True
-            new_ore_echange_service.membre_vendeur.is_time_updated = True
+            # new_ore_echange_service.membre_acheteur.is_time_updated = True
+            # new_ore_echange_service.membre_vendeur.is_time_updated = True
         return status
 
     @http.route(
@@ -2525,7 +2527,7 @@ class OREController(http.Controller):
             else:
                 # First, search if relation exist, or create it
                 favoris_membre_model_favoris_id = (
-                    http.request.env["res.partner.favoris"]
+                    http.request.env["ore.membre.favoris"]
                     .sudo()
                     .search([("membre_id", "=", favoris_membre_id.id)])
                 )

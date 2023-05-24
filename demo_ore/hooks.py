@@ -25,39 +25,35 @@ def post_init_hook(cr, e):
                 "membre_favoris_ids": [
                     (
                         4,
+                        env.ref("demo_ore.ore_membre_favoris_martin_petit").id,
+                    ),
+                    (
+                        4,
                         env.ref(
-                            "demo_ore.res_partner_favoris_martin_petit"
+                            "demo_ore.ore_membre_favoris_administrateur_mathieu_benoit"
                         ).id,
                     ),
                     (
                         4,
                         env.ref(
-                            "demo_ore.res_partner_favoris_administrateur_mathieu_benoit"
-                        ).id,
-                    ),
-                    (
-                        4,
-                        env.ref(
-                            "demo_ore.res_partner_favoris_alice_poitier"
+                            "demo_ore.ore_membre_favoris_alice_poitier"
                         ).id,
                     ),
                 ]
             }
         )
 
-        env.ref("demo_ore.partner_demo_denis_lemarchand").write(
+        env.ref("demo_ore.ore_membre_demo_denis_lemarchand").write(
             {
                 "membre_favoris_ids": [
                     (
                         4,
-                        env.ref(
-                            "demo_ore.res_partner_favoris_martin_petit"
-                        ).id,
+                        env.ref("demo_ore.ore_membre_favoris_martin_petit").id,
                     ),
                     (
                         4,
                         env.ref(
-                            "demo_ore.res_partner_favoris_administrateur_mathieu_benoit"
+                            "demo_ore.ore_membre_favoris_administrateur_mathieu_benoit"
                         ).id,
                     ),
                 ]

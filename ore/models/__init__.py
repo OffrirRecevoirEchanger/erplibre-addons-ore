@@ -7,6 +7,8 @@ from . import (
     ore_demande_service,
     ore_echange_service,
     ore_echange_service_notification,
+    ore_membre,
+    ore_membre_favoris,
     ore_membre_interet,
     ore_membre_langue_parle,
     ore_occupation,
@@ -27,5 +29,4 @@ from . import (
     ore_workflow_state,
     res_config_settings,
     res_partner,
-    res_partner_favoris,
 )

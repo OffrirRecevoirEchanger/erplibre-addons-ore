@@ -3,8 +3,8 @@ from datetime import datetime
 from odoo import _, api, fields, models
 
 
-class ResPartner(models.Model):
-    _name = "res.partner.favoris"
+class OreMembreFavoris(models.Model):
+    _name = "ore.membre.favoris"
     _description = "ORE Membre Favoris des membres"
     _rec_name = "membre_id"
 

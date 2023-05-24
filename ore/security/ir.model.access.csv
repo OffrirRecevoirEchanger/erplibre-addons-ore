@@ -11,8 +11,8 @@ ore_echange_service_access_user_types_/_internal_user,ore_echange_service Access
 ore_echange_service_access_user_types_/_portal,ore_echange_service Access User types / Portal,model_ore_echange_service,base.group_portal,1,1,1,1
 ore_echange_service_notification_access_user_types_/_internal_user,ore_echange_service_notification Access User types / Internal User,model_ore_echange_service_notification,base.group_user,1,1,1,1
 ore_echange_service_notification_access_user_types_/_portal,ore_echange_service_notification Access User types / Portal,model_ore_echange_service_notification,base.group_portal,1,1,1,1
-res_partner_favoris_access_user_types_/_internal_user,res_partner_favoris Access User types / Internal User,model_res_partner_favoris,base.group_user,1,1,1,1
-res_partner_favoris_access_user_types_/_portal,res_partner_favoris Access User types / Portal,model_res_partner_favoris,base.group_portal,1,1,1,1
+ore_membre_favoris_access_user_types_/_internal_user,ore_membre_favoris Access User types / Internal User,model_ore_membre_favoris,base.group_user,1,1,1,1
+ore_membre_favoris_access_user_types_/_portal,ore_membre_favoris Access User types / Portal,model_ore_membre_favoris,base.group_portal,1,1,1,1
 access_ore_membre_interet,Access Ore Membre Interet,model_ore_membre_interet,base.group_user,1,1,1,1
 access_ore_membre_interet_portal,Access Ore Membre Interet (Portal),model_ore_membre_interet,base.group_portal,1,1,1,1
 access_ore_membre,Access Ore Membre,model_ore_membre,base.group_user,1,1,1,1

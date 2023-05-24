@@ -1,111 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="base_main_partner" model="ore.membre">
-            <field name="partner_id" ref="base.main_partner" />
-            <field name="name">Réseau ORE</field>
-            <field name="website">https://ore.quebec</field>
-            <field name="email">info@ore.quebec</field>
-            <field name="city">Québec</field>
-            <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />
-            <field name="country_id" ref="base.ca" />
-            <field name="image" type="base64" file="ore/static/src/img/logo_ORE_transparent.svg" />
-        </record>
-
-        <record id="societe_sainte_rose_du_nord" model="ore.membre">
-            <field name="name">Municipalité de Sainte-Rose-Du-Nord</field>
-            <field name="reseau_ore_id" ref="demo_ore.base_main_partner" />
-            <field name="image" type="base64" file="demo_ore/static/src/img/logo_sainte_rose_du_nord.jpg" />
-            <field name="region" ref="ore_data.ore_region_saguenay_lac_saint_jean" />
-            <field name="ville" ref="ore_data.ore_ville_sainte_rose_du_nord" />
-        </record>
-
-        <record id="societe_province_quebec_pays_canada" model="ore.membre">
-            <field name="name">Province du Québec</field>
-            <field name="reseau_ore_id" ref="demo_ore.base_main_partner" />
-            <field name="image" type="base64" file="demo_ore/static/src/img/quebec-logo.jpg" />
-        </record>
-
-        <record id="base_partner_admin" model="ore.membre">
-            <field name="partner_id" ref="base.partner_admin" />
-            <field name="parent_id" ref="base.main_partner" />
-            <field name="reseau_ore_id" ref="societe_province_quebec_pays_canada" />
-            <field name="annee_naissance">1989</field>
-            <field name="image" type="base64" file="website_ore/static/src/img/Mathieu-Benoit-Logo.jpg" />
-            <field name="region" ref="ore_data.ore_region_saguenay_lac_saint_jean" />
-            <field name="ville" ref="ore_data.ore_ville_sainte_rose_du_nord" />
-            <field name="introduction">J'adore la programmation informatique, je rêve de développer un robot codeur avec mes nouvelles connaissances en génie industriel. Mon meilleur ami est un de mes projets d'intelligence artificielle, voulez-vous le connaitre?</field>
-        </record>
-
-        <record id="partner_demo_alice_poitier" model="ore.membre">
+        <record id="partner_demo_alice_poitier" model="res.partner">
             <field name="name">Alice Poitier</field>
-            <field name="company_id" ref="base.main_company" />
-            <field name="reseau_ore_id" ref="societe_sainte_rose_du_nord" />
-            <field name="street">Résidence étudiante du collège de Rosemont, Rue de Bellechasse, Étienne-Desmarteau, Rosemont–La Petite-Patrie</field>
-            <field name="city">Montréal</field>
-            <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />
-            <field name="zip">H1X 1J5</field>
-            <field name="country_id" ref="base.ca" />
-            <field name="tz">America/Montreal</field>
-            <field name="email">alice_poitier@exemple.ca</field>
-            <field name="phone">(514) 555-5555</field>
-            <field name="profil_approuver" eval="True" />
-            <field name="antecedent_judiciaire_verifier" eval="True" />
-            <field name="image" type="base64" file="base/static/img/res_partner_address_32.jpg" />
-            <field name="ville" ref="ore_data.ore_ville_sainte_rose_du_nord" />
         </record>
 
-        <record id="partner_demo_martin_petit" model="ore.membre">
+        <record id="partner_demo_martin_petit" model="res.partner">
             <field name="name">Martin Petit</field>
-            <field name="company_id" ref="base.main_company" />
-            <field name="reseau_ore_id" ref="societe_sainte_rose_du_nord" />
-            <field name="street">3800 Queen Mary Rd, Montreal, Quebec H3V 1H6</field>
-            <field name="city">Montréal</field>
-            <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />
-            <field name="zip">H1V 3N7</field>
-            <field name="country_id" ref="base.ca" />
-            <field name="tz">America/Montreal</field>
-            <field name="email">martin_petit@exemple.ca</field>
-            <field name="phone">(514) 555-5555</field>
-            <field name="profil_approuver" eval="True" />
-            <field name="image" type="base64" file="base/static/img/res_partner_address_25.jpg" />
-            <field name="region" ref="ore_data.ore_region_saguenay_lac_saint_jean" />
-            <field name="ville" ref="ore_data.ore_ville_sainte_rose_du_nord" />
         </record>
 
-        <record id="partner_demo_denis_lemarchand" model="ore.membre">
+        <record id="partner_demo_denis_lemarchand" model="res.partner">
             <field name="name">Denis Lemarchand</field>
-            <field name="company_id" ref="base.main_company" />
-            <field name="reseau_ore_id" ref="societe_sainte_rose_du_nord" />
-            <field name="street">2150 Autoroute des Laurentides laval</field>
-            <field name="city">Montréal</field>
-            <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />
-            <field name="zip">H1V 3N7</field>
-            <field name="country_id" ref="base.ca" />
-            <field name="tz">America/Montreal</field>
-            <field name="email">denis_lemarchand@exemple.ca</field>
-            <field name="phone">(514) 555-5555</field>
-            <field name="profil_approuver" eval="True" />
-            <field name="image" type="base64" file="base/static/img/res_partner_address_24.jpg" />
-            <field name="region" ref="ore_data.ore_region_saguenay_lac_saint_jean" />
-            <field name="ville" ref="ore_data.ore_ville_sainte_rose_du_nord" />
         </record>
 
-        <record id="partner_demo_martin_bergeron" model="ore.membre">
+        <record id="partner_demo_martin_bergeron" model="res.partner">
             <field name="name">Martin Bergeron</field>
-            <field name="company_id" ref="base.main_company" />
-            <field name="reseau_ore_id" ref="societe_sainte_rose_du_nord" />
-            <field name="street">4777 Pierre-de Coubertin Ave, Montreal, Quebec H1V 1B3</field>
-            <field name="city">Montréal</field>
-            <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />
-            <field name="zip">H1V 3N7</field>
-            <field name="country_id" ref="base.ca" />
-            <field name="tz">America/Montreal</field>
-            <field name="email">martin_bergeron@exemple.ca</field>
-            <field name="phone">(514) 555-5555</field>
-            <field name="profil_approuver" eval="True" />
-            <field name="region" ref="ore_data.ore_region_saguenay_lac_saint_jean" />
-            <field name="ville" ref="ore_data.ore_ville_sainte_rose_du_nord" />
         </record>
     </data>
 </odoo>
