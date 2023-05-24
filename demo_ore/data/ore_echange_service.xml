@@ -6,7 +6,7 @@
             <field name="nb_heure">15</field>
             <field name="type_echange">offre_ponctuel</field>
             <field name="transaction_valide">true</field>
-            <field name="membre_acheteur" ref="base.main_partner" />
+            <field name="membre_acheteur" ref="societe_province_quebec_pays_canada" />
             <field name="membre_vendeur" ref="base.partner_admin" />
         </record>
         <record id="ore_echange_service_new_membre_alice_poitier" model="ore.echange.service">

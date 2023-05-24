@@ -11,22 +11,28 @@
             <field name="image" type="base64" file="ore/static/src/img/logo_ORE_transparent.svg" />
         </record>
 
-        <record id="base.partner_admin" model="res.partner">
-            <field name="parent_id" ref="base.main_partner" />
-            <field name="reseau_ore_id" ref="base.main_partner" />
-            <field name="annee_naissance">1989</field>
-            <field name="image" type="base64" file="website_ore/static/src/img/Mathieu-Benoit-Logo.jpg" />
-            <field name="region" ref="ore_data.ore_region_saguenay_lac_saint_jean" />
-            <field name="ville" ref="ore_data.ore_ville_sainte_rose_du_nord" />
-            <field name="introduction">J'adore la programmation informatique, je rêve de développer un robot codeur avec mes nouvelles connaissances en génie industriel. Mon meilleur ami est un de mes projets d'intelligence artificielle, voulez-vous le connaitre?</field>
-        </record>
-
         <record id="societe_sainte_rose_du_nord" model="res.partner">
             <field name="name">Municipalité de Sainte-Rose-Du-Nord</field>
             <field name="reseau_ore_id" ref="base.main_partner" />
             <field name="image" type="base64" file="demo_ore/static/src/img/logo_sainte_rose_du_nord.jpg" />
             <field name="region" ref="ore_data.ore_region_saguenay_lac_saint_jean" />
             <field name="ville" ref="ore_data.ore_ville_sainte_rose_du_nord" />
+        </record>
+
+        <record id="societe_province_quebec_pays_canada" model="res.partner">
+            <field name="name">Province du Québec</field>
+            <field name="reseau_ore_id" ref="base.main_partner" />
+            <field name="image" type="base64" file="demo_ore/static/src/img/quebec-logo.jpg" />
+        </record>
+
+        <record id="base.partner_admin" model="res.partner">
+            <field name="parent_id" ref="base.main_partner" />
+            <field name="reseau_ore_id" ref="societe_province_quebec_pays_canada" />
+            <field name="annee_naissance">1989</field>
+            <field name="image" type="base64" file="website_ore/static/src/img/Mathieu-Benoit-Logo.jpg" />
+            <field name="region" ref="ore_data.ore_region_saguenay_lac_saint_jean" />
+            <field name="ville" ref="ore_data.ore_ville_sainte_rose_du_nord" />
+            <field name="introduction">J'adore la programmation informatique, je rêve de développer un robot codeur avec mes nouvelles connaissances en génie industriel. Mon meilleur ami est un de mes projets d'intelligence artificielle, voulez-vous le connaitre?</field>
         </record>
 
         <record id="partner_demo_alice_poitier" model="res.partner">

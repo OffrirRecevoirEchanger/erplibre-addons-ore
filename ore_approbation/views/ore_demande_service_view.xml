@@ -90,7 +90,7 @@
         <field name="model">ore.demande.service</field>
         <field name="inherit_id" ref="ore.ore_demande_service_view_kanban" />
         <field name="arch" type="xml">
-            <xpath expr="//kanban/field[@name='ore']" position="after">
+            <xpath expr="//kanban/field[@name='membre']" position="after">
                 <field name="validated" />
                 <field name="rejected" />
                 <field name="need_validation" />
