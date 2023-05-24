@@ -9,21 +9,36 @@ _logger = logging.getLogger(__name__)
 class OREController(http.Controller):
     @staticmethod
     def get_membre_id():
-        partner_id = http.request.env.user.partner_id
+        membre_id = http.request.env.user.partner_id
         # TODO wrong algorithm, but use instead 'auth="user",'
-        if not partner_id or http.request.auth_method == "public":
+        if not membre_id or http.request.auth_method == "public":
             return {"error": _("User not connected")}
 
-        membre_id = request.env["ore.membre"].browse(partner_id.id)
+        # # membre_id = partner_id.res_partner_ids
+        # membre_id = request.env["ore.membre"].search(
+        #     [("partner_id", "=", partner_id.id)], limit=1
+        # )
 
         if not membre_id:
+            return {
+                "error": _(
+                    "Your account is not "
+                    " configuration. Please contact your administrator."
+                )
+            }
+        ore_membre_id = (
+            http.request.env["ore.membre"]
+            .sudo()
+            .search([("partner_id", "=", membre_id.id)], limit=1)
+        )
+        if not ore_membre_id:
             return {
                 "error": _(
                     "Your account is not associate to an ore"
                     " configuration. Please contact your administrator."
                 )
             }
-        return membre_id
+        return ore_membre_id
 
     @http.route(
         [
@@ -61,13 +76,13 @@ class OREController(http.Controller):
         msg = kw.get("msg")
         group_id = kw.get("group_id")
         membre_id = kw.get("membre_id")
-        me_membre_id = http.request.env.user.partner_id
+        me_membre_id = self.get_membre_id()
         if not group_id:
             group_value = {
                 "membre_ids": [(6, 0, [membre_id, me_membre_id.id])]
             }
-            group_id_id = http.request.env["ore.chat.group"].create(
-                group_value
+            group_id_id = (
+                http.request.env["ore.chat.group"].sudo().create(group_value)
             )
             group_id = group_id_id.id
         value = {

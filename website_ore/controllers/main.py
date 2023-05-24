@@ -137,8 +137,8 @@ class OREController(http.Controller):
             "distance": "8m",
             "membre_id": offre_id.membre.id,
             "membre": {
-                "id": offre_id.membre.id,
-                "full_name": offre_id.membre.name,
+                "id": offre_id.sudo().membre.id,
+                "full_name": offre_id.sudo().membre.name,
             },
             "diff_create_date": self._transform_str_diff_time_creation(
                 offre_id.create_date
