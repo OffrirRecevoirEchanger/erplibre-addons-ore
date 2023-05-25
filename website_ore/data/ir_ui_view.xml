@@ -2133,10 +2133,8 @@
                                                             <q ng-cloak="">{{membre.introduction}}</q>
                                                         </font>
                                                     </div>
-                                                    <div class="item_foot debug_unimplemented">
-                                                        <span class="tag">Marche</span>
-                                                        <span class="tag">Violoncelle</span>
-                                                        <span class="tag">Gym</span>
+                                                    <div class="item_foot" ng-if="!_.isEmpty(membre.interet)">
+                                                        <span class="tag" ng-repeat="interet in membre.interet">{{interet.name}}</span>
                                                     </div>
                                                 </a>
                                             </div>

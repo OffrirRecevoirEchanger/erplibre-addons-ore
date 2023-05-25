@@ -986,6 +986,9 @@ class OREController(http.Controller):
                 "id": a.membre_id.id,
                 "ma_photo": a.membre_id.get_image_url(),
                 "description": a.membre_id.introduction,
+                "interet": [
+                    {"id": a.id, "name": a.name} for a in membre_id.interet
+                ],
                 "age": 35,
                 "is_favorite": True,
                 "full_name": a.membre_id.name,
@@ -1393,8 +1396,12 @@ class OREController(http.Controller):
                 "motivation_membre": a.motivation_membre
                 if a.motivation_membre
                 else "",
-                "interet": a.interet if a.interet else [],
-                "langue": a.langue_parle if a.langue_parle else [],
+                "interet": [
+                    {"name": rec.name, "id": rec.id} for rec in a.interet
+                ],
+                "langue": [
+                    {"name": rec.name, "id": rec.id} for rec in a.langue_parle
+                ],
                 "is_favorite": a.id in my_favorite_membre_id,
             }
             for a in lst_membre
