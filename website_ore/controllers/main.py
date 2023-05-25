@@ -1893,6 +1893,8 @@ class OREController(http.Controller):
                 ]
             )
         }
+        # TODO need refactoring membre_id not use vs actual_membre_id
+        # TODO use env.user.partner_id.membre_id
         # Find already member
         membre_id = (
             env["ore.membre"]
@@ -1904,7 +1906,12 @@ class OREController(http.Controller):
                 limit=1,
             )
         )
-        if self.get_membre_id().id == 4:
+        actual_new_membre_id = self.get_membre_id()
+        if (
+            actual_new_membre_id
+            and type(actual_new_membre_id) is not dict
+            and actual_new_membre_id.id == 4
+        ):
             # TODO find better solution, validate it's associate with member
             # Detect if user is public
             actual_membre_id = None
