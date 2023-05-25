@@ -114,9 +114,7 @@ odoo.define('website.ore_aide', function (require) {
             $scope.$digest();
         }).fail(function (error, ev) {
             console.error(error);
-            if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
-                window.location.href = `/web/login?redirect=${window.location.href}`
-            }
+            $scope.check_need_login(error);
         })
 
     }])

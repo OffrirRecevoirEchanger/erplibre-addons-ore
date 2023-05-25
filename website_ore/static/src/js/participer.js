@@ -97,9 +97,7 @@ odoo.define("website.ore.participer", function (require) {
             }
         }).fail(function (error, ev) {
             console.error(error);
-            if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
-                window.location.href = `/web/login?redirect=${window.location.href}`
-            }
+            $scope.check_need_login(error);
         })
 
         console.debug(value);
@@ -159,9 +157,7 @@ odoo.define("website.ore.participer", function (require) {
                     }
                 }).fail(function (error, ev) {
                     console.error(error);
-                    if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
-                        window.location.href = `/web/login?redirect=${window.location.href}`
-                    }
+                    $scope.check_need_login(error);
                 })
             } else if ($scope.model === "ore.demande.service") {
                 let value = $scope.$parent.dct_demande_service_info[$scope.service_id];
@@ -183,9 +179,7 @@ odoo.define("website.ore.participer", function (require) {
                     }
                 }).fail(function (error, ev) {
                     console.error(error);
-                    if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
-                        window.location.href = `/web/login?redirect=${window.location.href}`
-                    }
+                    $scope.check_need_login(error);
                 })
             } else {
                 console.error("Cannot support model '" + $scope.model + "' synchronise data");
@@ -269,9 +263,7 @@ odoo.define("website.ore.participer", function (require) {
                     }
                 }).fail(function (error, ev) {
                     console.error(error);
-                    if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
-                        window.location.href = `/web/login?redirect=${window.location.href}`
-                    }
+                    $scope.check_need_login(error);
                 })
             }
         }
@@ -444,9 +436,7 @@ odoo.define("website.ore.participer", function (require) {
             $scope.$digest();
         }).fail(function (error, ev) {
             console.error(error);
-            if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
-                window.location.href = `/web/login?redirect=${window.location.href}`
-            }
+            $scope.check_need_login(error);
         })
 
         $scope.init_controller = function (state = INIT_STATE) {
@@ -949,9 +939,7 @@ odoo.define("website.ore.participer", function (require) {
                 }
             ).fail(function (error, ev) {
                 console.error(error);
-                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
-                    window.location.href = `/web/login?redirect=${window.location.href}`
-                }
+                $scope.check_need_login(error);
             })
         }
 

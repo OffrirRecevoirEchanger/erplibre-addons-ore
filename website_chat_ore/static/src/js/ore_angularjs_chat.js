@@ -41,9 +41,7 @@ odoo.define('website.ore_angularjs_chat', function (require) {
                 $scope.$scope_main.$digest();
             }).fail(function (error, ev) {
                 console.error(error);
-                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
-                    window.location.href = `/web/login?redirect=${window.location.href}`
-                }
+                $scope.check_need_login(error);
             })
         }
 
@@ -150,9 +148,7 @@ odoo.define('website.ore_angularjs_chat', function (require) {
                 // $scope.$digest();
             }).fail(function (error, ev) {
                 console.error(error);
-                if (window.location.pathname !== "/web/login" && error.data.name === "odoo.http.SessionExpiredException") {
-                    window.location.href = `/web/login?redirect=${window.location.href}`
-                }
+                $scope.check_need_login(error);
             })
             // $scope.chat_msg = "";
         }
