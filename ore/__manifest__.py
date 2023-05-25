@@ -17,6 +17,7 @@
         "views/ore_echange_service.xml",
         "views/res_partner.xml",
         "views/ore_occupation.xml",
+        "views/ore_membre.xml",
         "views/ore_offre_service.xml",
         "views/ore_origine.xml",
         "views/ore_provenance.xml",

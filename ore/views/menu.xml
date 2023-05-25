@@ -112,7 +112,7 @@
         parent="group_service"
     />
 
-    <!--    <menuitem id="membre" name="Membre" action="res_partner_membre_action_window" sequence="9" parent="group_membre" />-->
+    <menuitem id="membre" name="Membre" action="res_partner_membre_action_window" sequence="9" parent="group_membre" />
 
     <menuitem id="menu" name="Menu" sequence="1" parent="ore" />
 

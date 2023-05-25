@@ -208,15 +208,15 @@ class OREMembre(models.Model):
         help="Liste des membres favoris",
     )
 
-    # part_social_paye = fields.Boolean(
-    #     string="Part social payé",
-    #     track_visibility="onchange",
-    # )
+    part_social_paye = fields.Boolean(
+        string="Part social payé",
+        track_visibility="onchange",
+    )
 
-    # pas_communication = fields.Boolean(
-    #     string="Pas de communication",
-    #     track_visibility="onchange",
-    # )
+    pas_communication = fields.Boolean(
+        string="Pas de communication",
+        track_visibility="onchange",
+    )
 
     interet = fields.Many2many(
         comodel_name="ore.membre.interet",
@@ -265,11 +265,6 @@ class OREMembre(models.Model):
         track_visibility="onchange",
         string="Revenu familial",
     )
-
-    # sexe = fields.Selection(
-    #     selection=[("femme", "Femme"), ("homme", "Homme"), ("autre", "Autre")],
-    #     track_visibility="onchange",
-    # )
 
     date_naissance = fields.Date(
         string="Date de naissance",
