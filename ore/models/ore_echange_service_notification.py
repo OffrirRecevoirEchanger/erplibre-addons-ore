@@ -71,7 +71,7 @@ class OREEchangeServiceNotification(models.Model):
                     f"Membre : '{rec.echange_service_id.membre_acheteur.name}'"
                 )
                 rec.membre_logo = (
-                    rec.echange_service_id.membre_acheteur.image_attachment_id.local_url
+                    rec.echange_service_id.membre_acheteur.get_image_url()
                 )
             if (
                 rec.echange_service_id.membre_vendeur
@@ -82,7 +82,7 @@ class OREEchangeServiceNotification(models.Model):
                     f"Membre : '{rec.echange_service_id.membre_vendeur.name}'"
                 )
                 rec.membre_logo = (
-                    rec.echange_service_id.membre_vendeur.image_attachment_id.local_url
+                    rec.echange_service_id.membre_vendeur.get_image_url()
                 )
             if rec.echange_service_id.offre_service:
                 lst_msg.append(

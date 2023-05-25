@@ -1,3 +1,4 @@
+import hashlib
 from datetime import date, datetime
 
 from odoo import _, api, fields, models
@@ -103,7 +104,7 @@ class OREMembre(models.Model):
     #     track_visibility="onchange",
     # )
 
-    image_attachment_id = fields.Many2one("ir.attachment")
+    # image_attachment_id = fields.Many2one("ir.attachment")
 
     # membre_ca = fields.Boolean(
     #     string="Membre du CA",
@@ -354,16 +355,6 @@ class OREMembre(models.Model):
         status = super().create(vals_list)
         for stat in status:
             stat.partner_id.ore_membre_id = stat.id
-            ir_attach_id = self.env["ir.attachment"].create(
-                {
-                    "name": f"image_res_partner_{stat.id}",
-                    "datas": stat.image,
-                    "res_model": "ore.membre",
-                    "res_id": stat.id,
-                    "type": "url",
-                }
-            )
-            stat.image_attachment_id = ir_attach_id.id
         return status
 
     @api.multi
@@ -372,22 +363,6 @@ class OREMembre(models.Model):
 
         # Detect user
         for rec in self:
-            if "image" in vals.keys():
-                # Update attachment with image
-                image = vals.get("image")
-                if rec.sudo().image_attachment_id:
-                    rec.sudo().image_attachment_id.datas = image
-                else:
-                    ir_attach_id = self.env["ir.attachment"].create(
-                        {
-                            "name": f"image_res_partner_{rec.id}",
-                            "datas": image,
-                            "res_model": "ore.membre",
-                            "res_id": rec.id,
-                            "type": "url",
-                        }
-                    )
-                    rec.sudo().image_attachment_id = ir_attach_id.id
             self.env["bus.bus"].sendone(
                 # f'["{self._cr.dbname}","{self._name}",{rec.id}]',
                 "ore.notification.favorite",
@@ -399,6 +374,30 @@ class OREMembre(models.Model):
                 },
             )
         return status
+
+    def get_image_url(self, field="image"):
+        # field can be image_medium or image_small
+        # website_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        # unique = self.write_date.strftime('%Y%m%d%H%M%S')
+        # url = f"{website_url}/web/image?model=res.partner&id={self.partner_id.id}&field={field}&unique={unique}"
+        # return url
+        return self.image_url(self, field)
+
+    @api.model
+    def image_url(self, record, field, size=None):
+        """Returns a local url that points to the image field of a given browse record."""
+        sudo_record = record.sudo()
+        sha = hashlib.sha1(
+            str(getattr(sudo_record, "__last_update")).encode("utf-8")
+        ).hexdigest()[0:7]
+        size = "" if size is None else "/%s" % size
+        return "/web/image/%s/%s/%s%s?unique=%s" % (
+            record._name,
+            record.id,
+            field,
+            size,
+            sha,
+        )
 
     @api.multi
     @api.depends("offre_service_ids")

@@ -46,7 +46,7 @@ class OREChatGroup(models.Model):
                 "id": other_membre_id.id,
                 "id_group": obj.id,
                 "name": other_membre_id.name,
-                "ma_photo": other_membre_id.image_attachment_id.local_url,
+                "ma_photo": other_membre_id.get_image_url(),
                 "resume_msg": last_msg,
                 "lst_msg": [a.first_to_json() for a in obj.msg_ids],
             }

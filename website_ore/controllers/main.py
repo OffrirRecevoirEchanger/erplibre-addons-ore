@@ -910,7 +910,7 @@ class OREController(http.Controller):
                 "membre": {
                     "id": a.membre.id,
                     "full_name": a.membre.name,
-                    "ma_photo": a.membre.image_attachment_id.local_url,
+                    "ma_photo": a.membre.get_image_url(),
                 },
                 "distance": "8m",
             }
@@ -929,7 +929,7 @@ class OREController(http.Controller):
                 "membre": {
                     "id": a.membre.id,
                     "full_name": a.membre.name,
-                    "ma_photo": a.membre.image_attachment_id.local_url,
+                    "ma_photo": a.membre.get_image_url(),
                 },
                 "distance": "8m",
             }
@@ -952,7 +952,7 @@ class OREController(http.Controller):
                 "membre": {
                     "id": a.membre.id,
                     "full_name": a.membre.name,
-                    "ma_photo": a.membre.image_attachment_id.local_url,
+                    "ma_photo": a.membre.get_image_url(),
                 },
                 "distance": "8m",
             }
@@ -971,7 +971,7 @@ class OREController(http.Controller):
                 "membre": {
                     "id": a.membre.id,
                     "full_name": a.membre.name,
-                    "ma_photo": a.membre.image_attachment_id.local_url,
+                    "ma_photo": a.membre.get_image_url(),
                 },
                 "distance": "8m",
             }
@@ -984,7 +984,7 @@ class OREController(http.Controller):
         dct_membre_favoris = {
             a.membre_id.id: {
                 "id": a.membre_id.id,
-                "ma_photo": a.membre_id.image_attachment_id.local_url,
+                "ma_photo": a.membre_id.get_image_url(),
                 "description": a.membre_id.introduction,
                 "age": 35,
                 "is_favorite": True,
@@ -1047,7 +1047,7 @@ class OREController(http.Controller):
             "email": membre_id.email,
             "phone": membre_id.phone,
             "street": membre_id.street,
-            "ma_photo": membre_id.image_attachment_id.local_url,
+            "ma_photo": membre_id.get_image_url(),
             # "actual_bank_hours": bank_time,
             "actual_bank_hours": membre_id.bank_time,
             # "actual_month_bank_hours": month_bank_time,
@@ -1268,7 +1268,7 @@ class OREController(http.Controller):
             "email": membre_id.email,
             "phone": membre_id.phone,
             "street": membre_id.street,
-            "ma_photo": membre_id.image_attachment_id.local_url,
+            "ma_photo": membre_id.get_image_url(),
             "bank_max_service_offert": membre_id.bank_max_service_offert,
             "actual_bank_hours": membre_id.bank_time,
             "actual_month_bank_hours": membre_id.bank_month_time,
@@ -1376,7 +1376,7 @@ class OREController(http.Controller):
         dct_membre = {
             a.id: {
                 "age": a.age,
-                "ma_photo": a.image_attachment_id.local_url,
+                "ma_photo": a.get_image_url(),
                 "full_name": a.name,
                 "annee_naissance": a.annee_naissance,
                 "date_naissance": a.date_naissance,
@@ -1511,7 +1511,7 @@ class OREController(http.Controller):
             {
                 "title": a.name,
                 "id": a.id,
-                "img": a.image_attachment_id.local_url,
+                "img": a.get_image_url(),
             }
             for a in res_partner_ids
         ]
@@ -2607,7 +2607,7 @@ class OREController(http.Controller):
                 {
                     "text": a.name,
                     "id": a.id,
-                    "img": a.image_attachment_id.local_url,
+                    "img": a.get_image_url(),
                 }
                 for a in res_partner_ids
             ]
