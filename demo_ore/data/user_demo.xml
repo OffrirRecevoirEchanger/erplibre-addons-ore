@@ -48,19 +48,19 @@
         <field name="image" type="base64" file="base/static/img/res_partner_address_25.jpg" />
     </record>
 
-    <!--    <record id="user_demo_martin_bergeron" model="res.users">-->
-    <!--        <field name="partner_id" ref="partner_demo_martin_bergeron" />-->
-    <!--        <field name="login">martin_bergeron@exemple.ca</field>-->
-    <!--        <field name="password">demo</field>-->
-    <!--        <field name="signature" type="xml">-->
-    <!--            <span>-->
-    <!--                &#45;&#45;-->
-    <!--                <br />-->
-    <!--                Martin Bergeron-->
-    <!--            </span>-->
-    <!--        </field>-->
-    <!--        <field name="company_id" ref="base.main_company" />-->
-    <!--        <field name="groups_id" eval="[(6,0,[ref('base.group_portal')])]" />-->
-    <!--        <field name="image" type="base64" file="base/static/img/res_partner_address_24.jpg" />-->
-    <!--    </record>-->
+    <record id="user_demo_martin_bergeron" model="res.users">
+        <field name="partner_id" ref="partner_demo_martin_bergeron" />
+        <field name="login">martin_bergeron@exemple.ca</field>
+        <field name="password">demo</field>
+        <field name="signature" type="xml">
+            <span>
+                --
+                <br />
+                Martin Bergeron
+            </span>
+        </field>
+        <field name="company_id" ref="base.main_company" />
+        <field name="groups_id" eval="[(6,0,[ref('base.group_portal')])]" />
+        <field name="image" type="base64" file="base/static/img/res_partner_address_24.jpg" />
+    </record>
 </odoo>

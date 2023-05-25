@@ -13,17 +13,19 @@
         </record>
 
         <record id="societe_sainte_rose_du_nord" model="ore.membre">
-            <field name="name">Municipalité de Sainte-Rose-Du-Nord</field>
             <field name="reseau_ore_id" ref="demo_ore.base_main_partner" />
+            <field name="parent_id" ref="base.main_partner" />
+            <field name="partner_id" ref="partner_societe_sainte_rose_du_nord" />
             <field name="image" type="base64" file="demo_ore/static/src/img/logo_sainte_rose_du_nord.jpg" />
             <field name="region" ref="ore_data.ore_region_saguenay_lac_saint_jean" />
             <field name="ville" ref="ore_data.ore_ville_sainte_rose_du_nord" />
         </record>
 
         <record id="societe_province_quebec_pays_canada" model="ore.membre">
-            <field name="name">Province du Québec</field>
             <field name="reseau_ore_id" ref="demo_ore.base_main_partner" />
+            <field name="parent_id" ref="base.main_partner" />
             <field name="image" type="base64" file="demo_ore/static/src/img/quebec-logo.jpg" />
+            <field name="partner_id" ref="partner_societe_province_quebec_pays_canada" />
         </record>
 
         <record id="base_partner_admin" model="ore.membre">
@@ -40,6 +42,7 @@
 
         <record id="ore_membre_demo_alice_poitier" model="ore.membre">
             <field name="company_id" ref="base.main_company" />
+            <field name="parent_id" ref="base.main_partner" />
             <field name="partner_id" ref="partner_demo_alice_poitier" />
             <field name="reseau_ore_id" ref="societe_sainte_rose_du_nord" />
             <field name="street">Résidence étudiante du collège de Rosemont, Rue de Bellechasse, Étienne-Desmarteau, Rosemont–La Petite-Patrie</field>
@@ -58,6 +61,7 @@
 
         <record id="ore_membre_demo_martin_petit" model="ore.membre">
             <field name="company_id" ref="base.main_company" />
+            <field name="parent_id" ref="base.main_partner" />
             <field name="partner_id" ref="partner_demo_martin_petit" />
             <field name="reseau_ore_id" ref="societe_sainte_rose_du_nord" />
             <field name="street">3800 Queen Mary Rd, Montreal, Quebec H3V 1H6</field>
@@ -76,6 +80,7 @@
 
         <record id="ore_membre_demo_denis_lemarchand" model="ore.membre">
             <field name="company_id" ref="base.main_company" />
+            <field name="parent_id" ref="base.main_partner" />
             <field name="partner_id" ref="partner_demo_denis_lemarchand" />
             <field name="reseau_ore_id" ref="societe_sainte_rose_du_nord" />
             <field name="street">2150 Autoroute des Laurentides laval</field>
@@ -94,6 +99,7 @@
 
         <record id="ore_membre_demo_martin_bergeron" model="ore.membre">
             <field name="company_id" ref="base.main_company" />
+            <field name="parent_id" ref="base.main_partner" />
             <field name="partner_id" ref="partner_demo_martin_bergeron" />
             <field name="reseau_ore_id" ref="societe_sainte_rose_du_nord" />
             <field name="street">4777 Pierre-de Coubertin Ave, Montreal, Quebec H1V 1B3</field>
