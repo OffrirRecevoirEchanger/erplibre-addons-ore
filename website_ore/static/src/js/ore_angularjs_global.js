@@ -163,6 +163,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             // },
         }
         $scope.membre_info = {}
+        $scope.page_presentation_membre_info = {}
         $scope.dct_membre = {}
         $scope.contact_info = {}
         $scope.offre_service_info = {}
@@ -1328,13 +1329,14 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     // Special case, when need to get information of another member
                     let membre_id = $location.search()["membre_id"];
                     let membre_id_int = parseInt(membre_id);
+                    $scope.membre_info = $scope.personal;
                     if (window.location.pathname === "/monprofil/mapresentation" && !_.isUndefined(membre_id) && membre_id_int !== $scope.personal.id) {
                         // Force switch to another user
-                        $scope.update_membre_info(membre_id_int, "membre_info");
+                        $scope.update_membre_info(membre_id_int, "page_presentation_membre_info");
                     } else {
                         console.debug("Setup membre personal.");
                         $scope.personal.estPersonnel = true;
-                        $scope.membre_info = $scope.personal;
+                        $scope.page_presentation_membre_info = $scope.membre_info;
                     }
                 }
 
