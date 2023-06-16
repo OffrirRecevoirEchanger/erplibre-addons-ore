@@ -204,7 +204,10 @@ class OREMembre(models.Model):
 
     membre_favoris_ids = fields.Many2many(
         string="Membre favoris",
-        comodel_name="ore.membre.favoris",
+        comodel_name="ore.membre",
+        relation="ore_membre_fav_source_dest_rel",
+        column1="membre_fav_source_id",
+        column2="membre_fav_dest_id",
         help="Liste des membres favoris",
     )
 

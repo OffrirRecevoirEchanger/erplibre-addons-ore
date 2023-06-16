@@ -982,23 +982,23 @@ class OREController(http.Controller):
         }
 
         dct_membre_favoris = {
-            a.membre_id.id: {
-                "id": a.membre_id.id,
-                "ma_photo": a.membre_id.get_image_url(),
-                "description": a.membre_id.introduction,
+            a.id: {
+                "id": a.id,
+                "ma_photo": a.get_image_url(),
+                "description": a.introduction,
                 "interet": [
-                    {"id": a.id, "name": a.name} for a in membre_id.interet
+                    {"id": b.id, "name": b.name} for b in membre_id.interet
                 ],
                 "age": 35,
                 "is_favorite": True,
-                "full_name": a.membre_id.name,
+                "full_name": a.name,
                 "distance": "8m",
             }
             for a in membre_id.membre_favoris_ids
         }
 
         is_favorite = membre_id.id in [
-            a.membre_id.id for a in membre_id.membre_favoris_ids
+            a.id for a in membre_id.membre_favoris_ids
         ]
 
         dct_echange = {}
@@ -1261,7 +1261,7 @@ class OREController(http.Controller):
         }
 
         is_favorite = membre_id.id in [
-            a.membre_id.id for a in actual_membre_id.membre_favoris_ids
+            a.id for a in actual_membre_id.membre_favoris_ids
         ]
 
         data_membre_info = {
@@ -1363,9 +1363,7 @@ class OREController(http.Controller):
             # This is an error
             return membre_id
 
-        my_favorite_membre_id = [
-            a.membre_id.id for a in membre_id.membre_favoris_ids
-        ]
+        my_favorite_membre_id = [a.id for a in membre_id.membre_favoris_ids]
         lst_membre = (
             http.request.env["ore.membre"]
             .sudo()
@@ -2539,28 +2537,9 @@ class OREController(http.Controller):
                 status["id"] = favoris_membre_id.id
                 status["is_favorite"] = False
             else:
-                # First, search if relation exist, or create it
-                favoris_membre_model_favoris_id = (
-                    http.request.env["ore.membre.favoris"]
-                    .sudo()
-                    .search([("membre_id", "=", favoris_membre_id.id)])
+                membre_id.write(
+                    {"membre_favoris_ids": [(4, favoris_membre_id.id, False)]}
                 )
-                if not favoris_membre_model_favoris_id:
-                    membre_id.write(
-                        {
-                            "membre_favoris_ids": [
-                                (0, False, {"membre_id": favoris_membre_id.id})
-                            ]
-                        }
-                    )
-                else:
-                    membre_id.write(
-                        {
-                            "membre_favoris_ids": [
-                                (4, favoris_membre_id.id, False)
-                            ]
-                        }
-                    )
                 status["id"] = favoris_membre_id.id
                 status["is_favorite"] = True
         elif model_name == "ore.offre.service":

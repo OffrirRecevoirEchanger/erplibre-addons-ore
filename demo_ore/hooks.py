@@ -19,47 +19,6 @@ def post_init_hook(cr, e):
         for adhesion_id in adhesion_ids:
             adhesion_id.en_attente = False
 
-        # TODO can move this in data
-        env.ref("demo_ore.base_partner_admin").write(
-            {
-                "membre_favoris_ids": [
-                    (
-                        4,
-                        env.ref("demo_ore.ore_membre_favoris_martin_petit").id,
-                    ),
-                    (
-                        4,
-                        env.ref(
-                            "demo_ore.ore_membre_favoris_administrateur_mathieu_benoit"
-                        ).id,
-                    ),
-                    (
-                        4,
-                        env.ref(
-                            "demo_ore.ore_membre_favoris_alice_poitier"
-                        ).id,
-                    ),
-                ]
-            }
-        )
-
-        env.ref("demo_ore.ore_membre_demo_denis_lemarchand").write(
-            {
-                "membre_favoris_ids": [
-                    (
-                        4,
-                        env.ref("demo_ore.ore_membre_favoris_martin_petit").id,
-                    ),
-                    (
-                        4,
-                        env.ref(
-                            "demo_ore.ore_membre_favoris_administrateur_mathieu_benoit"
-                        ).id,
-                    ),
-                ]
-            }
-        )
-
         # General configuration
         values = {
             "ore_auto_accept_adhesion": True,

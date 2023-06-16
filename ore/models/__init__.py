@@ -8,7 +8,6 @@ from . import (
     ore_echange_service,
     ore_echange_service_notification,
     ore_membre,
-    ore_membre_favoris,
     ore_membre_interet,
     ore_membre_langue_parle,
     ore_occupation,
