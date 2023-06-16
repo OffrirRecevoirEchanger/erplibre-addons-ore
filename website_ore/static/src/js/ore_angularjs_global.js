@@ -9,7 +9,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
     let QWeb = core.qweb;
     let _t = core._t;
 
-    if (window.location.pathname === "/web/signup") {
+    if (["/web/signup", "/web/reset_password"].includes(window.location.pathname)) {
         console.info("Disable AngularJS, this block signup form.")
         document.getElementById("wrapwrap").removeAttribute("ng-app");
         document.getElementById("wrapwrap").removeAttribute("ng-controller");
