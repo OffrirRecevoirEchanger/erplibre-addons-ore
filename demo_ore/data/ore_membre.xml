@@ -49,6 +49,7 @@
             <field name="city">Montréal</field>
             <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />
             <field name="zip">H1X 1J5</field>
+            <field name="genre">femme</field>
             <field name="country_id" ref="base.ca" />
             <field name="tz">America/Montreal</field>
             <field name="email">alice_poitier@exemple.ca</field>
