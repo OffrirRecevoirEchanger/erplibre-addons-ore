@@ -92,6 +92,7 @@ odoo.define('website.ore_angularjs_chat', function (require) {
                             "lst_msg": [],
                         };
                         // TODO missing "name" of user_name member
+                        // TODO create service to fetch user_name member and picture
                         $scope.$scope_main.lst_membre_message.push($scope.$scope_main.section_membre_dct)
                         setTimeout(function () {
                             $(".chat_body").animate({scrollTop: 20000000}, "slow");

@@ -43,7 +43,7 @@
                                 <div class="chat_container">
                                     <div class="chat_box">
                                         <div class="chat_header">
-                                            <img ng-src="{{ $parent.section_membre_dct.ma_photo }}" />
+                                            <img ng-if="!_.isUndefined($parent.section_membre_dct.ma_photo)" ng-src="{{ $parent.section_membre_dct.ma_photo }}" />
                                             <div class="header_info">
                                                 <p class="chat_contact">{{$parent.section_membre_dct.name}}</p>
                                                 <!--                                                        <p class="chat_title">Aide au déménagement</p>-->
