@@ -1,3 +1,4 @@
+import uuid
 from datetime import date, datetime
 
 from odoo import _, api, fields, models
@@ -31,6 +32,10 @@ class ResPartner(models.Model):
         string="Réseau ORE",
         help="Relation d'un réseau ORE, les responsables du membre.",
         index=True,
+    )
+
+    ore_client_key = fields.Char(
+        help="Unique key to represent member.", default=uuid.uuid4().hex
     )
 
     ore_membre_id = fields.Many2one(

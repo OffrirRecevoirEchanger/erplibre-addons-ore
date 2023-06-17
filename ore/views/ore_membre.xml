@@ -19,6 +19,7 @@
                         </h1>
                     </div>
                     <group>
+                        <field name="ore_client_key" />
                         <field name="partner_id" groups="base.group_no_one" />
                     </group>
 

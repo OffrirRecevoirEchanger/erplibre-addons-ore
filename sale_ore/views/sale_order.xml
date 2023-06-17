@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sale_order_ORE_view_form" model="ir.ui.view">
+        <field name="name">sale_order_ORE_form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='sale_total']/field[@name='amount_total']" position="after">
+                <field name="ore_client_key" invisible="True" />
+                <field name="currency_ORE_id" invisible="True" />
+                <div
+                    class="oe_subtotal_footer_separator oe_inline o_td_label"
+                    attrs="{'invisible': [('ore_client_key','=',False)]}"
+                >
+                    <label for="amount_ore_temps_effectue" string="Temps ORE" />
+                </div>
+                <!--                <field name="amount_ore_temps_effectue" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' options="{'currency_field': 'currency_ore_id'}"/>-->
+                <field
+                    name="amount_ore_temps_effectue"
+                    widget="float_time"
+                    options="{'currency_field': 'currency_ORE_id'}"
+                    nolabel="1"
+                    class="oe_subtotal_footer_separator"
+                    attrs="{'invisible': [('ore_client_key','=',False)]}"
+                />
+                <!--                <field-->
+                <!--                    name="amount_ore_temps_effectue"-->
+                <!--                    nolabel="1"-->
+                <!--                    class="oe_subtotal_footer_separator"-->
+                <!--                    widget='float_time'-->
+                <!--                    attrs="{'invisible': [('ore_client_key','=',False)]}"-->
+                <!--                />-->
+            </xpath>
+            <field name="amount_untaxed" position="before">
+                <field
+                    name="manual_add_ore_temps_effectue"
+                    string="Temps ORE supplémentaire"
+                    widget="float_time"
+                    options="{'currency_field': 'currency_ORE_id'}"
+                    attrs="{'invisible': [('ore_client_key','=',False)]}"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
