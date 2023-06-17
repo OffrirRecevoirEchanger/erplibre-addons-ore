@@ -4675,11 +4675,11 @@
                                                         <p class="o_default_snippet_text">
                                                             Le développement de cette plateforme est fait de manière libre et ouverte au public sur
                                                             <a href="https://github.com/TechnoLibre/odoo_ore">
-                                                                <button type="button" class="btn btn-primary btn-lg o_website_form_send o_default_snippet_text">Github</button>
+                                                                <button type="button" class="btn btn-primary btn-lg o_website_form_send o_default_snippet_text">GitHub</button>
                                                             </a>
                                                             .
                                                             <a href="https://github.com/TechnoLibre/odoo_ore/issues">
-                                                                <button type="button" class="btn btn-primary btn-lg o_website_form_send o_default_snippet_text">Pour reporter un bogue sur Github</button>
+                                                                <button type="button" class="btn btn-primary btn-lg o_website_form_send o_default_snippet_text">Pour reporter un bogue sur GitHub</button>
                                                             </a>
                                                             .
                                                         </p>
