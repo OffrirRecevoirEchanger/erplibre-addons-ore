@@ -13,6 +13,7 @@
         "website_form_builder",
         "demo_website_leaflet",
         "portal",
+        "auth_signup",
     ],
     "data": [
         "data/ir_attachment.xml",
@@ -25,6 +26,7 @@
         "views/snippets.xml",
         "views/webclient_templates.xml",
         "views/website_ore_notification.xml",
+        "templates/auth_signup_login_templates.xml",
     ],
     "installable": True,
     "pre_init_hook": "pre_init_hook",
