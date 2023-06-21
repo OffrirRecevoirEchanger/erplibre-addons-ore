@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="ore_membre_favoris_administrateur_mathieu_benoit" model="ore.membre.favoris">
-            <field name="membre_id" ref="ore_membre_administrateur_mathieu_benoit" />
+        <record id="base_partner_admin" model="ore.membre">
+            <field name="membre_favoris_ids" eval="[(6, 0, [ref('base_partner_admin'), ref('ore_membre_demo_alice_poitier'), ref('ore_membre_demo_denis_lemarchand')])]" />
         </record>
-        <record id="ore_membre_favoris_martin_petit" model="ore.membre.favoris">
-            <field name="membre_id" ref="ore_membre_martin_petit" />
+
+        <record id="ore_membre_demo_denis_lemarchand" model="ore.membre">
+            <field name="membre_favoris_ids" eval="[(6, 0, [ref('base_partner_admin'), ref('ore_membre_demo_martin_petit')])]" />
         </record>
-        <record id="ore_membre_favoris_denis_lemarchand" model="ore.membre.favoris">
-            <field name="membre_id" ref="ore_membre_denis_lemarchand" />
-        </record>
-        <record id="ore_membre_favoris_alice_poitier" model="ore.membre.favoris">
-            <field name="membre_id" ref="ore_membre_alice_poitier" />
+
+        <record id="ore_membre_demo_alice_poitier" model="ore.membre">
+            <field name="membre_favoris_ids" eval="[(6, 0, [ref('ore_membre_demo_martin_petit')])]" />
         </record>
     </data>
 </odoo>

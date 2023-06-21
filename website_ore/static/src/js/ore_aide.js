@@ -97,7 +97,7 @@ odoo.define('website.ore_aide', function (require) {
         }
 
         let url = "/ore/get_help_data/";
-        ajax.rpc(url, {}).then(function (data) {
+        ajax.jsonRpc(url, "call", {}).then(function (data) {
             console.debug("AJAX receive get_help_data");
             if (data.error) {
                 $scope.error = data.error;
@@ -112,6 +112,9 @@ odoo.define('website.ore_aide', function (require) {
 
             // Process all the angularjs watchers
             $scope.$digest();
+        }).fail(function (error, ev) {
+            console.error(error);
+            $scope.check_need_login(error);
         })
 
     }])

@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <!-- Alice Poitier -->
-    <record id="partner_demo_alice_poitier" model="res.partner">
-        <field name="name">Alice Poitier</field>
-        <field name="company_id" ref="base.main_company" />
-        <field name="parent_id" ref="base.main_company" />
-        <field name="street">Résidence étudiante du collège de Rosemont, Rue de Bellechasse, Étienne-Desmarteau, Rosemont–La Petite-Patrie</field>
-        <field name="city">Montréal</field>
-        <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />
-        <field name="zip">H1X 1J5</field>
-        <field name="country_id" ref="base.ca" />
-        <field name="tz">America/Montreal</field>
-        <field name="email">alice_poitier@exemple.ca</field>
-        <field name="phone">(514) 555-5555</field>
-    </record>
-
     <record id="user_demo_alice_poitier" model="res.users">
         <field name="partner_id" ref="partner_demo_alice_poitier" />
         <field name="login">alice_poitier@exemple.ca</field>
@@ -29,21 +14,6 @@
         <field name="company_id" ref="base.main_company" />
         <field name="groups_id" eval="[(6,0,[ref('base.group_portal')])]" />
         <field name="image" type="base64" file="base/static/img/res_partner_address_32.jpg" />
-    </record>
-
-    <!-- Martin Petit -->
-    <record id="partner_demo_martin_petit" model="res.partner">
-        <field name="name">Martin Petit</field>
-        <field name="company_id" ref="base.main_company" />
-        <field name="parent_id" ref="base.main_company" />
-        <field name="street">3800 Queen Mary Rd, Montreal, Quebec H3V 1H6</field>
-        <field name="city">Montréal</field>
-        <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />
-        <field name="zip">H1V 3N7</field>
-        <field name="country_id" ref="base.ca" />
-        <field name="tz">America/Montreal</field>
-        <field name="email">martin_petit@exemple.ca</field>
-        <field name="phone">(514) 555-5555</field>
     </record>
 
     <record id="user_demo_martin_petit" model="res.users">
@@ -62,21 +32,6 @@
         <field name="image" type="base64" file="base/static/img/res_partner_address_27.jpg" />
     </record>
 
-    <!-- Denis Lemarchand -->
-    <record id="partner_demo_denis_lemarchand" model="res.partner">
-        <field name="name">Denis Lemarchand</field>
-        <field name="company_id" ref="base.main_company" />
-        <field name="parent_id" ref="base.main_company" />
-        <field name="street">2150 Autoroute des Laurentides laval</field>
-        <field name="city">Montréal</field>
-        <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />
-        <field name="zip">H1V 3N7</field>
-        <field name="country_id" ref="base.ca" />
-        <field name="tz">America/Montreal</field>
-        <field name="email">denis_lemarchand@exemple.ca</field>
-        <field name="phone">(514) 555-5555</field>
-    </record>
-
     <record id="user_demo_denis_lemarchand" model="res.users">
         <field name="partner_id" ref="partner_demo_denis_lemarchand" />
         <field name="login">denis_lemarchand@exemple.ca</field>
@@ -91,21 +46,6 @@
         <field name="company_id" ref="base.main_company" />
         <field name="groups_id" eval="[(6,0,[ref('base.group_portal')])]" />
         <field name="image" type="base64" file="base/static/img/res_partner_address_25.jpg" />
-    </record>
-
-    <!-- Martin Bergeron -->
-    <record id="partner_demo_martin_bergeron" model="res.partner">
-        <field name="name">Martin Bergeron</field>
-        <field name="company_id" ref="base.main_company" />
-        <field name="parent_id" ref="base.main_company" />
-        <field name="street">4545, Avenue Pierre-De Coubertin</field>
-        <field name="city">Montréal</field>
-        <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />
-        <field name="zip">H1V 3N7</field>
-        <field name="country_id" ref="base.ca" />
-        <field name="tz">America/Montreal</field>
-        <field name="email">martin_bergeron@exemple.ca</field>
-        <field name="phone">(514) 555-5555</field>
     </record>
 
     <record id="user_demo_martin_bergeron" model="res.users">

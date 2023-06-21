@@ -11,12 +11,6 @@ class OREDemandeService(models.Model):
 
     titre = fields.Char()
 
-    ore = fields.Many2one(
-        string="Réseau",
-        comodel_name="ore.ore",
-        track_visibility="onchange",
-    )
-
     active = fields.Boolean(
         string="Actif",
         default=True,
@@ -73,11 +67,7 @@ class OREDemandeService(models.Model):
     def write(self, vals):
         status = super().write(vals)
         # Detect user
-        ore_member = (
-            self.env["res.users"]
-            .browse(self.write_uid.id)
-            .partner_id.ore_membre_ids
-        )
+        ore_member = self.env["res.users"].browse(self.write_uid.id).partner_id
         for rec in self:
             self.env["bus.bus"].sendone(
                 # f'["{self._cr.dbname}","{self._name}",{rec.id}]',

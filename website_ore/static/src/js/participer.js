@@ -84,7 +84,7 @@ odoo.define("website.ore.participer", function (require) {
     let app = angular.module('OREApp', []);
 
     async function requestSpecialURL($scope, state, new_url) {
-        let value = await ajax.rpc(new_url, {}).then(function (data) {
+        let value = await ajax.jsonRpc(new_url, "call", {}).then(function (data) {
             console.debug("AJAX receive " + new_url);
             console.debug(data);
 
@@ -95,7 +95,10 @@ odoo.define("website.ore.participer", function (require) {
             } else {
                 return data.data;
             }
-        });
+        }).fail(function (error, ev) {
+            console.error(error);
+            $scope.check_need_login(error);
+        })
 
         console.debug(value);
         // Synchronise database
@@ -139,7 +142,7 @@ odoo.define("website.ore.participer", function (require) {
                 if (!_.isUndefined(value)) {
                     $scope.service = value;
                 }
-                ajax.rpc("/ore/get_info/get_offre_service/" + $scope.service_id).then(function (data) {
+                ajax.jsonRpc("/ore/get_info/get_offre_service/" + $scope.service_id, "call", {}).then(function (data) {
                     console.debug("AJAX receive /ore/get_info/get_offre_service");
                     if (data.error || !_.isUndefined(data.error)) {
                         $scope.error = data.error;
@@ -152,13 +155,16 @@ odoo.define("website.ore.participer", function (require) {
                         $scope.$parent.dct_offre_service_info[$scope.service_id] = data;
                         $scope.$digest();
                     }
+                }).fail(function (error, ev) {
+                    console.error(error);
+                    $scope.check_need_login(error);
                 })
             } else if ($scope.model === "ore.demande.service") {
                 let value = $scope.$parent.dct_demande_service_info[$scope.service_id];
                 if (!_.isUndefined(value)) {
                     $scope.service = value;
                 }
-                ajax.rpc("/ore/get_info/get_demande_service/" + $scope.service_id).then(function (data) {
+                ajax.jsonRpc("/ore/get_info/get_demande_service/" + $scope.service_id, "call", {}).then(function (data) {
                     console.debug("AJAX receive /ore/get_info/get_demande_service");
                     if (data.error || !_.isUndefined(data.error)) {
                         $scope.error = data.error;
@@ -171,6 +177,9 @@ odoo.define("website.ore.participer", function (require) {
                         $scope.$parent.dct_demande_service_info[$scope.service_id] = data;
                         $scope.$digest();
                     }
+                }).fail(function (error, ev) {
+                    console.error(error);
+                    $scope.check_need_login(error);
                 })
             } else {
                 console.error("Cannot support model '" + $scope.model + "' synchronise data");
@@ -211,7 +220,7 @@ odoo.define("website.ore.participer", function (require) {
                 if (!_.isUndefined(value)) {
                     $scope.echange_service = value;
                 }
-                ajax.rpc("/ore/get_info/get_echange_service/" + $scope.echange_service_id).then(function (data) {
+                ajax.jsonRpc("/ore/get_info/get_echange_service/" + $scope.echange_service_id, "call", {}).then(function (data) {
                     console.debug("AJAX receive /ore/get_info/get_echange_service");
                     if (data.error || !_.isUndefined(data.error)) {
                         $scope.error = data.error;
@@ -252,6 +261,9 @@ odoo.define("website.ore.participer", function (require) {
                         }
                         $scope.$digest();
                     }
+                }).fail(function (error, ev) {
+                    console.error(error);
+                    $scope.check_need_login(error);
                 })
             }
         }
@@ -368,7 +380,7 @@ odoo.define("website.ore.participer", function (require) {
         }
 
         let url = "/ore/get_participer_workflow_data/";
-        ajax.rpc(url, {}).then(function (data) {
+        ajax.jsonRpc(url, "call", {}).then(function (data) {
             console.debug("AJAX receive get_participer_workflow_data");
             if (data.error) {
                 $scope.error = data.error;
@@ -422,6 +434,9 @@ odoo.define("website.ore.participer", function (require) {
 
             // Process all the angularjs watchers
             $scope.$digest();
+        }).fail(function (error, ev) {
+            console.error(error);
+            $scope.check_need_login(error);
         })
 
         $scope.init_controller = function (state = INIT_STATE) {
@@ -897,7 +912,7 @@ odoo.define("website.ore.participer", function (require) {
 
             console.log(copiedForm);
             let url = "/ore/participer/form/submit"
-            ajax.rpc(url, copiedForm).then(function (data) {
+            ajax.jsonRpc(url, "call", copiedForm).then(function (data) {
                     console.debug("AJAX receive submit_form");
                     console.debug(data);
 
@@ -922,7 +937,10 @@ odoo.define("website.ore.participer", function (require) {
                     // Process all the angularjs watchers
                     $scope.$digest();
                 }
-            )
+            ).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
+            })
         }
 
         $scope.reinit_state_model_field = function (state) {

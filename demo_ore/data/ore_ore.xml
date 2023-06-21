@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<odoo>
-    <data noupdate="1">
-        <record id="ore_organisation_sainte_rose_du_nord" model="ore.ore">
-            <field name="nom">Municipalité de Sainte-Rose-Du-Nord</field>
-        </record>
-    </data>
-</odoo>

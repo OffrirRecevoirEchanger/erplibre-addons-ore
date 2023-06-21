@@ -24,9 +24,6 @@
                             <field name="titre" />
                         </h1>
                         <group>
-                            <field name="ore" />
-                        </group>
-                        <group>
                             <field name="membre" />
                         </group>
                     </div>
@@ -70,7 +67,6 @@
         <field name="arch" type="xml">
             <graph string="ORE demande service">
                 <field name="titre" type="row" />
-                <field name="ore" type="row" />
                 <field name="date_debut" type="row" />
                 <field name="date_fin" type="row" />
                 <field name="description" type="row" />
@@ -85,7 +81,6 @@
         <field name="arch" type="xml">
             <kanban class="o_kanban_mobile">
                 <field name="titre" />
-                <field name="ore" />
                 <field name="date_debut" />
                 <field name="date_fin" />
                 <field name="membre" />
@@ -99,11 +94,6 @@
                                     <li class="mb4">
                                         <strong>
                                             <field name="titre" />
-                                        </strong>
-                                    </li>
-                                    <li class="mb4">
-                                        <strong>
-                                            <field name="ore" />
                                         </strong>
                                     </li>
                                     <li class="text-success float-right mb4" t-if="record.website_published.raw_value">
@@ -147,7 +137,6 @@
         <field name="arch" type="xml">
             <pivot string="ORE demande service">
                 <field name="titre" type="row" />
-                <field name="ore" type="row" />
                 <field name="date_debut" type="row" />
                 <field name="date_fin" type="row" />
                 <field name="description" type="row" />
@@ -162,7 +151,6 @@
         <field name="arch" type="xml">
             <search string="ORE demande service">
                 <filter domain="[('titre','!=',False)]" name="titre" string="Titre" />
-                <filter domain="[('ore','!=',False)]" name="ore" string="ORE" />
                 <filter domain="[('active','=',False)]" name="Inactive" string="Inactive" />
                 <filter domain="[('date_debut','!=',False)]" name="date_debut" string="Date d&#233;but" />
                 <filter domain="[('date_fin','!=',False)]" name="date_fin" string="Date fin" />
@@ -188,7 +176,6 @@
                 <field name="date_debut" />
                 <field name="date_fin" />
                 <field name="titre" />
-                <field name="ore" />
                 <field name="type_service_id" />
                 <field name="membre" />
                 <field name="website_published" />
@@ -200,7 +187,7 @@
         <field name="model">ore.demande.service</field>
         <field name="type">timeline</field>
         <field name="arch" type="xml">
-            <timeline date_start="date_debut" date_stop="date_fin" default_group_by="ore" event_open_popup="true">
+            <timeline date_start="date_debut" date_stop="date_fin" default_group_by="membre" event_open_popup="true">
                 <field name="user_id" />
                 <templates>
                     <t t-name="timeline-item">

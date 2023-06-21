@@ -55,9 +55,6 @@
                         <field name="offre_service" />
                     </group>
                     <group>
-                        <field name="point_service" />
-                    </group>
-                    <group>
                         <field name="remarque" />
                     </group>
                     <group>
@@ -92,7 +89,6 @@
                 <field name="frais_trajet" type="measure" />
                 <field name="frais_materiel" type="measure" />
                 <field name="offre_service" type="row" />
-                <field name="point_service" type="row" />
                 <field name="remarque" type="row" />
                 <field name="transaction_valide" type="row" />
                 <field name="type_echange" type="row" />
@@ -121,7 +117,6 @@
                 <field name="frais_trajet" />
                 <field name="frais_materiel" />
                 <field name="offre_service" />
-                <field name="point_service" />
                 <field name="remarque" />
                 <field name="transaction_valide" />
                 <field name="type_echange" />
@@ -212,11 +207,6 @@
                                     </li>
                                     <li class="mb4">
                                         <strong>
-                                            <field name="point_service" />
-                                        </strong>
-                                    </li>
-                                    <li class="mb4">
-                                        <strong>
                                             <field name="remarque" />
                                         </strong>
                                     </li>
@@ -260,7 +250,6 @@
                 <field name="frais_trajet" type="measure" />
                 <field name="frais_materiel" type="measure" />
                 <field name="offre_service" type="row" />
-                <field name="point_service" type="row" />
                 <field name="remarque" type="row" />
                 <field name="transaction_valide" type="row" />
                 <field name="type_echange" type="row" />
@@ -305,7 +294,6 @@
                 <filter domain="[('frais_trajet','!=',False)]" name="frais_trajet" string="Frais du trajet" />
                 <filter domain="[('frais_materiel','!=',False)]" name="frais_materiel" string="Frais de matériel" />
                 <filter domain="[('offre_service','!=',False)]" name="offre_service" string="Offre de services" />
-                <filter domain="[('point_service','!=',False)]" name="point_service" string="Point de services" />
                 <filter domain="[('remarque','!=',False)]" name="remarque" string="Remarque" />
                 <filter domain="[('transaction_valide','!=',False)]" name="Validé" string="Validé" />
                 <filter domain="[('type_echange','!=',False)]" name="type_echange" string="Type d'&#233;change" />
@@ -334,7 +322,6 @@
                 <field name="frais_trajet" />
                 <field name="frais_materiel" />
                 <field name="offre_service" />
-                <field name="point_service" />
                 <field name="remarque" />
                 <field name="transaction_valide" />
                 <field name="type_echange" />

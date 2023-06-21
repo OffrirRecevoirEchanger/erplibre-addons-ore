@@ -22,7 +22,6 @@
         "data/ore_type_service_categorie.xml",
         "data/ore_type_service_sous_categorie.xml",
         "data/ore_type_service.xml",
-        "data/ore_type_telephone.xml",
         "data/ore_workflow.xml",
         "data/ore_workflow_state.xml",
         "data/ore_workflow_relation.xml",

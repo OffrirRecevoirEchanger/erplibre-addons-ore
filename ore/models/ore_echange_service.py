@@ -85,11 +85,6 @@ class OREEchangeService(models.Model):
         string="Offre de services",
     )
 
-    point_service = fields.Many2one(
-        comodel_name="ore.point.service",
-        string="Point de services",
-    )
-
     remarque = fields.Char()
 
     transaction_valide = fields.Boolean(
@@ -158,7 +153,7 @@ class OREEchangeService(models.Model):
         res = super(OREEchangeService, self).create(vals_list)
         lst_notif_value = []
         for es in res:
-            owner_membre_id = es.write_uid.ore_membre_ids.exists()
+            owner_membre_id = es.write_uid.partner_id.exists()
             # Remove owner (membre who ask) to notif list
             if owner_membre_id:
                 lst_membre_notif = list(
@@ -172,9 +167,10 @@ class OREEchangeService(models.Model):
                 # Create notification
                 value = {}
                 if not es.demande_service and not es.offre_service:
-                    _logger.warning(
-                        "How doing notification without offre/demande service"
-                        " on échange?"
+                    # TODO support echange without offre et recevoir
+                    _logger.info(
+                        "No notification for ore.echange.service id"
+                        f" {es.id} for member id {membre_id.id}"
                     )
                     continue
                 value["echange_service_id"] = es.id
@@ -213,16 +209,12 @@ class OREEchangeService(models.Model):
                     self.env["ore.echange.service.notification"].create(value)
         return res
 
-    @api.depends("type_echange", "point_service")
+    @api.depends("type_echange")
     def _compute_nom_complet(self):
         for rec in self:
             value = ""
             if rec.type_echange:
                 value += rec.type_echange
-            if rec.point_service and rec.point_service.nom:
-                if rec.type_echange:
-                    value += " - "
-                value += rec.point_service.nom
             if not value:
                 value = False
             rec.nom_complet = value

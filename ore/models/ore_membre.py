@@ -1,3 +1,4 @@
+import hashlib
 from datetime import date, datetime
 
 from odoo import _, api, fields, models
@@ -5,54 +6,38 @@ from odoo import _, api, fields, models
 
 class OREMembre(models.Model):
     _name = "ore.membre"
-    _inherit = ["mail.activity.mixin", "mail.thread"]
-    _description = "ORE Membre"
-    _rec_name = "nom"
-
-    nom = fields.Char(
-        track_visibility="onchange",
-    )
+    _inherits = {"res.partner": "partner_id"}
+    _description = "Information lié à un membre de ORE"
 
     partner_id = fields.Many2one(
         comodel_name="res.partner",
         string="Membre",
-        track_visibility="onchange",
-    )
-
-    ore = fields.Many2one(
-        string="Réseau",
-        comodel_name="ore.ore",
         required=True,
-        track_visibility="onchange",
-        help="Réseau associée",
-    )
-
-    achat_regrouper = fields.Boolean(
-        string="Achat regroupé",
+        ondelete="cascade",
         track_visibility="onchange",
     )
 
-    active = fields.Boolean(
-        string="Actif",
-        default=True,
-        track_visibility="onchange",
-        help=(
-            "Lorsque non actif, ce membre n'est plus en fonction, mais demeure"
-            " accessible."
-        ),
-    )
+    # achat_regrouper = fields.Boolean(
+    #     string="Achat regroupé",
+    #     track_visibility="onchange",
+    # )
 
-    adresse = fields.Char(
-        track_visibility="onchange",
-    )
+    # active = fields.Boolean(
+    #     string="Actif",
+    #     default=True,
+    #     track_visibility="onchange",
+    #     help=(
+    #         "Lorsque non actif, ce membre n'est plus en fonction, mais demeure"
+    #         " accessible."
+    #     ),
+    # )
+
+    # adresse = fields.Char(
+    #     track_visibility="onchange",
+    # )
 
     annee_naissance = fields.Integer(
         string="Année de naissance",
-        track_visibility="onchange",
-    )
-
-    date_naissance = fields.Date(
-        string="Date de naissance",
         track_visibility="onchange",
     )
 
@@ -67,37 +52,37 @@ class OREMembre(models.Model):
         track_visibility="onchange",
     )
 
-    bottin_courriel = fields.Boolean(
-        string="Bottin courriel",
-        track_visibility="onchange",
-    )
+    # bottin_courriel = fields.Boolean(
+    #     string="Bottin courriel",
+    #     track_visibility="onchange",
+    # )
 
-    bottin_tel = fields.Boolean(
-        string="Bottin téléphone",
-        track_visibility="onchange",
-    )
+    # bottin_tel = fields.Boolean(
+    #     string="Bottin téléphone",
+    #     track_visibility="onchange",
+    # )
 
-    codepostal = fields.Char(
-        track_visibility="onchange",
-    )
+    # codepostal = fields.Char(
+    #     track_visibility="onchange",
+    # )
 
-    commentaire = fields.One2many(
-        comodel_name="ore.commentaire",
-        inverse_name="membre_source",
-        string="Commentaire membre source",
-        help="Commentaire membre source relation",
-    )
+    # commentaire = fields.One2many(
+    #     comodel_name="ore.commentaire",
+    #     inverse_name="membre_source",
+    #     string="Commentaire membre source",
+    #     help="Commentaire membre source relation",
+    # )
+    #
+    # commentaire_ids = fields.One2many(
+    #     comodel_name="ore.commentaire",
+    #     inverse_name="membre_viser",
+    #     string="Commentaire membre visé",
+    #     help="Commentaire membre visé relation",
+    # )
 
-    commentaire_ids = fields.One2many(
-        comodel_name="ore.commentaire",
-        inverse_name="membre_viser",
-        string="Commentaire membre visé",
-        help="Commentaire membre visé relation",
-    )
-
-    courriel = fields.Char(
-        track_visibility="onchange",
-    )
+    # courriel = fields.Char(
+    #     track_visibility="onchange",
+    # )
 
     date_adhesion = fields.Date(
         string="Date de l'adhésion",
@@ -109,47 +94,57 @@ class OREMembre(models.Model):
         track_visibility="onchange",
     )
 
+    # est_un_point_service = fields.Boolean(string="Est un point de service")
+
+    # # TODO compute si contient des échanges?
+    # est_un_membre_ore = fields.Boolean(string="Est un membre du réseau ORE")
+
+    # logo = fields.Binary(
+    #     help="Logo du membre",
+    #     track_visibility="onchange",
+    # )
+
+    # image_attachment_id = fields.Many2one("ir.attachment")
+
+    # membre_ca = fields.Boolean(
+    #     string="Membre du CA",
+    #     track_visibility="onchange",
+    # )
+    #
+    # membre_conjoint = fields.Boolean(
+    #     string="A un membre conjoint",
+    #     track_visibility="onchange",
+    # )
+
+    # # TODO this is wrong, suppose to be many2many
+    # membre_conjoint_id = fields.Integer(string="Membre conjoint")
+    #
+    # membre_principal = fields.Boolean(
+    #     string="Membre principal",
+    #     track_visibility="onchange",
+    # )
+
+    # reseau_ore_id = fields.Many2one(
+    #     "ore.membre",
+    #     string="Réseau ORE",
+    #     help="Relation d'un réseau ORE, les responsables du membre.",
+    #     index=True,
+    # )
+
+    # # TODO remove is_time_updated and force call _bank_time
+    # is_time_updated = fields.Boolean(
+    #     string="Time is updated",
+    #     help="This variable is a trigger to update time.",
+    # )
+
     # TODO remove
-    est_un_point_service = fields.Boolean(string="Est un point de service")
-
-    logo = fields.Binary(
-        help="Logo du membre",
-        track_visibility="onchange",
-    )
-
-    logo_attachment_id = fields.Many2one("ir.attachment")
-
-    membre_ca = fields.Boolean(
-        string="Membre du CA",
-        track_visibility="onchange",
-    )
-
-    membre_conjoint = fields.Boolean(
-        string="A un membre conjoint",
-        track_visibility="onchange",
-    )
-
-    # TODO this is wrong, suppose to be many2many
-    membre_conjoint_id = fields.Integer(string="Membre conjoint")
-
-    membre_principal = fields.Boolean(
-        string="Membre principal",
-        track_visibility="onchange",
-    )
-
-    is_time_updated = fields.Boolean(
-        string="Time is updated",
-        help="This variable is a trigger to update time.",
-    )
-
-    # TODO remove
-    memo = fields.Text(string="Mémo")
-
-    # TODO remove
-    nom_utilisateur = fields.Char(
-        string="Nom du compte",
-        track_visibility="onchange",
-    )
+    # memo = fields.Text(string="Mémo")
+    #
+    # # TODO remove
+    # nom_utilisateur = fields.Char(
+    #     string="Nom du compte",
+    #     track_visibility="onchange",
+    # )
 
     occupation = fields.Many2one(
         comodel_name="ore.occupation",
@@ -168,11 +163,23 @@ class OREMembre(models.Model):
         help="Les offres de service du membre",
     )
 
+    count_offre_service_ids = fields.Integer(
+        compute="compute_count_offre_service_ids",
+        store=True,
+        help="Quantité des offres de service du membre",
+    )
+
     demande_service_ids = fields.One2many(
         comodel_name="ore.demande.service",
         inverse_name="membre",
         string="Demande de service",
         help="Les demandes de service du membre",
+    )
+
+    count_demande_service_ids = fields.Integer(
+        compute="compute_count_demande_service_ids",
+        store=True,
+        help="Quantité des demandes de service du membre",
     )
 
     echange_service_acheteur_ids = fields.One2many(
@@ -189,9 +196,18 @@ class OREMembre(models.Model):
         help="Les échanges de service du membre vendeur",
     )
 
+    count_echange_service_ids = fields.Integer(
+        compute="compute_count_echange_service_ids",
+        store=True,
+        help="Quantité des échanges de service du membre",
+    )
+
     membre_favoris_ids = fields.Many2many(
         string="Membre favoris",
-        comodel_name="ore.membre.favoris",
+        comodel_name="ore.membre",
+        relation="ore_membre_fav_source_dest_rel",
+        column1="membre_fav_source_id",
+        column2="membre_fav_dest_id",
         help="Liste des membres favoris",
     )
 
@@ -205,17 +221,21 @@ class OREMembre(models.Model):
         track_visibility="onchange",
     )
 
-    point_service = fields.Many2one(
-        comodel_name="ore.point.service",
-        string="Point de service",
-        track_visibility="onchange",
-        help="Point de service associé",
+    interet = fields.Many2many(
+        comodel_name="ore.membre.interet",
+        help="Liste interet des membres",
     )
 
-    pret_actif = fields.Boolean(
-        string="Prêt actif",
-        track_visibility="onchange",
+    langue_parle = fields.Many2many(
+        string="Langue",
+        comodel_name="ore.membre.langue_parle",
+        help="Liste langues des membres",
     )
+
+    # pret_actif = fields.Boolean(
+    #     string="Prêt actif",
+    #     track_visibility="onchange",
+    # )
 
     profil_approuver = fields.Boolean(
         string="Profil approuvé",
@@ -232,22 +252,26 @@ class OREMembre(models.Model):
         track_visibility="onchange",
     )
 
-    recevoir_courriel_groupe = fields.Boolean(
-        string="Veut recevoir courriel de groupes",
-        track_visibility="onchange",
-    )
+    # recevoir_courriel_groupe = fields.Boolean(
+    #     string="Veut recevoir courriel de groupes",
+    #     track_visibility="onchange",
+    # )
 
     region = fields.Many2one(
         comodel_name="ore.region",
         string="Région",
         track_visibility="onchange",
-        required=True,
     )
 
     revenu_familial = fields.Many2one(
         comodel_name="ore.revenu.familial",
         track_visibility="onchange",
         string="Revenu familial",
+    )
+
+    date_naissance = fields.Date(
+        string="Date de naissance",
+        track_visibility="onchange",
     )
 
     genre = fields.Selection(
@@ -265,75 +289,20 @@ class OREMembre(models.Model):
         track_visibility="onchange",
     )
 
-    telephone_1 = fields.Char(
-        string="1er téléphone",
-        track_visibility="onchange",
-    )
-
-    telephone_2 = fields.Char(
-        string="2e téléphone",
-        track_visibility="onchange",
-    )
-
-    telephone_3 = fields.Char(
-        string="3e téléphone",
-        track_visibility="onchange",
-    )
-
-    telephone_poste_1 = fields.Char(
-        string="1er poste téléphone",
-        track_visibility="onchange",
-    )
-
-    telephone_poste_2 = fields.Char(
-        string="2 poste téléphone",
-        track_visibility="onchange",
-    )
-
-    telephone_poste_3 = fields.Char(
-        string="3 poste téléphone",
-        track_visibility="onchange",
-    )
-
-    telephone_type_1 = fields.Many2one(
-        comodel_name="ore.type.telephone",
-        string="1er type de téléphones",
-        track_visibility="onchange",
-    )
-
-    telephone_type_2 = fields.Many2one(
-        comodel_name="ore.type.telephone",
-        string="2e type de téléphones",
-        track_visibility="onchange",
-    )
-
-    telephone_type_3 = fields.Many2one(
-        comodel_name="ore.type.telephone",
-        string="3e type de téléphones",
-        track_visibility="onchange",
-    )
-
-    transfert_ore = fields.Many2one(
-        comodel_name="ore.ore",
-        string="Transfert d'un réseau",
-        track_visibility="onchange",
-    )
-
     type_communication = fields.Many2one(
         comodel_name="ore.type.communication",
         string="Type de communications",
         track_visibility="onchange",
     )
 
-    user_id = fields.Many2one(
-        comodel_name="res.users",
-        string="User",
-        track_visibility="onchange",
-    )
+    # user_id = fields.Many2one(
+    #     comodel_name="res.users",
+    #     string="User",
+    #     track_visibility="onchange",
+    # )
 
     ville = fields.Many2one(
         comodel_name="ore.ville",
-        required=True,
         track_visibility="onchange",
     )
 
@@ -356,18 +325,6 @@ class OREMembre(models.Model):
     motivation_membre = fields.Char(
         help="Pourquoi devenir un membre de réseau.",
         track_visibility="onchange",
-    )
-
-    interet = fields.Many2many(
-        string="Interet",
-        comodel_name="ore.membre.interet",
-        help="Liste interet des membres",
-    )
-
-    langue_parle = fields.Many2many(
-        string="Langue",
-        comodel_name="ore.membre.langue_parle",
-        help="Liste langues des membres",
     )
 
     bank_time = fields.Float(
@@ -393,18 +350,9 @@ class OREMembre(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        status = super(OREMembre, self).create(vals_list)
+        status = super().create(vals_list)
         for stat in status:
-            ir_attach_id = self.env["ir.attachment"].create(
-                {
-                    "name": f"logo_ore_membre_{stat.id}",
-                    "datas": stat.logo,
-                    "res_model": "ore.membre",
-                    "res_id": stat.id,
-                    "type": "url",
-                }
-            )
-            stat.logo_attachment_id = ir_attach_id.id
+            stat.partner_id.ore_membre_id = stat.id
         return status
 
     @api.multi
@@ -413,10 +361,6 @@ class OREMembre(models.Model):
 
         # Detect user
         for rec in self:
-            if "logo" in vals.keys():
-                # Update attachment with logo
-                rec.sudo().logo_attachment_id.datas = vals.get("logo")
-
             self.env["bus.bus"].sendone(
                 # f'["{self._cr.dbname}","{self._name}",{rec.id}]',
                 "ore.notification.favorite",
@@ -429,11 +373,54 @@ class OREMembre(models.Model):
             )
         return status
 
+    def get_image_url(self, field="image"):
+        # field can be image_medium or image_small
+        # website_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        # unique = self.write_date.strftime('%Y%m%d%H%M%S')
+        # url = f"{website_url}/web/image?model=res.partner&id={self.partner_id.id}&field={field}&unique={unique}"
+        # return url
+        return self.image_url(self, field)
+
+    @api.model
+    def image_url(self, record, field, size=None):
+        """Returns a local url that points to the image field of a given browse record."""
+        sudo_record = record.sudo()
+        sha = hashlib.sha1(
+            str(getattr(sudo_record, "__last_update")).encode("utf-8")
+        ).hexdigest()[0:7]
+        size = "" if size is None else "/%s" % size
+        return "/web/image/%s/%s/%s%s?unique=%s" % (
+            record._name,
+            record.id,
+            field,
+            size,
+            sha,
+        )
+
+    @api.multi
+    @api.depends("offre_service_ids")
+    def compute_count_offre_service_ids(self):
+        for rec in self:
+            rec.count_offre_service_ids = len(rec.offre_service_ids)
+
+    @api.multi
+    @api.depends("demande_service_ids")
+    def compute_count_demande_service_ids(self):
+        for rec in self:
+            rec.count_demande_service_ids = len(rec.demande_service_ids)
+
+    @api.multi
+    @api.depends("echange_service_acheteur_ids", "echange_service_vendeur_ids")
+    def compute_count_echange_service_ids(self):
+        for rec in self:
+            rec.count_echange_service_ids = len(
+                rec.echange_service_acheteur_ids
+            ) + len(rec.echange_service_vendeur_ids)
+
     @api.depends(
-        "partner_id",
         "echange_service_acheteur_ids",
         "echange_service_vendeur_ids",
-        "is_time_updated",
+        # "is_time_updated",
     )
     def _bank_time(self):
         # TODO wrong dependency

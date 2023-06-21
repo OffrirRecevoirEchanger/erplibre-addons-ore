@@ -103,12 +103,6 @@ class ORECommentaire(models.Model):
         help="L'offre de services qui est visée par ce commentaire.",
     )
 
-    point_service = fields.Many2one(
-        comodel_name="ore.point.service",
-        string="Point de services",
-        required=True,
-    )
-
     resumer_situation = fields.Text(string="Résumé de la situation")
 
     situation_impliquant = fields.Selection(

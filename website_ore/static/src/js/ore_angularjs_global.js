@@ -9,7 +9,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
     let QWeb = core.qweb;
     let _t = core._t;
 
-    if (window.location.pathname === "/web/signup") {
+    if (["/web/signup", "/web/reset_password"].includes(window.location.pathname)) {
         console.info("Disable AngularJS, this block signup form.")
         document.getElementById("wrapwrap").removeAttribute("ng-app");
         document.getElementById("wrapwrap").removeAttribute("ng-controller");
@@ -126,12 +126,12 @@ odoo.define('website.ore_angularjs_global', function (require) {
             nom: "",
             genre: "",
             date_naissance: "",
-            courriel: "",
-            telephone_1: "",
-            adresse: "",
+            email: "",
+            phone: "",
+            street: "",
             diff_humain_creation_membre: "",
             antecedent_judiciaire_verifier: false,
-            mon_ore: {
+            my_network: {
                 name: "-",
                 id: 0,
             },
@@ -163,6 +163,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             // },
         }
         $scope.membre_info = {}
+        $scope.page_presentation_membre_info = {}
         $scope.dct_membre = {}
         $scope.contact_info = {}
         $scope.offre_service_info = {}
@@ -184,7 +185,16 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.show_croppie = false;
         $scope.ask_modification = false;
         $scope.ask_modification_profile = false;
-        $scope.ask_modif_copy = {membre_info: {}, introduction: "", full_name: "", genre: "", date_naissance: "", courriel: "", telephone_1: "", adresse: ""};
+        $scope.ask_modif_copy = {
+            membre_info: {},
+            introduction: "",
+            full_name: "",
+            genre: "",
+            date_naissance: "",
+            email: "",
+            phone: "",
+            street: ""
+        };
         $scope.list_interets = [];
         $scope.languesParlees = [];
         $scope.afficherAjoutInteret = false;
@@ -197,6 +207,18 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.supprimeInteret = '';
         $scope.interetsCount = 0;
         $scope.languesCount = 0;
+
+        $scope.check_need_login = function (error) {
+            if (window.location.pathname !== "" &&
+                window.location.pathname !== "/" &&
+                window.location.pathname !== "/aide" &&
+                window.location.pathname !== "/web/login" &&
+                window.location.pathname !== "/web/reset_password" &&
+                error.data.name === "odoo.http.SessionExpiredException") {
+                console.warn("Relocation");
+                window.location.href = `/web/login?redirect=${window.location.href}`
+            }
+        }
 
         $scope.shouldHideBorder = function (titre) {
             if (titre === "description") {
@@ -217,17 +239,17 @@ odoo.define('website.ore_angularjs_global', function (require) {
             }
         };
 
-        $scope.ajouterInteret = function() {
+        $scope.ajouterInteret = function () {
             $scope.afficherSupprimerInteret = false;
             $scope.afficherAjoutInteret = true;
         };
 
-        $scope.supprimerInteret = function() {
+        $scope.supprimerInteret = function () {
             $scope.afficherAjoutInteret = false;
             $scope.afficherSupprimerInteret = true;
         };
 
-        $scope.enregistrerInteret = function() {
+        $scope.enregistrerInteret = function () {
             if ($scope.nouvelleInteret) {
                 if (!$scope.list_interets) {
                     $scope.list_interets = [];
@@ -237,7 +259,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 // Check if nouvelleInteret already exists in list_interets or membre_info.interet
                 let isNewInteret = $scope.list_interets.indexOf($scope.nouvelleInteret) === -1 &&
-                    $scope.membre_info.interet.findIndex(function(interet) {
+                    $scope.membre_info.interet.findIndex(function (interet) {
                         return interet.name === $scope.nouvelleInteret;
                     }) === -1;
                 if (isNewInteret) {
@@ -256,7 +278,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             $scope.afficherSupprimerInteret = false;
         }
 
-        $scope.enleverDernieresInterets = function() {
+        $scope.enleverDernieresInterets = function () {
             if ($scope.interetsCount !== 0) {
                 $scope.list_interets.splice(-($scope.interetsCount));
             }
@@ -268,25 +290,25 @@ odoo.define('website.ore_angularjs_global', function (require) {
             if ($scope.supprimeInteret) {
                 let index = $scope.list_interets.indexOf($scope.supprimeInteret);
                 if (index > -1) {
-                  $scope.list_interets.splice(index, 1);
+                    $scope.list_interets.splice(index, 1);
                 }
                 $scope.membre_info.interet = $scope.membre_info.interet.filter(function (interet) {
-                  return interet.name !== $scope.supprimeInteret;
+                    return interet.name !== $scope.supprimeInteret;
                 });
             }
         };
 
-        $scope.ajouterLangue = function() {
+        $scope.ajouterLangue = function () {
             $scope.afficherSupprimerLangue = false;
             $scope.afficherAjoutLangue = true;
         };
 
-        $scope.supprimerLangue = function() {
+        $scope.supprimerLangue = function () {
             $scope.afficherAjoutLangue = false;
             $scope.afficherSupprimerLangue = true;
         };
 
-        $scope.enregistrerLangue = function() {
+        $scope.enregistrerLangue = function () {
             if ($scope.nouvelleLangue) {
                 if (!$scope.languesParlees) {
                     $scope.languesParlees = [];
@@ -296,7 +318,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 // Check if nouvelleLangue already exists in languesParlees or membre_info.langue
                 let isNewLangue = $scope.languesParlees.indexOf($scope.nouvelleLangue) === -1 &&
-                    $scope.membre_info.langue.findIndex(function(langue) {
+                    $scope.membre_info.langue.findIndex(function (langue) {
                         return langue.name === $scope.nouvelleLangue;
                     }) === -1;
                 if (isNewLangue) {
@@ -315,7 +337,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             $scope.afficherAjoutLangue = false;
         }
 
-        $scope.enleverDernieresLangues = function() {
+        $scope.enleverDernieresLangues = function () {
             if ($scope.languesCount !== 0) {
                 $scope.languesParlees.splice(-($scope.languesCount));
             }
@@ -327,15 +349,15 @@ odoo.define('website.ore_angularjs_global', function (require) {
             if ($scope.supprimeLangue) {
                 let index = $scope.languesParlees.indexOf($scope.supprimeLangue);
                 if (index > -1) {
-                  $scope.languesParlees.splice(index, 1);
+                    $scope.languesParlees.splice(index, 1);
                 }
                 $scope.membre_info.langue = $scope.membre_info.langue.filter(function (langue) {
-                  return langue.name !== $scope.supprimeLangue;
+                    return langue.name !== $scope.supprimeLangue;
                 });
             }
         };
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Define the list of languages
             let languages = [
                 "Anglais",
@@ -478,7 +500,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit"
-                    ajax.rpc(url, form).then(function (data) {
+                    ajax.jsonRpc(url, "call", form).then(function (data) {
                             console.debug("AJAX receive submit_form personal_information");
                             console.debug(data);
 
@@ -491,7 +513,10 @@ odoo.define('website.ore_angularjs_global', function (require) {
                             // Process all the angularjs watchers
                             $scope.$digest();
                         }
-                    )
+                    ).fail(function (error, ev) {
+                        console.error(error);
+                        $scope.check_need_login(error);
+                    })
                 }
                 $scope.show_croppie = false;
                 $scope.afficherAjoutLangue = false;
@@ -582,7 +607,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit";
-                    ajax.rpc(url, form).then(function (data) {
+                    ajax.jsonRpc(url, "call", form).then(function (data) {
                         console.debug("AJAX receive submit_form personal_information");
                         console.debug(data);
 
@@ -593,7 +618,10 @@ odoo.define('website.ore_angularjs_global', function (require) {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
-                    });
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        $scope.check_need_login(error);
+                    })
                 }
             } else {
                 if (!_.isUndefined($scope.membre_info.full_name)) {
@@ -620,12 +648,12 @@ odoo.define('website.ore_angularjs_global', function (require) {
             if (!genre) {
                 let form = {};
                 if ($scope.ask_modif_copy.membre_info.genre !== $scope.membre_info.genre) {
-                  let selectedOption = document.getElementById("genre").value;
-                  form["genre"] = selectedOption;
+                    let selectedOption = document.getElementById("genre").value;
+                    form["genre"] = selectedOption;
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit";
-                    ajax.rpc(url, form).then(function (data) {
+                    ajax.jsonRpc(url, "call", form).then(function (data) {
                         console.debug("AJAX receive submit_form personal_information");
                         console.debug(data);
 
@@ -636,7 +664,10 @@ odoo.define('website.ore_angularjs_global', function (require) {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
-                    });
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        $scope.check_need_login(error);
+                    })
                 }
             } else {
                 if (!_.isUndefined($scope.membre_info.genre)) {
@@ -670,7 +701,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit";
-                    ajax.rpc(url, form).then(function (data) {
+                    ajax.jsonRpc(url, "call", form).then(function (data) {
                         console.debug("AJAX receive submit_form personal_information");
                         console.debug(data);
 
@@ -681,7 +712,10 @@ odoo.define('website.ore_angularjs_global', function (require) {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
-                    });
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        $scope.check_need_login(error);
+                    })
                 }
             } else {
                 if (!_.isUndefined($scope.membre_info.date_naissance)) {
@@ -702,21 +736,21 @@ odoo.define('website.ore_angularjs_global', function (require) {
             $scope.ask_modification_profile_date = false;
         };
 
-        $scope.change_profile_courriel = function (courriel) {
-            $scope.ask_modification_profile_courriel = courriel;
+        $scope.change_profile_email = function (email) {
+            $scope.ask_modification_profile_email = email;
 
-            if (!courriel) {
+            if (!email) {
                 let form = {};
-                if ($scope.ask_modif_copy.membre_info.courriel !== $scope.membre_info.courriel) {
-                    if (!$scope.membre_info.courriel) {
+                if ($scope.ask_modif_copy.membre_info.email !== $scope.membre_info.email) {
+                    if (!$scope.membre_info.email) {
                         return;
-                    }else {
-                        form["courriel"] = $scope.membre_info.courriel;
+                    } else {
+                        form["email"] = $scope.membre_info.email;
                     }
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit";
-                    ajax.rpc(url, form).then(function (data) {
+                    ajax.jsonRpc(url, "call", form).then(function (data) {
                         console.debug("AJAX receive submit_form personal_information");
                         console.debug(data);
 
@@ -727,26 +761,29 @@ odoo.define('website.ore_angularjs_global', function (require) {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
-                    });
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        $scope.check_need_login(error);
+                    })
                 }
             } else {
-                if (!_.isUndefined($scope.membre_info.courriel)) {
-                    if (_.isEmpty($scope.membre_info.courriel)) {
-                        $scope.membre_info.courriel = "";
-                        $scope.ask_modif_copy.membre_info.courriel = "";
+                if (!_.isUndefined($scope.membre_info.email)) {
+                    if (_.isEmpty($scope.membre_info.email)) {
+                        $scope.membre_info.email = "";
+                        $scope.ask_modif_copy.membre_info.email = "";
                     } else {
-                        $scope.ask_modif_copy.membre_info.courriel = JSON.parse(JSON.stringify($scope.membre_info.courriel));
+                        $scope.ask_modif_copy.membre_info.email = JSON.parse(JSON.stringify($scope.membre_info.email));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.courriel = undefined;
+                    $scope.ask_modif_copy.membre_info.email = undefined;
                 }
             }
         };
 
-        $scope.annuler_profile_courriel = function () {
+        $scope.annuler_profile_email = function () {
             console.log("TEST");
-            $scope.membre_info.courriel = $scope.ask_modif_copy.membre_info.courriel;
-            $scope.ask_modification_profile_courriel = false;
+            $scope.membre_info.email = $scope.ask_modif_copy.membre_info.email;
+            $scope.ask_modification_profile_email = false;
         };
 
         $scope.change_profile_telephone = function (telephone) {
@@ -754,12 +791,12 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
             if (!telephone) {
                 let form = {};
-                if ($scope.ask_modif_copy.membre_info.telephone_1 !== $scope.membre_info.telephone_1) {
-                    form["telephone_1"] = $scope.membre_info.telephone_1;
+                if ($scope.ask_modif_copy.membre_info.phone !== $scope.membre_info.phone) {
+                    form["phone"] = $scope.membre_info.phone;
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit";
-                    ajax.rpc(url, form).then(function (data) {
+                    ajax.jsonRpc(url, "call", form).then(function (data) {
                         console.debug("AJAX receive submit_form personal_information");
                         console.debug(data);
 
@@ -770,39 +807,42 @@ odoo.define('website.ore_angularjs_global', function (require) {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
-                    });
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        $scope.check_need_login(error);
+                    })
                 }
             } else {
-                if (!_.isUndefined($scope.membre_info.telephone_1)) {
-                    if (_.isEmpty($scope.membre_info.telephone_1)) {
-                        $scope.membre_info.telephone_1 = "";
-                        $scope.ask_modif_copy.membre_info.telephone_1 = "";
+                if (!_.isUndefined($scope.membre_info.phone)) {
+                    if (_.isEmpty($scope.membre_info.phone)) {
+                        $scope.membre_info.phone = "";
+                        $scope.ask_modif_copy.membre_info.phone = "";
                     } else {
-                        $scope.ask_modif_copy.membre_info.telephone_1 = JSON.parse(JSON.stringify($scope.membre_info.telephone_1));
+                        $scope.ask_modif_copy.membre_info.phone = JSON.parse(JSON.stringify($scope.membre_info.phone));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.telephone_1 = undefined;
+                    $scope.ask_modif_copy.membre_info.phone = undefined;
                 }
             }
         };
 
         $scope.annuler_profile_telephone = function () {
 
-            $scope.membre_info.telephone_1 = $scope.ask_modif_copy.membre_info.telephone_1;
+            $scope.membre_info.phone = $scope.ask_modif_copy.membre_info.phone;
             $scope.ask_modification_profile_telephone = false;
         };
 
-        $scope.change_profile_adresse = function (adresse) {
-            $scope.ask_modification_profile_adresse = adresse;
+        $scope.change_profile_street = function (street) {
+            $scope.ask_modification_profile_street = street;
 
-            if (!adresse) {
+            if (!street) {
                 let form = {};
-                if ($scope.ask_modif_copy.membre_info.adresse !== $scope.membre_info.adresse) {
-                    form["adresse"] = $scope.membre_info.adresse;
+                if ($scope.ask_modif_copy.membre_info.street !== $scope.membre_info.street) {
+                    form["street"] = $scope.membre_info.street;
                 }
                 if (!_.isEmpty(form)) {
                     let url = "/ore/personal_information/submit";
-                    ajax.rpc(url, form).then(function (data) {
+                    ajax.jsonRpc(url, "call", form).then(function (data) {
                         console.debug("AJAX receive submit_form personal_information");
                         console.debug(data);
 
@@ -813,30 +853,33 @@ odoo.define('website.ore_angularjs_global', function (require) {
                         }
                         // Process all the angularjs watchers
                         $scope.$digest();
-                    });
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        $scope.check_need_login(error);
+                    })
                 }
             } else {
-                if (!_.isUndefined($scope.membre_info.adresse)) {
-                    if (_.isEmpty($scope.membre_info.adresse)) {
-                        $scope.membre_info.adresse = "";
-                        $scope.ask_modif_copy.membre_info.adresse = "";
+                if (!_.isUndefined($scope.membre_info.street)) {
+                    if (_.isEmpty($scope.membre_info.street)) {
+                        $scope.membre_info.street = "";
+                        $scope.ask_modif_copy.membre_info.street = "";
                     } else {
-                        $scope.ask_modif_copy.membre_info.adresse = JSON.parse(JSON.stringify($scope.membre_info.adresse));
+                        $scope.ask_modif_copy.membre_info.street = JSON.parse(JSON.stringify($scope.membre_info.street));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.adresse = undefined;
+                    $scope.ask_modif_copy.membre_info.street = undefined;
                 }
             }
         };
 
-        $scope.annuler_profile_adresse = function () {
-            $scope.membre_info.adresse = $scope.ask_modif_copy.membre_info.adresse;
-            $scope.ask_modification_profile_adresse = false;
+        $scope.annuler_profile_street = function () {
+            $scope.membre_info.street = $scope.ask_modif_copy.membre_info.street;
+            $scope.ask_modification_profile_street = false;
         };
         //END
 
-        $scope.isEmailEmpty = function() {
-            return _.isEmpty($scope.membre_info.courriel);
+        $scope.isEmailEmpty = function () {
+            return _.isEmpty($scope.membre_info.email);
         };
         // End modification environnement
 
@@ -869,7 +912,10 @@ odoo.define('website.ore_angularjs_global', function (require) {
         }
 
         $scope.add_to_my_favorite_field_id = function (model, record_id) {
-            ajax.rpc("/ore/submit/my_favorite", {"model": model, "id_record": record_id}).then(function (data) {
+            ajax.jsonRpc("/ore/submit/my_favorite", "call", {
+                "model": model,
+                "id_record": record_id
+            }).then(function (data) {
                 console.debug("AJAX receive add_to_my_favorite");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -888,11 +934,14 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
             })
         }
 
         $scope.supprimer_offre_service = function (offre_id) {
-            ajax.rpc(`/ore/submit/offre/supprimer/${offre_id}`).then(function (data) {
+            ajax.jsonRpc(`/ore/submit/offre/supprimer/${offre_id}`, "call", {}).then(function (data) {
                 console.debug("AJAX receive supprimer_offre_service");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -907,11 +956,14 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 // $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
             })
         }
 
         $scope.supprimer_demande_service = function (demande_id) {
-            ajax.rpc(`/ore/submit/demande/supprimer/${demande_id}`).then(function (data) {
+            ajax.jsonRpc(`/ore/submit/demande/supprimer/${demande_id}`, "call", {}).then(function (data) {
                 console.debug("AJAX receive supprimer_demande_service");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -926,11 +978,14 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 // $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
             })
         }
 
         $scope.change_publication_offre_service = function (offre_id, website_published) {
-            ajax.rpc(`/ore/submit/offre/publish/${offre_id}`, {"website_published": website_published}).then(function (data) {
+            ajax.jsonRpc(`/ore/submit/offre/publish/${offre_id}`, "call", {"website_published": website_published}).then(function (data) {
                 console.debug("AJAX receive change_publication_offre_service");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -942,11 +997,14 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 // $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
             })
         }
 
         $scope.change_publication_demande_service = function (demande_id, website_published) {
-            ajax.rpc(`/ore/submit/demande/publish/${demande_id}`, {"website_published": website_published}).then(function (data) {
+            ajax.jsonRpc(`/ore/submit/demande/publish/${demande_id}`, "call", {"website_published": website_published}).then(function (data) {
                 console.debug("AJAX receive change_publication_demande_service");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -958,6 +1016,9 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 // $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
             })
         }
 
@@ -1212,7 +1273,10 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
         $scope.add_to_my_favorite = function (model, record_obj) {
             let id_record = record_obj.id;
-            ajax.rpc("/ore/submit/my_favorite", {"model": model, "id_record": id_record}).then(function (data) {
+            ajax.jsonRpc("/ore/submit/my_favorite", "call", {
+                "model": model,
+                "id_record": id_record
+            }).then(function (data) {
                 console.debug("AJAX receive add_to_my_favorite");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -1231,11 +1295,14 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
             })
         }
 
         $scope.update_db_my_personal_info = function () {
-            ajax.rpc("/ore/get_personal_information", {}).then(function (data) {
+            ajax.jsonRpc("/ore/get_personal_information", "call", {}).then(function (data) {
                 console.debug("AJAX receive get_personal_information");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -1252,30 +1319,39 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     $scope.update_personal_data();
                     console.debug($scope.personal);
 
-                    $scope.update_db_list_membre($scope.personal.mon_ore.id);
+                    if (!_.isUndefined($scope.personal.my_network)) {
+                        $scope.update_db_list_membre($scope.personal.my_network.id);
+                    } else {
+                        console.error("Cannot associate personal variable with his network data. " +
+                            "Talk to an administrator, your are lost!");
+                    }
 
                     // Special case, when need to get information of another member
                     let membre_id = $location.search()["membre_id"];
                     let membre_id_int = parseInt(membre_id);
+                    $scope.membre_info = $scope.personal;
                     if (window.location.pathname === "/monprofil/mapresentation" && !_.isUndefined(membre_id) && membre_id_int !== $scope.personal.id) {
                         // Force switch to another user
-                        $scope.update_membre_info(membre_id_int, "membre_info");
+                        $scope.update_membre_info(membre_id_int, "page_presentation_membre_info");
                     } else {
                         console.debug("Setup membre personal.");
                         $scope.personal.estPersonnel = true;
-                        $scope.membre_info = $scope.personal;
+                        $scope.page_presentation_membre_info = $scope.membre_info;
                     }
                 }
 
                 // Process all the angularjs watchers
                 $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
             })
         }
 
         $scope.update_db_my_personal_info();
 
         $scope.update_membre_info = function (membre_id, scope_var_name_to_update) {
-            ajax.rpc("/ore/get_membre_information/" + membre_id).then(function (data) {
+            ajax.jsonRpc("/ore/get_membre_information/" + membre_id, "call", {}).then(function (data) {
                 console.debug("AJAX receive get_membre_information");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -1293,6 +1369,9 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 }
                 // Process all the angularjs watchers
                 $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
             })
         }
 
@@ -1311,7 +1390,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         }
 
         $scope.update_db_nb_offre_service = function () {
-            ajax.rpc("/ore/get_info/nb_offre_service", {}).then(function (data) {
+            ajax.jsonRpc("/ore/get_info/nb_offre_service", "call", {}).then(function (data) {
                 console.debug("AJAX receive get_nb_offre_service");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -1325,6 +1404,9 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
             })
         }
 
@@ -1335,7 +1417,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 let params = window.location.pathname.substring(key.length);
                 params = parseInt(params, 10);
                 if (!Number.isNaN(params)) {
-                    ajax.rpc("/ore/get_info/get_offre_service/" + params).then(function (data) {
+                    ajax.jsonRpc("/ore/get_info/get_offre_service/" + params, "call", {}).then(function (data) {
                         console.debug("AJAX receive /ore/get_info/get_offre_service");
                         if (data.error || !_.isUndefined(data.error)) {
                             $scope.error = data.error;
@@ -1350,13 +1432,16 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                         // Process all the angularjs watchers
                         $scope.$digest();
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        $scope.check_need_login(error);
                     })
                 }
             }
             // Remove optimisation, need it for "my favorite"
             // key = "/offresservice";
             // if (window.location.pathname.indexOf(key) === 0) {
-            ajax.rpc("/ore/get_info/all_offre_service").then(function (data) {
+            ajax.jsonRpc("/ore/get_info/all_offre_service", "call", {}).then(function (data) {
                 console.debug("AJAX receive /ore/get_info/all_offre_service");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -1370,11 +1455,14 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
             })
             // }
             // key = "/demandesservice";
             // if (window.location.pathname.indexOf(key) === 0) {
-            ajax.rpc("/ore/get_info/all_demande_service").then(function (data) {
+            ajax.jsonRpc("/ore/get_info/all_demande_service", "call", {}).then(function (data) {
                 console.debug("AJAX receive /ore/get_info/all_demande_service");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -1388,6 +1476,9 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
             })
             // }
             key = "/ore/ore_demande_service/";
@@ -1396,7 +1487,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 let params = window.location.pathname.substring(key.length);
                 params = parseInt(params, 10);
                 if (!Number.isNaN(params)) {
-                    ajax.rpc("/ore/get_info/get_demande_service/" + params).then(function (data) {
+                    ajax.jsonRpc("/ore/get_info/get_demande_service/" + params, "call", {}).then(function (data) {
                         console.debug("AJAX receive /ore/get_info/get_demande_service");
                         if (data.error || !_.isUndefined(data.error)) {
                             $scope.error = data.error;
@@ -1411,6 +1502,9 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                         // Process all the angularjs watchers
                         $scope.$digest();
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        $scope.check_need_login(error);
                     })
                 }
             }
@@ -1422,7 +1516,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             if (!_.isEmpty(echange_id)) {
                 echange_id = parseInt(echange_id, 10);
                 if (!Number.isNaN(echange_id)) {
-                    ajax.rpc("/ore/get_info/get_echange_service/" + echange_id).then(function (data) {
+                    ajax.jsonRpc("/ore/get_info/get_echange_service/" + echange_id, "call", {}).then(function (data) {
                         console.debug("AJAX receive /ore/get_info/get_echange_service");
                         if (data.error || !_.isUndefined(data.error)) {
                             $scope.error = data.error;
@@ -1460,6 +1554,9 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                         // Process all the angularjs watchers
                         $scope.$digest();
+                    }).fail(function (error, ev) {
+                        console.error(error);
+                        $scope.check_need_login(error);
                     })
                 }
             }
@@ -1467,8 +1564,8 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
         $scope.load_page_offre_demande_echange_service();
 
-        $scope.update_db_list_membre = function (ore_id) {
-            ajax.rpc("/ore/get_info/list_membre", {"ore_id": ore_id}).then(function (data) {
+        $scope.update_db_list_membre = function (reseau_ore_id) {
+            ajax.jsonRpc("/ore/get_info/list_membre", "call", {"reseau_ore_id": reseau_ore_id}).then(function (data) {
                 console.debug("AJAX receive /ore/get_info/list_membre");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -1483,6 +1580,9 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
                 // Process all the angularjs watchers
                 $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
             })
         }
 
@@ -1691,7 +1791,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         };
 
         $scope.get_list_langue = function () {
-            ajax.rpc("/get_available_languages", {}).then(function (response) {
+            ajax.jsonRpc("/get_available_languages", "call", {}).then(function (response) {
                 $scope.language.list = response;
                 for (const i in response) {
                     let lang = response[i];
@@ -1700,7 +1800,10 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     }
                 }
                 $scope.$digest();
-            });
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
+            })
         };
 
         $scope.changeLanguage = function () {
@@ -1708,17 +1811,16 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 console.debug("Ignore update language.");
                 return;
             }
-            ajax.jsonRpc("/change_language", "", {lang_code: $scope.language.selected.code}).then(
+            ajax.jsonRpc("/change_language", "call", {lang_code: $scope.language.selected.code}).then(
                 function (response) {
                     // window.location.href = `/website/lang/${$scope.language.selected.code}`;
                     // TODO rewrite actual url and not hardcode /monprofil/mespreferences
                     // TODO caution, other language is /en_CA/monprofil/mespreferences
                     window.location.href = "/" + $scope.language.selected.code + `/monprofil/mespreferences${$scope.url_debug}`;
-                },
-                function (error) {
+                }).fail(function (error, ev) {
                     console.log(error);
                 }
-            );
+            )
         };
     }])
 

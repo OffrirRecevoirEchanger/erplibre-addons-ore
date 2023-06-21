@@ -26,9 +26,6 @@
                         <field name="accompli" />
                     </group>
                     <group>
-                        <field name="ore" />
-                    </group>
-                    <group>
                         <field name="approuve" />
                     </group>
                     <group>
@@ -102,7 +99,6 @@
             <graph string="ORE offre service">
                 <field name="titre" type="row" />
                 <field name="accompli" type="row" />
-                <field name="ore" type="row" />
                 <field name="approuve" type="row" />
                 <field name="condition" type="row" />
                 <field name="condition_autre" type="row" />
@@ -133,7 +129,6 @@
             <kanban class="o_kanban_mobile">
                 <field name="titre" />
                 <field name="accompli" />
-                <field name="ore" />
                 <field name="approuve" />
                 <field name="condition" />
                 <field name="condition_autre" />
@@ -169,11 +164,6 @@
                                     </li>
                                     <li class="text-danger float-right mb4" t-if="!record.accompli.raw_value">
                                         <i aria-label="Invalid" class="fa fa-circle" role="img" title="Invalid" />
-                                    </li>
-                                    <li class="mb4">
-                                        <strong>
-                                            <field name="ore" />
-                                        </strong>
                                     </li>
                                     <li class="text-success float-right mb4" t-if="record.approuve.raw_value">
                                         <i aria-label="Ok" class="fa fa-circle" role="img" title="Ok" />
@@ -305,7 +295,6 @@
             <search string="ORE offre service">
                 <filter domain="[('titre','!=',False)]" name="titre" string="Titre" />
                 <filter domain="[('accompli','=',True)]" name="accompli" string="Accomplie" />
-                <filter domain="[('ore','!=',False)]" name="ore" string="ORE" />
                 <filter domain="[('active','=',False)]" name="Inactive" string="Inactive ORE offre service" />
                 <filter domain="[('approuve','=',True)]" name="approuve" string="Approuv&#233;" />
                 <filter domain="[('condition','!=',False)]" name="condition" string="Conditions" />
@@ -362,7 +351,6 @@
                 <field name="titre" />
                 <field name="description" />
                 <field name="accompli" />
-                <field name="ore" />
                 <field name="approuve" />
                 <field name="condition" />
                 <field name="condition_autre" />
@@ -387,7 +375,12 @@
         <field name="model">ore.offre.service</field>
         <field name="type">timeline</field>
         <field name="arch" type="xml">
-            <timeline date_start="date_debut" date_stop="date_fin" default_group_by="ore" event_open_popup="true">
+            <timeline
+                date_start="date_debut"
+                date_stop="date_fin"
+                default_group_by="type_service_id"
+                event_open_popup="true"
+            >
                 <field name="user_id" />
                 <templates>
                     <t t-name="timeline-item">

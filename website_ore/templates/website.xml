@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="adresse">
                                         <i class="fa fa-home text-primary icon_padding_right" />
-                                        <t t-esc="ore_offre_service_id.membre.adresse" />
+                                        <t t-esc="ore_offre_service_id.membre.street" />
                                     </div>
                                     <div class="pubdate">
                                         <i class="fa fa-clock-o text-primary icon_padding_right" />
@@ -310,7 +310,7 @@
                                     </div>
                                     <div class="adresse">
                                         <i class="fa fa-home text-primary icon_padding_right" />
-                                        <t t-esc="ore_demande_service_id.membre.adresse" />
+                                        <t t-esc="ore_demande_service_id.membre.street" />
                                     </div>
                                     <div class="pubdate">
                                         <i class="fa fa-clock-o text-primary icon_padding_right" />

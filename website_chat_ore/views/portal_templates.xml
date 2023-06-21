@@ -7,8 +7,8 @@
                 ng-if="!hide_votre_contact_to_contact"
             >
                 <div class="btn btn-primary rounded-circle">
-                    <span ng-if="contact_info === 'femme'">La</span>
-                    <span ng-if="contact_info !== 'femme'">Le</span>
+                    <span ng-if="contact_info.genre === 'femme'">La</span>
+                    <span ng-if="contact_info.genre !== 'femme'">Le</span>
                     contacter
                 </div>
             </a>

@@ -18,7 +18,7 @@ class OREDemandeAdhesion(models.Model):
             lst_data = []
             for val in vals:
                 data = {
-                    "ore": val.ore.id,
+                    # "ore": val.ore.id,
                     "profil_approuver": True,
                     "nom": val.nom,
                     # "prenom": val.prenom,
@@ -42,7 +42,7 @@ class OREDemandeAdhesion(models.Model):
                     "type_echange": "offre_ponctuel",
                     "transaction_valide": True,
                     "membre_acheteur": self.env.ref(
-                        "demo_ore.ore_membre_ore_laval"
+                        "demo_ore.base_main_partner"
                     ).id,
                     "membre_vendeur": membre_id.id,
                 }
