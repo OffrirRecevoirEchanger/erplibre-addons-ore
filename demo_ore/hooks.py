@@ -22,6 +22,10 @@ def post_init_hook(cr, e):
         # General configuration
         values = {
             "ore_auto_accept_adhesion": True,
+            "ore_default_societe": env.ref(
+                "demo_ore.societe_sainte_rose_du_nord"
+            ).id,
+            "ore_default_free_time": 15.0,
         }
         event_config = env["res.config.settings"].sudo().create(values)
         event_config.execute()

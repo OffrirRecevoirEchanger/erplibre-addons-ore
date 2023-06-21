@@ -28,4 +28,5 @@ from . import (
     ore_workflow_state,
     res_config_settings,
     res_partner,
+    res_users,
 )

@@ -59,3 +59,60 @@ class OREDemandeAdhesion(models.Model):
                 rec.nom_complet = f"{rec.prenom}"
             else:
                 rec.nom_complet = False
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        vals = super(OREDemandeAdhesion, self).create(vals_list)
+        # Automatic accept, create member
+        if (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("ore.ore_auto_accept_adhesion")
+        ):
+            default_ore_society = (
+                self.env["ir.config_parameter"]
+                .sudo()
+                .get_param("ore.ore_default_societe")
+            )
+            ore_default_free_time = (
+                self.env["ir.config_parameter"]
+                .sudo()
+                .get_param("ore.ore_default_free_time", 0)
+            )
+            if not default_ore_society:
+                raise Exception(
+                    "Need to define ORE society, please contact the"
+                    " administrator."
+                )
+            society_id = self.env["ore.membre"].browse(
+                int(default_ore_society)
+            )
+            # TODO move this into ore, do refactoring (merge partner and member), add configuration
+            lst_data = []
+            for val in vals:
+                data = {
+                    "profil_approuver": True,
+                    "name": val.nom,
+                    "parent_id": self.env.ref("base.main_partner").id,
+                    "reseau_ore_id": society_id.id,
+                    "user_id": val.user_id.id,
+                    "partner_id": val.user_id.partner_id.id,
+                    "region": society_id.region.id,
+                    "ville": society_id.ville.id,
+                }
+                lst_data.append(data)
+            membre_ids = self.env["ore.membre"].create(lst_data)
+            # Force add initial time
+            lst_data = []
+            for membre_id in membre_ids:
+                data = {
+                    "date_echange": fields.Datetime.now(),
+                    "nb_heure": float(ore_default_free_time),
+                    "type_echange": "offre_ponctuel",
+                    "transaction_valide": True,
+                    "membre_acheteur": society_id.id,
+                    "membre_vendeur": membre_id.id,
+                }
+                lst_data.append(data)
+            self.env["ore.echange.service"].create(lst_data)
+        return vals
