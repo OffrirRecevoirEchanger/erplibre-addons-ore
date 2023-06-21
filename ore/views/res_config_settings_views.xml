@@ -17,11 +17,19 @@
                         >
                             <div class="o_setting_left_pane">
                                 <field name="ore_auto_accept_adhesion" />
+                                <field name="ore_default_societe" />
+                                <field name="ore_default_free_time" />
                             </div>
                             <div class="o_setting_right_pane">
                                 <label for="ore_auto_accept_adhesion" />
                                 <div class="text-muted">
                                     Accepter automatiquement les adhésions des membres sans validation
+                                </div>
+                                <label for="ore_default_societe" />
+                                <div class="text-muted">Choisir la société par défaut pour ajouter les membres.</div>
+                                <label for="ore_default_free_time" />
+                                <div class="text-muted">
+                                    Temps à recevoir par défaut de la société à l'adhésion du membre.
                                 </div>
                             </div>
                         </div>

@@ -18,6 +18,7 @@
                 <group string="ORE" name="ore" priority="1" attrs="{'invisible': [('ore_membre_id', '=', False)]}">
                     <field name="bank_time" />
                     <field name="bank_month_time" />
+                    <field name="est_un_point_service" />
                 </group>
             </xpath>
             <!--            <xpath expr="//group[@name='sale']" position="after">-->

@@ -124,13 +124,6 @@ class OREMembre(models.Model):
     #     track_visibility="onchange",
     # )
 
-    # reseau_ore_id = fields.Many2one(
-    #     "ore.membre",
-    #     string="Réseau ORE",
-    #     help="Relation d'un réseau ORE, les responsables du membre.",
-    #     index=True,
-    # )
-
     # # TODO remove is_time_updated and force call _bank_time
     # is_time_updated = fields.Boolean(
     #     string="Time is updated",

@@ -3,10 +3,12 @@
     <data noupdate="1">
         <record id="partner_societe_sainte_rose_du_nord" model="res.partner">
             <field name="name">Municipalité de Sainte-Rose-Du-Nord</field>
+            <field name="est_un_point_service">true</field>
         </record>
 
         <record id="partner_societe_province_quebec_pays_canada" model="res.partner">
             <field name="name">Province du Québec</field>
+            <field name="est_un_point_service">true</field>
         </record>
 
         <record id="partner_demo_alice_poitier" model="res.partner">
