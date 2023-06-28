@@ -1371,6 +1371,7 @@ class OREController(http.Controller):
                 [
                     ("reseau_ore_id", "=", reseau_ore_id),
                     ("profil_approuver", "=", True),
+                    ("website_published", "=", True),
                 ]
             )
         )
@@ -1519,6 +1520,7 @@ class OREController(http.Controller):
                 "img": a.get_image_url(),
             }
             for a in res_partner_ids
+            if a.website_published
         ]
         ore_type_service_categorie_ids = (
             env["ore.type.service.categorie"].sudo().search([])
@@ -2583,28 +2585,28 @@ class OREController(http.Controller):
 
         return status
 
-    @http.route(
-        [
-            "/ore/get_member",
-        ],
-        type="json",
-        auth="user",
-        website=True,
-    )
-    def get_participer_member_from_ore(self, **kw):
-        # TODO filter get member from ore
-        env = request.env(context=dict(request.env.context))
-        res_partner_ids = env["ore.membre"].sudo().search([])
-        return {
-            "list": [
-                {
-                    "text": a.name,
-                    "id": a.id,
-                    "img": a.get_image_url(),
-                }
-                for a in res_partner_ids
-            ]
-        }
+    # @http.route(
+    #     [
+    #         "/ore/get_member",
+    #     ],
+    #     type="json",
+    #     auth="user",
+    #     website=True,
+    # )
+    # def get_participer_member_from_ore(self, **kw):
+    #     # TODO filter get member from ore
+    #     env = request.env(context=dict(request.env.context))
+    #     res_partner_ids = env["ore.membre"].sudo().search([])
+    #     return {
+    #         "list": [
+    #             {
+    #                 "text": a.name,
+    #                 "id": a.id,
+    #                 "img": a.get_image_url(),
+    #             }
+    #             for a in res_partner_ids
+    #         ]
+    #     }
 
     @http.route(
         [

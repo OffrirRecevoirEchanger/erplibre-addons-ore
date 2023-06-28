@@ -341,6 +341,12 @@ class OREMembre(models.Model):
         store=True,
     )
 
+    website_published = fields.Boolean(
+        string="Publier le membre",
+        help="Le membre est visible sur le site, sinon il est caché.",
+        default=True,
+    )
+
     @api.model_create_multi
     def create(self, vals_list):
         status = super().create(vals_list)
@@ -476,3 +482,8 @@ class OREMembre(models.Model):
                 # TODO algorithme avec date de naisance et non année de naissance
                 # rec.age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
                 rec.age = today.year - rec.annee_naissance
+
+    @api.multi
+    def website_publish_button(self):
+        self.ensure_one()
+        return self.write({"website_published": not self.website_published})
