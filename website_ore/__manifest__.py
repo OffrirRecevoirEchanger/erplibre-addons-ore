@@ -1,7 +1,7 @@
 {
     "name": "ORE website",
     "category": "Website",
-    "version": "12.0.1.1",
+    "version": "12.0.1.2",
     "author": "TechnoLibre",
     "license": "AGPL-3",
     "website": "https://technolibre.ca",

@@ -1902,8 +1902,8 @@
                                             <br />
                                             <span class="desc-3">
                                                 <i class="fa fa-shield" />
-                                                <span style="position: relative; left: -25px;" ng-if="page_presentation_membre_info.antecedent_judiciaire_verifier">Ant&#233;c&#233;dents judificaires v&#233;rifi&#233;s</span>
-                                                <span style="position: relative; left: -25px;" ng-if="!page_presentation_membre_info.antecedent_judiciaire_verifier">Ant&#233;c&#233;dents judificaires non v&#233;rifi&#233;s</span>
+                                                <span style="position: relative; left: -25px;" ng-if="page_presentation_membre_info.antecedent_judiciaire_verifier">Utilisateur v&#233;rifi&#233;</span>
+                                                <span style="position: relative; left: -25px;" ng-if="!page_presentation_membre_info.antecedent_judiciaire_verifier">Utilisateur non v&#233;rifi&#233;</span>
                                             </span>
                                             <br />
                                             <span class="desc-3">
