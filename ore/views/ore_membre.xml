@@ -10,6 +10,13 @@
                         <button class="oe_stat_button" icon="fa-archive" name="toggle_active" type="object">
                             <field name="active" widget="boolean_button" />
                         </button>
+                        <button name="website_publish_button" class="oe_stat_button" type="object" icon="fa-globe">
+                            <field
+                                name="website_published"
+                                widget="website_button"
+                                options='{"terminology": {"string_true": "Published", "hover_false": "Publish"}}'
+                            />
+                        </button>
                     </div>
                     <field name="image" widget="image" class="oe_avatar" />
                     <div class="oe_title">
