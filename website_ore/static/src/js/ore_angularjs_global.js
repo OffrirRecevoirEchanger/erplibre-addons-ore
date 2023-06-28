@@ -212,6 +212,8 @@ odoo.define('website.ore_angularjs_global', function (require) {
             if (window.location.pathname !== "" &&
                 window.location.pathname !== "/" &&
                 window.location.pathname !== "/aide" &&
+                window.location.pathname !== "/terms-of-service" &&
+                window.location.pathname !== "/privacy-policy" &&
                 window.location.pathname !== "/web/login" &&
                 window.location.pathname !== "/web/reset_password" &&
                 error.data.name === "odoo.http.SessionExpiredException") {
