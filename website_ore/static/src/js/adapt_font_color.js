@@ -24,6 +24,11 @@ function addInverseColor(bgClassName, newColorClassName) {
 
     let bgColor = getBackgroundColor(bgClassName);
 
+    if (bgColor == null) {
+        console.error("Cannot execute algorithm adapt font color, css sheet cannot be found.")
+        return;
+    }
+
     // Affichage de la couleur dans la console
     console.debug(bgColor);
 

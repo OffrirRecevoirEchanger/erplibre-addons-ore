@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="website_privacy_policy_page" model="website.page">
+        <field name="website_published">True</field>
+        <field name="url">/privacy-policy</field>
+        <field name="view_id" ref="website_privacy_policy_view" />
+    </record>
+
+    <record id="website_terms_of_service_page" model="website.page">
+        <field name="website_published">True</field>
+        <field name="url">/terms-of-service</field>
+        <field name="view_id" ref="website_terms_of_service_view" />
+    </record>
+</odoo>

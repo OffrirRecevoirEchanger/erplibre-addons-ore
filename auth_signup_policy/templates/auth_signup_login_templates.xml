@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="website_privacy_policy_view" name="Website Privacy Policy">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+                <div class="container">
+                    <h2 class="text-center">Privacy Policy</h2>
+                    <h3 class="text-center text-muted">Privacy policy section</h3>
+                    <div class="row">
+                        <div class="col-md-12 mb16 mt16">
+                            <p>Missing privacy policy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="website_terms_of_service_view" name="Website Terms of Service">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+                <div class="container">
+                    <h2 class="text-center">Terms of Service</h2>
+                    <h3 class="text-center text-muted">Terms of service section</h3>
+                    <div class="row">
+                        <div class="col-md-12 mb16 mt16">
+                            <p>Missing Terms of Service</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="signup_with_terms_and_conditions" inherit_id="auth_signup.signup">
+        <xpath expr="//div[hasclass('oe_login_buttons')]" position="before">
+            <div class="signup-policy" t-if="enable_sign_up_global_policy">
+                <div class="form-group" t-if="enable_sign_up_connection_policy">
+                    <label>Connection policy</label>
+                    <t t-raw="sign_up_connection_policy_body" />
+                </div>
+                <input type="checkbox" id="accept_global_policy" name="accept_global_policy" />
+                <label for="accept_global_policy">
+                    I agree to our
+                    <t t-if="enable_sign_up_connection_policy">
+                        <b>Connection Policy</b>
+                    </t>
+                    <t t-if="enable_sign_up_terms_of_service">
+                        <t t-if="enable_sign_up_connection_policy">and</t>
+                        <a href="/terms-of-service" class="btn-link" target="_blank">Terms of Service</a>
+                    </t>
+                    <t t-if="enable_sign_up_privacy_policy">
+                        <t t-if="enable_sign_up_terms_of_service or enable_sign_up_connection_policy">and</t>
+                        <a href="/privacy-policy" class="btn-link" target="_blank">Privacy Policy</a>
+                    </t>
+                    .
+                </label>
+            </div>
+        </xpath>
+    </template>
+</odoo>

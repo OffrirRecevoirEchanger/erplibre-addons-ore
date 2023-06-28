@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--    <template id="less" inherit_id="website.assets_frontend" active="True" priority="1">-->
+    <!--        <xpath expr="//link[last()]" position="after">-->
+    <!--            <link href="/signup_with_terms_conditions/static/src/less/custom.less" rel="stylesheet" type="text/less" />-->
+    <!--        </xpath>-->
+    <!--    </template>-->
+    <template id="assets_frontend" inherit_id="web.assets_frontend" name="Auth Assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/auth_signup_policy/static/src/js/signup.js" />
+        </xpath>
+    </template>
+</odoo>

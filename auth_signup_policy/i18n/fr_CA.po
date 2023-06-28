@@ -1,0 +1,140 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* auth_signup_policy
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-28 17:25+0000\n"
+"PO-Revision-Date: 2023-06-28 17:25+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: auth_signup_policy
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.signup_with_terms_and_conditions
+msgid "<b>Connection Policy</b>"
+msgstr "<b>Politique de connexion</b>"
+
+#. module: auth_signup_policy
+#: model:ir.model,name:auth_signup_policy.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: auth_signup_policy
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.res_config_settings_view_form
+msgid "Connection Policy content"
+msgstr "Contenu de la politique de connexion"
+
+#. module: auth_signup_policy
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.res_config_settings_view_form
+msgid "Show before click subscribe"
+msgstr "À afficher avant de cliquer sur inscription"
+
+#. module: auth_signup_policy
+#: model:ir.model.fields,field_description:auth_signup_policy.field_res_config_settings__sign_up_connection_policy_body
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.signup_with_terms_and_conditions
+msgid "Connection policy"
+msgstr "Politique de connexion"
+
+#. module: auth_signup_policy
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.signup_with_terms_and_conditions
+msgid "I agree to our"
+msgstr "J'accepte les conditions pour"
+
+#. module: auth_signup_policy
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.website_terms_of_service_page_ir_ui_view
+#: model_terms:website.page,arch_db:auth_signup_policy.website_terms_of_service_page
+msgid "Missing Terms of Service"
+msgstr "Manque des conditions d'utilisation"
+
+#. module: auth_signup_policy
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.website_privacy_policy_page_ir_ui_view
+#: model_terms:website.page,arch_db:auth_signup_policy.website_privacy_policy_page
+msgid "Missing privacy policy"
+msgstr "Manque la politique des données"
+
+#. module: auth_signup_policy
+#: model:ir.model.fields,help:auth_signup_policy.field_res_config_settings__enable_sign_up_connection_policy
+msgid "On sign up, show connection policy, check content with sign_up_connection_policy_body"
+msgstr "À l'inscription, afficher la politique de connexion, puis accepter le contenu avec sign_up_connection_policy_body"
+
+#. module: auth_signup_policy
+#: model:ir.model.fields,help:auth_signup_policy.field_res_config_settings__enable_sign_up_privacy_policy
+msgid "On sign up, show privacy policy"
+msgstr "À l'inscription, afficher la politique sur les données"
+
+#. module: auth_signup_policy
+#: model:ir.model.fields,help:auth_signup_policy.field_res_config_settings__enable_sign_up_terms_of_service
+#: model:ir.model.fields,help:auth_signup_policy.field_res_config_settings__sign_up_connection_policy_body
+msgid "On sign up, show terms of service"
+msgstr "À l'inscription, afficher les termes de services"
+
+#. module: auth_signup_policy
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.signup_with_terms_and_conditions
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.website_privacy_policy_page_ir_ui_view
+#: model_terms:website.page,arch_db:auth_signup_policy.website_privacy_policy_page
+msgid "Privacy Policy"
+msgstr "Politique de confidentialité"
+
+#. module: auth_signup_policy
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.website_privacy_policy_page_ir_ui_view
+#: model_terms:website.page,arch_db:auth_signup_policy.website_privacy_policy_page
+msgid "Privacy policy section"
+msgstr "Section de la politique de confidentialité"
+
+#. module: auth_signup_policy
+#: model:ir.model.fields,field_description:auth_signup_policy.field_res_config_settings__enable_sign_up_connection_policy
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.res_config_settings_view_form
+msgid "Show Connection Policy"
+msgstr "Afficher la politique de connexion"
+
+#. module: auth_signup_policy
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.res_config_settings_view_form
+msgid "Force user to accept Connection Policy on Sign up"
+msgstr "Forcer l'utilisateur à accepter la politique de connexion à l'inscription"
+
+#. module: auth_signup_policy
+#: model:ir.model.fields,field_description:auth_signup_policy.field_res_config_settings__enable_sign_up_privacy_policy
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.res_config_settings_view_form
+msgid "Show Privacy Policy"
+msgstr "Afficher la politique de confidentialité"
+
+#. module: auth_signup_policy
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.res_config_settings_view_form
+msgid "Force user to accept Privacy Policy on Sign up"
+msgstr "Forcer l'utilisateur à accepter la politique de confidentialité à l'inscription"
+
+#. module: auth_signup_policy
+#: model:ir.model.fields,field_description:auth_signup_policy.field_res_config_settings__enable_sign_up_terms_of_service
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.res_config_settings_view_form
+msgid "Show Terms of Service"
+msgstr "Afficher les conditions d'utilisation"
+
+#. module: auth_signup_policy
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.res_config_settings_view_form
+msgid "Force user to accept Terms of Service on Sign up"
+msgstr "Forcer l'utilisateur à accepter les conditions d'utilisation à l'inscription"
+
+#. module: auth_signup_policy
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.signup_with_terms_and_conditions
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.website_terms_of_service_page_ir_ui_view
+#: model_terms:website.page,arch_db:auth_signup_policy.website_terms_of_service_page
+msgid "Terms of Service"
+msgstr "Conditions d'utilisation"
+
+#. module: auth_signup_policy
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.website_terms_of_service_page_ir_ui_view
+#: model_terms:website.page,arch_db:auth_signup_policy.website_terms_of_service_page
+msgid "Terms of service section"
+msgstr "Section des conditions d'utilisation"
+
+#. module: auth_signup_policy
+#: model_terms:ir.ui.view,arch_db:auth_signup_policy.signup_with_terms_and_conditions
+msgid "and"
+msgstr "et"
+
