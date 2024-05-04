@@ -14,19 +14,22 @@
 
     <menuitem id="group_ore" name="Réseau" sequence="0" parent="parent_ore" />
 
-    <menuitem id="group_categorie_de_services" name="Cat&#233;gorie de services" sequence="1" parent="parent_service" />
+    <menuitem
+        id="group_categorie_de_services"
+        name="Cat&#233;gorie de services"
+        sequence="2"
+        parent="parent_configuration"
+    />
 
-    <menuitem id="group_configuration" name="Configuration" sequence="2" parent="parent_configuration" />
+    <menuitem id="group_configuration" name="Configuration" sequence="1" parent="parent_configuration" />
 
     <menuitem id="group_document" name="Document" sequence="3" parent="parent_ore" />
 
     <menuitem id="group_location" name="Location" sequence="4" parent="parent_configuration" />
 
-    <menuitem id="group_membre" name="Membre" sequence="5" parent="parent_ore" />
+    <menuitem id="group_membre" name="Membre" sequence="1" parent="ore" />
 
-    <menuitem id="group_service" name="Service" sequence="6" parent="parent_service" />
-
-    <menuitem id="group_statistique" name="Statistique" sequence="7" parent="parent_ore" />
+    <menuitem id="group_statistique" name="Statistique" sequence="7" parent="ore" />
 
     <menuitem id="group_workflow" name="Diagramme" sequence="8" parent="parent_configuration" />
 
@@ -77,7 +80,7 @@
         name="Commentaire"
         action="ore_commentaire_commentaire_action_window"
         sequence="3"
-        parent="group_service"
+        parent="parent_service"
     />
 
     <menuitem
@@ -93,14 +96,14 @@
         name="Demande de services"
         action="ore_demande_service_demande_de_services_action_window"
         sequence="5"
-        parent="group_service"
+        parent="parent_service"
     />
 
     <menuitem
         id="configuration_configuration"
         name="Configuration"
         action="ore_config_settings_action"
-        sequence="5"
+        sequence="1"
         parent="group_configuration"
     />
 
@@ -108,11 +111,11 @@
         id="echange_de_services"
         name="&#201;change de services"
         action="ore_echange_service_echange_de_services_action_window"
-        sequence="7"
-        parent="group_service"
+        sequence="1"
+        parent="parent_service"
     />
 
-    <menuitem id="membre" name="Membre" action="res_partner_membre_action_window" sequence="9" parent="group_membre" />
+    <menuitem id="membre" name="Membre" action="res_partner_membre_action_window" sequence="2" parent="group_membre" />
 
     <menuitem id="menu" name="Menu" sequence="1" parent="ore" />
 
@@ -129,7 +132,7 @@
         name="Offre de services"
         action="ore_offre_service_offre_de_services_action_window"
         sequence="11"
-        parent="group_service"
+        parent="parent_service"
     />
 
     <menuitem
