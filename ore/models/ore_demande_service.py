@@ -13,8 +13,8 @@ class OREDemandeService(models.Model):
 
     active = fields.Boolean(
         string="Actif",
-        default=True,
         track_visibility="onchange",
+        default=True,
         help=(
             "Lorsque non actif, cet demande de services n'est plus en"
             " fonction, mais demeure accessible."
@@ -37,30 +37,31 @@ class OREDemandeService(models.Model):
         track_visibility="onchange",
     )
 
-    description = fields.Text(
-        track_visibility="onchange",
-    )
+    description = fields.Text(track_visibility="onchange")
 
     membre = fields.Many2one(
         comodel_name="ore.membre",
         track_visibility="onchange",
     )
 
-    membre_favoris_ids = fields.Many2many(comodel_name="ore.membre")
+    membre_favoris_ids = fields.Many2many(
+        comodel_name="ore.membre",
+        string="Membre Favoris",
+    )
 
     type_service_id = fields.Many2one(
         comodel_name="ore.type.service",
-        track_visibility="onchange",
         string="Type de services",
+        track_visibility="onchange",
     )
 
     user_id = fields.Many2one(related="membre.user_id")
 
     website_published = fields.Boolean(
         string="Demande publié",
-        help="La demande est publiée, sinon il est privée.",
         track_visibility="onchange",
         default=True,
+        help="La demande est publiée, sinon il est privée.",
     )
 
     @api.multi

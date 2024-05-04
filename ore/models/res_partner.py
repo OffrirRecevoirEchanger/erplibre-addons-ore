@@ -28,10 +28,10 @@ class ResPartner(models.Model):
     est_un_membre_ore = fields.Boolean(string="Est un membre du réseau ORE")
 
     reseau_ore_id = fields.Many2one(
-        "ore.membre",
+        comodel_name="ore.membre",
         string="Réseau ORE",
-        help="Relation d'un réseau ORE, les responsables du membre.",
         index=True,
+        help="Relation d'un réseau ORE, les responsables du membre.",
     )
 
     ore_client_key = fields.Char(
@@ -39,26 +39,29 @@ class ResPartner(models.Model):
     )
 
     ore_membre_id = fields.Many2one(
-        "ore.membre",
+        comodel_name="ore.membre",
         string="Membre ore associé",
-        help="Relation d'un membre du réseau ORE",
         index=True,
+        help="Relation d'un membre du réseau ORE",
     )
 
     count_offre_service_ids = fields.Integer(
         related="ore_membre_id.count_offre_service_ids",
+        string="Count Offre Service",
         readonly=True,
         help="Quantité des offres de service du membre",
     )
 
     count_demande_service_ids = fields.Integer(
         related="ore_membre_id.count_demande_service_ids",
+        string="Count Demande Service",
         readonly=True,
         help="Quantité des demandes de service du membre",
     )
 
     count_echange_service_ids = fields.Integer(
         related="ore_membre_id.count_echange_service_ids",
+        string="Count Echange Service",
         readonly=True,
         help="Quantité des échanges de service du membre",
     )

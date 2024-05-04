@@ -72,7 +72,10 @@ class OREOffreService(models.Model):
         help="Membre qui offre le service",
     )
 
-    membre_favoris_ids = fields.Many2many(comodel_name="ore.membre")
+    membre_favoris_ids = fields.Many2many(
+        comodel_name="ore.membre",
+        string="Membre Favoris",
+    )
 
     nb_consultation = fields.Integer(string="Nombre de consultations")
 
@@ -96,8 +99,8 @@ class OREOffreService(models.Model):
 
     website_published = fields.Boolean(
         string="Offre publié",
-        help="L'offre est publiée, sinon il est privée.",
         default=True,
+        help="L'offre est publiée, sinon il est privée.",
     )
 
     @api.multi

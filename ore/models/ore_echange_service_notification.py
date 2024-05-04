@@ -11,16 +11,20 @@ class OREEchangeServiceNotification(models.Model):
     _description = "ORE Echange Service Notification"
     _order = "create_date desc"
 
-    name = fields.Char(compute="_compute_name", store=True)
+    name = fields.Char(
+        compute="_compute_name",
+        store=True,
+    )
 
     active = fields.Boolean(default=True)
 
     is_read = fields.Boolean(
-        string="Is read", help="La notification a été lu par le membre."
+        string="Is read",
+        help="La notification a été lu par le membre.",
     )
 
     type_notification = fields.Selection(
-        [
+        selection=[
             ("Nouvelle demande de service", "Nouvelle demande de service"),
             ("Réponse à votre demande", "Réponse à votre demande"),
             ("Demande de service", "Demande de service"),
@@ -40,9 +44,15 @@ class OREEchangeServiceNotification(models.Model):
         string="Membre notifié",
     )
 
-    membre_name = fields.Char(compute="_compute_membre_name", store=True)
+    membre_name = fields.Char(
+        compute="_compute_membre_name",
+        store=True,
+    )
 
-    membre_logo = fields.Char(compute="_compute_name", store=True)
+    membre_logo = fields.Char(
+        compute="_compute_name",
+        store=True,
+    )
 
     def first_to_json(self):
         obj = self[0]

@@ -13,8 +13,8 @@ class OREMembre(models.Model):
         comodel_name="res.partner",
         string="Membre",
         required=True,
-        ondelete="cascade",
         track_visibility="onchange",
+        ondelete="cascade",
     )
 
     # achat_regrouper = fields.Boolean(
@@ -43,8 +43,9 @@ class OREMembre(models.Model):
 
     age = fields.Integer(
         string="Âge",
-        compute="_compute_age",
         track_visibility="onchange",
+        compute="_compute_age",
+        store=True,
     )
 
     arrondissement = fields.Many2one(
@@ -157,6 +158,7 @@ class OREMembre(models.Model):
     )
 
     count_offre_service_ids = fields.Integer(
+        string="Count Offre Service",
         compute="compute_count_offre_service_ids",
         store=True,
         help="Quantité des offres de service du membre",
@@ -170,6 +172,7 @@ class OREMembre(models.Model):
     )
 
     count_demande_service_ids = fields.Integer(
+        string="Count Demande Service",
         compute="compute_count_demande_service_ids",
         store=True,
         help="Quantité des demandes de service du membre",
@@ -190,6 +193,7 @@ class OREMembre(models.Model):
     )
 
     count_echange_service_ids = fields.Integer(
+        string="Count Echange Service",
         compute="compute_count_echange_service_ids",
         store=True,
         help="Quantité des échanges de service du membre",
@@ -220,8 +224,8 @@ class OREMembre(models.Model):
     )
 
     langue_parle = fields.Many2many(
-        string="Langue",
         comodel_name="ore.membre.langue_parle",
+        string="Langue",
         help="Liste langues des membres",
     )
 
@@ -258,8 +262,8 @@ class OREMembre(models.Model):
 
     revenu_familial = fields.Many2one(
         comodel_name="ore.revenu.familial",
-        track_visibility="onchange",
         string="Revenu familial",
+        track_visibility="onchange",
     )
 
     date_naissance = fields.Date(
@@ -268,11 +272,7 @@ class OREMembre(models.Model):
     )
 
     genre = fields.Selection(
-        selection=[
-            ("femme", "Femme"),
-            ("homme", "Homme"),
-            ("autre", "Autre"),
-        ],
+        selection=[("femme", "Femme"), ("homme", "Homme"), ("autre", "Autre")],
         track_visibility="onchange",
     )
 
@@ -301,8 +301,8 @@ class OREMembre(models.Model):
 
     antecedent_judiciaire_verifier = fields.Boolean(
         string="Antécédents judiciaires vérifiés",
-        help="Vérifier par l'organisation",
         track_visibility="onchange",
+        help="Vérifier par l'organisation",
     )
 
     introduction = fields.Char(
@@ -316,35 +316,35 @@ class OREMembre(models.Model):
     )
 
     motivation_membre = fields.Char(
-        help="Pourquoi devenir un membre de réseau.",
         track_visibility="onchange",
+        help="Pourquoi devenir un membre de réseau.",
     )
 
     bank_time = fields.Float(
         string="Temps en banque",
-        compute="_bank_time",
         track_visibility="onchange",
+        compute="_bank_time",
         store=True,
     )
 
     bank_month_time = fields.Float(
         string="Temps en banque du présent mois",
-        compute="_bank_time",
         track_visibility="onchange",
+        compute="_bank_time",
         store=True,
     )
 
     bank_max_service_offert = fields.Float(
         string="Temps maximal de service offert",
-        compute="_bank_time",
         track_visibility="onchange",
+        compute="_bank_time",
         store=True,
     )
 
     website_published = fields.Boolean(
         string="Publier le membre",
-        help="Le membre est visible sur le site, sinon il est caché.",
         default=True,
+        help="Le membre est visible sur le site, sinon il est caché.",
     )
 
     @api.model_create_multi
