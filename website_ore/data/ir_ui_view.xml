@@ -459,7 +459,7 @@
                                                 <span>Actualit&#233;</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item">
                                             <a class="nav-link active" role="menu_item" href="/communaute/evenements">
                                                 <span>&#201;v&#232;nements</span>
                                             </a>
@@ -476,237 +476,66 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_event_list lg debug_unimplemented">
-                                    <div class="list_head mobile-display-none">
-                                        <div class="list_title s_title">
-                                            <h1>
-                                                Évènements
-                                                <span class="filter_btn btn">
+                                <section class="s_event_list lg">
+                                    <div ng-controller="EventController">
+                                        <div class="list_head mobile-display-none">
+                                            <div class="list_title s_title">
+                                                <h1>
+                                                    Évènements
+                                                    <span class="filter_btn btn debug_unimplemented">
                                                     <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                     Filtrer et trier
                                                 </span>
-                                                <span class="filter_btn btn" style="margin-right:15px">
+                                                    <span class="filter_btn btn debug_unimplemented" style="margin-right:15px">
                                                     Catégorie &amp;nbsp;
                                                     <icon class="fa fa-chevron-up text-epsilon" />
                                                 </span>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                    <div class="actualite_search d-none">
-                                        <div class="search_bar_rectangle">
-                                            <i class="fa fa-search" />
-                                            <input type="text" placeholder="Chercher un évènement" />
-                                        </div>
-                                        <div class="btn">
-                                            <i class="fa fa-sliders text-epsilon" />
-                                            Filtrer et trier
-                                        </div>
-                                    </div>
-                                    <div class="horizontal_list">
-                                        <div class="list_item">
-                                            <div class="item_card btn shadow">
-                                                <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_miti_vsws0g1kjxi_unsplash_jpg/miti-vSws0g1KjxI-unsplash.jpg&quot;">
-                                                    <div class="event_date_container lg">
-                                                        <div class="event_date">
-                                                            MER.
-                                                            <br />
-                                                            1
-                                                            <br />
-                                                            OCT.
-                                                        </div>
-                                                        <div class="event_date_separator" />
-                                                        <div class="event_date">
-                                                            MER.
-                                                            <br />
-                                                            2
-                                                            <br />
-                                                            OCT.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item_desc">
-                                                    <p class="item_title">Café concert au café Baobab</p>
-                                                    <p class="event_time">
-                                                        <icon class="fa fa-clock-o" />&amp;nbsp;
-                                                        20h00 - 21h30
-                                                    </p>
-                                                    <p class="event_loc">
-                                                        <icon class="fa fa-map-marker" />&amp;nbsp;
-                                                        1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
-                                                    </p>
-                                                    <div class="btn_container">
-                                                        <div class="item_btn btn btn-primary">
-                                                            <font class="adapt-text-primary-color" style="">En savoir plus</font>
-                                                        </div>
-                                                        <div class="item_btn btn btn-primary">
-                                                            <icon class="fa fa-star-o adapt-text-primary-color" />&amp;nbsp;
-                                                            <font class="adapt-text-primary-color" style="">Je participe</font>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </h1>
                                             </div>
                                         </div>
-                                        <div class="list_item">
-                                            <div class="item_card btn shadow">
-                                                <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_product_school_gajroen6m4_unsplash_jpg/product-school--GajrOEN6m4-unsplash.jpg&quot;">
-                                                    <div class="event_date_container">
-                                                        <div class="event_date">
-                                                            MER.
-                                                            <br />
-                                                            1
-                                                            <br />
-                                                            OCT.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item_desc">
-                                                    <p class="item_title">Atelier conférence pour préparer sa retraite</p>
-                                                    <p class="event_time">
-                                                        <icon class="fa fa-clock-o" />&amp;nbsp;
-                                                        20h00 - 21h30
-                                                    </p>
-                                                    <p class="event_loc">
-                                                        <icon class="fa fa-map-marker" />&amp;nbsp;
-                                                        1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
-                                                    </p>
-                                                    <div class="btn_container">
-                                                        <div class="item_btn btn btn-primary">
-                                                            <font class="adapt-text-primary-color" style="">En savoir plus</font>
-                                                        </div>
-                                                        <div class="item_btn btn btn-primary">
-                                                            <icon class="fa fa-star-o adapt-text-primary-color" />&amp;nbsp;
-                                                            <font class="adapt-text-primary-color" style="">Je participe</font>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                        <div class="actualite_search d-none debug_unimplemented">
+                                            <div class="search_bar_rectangle">
+                                                <i class="fa fa-search" />
+                                                <input type="text" placeholder="Chercher un évènement" />
+                                            </div>
+                                            <div class="btn">
+                                                <i class="fa fa-sliders text-epsilon" />
+                                                Filtrer et trier
                                             </div>
                                         </div>
-                                        <div class="list_item">
-                                            <div class="item_card btn shadow">
-                                                <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg&quot;">
-                                                    <div class="event_date_container lg">
-                                                        <div class="event_date">
-                                                            MER.
-                                                            <br />
-                                                            1
-                                                            <br />
-                                                            OCT.
+                                        <div class="horizontal_list">
+                                            <div class="list_item">
+                                                <div class="item_card btn shadow" ng-if="nb_event_info == 0">Aucun événement</div>
+                                                <div class="item_card btn shadow" ng-repeat="(event_id, event_value) in dct_event_info" ng-if="nb_event_info > 0">
+                                                    <a ng-href="{{event_value.website_url}}">
+                                                        <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_miti_vsws0g1kjxi_unsplash_jpg/miti-vSws0g1KjxI-unsplash.jpg&quot;">
+                                                            <div class="event_date_container lg">
+                                                                <div class="event_date" ng-bind-html="event_value.date_short_html_begin | unsafe" />
+                                                                <div class="event_date_separator" />
+                                                                <div class="event_date" ng-bind-html="event_value.date_short_html_end | unsafe" />
+                                                            </div>
                                                         </div>
-                                                        <div class="event_date_separator" />
-                                                        <div class="event_date">
-                                                            MER.
-                                                            <br />
-                                                            2
-                                                            <br />
-                                                            OCT.
+                                                        <div class="item_desc">
+                                                            <p class="item_title">{{event_value.titre}}</p>
+                                                            <p class="event_time">
+                                                            <icon class="fa fa-clock-o" />&amp;nbsp;
+                                                            {{event_value.time_begin}} - {{event_value.time_end}}
+                                                        </p>
+                                                            <p class="event_loc">
+                                                            <icon class="fa fa-map-marker" />&amp;nbsp;
+                                                            {{event_value.address}}
+                                                        </p>
+                                                            <div class="btn_container">
+                                                                <div class="item_btn btn btn-primary">
+                                                                    <font class="adapt-text-primary-color" style="">En savoir plus</font>
+                                                                </div>
+                                                                <div class="item_btn btn btn-primary">
+                                                                <icon class="fa fa-star-o adapt-text-primary-color" />&amp;nbsp;
+                                                                <font class="adapt-text-primary-color" style="">Je participe</font>
+                                                            </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item_desc">
-                                                    <p class="item_title">Soirée au café Baobab</p>
-                                                    <p class="event_time">
-                                                        <icon class="fa fa-clock-o" />&amp;nbsp;
-                                                        20h00 - 21h30
-                                                    </p>
-                                                    <p class="event_loc">
-                                                        <icon class="fa fa-map-marker" />&amp;nbsp;
-                                                        1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
-                                                    </p>
-                                                    <div class="btn_container">
-                                                        <div class="item_btn btn btn-primary">
-                                                            <font class="adapt-text-primary-color" style="">En savoir plus</font>
-                                                        </div>
-                                                        <div class="item_btn btn btn-primary">
-                                                            <icon class="fa fa-star-o adapt-text-primary-color" />&amp;nbsp;
-                                                            <font class="adapt-text-primary-color" style="">Je participe</font>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="list_item">
-                                            <div class="item_card btn shadow">
-                                                <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_miti_vsws0g1kjxi_unsplash_jpg/miti-vSws0g1KjxI-unsplash.jpg&quot;">
-                                                    <div class="event_date_container lg">
-                                                        <div class="event_date">
-                                                            MER.
-                                                            <br />
-                                                            1
-                                                            <br />
-                                                            OCT.
-                                                        </div>
-                                                        <div class="event_date_separator" />
-                                                        <div class="event_date">
-                                                            MER.
-                                                            <br />
-                                                            2
-                                                            <br />
-                                                            OCT.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item_desc">
-                                                    <p class="item_title">Vous avez toujours eu envie d'apprendre le tricot?</p>
-                                                    <p class="event_time">
-                                                        <icon class="fa fa-clock-o" />&amp;nbsp;
-                                                        20h00 - 21h30
-                                                    </p>
-                                                    <p class="event_loc">
-                                                        <icon class="fa fa-map-marker" />&amp;nbsp;
-                                                        1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
-                                                    </p>
-                                                    <div class="btn_container">
-                                                        <div class="item_btn btn btn-primary">
-                                                            <font class="adapt-text-primary-color" style="">En savoir plus</font>
-                                                        </div>
-                                                        <div class="item_btn btn btn-primary">
-                                                            <icon class="fa fa-star-o adapt-text-primary-color" />&amp;nbsp;
-                                                            <font class="adapt-text-primary-color" style="">Je participe</font>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="list_item">
-                                            <div class="item_card btn shadow">
-                                                <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_nathan_dumlao_71u2foofi_u_unsplash_jpg/nathan-dumlao-71u2fOofI-U-unsplash.jpg&quot;">
-                                                    <div class="event_date_container lg">
-                                                        <div class="event_date">
-                                                            MER.
-                                                            <br />
-                                                            1
-                                                            <br />
-                                                            OCT.
-                                                        </div>
-                                                        <div class="event_date_separator" />
-                                                        <div class="event_date">
-                                                            MER.
-                                                            <br />
-                                                            2
-                                                            <br />
-                                                            OCT.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item_desc">
-                                                    <p class="item_title">Café concert au café Baobab</p>
-                                                    <p class="event_time">
-                                                        <icon class="fa fa-clock-o" />&amp;nbsp;
-                                                        20h00 - 21h30
-                                                    </p>
-                                                    <p class="event_loc">
-                                                        <icon class="fa fa-map-marker" />&amp;nbsp;
-                                                        1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
-                                                    </p>
-                                                    <div class="btn_container">
-                                                        <div class="item_btn btn btn-primary">
-                                                            <font class="adapt-text-primary-color" style="">En savoir plus</font>
-                                                        </div>
-                                                        <div class="item_btn btn btn-primary">
-                                                            <icon class="fa fa-star-o adapt-text-primary-color" />&amp;nbsp;
-                                                            <font class="adapt-text-primary-color" style="">Je participe</font>
-                                                        </div>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -1550,203 +1379,53 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="s_event_list debug_unimplemented">
+                            <section class="s_event_list" ng-controller="EventController">
                                 <div class="list_head">
                                     <div class="list_title s_title">
                                         <div style="display:flex;gap:1%;align-items:center;">
                                             <font style="font-size:2rem;">&#201;v&#232;nements</font>
-                                            <a href="" style="font-size:1.25rem;margin-right:3%">
+                                            <a href="/event" style="font-size:1.25rem;margin-right:3%">
                                                 Voir Tout
-                                                (+10)
+                                                (+{{nb_event_info}})
                                             </a>
-                                            <div class="nav_btn mobile-display-none">❮</div>
-                                            <div class="nav_btn mobile-display-none">❯</div>
+                                            <div class="nav_btn mobile-display-none debug_unimplemented">❮</div>
+                                            <div class="nav_btn mobile-display-none debug_unimplemented">❯</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="horizontal_list">
                                     <div class="list_item">
-                                        <div class="item_card btn shadow" onclick="window.location.href='/evenement';">
-                                            <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_miti_vsws0g1kjxi_unsplash_jpg/miti-vSws0g1KjxI-unsplash.jpg&quot;">
-                                                <div class="event_date_container lg">
-                                                    <div class="event_date">
-                                                        MER.
-                                                        <br />
-                                                        1
-                                                        <br />
-                                                        OCT.
-                                                    </div>
-                                                    <div class="event_date_separator" />
-                                                    <div class="event_date">
-                                                        MER.
-                                                        <br />
-                                                        2
-                                                        <br />
-                                                        OCT.
+                                        <div class="item_card btn shadow" ng-if="nb_event_info == 0">Aucun événement</div>
+                                        <div class="item_card btn shadow" ng-repeat="(event_id, event_value) in dct_event_info" ng-if="nb_event_info > 0">
+                                            <a ng-href="{{event_value.website_url}}">
+                                                <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_miti_vsws0g1kjxi_unsplash_jpg/miti-vSws0g1KjxI-unsplash.jpg&quot;">
+                                                    <div class="event_date_container lg">
+                                                        <div class="event_date" ng-bind-html="event_value.date_short_html_begin | unsafe" />
+                                                        <div class="event_date_separator" />
+                                                        <div class="event_date" ng-bind-html="event_value.date_short_html_end | unsafe" />
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="item_desc">
-                                                <p class="item_title">Café concert au café Baobab</p>
-                                                <p class="event_time">
-                                                    <icon class="fa fa-clock-o" />&amp;nbsp;
-                                                        20h00 - 21h30
-                                                </p>
-                                                <p class="event_loc">
-                                                    <icon class="fa fa-map-marker" />&amp;nbsp;
-                                                    1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
-                                                </p>
-                                                <div class="btn_container">
-                                                    <div class="item_btn btn btn-primary">
-                                                        <icon class="fa fa-star-o adapt-text-primary-color" />&amp;nbsp;
-                                                        <font class="adapt-text-primary-color" style="">Je participe</font>
+                                                <div class="item_desc">
+                                                    <p class="item_title">{{event_value.titre}}</p>
+                                                    <p class="event_time">
+                                                        <icon class="fa fa-clock-o" />&amp;nbsp;
+                                                        {{event_value.time_begin}} - {{event_value.time_end}}
+                                                    </p>
+                                                    <p class="event_loc">
+                                                        <icon class="fa fa-map-marker" />&amp;nbsp;
+                                                        {{event_value.address}}
+                                                    </p>
+                                                    <div class="btn_container">
+                                                        <div class="item_btn btn btn-primary">
+                                                            <font class="adapt-text-primary-color" style="">En savoir plus</font>
+                                                        </div>
+                                                        <div class="item_btn btn btn-primary">
+                                                            <icon class="fa fa-star-o adapt-text-primary-color" />&amp;nbsp;
+                                                            <font class="adapt-text-primary-color" style="">Je participe</font>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list_item">
-                                        <div class="item_card btn shadow">
-                                            <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_product_school_gajroen6m4_unsplash_jpg/product-school--GajrOEN6m4-unsplash.jpg&quot;">
-                                                <div class="event_date_container">
-                                                    <div class="event_date">
-                                                        MER.
-                                                        <br />
-                                                        1
-                                                        <br />
-                                                        OCT.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item_desc">
-                                                <p class="item_title">Atelier conférence pour préparer sa retraite</p>
-                                                <p class="event_time">
-                                                    <icon class="fa fa-clock-o" />&amp;nbsp;
-                                                    20h00 - 21h30
-                                                </p>
-                                                <p class="event_loc">
-                                                    <icon class="fa fa-map-marker" />&amp;nbsp;
-                                                    1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
-                                                </p>
-                                                <div class="btn_container">
-                                                    <div class="item_btn btn btn-primary">
-                                                        <icon class="fa fa-star-o adapt-text-primary-color" />&amp;nbsp;
-                                                        <font class="adapt-text-primary-color" style="">Je participe</font>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list_item">
-                                        <div class="item_card btn shadow">
-                                            <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg&quot;">
-                                                <div class="event_date_container lg">
-                                                    <div class="event_date">
-                                                        MER.
-                                                        <br />
-                                                        1
-                                                        <br />
-                                                        OCT.
-                                                    </div>
-                                                    <div class="event_date_separator" />
-                                                    <div class="event_date">
-                                                        MER.
-                                                        <br />
-                                                        2
-                                                        <br />
-                                                        OCT.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item_desc">
-                                                <p class="item_title">Soirée au café Baobab</p>
-                                                <p class="event_time">
-                                                    <icon class="fa fa-clock-o" />&amp;nbsp;
-                                                        20h00 - 21h30
-                                                </p>
-                                                <p class="event_loc">
-                                                    <icon class="fa fa-map-marker" />&amp;nbsp;
-                                                    1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
-                                                </p>
-                                                <div class="btn_container">
-                                                    <div class="item_btn btn btn-primary">
-                                                        <icon class="fa fa-star-o adapt-text-primary-color" />&amp;nbsp;
-                                                        <font class="adapt-text-primary-color" style="">Je participe</font>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list_item">
-                                        <div class="item_card btn shadow">
-                                            <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_miti_vsws0g1kjxi_unsplash_jpg/miti-vSws0g1KjxI-unsplash.jpg&quot;">
-                                                <div class="event_date_container">
-                                                    <div class="event_date">
-                                                        MER.
-                                                        <br />
-                                                        1
-                                                        <br />
-                                                        OCT.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item_desc">
-                                                <p class="item_title">Vous avez toujours eu envie d'apprendre le tricot?</p>
-                                                <p class="event_time">
-                                                    <icon class="fa fa-clock-o" />&amp;nbsp;
-                                                        20h00 - 21h30
-                                                </p>
-                                                <p class="event_loc">
-                                                    <icon class="fa fa-map-marker" />&amp;nbsp;
-                                                    1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
-                                                </p>
-                                                <div class="btn_container">
-                                                    <div class="item_btn btn btn-primary">
-                                                        <icon class="fa fa-star-o adapt-text-primary-color" />&amp;nbsp;
-                                                        <font class="adapt-text-primary-color" style="">Je participe</font>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list_item">
-                                        <div class="item_card btn shadow">
-                                            <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_nathan_dumlao_71u2foofi_u_unsplash_jpg/nathan-dumlao-71u2fOofI-U-unsplash.jpg&quot;">
-                                                <div class="event_date_container lg">
-                                                    <div class="event_date">
-                                                        MER.
-                                                        <br />
-                                                        1
-                                                        <br />
-                                                        OCT.
-                                                    </div>
-                                                    <div class="event_date_separator" />
-                                                    <div class="event_date">
-                                                        MER.
-                                                        <br />
-                                                        2
-                                                        <br />
-                                                        OCT.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item_desc">
-                                                <p class="item_title">Café concert au café Baobab</p>
-                                                <p class="event_time">
-                                                    <icon class="fa fa-clock-o" />&amp;nbsp;
-                                                        20h00 - 21h30
-                                                </p>
-                                                <p class="event_loc">
-                                                    <icon class="fa fa-map-marker" />&amp;nbsp;
-                                                    1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
-                                                </p>
-                                                <div class="btn_container">
-                                                    <div class="item_btn btn btn-primary">
-                                                        <icon class="fa fa-star-o adapt-text-primary-color" />&amp;nbsp;
-                                                        <font class="adapt-text-primary-color" style="">Je participe</font>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -3320,7 +2999,7 @@
                                                 <a href="/communaute/actualite" class="footer_link">Actualit&#233;</a>
                                                 <br />
                                             </span>
-                                            <span class="debug_unimplemented">
+                                            <span class="">
                                                 <a href="/communaute/evenements" class="footer_link">&#201;v&#232;nements</a>
                                                 <br />
                                             </span>

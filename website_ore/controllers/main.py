@@ -180,6 +180,59 @@ class OREController(http.Controller):
 
     @http.route(
         [
+            "/ore/get_info/events",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_all_events(self, **kw):
+        # me_membre_id = self.get_membre_id()
+        # don't return not website_published if not same member
+        value = {
+            a.id: {
+                "id": a.id,
+                "description": a.description,
+                "short_description": "",
+                "date_begin": self.datetime_to_local(a.date_begin).strftime(
+                    "%Y-%m-%d"
+                ),
+                "date_short_html_begin": self.datetime_to_local(a.date_begin)
+                .strftime("%a. %-d %b.")
+                .replace(" ", "<br/>"),
+                "time_begin": self.datetime_to_local(a.date_begin).strftime(
+                    "%H:%M:%S"
+                ),
+                "date_end": self.datetime_to_local(a.date_end).strftime(
+                    "%Y-%m-%d"
+                ),
+                "date_short_html_end": self.datetime_to_local(a.date_end)
+                .strftime("%a. %-d %b.")
+                .replace(" ", "<br/>"),
+                "time_end": self.datetime_to_local(a.date_end).strftime(
+                    "%H:%M:%S"
+                ),
+                "titre": a.name,
+                # "is_favorite": me_membre_id.id in a.membre_favoris_ids.ids,
+                "distance": "8m",
+                "website_url": a.website_url,
+                "address": "123 street test, QC",
+                # "membre_id": a.organizer_id.id,
+                # "membre": {
+                #     "id": a.organizer_id.id,
+                #     "full_name": a.organizer_id.name,
+                # },
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+            }
+            for a in http.request.env["event.event"].sudo().search([], limit=6)
+            if a.is_published
+        }
+        return value
+
+    @http.route(
+        [
             "/ore/get_info/all_demande_service",
         ],
         type="json",
