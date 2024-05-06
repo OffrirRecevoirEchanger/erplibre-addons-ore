@@ -1186,131 +1186,75 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="s_actualite debug_unimplemented">
-                                <div class="container_actualite debug_unimplemented">
+                            <section class="s_actualite" ng-controller="NewsController">
+                                <div class="container_actualite">
                                     <div class="list_title s_title">
                                         <div class="title">
                                             <h1 style="margin-left:10%">Derni&#232;res Actualit&#233;s</h1>
-                                            <a>
+                                            <a href="/event">
                                                 <font style="font-size:1.25rem;">
                                                     Voir Tout
-                                                    (+10)
+                                                    (+{{nb_news_info}})
                                                 </font>
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="box_actualite">
-                                        <div class="actualite_head">
-                                            <img class="pub_pfp rounded-circle" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
-                                            <div class="pub_info">
-                                                <div class="pub_user">
-                                                    <p>ORE de Sherbrooke</p>
+                                    <div class="box_actualite" ng-if="nb_news_info == 0">Aucune actualité</div>
+                                    <a ng-href="{{news_value.website_url}}" ng-repeat="(news_id, news_value) in dct_news_info" ng-if="nb_news_info > 0">
+                                        <div class="box_actualite">
+                                            <div class="actualite_head">
+                                                <img class="pub_pfp rounded-circle" ng-src="{{ news_value.author_photo_url }}" />
+                                                <div class="pub_info">
+                                                    <div class="pub_user">
+                                                        <p>{{ news_value.author_name }}</p>
+                                                    </div>
+                                                    <div class="pub_date">
+                                                        <p>Publiée {{ news_value.diff_create_date }}</p>
+                                                    </div>
                                                 </div>
-                                                <div class="pub_date">
-                                                    <p>Publiée il y a 1 j</p>
-                                                </div>
+                                                <!--                                                <i class="fa fa-thumb-tack mobile-display-none" />-->
                                             </div>
-                                            <i class="fa fa-thumb-tack mobile-display-none" />
-                                        </div>
-                                        <div class="actualite_content">
-                                            <div class="pub_title">
-                                                <h4>
-                                                    <font style="">Lorem Ipsum</font>
-                                                </h4>
-                                            </div>
-                                            <div class="pub_desc">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                                    pariatur.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="actualite_stats">
-                                            <span class="like_count">
-                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>
-                                            <span class="comment_count">4 commentaires</span>
-                                            <span>&#8226;</span>
-                                            <span class="view_count">10 vues</span>
-                                        </div>
-                                        <div class="pub_actions">
-                                            <div class="like_btn">
-                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime
+                                            <div class="actualite_content">
+                                                <div class="pub_title" ng-if="news_value.titre.length">
+                                                    <h4>
+                                                        <font style="">{{ news_value.titre }}</font>
+                                                    </h4>
                                                 </div>
-                                            <div class="comment_btn">
-                                                    <icon class="fa fa-comment-o" />&amp;nbsp;Commenter
-                                                </div>
-                                        </div>
-                                        <div class="actualite_foot">
-                                            <img class="profile_img" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
-                                            <div class="comment_bar">
-                                                <input type="text" placeholder="&#201;crivez un commentaire" />
-                                                <icon class="fa fa-smile-o" />
-                                                <icon class="fa fa-camera" />
-                                                <icon class="fa fa-sticky-note-o" />
-                                                <icon class="fa fa-sticky-note-o" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="box_actualite">
-                                        <div class="actualite_head">
-                                            <img class="pub_pfp rounded-circle" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
-                                            <div class="pub_info">
-                                                <div class="pub_user">
-                                                    <p>ORE de Sherbrooke</p>
-                                                </div>
-                                                <div class="pub_date">
-                                                    <p>Publiée il y a 1 j</p>
+                                                <div class="pub_desc">
+                                                    <h5 ng-if="news_value.sub_title.length">
+                                                        <font style="">{{ news_value.sub_title }}</font>
+                                                    </h5>
+                                                    <p ng-if="news_value.teaser_manual.length">{{ news_value.teaser_manual }}</p>
                                                 </div>
                                             </div>
-                                            <i class="fa fa-thumb-tack mobile-display-none" />
-                                        </div>
-                                        <div class="actualite_content">
-                                            <div class="pub_title">
-                                                <h4>
-                                                    <font style="">Lorem Ipsum</font>
-                                                </h4>
+                                            <div class="actualite_stats">
+                                                <!--                                            <span class="like_count">-->
+                                                <!--                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>-->
+                                                <!--                                            <span class="comment_count">4 commentaires</span>-->
+                                                <!--                                            <span>&#8226;</span>-->
+                                                <span class="view_count">{{ news_value.visits }} vues</span>
                                             </div>
-                                            <div class="pub_desc">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                                    pariatur.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="actualite_stats">
-                                            <span class="like_count">
-                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>
-                                            <span class="comment_count">4 commentaires</span>
-                                            <span>&#8226;</span>
-                                            <span class="view_count">10 vues</span>
-                                        </div>
-                                        <div class="pub_actions">
-                                            <div class="like_btn">
-                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime
+                                            <div class="pub_actions">
+                                                <!--                                            <div class="like_btn">-->
+                                                <!--                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime-->
+                                                <!--                                                </div>-->
+                                                <div class="comment_btn">
+                                                    <icon class="fa fa-comment-o" />
+                                                    {{ news_value.nb_comments }} Commentaire
                                                 </div>
-                                            <div class="comment_btn">
-                                                    <icon class="fa fa-comment-o" />&amp;nbsp;Commenter
-                                                </div>
-                                        </div>
-                                        <div class="actualite_foot">
-                                            <img class="profile_img" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
-                                            <div class="comment_bar">
-                                                <input type="text" placeholder="&#201;crivez un commentaire" />
-                                                <icon class="fa fa-smile-o" />
-                                                <icon class="fa fa-camera" />
-                                                <icon class="fa fa-sticky-note-o" />
-                                                <icon class="fa fa-sticky-note-o" />
                                             </div>
+                                            <!--                <div class="actualite_foot">-->
+                                            <!--                    <img class="profile_img" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />-->
+                                            <!--                    <div class="comment_bar">-->
+                                            <!--                        <input type="text" placeholder="&#201;crivez un commentaire" />-->
+                                            <!--                        <icon class="fa fa-smile-o" />-->
+                                            <!--                        <icon class="fa fa-camera" />-->
+                                            <!--                        <icon class="fa fa-sticky-note-o" />-->
+                                            <!--                        <icon class="fa fa-sticky-note-o" />-->
+                                            <!--                    </div>-->
+                                            <!--                </div>-->
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 <div class="container_echange">
                                     <div class="img" style="background-size:cover; background-image: url(&quot;/web/image/website_ore.ir_attachment_adobestock_147894347_preview_jpeg/AdobeStock_147894347_Preview.jpeg&quot;); background-position:70%" />

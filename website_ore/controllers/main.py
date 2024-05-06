@@ -233,6 +233,43 @@ class OREController(http.Controller):
 
     @http.route(
         [
+            "/ore/get_info/news",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_all_news(self, **kw):
+        value = {}
+        for a in http.request.env["blog.post"].sudo().search([], limit=6):
+            if not a.is_published:
+                continue
+            blog_comment_ids = http.request.env["mail.message"].search(
+                [("model", "=", "blog.post"), ("res_id", "=", a.id)]
+            )
+            value[a.id] = {
+                "id": a.id,
+                "sub_title": "" if a.subtitle is False else a.subtitle,
+                "author_name": a.author_id.name,
+                "author_photo_url": self.get_membre_id(
+                    partner_id=a.author_id
+                ).get_image_url(),
+                "titre": a.name,
+                "nb_comments": len(blog_comment_ids),
+                "teaser_manual": ""
+                if a.teaser_manual is False
+                else a.teaser_manual,
+                "visits": a.visits,
+                "website_url": "/blog/%s/post/%s" % (a.blog_id.id, a.id),
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+            }
+
+        return value
+
+    @http.route(
+        [
             "/ore/get_info/all_demande_service",
         ],
         type="json",
@@ -831,8 +868,11 @@ class OREController(http.Controller):
         return str_diff_time_creation
 
     @staticmethod
-    def get_membre_id():
-        membre_id = http.request.env.user.partner_id
+    def get_membre_id(partner_id=None):
+        if partner_id is None:
+            membre_id = http.request.env.user.partner_id
+        else:
+            membre_id = partner_id
         # TODO wrong algorithm, but use instead 'auth="user",'
         if not membre_id or http.request.auth_method == "public":
             return {"error": _("User not connected")}
