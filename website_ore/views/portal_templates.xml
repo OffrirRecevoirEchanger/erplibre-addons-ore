@@ -98,9 +98,11 @@
         <!--        <xpath expr="//header" position="attributes">-->
         <!--            <attribute name="class">ng-cloak</attribute>-->
         <!--        </xpath>-->
+        <!-- TODO replace that, not good idea to replace the menu, but when replace it, broke the Vanilla JS -->
         <xpath expr="//header" position="replace">
             <header>
-                <!-- hidden stuff -->
+                <!-- hidden stuff for animation -->
+                <!-- TODO THIS IS NOT HIDDEN -->
                 <svg viewBox="11.8 9 16 22" class="mouse" style="width: 40px; top:0; left:0; position: absolute;">
                     <path d="M20,21l4.5,8l-3.4,2l-4.6-8.1L12,29V9l16,12H20z" />
                 </svg>
@@ -109,7 +111,11 @@
                 <!-- end hidden stuff -->
                 <!--            <header class="ng-cloak">-->
                 <!--            <header class="o_affix_enabled">-->
+                <!-- TODO add this class to nav : nav-height-medium -->
                 <nav class="navbar navbar-expand-md navbar-light bg-light nav-height-medium">
+                    <!-- TODO change class container to container-fluid -->
+                    <!-- TODO remove it because broke design of rectangle user at left with padding -->
+                    <!--                    <div class="container-fluid">-->
                     <a href="/" class="navbar-brand logo">
                         <img
                             t-att-src="'/logo.png?company=%s' % res_company.id"
@@ -741,6 +747,7 @@
                             </li>
                         </ul>
                     </div>
+                    <!--                    </div>-->
                 </nav>
             </header>
         </xpath>
