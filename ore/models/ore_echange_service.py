@@ -93,13 +93,12 @@ class OREEchangeService(models.Model):
     )
 
     titre = fields.Char(
-        string="Titre",
         compute="_compute_titre",
+        store=True,
         help=(
             "Titre de l'offre de service ou de la demande de service, ou les"
             " deux"
         ),
-        store=True,
     )
 
     type_echange = fields.Selection(

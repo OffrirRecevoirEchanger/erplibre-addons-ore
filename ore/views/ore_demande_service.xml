@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <record id="ore_demande_service_view_calendar" model="ir.ui.view">
+        <field name="name">ore_demande_service_calendar</field>
+        <field name="model">ore.demande.service</field>
+        <field name="arch" type="xml">
+            <calendar color="titre" date_start="date_debut" string="Ore demande service">
+                <field name="titre" />
+                <field name="date_debut" />
+                <field name="date_fin" />
+                <field name="description" />
+                <field name="membre" />
+                <field name="membre_favoris_ids" widget="many2many_tags" />
+                <field name="type_service_id" />
+                <field name="user_id" />
+                <field name="website_published" widget="website_button" />
+                <field name="commentaire" />
+            </calendar>
+        </field>
+    </record>
+
     <record id="ore_demande_service_view_form" model="ir.ui.view">
         <field name="name">ore_demande_service_form</field>
         <field name="model">ore.demande.service</field>
@@ -214,6 +233,6 @@
         id="ore_demande_service_demande_de_services_action_window"
         name="Demande de services"
         res_model="ore.demande.service"
-        view_mode="kanban,tree,timeline,pivot,graph,form"
+        view_mode="kanban,tree,timeline,pivot,graph,form,calendar,activity"
     />
 </odoo>

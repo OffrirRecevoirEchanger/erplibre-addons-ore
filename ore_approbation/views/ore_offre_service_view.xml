@@ -123,9 +123,9 @@
         <field name="inherit_id" ref="ore.ore_offre_service_view_timeline" />
         <field name="arch" type="xml">
             <timeline position="attributes">
-                <attribute name="colors">
-                    #ec7063:rejected == true;#2ecb71:validated == true;#edcb71:need_validation == true;#edcb71:can_review == true;
-                </attribute>
+                <!-- prettier-ignore-start -->
+                <attribute name="colors">#ec7063:rejected == true;#2ecb71:validated == true;#edcb71:need_validation == true;#edcb71:can_review == true;</attribute>
+                <!-- prettier-ignore-end -->
             </timeline>
         </field>
     </record>

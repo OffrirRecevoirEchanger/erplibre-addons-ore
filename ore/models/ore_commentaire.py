@@ -23,14 +23,14 @@ class ORECommentaire(models.Model):
         selection=[
             (
                 "non_autorise",
-                "Non-autorisé - Je demande au réseau de ne pas divulguer"
-                " mon identité lors de ses démarches auprès des personnes"
+                "Non-autorisé - Je demande au réseau de ne pas divulguer mon"
+                " identité lors de ses démarches auprès des personnes"
                 " concernées par la situation.",
             ),
             (
                 "autorise",
-                "Autorisé - J'autorise le réseau à divulguer mon identité"
-                " lors de ses démarches auprès des personnes concernées par la"
+                "Autorisé - J'autorise le réseau à divulguer mon identité lors"
+                " de ses démarches auprès des personnes concernées par la"
                 " situation.",
             ),
         ],

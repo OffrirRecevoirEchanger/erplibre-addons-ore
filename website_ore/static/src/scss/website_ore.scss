@@ -6,7 +6,7 @@
 $font-size-base: $o-theme-font-size-base;
 $search_bar-height: 65px;
 .boite {
-  height: auto !important;
+    height: auto !important;
 }
 
 // Colors
@@ -32,66 +32,66 @@ $bg-red-alert: #d8746f;
 $bg-green-alert: #70a6a8;
 
 .btn-add {
-  background-color: #9f0808;
-  border: none;
-  border-radius: 4px;
-  color: white;
-  padding: 8px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-bottom: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    background-color: #9f0808;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .btn-add:hover {
-  background-color: #d8746f;
+    background-color: #d8746f;
 }
 
 .interet {
-  display: inline-block;
-  padding: 4px 8px;
-  margin-bottom: 16px;
-  background-color: pink;
-  border-radius: 4px;
-  font-family: Arial, sans-serif;
-  font-size: 20px;
-  color: #333333;
-  margin-right: 16px;
+    display: inline-block;
+    padding: 4px 8px;
+    margin-bottom: 16px;
+    background-color: pink;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #333333;
+    margin-right: 16px;
 }
 
 .text-color-title {
-  color: white;
+    color: white;
 }
 
 .no-underline {
-  text-decoration: none !important;
+    text-decoration: none !important;
 }
 
 .text-bold {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 /*
   Global
 */
 @media only screen and (max-width: 990px) {
-  .mobile-display-none {
-    display: none !important;
-  }
+    .mobile-display-none {
+        display: none !important;
+    }
 }
 
 .cursor-pointer {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 /*
   Debug
 */
 .debug_debug {
-  display: none;
+    display: none;
 }
 
 /*
@@ -103,7 +103,7 @@ $bg-green-alert: #70a6a8;
 [x-ng-cloak],
 .ng-cloak,
 .x-ng-cloak {
-  display: none !important;
+    display: none !important;
 }
 
 /*
@@ -111,74 +111,74 @@ $bg-green-alert: #70a6a8;
   INPUTS
 */
 .o_switch {
-  align-items: center;
-  display: flex;
-  font-weight: normal;
-  cursor: pointer;
+    align-items: center;
+    display: flex;
+    font-weight: normal;
+    cursor: pointer;
 
-  > input {
-    display: none;
-
-    + span {
-      background-color: $o-we-switch-inactive-color;
-      border-radius: 100rem;
-      box-shadow: inset 0 0 0px 1px darken($o-we-switch-inactive-color, 10%);
-      display: inline-block;
-      font-size: 15px;
-      height: $o-we-switch-size;
-      margin-right: 0.51em;
-      transition: all 0.3s $o-we-md-ease;
-      width: $o-we-switch-size * 1.81;
-
-      &:after {
-        content: "";
-        background: $o-we-color-paper;
-        border-radius: 100rem;
-        display: block;
-        height: $o-we-switch-size - 0.2;
-        margin-left: 0.1ex;
-        margin-top: 0.1ex;
-        transition: all 0.3s $o-we-md-ease;
-        width: $o-we-switch-size - 0.2;
-        box-shadow: 0 1px 1px darken($o-we-switch-inactive-color, 35%),
-          inset 0 0 0 1px lighten($o-we-switch-inactive-color, 10%);
-      }
-    }
-
-    &:checked + span {
-      background: $o-we-color-success;
-      box-shadow: none;
-
-      &:after {
-        margin-left: ($o-we-switch-size * 1.8 - $o-we-switch-size) + 0.1;
-      }
-    }
-  }
-
-  &.o_switch_danger {
     > input {
-      &:not(:checked) + span {
-        background: $o-we-color-danger;
-        box-shadow: none;
-      }
+        display: none;
+
+        + span {
+            background-color: $o-we-switch-inactive-color;
+            border-radius: 100rem;
+            box-shadow: inset 0 0 0px 1px darken($o-we-switch-inactive-color, 10%);
+            display: inline-block;
+            font-size: 15px;
+            height: $o-we-switch-size;
+            margin-right: 0.51em;
+            transition: all 0.3s $o-we-md-ease;
+            width: $o-we-switch-size * 1.81;
+
+            &:after {
+                content: "";
+                background: $o-we-color-paper;
+                border-radius: 100rem;
+                display: block;
+                height: $o-we-switch-size - 0.2;
+                margin-left: 0.1ex;
+                margin-top: 0.1ex;
+                transition: all 0.3s $o-we-md-ease;
+                width: $o-we-switch-size - 0.2;
+                box-shadow: 0 1px 1px darken($o-we-switch-inactive-color, 35%),
+                    inset 0 0 0 1px lighten($o-we-switch-inactive-color, 10%);
+            }
+        }
+
+        &:checked + span {
+            background: $o-we-color-success;
+            box-shadow: none;
+
+            &:after {
+                margin-left: ($o-we-switch-size * 1.8 - $o-we-switch-size) + 0.1;
+            }
+        }
     }
-  }
+
+    &.o_switch_danger {
+        > input {
+            &:not(:checked) + span {
+                background: $o-we-color-danger;
+                box-shadow: none;
+            }
+        }
+    }
 }
 
 .editable-content-blue {
-  background-color: $bg-green-alert;
+    background-color: $bg-green-alert;
 }
 
 .delete-icon {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  background-color: red;
-  color: white;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 20px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background-color: red;
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
 }

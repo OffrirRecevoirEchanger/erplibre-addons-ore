@@ -6,7 +6,10 @@
     "license": "AGPL-3",
     "website": "https://technolibre.ca",
     "application": True,
-    "depends": ["mail", "web_timeline"],
+    "depends": [
+        "mail",
+        "web_timeline",
+    ],
     "data": [
         "security/ir.model.access.csv",
         "security/ore.xml",

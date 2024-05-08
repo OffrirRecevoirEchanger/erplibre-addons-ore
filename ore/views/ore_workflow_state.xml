@@ -13,7 +13,7 @@
                     </group>
                     <div class="bg-warning">
                         <h4>Le champs Identifiant :</h4>
-                        L'identifiant doit être la même que la précédente + ".nouveau"
+                        L'identifiant doit être la même que la précédente + '.nouveau'
                     </div>
                     <group string="Propriété" attrs="{'invisible': [('type','in',('null',))]}">
                         <field name="message" />
