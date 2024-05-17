@@ -1503,7 +1503,7 @@
                                             <br />
                                             <br />
                                             <span class="nbr" ng-if="!ask_modification_profile &amp;&amp; !_.isUndefined(page_presentation_membre_info.introduction) &amp;&amp; !_.isEmpty(page_presentation_membre_info.introduction)">
-                                                <q ng-cloak="">{{page_presentation_membre_info.introduction}}</q>
+                                                <q ng-cloak="" ng-bind-html="page_presentation_membre_info.introduction | unsafe" />
                                             </span>
                                             <span class="nbr" ng-if="ask_modification_profile">
                                                 <q class="editable-content-blue" contenteditable="true" ng-model="page_presentation_membre_info.introduction" />
@@ -1537,7 +1537,7 @@
                                         <div class="information information-4">
                                             <div class="nbr" ng-class="{'hide-border': shouldHideBorder('description')}" ng-show="ask_modification_profile || !_.isUndefined(page_presentation_membre_info.description) &amp;&amp; !_.isEmpty(page_presentation_membre_info.description)">
                                                 <span class="txt">Ma description</span>
-                                                <div ng-if="!ask_modification_profile" ng-cloak="">{{page_presentation_membre_info.description}}</div>
+                                                <div ng-if="!ask_modification_profile" ng-cloak="" ng-bind-html="page_presentation_membre_info.description | unsafe" />
                                                 <q ng-if="ask_modification_profile" class="editable-content-blue" contenteditable="true" ng-model="page_presentation_membre_info.description" />
                                             </div>
 
@@ -1561,7 +1561,7 @@
 
                                             <div class="nbr" ng-class="{'hide-border': shouldHideBorder('motivation_membre')}" ng-show="ask_modification_profile || !_.isUndefined(page_presentation_membre_info.motivation_membre) &amp;&amp; !_.isEmpty(page_presentation_membre_info.motivation_membre)">
                                                 <span class="txt">Pourquoi suis-je membre du réseau?</span>
-                                                <div ng-if="!ask_modification_profile" class="nbr" ng-cloak="">{{page_presentation_membre_info.motivation_membre}}</div>
+                                                <div ng-if="!ask_modification_profile" class="nbr" ng-cloak="" ng-bind-html="page_presentation_membre_info.motivation_membre | unsafe" />
                                                 <q ng-if="ask_modification_profile" class="editable-content-blue" contenteditable="true" ng-model="page_presentation_membre_info.motivation_membre" />
                                             </div>
 
