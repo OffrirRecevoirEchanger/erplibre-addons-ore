@@ -18,6 +18,7 @@
     "data": [
         "data/ir_attachment.xml",
         "data/ir_ui_view.xml",
+        "data/website.xml",
         "data/website_page.xml",
         "data/website_menu.xml",
         "templates/website.xml",

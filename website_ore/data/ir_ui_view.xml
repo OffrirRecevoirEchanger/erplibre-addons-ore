@@ -1085,6 +1085,204 @@
             </field>
             <field name="website_meta_og_img">/web/image/ore.ir_attachment_logo_ore_background_svg/logo_ORE_background.svg</field>
         </record>
+        <record id="ir_ui_view_home_trouvetonclan" model="ir.ui.view">
+            <field name="arch" type="xml">
+                <t name="Homepage" t-name="website.homepage2">
+                    <t t-call="website.layout">
+                        <t t-set="pageName" t-value="'homepage2'" />
+                        <div id="wrap" class="oe_structure oe_empty">
+                            <section class="s_comparisons pt48 pb24 oe_custom_bg" style="">
+                                <div class="container">
+                                    <div class="row s_nb_column_fixed">
+                                        <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                            <h1 class="s_title_thin">
+                                                <img class="img-fluid o_we_custom_image" src="/web/image/ore.ir_attachment_logo_ore_background_svg/logo_ORE_background.svg" data-original-title="" title="" aria-describedby="tooltip629724" style="width: 50%;" />
+                                            </h1>
+                                            <h4 class="o_h4">
+                                                <font style="font-size: 24px;" class="text-alpha">TROUVBE TON CLAN YEAH</font>
+                                                <font style="font-size: 24px;">-</font>
+                                                <font style="font-size: 24px;" class="text-beta">Recevoir</font>
+                                                <font style="font-size: 24px;">-</font>
+                                                <font style="font-size: 24px;" class="text-epsilon">Échanger</font>
+                                                <font style="font-size: 24px;">, en toute simplicité.</font>
+                                            </h4>
+                                            <h4 class="o_h4">
+                                                <font style="font-size: 24px;">
+                                                    Plateforme d'échange de temps, inscription facile, rapide et
+                                                    gratuite.
+                                                </font>
+                                            </h4>
+                                            <h4 class="o_h4">
+                                                <font style="font-size: 24px;">
+                                                    Devenez membre dès aujourd'hui d'une communauté où l'entraide et vos
+                                                    talents sont reconnus à leur juste valeur.
+                                                </font>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4 s_col_no_bgcolor text-center pt16 pb16" data-name="Box">
+                                            <div class="card bg-alpha" style="border-radius: 0rem;">
+                                                <div class="text-center" style="background-color: white">
+                                                    <img class="img-fluid o_we_custom_image" src="/web/image/website_ore.ir_attachment_o_svg/O.svg" data-original-title="" title="" aria-describedby="tooltip729222" style="width: 50%;" />
+                                                </div>
+                                                <h4 class="card-header text-alpha" style="background-color: white">OFFRIR</h4>
+                                                <div class="card-body text-center">
+                                                    <h2 class="card-title">
+                                                        <img class="img-fluid o_we_custom_image" src="/web/image/website_ore.ir_attachment_icon_ore_offrir_png/icon_ore_offrir.png" data-original-title="" title="" aria-describedby="tooltip729222" style="width: 50%;" />
+                                                    </h2>
+                                                </div>
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="height: 75.02px;">Offrir de son temps</li>
+                                                    <li class="list-group-item" style="height: 75.02px;">Offrir un service</li>
+                                                    <li class="list-group-item" style="height: 75.02px;">Offrir un accompagnement</li>
+                                                    <li class="list-group-item" style="height: 75.02px;">Offrir un cours</li>
+                                                </ul>
+                                                <div class="card-footer">
+                                                    <p>
+                                                        <i>Créer facilement une offre ou répondre à une demande</i>
+                                                    </p>
+                                                    <a href="/participer#!?state=init.pos.single" class="btn btn-outline-black rounded-circle btn-sm text-alpha" data-original-title="" title="" aria-describedby="tooltip869209" groups="base.group_user,base.group_portal" style="background-color: white;">OFFRIR</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 s_col_no_bgcolor text-center pt16 pb0" data-name="Box">
+                                            <div class="card bg-beta" style="border-radius: 0rem;">
+                                                <div class="text-center" style="background-color: white">
+                                                    <img class="img-fluid o_we_custom_image" src="/web/image/website_ore.ir_attachment_r_svg/R.svg" data-original-title="" title="" aria-describedby="tooltip729222" style="width: 50%;" />
+                                                </div>
+                                                <h4 class="card-header text-beta" style="background-color: white">RECEVOIR</h4>
+                                                <div class="card-body text-center">
+                                                    <h2 class="card-title">
+                                                        <img class="img-fluid o_we_custom_image" src="/web/image/website_ore.ir_attachment_icon_ore_recevoir_png/icon_ore_recevoir.png" data-original-title="" title="" aria-describedby="tooltip36668" style="width: 50%;" />
+                                                    </h2>
+                                                </div>
+                                                <ol class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="height: 75.02px;">Recevoir du temps à partir d'une offre</li>
+                                                    <li class="list-group-item" style="height: 75.02px;">Recevoir un service</li>
+                                                    <li class="list-group-item" style="height: 75.02px;">Recevoir un accompagnement</li>
+                                                    <li class="list-group-item" style="height: 75.02px;">Recevoir un cours</li>
+                                                </ol>
+                                                <div class="card-footer">
+                                                    <p>
+                                                        <i>
+                                                            Consulter en un seul endroit les offres ou écrire une
+                                                            demande
+                                                            particulière
+                                                        </i>
+                                                    </p>
+                                                    <a href="/participer#!?state=init.pds.single" class="btn btn-outline-black rounded-circle btn-sm text-beta" data-original-title="" title="" aria-describedby="tooltip297156" groups="base.group_user,base.group_portal" style="background-color: white;">RECEVOIR</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 s_col_no_bgcolor text-center pt16 pb16" data-name="Box">
+                                            <div class="card bg-epsilon" style="border-radius: 0rem;">
+                                                <div class="text-center" style="background-color: white">
+                                                    <img class="img-fluid o_we_custom_image" src="/web/image/website_ore.ir_attachment_e_svg/E.svg" data-original-title="" title="" aria-describedby="tooltip729222" style="width: 50%;" />
+                                                </div>
+                                                <h4 class="card-header text-epsilon" style="background-color: white">ECHANGER</h4>
+                                                <div class="card-body text-center">
+                                                    <h2 class="card-title">
+                                                        <img class="img-fluid o_we_custom_image" src="/web/image/website_ore.ir_attachment_icon_ore_echange_png/icon_ore_echange.png" style="width: 50%;" />
+                                                    </h2>
+                                                </div>
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="height: 75px;">Échanger contre du temps à dépenser dans des offres</li>
+                                                    <li class="list-group-item" style="height: 75px;">Échanger et accumuler du temps à dépenser plus tard</li>
+                                                    <li class="list-group-item" style="height: 75px;">Échanger contre rémunération (dans certains cas)</li>
+                                                    <li class="list-group-item" style="height: 75px;">
+                                                        Valider qu'un échange a été réalisé avec un autre membre de la
+                                                        communauté
+                                                    </li>
+                                                </ul>
+                                                <div class="card-footer">
+                                                    <p>
+                                                        <i>Accéder aux échanges et à la validation en un seul endroit</i>
+                                                    </p>
+                                                    <a href="/participer#!?state=init.saa" class="btn btn-outline-black rounded-circle btn-sm text-epsilon" data-original-title="" title="" aria-describedby="tooltip351000" groups="base.group_user,base.group_portal" style="background-color: white;">ECHANGER</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="s_color_blocks_2" groups="base.group_public">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="bg-alpha text-center offset-lg-4 col-lg-4 pt48 pb56">
+                                            <h2>
+                                                <font style="font-size: 36px;">S'inscrire</font>
+                                            </h2>
+                                            <h3 class="mb16 text-muted">
+                                                Que vous soyez un professionnel, un étudiant, un retraité, peu importe
+                                                votre formation, vous pouvez donner de votre temps et l'échanger pour un
+                                                service.
+                                            </h3>
+                                            <div class="o_avatar">
+                                                <a href="/web/signup?redirect=%2Fexplorer" class="btn btn-outline-delta rounded-circle">
+                                                    <img class="img img-fluid" src="/web/image/website_ore.ir_attachment_icon_ore_inscription_png/icon_ore_inscription.png" alt="Avatar" data-original-title="" title="" aria-describedby="tooltip52966" style="width: 25%; border: none;" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="s_clonable_boxes pb32 pt40">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-4 bg-alpha">
+                                            <div class="item" groups="base.group_public">
+                                                <h3 ng-cloak="">{{ nb_offre_service }} offres dans la communauté</h3>
+                                            </div>
+                                            <div class="item" groups="base.group_user,base.group_portal">
+                                                <h3>Consulter les offres</h3>
+                                                <p groups="base.group_user,base.group_portal">Magasiner les offres avant de s'inscrire</p>
+                                                <p ng-cloak="">{{ nb_offre_service }} offres dans la communauté</p>
+                                                <div class="s_btn text-center pt16 pb16" data-name="Buttons">
+                                                    <a href="/explorer" class="btn btn-outline-black rounded-circle btn-sm text-alpha" data-original-title="" title="" aria-describedby="tooltip51707" style="background-color: white;">PARCOURIR</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 bg-beta">
+                                            <div class="item" groups="base.group_public">
+                                                <h3>Communauté</h3>
+                                            </div>
+                                            <div class="item" groups="base.group_user,base.group_portal">
+                                                <h3>Communauté</h3>
+                                                <p>Par ici pour découvrir</p>
+                                                <p>la communauté</p>
+                                                <div class="s_btn text-center pt16 pb16" data-name="Buttons">
+                                                    <a href="/communaute/actualite" class="btn btn-outline-black rounded-circle btn-sm text-beta" data-original-title="" title="" aria-describedby="tooltip376413" style="background-color: white;">DÉCOUVRIR</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 bg-epsilon">
+                                            <div class="item">
+                                                <h3>Aide</h3>
+                                                <p>Besoin d'aide pour vous</p>
+                                                <p>y retrouver?</p>
+                                                <div class="s_btn text-center pt16 pb16" data-name="Buttons">
+                                                    <a href="/aide" class="btn btn-outline-black rounded-circle btn-sm text-epsilon" data-original-title="" title="" aria-describedby="tooltip992072" style="background-color: white;">AIDE</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </t>
+                </t>
+            </field>
+            <field name="key">website.accueil</field>
+            <field name="name">Accueil Trouve ton clan</field>
+            <field name="type">qweb</field>
+            <field name="website_meta_title">Trouve ton clan</field>
+            <field name="website_meta_description">
+                Trouve ton clan
+                Plateforme québécoise d'échange de temps
+            </field>
+            <field name="website_meta_og_img">/web/image/ore.ir_attachment_logo_ore_background_svg/logo_ORE_background.svg</field>
+        </record>
         <record id="ir_ui_view_explorer" model="ir.ui.view">
             <field name="arch" type="xml">
                 <t name="About us" t-name="website.aboutus" groups="base.group_user,base.group_portal">
