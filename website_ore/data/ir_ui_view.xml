@@ -1692,7 +1692,7 @@
                                                         <span class="img img-fluid mx-auto fa fa-save" />
                                                         Enregistrer le profil
                                                     </div>
-                                                    <div class="profil profil_right profil_box btn btn-primary btn_do_echange debug_unimplemented adapt-text-primary-color" ng-if="!page_presentation_membre_info.estPersonnel" ng-cloak="">Échanger avec {{page_presentation_membre_info.prenom}}</div>
+                                                    <div class="profil profil_right profil_box btn btn-primary btn_do_echange debug_unimplemented adapt-text-primary-color" ng-if="!page_presentation_membre_info.estPersonnel" ng-cloak="">Échanger avec {{page_presentation_membre_info.full_name}}</div>
                                                 </nav>
                                             </div>
                                         </div>

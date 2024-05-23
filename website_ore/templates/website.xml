@@ -1861,7 +1861,9 @@
                 <a class="no-underline" ng-href="/monprofil/mapresentation#!?membre_id={{contact_info.id}}">
                     <div class="btn btn-primary rounded-circle">
                         <span>En savoir plus</span>
-                        <span ng-if="!_.isUndefined(contact_info.prenom)" ng-cloak="">sur {{contact_info.prenom}}</span>
+                        <span ng-if="!_.isUndefined(contact_info.full_name)" ng-cloak="">
+                            sur {{contact_info.full_name}}
+                        </span>
                     </div>
                 </a>
             </div>

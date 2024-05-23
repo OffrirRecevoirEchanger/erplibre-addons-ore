@@ -92,5 +92,5 @@ class OREController(http.Controller):
         }
         message_id = http.request.env["ore.chat.message"].create(value)
 
-        status = {"msg_id": message_id}
+        status = {"msg_id": message_id.id, "msg": msg}
         return status
