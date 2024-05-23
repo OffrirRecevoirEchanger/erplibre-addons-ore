@@ -35,14 +35,14 @@
                                                 <span>Échanges</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item debug_unimplemented" ng-if="personal.my_clan.id > 0">
                                             <a class="nav-link" role="menu_item" href="/monactivite/monreseau">
                                                 <span>
                                                     Mon r&#233;seau
                                                 </span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item debug_unimplemented" ng-if="personal.my_clan.id > 0">
                                             <a class="nav-link" role="menu_item" href="/monactivite/mesgroupes">
                                                 <span>Mes groupes</span>
                                             </a>
@@ -138,7 +138,7 @@
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
-                                            <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_network.name}}</p>
+                                            <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
                                         </div>
                                     </div>
                                 </section>
@@ -448,7 +448,7 @@
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
-                                            <p class="s_title_default text-bold text-color-title" ng-cloak="">{{personal.my_network.name}}</p>
+                                            <p class="s_title_default text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
                                         </div>
                                     </div>
                                 </section>
@@ -566,7 +566,7 @@
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
-                                            <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_network.name}}</p>
+                                            <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
                                         </div>
                                     </div>
                                 </section>
@@ -1881,7 +1881,7 @@
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
-                                            <p class="s_title_default text-bold text-color-title" ng-cloak="">{{personal.my_network.name}}</p>
+                                            <p class="s_title_default text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
                                         </div>
                                     </div>
                                 </section>
@@ -2218,19 +2218,19 @@
                                                 <span>Échanges</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item debug_unimplemented" ng-if="personal.my_clan.id > 0">
                                             <a class="nav-link" role="menu_item" href="/monactivite/monreseau">
                                                 <span>Mon r&#233;seau</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item debug_unimplemented" ng-if="personal.my_clan.id > 0">
                                             <a class="nav-link active" role="menu_item" href="/monactivite/mesgroupes">
                                                 <span>Mes groupes</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_event_list lg debug_unimplemented">
+                                <section class="s_event_list lg debug_unimplemented" ng-if="personal.my_clan.id > 0">
                                     <div class="list_head mobile-display-none">
                                         <div class="list_title s_title text-bold">
                                             <h1>
@@ -2653,9 +2653,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="btn_ore_profil" class="profile_btn btn ore text-color-title debug_unimplemented" style="background-color: white; border-radius: 15px;">
+                                        <div id="btn_ore_profil" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.my_clan.id > 0">
                                             <i class="fa fa-smile-o" />
-                                            <span id="mon_reseau" ng-cloak="">Mon réseau: {{personal.my_network.name}}</span>
+                                            <span id="mon_reseau" ng-cloak="">Mon clan : {{personal.my_clan.name}}</span>
                                             <i class="fa fa-chevron-right" />
                                         </div>
                                         <a href="web/session/logout?redirect=/">
@@ -2764,14 +2764,14 @@
                                                 <span>Échanges</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item debug_unimplemented" ng-if="personal.my_clan.id > 0">
                                             <a class="nav-link" role="menu_item" href="/monactivite/monreseau">
                                                 <span>
                                                     Mon r&#233;seau
                                                 </span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item debug_unimplemented" ng-if="personal.my_clan.id > 0">
                                             <a class="nav-link" role="menu_item" href="/monactivite/mesgroupes">
                                                 <span>Mes groupes</span>
                                             </a>
@@ -2941,21 +2941,21 @@
                                                 <span>Échanges</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item debug_unimplemented" ng-if="personal.my_clan.id > 0">
                                             <a class="nav-link active" role="menu_item" href="/monactivite/monreseau">
                                                 <span>
                                                     Mon r&#233;seau
                                                 </span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item debug_unimplemented" ng-if="personal.my_clan.id > 0">
                                             <a class="nav-link" role="menu_item" href="/monactivite/mesgroupes">
                                                 <span>Mes groupes</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_event_list small-cards debug_unimplemented">
+                                <section class="s_event_list small-cards debug_unimplemented" ng-if="personal.my_clan.id > 0">
                                     <div class="list_head mobile-display-none">
                                         <div class="list_title s_title text-bold">
                                             <font style="font-size:2rem;">Mon r&#233;seau</font>
@@ -3134,7 +3134,7 @@
                                                 <a href="/explorer" class="footer_link">Les cat&#233;gories d'offres de service</a>
                                             </span>
                                         </div>
-                                        <div class="col-lg-2 footer_menu">
+                                        <div class="col-lg-2 footer_menu" ng-if="personal.my_clan.id > 0">
                                             <a href="/communaute/actualite" class="img bottom_menu_icon fa fa-comments-o" style="text-decoration:none;" />
                                             <h5>La communaut&#233;</h5>
                                             <span class="debug_unimplemented">
@@ -3153,7 +3153,7 @@
                                         </div>
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/participer" class="img bottom_menu_icon fa fa-plus-circle" style="text-decoration:none;" />
-                                            <h5 id="participer_footer_ore">ORE-Participer</h5>
+                                            <h5 id="participer_footer_ore">Participer</h5>
                                             <a href="/participer#!?state=init.pos" class="footer_link">Publier une offre de service</a>
                                             <br />
                                             <a href="/participer#!?state=init.pds" class="footer_link">Publier une demande de service</a>
@@ -3187,7 +3187,7 @@
                                             <a href="/monactivite" class="footer_link">Bilan</a>
                                             <br />
                                             <a href="/monactivite/echanges" class="footer_link">Échanges</a>
-                                            <span class="debug_unimplemented">
+                                            <span class="debug_unimplemented" ng-if="personal.my_clan.id > 0">
                                                 <br />
                                                 <a href="/monactivite/monreseau" class="footer_link">Mon r&#233;seau</a>
                                                 <br />

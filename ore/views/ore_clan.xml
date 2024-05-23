@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="ore_clan_view_form" model="ir.ui.view">
+        <field name="name">ore_clan_form</field>
+        <field name="model">ore.clan</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                    <group>
+                        <field name="autre_information" />
+                    </group>
+                    <group>
+                        <field name="besoin_comble" />
+                    </group>
+                    <group>
+                        <field name="membre_admin_ids" />
+                    </group>
+                    <group>
+                        <field name="membre_create_id" />
+                    </group>
+                    <group>
+                        <field name="membre_list_ids" />
+                    </group>
+                    <group>
+                        <field name="valeur_clan" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ore_clan_view_graph" model="ir.ui.view">
+        <field name="name">ore_clan_graph</field>
+        <field name="model">ore.clan</field>
+        <field name="arch" type="xml">
+            <graph string="Ore clan">
+                <field name="name" type="row" />
+                <field name="autre_information" type="row" />
+                <field name="besoin_comble" type="row" />
+                <field name="membre_create_id" type="row" />
+                <field name="valeur_clan" type="row" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="ore_clan_view_kanban" model="ir.ui.view">
+        <field name="name">ore_clan_kanban</field>
+        <field name="model">ore.clan</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name" />
+                <field name="autre_information" />
+                <field name="besoin_comble" />
+                <field name="membre_admin_ids" />
+                <field name="membre_create_id" />
+                <field name="membre_list_ids" />
+                <field name="valeur_clan" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="name" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="autre_information" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="besoin_comble" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre_admin_ids" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre_create_id" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre_list_ids" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="valeur_clan" />
+                                        </strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="ore_clan_view_pivot" model="ir.ui.view">
+        <field name="name">ore_clan_pivot</field>
+        <field name="model">ore.clan</field>
+        <field name="arch" type="xml">
+            <pivot string="Ore clan">
+                <field name="name" type="row" />
+                <field name="autre_information" type="row" />
+                <field name="besoin_comble" type="row" />
+                <field name="membre_create_id" type="row" />
+                <field name="valeur_clan" type="row" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="ore_clan_view_search" model="ir.ui.view">
+        <field name="name">ore_clan_search</field>
+        <field name="model">ore.clan</field>
+        <field name="arch" type="xml">
+            <search string="Ore clan">
+                <filter domain="[('name','!=',False)]" name="name" string="Name" />
+                <filter
+                    domain="[('autre_information','!=',False)]"
+                    name="autre_information"
+                    string="Autre Information"
+                />
+                <filter domain="[('besoin_comble','!=',False)]" name="besoin_comble" string="Besoin Comble" />
+                <filter domain="[('membre_admin_ids','!=',False)]" name="membre_admin_ids" string="Membre Admin" />
+                <filter domain="[('membre_create_id','!=',False)]" name="membre_create_id" string="Membre Create" />
+                <filter domain="[('membre_list_ids','!=',False)]" name="membre_list_ids" string="Membre List" />
+                <filter domain="[('valeur_clan','!=',False)]" name="valeur_clan" string="Valeur Clan" />
+            </search>
+        </field>
+    </record>
+
+    <record id="ore_clan_view_tree" model="ir.ui.view">
+        <field name="name">ore_clan_tree</field>
+        <field name="model">ore.clan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="autre_information" />
+                <field name="besoin_comble" />
+                <field name="membre_admin_ids" />
+                <field name="membre_create_id" />
+                <field name="membre_list_ids" />
+                <field name="valeur_clan" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="ore_clan_clan_action_window"
+        name="Clan"
+        res_model="ore.clan"
+        view_mode="kanban,tree,pivot,graph,form"
+    />
+</odoo>

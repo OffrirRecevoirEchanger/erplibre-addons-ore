@@ -85,6 +85,15 @@ class OREMembre(models.Model):
     #     track_visibility="onchange",
     # )
 
+    clan_principal_id = fields.Many2one(comodel_name="ore.clan")
+
+    clan_participe_ids = fields.Many2many(
+        string="Clan participants",
+        comodel_name="ore.clan",
+        relation="membre_clan_participe_rel",
+        help="Liste des clans que le membre participe.",
+    )
+
     date_adhesion = fields.Date(
         string="Date de l'adhésion",
         track_visibility="onchange",

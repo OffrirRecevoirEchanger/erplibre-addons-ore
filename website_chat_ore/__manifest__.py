@@ -15,6 +15,9 @@
         "views/portal_templates.xml",
         "views/website_ore_notification.xml",
         "data/ir_ui_view.xml",
+        "views/ore_chat_group.xml",
+        "views/ore_chat_message.xml",
+        "views/menu.xml",
     ],
     "installable": True,
 }

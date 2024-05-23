@@ -1185,10 +1185,15 @@ class OREController(http.Controller):
             "dct_membre_favoris": dct_membre_favoris,
             "dct_echange": dct_echange,
         }
-        if membre_id.reseau_ore_id:
-            personnal_data["my_network"] = {
-                "name": membre_id.reseau_ore_id.name,
-                "id": membre_id.reseau_ore_id.id,
+        if membre_id.clan_principal_id:
+            personnal_data["my_clan"] = {
+                "name": membre_id.clan_principal_id.name,
+                "id": membre_id.clan_principal_id.id,
+            }
+        else:
+            personnal_data["my_clan"] = {
+                "name": "",
+                "id": 0,
             }
 
         data = {
@@ -1421,10 +1426,15 @@ class OREController(http.Controller):
             "dct_demande_service": dct_demande_service,
             "len_demande_service": len(dct_demande_service),
         }
-        if membre_id.reseau_ore_id:
-            data_membre_info["my_network"] = {
-                "name": membre_id.reseau_ore_id.name,
-                "id": membre_id.reseau_ore_id.id,
+        if membre_id.clan_principal_id:
+            data_membre_info["my_clan"] = {
+                "name": membre_id.clan_principal_id.name,
+                "id": membre_id.clan_principal_id.id,
+            }
+        else:
+            data_membre_info["my_clan"] = {
+                "name": "",
+                "id": 0,
             }
         return {"membre_info": data_membre_info}
 
@@ -1482,7 +1492,7 @@ class OREController(http.Controller):
         auth="user",
         website=True,
     )
-    def get_info_list_membre(self, reseau_ore_id, **kw):
+    def get_info_list_membre(self, clan_id, **kw):
         membre_id = self.get_membre_id()
         if type(membre_id) is dict:
             # This is an error
@@ -1494,7 +1504,7 @@ class OREController(http.Controller):
             .sudo()
             .search(
                 [
-                    ("reseau_ore_id", "=", reseau_ore_id),
+                    ("clan_participe_ids", "in", [clan_id]),
                     ("profil_approuver", "=", True),
                     ("website_published", "=", True),
                 ]

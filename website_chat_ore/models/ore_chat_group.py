@@ -26,6 +26,16 @@ class OREChatGroup(models.Model):
         inverse_name="msg_group_id",
     )
 
+    clan_id = fields.Many2one(
+        comodel_name="ore.clan.group",
+        string="Clan",
+    )
+
+    group_clan_id = fields.Many2one(
+        comodel_name="ore.clan.group",
+        string="Group Clan",
+    )
+
     def first_to_json(self, actual_membre_id):
         obj = self[0]
         lst_other_membre_id = [

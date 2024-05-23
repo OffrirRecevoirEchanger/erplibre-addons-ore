@@ -88,6 +88,14 @@
                                 </group>
                             </group>
                         </page>
+                        <page string="Clan">
+                            <group>
+                                <group>
+                                    <field name="clan_principal_id" />
+                                    <field name="clan_participe_ids" widget="many2many_tags" />
+                                </group>
+                            </group>
+                        </page>
                         <page string="Vérification">
                             <group>
                                 <group>

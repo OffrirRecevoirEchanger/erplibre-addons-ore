@@ -95,8 +95,8 @@ class OREDemandeAdhesion(models.Model):
                 data = {
                     "profil_approuver": True,
                     "name": val.nom,
-                    "parent_id": self.env.ref("base.main_partner").id,
-                    "reseau_ore_id": society_id.id,
+                    # "parent_id": self.env.ref("base.main_partner").id,
+                    # "reseau_ore_id": society_id.id,
                     "user_id": val.user_id.id,
                     "partner_id": val.user_id.partner_id.id,
                     "region": society_id.region.id,

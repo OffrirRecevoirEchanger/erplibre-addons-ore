@@ -131,7 +131,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             street: "",
             diff_humain_creation_membre: "",
             antecedent_judiciaire_verifier: false,
-            my_network: {
+            my_clan: {
                 name: "-",
                 id: 0,
             },
@@ -1321,8 +1321,8 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     $scope.update_personal_data();
                     console.debug($scope.personal);
 
-                    if (!_.isUndefined($scope.personal.my_network)) {
-                        $scope.update_db_list_membre($scope.personal.my_network.id);
+                    if (!_.isUndefined($scope.personal.my_clan)) {
+                        $scope.update_db_list_membre($scope.personal.my_clan.id);
                     } else {
                         console.error("Cannot associate personal variable with his network data. " +
                             "Talk to an administrator, your are lost!");
@@ -1566,8 +1566,8 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
         $scope.load_page_offre_demande_echange_service();
 
-        $scope.update_db_list_membre = function (reseau_ore_id) {
-            ajax.jsonRpc("/ore/get_info/list_membre", "call", {"reseau_ore_id": reseau_ore_id}).then(function (data) {
+        $scope.update_db_list_membre = function (clan_id) {
+            ajax.jsonRpc("/ore/get_info/list_membre", "call", {"clan_id": clan_id}).then(function (data) {
                 console.debug("AJAX receive /ore/get_info/list_membre");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;

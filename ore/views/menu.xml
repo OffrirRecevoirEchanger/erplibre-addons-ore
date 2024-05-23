@@ -2,7 +2,7 @@
 <odoo>
     <!--Root menu-->
 
-    <menuitem id="ore" name="Réseau" sequence="20" web_icon="ore,static/description/icon.png" />
+    <menuitem id="ore" name="Trouve ton clan" sequence="20" web_icon="ore,static/description/icon.png" />
 
     <!--Sub menu-->
 
@@ -28,6 +28,8 @@
     <menuitem id="group_location" name="Location" sequence="4" parent="parent_configuration" />
 
     <menuitem id="group_membre" name="Membre" sequence="1" parent="ore" />
+
+    <menuitem id="group_clan" name="Clan" sequence="2" parent="ore" />
 
     <menuitem id="group_statistique" name="Statistique" sequence="7" parent="ore" />
 
@@ -81,6 +83,16 @@
         action="ore_commentaire_commentaire_action_window"
         sequence="3"
         parent="parent_service"
+    />
+
+    <menuitem id="menu_clan" name="Clan" action="ore_clan_clan_action_window" sequence="1" parent="group_clan" />
+
+    <menuitem
+        id="menu_clan_group"
+        name="Groupe"
+        action="ore_clan_group_clan_group_action_window"
+        sequence="2"
+        parent="group_clan"
     />
 
     <menuitem
