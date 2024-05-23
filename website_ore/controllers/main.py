@@ -1135,6 +1135,22 @@ class OREController(http.Controller):
             .search([("membre_id", "=", membre_id.id)])
         ]
 
+        if membre_id.introduction and membre_id.introduction != "<p><br></p>":
+            introduction = membre_id.introduction
+        else:
+            introduction = ""
+        if membre_id.description and membre_id.description != "<p><br></p>":
+            description = membre_id.description
+        else:
+            description = ""
+        if (
+            membre_id.motivation_membre
+            and membre_id.motivation_membre != "<p><br></p>"
+        ):
+            motivation_membre = membre_id.motivation_membre
+        else:
+            motivation_membre = ""
+
         personnal_data = {
             "id": membre_id.id,
             "full_name": membre_id.name,
@@ -1149,9 +1165,9 @@ class OREController(http.Controller):
             # "actual_month_bank_hours": month_bank_time,
             "actual_month_bank_hours": membre_id.bank_month_time,
             "is_favorite": is_favorite,
-            "introduction": membre_id.introduction,
-            "description": membre_id.description,
-            "motivation_membre": membre_id.motivation_membre,
+            "introduction": introduction,
+            "description": description,
+            "motivation_membre": motivation_membre,
             "interet": [
                 {"name": rec.name, "id": rec.id} for rec in membre_id.interet
             ],
@@ -1357,6 +1373,22 @@ class OREController(http.Controller):
             a.id for a in actual_membre_id.membre_favoris_ids
         ]
 
+        if membre_id.introduction and membre_id.introduction != "<p><br></p>":
+            introduction = membre_id.introduction
+        else:
+            introduction = ""
+        if membre_id.description and membre_id.description != "<p><br></p>":
+            description = membre_id.description
+        else:
+            description = ""
+        if (
+            membre_id.motivation_membre
+            and membre_id.motivation_membre != "<p><br></p>"
+        ):
+            motivation_membre = membre_id.motivation_membre
+        else:
+            motivation_membre = ""
+
         data_membre_info = {
             "id": membre_id.id,
             "full_name": membre_id.name,
@@ -1369,9 +1401,9 @@ class OREController(http.Controller):
             "actual_bank_hours": membre_id.bank_time,
             "actual_month_bank_hours": membre_id.bank_month_time,
             "is_favorite": is_favorite,
-            "introduction": membre_id.introduction,
-            "description": membre_id.description,
-            "motivation_membre": membre_id.motivation_membre,
+            "introduction": introduction,
+            "description": description,
+            "motivation_membre": motivation_membre,
             "interet": [
                 {"name": rec.name, "id": rec.id} for rec in membre_id.interet
             ],
@@ -1468,8 +1500,31 @@ class OREController(http.Controller):
                 ]
             )
         )
-        dct_membre = {
-            a.id: {
+        dct_membre = {}
+        for a in lst_membre:
+            if (
+                membre_id.introduction
+                and membre_id.introduction != "<p><br></p>"
+            ):
+                introduction = membre_id.introduction
+            else:
+                introduction = ""
+            if (
+                membre_id.description
+                and membre_id.description != "<p><br></p>"
+            ):
+                description = membre_id.description
+            else:
+                description = ""
+            if (
+                membre_id.motivation_membre
+                and membre_id.motivation_membre != "<p><br></p>"
+            ):
+                motivation_membre = membre_id.motivation_membre
+            else:
+                motivation_membre = ""
+
+            value = {
                 "age": a.age,
                 "ma_photo": a.get_image_url(),
                 "full_name": a.name,
@@ -1483,11 +1538,9 @@ class OREController(http.Controller):
                 "bank_time": a.bank_time,
                 "bank_month_time": a.bank_month_time,
                 "date_adhesion": a.date_adhesion,
-                "introduction": a.introduction if a.introduction else "",
-                "description": a.description if a.description else "",
-                "motivation_membre": a.motivation_membre
-                if a.motivation_membre
-                else "",
+                "introduction": introduction,
+                "description": description,
+                "motivation_membre": motivation_membre,
                 "interet": [
                     {"name": rec.name, "id": rec.id} for rec in a.interet
                 ],
@@ -1496,8 +1549,7 @@ class OREController(http.Controller):
                 ],
                 "is_favorite": a.id in my_favorite_membre_id,
             }
-            for a in lst_membre
-        }
+            dct_membre[a.id] = value
         return {"dct_membre": dct_membre}
 
     @http.route(

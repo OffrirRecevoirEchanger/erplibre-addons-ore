@@ -305,17 +305,17 @@ class OREMembre(models.Model):
         help="Vérifier par l'organisation",
     )
 
-    introduction = fields.Char(
+    introduction = fields.Html(
         help="Un petit texte qui décrit le membre.",
         track_visibility="onchange",
     )
 
-    description = fields.Char(
+    description = fields.Html(
         help="Un petit texte qui décrit le membre.",
         track_visibility="onchange",
     )
 
-    motivation_membre = fields.Char(
+    motivation_membre = fields.Html(
         track_visibility="onchange",
         help="Pourquoi devenir un membre de réseau.",
     )
