@@ -1,3 +1,5 @@
+import uuid
+
 from odoo import _, api, fields, models
 
 
@@ -99,6 +101,7 @@ class OREDemandeAdhesion(models.Model):
                     "partner_id": val.user_id.partner_id.id,
                     "region": society_id.region.id,
                     "ville": society_id.ville.id,
+                    "ore_client_key": uuid.uuid4().hex,
                 }
                 lst_data.append(data)
             membre_ids = self.env["ore.membre"].create(lst_data)

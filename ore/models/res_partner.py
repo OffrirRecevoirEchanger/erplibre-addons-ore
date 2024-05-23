@@ -34,9 +34,7 @@ class ResPartner(models.Model):
         help="Relation d'un réseau ORE, les responsables du membre.",
     )
 
-    ore_client_key = fields.Char(
-        help="Unique key to represent member.", default=uuid.uuid4().hex
-    )
+    ore_client_key = fields.Char(help="Unique key to represent member.")
 
     ore_membre_id = fields.Many2one(
         comodel_name="ore.membre",
