@@ -1692,7 +1692,7 @@
                                                         <span class="img img-fluid mx-auto fa fa-save" />
                                                         Enregistrer le profil
                                                     </div>
-                                                    <div class="profil profil_right profil_box btn btn-primary btn_do_echange debug_unimplemented adapt-text-primary-color" ng-if="!page_presentation_membre_info.estPersonnel" ng-cloak="">Échanger avec {{page_presentation_membre_info.full_name}}</div>
+                                                    <div class="profil profil_right profil_box btn btn-primary btn_do_echange debug_unimplemented adapt-text-primary-color" ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel" ng-cloak="">Échanger avec {{page_presentation_membre_info.full_name}}</div>
                                                 </nav>
                                             </div>
                                         </div>
@@ -1741,7 +1741,7 @@
 
                                             <div ng-class="{'hide-border': shouldHideBorder('interet')}" ng-show="ask_modification_profile || !_.isUndefined(page_presentation_membre_info.interet) &amp;&amp; !_.isEmpty(page_presentation_membre_info.interet)">
                                                 <span class="txt" ng-if="page_presentation_membre_info.estPersonnel">Mes centres d'intérêt</span>
-                                                <span class="txt" ng-if="!page_presentation_membre_info.estPersonnel">Les centres d'intérêt</span>
+                                                <span class="txt" ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel">Les centres d'intérêt</span>
                                                 <button class="fa fa-plus btn-add" ng-if="ask_modification_profile" ng-click="ajouterInteret()" />
                                                 <button class="fa fa-minus btn-add" ng-if="ask_modification_profile &amp;&amp; !_.isEmpty(page_presentation_membre_info.interet)" ng-click="supprimerInteret()" />
                                                 <br />
@@ -1765,7 +1765,7 @@
 
                                             <div ng-show="ask_modification_profile || !_.isUndefined(page_presentation_membre_info.langue) &amp;&amp; !_.isEmpty(page_presentation_membre_info.langue)">
                                                 <span class="txt" ng-if="page_presentation_membre_info.estPersonnel">Les langues que je parle</span>
-                                                <span class="txt" ng-if="!page_presentation_membre_info.estPersonnel">Les langues parlées</span>
+                                                <span class="txt" ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel">Les langues parlées</span>
                                                 <button class="fa fa-plus btn-add" ng-if="ask_modification_profile" ng-click="ajouterLangue()" />
                                                 <button class="fa fa-minus btn-add" ng-if="ask_modification_profile &amp;&amp; !_.isEmpty(page_presentation_membre_info.langue)" ng-click="supprimerLangue()" />
                                                 <br />
@@ -1787,13 +1787,13 @@
 
                                             <div ng-if="_.isEmpty(page_presentation_membre_info.dct_offre_service)">
                                                 <span class="txt" ng-if="page_presentation_membre_info.estPersonnel">Mes offres de service</span>
-                                                <span class="txt" ng-if="!page_presentation_membre_info.estPersonnel">Ses offres de service</span>
+                                                <span class="txt" ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel">Ses offres de service</span>
                                                 <span>Aucune offre de service en cours actuellement.</span>
                                             </div>
                                             <div ng-if="!_.isEmpty(page_presentation_membre_info.dct_offre_service)">
                                                 <span class="txt">
                                                     <span ng-if="page_presentation_membre_info.estPersonnel">Mes offres de service</span>
-                                                    <span ng-if="!page_presentation_membre_info.estPersonnel">Ses offres de service</span>
+                                                    <span ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel">Ses offres de service</span>
                                                     <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
                                                         <u ng-cloak="">Voir tout ({{page_presentation_membre_info.dct_offre_service | lengthKeys}})</u>
                                                     </a>
@@ -1817,13 +1817,13 @@
 
                                             <div ng-if="_.isEmpty(page_presentation_membre_info.dct_demande_service)">
                                                 <span class="txt" ng-if="page_presentation_membre_info.estPersonnel">Mes demandes de service</span>
-                                                <span class="txt" ng-if="!page_presentation_membre_info.estPersonnel">Ses demandes de service</span>
+                                                <span class="txt" ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel">Ses demandes de service</span>
                                                 <span>Aucune demande de service en cours actuellement.</span>
                                             </div>
                                             <div ng-if="!_.isEmpty(page_presentation_membre_info.dct_demande_service)">
                                                 <span class="txt">
                                                     <span ng-if="page_presentation_membre_info.estPersonnel">Mes demandes de service</span>
-                                                    <span ng-if="!page_presentation_membre_info.estPersonnel">Ses demandes de service</span>
+                                                    <span ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel">Ses demandes de service</span>
                                                     <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
                                                         <u ng-cloak="">Voir tout ({{page_presentation_membre_info.dct_demande_service | lengthKeys}})</u>
                                                     </a>

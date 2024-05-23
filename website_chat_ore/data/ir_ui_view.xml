@@ -132,7 +132,7 @@
             <field name="arch" type="xml">
                 <data inherit_id="website_ore.ir_ui_view_ma_presentation">
                     <xpath expr="//div[hasclass('btn_do_echange')]" position="after">
-                        <a class="profil profil_right profil_box modif_btn btn btn-primary adapt-text-primary-color" ng-if="!page_presentation_membre_info.estPersonnel" ng-href="/notification#!?section=message&amp;membre={{page_presentation_membre_info.id}}">Contacter {{page_presentation_membre_info.full_name}}</a>
+                        <a class="profil profil_right profil_box modif_btn btn btn-primary adapt-text-primary-color" ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel" ng-href="/notification#!?section=message&amp;membre={{page_presentation_membre_info.id}}">Contacter {{page_presentation_membre_info.full_name}}</a>
                     </xpath>
                 </data>
             </field>
