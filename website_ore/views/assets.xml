@@ -110,7 +110,6 @@
             <script type="text/javascript" src="/website_ore/static/src/js/pub_offre.js" />
             <script type="text/javascript" src="/website_ore/static/src/js/navbar_tab.js" />
             <script type="text/javascript" src="/website_ore/static/src/js/debug_not_implemented.js" />
-            <script type="text/javascript" src="/website_ore/static/src/js/dialog_monore.js" />
             <script
                 type="text/javascript"
                 src="/website_ore/static/src/js/snippet_ore_liste_offre_et_demande_service.js"

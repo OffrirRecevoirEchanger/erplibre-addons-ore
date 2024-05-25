@@ -135,6 +135,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 name: "-",
                 id: 0,
             },
+            all_my_clan: [],
             dct_offre_service: {},
             dct_demande_service: {},
             dct_offre_service_favoris: {},
@@ -180,7 +181,9 @@ odoo.define('website.ore_angularjs_global', function (require) {
             selected: undefined,
             list: [],
         }
-
+        $scope.show_change_clan = false;
+        $scope.change_clan_is_loading = false;
+        $scope.change_clan_is_error = false;
         // TODO créer environnement modification
         $scope.show_croppie = false;
         $scope.ask_modification = false;
@@ -207,6 +210,39 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.supprimeInteret = '';
         $scope.interetsCount = 0;
         $scope.languesCount = 0;
+
+        $scope.open_change_clan = function () {
+            $scope.show_change_clan = true;
+        }
+
+        $scope.close_change_clan = function () {
+            $scope.show_change_clan = false;
+        }
+
+        $scope.change_clan = function (clan_id) {
+            $scope.change_clan_is_loading = true;
+            let url = "/ore/set_clan_actual_member/" + clan_id
+            ajax.jsonRpc(url, "call", {}).then(function (data) {
+                    console.debug("AJAX receive set_clan_actual_member");
+                    console.debug(data);
+
+                    if (data.error) {
+                        $scope.error = data.error;
+                        $scope.change_clan_is_error = true;
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty data - " + url;
+                        $scope.change_clan_is_error = true;
+                    } else {
+                        window.location.reload();
+                    }
+                    // Process all the angularjs watchers
+                    $scope.$digest();
+                }
+            ).fail(function (error, ev) {
+                console.error(error);
+                $scope.change_clan_is_error = true;
+            })
+        }
 
         $scope.check_need_login = function (error) {
             if (window.location.pathname !== "" &&

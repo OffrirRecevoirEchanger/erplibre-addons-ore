@@ -120,6 +120,20 @@ class OREController(http.Controller):
 
     @http.route(
         [
+            "/ore/set_clan_actual_member/<model('ore.clan'):clan_id>",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def set_clan_principal_id_actual_member(self, clan_id, **kw):
+        me_membre_id = self.get_membre_id()
+        if clan_id.id in me_membre_id.clan_participe_ids.ids:
+            me_membre_id.clan_principal_id = clan_id.id
+        return {"status": True}
+
+    @http.route(
+        [
             "/ore/get_info/get_offre_service/<model('ore.offre.service'):offre_id>",
         ],
         type="json",
@@ -1195,6 +1209,16 @@ class OREController(http.Controller):
                 "name": "",
                 "id": 0,
             }
+        if membre_id.clan_participe_ids:
+            personnal_data["all_my_clan"] = [
+                {
+                    "name": clan_id.name,
+                    "id": clan_id.id,
+                }
+                for clan_id in membre_id.clan_participe_ids
+            ]
+        else:
+            personnal_data["all_my_clan"] = []
 
         data = {
             "global": {
@@ -1436,6 +1460,18 @@ class OREController(http.Controller):
                 "name": "",
                 "id": 0,
             }
+
+        if membre_id.clan_participe_ids:
+            data_membre_info["all_my_clan"] = [
+                {
+                    "name": clan_id.name,
+                    "id": clan_id.id,
+                }
+                for clan_id in membre_id.clan_participe_ids
+            ]
+        else:
+            data_membre_info["all_my_clan"] = []
+
         return {"membre_info": data_membre_info}
 
     @http.route(
