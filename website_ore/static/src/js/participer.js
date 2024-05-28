@@ -274,6 +274,9 @@ odoo.define("website.ore.participer", function (require) {
         $scope.has_init = false;
         $scope.error = "";
         $scope.workflow = {};
+        $scope.default_flow_id = 1;
+        $scope.flow_info = {"id": 0};
+        $scope.has_init_workflow = false;
         $scope.data = {};
         $scope.data_inner = {};
         $scope.state = {
@@ -379,65 +382,74 @@ odoo.define("website.ore.participer", function (require) {
             return !($scope.form_is_modifying_date_service || $scope.form_is_modifying_time_service)
         }
 
-        let url = "/ore/get_participer_workflow_data/";
-        ajax.jsonRpc(url, "call", {}).then(function (data) {
-            console.debug("AJAX receive get_participer_workflow_data");
-            if (data.error) {
-                $scope.error = data.error;
-            } else if (_.isEmpty(data)) {
-                $scope.error = "Empty data - " + url;
-            } else if (!data.workflow.hasOwnProperty(INIT_STATE)) {
-                let str_error = "Missing state '" + INIT_STATE + "'.";
-                console.error(str_error);
-                $scope.error = str_error;
-                $scope.workflow = {};
-                $scope.state = {};
-                $scope.data = {};
-                $scope.data_inner = {};
-            } else {
-                // Init controller or call change_state_name(name)
-                $scope.error = "";
-                $scope.workflow = data.workflow;
-                $scope.data = data.data;
-                $scope.data_inner = data.data_inner;
+        $scope.init_workflow = function () {
+            let url = "/ore/get_participer_workflow_data/";
+            if ($scope.flow_info.id === 1) {
+                // ore_workflow_participer
+                url = "/ore/get_participer_workflow_data/";
+            } else if ($scope.flow_info.id === 3) {
+                // ore_workflow_trouvetonclan
+                url = "/ore/get_trouvetonclan_workflow_data/";
+            }
+            ajax.jsonRpc(url, "call", {}).then(function (data) {
+                console.debug("AJAX receive get_participer_workflow_data");
+                if (data.error) {
+                    $scope.error = data.error;
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty data - " + url;
+                } else if (!data.workflow.hasOwnProperty(INIT_STATE)) {
+                    let str_error = "Missing state '" + INIT_STATE + "'.";
+                    console.error(str_error);
+                    $scope.error = str_error;
+                    $scope.workflow = {};
+                    $scope.state = {};
+                    $scope.data = {};
+                    $scope.data_inner = {};
+                } else {
+                    // Init controller or call change_state_name(name)
+                    $scope.error = "";
+                    $scope.workflow = data.workflow;
+                    $scope.data = data.data;
+                    $scope.data_inner = data.data_inner;
 
-                // Update relation workflow with data, use by click_inner_state
-                for (const [key, value] of Object.entries($scope.workflow)) {
-                    if (!_.isEmpty(value.data_name)) {
-                        let data_name = value.data_name;
+                    // Update relation workflow with data, use by click_inner_state
+                    for (const [key, value] of Object.entries($scope.workflow)) {
+                        if (!_.isEmpty(value.data_name)) {
+                            let data_name = value.data_name;
 
-                        // data
-                        let lst_data = $scope.data[data_name]
-                        if (_.isUndefined(lst_data)) {
-                            console.warn("Cannot find database '" + data_name + "'.");
-                            $scope.workflow[key].data = undefined;
-                            continue;
-                        }
-                        $scope.workflow[key].data = lst_data;
-                        let dct_data = {};
-                        for (let i = 0; i < lst_data.length; i++) {
-                            dct_data[lst_data[i].id] = lst_data[i];
-                        }
-                        $scope.workflow[key].dct_data = dct_data;
+                            // data
+                            let lst_data = $scope.data[data_name]
+                            if (_.isUndefined(lst_data)) {
+                                console.warn("Cannot find database '" + data_name + "'.");
+                                $scope.workflow[key].data = undefined;
+                                continue;
+                            }
+                            $scope.workflow[key].data = lst_data;
+                            let dct_data = {};
+                            for (let i = 0; i < lst_data.length; i++) {
+                                dct_data[lst_data[i].id] = lst_data[i];
+                            }
+                            $scope.workflow[key].dct_data = dct_data;
 
-                        // data_inner
-                        let dct_data_inner = $scope.data_inner[data_name];
-                        if (!_.isUndefined(dct_data_inner)) {
-                            $scope.workflow[key].dct_data_inner = dct_data_inner;
+                            // data_inner
+                            let dct_data_inner = $scope.data_inner[data_name];
+                            if (!_.isUndefined(dct_data_inner)) {
+                                $scope.workflow[key].dct_data_inner = dct_data_inner;
+                            }
                         }
                     }
+
+                    // fill $scope.state with change_from_url
+                    $scope.change_from_url($location.search());
                 }
 
-                // fill $scope.state with change_from_url
-                $scope.change_from_url($location.search());
-            }
-
-            // Process all the angularjs watchers
-            $scope.$digest();
-        }).fail(function (error, ev) {
-            console.error(error);
-            $scope.check_need_login(error);
-        })
+                // Process all the angularjs watchers
+                $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
+            })
+        }
 
         $scope.init_controller = function (state = INIT_STATE) {
             // $scope.has_init = true;
@@ -604,6 +616,19 @@ odoo.define("website.ore.participer", function (require) {
             if (window.location.pathname !== "/participer") {
                 return;
             }
+
+            let flow_id = $location.search()["flow_id"];
+            if (!_.isEmpty(flow_id)) {
+                $scope.flow_info = {"id": parseInt(flow_id)};
+            } else {
+                $scope.flow_info = {"id": $scope.default_flow_id};
+            }
+
+            if (!$scope.has_init_workflow) {
+                $scope.init_workflow();
+                $scope.has_init_workflow = true;
+            }
+
             // Check this is not call before ajax to fill $scope.workflow
             // TODO has_init is always false
             // TODO optimization, each time click next, $locationChangeSuccess and init_controller is recall

@@ -1678,6 +1678,53 @@ class OREController(http.Controller):
 
     @http.route(
         [
+            "/ore/get_trouvetonclan_workflow_data",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_trouvetonclan_workflow_data(self, **kw):
+        membre_id = self.get_membre_id()
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
+
+        env = request.env(context=dict(request.env.context))
+
+        dct_workflow_empty = (
+            {
+                "init": {
+                    "id": "init",
+                    "message": (
+                        "La procédure de Trouve ton clan est actuellement non"
+                        " disponible. Veuillez informer votre administrateur."
+                    ),
+                    "type": "selection_static",
+                },
+            },
+        )
+
+        json_data = {
+            "data": {
+                # "type_service_categorie": lst_type_service_categorie,
+                # "membre": lst_membre,
+                # "mes_offres_de_service": lst_mes_offre_de_service,
+                # "mes_echanges_de_service_non_valide": lst_mes_echanges_de_service_non_valide,
+                # "mes_echanges_de_service_avec_demande_non_valide": lst_mes_echanges_de_service_avec_demande_non_valide,
+                # "mes_echanges_de_service_offert_sans_demande_non_valide": lst_mes_echanges_de_service_offert_sans_demande_non_valide,
+            },
+            "data_inner": {
+                # "type_service_categorie": dct_data_inner_type_service_categorie
+            },
+        }
+        workflow_ids = env["ore.workflow"].sudo().browse(3)
+        return self.create_request_ore_workflow(
+            env, json_data, dct_workflow_empty, workflow_ids
+        )
+
+    @http.route(
+        [
             "/ore/get_participer_workflow_data",
         ],
         type="json",
@@ -1813,7 +1860,7 @@ class OREController(http.Controller):
                 "init": {
                     "id": "init",
                     "message": (
-                        "La procédure de participation est actuelle non"
+                        "La procédure de participation est actuellement non"
                         " disponible. Veuillez informer votre administrateur."
                     ),
                     "type": "selection_static",
@@ -1834,8 +1881,14 @@ class OREController(http.Controller):
                 "type_service_categorie": dct_data_inner_type_service_categorie
             },
         }
-
         workflow_ids = env["ore.workflow"].sudo().search([], limit=1)
+        return self.create_request_ore_workflow(
+            env, json_data, dct_workflow_empty, workflow_ids
+        )
+
+    def create_request_ore_workflow(
+        self, env, json_data, dct_workflow_empty, workflow_ids
+    ):
 
         if not workflow_ids:
             json_data["workflow"] = dct_workflow_empty
