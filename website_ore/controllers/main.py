@@ -1607,7 +1607,7 @@ class OREController(http.Controller):
         website=True,
     )
     def get_nb_offre_service(self, **kw):
-        nb_offre_service = http.request.env["ore.offre.service"].search_count(
+        nb_offre_service = http.request.env["ore.offre.service"].sudo().search_count(
             [("website_published", "=", True)]
         )
         return {"nb_offre_service": nb_offre_service}
