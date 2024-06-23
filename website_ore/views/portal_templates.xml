@@ -747,7 +747,7 @@
                             <li class="nav-item divider" groups="base.group_public" />
                             <li groups="base.group_public" class="nav-item">
                                 <a t-attf-href="/web/login" class="nav-link">
-                                    <b>Espace membre</b>
+                                    <b>Se connecter</b>
                                 </a>
                             </li>
                         </ul>
