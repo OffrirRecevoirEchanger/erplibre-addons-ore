@@ -252,6 +252,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 window.location.pathname !== "/privacy-policy" &&
                 window.location.pathname !== "/web/login" &&
                 window.location.pathname !== "/web/reset_password" &&
+                window.location.pathname !== "/chercher_clan" &&
                 error.data.name === "odoo.http.SessionExpiredException") {
                 console.warn("Relocation");
                 window.location.href = `/web/login?redirect=${window.location.href}`

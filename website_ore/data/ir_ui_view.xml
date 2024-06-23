@@ -1206,6 +1206,29 @@
                                     </div>
                                 </div>
                             </section>
+                            <section class="s_call_to_action bg-200 pt48 pb24">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-9 pb24">
+                                            <h3 class="o_default_snippet_text">
+                                                <b class="o_default_snippet_text">Les clans, c'est importants</b>
+                                                pour se connecter.
+                                            </h3>
+                                            <p class="lead o_default_snippet_text">Rejoignez-nous et passez à la vitesse supérieure.</p>
+                                        </div>
+                                        <div class="col-lg-3 s_btn text-right pt8 pb24">
+                                            <a href="/chercher_clan" class="btn btn-primary btn-lg">
+                                                <span class="o_default_snippet_text" data-original-title="" title="" aria-describedby="tooltip926954">Cherche ton clan</span>
+                                                <i class="fa fa-1x fa-fw fa-arrow-circle-right ml-1" />
+                                            </a>
+                                            <a href="/nouveau_clan" class="btn btn-primary btn-lg">
+                                                <span class="o_default_snippet_text" data-original-title="" title="" aria-describedby="tooltip926954">Crée ton clan</span>
+                                                <i class="fa fa-1x fa-fw fa-arrow-circle-right ml-1" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                             <section class="s_color_blocks_2" groups="base.group_public">
                                 <div class="container-fluid">
                                     <div class="row">
@@ -1283,6 +1306,113 @@
             </field>
             <field name="website_meta_og_img">/web/image/ore.ir_attachment_logo_ore_background_svg/logo_ORE_background.svg</field>
         </record>
+        <record id="ir_ui_view_chercher_clan" model="ir.ui.view">
+            <field name="arch" type="xml">
+                <t name="About us" t-name="website.aboutus">
+                    <t t-call="website.layout">
+                        <t t-set="pageName" t-value="'chercher_clan'" />
+                        <div id="wrap" class="oe_structure oe_empty">
+                            <div class="debug_debug" />
+                            <section class="s_search oe_img_bg oe_custom_bg pt16" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_finale_1521_x_980.png&quot;);">
+                                <div class="container">
+                                    <div class="row s_nb_column_fixed">
+                                        <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                            <h1 class="s_title_default text-bold">
+                                                <div class="search_bar">
+                                                    <p class="search_txt text-epsilon">Que cherchez-vous?</p>
+                                                    <div class="search_category">
+                                                        <p class="search_txt text-epsilon">Type de recherche</p>
+                                                        <div class="search_send btn btn-primary rounded-circle">
+                                                            <font style="font-size: 18px;" class="adapt-text-primary-color">
+                                                                <i class="img img-fluid mx-auto fa fa-search" />
+                                                                Rechercher
+                                                            </font>
+                                                        </div>
+                                                        <p class="search_select" style="color: rgb(106, 106, 106)">Sélectionner une catégorie</p>
+                                                    </div>
+                                                    <input type="text" placeholder="Taper votre mot clé ici" />
+                                                </div>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <div style="text-align: left;" />
+                            <section class="s_banner parallax s_parallax_no_overflow_hidden pb184 pt160" data-scroll-background-ratio="0" style="background-image: none;">
+                                <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="" />
+                                <div class="banner-bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_adobestock_309423704_preview_jpeg/AdobeStock_309423704_Preview.jpeg&quot;); background-position: 50% 0px; background-size:cover">
+                                    <div class="container">
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="jumbotron pt32 bg-primary col-lg-6 pb40" style="border-radius:10px">
+                                                <div class="row">
+                                                    <div class="col-lg-12 s_title s_col_no_bgcolor pb0" data-name="Title">
+<!--                                                        <h1 class="s_title_thin" style="text-align: center;" groups="base.group_public">-->
+<!--                                                            <b>-->
+<!--                                                                <font style="color: rgb(255, 255, 255);">As-tu d&#233;j&#224;-->
+<!--                                                                    os&#233; essayer-->
+<!--                                                                </font>-->
+<!--                                                            </b>-->
+<!--                                                        </h1>-->
+<!--                                                        <h1 class="s_title_thin" style="text-align: center;" groups="base.group_user,base.group_portal">-->
+<!--                                                            private information-->
+<!--                                                        </h1>-->
+                                                        <h1 class="s_title_thin" style="text-align: center;">
+                                                            <b>
+                                                                <b>
+                                                                    <font style="color: rgb(255, 255, 255);">
+                                                                        d'offrir un
+                                                                        service
+                                                                    </font>
+                                                                </b>
+                                                                <b>
+                                                                    <font style="color: rgb(255, 255, 255);">?</font>
+                                                                </b>
+                                                                <br />
+                                                            </b>
+                                                        </h1>
+                                                        <h1 class="s_title_thin">
+                                                            <br />
+                                                        </h1>
+                                                    </div>
+                                                    <div class="col-lg-12 pt8 pb32 s_col_no_bgcolor" data-name="Text">
+                                                        <p class="lead" style="text-align: center;">
+                                                            <font style="color: rgb(255, 255, 255);">&amp;nbsp;C'est tr&#232;s
+                                                                simple, tu peux commencer par publier une offre de
+                                                                service et ensuite attendre qu'une personne te contacte.
+                                                            </font>
+                                                        </p>
+                                                    </div>
+                                                    <div class="banner_btn s_btn col-lg-5 text-center" data-name="Button">
+                                                        <a href="/participer#!?state=init.pos" class="btn btn-gamma rounded-circle">
+                                                            <font class="adapt-text-gamma-color">Publier une offre</font>
+                                                        </a>
+                                                    </div>
+                                                    <div class="banner_btn s_btn text-center col-lg-5" data-name="Button">
+                                                        <a href="#" class="btn btn-gamma rounded-circle">
+                                                            <font class="adapt-text-gamma-color">En savoir plus</font>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </t>
+                </t>
+            </field>
+            <field name="key">website.chercher_clan</field>
+            <field name="name">Cherche clan</field>
+            <field name="type">qweb</field>
+            <field name="website_meta_title">Cherche ton clan</field>
+            <field name="website_meta_description">
+                Cherche ton clan
+                Plateforme québécoise de gestion de société
+            </field>
+            <field name="website_meta_og_img">/web/image/ore.ir_attachment_logo_ore_background_svg/logo_ORE_background.svg</field>
+        </record>
+
         <record id="ir_ui_view_explorer" model="ir.ui.view">
             <field name="arch" type="xml">
                 <t name="About us" t-name="website.aboutus" groups="base.group_user,base.group_portal">

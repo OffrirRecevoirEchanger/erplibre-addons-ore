@@ -709,6 +709,15 @@ class OREController(http.Controller):
         return request.env.ref("website_ore.ir_ui_view_explorer").render()
 
     @http.route(
+        ["/chercher_clan"],
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def get_chercher_clan(self, **kw):
+        return request.env.ref("website_ore.ir_ui_view_chercher_clan").render()
+
+    @http.route(
         ["/monactivite/mesgroupes"],
         type="http",
         auth="user",
