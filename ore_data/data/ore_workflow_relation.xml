@@ -263,6 +263,22 @@
             <field name="state_src" ref="ore_workflow_state_va_non_offert" />
             <field name="state_dst" ref="ore_workflow_state_va_non_offert_nouveau" />
         </record>
+        <record id="ore_workflow_relation_init_va_non_offert_ignore_nouveau" model="ore.workflow.relation">
+            <field name="name">En ignorant l'offre</field>
+            <field name="body_html" type="html">
+                <p>
+                    Ignore l'offres.
+                    <br />
+                    Il s'agissait d'un service offert spécifiquement par vous.
+                </p>
+            </field>
+            <field name="state_src" ref="ore_workflow_state_va_non_offert" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_offert_ignore_nouveau_membre" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non_offert_ignore_nouveau_membre" model="ore.workflow.relation">
+            <field name="state_src" ref="ore_workflow_state_va_non_offert_ignore_nouveau_membre" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_offert_ignore_nouveau_membre_formulaire" />
+        </record>
         <record id="ore_workflow_relation_init_va_non_offert_nouveau_cat" model="ore.workflow.relation">
             <field name="state_src" ref="ore_workflow_state_va_non_offert_nouveau" />
             <field name="state_dst" ref="ore_workflow_state_va_non_offert_nouveau_cat" />
@@ -303,6 +319,19 @@
             </field>
             <field name="state_src" ref="ore_workflow_state_va_non_recu_choix" />
             <field name="state_dst" ref="ore_workflow_state_va_non_recu_choix_nouveau" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non_recu_choix_ignore_nouveau" model="ore.workflow.relation">
+            <field name="name">Nouveau service reçu en ignorant les offres</field>
+            <field name="body_html" type="html">
+                <p>
+                    Ignorer l'offre.
+                    <br />
+                    Il s'agissait d'un service offert spécifiquement pour vous.
+                </p>
+            </field>
+            <field name="state_src" ref="ore_workflow_state_va_non_recu_choix" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_recu_choix_ignore_nouveau_formulaire" />
             <field name="diagram_id" ref="ore_workflow_participer" />
         </record>
         <record id="ore_workflow_relation_init_va_non_recu_choix_existant" model="ore.workflow.relation">

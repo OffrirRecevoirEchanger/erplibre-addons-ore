@@ -796,6 +796,7 @@ odoo.define("website.ore.participer", function (require) {
                 'init.saa.offrir.existant.form',
                 'init.saa.recevoir.choix.nouveau.form',
                 'init.va.non.offert.nouveau.cat.form',
+                'init.va.non.offert.ignore_nouveau.membre.form',
                 'init.va.non.offert.existant.form'
             ].includes(state.id) && state.caract_workflow !== "TTC"
         }
@@ -803,6 +804,7 @@ odoo.define("website.ore.participer", function (require) {
         $scope.form_is_destinataire_du_service_de_qui = function (state) {
             return [
                 'init.va.non.recu.choix.nouveau.form',
+                'init.va.non.recu.choix.ignore_nouveau.form',
             ].includes(state.id) && state.caract_workflow !== "TTC"
         }
 

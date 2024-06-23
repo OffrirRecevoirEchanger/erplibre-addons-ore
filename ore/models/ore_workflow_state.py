@@ -126,6 +126,7 @@ class OREWorkflowState(models.Model):
             ("Nouvelle demande", "Nouvelle demande"),
             ("Offre existante", "Offre existante"),
             ("Demande existante", "Demande existante"),
+            ("Ignore offre", "Ignore l'offre"),
         ],
         help="Fonctionnalité un choix pour un état",
     )
