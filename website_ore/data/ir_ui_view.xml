@@ -582,12 +582,12 @@
                                 </section>
                                 <nav class="sub-navbar navbar-light bg-light second_navbar">
                                     <ul class="nav navbar-nav second_navbar">
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/communaute/actualite">
                                                 <span>Actualit&#233;</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/communaute/evenements">
                                                 <span>&#201;v&#232;nements</span>
                                             </a>
@@ -597,7 +597,7 @@
                                                 <span>Membres</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link active" role="menu_item" href="/communaute/groupes">
                                                 <span>Groupes</span>
                                             </a>
@@ -759,12 +759,12 @@
                                 </section>
                                 <nav class="sub-navbar navbar-light bg-light second_navbar">
                                     <ul class="nav navbar-nav second_navbar">
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/communaute/actualite">
                                                 <span>Actualit&#233;</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/communaute/evenements">
                                                 <span>&#201;v&#232;nements</span>
                                             </a>
@@ -774,7 +774,7 @@
                                                 <span>Membres</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/communaute/groupes">
                                                 <span>Groupes</span>
                                             </a>
@@ -786,10 +786,10 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_event_list lg debug_unimplemented">
+                                <section class="s_event_list lg">
                                     <div class="list_head mobile-display-none">
                                         <div class="list_title s_title">
-                                            <h1>Gestion</h1>
+                                            <h1>Gérer le clan «{{personal.my_clan.name}}»</h1>
                                         </div>
                                     </div>
                                 </section>
