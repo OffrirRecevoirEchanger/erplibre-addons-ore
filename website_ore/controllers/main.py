@@ -814,6 +814,16 @@ class OREController(http.Controller):
         return request.env.ref("website_ore.ir_ui_view_mon_profil").render()
 
     @http.route(
+        ["/ctc"],
+        type="http",
+        auth="user",
+        website=True,
+    )
+    def get_ctc(self, **kw):
+        # return self.get_page_participer()
+        return request.redirect("/participer#!?state=init.ctc.form")
+
+    @http.route(
         ["/monactivite/echanges"],
         type="http",
         auth="user",

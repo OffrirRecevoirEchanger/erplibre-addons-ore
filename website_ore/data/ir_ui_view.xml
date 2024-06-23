@@ -1295,7 +1295,7 @@
                                                 <span class="o_default_snippet_text" data-original-title="" title="">Cherche ton clan</span>
                                                 <i class="fa fa-1x fa-fw fa-arrow-circle-right ml-1" />
                                             </a>
-                                            <a href="/participer#!?state=init.ctc.form" class="btn btn-primary btn-lg">
+                                            <a href="/ctc" class="btn btn-primary btn-lg">
                                                 <span class="o_default_snippet_text" data-original-title="" title="">Crée ton clan</span>
                                                 <i class="fa fa-1x fa-fw fa-arrow-circle-right ml-1" />
                                             </a>
