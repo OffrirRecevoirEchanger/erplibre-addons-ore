@@ -2480,7 +2480,7 @@ class OREController(http.Controller):
                 value_clan["autre_information"] = kw.get(
                     "clan_autre_information"
                 )
-            clan_id = http.request.env["ore.clan"].create(value_clan)
+            clan_id = http.request.env["ore.clan"].sudo().create(value_clan)
             status["clan_id"] = clan_id.id
             # if not membre_id.clan_principal_id:
             #     membre_id.clan_principal_id = clan_id.id
