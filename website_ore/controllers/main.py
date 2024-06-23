@@ -2476,6 +2476,10 @@ class OREController(http.Controller):
                 value_clan["valeur_clan"] = kw.get("clan_valeur")
             if kw.get("clan_besoin_comble"):
                 value_clan["besoin_comble"] = kw.get("clan_besoin_comble")
+            if kw.get("clan_ville_region"):
+                value_clan["ville_region"] = kw.get("clan_ville_region")
+            if kw.get("clan_organisation"):
+                value_clan["organisation"] = kw.get("clan_organisation")
             if kw.get("clan_autre_information"):
                 value_clan["autre_information"] = kw.get(
                     "clan_autre_information"

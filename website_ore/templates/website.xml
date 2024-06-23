@@ -1300,17 +1300,33 @@
                                                 />
                                             </div>
                                         </div>
+                                        <h3 ng-if="form_is_ctc_form(state)">
+                                            Besoin(s) commun(s) qui mènent à la création du clan
+                                        </h3>
+                                        <textarea
+                                            ng-if="form_is_ctc_form(state)"
+                                            class="form_desc"
+                                            ng-model="form.clan_besoin_comble"
+                                        />
+                                        <h3 ng-if="form_is_ctc_form(state)">Ville/région</h3>
+                                        <textarea
+                                            ng-if="form_is_ctc_form(state)"
+                                            class="form_desc"
+                                            ng-model="form.clan_ville_region"
+                                        />
+                                        <h3 ng-if="form_is_ctc_form(state)">
+                                            Institution/employeur/organisation (s'il y a lieu)
+                                        </h3>
+                                        <textarea
+                                            ng-if="form_is_ctc_form(state)"
+                                            class="form_desc"
+                                            ng-model="form.clan_organisation"
+                                        />
                                         <h3 ng-if="form_is_ctc_form(state)">Valeurs du clan</h3>
                                         <textarea
                                             ng-if="form_is_ctc_form(state)"
                                             class="form_desc"
                                             ng-model="form.clan_valeur"
-                                        />
-                                        <h3 ng-if="form_is_ctc_form(state)">Besoins généraux du clan</h3>
-                                        <textarea
-                                            ng-if="form_is_ctc_form(state)"
-                                            class="form_desc"
-                                            ng-model="form.clan_besoin_comble"
                                         />
                                         <h3 ng-if="form_is_ctc_form(state)">Autres informations</h3>
                                         <textarea

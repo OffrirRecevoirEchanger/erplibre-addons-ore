@@ -11,6 +11,10 @@ class OreClan(models.Model):
 
     besoin_comble = fields.Text()
 
+    organisation = fields.Text()
+
+    ville_region = fields.Text()
+
     membre_admin_ids = fields.Many2many(
         comodel_name="ore.membre",
         relation="membre_admin_clan_rel",
