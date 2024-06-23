@@ -693,6 +693,18 @@
             <field name="data">membre</field>
             <field name="diagram_id" ref="ore_workflow_participer" />
         </record>
+        <record id="ore_workflow_state_va_non_recu_copy_temp" model="ore.workflow.state">
+            <field name="name">Choisir un membre</field>
+            <field name="key">init.va.non.recu_short</field>
+            <field name="message">Qui vous a offert le service?</field>
+            <field name="type">choix_membre</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Service reçu</field>
+            <field name="model_field_name_alias">membre</field>
+            <field name="model_field_name">membre_id</field>
+            <field name="data">membre</field>
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
         <record id="ore_workflow_state_va_non_recu_choix" model="ore.workflow.state">
             <field name="name">Choisir un échange ou en créer</field>
             <field name="key">init.va.non.recu.choix</field>

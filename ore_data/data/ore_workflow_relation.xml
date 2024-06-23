@@ -21,6 +21,7 @@
             <field name="state_src" ref="ore_workflow_state_init" />
             <field name="state_dst" ref="ore_workflow_state_pos_individuelle" />
             <field name="diagram_id" ref="ore_workflow_participer" />
+            <field name="not_implemented">true</field>
         </record>
         <record id="ore_workflow_clan_relation_init_create" model="ore.workflow.relation">
             <field name="name">Créer un clan</field>
@@ -52,6 +53,7 @@
             <field name="state_src" ref="ore_workflow_state_init" />
             <field name="state_dst" ref="ore_workflow_state_pds_individuelle" />
             <field name="diagram_id" ref="ore_workflow_participer" />
+            <field name="not_implemented">true</field>
         </record>
         <record id="ore_workflow_relation_init_saa" model="ore.workflow.relation">
             <field name="name">Créer un échange avec un autre membre</field>
@@ -62,6 +64,7 @@
             <field name="state_src" ref="ore_workflow_state_init" />
             <field name="state_dst" ref="ore_workflow_state_saa" />
             <field name="diagram_id" ref="ore_workflow_participer" />
+            <field name="not_implemented">true</field>
         </record>
 
         <record id="ore_workflow_relation_pos_individuelle" model="ore.workflow.relation">
@@ -226,6 +229,7 @@
             <field name="state_src" ref="ore_workflow_state_init" />
             <field name="state_dst" ref="ore_workflow_state_va" />
             <field name="diagram_id" ref="ore_workflow_participer" />
+            <field name="not_implemented">true</field>
         </record>
         <record id="ore_workflow_relation_init_va_oui" model="ore.workflow.relation">
             <field name="name">Oui</field>
@@ -262,6 +266,7 @@
             </field>
             <field name="state_src" ref="ore_workflow_state_va_non_offert" />
             <field name="state_dst" ref="ore_workflow_state_va_non_offert_nouveau" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
         </record>
         <record id="ore_workflow_relation_init_va_non_offert_ignore_nouveau" model="ore.workflow.relation">
             <field name="name">En ignorant l'offre</field>
@@ -274,28 +279,47 @@
             </field>
             <field name="state_src" ref="ore_workflow_state_va_non_offert" />
             <field name="state_dst" ref="ore_workflow_state_va_non_offert_ignore_nouveau_membre" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non_offert_ignore_nouveau_direct_workflow" model="ore.workflow.relation">
+            <field name="name">Valider un échange que vous avez offert</field>
+            <field name="body_html" type="html">
+                <p>
+                    Un échange avec une offre non spécifié
+                    <br />
+                    Il s'agissait d'un service offert spécifiquement par vous.
+                </p>
+            </field>
+            <field name="state_src" ref="ore_workflow_state_init" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_offert_ignore_nouveau_membre" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
         </record>
         <record id="ore_workflow_relation_init_va_non_offert_ignore_nouveau_membre" model="ore.workflow.relation">
             <field name="state_src" ref="ore_workflow_state_va_non_offert_ignore_nouveau_membre" />
             <field name="state_dst" ref="ore_workflow_state_va_non_offert_ignore_nouveau_membre_formulaire" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
         </record>
         <record id="ore_workflow_relation_init_va_non_offert_nouveau_cat" model="ore.workflow.relation">
             <field name="state_src" ref="ore_workflow_state_va_non_offert_nouveau" />
             <field name="state_dst" ref="ore_workflow_state_va_non_offert_nouveau_cat" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
         </record>
         <record id="ore_workflow_relation_init_va_non_offert_nouveau_cat_form" model="ore.workflow.relation">
             <field name="state_src" ref="ore_workflow_state_va_non_offert_nouveau_cat" />
             <field name="state_dst" ref="ore_workflow_state_va_non_offert_nouveau_cat_formulaire" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
         </record>
         <record id="ore_workflow_relation_init_va_non_offert_existant" model="ore.workflow.relation">
             <field name="name">Une offre existante</field>
             <field name="is_dynamic">True</field>
             <field name="state_src" ref="ore_workflow_state_va_non_offert" />
             <field name="state_dst" ref="ore_workflow_state_va_non_offert_existant" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
         </record>
         <record id="ore_workflow_relation_init_va_non_offert_existant_form" model="ore.workflow.relation">
             <field name="state_src" ref="ore_workflow_state_va_non_offert_existant" />
             <field name="state_dst" ref="ore_workflow_state_va_non_offert_existant_formulaire" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
         </record>
         <record id="ore_workflow_relation_init_va_non_recu" model="ore.workflow.relation">
             <field name="name">Je suis la personne qui a reçu le service</field>
@@ -331,6 +355,24 @@
                 </p>
             </field>
             <field name="state_src" ref="ore_workflow_state_va_non_recu_choix" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_recu_choix_ignore_nouveau_formulaire" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non_recu_choix_ignore_nouveau_direct_workflow" model="ore.workflow.relation">
+            <field name="name">Valider un échange que vous avez reçu</field>
+            <field name="body_html" type="html">
+                <p>
+                    Un échange avec une demande de service non spécifié.
+                    <br />
+                    Il s'agissait d'un service offert spécifiquement pour vous.
+                </p>
+            </field>
+            <field name="state_src" ref="ore_workflow_state_init" />
+            <field name="state_dst" ref="ore_workflow_state_va_non_recu_copy_temp" />
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_relation_init_va_non_recu_choix_ignore_nouveau_direct_workflow_form" model="ore.workflow.relation">
+            <field name="state_src" ref="ore_workflow_state_va_non_recu_copy_temp" />
             <field name="state_dst" ref="ore_workflow_state_va_non_recu_choix_ignore_nouveau_formulaire" />
             <field name="diagram_id" ref="ore_workflow_participer" />
         </record>

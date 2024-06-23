@@ -774,6 +774,7 @@
                                         <div
                                             ng-repeat="option in state.data"
                                             class="button_form"
+                                            ng-class="{'debug_unimplemented': is_not_implemented(option)}"
                                             ng-if="!state.list_is_first_position &amp;&amp; _.isObject(state.data)"
                                         >
                                             <div
