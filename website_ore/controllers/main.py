@@ -774,6 +774,17 @@ class OREController(http.Controller):
         return request.env.ref("website_ore.ir_ui_view_membres").render()
 
     @http.route(
+        ["/communaute/gestion"],
+        type="http",
+        auth="user",
+        website=True,
+    )
+    def get_communaute_gestion(self, **kw):
+        return request.env.ref(
+            "website_ore.ir_ui_view_communaute_gestion"
+        ).render()
+
+    @http.route(
         ["/monprofil/mesinfos"],
         type="http",
         auth="user",
@@ -1616,8 +1627,10 @@ class OREController(http.Controller):
         website=True,
     )
     def get_nb_offre_service(self, **kw):
-        nb_offre_service = http.request.env["ore.offre.service"].sudo().search_count(
-            [("website_published", "=", True)]
+        nb_offre_service = (
+            http.request.env["ore.offre.service"]
+            .sudo()
+            .search_count([("website_published", "=", True)])
         )
         return {"nb_offre_service": nb_offre_service}
 
@@ -1890,10 +1903,11 @@ class OREController(http.Controller):
                 "type_service_categorie": dct_data_inner_type_service_categorie
             },
         }
-        workflow_ids = env["ore.workflow"].sudo().search([], limit=1)
-        return self.create_request_ore_workflow(
+        workflow_ids = env["ore.workflow"].sudo().browse((1, 3))
+        json_data = self.create_request_ore_workflow(
             env, json_data, dct_workflow_empty, workflow_ids
         )
+        return json_data
 
     def create_request_ore_workflow(
         self, env, json_data, dct_workflow_empty, workflow_ids
@@ -1901,10 +1915,10 @@ class OREController(http.Controller):
 
         if not workflow_ids:
             json_data["workflow"] = dct_workflow_empty
-        else:
-            dct_workflow = {}
-
-            for state_id in workflow_ids.diagram_state_ids:
+            return json_data
+        dct_workflow = {}
+        for workflow_id in workflow_ids:
+            for state_id in workflow_id.diagram_state_ids:
                 dct_state = {"id": state_id.key}
                 if state_id.message:
                     dct_state["message"] = state_id.message
@@ -1956,6 +1970,8 @@ class OREController(http.Controller):
                     dct_state[
                         "caract_offre_demande_nouveau_existante"
                     ] = state_id.caract_offre_demande_nouveau_existante
+                if state_id.caract_workflow:
+                    dct_state["caract_workflow"] = state_id.caract_workflow
                 if state_id.caract_echange_nouvel_existant:
                     dct_state[
                         "caract_echange_nouvel_existant"
@@ -2016,7 +2032,6 @@ class OREController(http.Controller):
                             0
                         ].state_dst.key
                 dct_workflow[state_id.key] = dct_state
-
             json_data["workflow"] = dct_workflow
         return json_data
 
@@ -2410,6 +2425,58 @@ class OREController(http.Controller):
         data["lst_unique_caract"] = sorted(list(set_caract))
 
         return {"data": data}
+
+    @http.route(
+        "/ore/ctc/form/submit",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def ore_ctc_form_submit(self, **kw):
+        # Send from participer website
+        vals = {}
+        status = {}
+        str_state_id = kw.get("state_id")
+        state_id = (
+            http.request.env["ore.workflow.state"]
+            .sudo()
+            .search([("key", "=", str_state_id)], limit=1)
+        )
+        if not state_id:
+            status["error"] = "Cannot find state_id from state.key"
+            _logger.error(status["error"])
+            return status
+
+        membre_id = self.get_membre_id()
+        if not membre_id:
+            status["error"] = "Cannot find member id, are you a member?"
+            _logger.error(status["error"])
+            return status
+
+        if kw.get("clan_name"):
+            name = kw.get("clan_name")
+            value_clan = {
+                "name": name,
+                "membre_admin_ids": [(6, 0, [membre_id.id])],
+                "membre_create_id": membre_id.id,
+                "membre_list_ids": [(6, 0, [membre_id.id])],
+            }
+            if kw.get("clan_valeur"):
+                value_clan["valeur_clan"] = kw.get("clan_valeur")
+            if kw.get("clan_besoin_comble"):
+                value_clan["besoin_comble"] = kw.get("clan_besoin_comble")
+            if kw.get("clan_autre_information"):
+                value_clan["autre_information"] = kw.get(
+                    "clan_autre_information"
+                )
+            clan_id = http.request.env["ore.clan"].create(value_clan)
+            status["clan_id"] = clan_id.id
+            # if not membre_id.clan_principal_id:
+            #     membre_id.clan_principal_id = clan_id.id
+            # Force update principal clan for the creator
+            membre_id.clan_principal_id = clan_id.id
+        return status
 
     @http.route(
         "/ore/participer/form/submit",

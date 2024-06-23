@@ -1286,6 +1286,38 @@
                                             </div>
                                         </div>
 
+                                        <div ng-if="form_is_ttc(state) &amp;&amp; form_is_ctc_form(state)">
+                                            <div>
+                                                <h2>Nom du clan</h2>
+                                            </div>
+                                            <div class="form_box">
+                                                <input
+                                                    class="form-control border-0"
+                                                    name="clan_name"
+                                                    type="text"
+                                                    ng-model="form.clan_name"
+                                                />
+                                            </div>
+                                        </div>
+                                        <h3 ng-if="form_is_ctc_form(state)">Valeurs du clan</h3>
+                                        <textarea
+                                            ng-if="form_is_ctc_form(state)"
+                                            class="form_desc"
+                                            ng-model="form.clan_valeur"
+                                        />
+                                        <h3 ng-if="form_is_ctc_form(state)">Besoins généraux du clan</h3>
+                                        <textarea
+                                            ng-if="form_is_ctc_form(state)"
+                                            class="form_desc"
+                                            ng-model="form.clan_besoin_comble"
+                                        />
+                                        <h3 ng-if="form_is_ctc_form(state)">Autres informations</h3>
+                                        <textarea
+                                            ng-if="form_is_ctc_form(state)"
+                                            class="form_desc"
+                                            ng-model="form.clan_autre_information"
+                                        />
+
                                         <div ng-if="form_is_service(state)">
                                             <h4>Durée de la réalisation du service</h4>
                                             <div
@@ -1756,6 +1788,11 @@
                                         >
                                             <button class="btn btn-primary adapt-text-primary-color">
                                                 Voir le profil du membre
+                                            </button>
+                                        </a>
+                                        <a ng-href="/communaute/gestion" ng-if="form_is_ttc(state)">
+                                            <button class="btn btn-primary adapt-text-primary-color">
+                                                Configurer mon clan
                                             </button>
                                         </a>
                                         <a href="monprofil/mesannonces" ng-if="form_is_offre_demande_service(state)">

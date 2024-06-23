@@ -22,6 +22,20 @@
             <field name="state_dst" ref="ore_workflow_state_pos_individuelle" />
             <field name="diagram_id" ref="ore_workflow_participer" />
         </record>
+        <record id="ore_workflow_clan_relation_init_create" model="ore.workflow.relation">
+            <field name="name">Créer un clan</field>
+            <field name="body_html" type="html">
+                <img style="float: right;" src="/website_ore/static/src/img/O.svg" />
+                <p>
+                    Vous avez besoin de créer un nouveau groupe?
+                    <br />
+                    Cliquez ici permettre de créer un clan.
+                </p>
+            </field>
+            <field name="state_src" ref="ore_workflow_state_init" />
+            <field name="state_dst" ref="ore_workflow_state_ctc_form" />
+            <field name="diagram_id" ref="ore_workflow_trouvetonclan" />
+        </record>
         <!--        <record id="ore_workflow_relation_init_pds" model="ore.workflow.relation">-->
         <!--            <field name="name">Publier une demande de service</field>-->
         <!--            <field name="body_html">Vous avez besoin d'un service? Faites part de votre besoin aux membres du réseau en créant une demande ici.</field>-->

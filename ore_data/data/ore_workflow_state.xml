@@ -38,6 +38,23 @@
             <field name="model_field_name">type_service_id</field>
             <field name="diagram_id" ref="ore_workflow_participer" />
         </record>
+        <record id="ore_workflow_state_ctc_form" model="ore.workflow.state">
+            <field name="name">Formulaire nouveau service privé échange</field>
+            <field name="key">init.ctc.form</field>
+            <field name="message">Crée ton clan</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">False</field>
+            <field name="submit_button_text">Créer mon clan</field>
+            <field name="submit_response_title">Votre clan a bien été créé.</field>
+            <field name="submit_response_description">Vous pouvez maintenant aller inviter des membres.</field>
+            <field name="caract_workflow">TTC</field>
+            <field name="help_section">Créer un clan</field>
+            <field name="help_sub_section">Créer son clan dans sa région</field>
+            <field name="help_fast_btn_title">Créer un clan</field>
+            <field name="help_fast_btn_url">participer#!?state=init.ctc.form</field>
+            <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="diagram_id" ref="ore_workflow_trouvetonclan" />
+        </record>
         <record id="ore_workflow_state_pos_individuelle_form" model="ore.workflow.state">
             <field name="name">Formulaire Créer une offre de service publique individuelle</field>
             <field name="key">init.pos.single.form</field>

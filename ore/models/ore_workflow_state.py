@@ -138,6 +138,15 @@ class OREWorkflowState(models.Model):
         help="Fonctionnalité un choix pour un état",
     )
 
+    caract_workflow = fields.Selection(
+        selection=[
+            ("ORE", "Offrir Recevoir Echanger"),
+            ("TTC", "Trouve ton clan"),
+        ],
+        default="ORE",
+        help="Type de worklflow",
+    )
+
     caract_service_offrir_recevoir = fields.Selection(
         selection=[
             ("Service à offrir", "Service à offrir"),

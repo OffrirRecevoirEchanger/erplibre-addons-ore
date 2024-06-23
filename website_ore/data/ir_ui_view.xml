@@ -164,6 +164,11 @@
                                                 <span>Groupes</span>
                                             </a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" role="menu_item" href="/communaute/gestion">
+                                                <span>Gestion</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </nav>
                                 <section class="s_actualite debug_unimplemented">
@@ -474,6 +479,11 @@
                                                 <span>Groupes</span>
                                             </a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" role="menu_item" href="/communaute/gestion">
+                                                <span>Gestion</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </nav>
                                 <section class="s_event_list lg">
@@ -590,6 +600,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link active" role="menu_item" href="/communaute/groupes">
                                                 <span>Groupes</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" role="menu_item" href="/communaute/gestion">
+                                                <span>Gestion</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -716,6 +731,65 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+            <field name="key">website.communaute_3038b2_2f2620</field>
+            <field name="name">Communaut&#233; membre</field>
+            <field name="type">qweb</field>
+        </record>
+        <record id="ir_ui_view_communaute_gestion" model="ir.ui.view">
+            <field name="arch" type="xml">
+                <t name="About us" t-name="website.aboutus" groups="base.group_user,base.group_portal">
+                    <t t-call="website.layout">
+                        <div id="wrap">
+                            <div class="oe_structure">
+                                <div class="debug_debug" />
+                                <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
+                                    <div class="row s_nb_column_fixed">
+                                        <div class="col-lg-12 s_title pt16 pb16">
+                                            <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
+                                        </div>
+                                    </div>
+                                </section>
+                                <nav class="sub-navbar navbar-light bg-light second_navbar">
+                                    <ul class="nav navbar-nav second_navbar">
+                                        <li class="nav-item">
+                                            <a class="nav-link" role="menu_item" href="/communaute/actualite">
+                                                <span>Actualit&#233;</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" role="menu_item" href="/communaute/evenements">
+                                                <span>&#201;v&#232;nements</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" role="menu_item" href="/communaute/membres">
+                                                <span>Membres</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" role="menu_item" href="/communaute/groupes">
+                                                <span>Groupes</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link active" role="menu_item" href="/communaute/gestion">
+                                                <span>Gestion</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <section class="s_event_list lg debug_unimplemented">
+                                    <div class="list_head mobile-display-none">
+                                        <div class="list_title s_title">
+                                            <h1>Gestion</h1>
                                         </div>
                                     </div>
                                 </section>
@@ -1218,11 +1292,11 @@
                                         </div>
                                         <div class="col-lg-3 s_btn text-right pt8 pb24">
                                             <a href="/chercher_clan" class="btn btn-primary btn-lg">
-                                                <span class="o_default_snippet_text" data-original-title="" title="" aria-describedby="tooltip926954">Cherche ton clan</span>
+                                                <span class="o_default_snippet_text" data-original-title="" title="">Cherche ton clan</span>
                                                 <i class="fa fa-1x fa-fw fa-arrow-circle-right ml-1" />
                                             </a>
-                                            <a href="/nouveau_clan" class="btn btn-primary btn-lg">
-                                                <span class="o_default_snippet_text" data-original-title="" title="" aria-describedby="tooltip926954">Crée ton clan</span>
+                                            <a href="/participer#!?state=init.ctc.form" class="btn btn-primary btn-lg">
+                                                <span class="o_default_snippet_text" data-original-title="" title="">Crée ton clan</span>
                                                 <i class="fa fa-1x fa-fw fa-arrow-circle-right ml-1" />
                                             </a>
                                         </div>
@@ -2035,6 +2109,11 @@
                                         <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/communaute/groupes">
                                                 <span>Groupes</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" role="menu_item" href="/communaute/gestion">
+                                                <span>Gestion</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -3307,15 +3386,15 @@
                                                 <a href="/communaute/actualite" class="footer_link">Actualit&#233;</a>
                                                 <br />
                                             </span>
-                                            <span class="">
-                                                <a href="/communaute/evenements" class="footer_link">&#201;v&#232;nements</a>
-                                                <br />
-                                            </span>
+                                            <a href="/communaute/evenements" class="footer_link">&#201;v&#232;nements</a>
+                                            <br />
                                             <a href="/communaute/membres" class="footer_link">Membres</a>
                                             <span class="debug_unimplemented">
                                                 <br />
                                                 <a href="/communaute/groupes" class="footer_link">Groupes</a>
                                             </span>
+                                            <br />
+                                            <a href="/communaute/gestion" class="footer_link">Gestion</a>
                                         </div>
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/participer" class="img bottom_menu_icon fa fa-plus-circle" style="text-decoration:none;" />

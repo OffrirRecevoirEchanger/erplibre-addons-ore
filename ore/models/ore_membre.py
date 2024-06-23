@@ -85,7 +85,9 @@ class OREMembre(models.Model):
     #     track_visibility="onchange",
     # )
 
-    clan_principal_id = fields.Many2one(comodel_name="ore.clan")
+    clan_principal_id = fields.Many2one(
+        string="Clan principal", comodel_name="ore.clan"
+    )
 
     clan_participe_ids = fields.Many2many(
         string="Clan participants",
@@ -379,6 +381,8 @@ class OREMembre(models.Model):
                     "canal": f'["{self._cr.dbname}","{self._name}",{rec.id}]',
                 },
             )
+            # if rec.clan_participe_ids and not rec.clan_principal_id:
+            #     rec.clan_principal_id = rec.clan_participe_ids[0].id
         return status
 
     def get_image_url(self, field="image"):
