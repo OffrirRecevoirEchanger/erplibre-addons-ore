@@ -1300,6 +1300,7 @@
                                                 />
                                             </div>
                                         </div>
+
                                         <h3 ng-if="form_is_ctc_form(state)">
                                             Besoin(s) commun(s) qui mènent à la création du clan
                                         </h3>
@@ -1308,26 +1309,42 @@
                                             class="form_desc"
                                             ng-model="form.clan_besoin_comble"
                                         />
-                                        <h3 ng-if="form_is_ctc_form(state)">Ville/région</h3>
-                                        <textarea
-                                            ng-if="form_is_ctc_form(state)"
-                                            class="form_desc"
-                                            ng-model="form.clan_ville_region"
-                                        />
-                                        <h3 ng-if="form_is_ctc_form(state)">
-                                            Institution/employeur/organisation (s'il y a lieu)
-                                        </h3>
-                                        <textarea
-                                            ng-if="form_is_ctc_form(state)"
-                                            class="form_desc"
-                                            ng-model="form.clan_organisation"
-                                        />
+
+                                        <div ng-if="form_is_ttc(state) &amp;&amp; form_is_ctc_form(state)">
+                                            <div>
+                                                <h3>Ville/région</h3>
+                                            </div>
+                                            <div class="form_box">
+                                                <input
+                                                    class="form-control border-0"
+                                                    name="clan_ville_region"
+                                                    type="text"
+                                                    ng-model="form.clan_ville_region"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div ng-if="form_is_ttc(state) &amp;&amp; form_is_ctc_form(state)">
+                                            <div>
+                                                <h3>Institution/employeur/organisation (s'il y a lieu)</h3>
+                                            </div>
+                                            <div class="form_box">
+                                                <input
+                                                    class="form-control border-0"
+                                                    name="clan_organisation"
+                                                    type="text"
+                                                    ng-model="form.clan_organisation"
+                                                />
+                                            </div>
+                                        </div>
+
                                         <h3 ng-if="form_is_ctc_form(state)">Valeurs du clan</h3>
                                         <textarea
                                             ng-if="form_is_ctc_form(state)"
                                             class="form_desc"
                                             ng-model="form.clan_valeur"
                                         />
+
                                         <h3 ng-if="form_is_ctc_form(state)">Autres informations</h3>
                                         <textarea
                                             ng-if="form_is_ctc_form(state)"
@@ -1807,7 +1824,7 @@
                                                 Voir le profil du membre
                                             </button>
                                         </a>
-                                        <a ng-href="/communaute/gestion" ng-if="form_is_ttc(state)">
+                                        <a ng-href="/communaute/clan" ng-if="form_is_ttc(state)">
                                             <button class="btn btn-primary adapt-text-primary-color">
                                                 Configurer mon clan
                                             </button>

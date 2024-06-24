@@ -774,14 +774,14 @@ class OREController(http.Controller):
         return request.env.ref("website_ore.ir_ui_view_membres").render()
 
     @http.route(
-        ["/communaute/gestion"],
+        ["/communaute/clan"],
         type="http",
         auth="user",
         website=True,
     )
-    def get_communaute_gestion(self, **kw):
+    def get_communaute_clan(self, **kw):
         return request.env.ref(
-            "website_ore.ir_ui_view_communaute_gestion"
+            "website_ore.ir_ui_view_communaute_clan"
         ).render()
 
     @http.route(
@@ -1233,6 +1233,17 @@ class OREController(http.Controller):
             personnal_data["my_clan"] = {
                 "name": membre_id.clan_principal_id.name,
                 "id": membre_id.clan_principal_id.id,
+                "autre_information": membre_id.clan_principal_id.autre_information,
+                "besoin_comble": membre_id.clan_principal_id.besoin_comble,
+                "organisation": membre_id.clan_principal_id.organisation,
+                "ville_region": membre_id.clan_principal_id.ville_region,
+                "valeur_clan": membre_id.clan_principal_id.valeur_clan,
+                "membre_list_count": membre_id.clan_principal_id.membre_list_count,
+                "is_clan_admin": membre_id.id
+                in membre_id.clan_principal_id.membre_admin_ids.ids,
+                "str_diff_time_creation": self._transform_str_diff_time_creation(
+                    membre_id.clan_principal_id.create_date
+                ),
             }
         else:
             personnal_data["my_clan"] = {
@@ -1244,6 +1255,17 @@ class OREController(http.Controller):
                 {
                     "name": clan_id.name,
                     "id": clan_id.id,
+                    "autre_information": clan_id.autre_information,
+                    "besoin_comble": clan_id.besoin_comble,
+                    "organisation": clan_id.organisation,
+                    "ville_region": clan_id.ville_region,
+                    "valeur_clan": clan_id.valeur_clan,
+                    "membre_list_count": clan_id.membre_list_count,
+                    "is_clan_admin": membre_id.id
+                    in clan_id.membre_admin_ids.ids,
+                    "str_diff_time_creation": self._transform_str_diff_time_creation(
+                        clan_id.create_date
+                    ),
                 }
                 for clan_id in membre_id.clan_participe_ids
             ]
@@ -1258,6 +1280,56 @@ class OREController(http.Controller):
             "personal": personnal_data,
         }
         return data
+
+    @http.route(
+        "/ore/clan_information/submit",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def ore_clan_information_form_submit(self, **kw):
+        membre_id = self.get_membre_id()
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
+        principal_clan_id = membre_id.clan_principal_id
+        if not principal_clan_id:
+            return {"error": "No principal clan is associate to this user."}
+        if membre_id.id not in principal_clan_id.membre_admin_ids.ids:
+            return {
+                "error": (
+                    "Missing admin clan permission to edit a clan information."
+                )
+            }
+
+        # TODO maybe use clan_id to be sure to update the right clan and not the principal
+        status = True
+        name = kw.get("name")
+        if "name" in kw.keys():
+            principal_clan_id.name = name
+
+        autre_information = kw.get("autre_information")
+        if "autre_information" in kw.keys():
+            principal_clan_id.autre_information = autre_information
+
+        valeur_clan = kw.get("valeur_clan")
+        if "valeur_clan" in kw.keys():
+            principal_clan_id.valeur_clan = valeur_clan
+
+        ville_region = kw.get("ville_region")
+        if "ville_region" in kw.keys():
+            principal_clan_id.ville_region = ville_region
+
+        organisation = kw.get("organisation")
+        if "organisation" in kw.keys():
+            principal_clan_id.organisation = organisation
+
+        besoin_comble = kw.get("besoin_comble")
+        if "besoin_comble" in kw.keys():
+            principal_clan_id.besoin_comble = besoin_comble
+
+        return status
 
     @http.route(
         "/ore/personal_information/submit",

@@ -11,9 +11,9 @@ class OreClan(models.Model):
 
     besoin_comble = fields.Text()
 
-    organisation = fields.Text()
+    organisation = fields.Char()
 
-    ville_region = fields.Text()
+    ville_region = fields.Char()
 
     membre_admin_ids = fields.Many2many(
         comodel_name="ore.membre",
@@ -28,8 +28,19 @@ class OreClan(models.Model):
 
     membre_list_ids = fields.Many2many(
         comodel_name="ore.membre",
-        string="Membre List",
+        string="Membre",
         relation="membre_clan_participe_rel",
     )
 
     valeur_clan = fields.Text()
+
+    membre_list_count = fields.Integer(
+        string="Membre count",
+        compute="_compute_membre_list_count",
+        store=True,
+    )
+
+    @api.depends("membre_list_ids")
+    def _compute_membre_list_count(self):
+        for rec in self:
+            rec.membre_list_count = len(rec.membre_list_ids)

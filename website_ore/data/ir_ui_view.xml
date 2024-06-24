@@ -165,8 +165,8 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/communaute/gestion">
-                                                <span>Gestion</span>
+                                            <a class="nav-link" role="menu_item" href="/communaute/clan">
+                                                <span>Clan</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -480,8 +480,8 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/communaute/gestion">
-                                                <span>Gestion</span>
+                                            <a class="nav-link" role="menu_item" href="/communaute/clan">
+                                                <span>Clan</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -603,8 +603,8 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/communaute/gestion">
-                                                <span>Gestion</span>
+                                            <a class="nav-link" role="menu_item" href="/communaute/clan">
+                                                <span>Clan</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -743,7 +743,7 @@
             <field name="name">Communaut&#233; membre</field>
             <field name="type">qweb</field>
         </record>
-        <record id="ir_ui_view_communaute_gestion" model="ir.ui.view">
+        <record id="ir_ui_view_communaute_clan" model="ir.ui.view">
             <field name="arch" type="xml">
                 <t name="About us" t-name="website.aboutus" groups="base.group_user,base.group_portal">
                     <t t-call="website.layout">
@@ -780,16 +780,101 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link active" role="menu_item" href="/communaute/gestion">
-                                                <span>Gestion</span>
+                                            <a class="nav-link active" role="menu_item" href="/communaute/clan">
+                                                <span>Clan</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_event_list lg">
-                                    <div class="list_head mobile-display-none">
-                                        <div class="list_title s_title">
-                                            <h1>Gérer le clan «{{personal.my_clan.name}}»</h1>
+                                <br />
+                                <br />
+                                <section class="s_mes_informations">
+                                    <div class="informations_container">
+                                        <div class="information information-1">
+                                            <span class="text desc" style="font-size: 1.4rem;" ng-if="ask_modification_clan">
+                                                Nom du clan :
+                                                <q class="editable-content-blue" contenteditable="true" ng-model="page_communaute_clan_info.name" />
+                                            </span>
+                                            <div class="container_profil">
+                                                <nav class="profil_left">
+                                                    <div class="profil profil_left profil_box btn btn-primary adapt-text-primary-color" ng-if="page_communaute_clan_info.is_clan_admin &amp;&amp; !ask_modification_clan" ng-click="mode_edit_clan()">
+                                                        <span class="img img-fluid mx-auto fa fa-pencil" />
+                                                        Modifier le clan
+                                                    </div>
+                                                    <div class="profil profil_right profil_box btn btn-primary adapt-text-primary-color" ng-if="page_communaute_clan_info.is_clan_admin &amp;&amp; ask_modification_clan" ng-click="annuler_ask_modification_clan()">
+                                                        <span class="img img-fluid mx-auto fa fa-close" />
+                                                        Annuler les modifications
+                                                    </div>
+                                                </nav>
+                                                <nav class="profil_main">
+                                                    <!--                                                    <div class="profil profil_main profil_box btn btn-primary adapt-text-primary-color" style="right: 50px;" ng-click="add_to_my_favorite('ore.membre', page_presentation_membre_info)">-->
+                                                    <!--                                                        <span class="img img-fluid mx-auto fa coeur" ng-class="{'fa-heart': page_presentation_membre_info.is_favorite, 'fa-heart-o': !page_presentation_membre_info.is_favorite}" />-->
+                                                    <!--                                                        <span class="adapt-text-primary-color" ng-if="!page_presentation_membre_info.is_favorite">Ajouter à mes favoris</span>-->
+                                                    <!--                                                        <span class="adapt-text-primary-color" ng-if="page_presentation_membre_info.is_favorite">Retirer de mes favoris</span>-->
+                                                    <!--                                                    </div>-->
+                                                </nav>
+                                                <nav class="profil_right">
+                                                    <div class="profil profil_left profil_box btn btn-primary adapt-text-primary-color" ng-if="page_communaute_clan_info.is_clan_admin &amp;&amp; ask_modification_clan" ng-click="mode_save_clan()">
+                                                        <span class="img img-fluid mx-auto fa fa-save" />
+                                                        Enregistrer le clan
+                                                    </div>
+                                                    <!--                                                    <div class="profil profil_right profil_box btn btn-primary btn_do_echange debug_unimplemented adapt-text-primary-color" ng-if="!_.isUndefined(page_communaute_clan_info.is_clan_admin) &amp;&amp; !page_communaute_clan_info.is_clan_admin" ng-cloak="">Échanger avec {{page_presentation_membre_info.full_name}}</div>-->
+                                                </nav>
+                                            </div>
+                                        </div>
+                                        <div class="information information-2">
+                                            <span class="txt">Les valeurs</span>
+                                            <br />
+                                            <br />
+                                            <span class="nbr" ng-if="!ask_modification_clan &amp;&amp; !_.isUndefined(page_communaute_clan_info.valeur_clan) &amp;&amp; !_.isEmpty(page_communaute_clan_info.valeur_clan)">
+                                                <q ng-cloak="" ng-bind-html="page_communaute_clan_info.valeur_clan | unsafe" />
+                                            </span>
+                                            <span class="nbr" ng-if="ask_modification_clan">
+                                                <q class="editable-content-blue" contenteditable="true" ng-model="page_communaute_clan_info.valeur_clan" />
+                                            </span>
+                                        </div>
+                                        <div class="information information-3">
+                                            <span class="txt">R&#233;sum&#233;</span>
+                                            <br />
+                                            <br />
+                                            <span class="desc-3">
+                                                <i class="fa fa-home" />
+                                                <span style="position: relative; left: -25px;" ng-cloak="" ng-if="!ask_modification_clan">{{page_communaute_clan_info.ville_region}}</span>
+                                                <span style="position: relative; left: -25px;" ng-cloak="" ng-if="ask_modification_clan">
+                                                    <q class="editable-content-blue" contenteditable="true" ng-model="page_communaute_clan_info.ville_region" />
+                                                </span>
+                                            </span>
+                                            <br />
+                                            <span class="desc-3">
+                                                <i class="fa fa-building" />
+                                                <span style="position: relative; left: -25px;" ng-cloak="" ng-if="!ask_modification_clan">{{page_communaute_clan_info.organisation}}</span>
+                                                <span style="position: relative; left: -25px;" ng-cloak="" ng-if="ask_modification_clan">
+                                                    <q class="editable-content-blue" contenteditable="true" ng-model="page_communaute_clan_info.organisation" />
+                                                </span>
+                                            </span>
+                                            <br />
+                                            <span class="desc-3">
+                                                <i class="fa fa-person-booth" />
+                                                <span style="position: relative; left: -25px;">{{page_communaute_clan_info.membre_list_count}} membre(s)</span>
+                                            </span>
+                                            <br />
+                                            <span class="desc-3">
+                                                <i class="fa fa-calendar" />
+                                                <span style="position: relative; left: -25px;" ng-cloak="">Clan créé depuis {{page_communaute_clan_info.str_diff_time_creation}}</span>
+                                            </span>
+                                        </div>
+                                        <div class="information information-4">
+                                            <div class="nbr" ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.besoin_comble)}" ng-show="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.besoin_comble) &amp;&amp; !_.isEmpty(page_communaute_clan_info.besoin_comble)">
+                                                <span class="txt">Besoin(s) commun(s)</span>
+                                                <div ng-if="!ask_modification_clan" ng-cloak="" ng-bind-html="page_communaute_clan_info.besoin_comble | unsafe" />
+                                                <q ng-if="ask_modification_clan" class="editable-content-blue" contenteditable="true" ng-model="page_communaute_clan_info.besoin_comble" />
+                                            </div>
+
+                                            <div class="nbr" ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.autre_information)}" ng-show="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.autre_information) &amp;&amp; !_.isEmpty(page_communaute_clan_info.autre_information)">
+                                                <span class="txt">Autres informations</span>
+                                                <div ng-if="!ask_modification_clan" class="nbr" ng-cloak="" ng-bind-html="page_communaute_clan_info.autre_information | unsafe" />
+                                                <q ng-if="ask_modification_clan" class="editable-content-blue" contenteditable="true" ng-model="page_communaute_clan_info.autre_information" />
+                                            </div>
                                         </div>
                                     </div>
                                 </section>
@@ -1420,16 +1505,16 @@
                                             <div class="jumbotron pt32 bg-primary col-lg-6 pb40" style="border-radius:10px">
                                                 <div class="row">
                                                     <div class="col-lg-12 s_title s_col_no_bgcolor pb0" data-name="Title">
-<!--                                                        <h1 class="s_title_thin" style="text-align: center;" groups="base.group_public">-->
-<!--                                                            <b>-->
-<!--                                                                <font style="color: rgb(255, 255, 255);">As-tu d&#233;j&#224;-->
-<!--                                                                    os&#233; essayer-->
-<!--                                                                </font>-->
-<!--                                                            </b>-->
-<!--                                                        </h1>-->
-<!--                                                        <h1 class="s_title_thin" style="text-align: center;" groups="base.group_user,base.group_portal">-->
-<!--                                                            private information-->
-<!--                                                        </h1>-->
+                                                        <!--                                                        <h1 class="s_title_thin" style="text-align: center;" groups="base.group_public">-->
+                                                        <!--                                                            <b>-->
+                                                        <!--                                                                <font style="color: rgb(255, 255, 255);">As-tu d&#233;j&#224;-->
+                                                        <!--                                                                    os&#233; essayer-->
+                                                        <!--                                                                </font>-->
+                                                        <!--                                                            </b>-->
+                                                        <!--                                                        </h1>-->
+                                                        <!--                                                        <h1 class="s_title_thin" style="text-align: center;" groups="base.group_user,base.group_portal">-->
+                                                        <!--                                                            private information-->
+                                                        <!--                                                        </h1>-->
                                                         <h1 class="s_title_thin" style="text-align: center;">
                                                             <b>
                                                                 <b>
@@ -1875,11 +1960,11 @@
                                             </span>
                                             <div class="container_profil">
                                                 <nav class="profil_left">
-                                                    <div class="profil profil_left profil_box btn btn-primary adapt-text-primary-color" ng-if="page_presentation_membre_info.estPersonnel &amp;&amp; !ask_modification_profile" ng-click="change_ask_modification_profile(true)">
+                                                    <div class="profil profil_left profil_box btn btn-primary adapt-text-primary-color" ng-if="page_presentation_membre_info.estPersonnel &amp;&amp; !ask_modification_profile" ng-click="mode_edit_profile()">
                                                         <span class="img img-fluid mx-auto fa fa-pencil" />
                                                         Modifier le profil
                                                     </div>
-                                                    <div class="profil profil_right profil_box btn btn-primary adapt-text-primary-color" ng-if="page_presentation_membre_info.estPersonnel &amp;&amp; ask_modification_profile" ng-click="annuler_ask_modification_profile(); destroyCroppie()">
+                                                    <div class="profil profil_right profil_box btn btn-primary adapt-text-primary-color" ng-if="page_presentation_membre_info.estPersonnel &amp;&amp; ask_modification_profile" ng-click="annuler_ask_modification_profile()">
                                                         <span class="img img-fluid mx-auto fa fa-close" />
                                                         Annuler les modifications
                                                     </div>
@@ -1892,7 +1977,7 @@
                                                     </div>
                                                 </nav>
                                                 <nav class="profil_right">
-                                                    <div class="profil profil_left profil_box btn btn-primary adapt-text-primary-color" ng-if="page_presentation_membre_info.estPersonnel &amp;&amp; ask_modification_profile" ng-click="change_ask_modification_profile(false); destroyCroppie()">
+                                                    <div class="profil profil_left profil_box btn btn-primary adapt-text-primary-color" ng-if="page_presentation_membre_info.estPersonnel &amp;&amp; ask_modification_profile" ng-click="mode_save_profile()">
                                                         <span class="img img-fluid mx-auto fa fa-save" />
                                                         Enregistrer le profil
                                                     </div>
@@ -1937,13 +2022,13 @@
                                             </span>
                                         </div>
                                         <div class="information information-4">
-                                            <div class="nbr" ng-class="{'hide-border': shouldHideBorder('description')}" ng-show="ask_modification_profile || !_.isUndefined(page_presentation_membre_info.description) &amp;&amp; !_.isEmpty(page_presentation_membre_info.description)">
+                                            <div class="nbr" ng-class="{'hide-border': shouldHideBorder(membre_info.description)}" ng-show="ask_modification_profile || !_.isUndefined(page_presentation_membre_info.description) &amp;&amp; !_.isEmpty(page_presentation_membre_info.description)">
                                                 <span class="txt">Ma description</span>
                                                 <div ng-if="!ask_modification_profile" ng-cloak="" ng-bind-html="page_presentation_membre_info.description | unsafe" />
                                                 <q ng-if="ask_modification_profile" class="editable-content-blue" contenteditable="true" ng-model="page_presentation_membre_info.description" />
                                             </div>
 
-                                            <div ng-class="{'hide-border': shouldHideBorder('interet')}" ng-show="ask_modification_profile || !_.isUndefined(page_presentation_membre_info.interet) &amp;&amp; !_.isEmpty(page_presentation_membre_info.interet)">
+                                            <div ng-class="{'hide-border': shouldHideBorder(membre_info.interet)}" ng-show="ask_modification_profile || !_.isUndefined(page_presentation_membre_info.interet) &amp;&amp; !_.isEmpty(page_presentation_membre_info.interet)">
                                                 <span class="txt" ng-if="page_presentation_membre_info.estPersonnel">Mes centres d'intérêt</span>
                                                 <span class="txt" ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel">Les centres d'intérêt</span>
                                                 <button class="fa fa-plus btn-add" ng-if="ask_modification_profile" ng-click="ajouterInteret()" />
@@ -1961,7 +2046,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="nbr" ng-class="{'hide-border': shouldHideBorder('motivation_membre')}" ng-show="ask_modification_profile || !_.isUndefined(page_presentation_membre_info.motivation_membre) &amp;&amp; !_.isEmpty(page_presentation_membre_info.motivation_membre)">
+                                            <div class="nbr" ng-class="{'hide-border': shouldHideBorder(membre_info.motivation_membre)}" ng-show="ask_modification_profile || !_.isUndefined(page_presentation_membre_info.motivation_membre) &amp;&amp; !_.isEmpty(page_presentation_membre_info.motivation_membre)">
                                                 <span class="txt">Pourquoi suis-je membre du réseau?</span>
                                                 <div ng-if="!ask_modification_profile" class="nbr" ng-cloak="" ng-bind-html="page_presentation_membre_info.motivation_membre | unsafe" />
                                                 <q ng-if="ask_modification_profile" class="editable-content-blue" contenteditable="true" ng-model="page_presentation_membre_info.motivation_membre" />
@@ -2112,8 +2197,8 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/communaute/gestion">
-                                                <span>Gestion</span>
+                                            <a class="nav-link" role="menu_item" href="/communaute/clan">
+                                                <span>Clan</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -3394,7 +3479,7 @@
                                                 <a href="/communaute/groupes" class="footer_link">Groupes</a>
                                             </span>
                                             <br />
-                                            <a href="/communaute/gestion" class="footer_link">Gestion</a>
+                                            <a href="/communaute/clan" class="footer_link">Gestion</a>
                                         </div>
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/participer" class="img bottom_menu_icon fa fa-plus-circle" style="text-decoration:none;" />
