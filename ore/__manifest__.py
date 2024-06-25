@@ -9,6 +9,7 @@
     "depends": [
         "mail",
         "web_timeline",
+        "website",
     ],
     "data": [
         "security/ir.model.access.csv",
@@ -41,6 +42,7 @@
         "views/res_config_settings_views.xml",
         "views/menu.xml",
         "data/ir_attachment.xml",
+        "data/ore_data.xml",
     ],
     "installable": True,
 }

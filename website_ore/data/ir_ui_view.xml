@@ -2204,6 +2204,23 @@
                                     </ul>
                                 </nav>
                                 <section class="s_event_list small-cards">
+                                    <div class="list_head">
+                                        <div class="list_title s_title">
+                                            <font style="font-size:2rem;">Inviter un membre via son courriel</font>
+                                        </div>
+                                        <div class="search_bar_rectangle">
+                                            <input type="text" placeholder="Courriel d'invitation d'un membre dans votre clan" ng-model="txt_input_email_member" />
+                                            <button type="button" class="btn btn-primary btn-lg o_website_form_send o_default_snippet_text" ng-click="invite_from_email_to_join_clan()" ng-disabled="send_invitation_loading">
+                                                Inviter
+                                                <i class="fa fa-user-plus" ng-if="!send_invitation_loading" />
+                                                <i class="fa fa-spin fa-spinner fa-pulse" ng-if="send_invitation_loading" />
+                                            </button>
+                                        </div>
+                                        <div ng-if="send_invitation_error" style="color: red;">{{send_invitation_msg_error}}</div>
+                                        <div ng-if="send_invitation_msg_success" style="color: green;">{{send_invitation_msg_success}}</div>
+                                    </div>
+                                </section>
+                                <section class="s_event_list small-cards">
                                     <div class="list_head mobile-display-none">
                                         <div class="list_title s_title">
                                             <font style="font-size:2rem;">Membres de la communaut&#233;</font>

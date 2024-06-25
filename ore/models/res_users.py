@@ -13,13 +13,19 @@ class Users(models.Model):
         vals = super(Users, self).create(vals_list)
         lst_data = []
         for val in vals:
-            data = {
-                "courriel": val.email,
-                "nom": val.name,
-                "telephone": val.phone,
-                "user_id": val.id,
-            }
-            lst_data.append(data)
+            existing_adhesion = self.env["ore.demande.adhesion"].search(
+                [("courriel", "=", val.email)]
+            )
+            if existing_adhesion:
+                existing_adhesion.user_id = val.id
+            else:
+                data = {
+                    "courriel": val.email,
+                    "nom": val.name,
+                    "telephone": val.phone,
+                    "user_id": val.id,
+                }
+                lst_data.append(data)
         if lst_data:
             self.env["ore.demande.adhesion"].create(lst_data)
         return vals

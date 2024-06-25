@@ -182,6 +182,13 @@ odoo.define('website.ore_angularjs_global', function (require) {
             selected: undefined,
             list: [],
         }
+
+        $scope.txt_input_email_member = "";
+        $scope.send_invitation_loading = false;
+        $scope.send_invitation_error = false;
+        $scope.send_invitation_msg_error = "";
+        $scope.send_invitation_msg_success = "";
+
         $scope.show_change_clan = false;
         $scope.change_clan_is_loading = false;
         $scope.change_clan_is_error = false;
@@ -754,26 +761,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 if ($scope.supprimeLangue) {
                     form["supprimeLangue"] = $scope.supprimeLangue;
                 }
-                if (!_.isEmpty(form)) {
-                    let url = "/ore/personal_information/submit"
-                    ajax.jsonRpc(url, "call", form).then(function (data) {
-                            console.debug("AJAX receive submit_form personal_information");
-                            console.debug(data);
-
-                            if (data.error) {
-                                $scope.error = data.error;
-                            } else if (_.isEmpty(data)) {
-                                $scope.error = "Empty data - " + url;
-                            } else {
-                            }
-                            // Process all the angularjs watchers
-                            $scope.$digest();
-                        }
-                    ).fail(function (error, ev) {
-                        console.error(error);
-                        $scope.check_need_login(error);
-                    })
-                }
+                $scope.send_form_personal_profile(form);
                 $scope.show_croppie = false;
                 $scope.afficherAjoutLangue = false;
                 $scope.afficherSupprimerLangue = false;
@@ -791,24 +779,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 if ($scope.ask_modif_profile_copy.membre_info.full_name !== $scope.membre_info.full_name) {
                     form["full_name"] = $scope.membre_info.full_name;
                 }
-                if (!_.isEmpty(form)) {
-                    let url = "/ore/personal_information/submit";
-                    ajax.jsonRpc(url, "call", form).then(function (data) {
-                        console.debug("AJAX receive submit_form personal_information");
-                        console.debug(data);
-
-                        if (data.error) {
-                            $scope.error = data.error;
-                        } else if (_.isEmpty(data)) {
-                            $scope.error = "Empty data - " + url;
-                        }
-                        // Process all the angularjs watchers
-                        $scope.$digest();
-                    }).fail(function (error, ev) {
-                        console.error(error);
-                        $scope.check_need_login(error);
-                    })
-                }
+                $scope.send_form_personal_profile(form);
             } else {
                 if (!_.isUndefined($scope.membre_info.full_name)) {
                     if (_.isEmpty($scope.membre_info.full_name)) {
@@ -837,24 +808,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     let selectedOption = document.getElementById("genre").value;
                     form["genre"] = selectedOption;
                 }
-                if (!_.isEmpty(form)) {
-                    let url = "/ore/personal_information/submit";
-                    ajax.jsonRpc(url, "call", form).then(function (data) {
-                        console.debug("AJAX receive submit_form personal_information");
-                        console.debug(data);
-
-                        if (data.error) {
-                            $scope.error = data.error;
-                        } else if (_.isEmpty(data)) {
-                            $scope.error = "Empty data - " + url;
-                        }
-                        // Process all the angularjs watchers
-                        $scope.$digest();
-                    }).fail(function (error, ev) {
-                        console.error(error);
-                        $scope.check_need_login(error);
-                    })
-                }
+                $scope.send_form_personal_profile(form);
             } else {
                 if (!_.isUndefined($scope.membre_info.genre)) {
                     if (_.isEmpty($scope.membre_info.genre)) {
@@ -885,24 +839,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 if ($scope.ask_modif_profile_copy.membre_info.date_naissance !== $scope.membre_info.date_naissance) {
                     form["date_naissance"] = $scope.membre_info.date_naissance;
                 }
-                if (!_.isEmpty(form)) {
-                    let url = "/ore/personal_information/submit";
-                    ajax.jsonRpc(url, "call", form).then(function (data) {
-                        console.debug("AJAX receive submit_form personal_information");
-                        console.debug(data);
-
-                        if (data.error) {
-                            $scope.error = data.error;
-                        } else if (_.isEmpty(data)) {
-                            $scope.error = "Empty data - " + url;
-                        }
-                        // Process all the angularjs watchers
-                        $scope.$digest();
-                    }).fail(function (error, ev) {
-                        console.error(error);
-                        $scope.check_need_login(error);
-                    })
-                }
+                $scope.send_form_personal_profile(form);
             } else {
                 if (!_.isUndefined($scope.membre_info.date_naissance)) {
                     if (_.isEmpty($scope.membre_info.date_naissance)) {
@@ -934,24 +871,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                         form["email"] = $scope.membre_info.email;
                     }
                 }
-                if (!_.isEmpty(form)) {
-                    let url = "/ore/personal_information/submit";
-                    ajax.jsonRpc(url, "call", form).then(function (data) {
-                        console.debug("AJAX receive submit_form personal_information");
-                        console.debug(data);
-
-                        if (data.error) {
-                            $scope.error = data.error;
-                        } else if (_.isEmpty(data)) {
-                            $scope.error = "Empty data - " + url;
-                        }
-                        // Process all the angularjs watchers
-                        $scope.$digest();
-                    }).fail(function (error, ev) {
-                        console.error(error);
-                        $scope.check_need_login(error);
-                    })
-                }
+                $scope.send_form_personal_profile(form);
             } else {
                 if (!_.isUndefined($scope.membre_info.email)) {
                     if (_.isEmpty($scope.membre_info.email)) {
@@ -967,7 +887,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
         };
 
         $scope.annuler_profile_email = function () {
-            console.log("TEST");
             $scope.membre_info.email = $scope.ask_modif_profile_copy.membre_info.email;
             $scope.ask_modification_profile_email = false;
         };
@@ -980,24 +899,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 if ($scope.ask_modif_profile_copy.membre_info.phone !== $scope.membre_info.phone) {
                     form["phone"] = $scope.membre_info.phone;
                 }
-                if (!_.isEmpty(form)) {
-                    let url = "/ore/personal_information/submit";
-                    ajax.jsonRpc(url, "call", form).then(function (data) {
-                        console.debug("AJAX receive submit_form personal_information");
-                        console.debug(data);
-
-                        if (data.error) {
-                            $scope.error = data.error;
-                        } else if (_.isEmpty(data)) {
-                            $scope.error = "Empty data - " + url;
-                        }
-                        // Process all the angularjs watchers
-                        $scope.$digest();
-                    }).fail(function (error, ev) {
-                        console.error(error);
-                        $scope.check_need_login(error);
-                    })
-                }
+                $scope.send_form_personal_profile(form);
             } else {
                 if (!_.isUndefined($scope.membre_info.phone)) {
                     if (_.isEmpty($scope.membre_info.phone)) {
@@ -1026,24 +928,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 if ($scope.ask_modif_profile_copy.membre_info.street !== $scope.membre_info.street) {
                     form["street"] = $scope.membre_info.street;
                 }
-                if (!_.isEmpty(form)) {
-                    let url = "/ore/personal_information/submit";
-                    ajax.jsonRpc(url, "call", form).then(function (data) {
-                        console.debug("AJAX receive submit_form personal_information");
-                        console.debug(data);
-
-                        if (data.error) {
-                            $scope.error = data.error;
-                        } else if (_.isEmpty(data)) {
-                            $scope.error = "Empty data - " + url;
-                        }
-                        // Process all the angularjs watchers
-                        $scope.$digest();
-                    }).fail(function (error, ev) {
-                        console.error(error);
-                        $scope.check_need_login(error);
-                    })
-                }
+                $scope.send_form_personal_profile(form);
             } else {
                 if (!_.isUndefined($scope.membre_info.street)) {
                     if (_.isEmpty($scope.membre_info.street)) {
@@ -1062,6 +947,70 @@ odoo.define('website.ore_angularjs_global', function (require) {
             $scope.membre_info.street = $scope.ask_modif_profile_copy.membre_info.street;
             $scope.ask_modification_profile_street = false;
         };
+
+        $scope.send_form_personal_profile = function(form) {
+            if (!_.isEmpty(form)) {
+                let url = "/ore/personal_information/submit";
+                ajax.jsonRpc(url, "call", form).then(function (data) {
+                    console.debug("AJAX receive submit_form personal_information");
+                    console.debug(data);
+
+                    if (data.error) {
+                        $scope.error = data.error;
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty data - " + url;
+                    }
+                    // Process all the angularjs watchers
+                    $scope.$digest();
+                }).fail(function (error, ev) {
+                    console.error(error);
+                    $scope.check_need_login(error);
+                })
+            }
+        }
+
+        $scope.invite_from_email_to_join_clan = function() {
+            let form = {
+                "clan_id": $scope.personal.my_clan.id,
+                "email": $scope.txt_input_email_member,
+            };
+            $scope.send_invitation_loading = true;
+            $scope.send_invitation_error = false;
+            $scope.send_invitation_msg_error = "";
+            $scope.send_invitation_msg_success = "";
+            if (!_.isEmpty(form)) {
+                let url = "/ore/invite_member_to_clan/submit";
+                ajax.jsonRpc(url, "call", form).then(function (data) {
+                    console.debug("AJAX receive submit_form ore_invite_member_to_clan_form_submit");
+                    console.debug(data);
+                    $scope.send_invitation_loading = false;
+
+                    if (data.error) {
+                        $scope.error = data.error;
+                        $scope.send_invitation_error = true;
+                        $scope.send_invitation_msg_success = "";
+                        $scope.send_invitation_msg_error = data.error;
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty data - " + url;
+                        $scope.send_invitation_error = false;
+                        $scope.send_invitation_msg_success = "";
+                        $scope.send_invitation_msg_error = "";
+                    } else {
+                        $scope.send_invitation_msg_success = "Invitation envoyé au courriel «" + $scope.txt_input_email_member + "»!";
+                        $scope.txt_input_email_member = "";
+                    }
+                    // Process all the angularjs watchers
+                    $scope.$digest();
+                }).fail(function (error, ev) {
+                    console.error(error);
+                    $scope.check_need_login(error);
+                    $scope.send_invitation_loading = false;
+                    $scope.send_invitation_error = true;
+                    $scope.send_invitation_msg_error = error.message;
+                    $scope.send_invitation_msg_success = "";
+                })
+            }
+        }
         //END
 
         $scope.isEmailEmpty = function () {

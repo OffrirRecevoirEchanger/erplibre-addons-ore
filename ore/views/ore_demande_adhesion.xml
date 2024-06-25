@@ -39,6 +39,24 @@
                         <field name="transferer" />
                     </group>
                     <group>
+                        <field name="clan_id" />
+                    </group>
+                    <group>
+                        <field name="invitation_from_membre_id" />
+                    </group>
+                    <group>
+                        <field name="company_id" />
+                    </group>
+                    <group>
+                        <field name="company_website_id" />
+                    </group>
+                    <group>
+                        <field name="url_invitation_redirect" />
+                    </group>
+                    <group>
+                        <field name="only_invitation" />
+                    </group>
+                    <group>
                         <field name="user_id" />
                     </group>
                 </sheet>

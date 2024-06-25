@@ -1230,14 +1230,44 @@ class OREController(http.Controller):
             "dct_echange": dct_echange,
         }
         if membre_id.clan_principal_id:
+            autre_information = (
+                membre_id.clan_principal_id.autre_information
+                if membre_id.clan_principal_id.autre_information
+                else ""
+            )
+            besoin_comble = (
+                membre_id.clan_principal_id.besoin_comble
+                if membre_id.clan_principal_id.besoin_comble
+                else ""
+            )
+            organisation = (
+                membre_id.clan_principal_id.organisation
+                if membre_id.clan_principal_id.organisation
+                else ""
+            )
+            ville_region = (
+                membre_id.clan_principal_id.ville_region
+                if membre_id.clan_principal_id.ville_region
+                else ""
+            )
+            valeur_clan = (
+                membre_id.clan_principal_id.valeur_clan
+                if membre_id.clan_principal_id.valeur_clan
+                else ""
+            )
+            name = (
+                membre_id.clan_principal_id.name
+                if membre_id.clan_principal_id.name
+                else ""
+            )
             personnal_data["my_clan"] = {
-                "name": membre_id.clan_principal_id.name,
+                "name": name,
                 "id": membre_id.clan_principal_id.id,
-                "autre_information": membre_id.clan_principal_id.autre_information,
-                "besoin_comble": membre_id.clan_principal_id.besoin_comble,
-                "organisation": membre_id.clan_principal_id.organisation,
-                "ville_region": membre_id.clan_principal_id.ville_region,
-                "valeur_clan": membre_id.clan_principal_id.valeur_clan,
+                "autre_information": autre_information,
+                "besoin_comble": besoin_comble,
+                "organisation": organisation,
+                "ville_region": ville_region,
+                "valeur_clan": valeur_clan,
                 "membre_list_count": membre_id.clan_principal_id.membre_list_count,
                 "is_clan_admin": membre_id.id
                 in membre_id.clan_principal_id.membre_admin_ids.ids,
@@ -1245,6 +1275,7 @@ class OREController(http.Controller):
                     membre_id.clan_principal_id.create_date
                 ),
             }
+
         else:
             personnal_data["my_clan"] = {
                 "name": "",
@@ -1330,6 +1361,39 @@ class OREController(http.Controller):
             principal_clan_id.besoin_comble = besoin_comble
 
         return status
+
+    @http.route(
+        "/ore/invite_member_to_clan/submit",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def ore_invite_member_to_clan_form_submit(self, **kw):
+        membre_id = self.get_membre_id()
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
+        email = kw.get("email")
+        if not email:
+            return {"error": "Email is empty"}
+        status, msg = request.env["ore.demande.adhesion"].validate_email(email)
+        if not status:
+            return {"error": msg}
+        # msg contain normalize email
+        value_adhesion = {
+            "courriel": msg,
+            "invitation_from_membre_id": membre_id.id,
+            "only_invitation": True,
+        }
+        clan_id = kw.get("clan_id")
+        if clan_id:
+            value_adhesion["clan_id"] = clan_id
+        adhesion_id = request.env["ore.demande.adhesion"].create(
+            value_adhesion
+        )
+        adhesion_id.send_invitation_per_email_to_adhesion()
+        return {"data": True}
 
     @http.route(
         "/ore/personal_information/submit",

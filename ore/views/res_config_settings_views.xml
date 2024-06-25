@@ -18,6 +18,7 @@
                             <div class="o_setting_left_pane">
                                 <field name="ore_auto_accept_adhesion" />
                                 <field name="ore_default_societe" />
+                                <field name="ore_default_website_invitation_adhesion" />
                                 <field name="ore_default_free_time" />
                             </div>
                             <div class="o_setting_right_pane">
@@ -27,6 +28,10 @@
                                 </div>
                                 <label for="ore_default_societe" />
                                 <div class="text-muted">Choisir la société par défaut pour ajouter les membres.</div>
+                                <label for="ore_default_website_invitation_adhesion" />
+                                <div class="text-muted">
+                                    Choisir le site web par défaut pour faire l'invitation à l'adhésion.
+                                </div>
                                 <label for="ore_default_free_time" />
                                 <div class="text-muted">
                                     Temps à recevoir par défaut de la société à l'adhésion du membre.
