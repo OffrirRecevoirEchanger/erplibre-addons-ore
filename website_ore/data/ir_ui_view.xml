@@ -136,9 +136,16 @@
                                     <a href="https://marvelapp.com/prototype/6dbaaf8/screen/84805020">https://marvelapp.com/prototype/6dbaaf8/screen/84805020</a>
                                 </div>
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
-                                    <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16">
-                                            <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
+                                    <div class="banner_profile">
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="col-lg-12 s_title pt16 pb16">
+                                                <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
+                                            </div>
+                                        </div>
+                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.my_clan.id > 0">
+                                            <i class="fa fa-smile-o" />
+                                            <span id="mon_reseau" ng-cloak="">Mon clan : {{personal.my_clan.name}}</span>
+                                            <i class="fa fa-chevron-right" />
                                         </div>
                                     </div>
                                 </section>
@@ -149,7 +156,7 @@
                                                 <span>Actualit&#233;</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/communaute/evenements">
                                                 <span>&#201;v&#232;nements</span>
                                             </a>
@@ -451,9 +458,16 @@
                                     <a href="https://marvelapp.com/prototype/6dbaaf8/screen/84805023">https://marvelapp.com/prototype/6dbaaf8/screen/84805023</a>
                                 </div>
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
-                                    <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16">
-                                            <p class="s_title_default text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
+                                    <div class="banner_profile">
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="col-lg-12 s_title pt16 pb16">
+                                                <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
+                                            </div>
+                                        </div>
+                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.my_clan.id > 0">
+                                            <i class="fa fa-smile-o" />
+                                            <span id="mon_reseau" ng-cloak="">Mon clan : {{personal.my_clan.name}}</span>
+                                            <i class="fa fa-chevron-right" />
                                         </div>
                                     </div>
                                 </section>
@@ -574,9 +588,16 @@
                                     <a href="https://marvelapp.com/prototype/6dbaaf8/screen/84805026">https://marvelapp.com/prototype/6dbaaf8/screen/84805026</a>
                                 </div>
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
-                                    <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16">
-                                            <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
+                                    <div class="banner_profile">
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="col-lg-12 s_title pt16 pb16">
+                                                <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
+                                            </div>
+                                        </div>
+                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.my_clan.id > 0">
+                                            <i class="fa fa-smile-o" />
+                                            <span id="mon_reseau" ng-cloak="">Mon clan : {{personal.my_clan.name}}</span>
+                                            <i class="fa fa-chevron-right" />
                                         </div>
                                     </div>
                                 </section>
@@ -587,7 +608,7 @@
                                                 <span>Actualit&#233;</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/communaute/evenements">
                                                 <span>&#201;v&#232;nements</span>
                                             </a>
@@ -751,9 +772,16 @@
                             <div class="oe_structure">
                                 <div class="debug_debug" />
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
-                                    <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16">
-                                            <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
+                                    <div class="banner_profile">
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="col-lg-12 s_title pt16 pb16">
+                                                <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
+                                            </div>
+                                        </div>
+                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.my_clan.id > 0">
+                                            <i class="fa fa-smile-o" />
+                                            <span id="mon_reseau" ng-cloak="">Mon clan : {{personal.my_clan.name}}</span>
+                                            <i class="fa fa-chevron-right" />
                                         </div>
                                     </div>
                                 </section>
@@ -764,7 +792,7 @@
                                                 <span>Actualit&#233;</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/communaute/evenements">
                                                 <span>&#201;v&#232;nements</span>
                                             </a>
@@ -2168,9 +2196,16 @@
                                     <a href="https://marvelapp.com/prototype/6dbaaf8/screen/84805022">https://marvelapp.com/prototype/6dbaaf8/screen/84805022</a>
                                 </div>
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_3841_x_1601.png&quot;);">
-                                    <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16">
-                                            <p class="s_title_default text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
+                                    <div class="banner_profile">
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="col-lg-12 s_title pt16 pb16">
+                                                <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
+                                            </div>
+                                        </div>
+                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.my_clan.id > 0">
+                                            <i class="fa fa-smile-o" />
+                                            <span id="mon_reseau" ng-cloak="">Mon clan : {{personal.my_clan.name}}</span>
+                                            <i class="fa fa-chevron-right" />
                                         </div>
                                     </div>
                                 </section>
@@ -2181,7 +2216,7 @@
                                                 <span>Actualit&#233;</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/communaute/evenements">
                                                 <span>&#201;v&#232;nements</span>
                                             </a>
@@ -3029,42 +3064,6 @@
                                         </a>
                                     </div>
                                 </section>
-
-                                <div class="modal fade modal_pub_offre modal_shown show" style="display:block" ng-show="show_change_clan">
-                                    <div class="modal-dialog">
-                                        <div id="s_media_block_modal" class="modal-content">
-                                            <!--                                            <span style="font-size: 7rem;" class="fa fa-check-circle-o text-epsilon" />-->
-                                            <!--                                            <div class="modal-body" role="form">-->
-                                            <!--                                                # TODO copier ici-->
-                                            <!--                                                <h2>Félicitation votre offre de service a été publié!</h2>-->
-                                            <!--                                            </div>-->
-                                            <!--                                            &lt;!&ndash; modal-body &ndash;&gt;-->
-                                            <!--                                            <a href="/">-->
-                                            <!--                                                <button id="voir_offre" data-dismiss="modal" class="btn btn-primary adapt-text-primary-color">Voir mon offre</button>-->
-                                            <!--                                            </a>-->
-                                            <!--                                            <font style="font-size:1rem">OU</font>-->
-                                            <!--                                            <a href="/">-->
-                                            <!--                                                <button id="retour_accueil" data-dismiss="modal" class="btn btn-primary adapt-text-primary-color">Retourner sur l'accueil</button>-->
-                                            <!--                                            </a>-->
-                                            <form class="ore_form">
-                                                <p class="form_title">Vos clans à afficher</p>
-                                                <h1 ng-if="change_clan_is_loading" style="color:green;">Loading</h1>
-                                                <h1 ng-if="change_clan_is_error" style="color:red;">Error</h1>
-                                                <br />
-                                                <p>
-                                                    Sur votre espace membre vous voyez toujours par défaut, toutes les offres / demandes
-            de services et actualités du réseau auquelle vous appartenez. Cependant, si vous
-            souhaitez voir les informations pour d'autres clans, vous pouvez l'indiquer ci-dessous.
-                                                </p>
-                                                <button ng-click="change_clan(clan_id.id)" ng-repeat="clan_id in personal.all_my_clan" ng-style="{'color': clan_id.id ==  personal.my_clan.id ? '#00FF00' : 'inherit'}">{{clan_id.name}}</button>
-                                                <hr />
-                                                <div>
-                                                    <button class="cancel" ng-click="close_change_clan()">Annuler</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </t>
@@ -3571,6 +3570,29 @@
                                     </div>
                                 </div>
                             </section>
+
+                            <div class="modal fade modal_pub_offre modal_shown show" style="display:block" ng-show="show_change_clan">
+                                <div class="modal-dialog">
+                                    <div id="s_media_block_modal" class="modal-content">
+                                        <form class="ore_form">
+                                            <p class="form_title">Vos clans à afficher</p>
+                                            <h1 ng-if="change_clan_is_loading" style="color:green;">Loading</h1>
+                                            <h1 ng-if="change_clan_is_error" style="color:red;">Error</h1>
+                                            <br />
+                                            <p>
+                                                Sur votre espace membre vous voyez toujours par défaut, toutes les offres / demandes
+            de services et actualités du réseau auquelle vous appartenez. Cependant, si vous
+            souhaitez voir les informations pour d'autres clans, vous pouvez l'indiquer ci-dessous.
+                                            </p>
+                                            <button ng-click="change_clan(clan_id.id)" ng-repeat="clan_id in personal.all_my_clan" ng-style="{'color': clan_id.id ==  personal.my_clan.id ? '#00FF00' : 'inherit'}">{{clan_id.name}}</button>
+                                            <hr />
+                                            <div>
+                                                <button class="cancel" ng-click="close_change_clan()">Annuler</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </xpath>
                 </data>
