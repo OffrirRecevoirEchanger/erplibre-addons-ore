@@ -816,96 +816,7 @@
                                 </nav>
                                 <br />
                                 <br />
-                                <section class="s_mes_informations">
-                                    <div class="informations_container">
-                                        <div class="information information-1">
-                                            <span class="text desc" style="font-size: 1.4rem;" ng-if="ask_modification_clan">
-                                                Nom du clan :
-                                                <q class="editable-content-blue" contenteditable="true" ng-model="page_communaute_clan_info.name" />
-                                            </span>
-                                            <div class="container_profil">
-                                                <nav class="profil_left">
-                                                    <div class="profil profil_left profil_box btn btn-primary adapt-text-primary-color" ng-if="page_communaute_clan_info.is_clan_admin &amp;&amp; !ask_modification_clan" ng-click="mode_edit_clan()">
-                                                        <span class="img img-fluid mx-auto fa fa-pencil" />
-                                                        Modifier le clan
-                                                    </div>
-                                                    <div class="profil profil_right profil_box btn btn-primary adapt-text-primary-color" ng-if="page_communaute_clan_info.is_clan_admin &amp;&amp; ask_modification_clan" ng-click="annuler_ask_modification_clan()">
-                                                        <span class="img img-fluid mx-auto fa fa-close" />
-                                                        Annuler les modifications
-                                                    </div>
-                                                </nav>
-                                                <nav class="profil_main">
-                                                    <!--                                                    <div class="profil profil_main profil_box btn btn-primary adapt-text-primary-color" style="right: 50px;" ng-click="add_to_my_favorite('ore.membre', page_presentation_membre_info)">-->
-                                                    <!--                                                        <span class="img img-fluid mx-auto fa coeur" ng-class="{'fa-heart': page_presentation_membre_info.is_favorite, 'fa-heart-o': !page_presentation_membre_info.is_favorite}" />-->
-                                                    <!--                                                        <span class="adapt-text-primary-color" ng-if="!page_presentation_membre_info.is_favorite">Ajouter à mes favoris</span>-->
-                                                    <!--                                                        <span class="adapt-text-primary-color" ng-if="page_presentation_membre_info.is_favorite">Retirer de mes favoris</span>-->
-                                                    <!--                                                    </div>-->
-                                                </nav>
-                                                <nav class="profil_right">
-                                                    <div class="profil profil_left profil_box btn btn-primary adapt-text-primary-color" ng-if="page_communaute_clan_info.is_clan_admin &amp;&amp; ask_modification_clan" ng-click="mode_save_clan()">
-                                                        <span class="img img-fluid mx-auto fa fa-save" />
-                                                        Enregistrer le clan
-                                                    </div>
-                                                    <!--                                                    <div class="profil profil_right profil_box btn btn-primary btn_do_echange debug_unimplemented adapt-text-primary-color" ng-if="!_.isUndefined(page_communaute_clan_info.is_clan_admin) &amp;&amp; !page_communaute_clan_info.is_clan_admin" ng-cloak="">Échanger avec {{page_presentation_membre_info.full_name}}</div>-->
-                                                </nav>
-                                            </div>
-                                        </div>
-                                        <div class="information information-2">
-                                            <span class="txt">Les valeurs</span>
-                                            <br />
-                                            <br />
-                                            <span class="nbr" ng-if="!ask_modification_clan &amp;&amp; !_.isUndefined(page_communaute_clan_info.valeur_clan) &amp;&amp; !_.isEmpty(page_communaute_clan_info.valeur_clan)">
-                                                <q ng-cloak="" ng-bind-html="page_communaute_clan_info.valeur_clan | unsafe" />
-                                            </span>
-                                            <span class="nbr" ng-if="ask_modification_clan">
-                                                <q class="editable-content-blue" contenteditable="true" ng-model="page_communaute_clan_info.valeur_clan" />
-                                            </span>
-                                        </div>
-                                        <div class="information information-3">
-                                            <span class="txt">R&#233;sum&#233;</span>
-                                            <br />
-                                            <br />
-                                            <span class="desc-3">
-                                                <i class="fa fa-home" />
-                                                <span style="position: relative; left: -25px;" ng-cloak="" ng-if="!ask_modification_clan">{{page_communaute_clan_info.ville_region}}</span>
-                                                <span style="position: relative; left: -25px;" ng-cloak="" ng-if="ask_modification_clan">
-                                                    <q class="editable-content-blue" contenteditable="true" ng-model="page_communaute_clan_info.ville_region" />
-                                                </span>
-                                            </span>
-                                            <br />
-                                            <span class="desc-3">
-                                                <i class="fa fa-building" />
-                                                <span style="position: relative; left: -25px;" ng-cloak="" ng-if="!ask_modification_clan">{{page_communaute_clan_info.organisation}}</span>
-                                                <span style="position: relative; left: -25px;" ng-cloak="" ng-if="ask_modification_clan">
-                                                    <q class="editable-content-blue" contenteditable="true" ng-model="page_communaute_clan_info.organisation" />
-                                                </span>
-                                            </span>
-                                            <br />
-                                            <span class="desc-3">
-                                                <i class="fa fa-person-booth" />
-                                                <span style="position: relative; left: -25px;">{{page_communaute_clan_info.membre_list_count}} membre{{page_communaute_clan_info.membre_list_count > 1 ? 's' : ''}}</span>
-                                            </span>
-                                            <br />
-                                            <span class="desc-3">
-                                                <i class="fa fa-calendar" />
-                                                <span style="position: relative; left: -25px;" ng-cloak="">Clan créé depuis {{page_communaute_clan_info.str_diff_time_creation}}</span>
-                                            </span>
-                                        </div>
-                                        <div class="information information-4">
-                                            <div class="nbr" ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.besoin_comble)}" ng-show="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.besoin_comble) &amp;&amp; !_.isEmpty(page_communaute_clan_info.besoin_comble)">
-                                                <span class="txt">Besoin(s) commun(s)</span>
-                                                <div ng-if="!ask_modification_clan" ng-cloak="" ng-bind-html="page_communaute_clan_info.besoin_comble | unsafe" />
-                                                <q ng-if="ask_modification_clan" class="editable-content-blue" contenteditable="true" ng-model="page_communaute_clan_info.besoin_comble" />
-                                            </div>
-
-                                            <div class="nbr" ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.autre_information)}" ng-show="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.autre_information) &amp;&amp; !_.isEmpty(page_communaute_clan_info.autre_information)">
-                                                <span class="txt">Autres informations</span>
-                                                <div ng-if="!ask_modification_clan" class="nbr" ng-cloak="" ng-bind-html="page_communaute_clan_info.autre_information | unsafe" />
-                                                <q ng-if="ask_modification_clan" class="editable-content-blue" contenteditable="true" ng-model="page_communaute_clan_info.autre_information" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
+                                <div ng-include="'/ore/template/clan_details_generic'" />
                             </div>
                         </div>
                     </t>
@@ -1437,6 +1348,11 @@
                                     </div>
                                 </div>
                             </section>
+                            <div style="text-align: left;" />
+                            <section class="s_activites_recentes o_ore_liste_clan">
+                                <div class="container" />
+                            </section>
+                            <div style="text-align: left;" />
                             <section class="s_clonable_boxes pb32 pt40">
                                 <div class="container">
                                     <div class="row">
@@ -1498,93 +1414,64 @@
                 <t name="About us" t-name="website.aboutus">
                     <t t-call="website.layout">
                         <t t-set="pageName" t-value="'chercher_clan'" />
-                        <div id="wrap" class="oe_structure oe_empty">
-                            <div class="debug_debug" />
-                            <section class="s_search oe_img_bg oe_custom_bg pt16" style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_finale_1521_x_980.png&quot;);">
-                                <div class="container">
-                                    <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <h1 class="s_title_default text-bold">
-                                                <div class="search_bar">
-                                                    <p class="search_txt text-epsilon">Que cherchez-vous?</p>
-                                                    <div class="search_category">
-                                                        <p class="search_txt text-epsilon">Type de recherche</p>
-                                                        <div class="search_send btn btn-primary rounded-circle">
-                                                            <font style="font-size: 18px;" class="adapt-text-primary-color">
-                                                                <i class="img img-fluid mx-auto fa fa-search" />
-                                                                Rechercher
-                                                            </font>
-                                                        </div>
-                                                        <p class="search_select" style="color: rgb(106, 106, 106)">Sélectionner une catégorie</p>
-                                                    </div>
-                                                    <input type="text" placeholder="Taper votre mot clé ici" />
-                                                </div>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                            <div style="text-align: left;" />
-                            <section class="s_banner parallax s_parallax_no_overflow_hidden pb184 pt160" data-scroll-background-ratio="0" style="background-image: none;">
-                                <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="" />
-                                <div class="banner-bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_adobestock_309423704_preview_jpeg/AdobeStock_309423704_Preview.jpeg&quot;); background-position: 50% 0px; background-size:cover">
+                        <div id="wrap">
+                            <div class="oe_structure">
+                                <div class="debug_debug" />
+                                <section class="s_search_short debug_unimplemented">
                                     <div class="container">
                                         <div class="row s_nb_column_fixed">
-                                            <div class="jumbotron pt32 bg-primary col-lg-6 pb40" style="border-radius:10px">
-                                                <div class="row">
-                                                    <div class="col-lg-12 s_title s_col_no_bgcolor pb0" data-name="Title">
-                                                        <!--                                                        <h1 class="s_title_thin" style="text-align: center;" groups="base.group_public">-->
-                                                        <!--                                                            <b>-->
-                                                        <!--                                                                <font style="color: rgb(255, 255, 255);">As-tu d&#233;j&#224;-->
-                                                        <!--                                                                    os&#233; essayer-->
-                                                        <!--                                                                </font>-->
-                                                        <!--                                                            </b>-->
-                                                        <!--                                                        </h1>-->
-                                                        <!--                                                        <h1 class="s_title_thin" style="text-align: center;" groups="base.group_user,base.group_portal">-->
-                                                        <!--                                                            private information-->
-                                                        <!--                                                        </h1>-->
-                                                        <h1 class="s_title_thin" style="text-align: center;">
-                                                            <b>
-                                                                <b>
-                                                                    <font style="color: rgb(255, 255, 255);">
-                                                                        d'offrir un
-                                                                        service
-                                                                    </font>
-                                                                </b>
-                                                                <b>
-                                                                    <font style="color: rgb(255, 255, 255);">?</font>
-                                                                </b>
-                                                                <br />
-                                                            </b>
-                                                        </h1>
-                                                        <h1 class="s_title_thin">
-                                                            <br />
-                                                        </h1>
+                                            <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                                <h1 class="s_title_default text-bold">
+                                                    <div class="search_bar" style="margin:0 auto;width:100%">
+                                                        <p class="search_txt text-epsilon">Que cherchez-vous?</p>
+                                                        <div class="search_category">
+                                                            <p class="search_txt text-epsilon">Type de recherche</p>
+                                                            <div class="search_send btn btn-primary rounded-circle">
+                                                                <font style="font-size: 18px;" class="adapt-text-primary-color">
+                                                                    <i class="img img-fluid mx-auto fa fa-search" />
+                                                                    Rechercher
+                                                                </font>
+                                                            </div>
+                                                            <p class="search_select" style="color: rgb(106, 106, 106)">Sélectionner une catégorie</p>
+                                                        </div>
+                                                        <input type="text" placeholder="Taper votre mot clé ici" />
                                                     </div>
-                                                    <div class="col-lg-12 pt8 pb32 s_col_no_bgcolor" data-name="Text">
-                                                        <p class="lead" style="text-align: center;">
-                                                            <font style="color: rgb(255, 255, 255);">&amp;nbsp;C'est tr&#232;s
-                                                                simple, tu peux commencer par publier une offre de
-                                                                service et ensuite attendre qu'une personne te contacte.
-                                                            </font>
-                                                        </p>
-                                                    </div>
-                                                    <div class="banner_btn s_btn col-lg-5 text-center" data-name="Button">
-                                                        <a href="/participer#!?state=init.pos" class="btn btn-gamma rounded-circle">
-                                                            <font class="adapt-text-gamma-color">Publier une offre</font>
-                                                        </a>
-                                                    </div>
-                                                    <div class="banner_btn s_btn text-center col-lg-5" data-name="Button">
-                                                        <a href="#" class="btn btn-gamma rounded-circle">
-                                                            <font class="adapt-text-gamma-color">En savoir plus</font>
-                                                        </a>
-                                                    </div>
-                                                </div>
+                                                </h1>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </section>
+                                </section>
+                                <section class="s_vertical_list_lg pt0">
+                                    <div class="container_lists">
+                                        <div class="row vertical_list">
+                                            <div class="list_title s_title pb24">
+                                                <section class="s_mobile_filter debug_unimplemented">
+                                                    <div class="btn">
+                                                        Catégorie
+                                                        <i class="fa fa-chevron-down" />
+                                                    </div>
+                                                    <div class="btn">
+                                                        <i class="fa fa-sliders" />
+                                                        Filtrer et trier
+                                                    </div>
+                                                </section>
+                                                <div class="title">
+                                                    <h1>Liste des clans</h1>
+                                                    <span class="filter_btn btn debug_unimplemented" style="margin:auto 15px auto auto">
+                                                        Catégorie &amp;nbsp;
+                                                        <icon class="fa fa-chevron-up text-epsilon" />
+                                                    </span>
+                                                    <span class="filter_btn btn debug_unimplemented">
+                                                        <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
+                                                        Filtrer et trier
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div ng-repeat="(clan_id, clan) in dct_clan_info" ng-include="'/ore/template/clan_generic'" ng-init="clan_enable_href = true; " />
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
                         </div>
                     </t>
                 </t>
@@ -3301,21 +3188,21 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_event_list small-cards debug_unimplemented" ng-if="personal.my_clan.id > 0">
+                                <section class="s_event_list small-cards" ng-if="personal.my_clan.id > 0">
                                     <div class="list_head mobile-display-none">
                                         <div class="list_title s_title text-bold">
                                             <font style="font-size:2rem;">Mon r&#233;seau</font>
-                                            <span class="filter_btn btn">
+                                            <span class="filter_btn btn debug_unimplemented">
                                                 <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                 Filtrer et trier
                                             </span>
-                                            <span class="filter_btn btn" style="margin-right:15px">
+                                            <span class="filter_btn btn debug_unimplemented" style="margin-right:15px">
                                                 Catégorie &amp;nbsp;
                                                 <icon class="fa fa-chevron-up text-epsilon" />
                                             </span>
                                         </div>
                                     </div>
-                                    <section class="s_mobile_filter">
+                                    <section class="s_mobile_filter debug_unimplemented">
                                         <div class="btn">
                                             Voir mes favoris
                                             <i class="fa fa-chevron-down" />
@@ -3479,6 +3366,8 @@
                                                 <br />
                                                 <a href="/explorer" class="footer_link">Les cat&#233;gories d'offres de service</a>
                                             </span>
+                                            <br />
+                                            <a href="/chercher_clan" class="footer_link">Les clans</a>
                                         </div>
                                         <div class="col-lg-2 footer_menu" ng-if="personal.my_clan.id > 0">
                                             <a href="/communaute/actualite" class="img bottom_menu_icon fa fa-comments-o" style="text-decoration:none;" />
@@ -3983,8 +3872,8 @@
                                 <section class="s_vertical_list_lg pt0">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
-                                            <div class="list_title s_title pb24 debug_unimplemented">
-                                                <section class="s_mobile_filter">
+                                            <div class="list_title s_title pb24">
+                                                <section class="s_mobile_filter debug_unimplemented">
                                                     <div class="btn">
                                                         Catégorie
                                                         <i class="fa fa-chevron-down" />
@@ -3996,11 +3885,11 @@
                                                 </section>
                                                 <div class="title">
                                                     <h1>Offres de service</h1>
-                                                    <span class="filter_btn btn" style="margin:auto 15px auto auto">
+                                                    <span class="filter_btn btn debug_unimplemented" style="margin:auto 15px auto auto">
                                                         Catégorie &amp;nbsp;
                                                         <icon class="fa fa-chevron-up text-epsilon" />
                                                     </span>
-                                                    <span class="filter_btn btn">
+                                                    <span class="filter_btn btn debug_unimplemented">
                                                         <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                         Filtrer et trier
                                                     </span>
@@ -4072,8 +3961,8 @@
                                 <section class="s_vertical_list_lg pt0">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
-                                            <div class="list_title s_title pb24 debug_unimplemented">
-                                                <section class="s_mobile_filter">
+                                            <div class="list_title s_title pb24">
+                                                <section class="s_mobile_filter debug_unimplemented">
                                                     <div class="btn">
                                                         Catégorie
                                                         <i class="fa fa-chevron-down" />
@@ -4085,11 +3974,11 @@
                                                 </section>
                                                 <div class="title">
                                                     <h1>Demandes de service</h1>
-                                                    <span class="filter_btn btn" style="margin:auto 15px auto auto">
+                                                    <span class="filter_btn btn debug_unimplemented" style="margin:auto 15px auto auto">
                                                         Catégorie &amp;nbsp;
                                                         <icon class="fa fa-chevron-up text-epsilon" />
                                                     </span>
-                                                    <span class="filter_btn btn">
+                                                    <span class="filter_btn btn debug_unimplemented">
                                                         <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                         Filtrer et trier
                                                     </span>

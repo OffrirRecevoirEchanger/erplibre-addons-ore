@@ -1,10 +1,10 @@
-odoo.define("website_ore.animation", function (require) {
+odoo.define("ore_clan_list.animation", function (require) {
     "use strict";
 
     let sAnimation = require("website.content.snippets.animation");
 
     sAnimation.registry.ore = sAnimation.Class.extend({
-        selector: ".o_ore",
+        selector: ".o_ore_liste_clan",
 
         start: function () {
             let self = this;

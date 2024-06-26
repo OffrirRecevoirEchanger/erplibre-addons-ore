@@ -236,131 +236,13 @@
                             </div>
                         </div>
                     </section>
-                    <section
-                        t-if="ore_clan_id"
-                        class="s_cover parallax s_parallax_is_fixed bg-black-50 pt96 pb96 s_parallax_no_overflow_hidden"
-                        data-scroll-background-ratio="1"
-                        style="background-image: none;"
-                    >
-                        <span
-                            class="s_parallax_bg oe_img_bg oe_custom_bg"
-                            style="background-image: url('/web/image/website.s_cover_default_image'); background-position: 50% 0;"
-                        />
-                        <div class="container">
-                            <div class="row s_nb_column_fixed">
-                                <div class="col-lg-12 s_title" data-name="Title">
-                                    <h1
-                                        class="s_title_thin"
-                                        style="font-size: 62px; text-align: center;"
-                                        t-field="ore_clan_id.name"
-                                        t-if="ore_clan_id.name"
-                                    />
-                                    <h1
-                                        class="s_title_thin"
-                                        style="font-size: 62px; text-align: center;"
-                                        t-if="not ore_clan_id.name"
-                                    >
-                                        EMPTY
-                                    </h1>
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="ore_clan_id.autre_information"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="ore_clan_id.autre_information"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="ore_clan_id.besoin_comble"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="ore_clan_id.besoin_comble"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="ore_clan_id.membre_admin_ids"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="ore_clan_id.membre_admin_ids"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="ore_clan_id.membre_create_id"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="ore_clan_id.membre_create_id"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="ore_clan_id.membre_list_count"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="ore_clan_id.membre_list_count"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="ore_clan_id.membre_list_ids"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="ore_clan_id.membre_list_ids"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="ore_clan_id.organisation"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="ore_clan_id.organisation"
-                                    />
-                                </div>
-                                <div class="col-lg-12 s_text pt16 pb16" data-name="Text" t-if="ore_clan_id.valeur_clan">
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="ore_clan_id.valeur_clan"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="ore_clan_id.ville_region"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="ore_clan_id.ville_region"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <div ng-include="'/ore/template/clan_details_generic'" />
                 </div>
             </div>
         </t>
@@ -368,76 +250,142 @@
 
     <template id="ore_clan_list" name="Ore Clan List">
         <t t-ignore="true">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 s_col_no_bgcolor pb24">
-                        <div class="row" t-if="ore_clan_s">
-                            <div t-foreach="ore_clan_s" t-as="ore_clan">
-                                <a t-if="ore_clan" t-att-href="'/ore/ore_clan/%d' % ore_clan.id">
-                                    <div class="col-lg-12 pt16 pb16" data-name="Box">
-                                        <i class="fa fa-2x fa-files-o rounded-circle bg-primary s_features_grid_icon" />
-                                        <div class="s_features_grid_content">
-                                            <h4
-                                                t-if="ore_clan.name"
-                                                class="o_default_snippet_text"
-                                                t-field="ore_clan.name"
-                                            />
-                                            <h4 t-if="not ore_clan.name" class="o_default_snippet_text">EMPTY</h4>
-                                            <p
-                                                t-if="ore_clan.autre_information"
-                                                class="o_default_snippet_text"
-                                                t-field="ore_clan.autre_information"
-                                            />
-                                            <p
-                                                t-if="ore_clan.besoin_comble"
-                                                class="o_default_snippet_text"
-                                                t-field="ore_clan.besoin_comble"
-                                            />
-                                            <p
-                                                t-if="ore_clan.membre_admin_ids"
-                                                class="o_default_snippet_text"
-                                                t-field="ore_clan.membre_admin_ids"
-                                            />
-                                            <p
-                                                t-if="ore_clan.membre_create_id"
-                                                class="o_default_snippet_text"
-                                                t-field="ore_clan.membre_create_id"
-                                            />
-                                            <p
-                                                t-if="ore_clan.membre_list_count"
-                                                class="o_default_snippet_text"
-                                                t-field="ore_clan.membre_list_count"
-                                            />
-                                            <p
-                                                t-if="ore_clan.membre_list_ids"
-                                                class="o_default_snippet_text"
-                                                t-field="ore_clan.membre_list_ids"
-                                            />
-                                            <p
-                                                t-if="ore_clan.organisation"
-                                                class="o_default_snippet_text"
-                                                t-field="ore_clan.organisation"
-                                            />
-                                            <p
-                                                t-if="ore_clan.valeur_clan"
-                                                class="o_default_snippet_text"
-                                                t-field="ore_clan.valeur_clan"
-                                            />
-                                            <p
-                                                t-if="ore_clan.ville_region"
-                                                class="o_default_snippet_text"
-                                                t-field="ore_clan.ville_region"
-                                            />
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+            <div class="container_lists">
+                <div class="row activites_list col-lg-12">
+                    <div class="list_title s_title">
+                        <div class="title">
+                            <img
+                                id="clan_ore"
+                                style="float: left; width:100px; height 100px;"
+                                src="/website_ore/static/src/img/O.svg"
+                            />
+                            <h1>Clans récemment créé</h1>
+                            <a t-if="clan_count" href="/chercher_clan" style="font-size:1.25rem;">
+                                Voir Tout (+
+                                <t t-raw="clan_count" />
+                                )
+                            </a>
                         </div>
-                        <div class="row" t-if="not ore_clan_s">Aucune ore_clan disponible.</div>
                     </div>
+                    <div t-if="ore_clan_ids">
+                        <div class="container_explorer" t-foreach="ore_clan_ids" t-as="ore_clan_id">
+                            <a class="activite btn" t-if="ore_clan_id" t-att-href="'/ore/ore_clan/%d' % ore_clan_id.id">
+                                <!--                                <img-->
+                                <!--                                    t-if="lst_icon_offre_service[offre_service_index]"-->
+                                <!--                                    t-att-src="image_data_uri(lst_icon_offre_service[offre_service_index])"-->
+                                <!--                                    alt="icon"-->
+                                <!--                                    class="activite_img img-fluid"-->
+                                <!--                                />-->
+                                <!--                                <span-->
+                                <!--                                    t-if="not lst_icon_offre_service[offre_service_index]"-->
+                                <!--                                    class="activite_img fa fa-calendar-plus-o bg-epsilon text-center adapt-text-epsilon-color"-->
+                                <!--                                />-->
+                                <span
+                                    class="activite_img fa fa-calendar-plus-o bg-epsilon text-center adapt-text-epsilon-color"
+                                />
+                                <div class="infos">
+                                    <div class="activite_title" t-if="ore_clan_id.name" t-field="ore_clan_id.name" />
+                                    <div class="activite_title" t-if="not ore_clan_id.name">
+                                        <pre>Sans nom</pre>
+                                        <!-- TODO mettre un titre par défaut en lien avec la catégorie de clan -->
+                                    </div>
+                                    <div
+                                        class="activite_auteur"
+                                        t-if="ore_clan_id.membre_create_id"
+                                        t-field="ore_clan_id.membre_create_id"
+                                    />
+                                    <!--                                    <span-->
+                                    <!--                                        t-if="len(lst_distance_offre_service) >= offre_service_index"-->
+                                    <!--                                        class="activite_distance"-->
+                                    <!--                                        t-raw="lst_distance_offre_service[offre_service_index]"-->
+                                    <!--                                    />-->
+                                </div>
+                                <div class="infos right">
+                                    <div
+                                        t-if="len(lst_time_clan) >= ore_clan_id_index"
+                                        t-raw="lst_time_clan[ore_clan_id_index]"
+                                    />
+                                    <!--<i class="fa fa-heart-o text-epsilon" />-->
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row" t-if="not ore_clan_ids">Aucune clan ne sont disponibles pour le moment.</div>
                 </div>
             </div>
         </t>
+
+        <!--        <t t-ignore="true">-->
+        <!--            <div class="container">-->
+        <!--                <div class="row align-items-center">-->
+        <!--                    <div class="col-lg-6 s_col_no_bgcolor pb24">-->
+        <!--                        <div class="row" t-if="ore_clan_s">-->
+        <!--                            <div t-foreach="ore_clan_s" t-as="ore_clan">-->
+        <!--                                <a t-if="ore_clan" t-att-href="'/ore/ore_clan/%d' % ore_clan.id">-->
+        <!--                                    <div class="col-lg-12 pt16 pb16" data-name="Box">-->
+        <!--                                        <i class="fa fa-2x fa-files-o rounded-circle bg-primary s_features_grid_icon" />-->
+        <!--                                        <div class="s_features_grid_content">-->
+        <!--                                            <h4-->
+        <!--                                                t-if="ore_clan.name"-->
+        <!--                                                class="o_default_snippet_text"-->
+        <!--                                                t-field="ore_clan.name"-->
+        <!--                                            />-->
+        <!--                                            <h4 t-if="not ore_clan.name" class="o_default_snippet_text">EMPTY</h4>-->
+        <!--                                            <p-->
+        <!--                                                t-if="ore_clan.autre_information"-->
+        <!--                                                class="o_default_snippet_text"-->
+        <!--                                                t-field="ore_clan.autre_information"-->
+        <!--                                            />-->
+        <!--                                            <p-->
+        <!--                                                t-if="ore_clan.besoin_comble"-->
+        <!--                                                class="o_default_snippet_text"-->
+        <!--                                                t-field="ore_clan.besoin_comble"-->
+        <!--                                            />-->
+        <!--                                            <p-->
+        <!--                                                t-if="ore_clan.membre_admin_ids"-->
+        <!--                                                class="o_default_snippet_text"-->
+        <!--                                                t-field="ore_clan.membre_admin_ids"-->
+        <!--                                            />-->
+        <!--                                            <p-->
+        <!--                                                t-if="ore_clan.membre_create_id"-->
+        <!--                                                class="o_default_snippet_text"-->
+        <!--                                                t-field="ore_clan.membre_create_id"-->
+        <!--                                            />-->
+        <!--                                            <p-->
+        <!--                                                t-if="ore_clan.membre_list_count"-->
+        <!--                                                class="o_default_snippet_text"-->
+        <!--                                                t-field="ore_clan.membre_list_count"-->
+        <!--                                            />-->
+        <!--                                            <p-->
+        <!--                                                t-if="ore_clan.membre_list_ids"-->
+        <!--                                                class="o_default_snippet_text"-->
+        <!--                                                t-field="ore_clan.membre_list_ids"-->
+        <!--                                            />-->
+        <!--                                            <p-->
+        <!--                                                t-if="ore_clan.organisation"-->
+        <!--                                                class="o_default_snippet_text"-->
+        <!--                                                t-field="ore_clan.organisation"-->
+        <!--                                            />-->
+        <!--                                            <p-->
+        <!--                                                t-if="ore_clan.valeur_clan"-->
+        <!--                                                class="o_default_snippet_text"-->
+        <!--                                                t-field="ore_clan.valeur_clan"-->
+        <!--                                            />-->
+        <!--                                            <p-->
+        <!--                                                t-if="ore_clan.ville_region"-->
+        <!--                                                class="o_default_snippet_text"-->
+        <!--                                                t-field="ore_clan.ville_region"-->
+        <!--                                            />-->
+        <!--                                        </div>-->
+        <!--                                    </div>-->
+        <!--                                </a>-->
+        <!--                            </div>-->
+        <!--                        </div>-->
+        <!--                        <div class="row" t-if="not ore_clan_s">Aucune ore_clan disponible.</div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </t>-->
     </template>
 
     <template id="ore_demande_service_unit_liste_offre_et_demande_service" name="Demande Service">
@@ -2208,5 +2156,208 @@
             </div>
         </div>
         <!--        </div>-->
+    </template>
+    <template id="template_clan_generic" name="Clan generic">
+        <!-- Need angularjs scope variable clan_enable_href, clan_id, clan, model, -->
+        <div
+            class="activite container_explorer"
+            ng-class="{'btn': clan_enable_href}"
+            ng-if="!_.isUndefined(clan_enable_href) &amp;&amp; !_.isUndefined(clan_id) &amp;&amp; !_.isUndefined(clan)"
+            style="height: auto; padding: 5em;"
+        >
+            <a
+                ng-href="{{clan_enable_href ? ('/ore/ore_clan/' + clan_id) : ''}}"
+                style="text-decoration: none; display: flex; align-items: center;"
+            >
+                <img
+                    class="activite_img img-fluid"
+                    src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
+                    style="flex: 0 0 auto; margin-right: 1em; width: 100px;"
+                />
+                <div class="infos" style="flex: 1;">
+                    <h4 class="activite_title" ng-if="!_.isEmpty(clan.name)" ng-cloak="">{{clan.name}}</h4>
+                    <h4 class="activite_title" ng-if="_.isEmpty(clan.name)">
+                        <pre>Sans nom</pre>
+                    </h4>
+                    <h5
+                        class="activite_desc"
+                        ng-if="!_.isEmpty(clan.besoin_comble)"
+                        ng-bind-html="clan.besoin_comble | unsafe"
+                    />
+                    <h5 class="activite_auteur" ng-if="!_.isEmpty(clan.membre_create_id)" ng-cloak="">
+                        {{clan.membre_create.name}}
+                    </h5>
+                    <!--                    <h5 class="activite_distance" ng-if="!_.isEmpty(clan.distance)" ng-cloak="">-->
+                    <!--                        {{clan.distance}}-->
+                    <!--                    </h5>-->
+                </div>
+            </a>
+            <!--            <div class="infos right">-->
+            <div
+                class="infos_right"
+                style="width: 5em; flex: 0 0 auto; display: flex; flex-direction: column; justify-content: center;"
+            >
+                <h5 ng-cloak="">{{clan.diff_create_date}}</h5>
+            </div>
+        </div>
+        <!--        </div>-->
+    </template>
+    <template id="template_clan_details_generic" name="Clan details generic">
+        <section class="s_mes_informations">
+            <div class="informations_container">
+                <div class="information information-1">
+                    <span class="text desc" style="font-size: 1.4rem;" ng-if="ask_modification_clan">
+                        Nom du clan :
+                        <q
+                            class="editable-content-blue"
+                            contenteditable="true"
+                            ng-model="page_communaute_clan_info.name"
+                        />
+                    </span>
+                    <div class="container_profil">
+                        <nav class="profil_left">
+                            <div
+                                class="profil profil_left profil_box btn btn-primary adapt-text-primary-color"
+                                ng-if="page_communaute_clan_info.is_clan_admin &amp;&amp; !ask_modification_clan"
+                                ng-click="mode_edit_clan()"
+                            >
+                                <span class="img img-fluid mx-auto fa fa-pencil" />
+                                Modifier le clan
+                            </div>
+                            <div
+                                class="profil profil_right profil_box btn btn-primary adapt-text-primary-color"
+                                ng-if="page_communaute_clan_info.is_clan_admin &amp;&amp; ask_modification_clan"
+                                ng-click="annuler_ask_modification_clan()"
+                            >
+                                <span class="img img-fluid mx-auto fa fa-close" />
+                                Annuler les modifications
+                            </div>
+                        </nav>
+                        <nav class="profil_main">
+                            <!--                                                    <div class="profil profil_main profil_box btn btn-primary adapt-text-primary-color" style="right: 50px;" ng-click="add_to_my_favorite('ore.membre', page_presentation_membre_info)">-->
+                            <!--                                                        <span class="img img-fluid mx-auto fa coeur" ng-class="{'fa-heart': page_presentation_membre_info.is_favorite, 'fa-heart-o': !page_presentation_membre_info.is_favorite}" />-->
+                            <!--                                                        <span class="adapt-text-primary-color" ng-if="!page_presentation_membre_info.is_favorite">Ajouter à mes favoris</span>-->
+                            <!--                                                        <span class="adapt-text-primary-color" ng-if="page_presentation_membre_info.is_favorite">Retirer de mes favoris</span>-->
+                            <!--                                                    </div>-->
+                        </nav>
+                        <nav class="profil_right">
+                            <div
+                                class="profil profil_left profil_box btn btn-primary adapt-text-primary-color"
+                                ng-if="page_communaute_clan_info.is_clan_admin &amp;&amp; ask_modification_clan"
+                                ng-click="mode_save_clan()"
+                            >
+                                <span class="img img-fluid mx-auto fa fa-save" />
+                                Enregistrer le clan
+                            </div>
+                            <!--                                                    <div class="profil profil_right profil_box btn btn-primary btn_do_echange debug_unimplemented adapt-text-primary-color" ng-if="!_.isUndefined(page_communaute_clan_info.is_clan_admin) &amp;&amp; !page_communaute_clan_info.is_clan_admin" ng-cloak="">Échanger avec {{page_presentation_membre_info.full_name}}</div>-->
+                        </nav>
+                    </div>
+                </div>
+                <div class="information information-2">
+                    <span class="txt">Les valeurs</span>
+                    <br />
+                    <br />
+                    <span
+                        class="nbr"
+                        ng-if="!ask_modification_clan &amp;&amp; !_.isUndefined(page_communaute_clan_info.valeur_clan) &amp;&amp; !_.isEmpty(page_communaute_clan_info.valeur_clan)"
+                    >
+                        <q ng-cloak="" ng-bind-html="page_communaute_clan_info.valeur_clan | unsafe" />
+                    </span>
+                    <span class="nbr" ng-if="ask_modification_clan">
+                        <q
+                            class="editable-content-blue"
+                            contenteditable="true"
+                            ng-model="page_communaute_clan_info.valeur_clan"
+                        />
+                    </span>
+                </div>
+                <div class="information information-3">
+                    <span class="txt">R&#233;sum&#233;</span>
+                    <br />
+                    <br />
+                    <span class="desc-3">
+                        <i class="fa fa-home" />
+                        <span style="position: relative; left: -25px;" ng-cloak="" ng-if="!ask_modification_clan">
+                            {{page_communaute_clan_info.ville_region}}
+                        </span>
+                        <span style="position: relative; left: -25px;" ng-cloak="" ng-if="ask_modification_clan">
+                            <q
+                                class="editable-content-blue"
+                                contenteditable="true"
+                                ng-model="page_communaute_clan_info.ville_region"
+                            />
+                        </span>
+                    </span>
+                    <br />
+                    <span class="desc-3">
+                        <i class="fa fa-building" />
+                        <span style="position: relative; left: -25px;" ng-cloak="" ng-if="!ask_modification_clan">
+                            {{page_communaute_clan_info.organisation}}
+                        </span>
+                        <span style="position: relative; left: -25px;" ng-cloak="" ng-if="ask_modification_clan">
+                            <q
+                                class="editable-content-blue"
+                                contenteditable="true"
+                                ng-model="page_communaute_clan_info.organisation"
+                            />
+                        </span>
+                    </span>
+                    <br />
+                    <span class="desc-3">
+                        <i class="fa fa-person-booth" />
+                        <span style="position: relative; left: -25px;">
+                            {{page_communaute_clan_info.membre_list_count}} membre{{page_communaute_clan_info.membre_list_count > 1 ? 's' : ''}}
+                        </span>
+                    </span>
+                    <br />
+                    <span class="desc-3">
+                        <i class="fa fa-calendar" />
+                        <span style="position: relative; left: -25px;" ng-cloak="">
+                            Clan créé depuis {{page_communaute_clan_info.str_diff_time_creation}}
+                        </span>
+                    </span>
+                </div>
+                <div class="information information-4">
+                    <div
+                        class="nbr"
+                        ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.besoin_comble)}"
+                        ng-show="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.besoin_comble) &amp;&amp; !_.isEmpty(page_communaute_clan_info.besoin_comble)"
+                    >
+                        <span class="txt">Besoin(s) commun(s)</span>
+                        <div
+                            ng-if="!ask_modification_clan"
+                            ng-cloak=""
+                            ng-bind-html="page_communaute_clan_info.besoin_comble | unsafe"
+                        />
+                        <q
+                            ng-if="ask_modification_clan"
+                            class="editable-content-blue"
+                            contenteditable="true"
+                            ng-model="page_communaute_clan_info.besoin_comble"
+                        />
+                    </div>
+
+                    <div
+                        class="nbr"
+                        ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.autre_information)}"
+                        ng-show="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.autre_information) &amp;&amp; !_.isEmpty(page_communaute_clan_info.autre_information)"
+                    >
+                        <span class="txt">Autres informations</span>
+                        <div
+                            ng-if="!ask_modification_clan"
+                            class="nbr"
+                            ng-cloak=""
+                            ng-bind-html="page_communaute_clan_info.autre_information | unsafe"
+                        />
+                        <q
+                            ng-if="ask_modification_clan"
+                            class="editable-content-blue"
+                            contenteditable="true"
+                            ng-model="page_communaute_clan_info.autre_information"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
     </template>
 </odoo>

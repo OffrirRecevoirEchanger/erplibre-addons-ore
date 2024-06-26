@@ -212,16 +212,72 @@ class OREController(http.Controller):
         return value
 
     @http.route(
+        [
+            "/ore/get_info/all_clan",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_all_clan(self, **kw):
+        # don't return not website_published if not same member
+        value = {
+            a.id: {
+                "id": a.id,
+                "name": a.name,
+                "autre_information": a.autre_information,
+                "besoin_comble": a.besoin_comble,
+                "organisation": a.organisation,
+                "ville_region": a.ville_region,
+                "valeur_clan": a.valeur_clan,
+                "membre_list_count": a.membre_list_count,
+                "website_published": a.website_published,
+                "distance": "8m",
+                "membre_create_id": a.membre_create_id.id,
+                "membre_create": {
+                    "id": a.membre_create_id.id,
+                    "name": a.membre_create_id.name,
+                },
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+            }
+            for a in http.request.env["ore.clan"]
+            .sudo()
+            .search([("website_published", "=", True)])
+        }
+        return value
+
+    @http.route(
         ["/ore/ore_clan_list"], type="json", auth="public", website=True
     )
     def get_ore_clan_list(self):
         env = request.env(context=dict(request.env.context))
 
         ore_clan_cls = env["ore.clan"]
-        ore_clan_ids = ore_clan_cls.sudo().search([]).ids
-        ore_clan_s = ore_clan_cls.sudo().browse(ore_clan_ids)
+        ore_clan_ids = ore_clan_cls.sudo().search(
+            [("website_published", "=", True)]
+        )
+        demande_services_count = ore_clan_cls.sudo().search_count(
+            [("website_published", "=", True)]
+        )
 
-        dct_value = {"ore_clan_s": ore_clan_s}
+        lst_time_diff_clan = []
+        timedate_now = datetime.now()
+        # fr_CA not exist
+        # check .venv/lib/python3.7/site-packages/humanize/locale/
+        _t = humanize.i18n.activate("fr_FR")
+        for ore_clan_id in ore_clan_ids:
+            diff_time = timedate_now - ore_clan_id.create_date
+            str_diff_time = humanize.naturaltime(diff_time).capitalize() + "."
+            lst_time_diff_clan.append(str_diff_time)
+        humanize.i18n.deactivate()
+
+        dct_value = {
+            "ore_clan_ids": ore_clan_ids,
+            "clan_count": demande_services_count,
+            "lst_time_clan": lst_time_diff_clan,
+        }
 
         # Render page
         return request.env["ir.ui.view"].render_template(
@@ -3176,6 +3232,34 @@ class OREController(http.Controller):
         # Render page
         return request.env["ir.ui.view"].render_template(
             "website_ore.template_offre_ou_demande_de_service_generic",
+        )
+
+    @http.route(
+        [
+            "/ore/template/clan_generic",
+        ],
+        type="http",
+        auth="user",
+        website=True,
+    )
+    def get_template_clan_generic(self, **kw):
+        # Render page
+        return request.env["ir.ui.view"].render_template(
+            "website_ore.template_clan_generic",
+        )
+
+    @http.route(
+        [
+            "/ore/template/clan_details_generic",
+        ],
+        type="http",
+        auth="user",
+        website=True,
+    )
+    def get_template_clan_generic_generic(self, **kw):
+        # Render page
+        return request.env["ir.ui.view"].render_template(
+            "website_ore.template_clan_details_generic",
         )
 
     @http.route(

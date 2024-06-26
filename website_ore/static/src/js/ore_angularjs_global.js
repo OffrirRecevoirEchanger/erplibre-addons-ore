@@ -175,6 +175,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.echange_service_info = {}
         $scope.dct_echange_service_info = {}
         $scope.nb_offre_service = 0;
+        $scope.dct_clan_info = {}
         $scope.animation_controller_enable = false;
         $scope.url_debug = "";
         $scope.modify_label_when_empty = "Modifiez moi!"
@@ -1587,6 +1588,25 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     console.error($scope.error);
                 } else {
                     $scope.dct_offre_service_info = data;
+                }
+
+                // Process all the angularjs watchers
+                $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
+            })
+            ajax.jsonRpc("/ore/get_info/all_clan", "call", {}).then(function (data) {
+                console.debug("AJAX receive /ore/get_info/all_clan");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty '/ore/get_info/all_clan' data";
+                    console.error($scope.error);
+                } else {
+                    $scope.dct_clan_info = data;
+                    console.debug(data);
                 }
 
                 // Process all the angularjs watchers

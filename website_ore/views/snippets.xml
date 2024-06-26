@@ -13,7 +13,7 @@
         </section>
     </template>
     <template id="s_ore" name="Ore">
-        <section class="o_ore">
+        <section class="o_ore_liste_clan">
             <div class="container" />
         </section>
     </template>

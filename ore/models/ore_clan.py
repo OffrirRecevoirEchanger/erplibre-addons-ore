@@ -7,6 +7,21 @@ class OreClan(models.Model):
 
     name = fields.Char()
 
+    active = fields.Boolean(
+        string="Actif",
+        default=True,
+        help=(
+            "Lorsque non actif, ce clan n'est plus en fonction,"
+            " mais demeure accessible pour consultation historique."
+        ),
+    )
+
+    # TODO not supported approuve
+    approuve = fields.Boolean(
+        string="Approuvé",
+        help="Permet d'approuver ce clan.",
+    )
+
     autre_information = fields.Text()
 
     besoin_comble = fields.Text()
@@ -40,7 +55,17 @@ class OreClan(models.Model):
         store=True,
     )
 
+    website_published = fields.Boolean(
+        string="Clan rendu public",
+        default=True,
+        help="Le clan est publiée, sinon il est privée.",
+    )
+
     @api.depends("membre_list_ids")
     def _compute_membre_list_count(self):
         for rec in self:
             rec.membre_list_count = len(rec.membre_list_ids)
+
+    def website_publish_button(self):
+        self.ensure_one()
+        return self.write({"website_published": not self.website_published})
