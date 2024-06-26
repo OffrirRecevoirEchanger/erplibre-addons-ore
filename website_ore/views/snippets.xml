@@ -12,6 +12,11 @@
             <div class="container" />
         </section>
     </template>
+    <template id="s_ore" name="Ore">
+        <section class="o_ore">
+            <div class="container" />
+        </section>
+    </template>
     <!-- Add snippets to menu -->
     <template id="snippet_structure" inherit_id="website.snippets">
         <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
@@ -23,6 +28,7 @@
                 t-snippet="website_ore.s_ore_liste_type_service_categorie"
                 t-thumbnail="/website_ore/static/description/icon.png"
             />
+            <t t-snippet="website_ore.s_ore" t-thumbnail="/ore/static/description/icon.png" />
         </xpath>
     </template>
 </odoo>

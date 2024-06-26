@@ -119,6 +119,25 @@ class OREController(http.Controller):
         )
 
     @http.route(
+        ["/ore/ore_clan/<int:ore_clan>"],
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def get_page_ore_clan(self, ore_clan=None):
+        env = request.env(context=dict(request.env.context))
+
+        ore_clan_cls = env["ore.clan"]
+        if ore_clan:
+            ore_clan_id = ore_clan_cls.sudo().browse(ore_clan).exists()
+        else:
+            ore_clan_id = None
+        dct_value = {"ore_clan_id": ore_clan_id}
+
+        # Render page
+        return request.render("website_ore.ore_clan_unit", dct_value)
+
+    @http.route(
         [
             "/ore/set_clan_actual_member/<model('ore.clan'):clan_id>",
         ],
@@ -191,6 +210,23 @@ class OREController(http.Controller):
             if a.membre.id == me_membre_id.id or a.website_published
         }
         return value
+
+    @http.route(
+        ["/ore/ore_clan_list"], type="json", auth="public", website=True
+    )
+    def get_ore_clan_list(self):
+        env = request.env(context=dict(request.env.context))
+
+        ore_clan_cls = env["ore.clan"]
+        ore_clan_ids = ore_clan_cls.sudo().search([]).ids
+        ore_clan_s = ore_clan_cls.sudo().browse(ore_clan_ids)
+
+        dct_value = {"ore_clan_s": ore_clan_s}
+
+        # Render page
+        return request.env["ir.ui.view"].render_template(
+            "website_ore.ore_clan_list", dct_value
+        )
 
     @http.route(
         [

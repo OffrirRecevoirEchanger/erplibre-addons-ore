@@ -118,6 +118,7 @@
                 type="text/javascript"
                 src="/website_ore/static/src/js/snippet_ore_liste_type_service_categorie.js"
             />
+            <script type="text/javascript" src="/website_ore/static/src/js/snippet_ore_clan.js" />
             <script type="text/javascript" src="/website_ore/static/src/js/adapt_font_color.js" />
         </xpath>
     </template>
