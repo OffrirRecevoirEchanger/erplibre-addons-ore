@@ -1741,21 +1741,17 @@ class OREController(http.Controller):
 
     @http.route(
         [
-            "/ore/get_membre_information",
+            "/ore/get_membre_information/<model('ore.membre'):membre_id>",
         ],
         type="json",
         auth="user",
         website=True,
     )
-    def get_membre_information(self, membre_id_i, **kw):
+    def get_membre_information(self, membre_id, **kw):
         # membre_id = self.get_membre_id()
         # if type(membre_id) is dict:
         #     # This is an error
         #     return membre_id
-        # TODO is it secure? The problem is res.partner who block
-        membre_id = request.env["ore.membre"].browse(membre_id_i).sudo()
-        if not membre_id:
-            raise exceptions.Warning("Cannot check member information.")
 
         actual_membre_id = self.get_membre_id()
         if type(actual_membre_id) is dict:

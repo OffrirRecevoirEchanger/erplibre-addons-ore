@@ -1551,7 +1551,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.update_db_my_personal_info();
 
         $scope.update_membre_info = function (membre_id, scope_var_name_to_update) {
-            ajax.jsonRpc("/ore/get_membre_information", "call", {"membre_id_i": membre_id}).then(function (data) {
+            ajax.jsonRpc("/ore/get_membre_information/" + membre_id, "call", {}).then(function (data) {
                 console.debug("AJAX receive get_membre_information");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
