@@ -2257,6 +2257,27 @@
                             </div>
                         </nav>
                         <nav class="profil_main">
+                            <div
+                                class="profil profil_left profil_box btn btn-primary adapt-text-primary-color"
+                                ng-if="!ask_modification_clan &amp;&amp; !page_communaute_clan_info_is_into_clan"
+                                ng-click="request_join_clan()"
+                            >
+                                <span
+                                    class="img img-fluid mx-auto fa"
+                                    ng-class="{'fa-pencil': !page_communaute_clan_info_is_waiting_invitation_to_clan, 'fa-times-circle': page_communaute_clan_info_is_waiting_invitation_to_clan}"
+                                />
+                                <span ng-if="!page_communaute_clan_info_is_invite_to_clan">
+                                    <span ng-if="page_communaute_clan_info_is_waiting_invitation_to_clan">
+                                        En attente de rejoindre le clan, appuyer pour annuler
+                                    </span>
+                                    <span ng-if="!page_communaute_clan_info_is_waiting_invitation_to_clan">
+                                        Demande de rejoindre le clan
+                                    </span>
+                                </span>
+                                <span ng-if="page_communaute_clan_info_is_invite_to_clan">
+                                    Accepter l'invitation pour rejoindre le clan
+                                </span>
+                            </div>
                             <!--                                                    <div class="profil profil_main profil_box btn btn-primary adapt-text-primary-color" style="right: 50px;" ng-click="add_to_my_favorite('ore.membre', page_presentation_membre_info)">-->
                             <!--                                                        <span class="img img-fluid mx-auto fa coeur" ng-class="{'fa-heart': page_presentation_membre_info.is_favorite, 'fa-heart-o': !page_presentation_membre_info.is_favorite}" />-->
                             <!--                                                        <span class="adapt-text-primary-color" ng-if="!page_presentation_membre_info.is_favorite">Ajouter à mes favoris</span>-->

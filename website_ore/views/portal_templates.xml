@@ -153,7 +153,7 @@
                                 t-if="not user_id._is_public()"
                                 ng-if="personal.my_clan.id > 0"
                             >
-                                <a class="nav-link" role="menu_item" href="/communaute/actualite">
+                                <a class="nav-link" role="menu_item" href="/communaute/clan">
                                     <span
                                         data-oe-model="website.menu"
                                         data-oe-id="2"
@@ -724,9 +724,9 @@
                                         <i class="fa fa-newspaper-o icon_padding_right" />
                                         Mes annonces publiées
                                     </a>
-                                    <a class="dropdown-item" t-attf-href="/communaute/actualite" role="menuitem">
+                                    <a class="dropdown-item" t-attf-href="/communaute/clan" role="menuitem">
                                         <i class="fa fa-eye icon_padding_right" />
-                                        Mon ore
+                                        Mon clan
                                     </a>
                                     <a class="dropdown-item" t-attf-href="/monprofil/mespreferences" role="menuitem">
                                         <i class="fa fa-gear icon_padding_right" />

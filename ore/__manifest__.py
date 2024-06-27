@@ -17,6 +17,7 @@
         "views/ore_arrondissement.xml",
         "views/ore_clan.xml",
         "views/ore_clan_group.xml",
+        "views/ore_clan_invitation.xml",
         "views/ore_commentaire.xml",
         "views/ore_demande_adhesion.xml",
         "views/ore_demande_service.xml",

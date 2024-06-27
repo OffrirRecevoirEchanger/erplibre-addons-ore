@@ -47,6 +47,20 @@ class OreClan(models.Model):
         relation="membre_clan_participe_rel",
     )
 
+    invitation_by_admin_ids = fields.One2many(
+        comodel_name="ore.clan.invitation",
+        string="Invitation par admin",
+        inverse_name="clan_id",
+        domain=[("invite_by_admin_clan", "=", True)],
+    )
+
+    invitation_asked_ids = fields.One2many(
+        comodel_name="ore.clan.invitation",
+        string="Invitation demandé",
+        inverse_name="clan_id",
+        domain=[("ask_join_clan", "=", True)],
+    )
+
     valeur_clan = fields.Text()
 
     membre_list_count = fields.Integer(
@@ -69,3 +83,16 @@ class OreClan(models.Model):
     def website_publish_button(self):
         self.ensure_one()
         return self.write({"website_published": not self.website_published})
+
+    @api.multi
+    def write(self, vals):
+        status = super().write(vals)
+
+        # Detect user
+        if "membre_list_ids" in vals:
+            for rec in self:
+                # We know the list of member has update, check if all members has principal clan
+                for membre_id in rec.membre_list_ids:
+                    if not membre_id.clan_principal_id:
+                        membre_id.clan_principal_id = rec.id
+        return status

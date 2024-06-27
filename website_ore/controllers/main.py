@@ -7,7 +7,7 @@ import humanize
 import pytz
 import requests
 
-from odoo import _, fields, http
+from odoo import _, exceptions, fields, http
 from odoo.http import request
 from odoo.tools.image import image_data_uri
 
@@ -1395,6 +1395,50 @@ class OREController(http.Controller):
         else:
             personnal_data["all_my_clan"] = []
 
+        invitation_ids = (
+            request.env["ore.clan.invitation"]
+            .sudo()
+            .search([("email", "=", membre_id.email)])
+        )
+        personnal_data["all_my_invited_clan"] = [
+            {
+                "name": invitation_id.clan_id.name,
+                "id": invitation_id.clan_id.id,
+                "description": invitation_id.clan_id.description,
+                "besoin_comble": invitation_id.clan_id.besoin_comble,
+                "organisation": invitation_id.clan_id.organisation,
+                "ville_region": invitation_id.clan_id.ville_region,
+                "valeur_clan": invitation_id.clan_id.valeur_clan,
+                "membre_list_count": invitation_id.clan_id.membre_list_count,
+                "is_clan_admin": membre_id.id
+                in invitation_id.clan_id.membre_admin_ids.ids,
+                "str_diff_time_creation": self._transform_str_diff_time_creation(
+                    invitation_id.clan_id.create_date
+                ),
+            }
+            for invitation_id in invitation_ids
+            if invitation_id.invite_by_admin_clan
+        ]
+        personnal_data["all_my_waiting_invitation_clan"] = [
+            {
+                "name": invitation_id.clan_id.name,
+                "id": invitation_id.clan_id.id,
+                "description": invitation_id.clan_id.description,
+                "besoin_comble": invitation_id.clan_id.besoin_comble,
+                "organisation": invitation_id.clan_id.organisation,
+                "ville_region": invitation_id.clan_id.ville_region,
+                "valeur_clan": invitation_id.clan_id.valeur_clan,
+                "membre_list_count": invitation_id.clan_id.membre_list_count,
+                "is_clan_admin": membre_id.id
+                in invitation_id.clan_id.membre_admin_ids.ids,
+                "str_diff_time_creation": self._transform_str_diff_time_creation(
+                    invitation_id.clan_id.create_date
+                ),
+            }
+            for invitation_id in invitation_ids
+            if invitation_id.ask_join_clan
+        ]
+
         data = {
             "global": {
                 "dbname": http.request.env.cr.dbname,
@@ -1472,20 +1516,103 @@ class OREController(http.Controller):
         status, msg = request.env["ore.demande.adhesion"].validate_email(email)
         if not status:
             return {"error": msg}
+        email_normalized = msg
         # msg contain normalize email
         value_adhesion = {
-            "courriel": msg,
+            "courriel": email_normalized,
             "invitation_from_membre_id": membre_id.id,
             "only_invitation": True,
         }
         clan_id = kw.get("clan_id")
         if clan_id:
             value_adhesion["clan_id"] = clan_id
+            value_invitation = {
+                "email": email_normalized,
+                "clan_id": clan_id,
+                "invite_by_admin_clan": True,
+            }
+            request.env["ore.clan.invitation"].sudo().create(value_invitation)
         adhesion_id = request.env["ore.demande.adhesion"].create(
             value_adhesion
         )
         adhesion_id.send_invitation_per_email_to_adhesion()
         return {"data": True}
+
+    @http.route(
+        "/ore/request_join_clan/submit",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def ore_request_join_clan_form_submit(self, clan_id, **kw):
+        membre_id = self.get_membre_id()
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
+        # TODO implement logic depend on configuration of the clan
+        invitation_ids = (
+            request.env["ore.clan.invitation"]
+            .sudo()
+            .search(
+                [
+                    ("email", "=", membre_id.email),
+                    ("clan_id", "=", clan_id),
+                    ("invite_by_admin_clan", "=", True),
+                ]
+            )
+        )
+        status = True
+        if invitation_ids:
+            # Was invite by admin clan
+            for invitation_id in invitation_ids:
+                invitation_id.active = False
+                invitation_id.clan_id.membre_list_ids = [(4, membre_id.id)]
+        else:
+            invitation_ids = (
+                request.env["ore.clan.invitation"]
+                .sudo()
+                .search(
+                    [
+                        ("email", "=", membre_id.email),
+                        ("clan_id", "=", clan_id),
+                        ("ask_join_clan", "=", True),
+                    ]
+                )
+            )
+            if invitation_ids:
+                # Cancel it
+                for invitation_id in invitation_ids:
+                    invitation_id.active = False
+            else:
+                # Check if already exist to not duplicate
+                invitation_ids = (
+                    request.env["ore.clan.invitation"]
+                    .sudo()
+                    .search(
+                        [
+                            ("email", "=", membre_id.email),
+                            ("clan_id", "=", clan_id),
+                            ("active", "=", False),
+                        ]
+                    )
+                )
+                if invitation_ids:
+                    for invitation_id in invitation_ids:
+                        invitation_id.active = True
+                        invitation_id.invite_by_admin_clan = False
+                        invitation_id.ask_join_clan = True
+                else:
+                    # Ask to join the clan
+                    value_invitation = {
+                        "email": membre_id.email,
+                        "clan_id": clan_id,
+                        "ask_join_clan": True,
+                    }
+                    request.env["ore.clan.invitation"].sudo().create(
+                        value_invitation
+                    )
+        return {"status": status}
 
     @http.route(
         "/ore/personal_information/submit",
@@ -1729,6 +1856,27 @@ class OREController(http.Controller):
             ]
         else:
             data_membre_info["all_my_clan"] = []
+        invitation_ids = (
+            request.env["ore.clan.invitation"]
+            .sudo()
+            .search([("email", "=", membre_id.email)])
+        )
+        data_membre_info["all_my_invited_clan"] = [
+            {
+                "name": invitation_id.clan_id.name,
+                "id": invitation_id.clan_id.id,
+            }
+            for invitation_id in invitation_ids
+            if invitation_id.invite_by_admin_clan
+        ]
+        data_membre_info["all_my_waiting_invitation_clan"] = [
+            {
+                "name": invitation_id.clan_id.name,
+                "id": invitation_id.clan_id.id,
+            }
+            for invitation_id in invitation_ids
+            if invitation_id.ask_join_clan
+        ]
 
         return {"membre_info": data_membre_info}
 

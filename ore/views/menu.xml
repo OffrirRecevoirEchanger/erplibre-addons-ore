@@ -96,6 +96,14 @@
     />
 
     <menuitem
+        id="menu_clan_invitation"
+        name="Invitation"
+        action="ore_clan_invitation_clan_action_window"
+        sequence="3"
+        parent="group_clan"
+    />
+
+    <menuitem
         id="demande_d_adhesion"
         name="Demande d'adh&#233;sion"
         action="ore_demande_adhesion_demande_d_adhesion_action_window"

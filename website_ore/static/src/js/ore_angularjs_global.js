@@ -136,6 +136,8 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 id: 0,
             },
             all_my_clan: [],
+            all_my_invited_clan: [],
+            all_my_waiting_invitation_clan: [],
             dct_offre_service: {},
             dct_demande_service: {},
             dct_offre_service_favoris: {},
@@ -166,6 +168,8 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.membre_info = {}
         $scope.page_presentation_membre_info = {}
         $scope.page_communaute_clan_info = {}
+        $scope.page_communaute_clan_info_is_into_clan = false;
+        $scope.page_communaute_clan_info_is_invite_to_clan = false;
         $scope.force_clan_id = 0;
         $scope.dct_membre = {}
         $scope.contact_info = {}
@@ -981,6 +985,33 @@ odoo.define('website.ore_angularjs_global', function (require) {
             }
         }
 
+        $scope.request_join_clan = function() {
+            let form = {};
+            form["clan_id"] = $scope.page_communaute_clan_info.id;
+            if (!_.isEmpty(form)) {
+                let url = "/ore/request_join_clan/submit";
+                ajax.jsonRpc(url, "call", form).then(function (data) {
+                    console.debug("AJAX receive submit_form request_join_clan");
+                    console.debug(data);
+
+                    if (data.error) {
+                        $scope.error = data.error;
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty data - " + url;
+                    } else {
+                        // Force to reload, more easy!
+                        window.location.reload();
+                    }
+                    console.error("miss");
+                    // Process all the angularjs watchers
+                    $scope.$digest();
+                }).fail(function (error, ev) {
+                    console.error(error);
+                    $scope.check_need_login(error);
+                })
+            }
+        }
+
         $scope.invite_from_email_to_join_clan = function() {
             let form = {
                 "clan_id": $scope.personal.my_clan.id,
@@ -1473,16 +1504,23 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     } else {
                         $scope.force_clan_id = 0;
                     }
+                    $scope.page_communaute_clan_info_is_into_clan = false;
+                    $scope.page_communaute_clan_info_is_invite_to_clan = false;
                     if ($scope.force_clan_id > 0) {
                         $scope.update_db_list_membre($scope.force_clan_id);
                         $scope.page_communaute_clan_info = $scope.dct_clan_info[$scope.force_clan_id];
                         console.debug("Information from force_clan_id");
                         console.debug($scope.page_communaute_clan_info);
+                        $scope.page_communaute_clan_info_is_into_clan = $scope.personal.all_my_clan.filter((word) => word.id === $scope.force_clan_id).length > 0;
+                        $scope.page_communaute_clan_info_is_invite_to_clan = $scope.personal.all_my_invited_clan.filter((word) => word.id === $scope.force_clan_id).length > 0;
+                        $scope.page_communaute_clan_info_is_waiting_invitation_to_clan = $scope.personal.all_my_waiting_invitation_clan.filter((word) => word.id === $scope.force_clan_id).length > 0;
                     } else if (!_.isUndefined($scope.personal.my_clan)) {
                         $scope.update_db_list_membre($scope.personal.my_clan.id);
                         $scope.page_communaute_clan_info = $scope.personal.my_clan;
                         console.debug("Information page_communaute_clan_info");
                         console.debug($scope.page_communaute_clan_info);
+                        $scope.page_communaute_clan_info_is_into_clan = true;
+                        $scope.page_communaute_clan_info_is_invite_to_clan = false;
                     } else {
                         console.error("Cannot associate personal variable with his network data. " +
                             "Talk to an administrator, your are lost!");

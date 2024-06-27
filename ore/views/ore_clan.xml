@@ -43,6 +43,14 @@
                                 <field name="membre_list_ids" />
                             </group>
                         </page>
+                        <page string="Invitation">
+                            <group string="Part l'administrateur du clan">
+                                <field name="invitation_by_admin_ids" />
+                            </group>
+                            <group string="Demande d'intégration">
+                                <field name="invitation_asked_ids" />
+                            </group>
+                        </page>
                     </notebook>
                 </sheet>
             </form>

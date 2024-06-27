@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="ore_clan_invitation_view_form" model="ir.ui.view">
+        <field name="name">ore_clan_invitation_form</field>
+        <field name="model">ore.clan.invitation</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-archive" name="toggle_active" type="object">
+                            <field name="active" widget="boolean_button" />
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="email" class="oe_edit_only" />
+                        <h1>
+                            <field name="email" />
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="clan_id" />
+                        <field name="invite_by_admin_clan" />
+                        <field name="ask_join_clan" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ore_clan_invitation_view_graph" model="ir.ui.view">
+        <field name="name">ore_clan_invitation_graph</field>
+        <field name="model">ore.clan.invitation</field>
+        <field name="arch" type="xml">
+            <graph string="Ore clan invitation">
+                <field name="email" type="row" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="ore_clan_invitation_view_kanban" model="ir.ui.view">
+        <field name="name">ore_clan_invitation_kanban</field>
+        <field name="model">ore.clan.invitation</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="email" />
+                <field name="clan_id" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="email" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="clan_id" />
+                                        </strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="ore_clan_invitation_view_pivot" model="ir.ui.view">
+        <field name="name">ore_clan_invitation_pivot</field>
+        <field name="model">ore.clan.invitation</field>
+        <field name="arch" type="xml">
+            <pivot string="Ore clan">
+                <field name="email" type="row" />
+                <field name="clan_id" type="row" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="ore_clan_invitation_view_search" model="ir.ui.view">
+        <field name="name">ore_clan_invitation_search</field>
+        <field name="model">ore.clan.invitation</field>
+        <field name="arch" type="xml">
+            <search string="Ore clan">
+                <filter domain="[('email','!=',False)]" name="email" string="Email" />
+                <filter domain="[('clan_id','!=',False)]" name="clan_id" string="Clan associate exist" />
+            </search>
+        </field>
+    </record>
+
+    <record id="ore_clan_invitation_view_tree" model="ir.ui.view">
+        <field name="name">ore_clan_invitation_tree</field>
+        <field name="model">ore.clan.invitation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="email" />
+                <field name="clan_id" />
+                <field name="invite_by_admin_clan" />
+                <field name="ask_join_clan" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="ore_clan_invitation_clan_action_window"
+        name="Clan"
+        res_model="ore.clan.invitation"
+        view_mode="kanban,tree,pivot,graph,form"
+    />
+</odoo>
