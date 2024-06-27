@@ -332,9 +332,9 @@
         <!--                                            />-->
         <!--                                            <h4 t-if="not ore_clan.name" class="o_default_snippet_text">EMPTY</h4>-->
         <!--                                            <p-->
-        <!--                                                t-if="ore_clan.autre_information"-->
+        <!--                                                t-if="ore_clan.description"-->
         <!--                                                class="o_default_snippet_text"-->
-        <!--                                                t-field="ore_clan.autre_information"-->
+        <!--                                                t-field="ore_clan.description"-->
         <!--                                            />-->
         <!--                                            <p-->
         <!--                                                t-if="ore_clan.besoin_comble"-->
@@ -1517,7 +1517,7 @@
                                         <textarea
                                             ng-if="form_is_ctc_form(state)"
                                             class="form_desc"
-                                            ng-model="form.clan_autre_information"
+                                            ng-model="form.clan_description"
                                         />
 
                                         <div ng-if="form_is_service(state)">
@@ -2227,7 +2227,7 @@
                             <div
                                 class="profil profil_right profil_box btn btn-primary adapt-text-primary-color"
                                 ng-if="page_communaute_clan_info.is_clan_admin &amp;&amp; ask_modification_clan"
-                                ng-click="annuler_ask_modification_clan()"
+                                ng-click="annuler_ask_mo dification_clan()"
                             >
                                 <span class="img img-fluid mx-auto fa fa-close" />
                                 Annuler les modifications
@@ -2339,21 +2339,21 @@
 
                     <div
                         class="nbr"
-                        ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.autre_information)}"
-                        ng-show="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.autre_information) &amp;&amp; !_.isEmpty(page_communaute_clan_info.autre_information)"
+                        ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.description)}"
+                        ng-show="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.description) &amp;&amp; !_.isEmpty(page_communaute_clan_info.description)"
                     >
                         <span class="txt">Autres informations</span>
                         <div
                             ng-if="!ask_modification_clan"
                             class="nbr"
                             ng-cloak=""
-                            ng-bind-html="page_communaute_clan_info.autre_information | unsafe"
+                            ng-bind-html="page_communaute_clan_info.description | unsafe"
                         />
                         <q
                             ng-if="ask_modification_clan"
                             class="editable-content-blue"
                             contenteditable="true"
-                            ng-model="page_communaute_clan_info.autre_information"
+                            ng-model="page_communaute_clan_info.description"
                         />
                     </div>
                 </div>

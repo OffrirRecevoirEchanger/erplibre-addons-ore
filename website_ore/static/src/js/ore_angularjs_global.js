@@ -198,7 +198,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.ask_modification_clan = false;
         $scope.ask_modif_clan_copy = {
             name: "",
-            autre_information: "",
+            description: "",
             valeur_clan: "",
             ville_region: "",
             organisation: "",
@@ -485,7 +485,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             $scope.page_communaute_clan_info.ville_region = $scope.ask_modif_clan_copy.ville_region;
             $scope.page_communaute_clan_info.organisation = $scope.ask_modif_clan_copy.organisation;
             $scope.page_communaute_clan_info.besoin_comble = $scope.ask_modif_clan_copy.besoin_comble;
-            $scope.page_communaute_clan_info.autre_information = $scope.ask_modif_clan_copy.autre_information;
+            $scope.page_communaute_clan_info.description = $scope.ask_modif_clan_copy.description;
         };
 
         $scope.mode_edit_clan = function () {
@@ -546,15 +546,15 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 $scope.ask_modif_clan_copy.besoin_comble = undefined;
             }
 
-            if (!_.isUndefined($scope.page_communaute_clan_info.autre_information)) {
-                if (_.isEmpty($scope.page_communaute_clan_info.autre_information)) {
-                    $scope.page_communaute_clan_info.autre_information = $scope.modify_label_when_empty;
-                    $scope.ask_modif_clan_copy.autre_information = "";
+            if (!_.isUndefined($scope.page_communaute_clan_info.description)) {
+                if (_.isEmpty($scope.page_communaute_clan_info.description)) {
+                    $scope.page_communaute_clan_info.description = $scope.modify_label_when_empty;
+                    $scope.ask_modif_clan_copy.description = "";
                 } else {
-                    $scope.ask_modif_clan_copy.autre_information = JSON.parse(JSON.stringify($scope.page_communaute_clan_info.autre_information));
+                    $scope.ask_modif_clan_copy.description = JSON.parse(JSON.stringify($scope.page_communaute_clan_info.description));
                 }
             } else {
-                $scope.ask_modif_clan_copy.autre_information = undefined;
+                $scope.ask_modif_clan_copy.description = undefined;
             }
 
         }
@@ -569,11 +569,11 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 form["name"] = $scope.page_communaute_clan_info.name;
             }
 
-            if ($scope.page_communaute_clan_info.autre_information === $scope.modify_label_when_empty) {
-                $scope.page_communaute_clan_info.autre_information = "";
+            if ($scope.page_communaute_clan_info.description === $scope.modify_label_when_empty) {
+                $scope.page_communaute_clan_info.description = "";
             }
-            if ($scope.ask_modif_clan_copy.autre_information !== $scope.page_communaute_clan_info.autre_information) {
-                form["autre_information"] = $scope.page_communaute_clan_info.autre_information;
+            if ($scope.ask_modif_clan_copy.description !== $scope.page_communaute_clan_info.description) {
+                form["description"] = $scope.page_communaute_clan_info.description;
             }
 
             if ($scope.page_communaute_clan_info.valeur_clan === $scope.modify_label_when_empty) {

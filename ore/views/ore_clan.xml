@@ -29,7 +29,7 @@
                         <field name="ville_region" />
                         <field name="organisation" />
                         <field name="valeur_clan" />
-                        <field name="autre_information" />
+                        <field name="description" />
                     </group>
                     <notebook>
                         <page string="Membre">
@@ -55,7 +55,7 @@
         <field name="arch" type="xml">
             <graph string="Ore clan">
                 <field name="name" type="row" />
-                <field name="autre_information" type="row" />
+                <field name="description" type="row" />
                 <field name="besoin_comble" type="row" />
                 <field name="membre_create_id" type="row" />
                 <field name="valeur_clan" type="row" />
@@ -69,7 +69,7 @@
         <field name="arch" type="xml">
             <kanban class="o_kanban_mobile">
                 <field name="name" />
-                <field name="autre_information" />
+                <field name="description" />
                 <field name="besoin_comble" />
                 <field name="membre_admin_ids" />
                 <field name="membre_create_id" />
@@ -87,7 +87,7 @@
                                     </li>
                                     <li class="mb4">
                                         <strong>
-                                            <field name="autre_information" />
+                                            <field name="description" />
                                         </strong>
                                     </li>
                                     <li class="mb4">
@@ -130,7 +130,7 @@
         <field name="arch" type="xml">
             <pivot string="Ore clan">
                 <field name="name" type="row" />
-                <field name="autre_information" type="row" />
+                <field name="description" type="row" />
                 <field name="besoin_comble" type="row" />
                 <field name="membre_create_id" type="row" />
                 <field name="valeur_clan" type="row" />
@@ -144,11 +144,7 @@
         <field name="arch" type="xml">
             <search string="Ore clan">
                 <filter domain="[('name','!=',False)]" name="name" string="Name" />
-                <filter
-                    domain="[('autre_information','!=',False)]"
-                    name="autre_information"
-                    string="Autre Information"
-                />
+                <filter domain="[('description','!=',False)]" name="description" string="Autre Information" />
                 <filter domain="[('besoin_comble','!=',False)]" name="besoin_comble" string="Besoin Comble" />
                 <filter domain="[('membre_admin_ids','!=',False)]" name="membre_admin_ids" string="Membre Admin" />
                 <filter domain="[('membre_create_id','!=',False)]" name="membre_create_id" string="Membre Create" />
@@ -164,7 +160,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name" />
-                <field name="autre_information" />
+                <field name="description" />
                 <field name="besoin_comble" />
                 <field name="membre_admin_ids" />
                 <field name="membre_create_id" />

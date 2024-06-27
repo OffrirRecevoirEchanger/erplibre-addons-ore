@@ -225,7 +225,7 @@ class OREController(http.Controller):
             a.id: {
                 "id": a.id,
                 "name": a.name,
-                "autre_information": a.autre_information,
+                "description": a.description,
                 "besoin_comble": a.besoin_comble,
                 "organisation": a.organisation,
                 "ville_region": a.ville_region,
@@ -1322,9 +1322,9 @@ class OREController(http.Controller):
             "dct_echange": dct_echange,
         }
         if membre_id.clan_principal_id:
-            autre_information = (
-                membre_id.clan_principal_id.autre_information
-                if membre_id.clan_principal_id.autre_information
+            description = (
+                membre_id.clan_principal_id.description
+                if membre_id.clan_principal_id.description
                 else ""
             )
             besoin_comble = (
@@ -1355,7 +1355,7 @@ class OREController(http.Controller):
             personnal_data["my_clan"] = {
                 "name": name,
                 "id": membre_id.clan_principal_id.id,
-                "autre_information": autre_information,
+                "description": description,
                 "besoin_comble": besoin_comble,
                 "organisation": organisation,
                 "ville_region": ville_region,
@@ -1378,7 +1378,7 @@ class OREController(http.Controller):
                 {
                     "name": clan_id.name,
                     "id": clan_id.id,
-                    "autre_information": clan_id.autre_information,
+                    "description": clan_id.description,
                     "besoin_comble": clan_id.besoin_comble,
                     "organisation": clan_id.organisation,
                     "ville_region": clan_id.ville_region,
@@ -1432,9 +1432,9 @@ class OREController(http.Controller):
         if "name" in kw.keys():
             principal_clan_id.name = name
 
-        autre_information = kw.get("autre_information")
-        if "autre_information" in kw.keys():
-            principal_clan_id.autre_information = autre_information
+        description = kw.get("description")
+        if "description" in kw.keys():
+            principal_clan_id.description = description
 
         valeur_clan = kw.get("valeur_clan")
         if "valeur_clan" in kw.keys():
@@ -2708,10 +2708,8 @@ class OREController(http.Controller):
                 value_clan["ville_region"] = kw.get("clan_ville_region")
             if kw.get("clan_organisation"):
                 value_clan["organisation"] = kw.get("clan_organisation")
-            if kw.get("clan_autre_information"):
-                value_clan["autre_information"] = kw.get(
-                    "clan_autre_information"
-                )
+            if kw.get("clan_description"):
+                value_clan["description"] = kw.get("clan_description")
             clan_id = http.request.env["ore.clan"].sudo().create(value_clan)
             status["clan_id"] = clan_id.id
             # if not membre_id.clan_principal_id:

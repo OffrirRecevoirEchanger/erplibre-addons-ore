@@ -22,7 +22,7 @@ class OreClan(models.Model):
         help="Permet d'approuver ce clan.",
     )
 
-    autre_information = fields.Text()
+    description = fields.Text()
 
     besoin_comble = fields.Text()
 
