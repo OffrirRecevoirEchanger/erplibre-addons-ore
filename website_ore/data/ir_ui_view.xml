@@ -142,7 +142,7 @@
                                                 <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
                                             </div>
                                         </div>
-                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.my_clan.id > 0">
+                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.all_my_clan.length > 0">
                                             <i class="fa fa-smile-o" />
                                             <span id="mon_reseau" ng-cloak="">Mon clan : {{personal.my_clan.name}}</span>
                                             <i class="fa fa-chevron-right" />
@@ -464,7 +464,7 @@
                                                 <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
                                             </div>
                                         </div>
-                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.my_clan.id > 0">
+                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.all_my_clan.length > 0">
                                             <i class="fa fa-smile-o" />
                                             <span id="mon_reseau" ng-cloak="">Mon clan : {{personal.my_clan.name}}</span>
                                             <i class="fa fa-chevron-right" />
@@ -594,7 +594,7 @@
                                                 <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
                                             </div>
                                         </div>
-                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.my_clan.id > 0">
+                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.all_my_clan.length > 0">
                                             <i class="fa fa-smile-o" />
                                             <span id="mon_reseau" ng-cloak="">Mon clan : {{personal.my_clan.name}}</span>
                                             <i class="fa fa-chevron-right" />
@@ -778,7 +778,7 @@
                                                 <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
                                             </div>
                                         </div>
-                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.my_clan.id > 0">
+                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.all_my_clan.length > 0">
                                             <i class="fa fa-smile-o" />
                                             <span id="mon_reseau" ng-cloak="">Mon clan : {{personal.my_clan.name}}</span>
                                             <i class="fa fa-chevron-right" />
@@ -2089,7 +2089,7 @@
                                                 <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
                                             </div>
                                         </div>
-                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.my_clan.id > 0">
+                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.all_my_clan.length > 0">
                                             <i class="fa fa-smile-o" />
                                             <span id="mon_reseau" ng-cloak="">Mon clan : {{personal.my_clan.name}}</span>
                                             <i class="fa fa-chevron-right" />
@@ -2886,7 +2886,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.my_clan.id > 0">
+                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.all_my_clan.length > 0">
                                             <i class="fa fa-smile-o" />
                                             <span id="mon_reseau" ng-cloak="">Mon clan : {{personal.my_clan.name}}</span>
                                             <i class="fa fa-chevron-right" />
