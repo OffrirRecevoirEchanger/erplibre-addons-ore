@@ -166,6 +166,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.membre_info = {}
         $scope.page_presentation_membre_info = {}
         $scope.page_communaute_clan_info = {}
+        $scope.force_clan_id = 0;
         $scope.dct_membre = {}
         $scope.contact_info = {}
         $scope.offre_service_info = {}
@@ -1465,9 +1466,23 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     $scope.update_personal_data();
                     console.debug($scope.personal);
 
-                    if (!_.isUndefined($scope.personal.my_clan)) {
+                    // check if input name force_clan_id exist
+                    let widget_force_clan_id = document.getElementById("force_clan_id");
+                    if (!_.isNull(widget_force_clan_id) && _.isNumber(parseInt(widget_force_clan_id.value))) {
+                        $scope.force_clan_id = parseInt(widget_force_clan_id.value);
+                    } else {
+                        $scope.force_clan_id = 0;
+                    }
+                    if ($scope.force_clan_id > 0) {
+                        $scope.update_db_list_membre($scope.force_clan_id);
+                        $scope.page_communaute_clan_info = $scope.dct_clan_info[$scope.force_clan_id];
+                        console.debug("Information from force_clan_id");
+                        console.debug($scope.page_communaute_clan_info);
+                    } else if (!_.isUndefined($scope.personal.my_clan)) {
                         $scope.update_db_list_membre($scope.personal.my_clan.id);
                         $scope.page_communaute_clan_info = $scope.personal.my_clan;
+                        console.debug("Information page_communaute_clan_info");
+                        console.debug($scope.page_communaute_clan_info);
                     } else {
                         console.error("Cannot associate personal variable with his network data. " +
                             "Talk to an administrator, your are lost!");

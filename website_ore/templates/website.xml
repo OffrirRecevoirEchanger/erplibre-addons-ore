@@ -242,6 +242,7 @@
                     <br />
                     <br />
                     <br />
+                    <input type="hidden" id="force_clan_id" t-att-value="ore_clan_id.id" />
                     <div ng-include="'/ore/template/clan_details_generic'" ng-init="show_clan_title = true;" />
                 </div>
             </div>
@@ -293,6 +294,21 @@
                                         class="activite_auteur"
                                         t-if="ore_clan_id.membre_create_id"
                                         t-field="ore_clan_id.membre_create_id"
+                                    />
+                                    <div
+                                        class="activite_auteur"
+                                        t-if="ore_clan_id.description"
+                                        t-field="ore_clan_id.description"
+                                    />
+                                    <div
+                                        class="activite_auteur"
+                                        t-if="ore_clan_id.valeur_clan"
+                                        t-field="ore_clan_id.valeur_clan"
+                                    />
+                                    <div
+                                        class="activite_auteur"
+                                        t-if="ore_clan_id.besoin_comble"
+                                        t-field="ore_clan_id.besoin_comble"
                                     />
                                     <!--                                    <span-->
                                     <!--                                        t-if="len(lst_distance_offre_service) >= offre_service_index"-->
@@ -1469,6 +1485,13 @@
                                             </div>
                                         </div>
 
+                                        <h3 ng-if="form_is_ctc_form(state)">Description</h3>
+                                        <textarea
+                                            ng-if="form_is_ctc_form(state)"
+                                            class="form_desc"
+                                            ng-model="form.clan_description"
+                                        />
+
                                         <h3 ng-if="form_is_ctc_form(state)">
                                             Besoin(s) commun(s) qui mènent à la création du clan
                                         </h3>
@@ -1511,13 +1534,6 @@
                                             ng-if="form_is_ctc_form(state)"
                                             class="form_desc"
                                             ng-model="form.clan_valeur"
-                                        />
-
-                                        <h3 ng-if="form_is_ctc_form(state)">Autres informations</h3>
-                                        <textarea
-                                            ng-if="form_is_ctc_form(state)"
-                                            class="form_desc"
-                                            ng-model="form.clan_description"
                                         />
 
                                         <div ng-if="form_is_service(state)">
@@ -2327,6 +2343,26 @@
                 <div class="information information-4">
                     <div
                         class="nbr"
+                        ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.description)}"
+                        ng-show="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.description) &amp;&amp; !_.isEmpty(page_communaute_clan_info.description)"
+                    >
+                        <span class="txt">Description</span>
+                        <div
+                            ng-if="!ask_modification_clan"
+                            class="nbr"
+                            ng-cloak=""
+                            ng-bind-html="page_communaute_clan_info.description | unsafe"
+                        />
+                        <q
+                            ng-if="ask_modification_clan"
+                            class="editable-content-blue"
+                            contenteditable="true"
+                            ng-model="page_communaute_clan_info.description"
+                        />
+                    </div>
+
+                    <div
+                        class="nbr"
                         ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.besoin_comble)}"
                         ng-show="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.besoin_comble) &amp;&amp; !_.isEmpty(page_communaute_clan_info.besoin_comble)"
                     >
@@ -2341,26 +2377,6 @@
                             class="editable-content-blue"
                             contenteditable="true"
                             ng-model="page_communaute_clan_info.besoin_comble"
-                        />
-                    </div>
-
-                    <div
-                        class="nbr"
-                        ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.description)}"
-                        ng-show="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.description) &amp;&amp; !_.isEmpty(page_communaute_clan_info.description)"
-                    >
-                        <span class="txt">Autres informations</span>
-                        <div
-                            ng-if="!ask_modification_clan"
-                            class="nbr"
-                            ng-cloak=""
-                            ng-bind-html="page_communaute_clan_info.description | unsafe"
-                        />
-                        <q
-                            ng-if="ask_modification_clan"
-                            class="editable-content-blue"
-                            contenteditable="true"
-                            ng-model="page_communaute_clan_info.description"
                         />
                     </div>
                 </div>
