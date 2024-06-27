@@ -17,7 +17,18 @@ class Users(models.Model):
                 [("courriel", "=", val.email)]
             )
             if existing_adhesion:
-                existing_adhesion.user_id = val.id
+                # Force create account
+                partner_id = self.env["res.partner"].search(
+                    [("email", "=", val.email)]
+                )
+                # Missing associate with member
+                if not partner_id.ore_membre_id:
+                    # need to create an account membre
+                    value_membre = {"partner_id": partner_id.id}
+                    ore_membre_id = self.env["ore.membre"].create(value_membre)
+                    # TODO send notification at creation if was invited to a clan
+                    existing_adhesion.fill_membre_adhesion(ore_membre_id)
+                    existing_adhesion.user_id = val.id
             else:
                 data = {
                     "courriel": val.email,

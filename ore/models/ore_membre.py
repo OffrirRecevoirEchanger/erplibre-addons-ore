@@ -362,7 +362,8 @@ class OREMembre(models.Model):
     def create(self, vals_list):
         status = super().create(vals_list)
         for stat in status:
-            stat.partner_id.ore_membre_id = stat.id
+            if not stat.partner_id.ore_membre_id:
+                stat.partner_id.ore_membre_id = stat.id
         return status
 
     @api.multi

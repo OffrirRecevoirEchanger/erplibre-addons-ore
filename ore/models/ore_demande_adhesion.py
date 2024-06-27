@@ -104,66 +104,74 @@ class OREDemandeAdhesion(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         vals = super(OREDemandeAdhesion, self).create(vals_list)
-        # Automatic accept, create member
-        if (
+        for rec in vals:
+            if rec.only_invitation:
+                continue
+            rec.fill_membre_adhesion(membre_id=None)
+        return vals
+
+    def fill_membre_adhesion(self, membre_id=None):
+        auto_approuve = (
             self.env["ir.config_parameter"]
             .sudo()
             .get_param("ore.ore_auto_accept_adhesion")
-        ):
-            default_ore_society = (
-                self.env["ir.config_parameter"]
-                .sudo()
-                .get_param("ore.ore_default_societe")
-            )
-            ore_default_free_time = (
-                self.env["ir.config_parameter"]
-                .sudo()
-                .get_param("ore.ore_default_free_time", 0)
-            )
-            if not default_ore_society:
-                raise Exception(
-                    "Need to define ORE society, please contact the"
-                    " administrator."
-                )
+        )
+        default_ore_society = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("ore.ore_default_societe")
+        )
+        default_free_time = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("ore.ore_default_free_time", 0)
+        )
+        if default_ore_society:
             society_id = self.env["ore.membre"].browse(
                 int(default_ore_society)
             )
-            # TODO move this into ore, do refactoring (merge partner and member), add configuration
-            lst_data = []
-            for rec in vals:
-                if rec.only_invitation:
-                    continue
+        else:
+            society_id = None
+        for rec in self:
+            if not membre_id:
                 data = {
-                    "profil_approuver": True,
+                    "profil_approuver": auto_approuve,
                     "name": rec.nom_complet,
                     # "parent_id": self.env.ref("base.main_partner").id,
                     # "reseau_ore_id": society_id.id,
                     "user_id": rec.user_id.id,
                     "partner_id": rec.user_id.partner_id.id,
-                    "region": society_id.region.id,
-                    "ville": society_id.ville.id,
                     "ore_client_key": uuid.uuid4().hex,
                 }
+                if society_id:
+                    data["region"] = society_id.region.id
+                    data["ville"] = society_id.ville.id
+
                 if rec.clan_id:
                     data["clan_principal_id"] = rec.clan_id.id
                     data["clan_participe_ids"] = [(6, 0, rec.clan_id.id)]
-                lst_data.append(data)
-            if lst_data:
-                membre_ids = self.env["ore.membre"].create(lst_data)
-                # Force add initial time
-                lst_data_echange = []
-                for membre_id in membre_ids:
-                    data = {
-                        "date_echange": fields.Datetime.now(),
-                        "nb_heure": float(ore_default_free_time),
-                        "type_echange": "offre_ponctuel",
-                        "transaction_valide": True,
-                        "membre_acheteur": society_id.id,
-                        "membre_vendeur": membre_id.id,
-                    }
-                    lst_data_echange.append(data)
-                self.env["ore.echange.service"].create(lst_data_echange)
-        return vals
+
+                membre_id = self.env["ore.membre"].create(data)
+            else:
+                membre_id.profil_approuver = auto_approuve
+                if not membre_id.ore_client_key:
+                    membre_id.ore_client_key = uuid.uuid4().hex
+                if rec.user_id:
+                    membre_id.user_id = rec.user_id.id
+                    if not membre_id.partner_id:
+                        membre_id.partner_id = rec.user_id.partner_id.id
+
+            # Force add initial time
+            if default_free_time:
+                data_service_time = {
+                    "date_echange": fields.Datetime.now(),
+                    "nb_heure": float(default_free_time),
+                    "type_echange": "offre_ponctuel",
+                    "transaction_valide": True,
+                    "membre_acheteur": society_id.id,
+                    "membre_vendeur": membre_id.id,
+                }
+                self.env["ore.echange.service"].create(data_service_time)
 
     @staticmethod
     def validate_email(email):
