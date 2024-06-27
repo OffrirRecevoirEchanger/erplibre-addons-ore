@@ -190,6 +190,8 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.send_invitation_msg_error = "";
         $scope.send_invitation_msg_success = "";
 
+        $scope.show_echange_membre = false;
+
         $scope.show_change_clan = false;
         $scope.change_clan_is_loading = false;
         $scope.change_clan_is_error = false;
@@ -227,6 +229,14 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.supprimeInteret = '';
         $scope.interetsCount = 0;
         $scope.languesCount = 0;
+
+        $scope.open_echange_membre = function () {
+            $scope.show_echange_membre = true;
+        }
+
+        $scope.close_echange_membre = function () {
+            $scope.show_echange_membre = false;
+        }
 
         $scope.open_change_clan = function () {
             $scope.show_change_clan = true;

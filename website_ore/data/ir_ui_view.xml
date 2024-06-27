@@ -1896,7 +1896,7 @@
                                                         <span class="img img-fluid mx-auto fa fa-save" />
                                                         Enregistrer le profil
                                                     </div>
-                                                    <div class="profil profil_right profil_box btn btn-primary btn_do_echange debug_unimplemented adapt-text-primary-color" ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel" ng-cloak="">Échanger avec {{page_presentation_membre_info.full_name}}</div>
+                                                    <div class="profil profil_right profil_box btn btn-primary btn_do_echange adapt-text-primary-color" ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel" ng-cloak="" ng-click="open_echange_membre()">Échanger avec {{page_presentation_membre_info.full_name}}</div>
                                                 </nav>
                                             </div>
                                         </div>
@@ -3477,6 +3477,37 @@
                                             <hr />
                                             <div>
                                                 <button class="cancel" ng-click="close_change_clan()">Annuler</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal fade modal_pub_offre modal_shown show" style="display:block" ng-show="show_echange_membre">
+                                <div class="modal-dialog">
+                                    <div id="s_media_block_modal" class="modal-content">
+                                        <form class="ore_form">
+                                            <p class="form_title" ng-cloak="">Échanger avec {{page_presentation_membre_info.full_name}}</p>
+                                            <br />
+                                            <!--                                            <h2>Valider un échange</h2>-->
+                                            <a ng-href="/participer#!?state=init.va.non.offert.ignore_nouveau.membre.form&amp;membre={{page_presentation_membre_info.id}}" class="btn btn-gamma rounded-circle">
+                                                <font class="adapt-text-gamma-color">Valider avoir offert un service</font>
+                                            </a>
+                                            <a ng-href="/participer#!?state=init.va.non.recu.choix.ignore_nouveau.form&amp;membre={{page_presentation_membre_info.id}}" class="btn btn-gamma rounded-circle">
+                                                <font class="adapt-text-gamma-color">Valider avoir reçu un service</font>
+                                            </a>
+                                            <hr class="debug_unimplemented" />
+                                            <a ng-href="/participer#!?state=init.saa.offrir&amp;membre={{page_presentation_membre_info.id}}" class="btn btn-gamma rounded-circle debug_unimplemented">
+                                                <font class="adapt-text-gamma-color">Planifier un échange à donner</font>
+                                            </a>
+                                            <a ng-href="/participer#!?state=init.saa.recevoir.choix&amp;membre={{page_presentation_membre_info.id}}" class="btn btn-gamma rounded-circle debug_unimplemented">
+                                                <font class="adapt-text-gamma-color">Planifier un échange à recevoir</font>
+                                            </a>
+                                            <hr />
+                                            <div>
+                                                <button class="cancel btn btn-primary rounded-circle" ng-click="close_echange_membre()">
+                                                    <font class="adapt-text-primary-color">Annuler</font>
+                                                </button>
                                             </div>
                                         </form>
                                     </div>
