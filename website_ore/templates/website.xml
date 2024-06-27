@@ -242,7 +242,7 @@
                     <br />
                     <br />
                     <br />
-                    <div ng-include="'/ore/template/clan_details_generic'" />
+                    <div ng-include="'/ore/template/clan_details_generic'" ng-init="show_clan_title = true;" />
                 </div>
             </div>
         </t>
@@ -2214,6 +2214,13 @@
                             ng-model="page_communaute_clan_info.name"
                         />
                     </span>
+                    <span
+                        class="text desc"
+                        style="font-size: 1.4rem;"
+                        ng-if="!ask_modification_clan &amp;&amp; show_clan_title"
+                    >
+                        {{page_communaute_clan_info.name}}
+                    </span>
                     <div class="container_profil">
                         <nav class="profil_left">
                             <div
@@ -2227,7 +2234,7 @@
                             <div
                                 class="profil profil_right profil_box btn btn-primary adapt-text-primary-color"
                                 ng-if="page_communaute_clan_info.is_clan_admin &amp;&amp; ask_modification_clan"
-                                ng-click="annuler_ask_mo dification_clan()"
+                                ng-click="annuler_ask_modification_clan()"
                             >
                                 <span class="img img-fluid mx-auto fa fa-close" />
                                 Annuler les modifications
