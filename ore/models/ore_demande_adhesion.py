@@ -188,7 +188,8 @@ class OREDemandeAdhesion(models.Model):
                 default_website = self.env.ref("website.default_website").id
             rec.company_website_id = default_website
             rec.url_invitation_redirect = (
-                f"http://{rec.company_website_id.domain}/chercher_clan"
+                f"http://{rec.company_website_id.domain}/ore/ore_clan/%s"
+                % rec.clan_id.id
             )
             mail_id_i = (
                 self.env.ref("ore.ore_invite_adhesion_to_clan")
