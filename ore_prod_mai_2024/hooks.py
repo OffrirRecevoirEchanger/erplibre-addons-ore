@@ -21,5 +21,16 @@ def post_init_hook(cr, e):
             [("website_id", "=", website_id.id)], order="view_id desc", limit=1
         )
         website_page_ids.unlink()
+        # Disable rule to force only see partner from same commercial company
+        env.ref("base.res_partner_portal_public_rule").active = False
+        # Remove old configuration everybody into main company
+        partner_ids = env["res.partner"].search([("is_company", "=", False)])
+        partner_main_id = env.ref("base.main_partner")
+        for partner_id in partner_ids:
+            if (
+                partner_id.parent_id
+                and partner_id.parent_id.id == partner_main_id.id
+            ):
+                partner_id.parent_id = False
 
         print("End installation ore_prod_mai_2024")
