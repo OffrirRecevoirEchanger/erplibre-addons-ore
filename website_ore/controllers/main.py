@@ -147,6 +147,9 @@ class OREController(http.Controller):
     )
     def set_clan_principal_id_actual_member(self, clan_id, **kw):
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         if clan_id.id in me_membre_id.clan_participe_ids.ids:
             me_membre_id.clan_principal_id = clan_id.id
         return {"status": True}
@@ -161,6 +164,9 @@ class OREController(http.Controller):
     )
     def get_info_offre_service(self, offre_id, **kw):
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         return {
             "id": offre_id.id,
             "description": offre_id.description,
@@ -188,6 +194,9 @@ class OREController(http.Controller):
     )
     def get_all_offre_service(self, **kw):
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         # don't return not website_published if not same member
         value = {
             a.id: {
@@ -384,6 +393,9 @@ class OREController(http.Controller):
     )
     def get_all_demande_service(self, **kw):
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         # don't return not website_published if not same member
         value = {
             a.id: {
@@ -416,6 +428,9 @@ class OREController(http.Controller):
     )
     def get_info_demande_service(self, demande_id, **kw):
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         return {
             "id": demande_id.id,
             "description": demande_id.description,
@@ -444,6 +459,9 @@ class OREController(http.Controller):
     )
     def get_info_echange_service(self, echange_id, **kw):
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         # me_membre_id = http.request.env.user.partner_id
         if (
             me_membre_id.id not in echange_id.membre_vendeur.ids
@@ -1735,7 +1753,6 @@ class OREController(http.Controller):
         #     # This is an error
         #     return membre_id
 
-        me_membre_id = self.get_membre_id()
         actual_membre_id = self.get_membre_id()
         if type(actual_membre_id) is dict:
             # This is an error
@@ -1751,7 +1768,7 @@ class OREController(http.Controller):
                 "description": a.description,
                 "titre": a.titre,
                 "website_published": a.website_published,
-                "is_favorite": me_membre_id.id in a.membre_favoris_ids.ids,
+                "is_favorite": actual_membre_id.id in a.membre_favoris_ids.ids,
                 "diff_create_date": self._transform_str_diff_time_creation(
                     a.create_date
                 ),
@@ -1769,7 +1786,7 @@ class OREController(http.Controller):
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
-                "is_favorite": me_membre_id.id in a.membre_favoris_ids.ids,
+                "is_favorite": actual_membre_id.id in a.membre_favoris_ids.ids,
                 "diff_create_date": self._transform_str_diff_time_creation(
                     a.create_date
                 ),
@@ -2889,6 +2906,9 @@ class OREController(http.Controller):
             return status
 
         membre_id = self.get_membre_id().id
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
 
         demande_service_id = None
         offre_service_id = None
@@ -3005,6 +3025,9 @@ class OREController(http.Controller):
             vals["type_echange"] = "offre_special"
 
             membre_id = self.get_membre_id().id
+            if type(membre_id) is dict:
+                # This is an error
+                return membre_id
             # if str_state_id in (
             #     "init.saa.recevoir.choix.existant.time.form",
             #     "init.saa.recevoir.choix.nouveau.form",
@@ -3141,6 +3164,9 @@ class OREController(http.Controller):
         status = {}
         website_published = kw.get("website_published")
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         if demande_id.membre.id != me_membre_id.id:
             status["error"] = (
                 "You don't have permission to change publish state of this"
@@ -3162,6 +3188,9 @@ class OREController(http.Controller):
     def ore_demande_supprimer_submit(self, demande_id, **kw):
         status = {}
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         if demande_id.membre.id != me_membre_id.id:
             status[
                 "error"
@@ -3183,6 +3212,9 @@ class OREController(http.Controller):
         status = {}
         website_published = kw.get("website_published")
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         if offre_id.membre.id != me_membre_id.id:
             status["error"] = (
                 "You don't have permission to change publish state of this"
@@ -3204,6 +3236,9 @@ class OREController(http.Controller):
     def ore_offre_supprimer_submit(self, offre_id, **kw):
         status = {}
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         if offre_id.membre.id != me_membre_id.id:
             status["error"] = "You don't have permission to delete this offre."
         else:
@@ -3224,6 +3259,9 @@ class OREController(http.Controller):
         status = {}
 
         membre_id = self.get_membre_id()
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
 
         id_record = kw.get("id_record")
         model_name = kw.get("model")
