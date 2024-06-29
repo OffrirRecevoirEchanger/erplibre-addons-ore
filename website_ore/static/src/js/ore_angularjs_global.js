@@ -210,6 +210,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             ville_region: "",
             organisation: "",
             besoin_comble: "",
+            ma_photo: "",
         };
         $scope.ask_modification_profile = false;
         $scope.ask_modif_profile_copy = {
@@ -447,7 +448,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             });
         });
 
-        $scope.updateImage = function (input) {
+        $scope.updateImageProfile = function (input) {
             let reader = new FileReader();
             reader.onload = function () {
                 $scope.$apply(function () {
@@ -500,6 +501,61 @@ odoo.define('website.ore_angularjs_global', function (require) {
             reader.readAsDataURL(input.files[0]);
         };
 
+        $scope.updateImageClan = function (input) {
+            let reader = new FileReader();
+            reader.onload = function () {
+                $scope.$apply(function () {
+                    $scope.page_communaute_clan_info.ma_photo = reader.result;
+                    $scope.show_croppie = true;
+                    if ($scope.show_croppie) {
+                        let croppie = new Croppie(document.getElementById('profile-picture'), {
+                            viewport: {width: 300, height: 300},
+                            boundary: {width: 300, height: 300},
+                            enableOrientation: true,
+                        });
+                        croppie.bind({
+                            url: $scope.page_communaute_clan_info.ma_photo,
+                            orientation: 1
+                        });
+                        $scope.destroyCroppie = function () {
+                            if (croppie) {
+                                croppie.destroy();
+                            }
+                        }
+                        $scope.clearData = function () {
+                            // TODO bug need to have ask_modif_clan_copy
+                            $scope.page_communaute_clan_info.ma_photo = $scope.ask_modif_clan_copy.ma_photo;
+                        }
+                        $scope.closeModalForm = function () {
+                            let modal = document.getElementsByClassName("modal_pub_offre");
+                            if (!_.isUndefined(modal) && !_.isEmpty(modal)) {
+                                modal[0].setAttribute('aria-hidden', 'true');
+                                // c'est nécessaire pour fermer le dialog
+                                modal[0].classList.remove('modal_shown');
+                                let backdrop = angular.element(document.querySelector(".modal-backdrop"));
+                                backdrop.remove();
+                                $scope.destroyCroppie();
+                            }
+                        }
+                        $scope.cropProfilePicture = function () {
+                            croppie.result('base64', {
+                                size: {width: 300, height: 300},
+                                type: 'base64',
+                                format: 'jpeg',
+                                quality: 1
+                            }).then(function (result) {
+                                console.debug(result);
+                                $scope.page_communaute_clan_info.ma_photo = result;
+                                $scope.show_croppie = false;
+                                $scope.closeModalForm();
+                            });
+                        };
+                    }
+                });
+            };
+            reader.readAsDataURL(input.files[0]);
+        };
+
         // Changement des pages de Clan
         $scope.annuler_ask_modification_clan = function () {
             // revert
@@ -510,6 +566,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             $scope.page_communaute_clan_info.organisation = $scope.ask_modif_clan_copy.organisation;
             $scope.page_communaute_clan_info.besoin_comble = $scope.ask_modif_clan_copy.besoin_comble;
             $scope.page_communaute_clan_info.description = $scope.ask_modif_clan_copy.description;
+            $scope.page_communaute_clan_info.ma_photo = $scope.ask_modif_clan_copy.ma_photo;
         };
 
         $scope.mode_edit_clan = function () {
@@ -581,6 +638,12 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 $scope.ask_modif_clan_copy.description = undefined;
             }
 
+            if (!_.isUndefined($scope.page_communaute_clan_info.ma_photo)) {
+                $scope.ask_modif_clan_copy.ma_photo = JSON.parse(JSON.stringify($scope.page_communaute_clan_info.ma_photo));
+            } else {
+                $scope.ask_modif_clan_copy.ma_photo = undefined;
+            }
+
         }
 
         $scope.mode_save_clan = function () {
@@ -626,6 +689,10 @@ odoo.define('website.ore_angularjs_global', function (require) {
             }
             if ($scope.ask_modif_clan_copy.besoin_comble !== $scope.page_communaute_clan_info.besoin_comble) {
                 form["besoin_comble"] = $scope.page_communaute_clan_info.besoin_comble;
+            }
+
+            if ($scope.ask_modif_clan_copy.ma_photo !== $scope.page_communaute_clan_info.ma_photo) {
+                form["ma_photo"] = $scope.page_communaute_clan_info.ma_photo;
             }
 
             if (!_.isEmpty(form)) {

@@ -1847,7 +1847,7 @@
                                         <div class="information information-1">
                                             <div class="profile_pic" style="width: 200px; height: 150px; position: relative; top: -1px;">
                                                 <img class="img img-fluid rounded-circle" ng-src="{{ page_presentation_membre_info.ma_photo }}" alt="Ma photo" style="position:relative; left:5px;" />
-                                                <input id="file-input" style="opacity:0;" ng-if="ask_modification_profile" type="file" ng-model="myImage" accept="image/*" onchange="angular.element(this).scope().updateImage(this)" />
+                                                <input id="file-input" style="opacity:0;" ng-if="ask_modification_profile" type="file" ng-model="myImage" accept="image/*" onchange="angular.element(this).scope().updateImageProfile(this)" />
                                                 <label for="file-input" class="file-label">
                                                     <i class="white_box" style="padding-bottom: 1px; padding-right: 1px; border-radius: 10px; left: 55px; top: 50px; width: 40px; height: 40px" ng-if="ask_modification_profile" />
                                                     <i class="fa fa-pencil-square text-primary" id="submitBtn" data-toggle="modal" data-target=".modal_pub_offre" style="padding-bottom: 50px; cursor: pointer;" ng-if="ask_modification_profile" />
@@ -2835,7 +2835,7 @@
                                             <div class="row vertical_list">
                                                 <a class="container_explorer" ng-href="{{generate_url_notification(notif)}}" ng-repeat="notif in lst_notification">
                                                     <div class="activite message btn" ng-class="{'read':notif.is_read}">
-                                                        <div class="activite_img img-fluid rounded-circle" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg&quot;);">
+                                                        <div class="activite_img img-fluid rounded-circle" ng-style="{'background-image': 'url(' + notif.membre_photo + ')'}">
                                                             <div class="unread rounded-circle" ng-if="!notif.is_read" />
                                                         </div>
                                                         <div class="infos">

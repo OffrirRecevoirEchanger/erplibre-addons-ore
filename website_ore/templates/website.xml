@@ -281,8 +281,11 @@
                                 <!--                                    t-if="not lst_icon_offre_service[offre_service_index]"-->
                                 <!--                                    class="activite_img fa fa-calendar-plus-o bg-epsilon text-center adapt-text-epsilon-color"-->
                                 <!--                                />-->
-                                <span
-                                    class="activite_img fa fa-calendar-plus-o bg-epsilon text-center adapt-text-epsilon-color"
+                                <img
+                                    t-if="len(lst_time_clan) >= ore_clan_id_index"
+                                    class="activite_img img-fluid"
+                                    t-att-src="lst_clan_photo[ore_clan_id_index]"
+                                    style="flex: 0 0 auto; margin-right: 1em; width: 100px;"
                                 />
                                 <div class="infos">
                                     <div class="activite_title" t-if="ore_clan_id.name" t-field="ore_clan_id.name" />
@@ -2187,7 +2190,7 @@
             >
                 <img
                     class="activite_img img-fluid"
-                    src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
+                    ng-src="{{ clan.ma_photo }}"
                     style="flex: 0 0 auto; margin-right: 1em; width: 100px;"
                 />
                 <div class="infos" style="flex: 1;">
@@ -2222,6 +2225,72 @@
         <section class="s_mes_informations">
             <div class="informations_container">
                 <div class="information information-1">
+                    <div class="profile_pic" style="width: 200px; height: 150px; position: relative; top: -1px;">
+                        <img
+                            class="img img-fluid rounded-circle"
+                            ng-src="{{ page_communaute_clan_info.ma_photo }}"
+                            alt="Ma photo"
+                            style="position:relative; left:5px;"
+                        />
+                        <input
+                            id="file-input"
+                            style="opacity:0;"
+                            ng-if="ask_modification_clan"
+                            type="file"
+                            ng-model="myImage"
+                            accept="image/*"
+                            onchange="angular.element(this).scope().updateImageClan(this)"
+                        />
+                        <label for="file-input" class="file-label">
+                            <i
+                                class="white_box"
+                                style="padding-bottom: 1px; padding-right: 1px; border-radius: 10px; left: 55px; top: 50px; width: 40px; height: 40px"
+                                ng-if="ask_modification_clan"
+                            />
+                            <i
+                                class="fa fa-pencil-square text-primary"
+                                id="submitBtn"
+                                data-toggle="modal"
+                                data-target=".modal_pub_offre"
+                                style="padding-bottom: 50px; cursor: pointer;"
+                                ng-if="ask_modification_clan"
+                            />
+                        </label>
+                    </div>
+                    <div
+                        t-name="ore.ore_pub_offre_modal"
+                        class="modal fade modal_pub_offre modal_shown"
+                        backdrop="static"
+                        aria-hidden="true"
+                    >
+                        <div class="modal-dialog">
+                            <div id="s_media_block_modal" class="modal-content">
+                                <div class="modal-body">
+                                    <!-- modal-body -->
+                                    <div style="text-align: center;">
+                                        <span id="profile-picture" />
+                                        <button
+                                            id="confirm-crop-btn"
+                                            ng-click="cropProfilePicture()"
+                                            data-toggle="modal"
+                                            data-target=".modal_pub_offre"
+                                            ng-if="show_croppie"
+                                        >
+                                            Recadrer
+                                        </button>
+                                        <button
+                                            id="cancel-crop-btn"
+                                            ng-click="closeModalForm(); clearData()"
+                                            data-toggle="modal"
+                                            data-target=".modal_pub_offre"
+                                        >
+                                            Annuler
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <span class="text desc" style="font-size: 1.4rem;" ng-if="ask_modification_clan">
                         Nom du clan :
                         <q

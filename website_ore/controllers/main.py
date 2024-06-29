@@ -239,6 +239,7 @@ class OREController(http.Controller):
                 "organisation": a.organisation,
                 "ville_region": a.ville_region,
                 "valeur_clan": a.valeur_clan,
+                "ma_photo": a.get_image_url(),
                 "membre_list_count": a.membre_list_count,
                 "website_published": a.website_published,
                 "distance": "8m",
@@ -271,6 +272,8 @@ class OREController(http.Controller):
             [("website_published", "=", True)]
         )
 
+        lst_clan_photo = [a.get_image_url() for a in ore_clan_ids]
+
         lst_time_diff_clan = []
         timedate_now = datetime.now()
         # fr_CA not exist
@@ -284,6 +287,7 @@ class OREController(http.Controller):
 
         dct_value = {
             "ore_clan_ids": ore_clan_ids,
+            "lst_clan_photo": lst_clan_photo,
             "clan_count": demande_services_count,
             "lst_time_clan": lst_time_diff_clan,
         }
@@ -1378,6 +1382,7 @@ class OREController(http.Controller):
                 "organisation": organisation,
                 "ville_region": ville_region,
                 "valeur_clan": valeur_clan,
+                "ma_photo": membre_id.clan_principal_id.get_image_url(),
                 "membre_list_count": membre_id.clan_principal_id.membre_list_count,
                 "is_clan_admin": membre_id.id
                 in membre_id.clan_principal_id.membre_admin_ids.ids,
@@ -1401,6 +1406,7 @@ class OREController(http.Controller):
                     "organisation": clan_id.organisation,
                     "ville_region": clan_id.ville_region,
                     "valeur_clan": clan_id.valeur_clan,
+                    "ma_photo": clan_id.get_image_url(),
                     "membre_list_count": clan_id.membre_list_count,
                     "is_clan_admin": membre_id.id
                     in clan_id.membre_admin_ids.ids,
@@ -1427,6 +1433,7 @@ class OREController(http.Controller):
                 "organisation": invitation_id.clan_id.organisation,
                 "ville_region": invitation_id.clan_id.ville_region,
                 "valeur_clan": invitation_id.clan_id.valeur_clan,
+                "ma_photo": invitation_id.clan_id.get_image_url(),
                 "membre_list_count": invitation_id.clan_id.membre_list_count,
                 "is_clan_admin": membre_id.id
                 in invitation_id.clan_id.membre_admin_ids.ids,
@@ -1446,6 +1453,7 @@ class OREController(http.Controller):
                 "organisation": invitation_id.clan_id.organisation,
                 "ville_region": invitation_id.clan_id.ville_region,
                 "valeur_clan": invitation_id.clan_id.valeur_clan,
+                "ma_photo": invitation_id.clan_id.get_image_url(),
                 "membre_list_count": invitation_id.clan_id.membre_list_count,
                 "is_clan_admin": membre_id.id
                 in invitation_id.clan_id.membre_admin_ids.ids,
@@ -1501,6 +1509,11 @@ class OREController(http.Controller):
         valeur_clan = kw.get("valeur_clan")
         if "valeur_clan" in kw.keys():
             principal_clan_id.valeur_clan = valeur_clan
+
+        ma_photo = kw.get("ma_photo")
+        if "ma_photo" in kw.keys():
+            # TODO do we need validation? like extension or supported file
+            principal_clan_id.image = ma_photo.split(",")[1].encode("utf-8")
 
         ville_region = kw.get("ville_region")
         if "ville_region" in kw.keys():
@@ -2877,6 +2890,10 @@ class OREController(http.Controller):
             }
             if kw.get("clan_valeur"):
                 value_clan["valeur_clan"] = kw.get("clan_valeur")
+            ma_photo = kw.get("ma_photo")
+            if "ma_photo" in kw.keys():
+                # TODO do we need validation? like extension or supported file
+                value_clan["image"] = ma_photo.split(",")[1].encode("utf-8")
             if kw.get("clan_besoin_comble"):
                 value_clan["besoin_comble"] = kw.get("clan_besoin_comble")
             if kw.get("clan_ville_region"):
