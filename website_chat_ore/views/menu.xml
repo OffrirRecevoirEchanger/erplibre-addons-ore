@@ -21,4 +21,12 @@
         sequence="2"
         parent="group_message"
     />
+
+    <menuitem
+        id="menu_notification"
+        name="Notification"
+        action="ore.ore_echange_service_notification_clan_action_window"
+        sequence="3"
+        parent="group_message"
+    />
 </odoo>

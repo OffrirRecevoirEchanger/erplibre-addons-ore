@@ -29,6 +29,16 @@ class Users(models.Model):
                     # TODO send notification at creation if was invited to a clan
                     existing_adhesion.fill_membre_adhesion(ore_membre_id)
                     existing_adhesion.user_id = val.id
+                if existing_adhesion.clan_id:
+                    # Create notification
+                    value_notif = {
+                        "clan_invited_id": existing_adhesion.clan_id.id,
+                        "membre_id": partner_id.ore_membre_id.id,
+                        "type_notification": "Invitation clan",
+                    }
+                    notif_id = self.env[
+                        "ore.echange.service.notification"
+                    ].create(value_notif)
             else:
                 data = {
                     "courriel": val.email,

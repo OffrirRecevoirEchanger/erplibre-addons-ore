@@ -2318,8 +2318,8 @@
                 <div class="information information-3">
                     <span class="txt">R&#233;sum&#233;</span>
                     <br />
-                    <br />
-                    <span class="desc-3">
+                    <br class="desc-3" ng-if="page_communaute_clan_info.ville_region" />
+                    <span class="desc-3" ng-if="page_communaute_clan_info.ville_region">
                         <i class="fa fa-home" />
                         <span style="position: relative; left: -25px;" ng-cloak="" ng-if="!ask_modification_clan">
                             {{page_communaute_clan_info.ville_region}}
@@ -2332,8 +2332,8 @@
                             />
                         </span>
                     </span>
-                    <br />
-                    <span class="desc-3">
+                    <br ng-if="page_communaute_clan_info.organisation" />
+                    <span class="desc-3" ng-if="page_communaute_clan_info.organisation">
                         <i class="fa fa-building" />
                         <span style="position: relative; left: -25px;" ng-cloak="" ng-if="!ask_modification_clan">
                             {{page_communaute_clan_info.organisation}}
@@ -2357,7 +2357,7 @@
                     <span class="desc-3">
                         <i class="fa fa-calendar" />
                         <span style="position: relative; left: -25px;" ng-cloak="">
-                            Clan créé depuis {{page_communaute_clan_info.str_diff_time_creation}}
+                            Clan créé depuis {{page_communaute_clan_info.diff_create_date}}
                         </span>
                     </span>
                 </div>

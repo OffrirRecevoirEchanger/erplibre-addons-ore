@@ -2833,7 +2833,7 @@
                                     <section class="s_vertical_list_lg pt0 section_notification" ng-if="section=='notification'">
                                         <div class="container_lists">
                                             <div class="row vertical_list">
-                                                <a class="container_explorer" ng-href="/monactivite/echange#!?echange={{notif.echange_service_id}}" ng-repeat="notif in lst_notification">
+                                                <a class="container_explorer" ng-href="{{generate_url_notification(notif)}}" ng-repeat="notif in lst_notification">
                                                     <div class="activite message btn" ng-class="{'read':notif.is_read}">
                                                         <div class="activite_img img-fluid rounded-circle" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg&quot;);">
                                                             <div class="unread rounded-circle" ng-if="!notif.is_read" />

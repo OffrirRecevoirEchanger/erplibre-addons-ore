@@ -1,3 +1,5 @@
+import hashlib
+
 from odoo import _, api, fields, models
 
 
@@ -61,6 +63,15 @@ class OreClan(models.Model):
         domain=[("ask_join_clan", "=", True)],
     )
 
+    image = fields.Binary(
+        "Image",
+        attachment=True,
+        help=(
+            "This field holds the image used as avatar for this contact,"
+            " limited to 1024x1024px"
+        ),
+    )
+
     valeur_clan = fields.Text()
 
     membre_list_count = fields.Integer(
@@ -96,3 +107,27 @@ class OreClan(models.Model):
                     if not membre_id.clan_principal_id:
                         membre_id.clan_principal_id = rec.id
         return status
+
+    def get_image_url(self, field="image"):
+        # field can be image_medium or image_small
+        # website_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        # unique = self.write_date.strftime('%Y%m%d%H%M%S')
+        # url = f"{website_url}/web/image?model=res.partner&id={self.partner_id.id}&field={field}&unique={unique}"
+        # return url
+        return self.image_url(self, field)
+
+    @api.model
+    def image_url(self, record, field, size=None):
+        """Returns a local url that points to the image field of a given browse record."""
+        sudo_record = record.sudo()
+        sha = hashlib.sha1(
+            str(getattr(sudo_record, "__last_update")).encode("utf-8")
+        ).hexdigest()[0:7]
+        size = "" if size is None else "/%s" % size
+        return "/web/image/%s/%s/%s%s?unique=%s" % (
+            record._name,
+            record.id,
+            field,
+            size,
+            sha,
+        )

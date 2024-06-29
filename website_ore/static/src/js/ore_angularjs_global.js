@@ -235,6 +235,15 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.interetsCount = 0;
         $scope.languesCount = 0;
 
+        $scope.generate_url_notification = function(notif) {
+            if (["Nouvelle demande de service","Réponse à votre demande", "Demande de service", ""].includes(notif.type_notification)) {
+                return "/monactivite/echange" + $scope.url_debug + "#!?echange=" + notif.echange_service_id;
+            } else if (notif.type_notification === "Invitation clan") {
+                return "/ore/ore_clan/" + notif.clan_invited_id;
+            }
+            return "#"
+        }
+
         $scope.open_echange_membre = function () {
             $scope.show_echange_membre = true;
         }
@@ -1990,11 +1999,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 value.show_sum_time = $scope.convertNumToTime(value.sum_time, 3);
             }
             console.debug($scope.personal.dct_echange_mensuel);
-        }
-
-        $scope.echange_click_redirect = function (echange) {
-            // TODO no need this, use instead <a href and not ng-click
-            window.location.href = `/monactivite/echange${$scope.url_debug}#!?echange=${echange.id}`;
         }
 
         $scope.removeSpace = function () {

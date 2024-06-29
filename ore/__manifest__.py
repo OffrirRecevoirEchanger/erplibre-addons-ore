@@ -20,6 +20,7 @@
         "views/ore_clan_invitation.xml",
         "views/ore_commentaire.xml",
         "views/ore_demande_adhesion.xml",
+        "views/ore_echange_service_notification.xml",
         "views/ore_demande_service.xml",
         "views/ore_echange_service.xml",
         "views/res_partner.xml",

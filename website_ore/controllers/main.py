@@ -1630,6 +1630,16 @@ class OREController(http.Controller):
                     request.env["ore.clan.invitation"].sudo().create(
                         value_invitation
                     )
+        # Search associate notification to remove it
+        notif_id = request.env["ore.echange.service.notification"].search(
+            [
+                ("is_read", "=", False),
+                ("type_notification", "=", "Invitation clan"),
+                ("clan_invited_id", "!=", False),
+            ]
+        )
+        if notif_id:
+            notif_id.is_read = True
         return {"status": status}
 
     @http.route(
