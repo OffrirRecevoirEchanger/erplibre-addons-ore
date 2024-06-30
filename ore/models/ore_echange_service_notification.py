@@ -9,18 +9,24 @@ _logger = logging.getLogger(__name__)
 class OREEchangeServiceNotification(models.Model):
     _name = "ore.echange.service.notification"
     _description = "ORE Echange Service Notification"
+    _inherit = ["mail.thread", "mail.activity.mixin"]
     _order = "create_date desc"
 
     name = fields.Char(
         compute="_compute_name",
         store=True,
+        track_visibility="onchange",
     )
 
-    active = fields.Boolean(default=True)
+    active = fields.Boolean(
+        default=True,
+        track_visibility="onchange",
+    )
 
     is_read = fields.Boolean(
         string="Is read",
         help="La notification a été lu par le membre.",
+        track_visibility="onchange",
     )
 
     type_notification = fields.Selection(
@@ -32,32 +38,38 @@ class OREEchangeServiceNotification(models.Model):
             # ("Réponse à votre offre", "Réponse à votre offre"),
             ("Transaction validée", "Transaction validée"),
             ("Invitation clan", "Invitation clan"),
-        ]
+        ],
+        track_visibility="onchange",
     )
 
     echange_service_id = fields.Many2one(
         comodel_name="ore.echange.service",
         string="Échange de service",
+        track_visibility="onchange",
     )
 
     membre_id = fields.Many2one(
         comodel_name="ore.membre",
         string="Membre notifié",
+        track_visibility="onchange",
     )
 
     membre_name = fields.Char(
         compute="_compute_membre_name",
         store=True,
+        track_visibility="onchange",
     )
 
     membre_logo = fields.Char(
         compute="_compute_name",
         store=True,
+        track_visibility="onchange",
     )
 
     clan_invited_id = fields.Many2one(
         comodel_name="ore.clan",
         string="Invitation au clan",
+        track_visibility="onchange",
     )
 
     def first_to_json(self):

@@ -8,88 +8,113 @@ _logger = logging.getLogger(__name__)
 class OREEchangeService(models.Model):
     _name = "ore.echange.service"
     _description = "ORE Echange Service"
+    _inherit = ["mail.thread", "mail.activity.mixin"]
     _rec_name = "nom_complet"
 
     nom_complet = fields.Char(
         string="Nom complet",
         compute="_compute_nom_complet",
         store=True,
+        track_visibility="onchange",
     )
 
-    commentaire = fields.Char()
+    commentaire = fields.Char(
+        track_visibility="onchange",
+    )
 
-    date_echange = fields.Datetime(string="Date de l'échange")
+    date_echange = fields.Datetime(
+        string="Date de l'échange",
+        track_visibility="onchange",
+    )
 
     # date_transaction = fields.Datetime(string="Date de la transaction")
 
     demande_service = fields.Many2one(
         comodel_name="ore.demande.service",
         string="Demande de services",
+        track_visibility="onchange",
     )
 
     # TODO compute membre_acheter from service
     membre_acheteur = fields.Many2one(
         comodel_name="ore.membre",
         string="Membre acheteur",
+        track_visibility="onchange",
     )
 
     membre_vendeur = fields.Many2one(
         comodel_name="ore.membre",
         string="Membre vendeur",
+        track_visibility="onchange",
     )
 
     membre_qui_a_valide = fields.Many2one(
         comodel_name="ore.membre",
         string="Membre qui a validé",
+        track_visibility="onchange",
     )
 
-    date_valide = fields.Datetime(string="Date de la validation")
+    date_valide = fields.Datetime(
+        string="Date de la validation",
+        track_visibility="onchange",
+    )
 
     nb_heure = fields.Float(
         string="Nombre d'heure",
         help="Nombre d'heure effectué au moment de l'échange.",
+        track_visibility="onchange",
     )
 
     nb_heure_estime = fields.Float(
         string="Nombre d'heure estimé",
         help="Nombre d'heure estimé pour l'échange.",
+        track_visibility="onchange",
     )
 
     nb_heure_duree_trajet = fields.Float(
         string="Nombre d'heure durée trajet",
         help="Nombre d'heure effectué au moment de le trajet.",
+        track_visibility="onchange",
     )
 
     nb_heure_estime_duree_trajet = fields.Float(
         string="Nombre d'heure estimé durée trajet",
         help="Nombre d'heure estimé pour le trajet.",
+        track_visibility="onchange",
     )
 
     distance_trajet = fields.Float(
         string="Distance du trajet",
         help="Unité par défaut le km.",
+        track_visibility="onchange",
     )
 
     frais_trajet = fields.Float(
         string="Frais du trajet",
         help="Coût pour faire le trajet.",
+        track_visibility="onchange",
     )
 
     frais_materiel = fields.Float(
         string="Frais du matériel",
         help="Coût matériel nécessaire à l'échange de service.",
+        track_visibility="onchange",
     )
 
     offre_service = fields.Many2one(
         comodel_name="ore.offre.service",
         string="Offre de services",
+        track_visibility="onchange",
     )
 
-    remarque = fields.Char()
+    remarque = fields.Char(
+        track_visibility="onchange",
+    )
 
     transaction_valide = fields.Boolean(
         string="Validé",
         help="Activé lorsque la transaction a été validé",
+        track_visibility="onchange",
     )
 
     titre = fields.Char(
@@ -99,6 +124,7 @@ class OREEchangeService(models.Model):
             "Titre de l'offre de service ou de la demande de service, ou les"
             " deux"
         ),
+        track_visibility="onchange",
     )
 
     type_echange = fields.Selection(
@@ -109,6 +135,7 @@ class OREEchangeService(models.Model):
             ("offre_ponctuel", "Offre ponctuelle"),
         ],
         string="Type d'échange",
+        track_visibility="onchange",
     )
 
     @api.model_create_multi

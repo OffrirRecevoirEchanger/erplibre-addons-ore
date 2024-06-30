@@ -14,12 +14,14 @@ _logger = logging.getLogger(__name__)
 class OREDemandeAdhesion(models.Model):
     _name = "ore.demande.adhesion"
     _description = "ORE Demande Adhesion"
+    _inherit = ["mail.thread", "mail.activity.mixin"]
     _rec_name = "nom_complet"
 
     nom_complet = fields.Char(
         string="Nom complet",
         compute="_compute_nom_complet",
         store=True,
+        track_visibility="onchange",
     )
 
     active = fields.Boolean(
@@ -29,44 +31,70 @@ class OREDemandeAdhesion(models.Model):
             "Lorsque non actif, cet demande d'adhésion n'est plus en fonction,"
             " mais demeure accessible."
         ),
+        track_visibility="onchange",
     )
 
-    courriel = fields.Char()
+    courriel = fields.Char(
+        track_visibility="onchange",
+    )
 
     date_mise_a_jour = fields.Datetime(
         string="Dernière mise à jour",
         help="Date de la dernière mise à jour",
+        track_visibility="onchange",
     )
 
     en_attente = fields.Boolean(
         string="En attente",
         default=True,
+        track_visibility="onchange",
     )
 
-    nom = fields.Char()
+    nom = fields.Char(
+        track_visibility="onchange",
+    )
 
-    poste = fields.Char()
+    poste = fields.Char(
+        track_visibility="onchange",
+    )
 
-    prenom = fields.Char(string="Prénom")
+    prenom = fields.Char(
+        string="Prénom",
+        track_visibility="onchange",
+    )
 
-    telephone = fields.Char(string="Téléphone")
+    telephone = fields.Char(
+        string="Téléphone",
+        track_visibility="onchange",
+    )
 
-    transferer = fields.Boolean(string="Transféré")
+    transferer = fields.Boolean(
+        string="Transféré",
+        track_visibility="onchange",
+    )
 
     only_invitation = fields.Boolean(
         string="Seulement invitation par courriel",
         help="Ne va pas créer de compte utilisateur.",
+        track_visibility="onchange",
     )
 
-    clan_id = fields.Many2one(comodel_name="ore.clan", string="Clan associé")
+    clan_id = fields.Many2one(
+        comodel_name="ore.clan",
+        string="Clan associé",
+        track_visibility="onchange",
+    )
 
     invitation_from_membre_id = fields.Many2one(
-        comodel_name="ore.membre", string="Invité par membre"
+        comodel_name="ore.membre",
+        string="Invité par membre",
+        track_visibility="onchange",
     )
 
     user_id = fields.Many2one(
         comodel_name="res.users",
         string="User",
+        track_visibility="onchange",
     )
 
     company_id = fields.Many2one(
@@ -77,16 +105,19 @@ class OREDemandeAdhesion(models.Model):
             "If set, directories and files will only be available for the"
             " selected company."
         ),
+        track_visibility="onchange",
     )
 
     url_invitation_redirect = fields.Char(
-        help="Will be the url send to user by email."
+        help="Will be the url send to user by email.",
+        track_visibility="onchange",
     )
 
     company_website_id = fields.Many2one(
         comodel_name="website",
         string="website",
         help="Will be use for email invitation.",
+        track_visibility="onchange",
     )
 
     @api.depends("nom", "prenom")
