@@ -27,7 +27,7 @@ class OREChatGroup(models.Model):
     )
 
     clan_id = fields.Many2one(
-        comodel_name="ore.clan.group",
+        comodel_name="ore.clan",
         string="Clan",
     )
 
