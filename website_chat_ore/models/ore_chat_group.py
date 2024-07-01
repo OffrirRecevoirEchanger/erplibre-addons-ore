@@ -55,6 +55,8 @@ class OREChatGroup(models.Model):
                 # "id": obj.id,
                 "id": other_membre_id.id,
                 "id_group": obj.id,
+                "id_clan": obj.clan_id.id,
+                "id_clan_group": obj.group_clan_id.id,
                 "name": other_membre_id.name,
                 "ma_photo": other_membre_id.get_image_url(),
                 "resume_msg": last_msg,
