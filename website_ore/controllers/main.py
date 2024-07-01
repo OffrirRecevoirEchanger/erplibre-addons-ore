@@ -238,6 +238,7 @@ class OREController(http.Controller):
                 "besoin_comble": a.besoin_comble,
                 "organisation": a.organisation,
                 "ville_region": a.ville_region,
+                "message_accueil": a.message_accueil,
                 "valeur_clan": a.valeur_clan,
                 "ma_photo": a.get_image_url(),
                 "membre_list_count": a.membre_list_count,
@@ -1364,6 +1365,11 @@ class OREController(http.Controller):
                 if membre_id.clan_principal_id.ville_region
                 else ""
             )
+            message_accueil = (
+                membre_id.clan_principal_id.message_accueil
+                if membre_id.clan_principal_id.message_accueil
+                else ""
+            )
             valeur_clan = (
                 membre_id.clan_principal_id.valeur_clan
                 if membre_id.clan_principal_id.valeur_clan
@@ -1381,6 +1387,7 @@ class OREController(http.Controller):
                 "besoin_comble": besoin_comble,
                 "organisation": organisation,
                 "ville_region": ville_region,
+                "message_accueil": message_accueil,
                 "valeur_clan": valeur_clan,
                 "ma_photo": membre_id.clan_principal_id.get_image_url(),
                 "membre_list_count": membre_id.clan_principal_id.membre_list_count,
@@ -1405,6 +1412,7 @@ class OREController(http.Controller):
                     "besoin_comble": clan_id.besoin_comble,
                     "organisation": clan_id.organisation,
                     "ville_region": clan_id.ville_region,
+                    "message_accueil": clan_id.message_accueil,
                     "valeur_clan": clan_id.valeur_clan,
                     "ma_photo": clan_id.get_image_url(),
                     "membre_list_count": clan_id.membre_list_count,
@@ -1432,6 +1440,7 @@ class OREController(http.Controller):
                 "besoin_comble": invitation_id.clan_id.besoin_comble,
                 "organisation": invitation_id.clan_id.organisation,
                 "ville_region": invitation_id.clan_id.ville_region,
+                "message_accueil": invitation_id.clan_id.message_accueil,
                 "valeur_clan": invitation_id.clan_id.valeur_clan,
                 "ma_photo": invitation_id.clan_id.get_image_url(),
                 "membre_list_count": invitation_id.clan_id.membre_list_count,
@@ -1452,6 +1461,7 @@ class OREController(http.Controller):
                 "besoin_comble": invitation_id.clan_id.besoin_comble,
                 "organisation": invitation_id.clan_id.organisation,
                 "ville_region": invitation_id.clan_id.ville_region,
+                "message_accueil": invitation_id.clan_id.message_accueil,
                 "valeur_clan": invitation_id.clan_id.valeur_clan,
                 "ma_photo": invitation_id.clan_id.get_image_url(),
                 "membre_list_count": invitation_id.clan_id.membre_list_count,
@@ -1518,6 +1528,10 @@ class OREController(http.Controller):
         ville_region = kw.get("ville_region")
         if "ville_region" in kw.keys():
             principal_clan_id.ville_region = ville_region
+
+        message_accueil = kw.get("message_accueil")
+        if "message_accueil" in kw.keys():
+            principal_clan_id.message_accueil = message_accueil
 
         organisation = kw.get("organisation")
         if "organisation" in kw.keys():
@@ -2898,6 +2912,8 @@ class OREController(http.Controller):
                 value_clan["besoin_comble"] = kw.get("clan_besoin_comble")
             if kw.get("clan_ville_region"):
                 value_clan["ville_region"] = kw.get("clan_ville_region")
+            # if kw.get("clan_message_accueil"):
+            #     value_clan["message_accueil"] = kw.get("clan_message_accueil")
             if kw.get("clan_organisation"):
                 value_clan["organisation"] = kw.get("clan_organisation")
             if kw.get("clan_description"):

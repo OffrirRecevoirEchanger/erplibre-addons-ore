@@ -2433,6 +2433,20 @@
                 <div class="information information-4">
                     <div
                         class="nbr"
+                        ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.message_accueil)}"
+                        ng-show="ask_modification_clan"
+                    >
+                        <span class="txt">Message d'acceuil</span>
+                        <q
+                            ng-if="ask_modification_clan"
+                            class="editable-content-blue"
+                            contenteditable="true"
+                            ng-model="page_communaute_clan_info.message_accueil"
+                        />
+                    </div>
+
+                    <div
+                        class="nbr"
                         ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.description)}"
                         ng-show="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.description) &amp;&amp; !_.isEmpty(page_communaute_clan_info.description)"
                     >

@@ -43,6 +43,10 @@ class OreClan(models.Model):
         track_visibility="onchange",
     )
 
+    message_accueil = fields.Char(
+        track_visibility="onchange",
+    )
+
     membre_admin_ids = fields.Many2many(
         comodel_name="ore.membre",
         relation="membre_admin_clan_rel",

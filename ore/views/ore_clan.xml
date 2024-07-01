@@ -26,6 +26,7 @@
                         </h1>
                     </div>
                     <group>
+                        <field name="message_accueil" />
                         <field name="besoin_comble" />
                         <field name="ville_region" />
                         <field name="organisation" />

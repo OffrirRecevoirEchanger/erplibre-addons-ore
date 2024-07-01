@@ -153,7 +153,7 @@
                                 t-if="not user_id._is_public()"
                                 ng-if="personal.my_clan.id > 0"
                             >
-                                <a class="nav-link" role="menu_item" href="/communaute/clan">
+                                <a class="nav-link" role="menu_item" href="/communaute/actualite">
                                     <span
                                         data-oe-model="website.menu"
                                         data-oe-id="2"

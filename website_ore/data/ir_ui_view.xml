@@ -151,9 +151,9 @@
                                 </section>
                                 <nav class="sub-navbar navbar-light bg-light second_navbar">
                                     <ul class="nav navbar-nav second_navbar">
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item">
                                             <a class="nav-link active" role="menu_item" href="/communaute/actualite">
-                                                <span>Actualit&#233;</span>
+                                                <span>Babillard</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -178,263 +178,342 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_actualite debug_unimplemented">
+                                <section class="s_actualite" ng-if="page_communaute_clan_info.message_accueil">
                                     <div class="container_actualite">
-                                        <div class="list_title s_title mobile-display-none">
-                                            <div class="title">
-                                                <h1 style="margin-left:10%">Actualit&#233;</h1>
-                                            </div>
-                                        </div>
-                                        <div class="actualite_search">
-                                            <div class="search_bar_rectangle">
-                                                <i class="fa fa-search" />
-                                                <input type="text" placeholder="Chercher une actualité" />
-                                            </div>
-                                            <div class="btn">
-                                                <i class="fa fa-sliders text-epsilon" />
-                                                Filtrer et trier
-                                            </div>
-                                        </div>
-                                        <div class="box_publication">
-                                            <p>Publications</p>
-                                            <br />
-                                            <img class="profile_img" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
-                                            <input type="text" placeholder="Vous pouvez écrire votre message ici" />
-                                        </div>
-                                        <div class="box_actualite">
-                                            <div class="actualite_head">
-                                                <img class="pub_pfp rounded-circle" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
-                                                <div class="pub_info">
-                                                    <div class="pub_user">
-                                                        <p>ORE de Sherbrooke</p>
-                                                    </div>
-                                                    <div class="pub_date">
-                                                        <p>Publiée il y a 1 j</p>
-                                                    </div>
-                                                </div>
-                                                <i class="fa fa-thumb-tack mobile-display-none" />
-                                            </div>
-                                            <div class="actualite_content">
-                                                <div class="pub_title">
-                                                    <h4>
-                                                        <font style="">Lorem Ipsum</font>
-                                                    </h4>
-                                                </div>
-                                                <div class="pub_desc">
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                                        enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                                        nulla pariatur.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="actualite_stats">
-                                                <span class="like_count">
-                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>
-                                                <span class="comment_count">4 commentaires</span>
-                                                <span>&#8226;</span>
-                                                <span class="view_count">10 vues</span>
-                                            </div>
-                                            <div class="pub_actions">
-                                                <div class="like_btn">
-                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime
-                                                </div>
-                                                <div class="comment_btn">
-                                                    <icon class="fa fa-comment-o" />&amp;nbsp;Commenter
-                                                </div>
-                                            </div>
-                                            <div class="actualite_foot mobile-display-none">
-                                                <img class="profile_img" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
-                                                <div class="comment_bar">
-                                                    <input type="text" placeholder="&#201;crivez un commentaire" />
-                                                    <icon class="fa fa-smile-o" />
-                                                    <icon class="fa fa-camera" />
-                                                    <icon class="fa fa-sticky-note-o" />
-                                                    <icon class="fa fa-sticky-note-o" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="box_actualite">
-                                            <div class="actualite_head">
-                                                <img class="pub_pfp rounded-circle" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
-                                                <div class="pub_info">
-                                                    <div class="pub_user">
-                                                        <p>ORE de Sherbrooke</p>
-                                                    </div>
-                                                    <div class="pub_date">
-                                                        <p>Publiée il y a 1 j</p>
-                                                    </div>
-                                                </div>
-                                                <i class="fa fa-thumb-tack mobile-display-none" />
-                                            </div>
-                                            <div class="actualite_content">
-                                                <div class="pub_title">
-                                                    <h4>
-                                                        <font style="">Lorem Ipsum</font>
-                                                    </h4>
-                                                </div>
-                                                <div class="pub_desc">
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                                        enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                                        nulla pariatur.
-                                                    </p>
-                                                    <img src="/website_ore/static/src/img/product-school--GajrOEN6m4-unsplash.jpg" />
-                                                </div>
-                                            </div>
-                                            <div class="actualite_stats">
-                                                <span class="like_count">
-                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>
-                                                <span class="comment_count">4 commentaires</span>
-                                                <span>&#8226;</span>
-                                                <span class="view_count">10 vues</span>
-                                            </div>
-                                            <div class="pub_actions">
-                                                <div class="like_btn">
-                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime
-                                                </div>
-                                                <div class="comment_btn">
-                                                    <icon class="fa fa-comment-o" />&amp;nbsp;Commenter
-                                                </div>
-                                            </div>
-                                            <div class="actualite_foot mobile-display-none">
-                                                <img class="profile_img" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
-                                                <div class="comment_bar">
-                                                    <input type="text" placeholder="&#201;crivez un commentaire" />
-                                                    <icon class="fa fa-smile-o" />
-                                                    <icon class="fa fa-camera" />
-                                                    <icon class="fa fa-sticky-note-o" />
-                                                    <icon class="fa fa-sticky-note-o" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="container_actualite" style="float:right;width: 35%;margin-right: 10%;margin-left: 0;">
-                                        <div class="list_title s_title mobile-display-none">
-                                            <div class="title">
-                                                <h1 style=" margin-left:10%">&#192; la une</h1>
-                                            </div>
-                                        </div>
-                                        <div class="box_actualite">
-                                            <div class="actualite_head">
-                                                <img class="pub_pfp rounded-circle" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
-                                                <div class="pub_info">
-                                                    <div class="pub_user">
-                                                        <p>ORE de Sherbrooke</p>
-                                                    </div>
-                                                    <div class="pub_date">
-                                                        <p>Publiée il y a 1 j</p>
-                                                    </div>
-                                                </div>
-                                                <i class="fa fa-thumb-tack mobile-display-none" />
-                                            </div>
-                                            <div class="actualite_content">
-                                                <div class="pub_title">
-                                                    <h4>
-                                                        <font style="">Lorem Ipsum</font>
-                                                    </h4>
-                                                </div>
-                                                <div class="pub_desc">
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                                        enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                                        nulla pariatur.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="actualite_stats">
-                                                <span class="like_count">
-                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>
-                                                <span class="comment_count">4 commentaires</span>
-                                                <span>&#8226;</span>
-                                                <span class="view_count">10 vues</span>
-                                            </div>
-                                            <div class="pub_actions">
-                                                <div class="like_btn">
-                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime
-                                                </div>
-                                                <div class="comment_btn">
-                                                    <icon class="fa fa-comment-o" />&amp;nbsp;Commenter
-                                                </div>
-                                            </div>
-                                            <div class="actualite_foot mobile-display-none">
-                                                <img class="profile_img" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
-                                                <div class="comment_bar">
-                                                    <input type="text" placeholder="&#201;crivez un commentaire" />
-                                                    <icon class="fa fa-smile-o" />
-                                                    <icon class="fa fa-camera" />
-                                                    <icon class="fa fa-sticky-note-o" />
-                                                    <icon class="fa fa-sticky-note-o" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="box_actualite">
-                                            <div class="actualite_head">
-                                                <img class="pub_pfp rounded-circle" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
-                                                <div class="pub_info">
-                                                    <div class="pub_user">
-                                                        <p>ORE de Sherbrooke</p>
-                                                    </div>
-                                                    <div class="pub_date">
-                                                        <p>Publiée il y a 1 j</p>
-                                                    </div>
-                                                </div>
-                                                <i class="fa fa-thumb-tack mobile-display-none" />
-                                            </div>
-                                            <div class="actualite_content">
-                                                <div class="pub_title">
-                                                    <h4>
-                                                        <font style="">Lorem Ipsum</font>
-                                                    </h4>
-                                                </div>
-                                                <div class="pub_desc">
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                                        enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                                        nulla pariatur.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="actualite_stats">
-                                                <span class="like_count">
-                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>
-                                                <span class="comment_count">4 commentaires</span>
-                                                <span>&#8226;</span>
-                                                <span class="view_count">10 vues</span>
-                                            </div>
-                                            <div class="pub_actions">
-                                                <div class="like_btn">
-                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime
-                                                </div>
-                                                <div class="comment_btn">
-                                                    <icon class="fa fa-comment-o" />&amp;nbsp;Commenter
-                                                </div>
-                                            </div>
-                                            <div class="actualite_foot mobile-display-none">
-                                                <img class="profile_img" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
-                                                <div class="comment_bar">
-                                                    <input type="text" placeholder="&#201;crivez un commentaire" />
-                                                    <icon class="fa fa-smile-o" />
-                                                    <icon class="fa fa-camera" />
-                                                    <icon class="fa fa-sticky-note-o" />
-                                                    <icon class="fa fa-sticky-note-o" />
-                                                </div>
-                                            </div>
+                                        <div class="title">
+                                            <h1 style="margin-left:10%">Message d'accueil</h1>
+                                            <pre style="margin-left:10%" ng-cloak="" ng-bind-html="page_communaute_clan_info.message_accueil | unsafe" />
                                         </div>
                                     </div>
                                 </section>
+                                <section class="s_actualite" ng-controller="NewsController">
+                                    <div class="container_actualite">
+                                        <div class="list_title s_title">
+                                            <div class="title">
+                                                <h1 style="margin-left:10%">Derni&#232;res Actualit&#233;s</h1>
+                                                <a href="/blog">
+                                                    <font style="font-size:1.25rem;">
+                                                        Voir Tout
+                                                    (+{{nb_news_info}})
+                                                    </font>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="box_actualite" ng-if="nb_news_info == 0">Aucune actualité</div>
+                                        <a ng-href="{{news_value.website_url}}" ng-repeat="(news_id, news_value) in dct_news_info" ng-if="nb_news_info > 0">
+                                            <div class="box_actualite">
+                                                <div class="actualite_head">
+                                                    <img class="pub_pfp rounded-circle" ng-src="{{ news_value.author_photo_url }}" />
+                                                    <div class="pub_info">
+                                                        <div class="pub_user">
+                                                            <p>{{ news_value.author_name }}</p>
+                                                        </div>
+                                                        <div class="pub_date">
+                                                            <p>Publiée {{ news_value.diff_create_date }}</p>
+                                                        </div>
+                                                    </div>
+                                                    <!--                                                <i class="fa fa-thumb-tack mobile-display-none" />-->
+                                                </div>
+                                                <div class="actualite_content">
+                                                    <div class="pub_title" ng-if="news_value.titre.length">
+                                                        <h4>
+                                                            <font style="">{{ news_value.titre }}</font>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="pub_desc">
+                                                        <h5 ng-if="news_value.sub_title.length">
+                                                            <font style="">{{ news_value.sub_title }}</font>
+                                                        </h5>
+                                                        <p ng-if="news_value.teaser_manual.length">{{ news_value.teaser_manual }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="actualite_stats">
+                                                    <!--                                            <span class="like_count">-->
+                                                    <!--                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>-->
+                                                    <!--                                            <span class="comment_count">4 commentaires</span>-->
+                                                    <!--                                            <span>&#8226;</span>-->
+                                                    <span class="view_count">{{ news_value.visits }} vues</span>
+                                                </div>
+                                                <div class="pub_actions">
+                                                    <!--                                            <div class="like_btn">-->
+                                                    <!--                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime-->
+                                                    <!--                                                </div>-->
+                                                    <div class="comment_btn">
+                                                        <icon class="fa fa-comment-o" />
+                                                        {{ news_value.nb_comments }} Commentaire
+                                                    </div>
+                                                </div>
+                                                <!--                <div class="actualite_foot">-->
+                                                <!--                    <img class="profile_img" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />-->
+                                                <!--                    <div class="comment_bar">-->
+                                                <!--                        <input type="text" placeholder="&#201;crivez un commentaire" />-->
+                                                <!--                        <icon class="fa fa-smile-o" />-->
+                                                <!--                        <icon class="fa fa-camera" />-->
+                                                <!--                        <icon class="fa fa-sticky-note-o" />-->
+                                                <!--                        <icon class="fa fa-sticky-note-o" />-->
+                                                <!--                    </div>-->
+                                                <!--                </div>-->
+                                            </div>
+                                        </a>
+                                    </div>
+                                </section>
+                                <!--                                <section class="s_actualite">-->
+                                <!--                                    <div class="container_actualite">-->
+                                <!--                                        <div class="list_title s_title mobile-display-none">-->
+                                <!--                                            <div class="title">-->
+                                <!--                                                <h1 style="margin-left:10%">Actualit&#233;</h1>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <!--                                        <div class="actualite_search">-->
+                                <!--                                            <div class="search_bar_rectangle">-->
+                                <!--                                                <i class="fa fa-search" />-->
+                                <!--                                                <input type="text" placeholder="Chercher une actualité" />-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="btn">-->
+                                <!--                                                <i class="fa fa-sliders text-epsilon" />-->
+                                <!--                                                Filtrer et trier-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <!--                                        <div class="box_publication">-->
+                                <!--                                            <p>Publications</p>-->
+                                <!--                                            <br />-->
+                                <!--                                            <img class="profile_img" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />-->
+                                <!--                                            <input type="text" placeholder="Vous pouvez écrire votre message ici" />-->
+                                <!--                                        </div>-->
+                                <!--                                        <div class="box_actualite">-->
+                                <!--                                            <div class="actualite_head">-->
+                                <!--                                                <img class="pub_pfp rounded-circle" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />-->
+                                <!--                                                <div class="pub_info">-->
+                                <!--                                                    <div class="pub_user">-->
+                                <!--                                                        <p>ORE de Sherbrooke</p>-->
+                                <!--                                                    </div>-->
+                                <!--                                                    <div class="pub_date">-->
+                                <!--                                                        <p>Publiée il y a 1 j</p>-->
+                                <!--                                                    </div>-->
+                                <!--                                                </div>-->
+                                <!--                                                <i class="fa fa-thumb-tack mobile-display-none" />-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="actualite_content">-->
+                                <!--                                                <div class="pub_title">-->
+                                <!--                                                    <h4>-->
+                                <!--                                                        <font style="">Lorem Ipsum</font>-->
+                                <!--                                                    </h4>-->
+                                <!--                                                </div>-->
+                                <!--                                                <div class="pub_desc">-->
+                                <!--                                                    <p>-->
+                                <!--                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do-->
+                                <!--                                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut-->
+                                <!--                                                        enim ad minim veniam, quis nostrud exercitation ullamco laboris-->
+                                <!--                                                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor-->
+                                <!--                                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat-->
+                                <!--                                                        nulla pariatur.-->
+                                <!--                                                    </p>-->
+                                <!--                                                </div>-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="actualite_stats">-->
+                                <!--                                                <span class="like_count">-->
+                                <!--                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>-->
+                                <!--                                                <span class="comment_count">4 commentaires</span>-->
+                                <!--                                                <span>&#8226;</span>-->
+                                <!--                                                <span class="view_count">10 vues</span>-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="pub_actions">-->
+                                <!--                                                <div class="like_btn">-->
+                                <!--                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime-->
+                                <!--                                                </div>-->
+                                <!--                                                <div class="comment_btn">-->
+                                <!--                                                    <icon class="fa fa-comment-o" />&amp;nbsp;Commenter-->
+                                <!--                                                </div>-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="actualite_foot mobile-display-none">-->
+                                <!--                                                <img class="profile_img" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />-->
+                                <!--                                                <div class="comment_bar">-->
+                                <!--                                                    <input type="text" placeholder="&#201;crivez un commentaire" />-->
+                                <!--                                                    <icon class="fa fa-smile-o" />-->
+                                <!--                                                    <icon class="fa fa-camera" />-->
+                                <!--                                                    <icon class="fa fa-sticky-note-o" />-->
+                                <!--                                                    <icon class="fa fa-sticky-note-o" />-->
+                                <!--                                                </div>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <!--                                        <div class="box_actualite">-->
+                                <!--                                            <div class="actualite_head">-->
+                                <!--                                                <img class="pub_pfp rounded-circle" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />-->
+                                <!--                                                <div class="pub_info">-->
+                                <!--                                                    <div class="pub_user">-->
+                                <!--                                                        <p>ORE de Sherbrooke</p>-->
+                                <!--                                                    </div>-->
+                                <!--                                                    <div class="pub_date">-->
+                                <!--                                                        <p>Publiée il y a 1 j</p>-->
+                                <!--                                                    </div>-->
+                                <!--                                                </div>-->
+                                <!--                                                <i class="fa fa-thumb-tack mobile-display-none" />-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="actualite_content">-->
+                                <!--                                                <div class="pub_title">-->
+                                <!--                                                    <h4>-->
+                                <!--                                                        <font style="">Lorem Ipsum</font>-->
+                                <!--                                                    </h4>-->
+                                <!--                                                </div>-->
+                                <!--                                                <div class="pub_desc">-->
+                                <!--                                                    <p>-->
+                                <!--                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do-->
+                                <!--                                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut-->
+                                <!--                                                        enim ad minim veniam, quis nostrud exercitation ullamco laboris-->
+                                <!--                                                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor-->
+                                <!--                                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat-->
+                                <!--                                                        nulla pariatur.-->
+                                <!--                                                    </p>-->
+                                <!--                                                    <img src="/website_ore/static/src/img/product-school&#45;&#45;GajrOEN6m4-unsplash.jpg" />-->
+                                <!--                                                </div>-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="actualite_stats">-->
+                                <!--                                                <span class="like_count">-->
+                                <!--                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>-->
+                                <!--                                                <span class="comment_count">4 commentaires</span>-->
+                                <!--                                                <span>&#8226;</span>-->
+                                <!--                                                <span class="view_count">10 vues</span>-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="pub_actions">-->
+                                <!--                                                <div class="like_btn">-->
+                                <!--                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime-->
+                                <!--                                                </div>-->
+                                <!--                                                <div class="comment_btn">-->
+                                <!--                                                    <icon class="fa fa-comment-o" />&amp;nbsp;Commenter-->
+                                <!--                                                </div>-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="actualite_foot mobile-display-none">-->
+                                <!--                                                <img class="profile_img" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />-->
+                                <!--                                                <div class="comment_bar">-->
+                                <!--                                                    <input type="text" placeholder="&#201;crivez un commentaire" />-->
+                                <!--                                                    <icon class="fa fa-smile-o" />-->
+                                <!--                                                    <icon class="fa fa-camera" />-->
+                                <!--                                                    <icon class="fa fa-sticky-note-o" />-->
+                                <!--                                                    <icon class="fa fa-sticky-note-o" />-->
+                                <!--                                                </div>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <!--                                    </div>-->
+                                <!--                                    <div class="container_actualite" style="float:right;width: 35%;margin-right: 10%;margin-left: 0;">-->
+                                <!--                                        <div class="list_title s_title mobile-display-none">-->
+                                <!--                                            <div class="title">-->
+                                <!--                                                <h1 style=" margin-left:10%">&#192; la une</h1>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <!--                                        <div class="box_actualite">-->
+                                <!--                                            <div class="actualite_head">-->
+                                <!--                                                <img class="pub_pfp rounded-circle" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />-->
+                                <!--                                                <div class="pub_info">-->
+                                <!--                                                    <div class="pub_user">-->
+                                <!--                                                        <p>ORE de Sherbrooke</p>-->
+                                <!--                                                    </div>-->
+                                <!--                                                    <div class="pub_date">-->
+                                <!--                                                        <p>Publiée il y a 1 j</p>-->
+                                <!--                                                    </div>-->
+                                <!--                                                </div>-->
+                                <!--                                                <i class="fa fa-thumb-tack mobile-display-none" />-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="actualite_content">-->
+                                <!--                                                <div class="pub_title">-->
+                                <!--                                                    <h4>-->
+                                <!--                                                        <font style="">Lorem Ipsum</font>-->
+                                <!--                                                    </h4>-->
+                                <!--                                                </div>-->
+                                <!--                                                <div class="pub_desc">-->
+                                <!--                                                    <p>-->
+                                <!--                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do-->
+                                <!--                                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut-->
+                                <!--                                                        enim ad minim veniam, quis nostrud exercitation ullamco laboris-->
+                                <!--                                                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor-->
+                                <!--                                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat-->
+                                <!--                                                        nulla pariatur.-->
+                                <!--                                                    </p>-->
+                                <!--                                                </div>-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="actualite_stats">-->
+                                <!--                                                <span class="like_count">-->
+                                <!--                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>-->
+                                <!--                                                <span class="comment_count">4 commentaires</span>-->
+                                <!--                                                <span>&#8226;</span>-->
+                                <!--                                                <span class="view_count">10 vues</span>-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="pub_actions">-->
+                                <!--                                                <div class="like_btn">-->
+                                <!--                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime-->
+                                <!--                                                </div>-->
+                                <!--                                                <div class="comment_btn">-->
+                                <!--                                                    <icon class="fa fa-comment-o" />&amp;nbsp;Commenter-->
+                                <!--                                                </div>-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="actualite_foot mobile-display-none">-->
+                                <!--                                                <img class="profile_img" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />-->
+                                <!--                                                <div class="comment_bar">-->
+                                <!--                                                    <input type="text" placeholder="&#201;crivez un commentaire" />-->
+                                <!--                                                    <icon class="fa fa-smile-o" />-->
+                                <!--                                                    <icon class="fa fa-camera" />-->
+                                <!--                                                    <icon class="fa fa-sticky-note-o" />-->
+                                <!--                                                    <icon class="fa fa-sticky-note-o" />-->
+                                <!--                                                </div>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <!--                                        <div class="box_actualite">-->
+                                <!--                                            <div class="actualite_head">-->
+                                <!--                                                <img class="pub_pfp rounded-circle" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />-->
+                                <!--                                                <div class="pub_info">-->
+                                <!--                                                    <div class="pub_user">-->
+                                <!--                                                        <p>ORE de Sherbrooke</p>-->
+                                <!--                                                    </div>-->
+                                <!--                                                    <div class="pub_date">-->
+                                <!--                                                        <p>Publiée il y a 1 j</p>-->
+                                <!--                                                    </div>-->
+                                <!--                                                </div>-->
+                                <!--                                                <i class="fa fa-thumb-tack mobile-display-none" />-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="actualite_content">-->
+                                <!--                                                <div class="pub_title">-->
+                                <!--                                                    <h4>-->
+                                <!--                                                        <font style="">Lorem Ipsum</font>-->
+                                <!--                                                    </h4>-->
+                                <!--                                                </div>-->
+                                <!--                                                <div class="pub_desc">-->
+                                <!--                                                    <p>-->
+                                <!--                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do-->
+                                <!--                                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut-->
+                                <!--                                                        enim ad minim veniam, quis nostrud exercitation ullamco laboris-->
+                                <!--                                                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor-->
+                                <!--                                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat-->
+                                <!--                                                        nulla pariatur.-->
+                                <!--                                                    </p>-->
+                                <!--                                                </div>-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="actualite_stats">-->
+                                <!--                                                <span class="like_count">-->
+                                <!--                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>-->
+                                <!--                                                <span class="comment_count">4 commentaires</span>-->
+                                <!--                                                <span>&#8226;</span>-->
+                                <!--                                                <span class="view_count">10 vues</span>-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="pub_actions">-->
+                                <!--                                                <div class="like_btn">-->
+                                <!--                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime-->
+                                <!--                                                </div>-->
+                                <!--                                                <div class="comment_btn">-->
+                                <!--                                                    <icon class="fa fa-comment-o" />&amp;nbsp;Commenter-->
+                                <!--                                                </div>-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="actualite_foot mobile-display-none">-->
+                                <!--                                                <img class="profile_img" src="/web/image/website_ore.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />-->
+                                <!--                                                <div class="comment_bar">-->
+                                <!--                                                    <input type="text" placeholder="&#201;crivez un commentaire" />-->
+                                <!--                                                    <icon class="fa fa-smile-o" />-->
+                                <!--                                                    <icon class="fa fa-camera" />-->
+                                <!--                                                    <icon class="fa fa-sticky-note-o" />-->
+                                <!--                                                    <icon class="fa fa-sticky-note-o" />-->
+                                <!--                                                </div>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <!--                                    </div>-->
+                                <!--                                </section>-->
                             </div>
                         </div>
                     </t>
@@ -473,9 +552,9 @@
                                 </section>
                                 <nav class="sub-navbar navbar-light bg-light second_navbar">
                                     <ul class="nav navbar-nav second_navbar">
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/communaute/actualite">
-                                                <span>Actualit&#233;</span>
+                                                <span>Babillard</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -603,9 +682,9 @@
                                 </section>
                                 <nav class="sub-navbar navbar-light bg-light second_navbar">
                                     <ul class="nav navbar-nav second_navbar">
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/communaute/actualite">
-                                                <span>Actualit&#233;</span>
+                                                <span>Babillard</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -787,9 +866,9 @@
                                 </section>
                                 <nav class="sub-navbar navbar-light bg-light second_navbar">
                                     <ul class="nav navbar-nav second_navbar">
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/communaute/actualite">
-                                                <span>Actualit&#233;</span>
+                                                <span>Babillard</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -1588,12 +1667,12 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="s_actualite" ng-controller="NewsController">
+                            <section class="s_actualite" ng-controller="NewsController" ng-if="nb_news_info > 0">
                                 <div class="container_actualite">
                                     <div class="list_title s_title">
                                         <div class="title">
                                             <h1 style="margin-left:10%">Derni&#232;res Actualit&#233;s</h1>
-                                            <a href="/event">
+                                            <a href="/blog">
                                                 <font style="font-size:1.25rem;">
                                                     Voir Tout
                                                     (+{{nb_news_info}})
@@ -1725,7 +1804,7 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="s_event_list" ng-controller="EventController">
+                            <section class="s_event_list" ng-controller="EventController" ng-if="nb_event_info > 0">
                                 <div class="list_head">
                                     <div class="list_title s_title">
                                         <div style="display:flex;gap:1%;align-items:center;">
@@ -2098,9 +2177,9 @@
                                 </section>
                                 <nav class="sub-navbar navbar-light bg-light second_navbar">
                                     <ul class="nav navbar-nav second_navbar">
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/communaute/actualite">
-                                                <span>Actualit&#233;</span>
+                                                <span>Babillard</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -3372,10 +3451,8 @@
                                         <div class="col-lg-2 footer_menu" ng-if="personal.my_clan.id > 0">
                                             <a href="/communaute/actualite" class="img bottom_menu_icon fa fa-comments-o" style="text-decoration:none;" />
                                             <h5>La communaut&#233;</h5>
-                                            <span class="debug_unimplemented">
-                                                <a href="/communaute/actualite" class="footer_link">Actualit&#233;</a>
-                                                <br />
-                                            </span>
+                                            <a href="/communaute/actualite" class="footer_link">Babillard</a>
+                                            <br />
                                             <a href="/communaute/evenements" class="footer_link">&#201;v&#232;nements</a>
                                             <br />
                                             <a href="/communaute/membres" class="footer_link">Membres</a>
@@ -3384,7 +3461,7 @@
                                                 <a href="/communaute/groupes" class="footer_link">Groupes</a>
                                             </span>
                                             <br />
-                                            <a href="/communaute/clan" class="footer_link">Gestion</a>
+                                            <a href="/communaute/clan" class="footer_link">Information du clan</a>
                                         </div>
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/participer" class="img bottom_menu_icon fa fa-plus-circle" style="text-decoration:none;" />
