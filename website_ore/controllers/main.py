@@ -1875,48 +1875,48 @@ class OREController(http.Controller):
             "dct_demande_service": dct_demande_service,
             "len_demande_service": len(dct_demande_service),
         }
-        if membre_id.clan_principal_id:
-            data_membre_info["my_clan"] = {
-                "name": membre_id.clan_principal_id.name,
-                "id": membre_id.clan_principal_id.id,
-            }
-        else:
-            data_membre_info["my_clan"] = {
-                "name": "",
-                "id": 0,
-            }
+        # if membre_id.clan_principal_id:
+        #     data_membre_info["my_clan"] = {
+        #         "name": membre_id.clan_principal_id.name,
+        #         "id": membre_id.clan_principal_id.id,
+        #     }
+        # else:
+        #     data_membre_info["my_clan"] = {
+        #         "name": "",
+        #         "id": 0,
+        #     }
 
-        if membre_id.clan_participe_ids:
-            data_membre_info["all_my_clan"] = [
-                {
-                    "name": clan_id.name,
-                    "id": clan_id.id,
-                }
-                for clan_id in membre_id.clan_participe_ids
-            ]
-        else:
-            data_membre_info["all_my_clan"] = []
-        invitation_ids = (
-            request.env["ore.clan.invitation"]
-            .sudo()
-            .search([("email", "=", membre_id.email)])
-        )
-        data_membre_info["all_my_invited_clan"] = [
-            {
-                "name": invitation_id.clan_id.name,
-                "id": invitation_id.clan_id.id,
-            }
-            for invitation_id in invitation_ids
-            if invitation_id.invite_by_admin_clan
-        ]
-        data_membre_info["all_my_waiting_invitation_clan"] = [
-            {
-                "name": invitation_id.clan_id.name,
-                "id": invitation_id.clan_id.id,
-            }
-            for invitation_id in invitation_ids
-            if invitation_id.ask_join_clan
-        ]
+        # if membre_id.clan_participe_ids:
+        #     data_membre_info["all_my_clan"] = [
+        #         {
+        #             "name": clan_id.name,
+        #             "id": clan_id.id,
+        #         }
+        #         for clan_id in membre_id.clan_participe_ids
+        #     ]
+        # else:
+        #     data_membre_info["all_my_clan"] = []
+        # invitation_ids = (
+        #     request.env["ore.clan.invitation"]
+        #     .sudo()
+        #     .search([("email", "=", membre_id.email)])
+        # )
+        # data_membre_info["all_my_invited_clan"] = [
+        #     {
+        #         "name": invitation_id.clan_id.name,
+        #         "id": invitation_id.clan_id.id,
+        #     }
+        #     for invitation_id in invitation_ids
+        #     if invitation_id.invite_by_admin_clan
+        # ]
+        # data_membre_info["all_my_waiting_invitation_clan"] = [
+        #     {
+        #         "name": invitation_id.clan_id.name,
+        #         "id": invitation_id.clan_id.id,
+        #     }
+        #     for invitation_id in invitation_ids
+        #     if invitation_id.ask_join_clan
+        # ]
 
         return {"membre_info": data_membre_info}
 
