@@ -51,13 +51,17 @@ class OREChatGroup(models.Model):
                 # Same member
                 other_membre_id = obj.membre_ids[0]
             last_msg = obj.msg_ids[-1].name if obj.msg_ids else ""
+            if obj.clan_id:
+                name = obj.clan_id.name
+            else:
+                name = other_membre_id.name
             data = {
                 # "id": obj.id,
                 "id": other_membre_id.id,
                 "id_group": obj.id,
-                "id_clan": obj.clan_id.id,
-                "id_clan_group": obj.group_clan_id.id,
-                "name": other_membre_id.name,
+                "clan_id": obj.clan_id.id,
+                "group_clan_id": obj.group_clan_id.id,
+                "name": name,
                 "ma_photo": other_membre_id.get_image_url(),
                 "resume_msg": last_msg,
                 "lst_msg": [a.first_to_json() for a in obj.msg_ids],

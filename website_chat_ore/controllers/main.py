@@ -59,10 +59,20 @@ class OREController(http.Controller):
             for a in http.request.env["ore.chat.group"].search(
                 [("membre_ids", "in", [membre_id.id])]
             )
+            if not a.clan_id and not a.group_clan_id
+        ]
+
+        lst_clan_message = [
+            a.first_to_json(membre_id.id)
+            for a in http.request.env["ore.chat.group"].search(
+                [("clan_id", "in", membre_id.clan_participe_ids.ids)]
+            )
+            if a.clan_id
         ]
 
         return {
             "lst_membre_message": lst_membre_message,
+            "lst_clan_message": lst_clan_message,
         }
 
     @http.route(
@@ -76,15 +86,40 @@ class OREController(http.Controller):
         msg = kw.get("msg")
         group_id = kw.get("group_id")
         membre_id = kw.get("membre_id")
+        clan_id = kw.get("clan_id")
         me_membre_id = self.get_membre_id()
-        if not group_id:
-            group_value = {
-                "membre_ids": [(6, 0, [membre_id, me_membre_id.id])]
+        if not membre_id and not clan_id:
+            return {
+                "error": (
+                    "Need argument membre_id or clan_id when send a message"
+                    " from chat."
+                )
             }
-            group_id_id = (
-                http.request.env["ore.chat.group"].sudo().create(group_value)
+        if membre_id and clan_id:
+            _logger.warning(
+                "Ore chat is not suppose to support membre_id with clan_id,"
+                " check method ore_chat_msg_submit"
             )
-            group_id = group_id_id.id
+        if not group_id:
+            if membre_id:
+                group_value = {
+                    "membre_ids": [(6, 0, [membre_id, me_membre_id.id])]
+                }
+                group_id_id = (
+                    http.request.env["ore.chat.group"]
+                    .sudo()
+                    .create(group_value)
+                )
+                group_id = group_id_id.id
+            elif clan_id:
+                group_value = {"clan_id": clan_id.id}
+                group_id_id = (
+                    http.request.env["ore.chat.group"]
+                    .sudo()
+                    .create(group_value)
+                )
+                group_id = group_id_id.id
+
         value = {
             "name": msg,
             "membre_writer_id": me_membre_id.id,
