@@ -63,7 +63,7 @@ class OREController(http.Controller):
         ]
 
         lst_clan_message = [
-            a.first_to_json(membre_id.id)
+            a.first_to_json()
             for a in http.request.env["ore.chat.group"].search(
                 [("clan_id", "in", membre_id.clan_participe_ids.ids)]
             )
@@ -101,6 +101,7 @@ class OREController(http.Controller):
                 " check method ore_chat_msg_submit"
             )
         if not group_id:
+            # TODO need refactoring, only use group_id instead of clan_id
             if membre_id:
                 group_value = {
                     "membre_ids": [(6, 0, [membre_id, me_membre_id.id])]
@@ -112,13 +113,20 @@ class OREController(http.Controller):
                 )
                 group_id = group_id_id.id
             elif clan_id:
-                group_value = {"clan_id": clan_id.id}
-                group_id_id = (
-                    http.request.env["ore.chat.group"]
-                    .sudo()
-                    .create(group_value)
+                # check if exist before create a new one
+                chat_group_id = http.request.env["ore.chat.group"].search(
+                    [("clan_id", "=", clan_id)], limit=1
                 )
-                group_id = group_id_id.id
+                if chat_group_id:
+                    group_id = chat_group_id.id
+                else:
+                    group_value = {"clan_id": clan_id}
+                    group_id_id = (
+                        http.request.env["ore.chat.group"]
+                        .sudo()
+                        .create(group_value)
+                    )
+                    group_id = group_id_id.id
 
         value = {
             "name": msg,

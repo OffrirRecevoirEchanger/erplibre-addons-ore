@@ -120,6 +120,34 @@ class OreClan(models.Model):
         self.ensure_one()
         return self.write({"website_published": not self.website_published})
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        vals = super().create(vals_list)
+        for val in vals:
+            # Automatic message accueil
+            msg_bienvenu = f"Bienvenue dans le clan {val.name}"
+            if not val.message_accueil:
+                val.message_accueil = msg_bienvenu
+            # Force create char clan
+            chat_group_ids = self.env["ore.chat.group"].search(
+                [("clan_id", "=", val.id)]
+            )
+            if not chat_group_ids:
+                chat_group_value = {
+                    "clan_id": val.id,
+                    "membre_ids": val.membre_list_ids.ids,
+                }
+                chat_group_id = self.env["ore.chat.group"].create(
+                    chat_group_value
+                )
+                chat_msg_value = {
+                    "membre_writer_id": val.membre_create_id.id,
+                    "name": msg_bienvenu,
+                    "msg_group_id": chat_group_id.id,
+                }
+                self.env["ore.chat.message"].create(chat_msg_value)
+        return vals
+
     @api.multi
     def write(self, vals):
         status = super().write(vals)
@@ -128,9 +156,16 @@ class OreClan(models.Model):
         if "membre_list_ids" in vals:
             for rec in self:
                 # We know the list of member has update, check if all members has principal clan
+                chat_group_id = self.env["ore.chat.group"].search(
+                    [("clan_id", "=", rec.id)], limit=1
+                )
                 for membre_id in rec.membre_list_ids:
+                    # Validate clan principal is set
                     if not membre_id.clan_principal_id:
                         membre_id.clan_principal_id = rec.id
+                    # Force to add into clan chat
+                    if membre_id.id not in chat_group_id.membre_ids.ids:
+                        chat_group_id.membre_ids = [(4, membre_id.id)]
         return status
 
     def get_image_url(self, field="image"):

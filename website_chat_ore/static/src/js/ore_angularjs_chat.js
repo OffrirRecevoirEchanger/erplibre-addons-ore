@@ -135,7 +135,7 @@ odoo.define('website.ore_angularjs_chat', function (require) {
                     $scope.$scope_main.section_clan = clan_id;
                     // $scope.update_clan_info(clan_id, "contact_info");
 
-                    let clan_dct = $scope.$scope_main.lst_clan_message.find(ele => ele.id === clan_id)
+                    let clan_dct = $scope.$scope_main.lst_clan_message.find(ele => ele.clan_id === clan_id)
                     if (!_.isUndefined(clan_dct)) {
                         $scope.$scope_main.section_clan_dct = clan_dct;
                     } else {
@@ -178,7 +178,7 @@ odoo.define('website.ore_angularjs_chat', function (require) {
             } else if (!_.isUndefined($scope.$scope_main.section_clan_dct)) {
                 form_value["group_id"] = $scope.$scope_main.section_clan_dct.id_group
             }
-            if (!_.isUndefined($scope.$scope_main.section_membre) && !_.isEmpty($scope.$scope_main.section_membre)) {
+            if (!_.isUndefined($scope.$scope_main.section_membre) && $scope.$scope_main.section_membre !== "") {
                 form_value["membre_id"] = $scope.$scope_main.section_membre
             }
             if (!_.isUndefined($scope.$scope_main.section_clan)) {

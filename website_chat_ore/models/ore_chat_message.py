@@ -45,6 +45,10 @@ class OREChatMessage(models.Model):
         for rec in res:
             data = rec.first_to_json()
             data["group_id"] = rec.msg_group_id.id
+            if rec.msg_group_id.clan_id:
+                data["clan_id"] = rec.msg_group_id.clan_id.id
+            if rec.msg_group_id.group_clan_id:
+                data["group_clan_id"] = rec.msg_group_id.group_clan_id.id
             for membre_id in rec.msg_group_id.membre_ids:
                 # Update value for the other member
                 if len(rec.msg_group_id.membre_ids) > 1:
@@ -64,6 +68,7 @@ class OREChatMessage(models.Model):
                         f" '{len(rec.msg_group_id.membre_ids)}'?"
                     )
 
+                canal = f'["{self._cr.dbname}","{self._name}",{membre_id.id}]'
                 self.env["bus.bus"].sendone(
                     # f'["{self._cr.dbname}","{self._name}",{rec.id}]',
                     # TODO choose unique canal name for the member
@@ -72,7 +77,7 @@ class OREChatMessage(models.Model):
                         "timestamp": str(datetime.now()),
                         "data": data,
                         "field_id": rec.id,
-                        "canal": f'["{self._cr.dbname}","{self._name}",{membre_id.id}]',
+                        "canal": canal,
                     },
                 )
         return res

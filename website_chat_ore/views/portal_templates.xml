@@ -14,6 +14,13 @@
             </a>
         </xpath>
     </template>
+    <template id="template_clan_details_generic_inherit" inherit_id="website_ore.template_clan_details_generic">
+        <xpath expr="//nav[hasclass('profil_left')]" position="inside">
+            <a ng-href="/notification#!?section=message&amp;clan={{page_communaute_clan_info.id}}">
+                <div class="btn btn-primary rounded-circle">Clavardage</div>
+            </a>
+        </xpath>
+    </template>
     <template id="layout_website_chat" inherit_id="website_ore.layout">
         <xpath
             expr="//div[hasclass('menu_message_and_notification')]/div[hasclass('dropdown-nav')]/button[@id='BtnTabNotifications']"
@@ -62,7 +69,7 @@
                 <a
                     role="menuitem"
                     class="dropdown-item"
-                    ng-href="/notification#!?section=message&amp;clan={{msg.id}}"
+                    ng-href="/notification#!?section=message&amp;clan={{msg.clan_id}}"
                     ng-repeat="msg in lst_clan_message"
                 >
                     <div class="cat activite btn">

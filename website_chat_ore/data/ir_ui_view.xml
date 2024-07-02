@@ -151,7 +151,7 @@
                                 </div>
                                 <div class="row vertical_list">
                                     <h2>Clan</h2>
-                                    <a class="container_explorer" ng-href="/notification#!?section=message&amp;clan={{msg.id}}" ng-repeat="msg in lst_clan_message">
+                                    <a class="container_explorer" ng-href="/notification#!?section=message&amp;clan={{msg.clan_id}}" ng-repeat="msg in lst_clan_message">
                                         <div class="activite message btn" ng-class="{'read':msg.is_read}">
                                             <div class="activite_img img-fluid rounded-circle" ng-style="{'background-image': 'url(' + msg.ma_photo + ')'}">
                                                 <div class="unread rounded-circle" ng-if="!msg.is_read" />

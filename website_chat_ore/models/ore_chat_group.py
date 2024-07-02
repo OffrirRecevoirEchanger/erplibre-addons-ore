@@ -10,7 +10,11 @@ class OREChatGroup(models.Model):
     _name = "ore.chat.group"
     _description = "ORE chat group"
 
-    name = fields.Char()
+    name = fields.Char(
+        compute="_compute_name",
+        store=True,
+        track_visibility="onchange",
+    )
 
     active = fields.Boolean(default=True)
 
@@ -36,34 +40,53 @@ class OREChatGroup(models.Model):
         string="Group Clan",
     )
 
-    def first_to_json(self, actual_membre_id):
+    @api.depends("membre_ids", "clan_id")
+    def _compute_name(self):
+        for rec in self:
+            if rec.clan_id:
+                rec.name = rec.clan_id.name
+            elif rec.membre_ids:
+                rec.name = " - ".join([a.name for a in rec.membre_ids])
+            else:
+                rec.name = "Empty"
+
+    def first_to_json(self, actual_membre_id=None):
         obj = self[0]
-        lst_other_membre_id = [
-            a for a in obj.membre_ids if a.id != actual_membre_id
-        ]
+        if actual_membre_id:
+            lst_other_membre_id = [
+                a for a in obj.membre_ids if a.id != actual_membre_id
+            ]
+        else:
+            lst_other_membre_id = []
         if not obj.membre_ids:
             _logger.warning("Why members is empty?")
             data = {}
         else:
-            if lst_other_membre_id:
-                other_membre_id = lst_other_membre_id[0]
-            else:
-                # Same member
-                other_membre_id = obj.membre_ids[0]
+            if actual_membre_id:
+                if lst_other_membre_id:
+                    other_membre_id = lst_other_membre_id[0]
+                else:
+                    # Same member
+                    other_membre_id = obj.membre_ids[0]
             last_msg = obj.msg_ids[-1].name if obj.msg_ids else ""
             if obj.clan_id:
                 name = obj.clan_id.name
-            else:
+            elif not actual_membre_id:
                 name = other_membre_id.name
+            else:
+                name = ""
             data = {
                 # "id": obj.id,
-                "id": other_membre_id.id,
                 "id_group": obj.id,
                 "clan_id": obj.clan_id.id,
                 "group_clan_id": obj.group_clan_id.id,
                 "name": name,
-                "ma_photo": other_membre_id.get_image_url(),
                 "resume_msg": last_msg,
                 "lst_msg": [a.first_to_json() for a in obj.msg_ids],
             }
+            if actual_membre_id:
+                data["ma_photo"] = other_membre_id.get_image_url()
+                data["id"] = other_membre_id.id
+            elif obj.clan_id:
+                data["ma_photo"] = obj.clan_id.get_image_url()
         return data
