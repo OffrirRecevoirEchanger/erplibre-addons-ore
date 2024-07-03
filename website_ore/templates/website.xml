@@ -253,21 +253,21 @@
         <t t-ignore="true">
             <div class="container_lists">
                 <div class="row activites_list col-lg-12">
-                    <div class="list_title s_title">
-                        <div class="title">
-                            <img
-                                id="clan_ore"
-                                style="float: left; width:100px; height 100px;"
-                                src="/website_ore/static/src/img/O.svg"
-                            />
-                            <h1>Clans récemment créé</h1>
-                            <a t-if="clan_count" href="/chercher_clan" style="font-size:1.25rem;">
-                                Voir Tout (+
-                                <t t-raw="clan_count" />
-                                )
-                            </a>
-                        </div>
-                    </div>
+                    <!--                    <div class="list_title s_title">-->
+                    <!--                        <div class="title">-->
+                    <!--                            <img-->
+                    <!--                                id="clan_ore"-->
+                    <!--                                style="float: left; width:100px; height 100px;"-->
+                    <!--                                src="/website_ore/static/src/img/O.svg"-->
+                    <!--                            />-->
+                    <!--                            <h1>Clans récemment créé</h1>-->
+                    <!--                            <a t-if="clan_count" href="/chercher_clan" style="font-size:1.25rem;">-->
+                    <!--                                Voir Tout (+-->
+                    <!--                                <t t-raw="clan_count" />-->
+                    <!--                                )-->
+                    <!--                            </a>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
                     <div t-if="ore_clan_ids">
                         <div class="container_explorer" t-foreach="ore_clan_ids" t-as="ore_clan_id">
                             <a class="activite btn" t-if="ore_clan_id" t-att-href="'/ore/ore_clan/%d' % ore_clan_id.id">
@@ -290,7 +290,7 @@
                                 <div class="infos">
                                     <div class="activite_title" t-if="ore_clan_id.name" t-field="ore_clan_id.name" />
                                     <div class="activite_title" t-if="not ore_clan_id.name">
-                                        <pre>Sans nom</pre>
+                                        <pre>SANS NOM</pre>
                                         <!-- TODO mettre un titre par défaut en lien avec la catégorie de clan -->
                                     </div>
                                     <div
@@ -301,18 +301,18 @@
                                     <div
                                         class="activite_auteur"
                                         t-if="ore_clan_id.description"
-                                        t-field="ore_clan_id.description"
+                                        t-raw="ore_clan_id.description.strip() if len(ore_clan_id.description) &lt; 500 else ore_clan_id.description.strip()[:500].strip()+'[...]'"
                                     />
-                                    <div
-                                        class="activite_auteur"
-                                        t-if="ore_clan_id.valeur_clan"
-                                        t-field="ore_clan_id.valeur_clan"
-                                    />
-                                    <div
-                                        class="activite_auteur"
-                                        t-if="ore_clan_id.besoin_comble"
-                                        t-field="ore_clan_id.besoin_comble"
-                                    />
+                                    <!--                                    <div-->
+                                    <!--                                        class="activite_auteur"-->
+                                    <!--                                        t-if="ore_clan_id.valeur_clan"-->
+                                    <!--                                        t-field="ore_clan_id.valeur_clan"-->
+                                    <!--                                    />-->
+                                    <!--                                    <div-->
+                                    <!--                                        class="activite_auteur"-->
+                                    <!--                                        t-if="ore_clan_id.besoin_comble"-->
+                                    <!--                                        t-field="ore_clan_id.besoin_comble"-->
+                                    <!--                                    />-->
                                     <!--                                    <span-->
                                     <!--                                        t-if="len(lst_distance_offre_service) >= offre_service_index"-->
                                     <!--                                        class="activite_distance"-->
