@@ -128,10 +128,70 @@
                         class="navbar-toggler"
                         data-toggle="collapse"
                         data-target="#top_menu_collapse"
+                        t-if="not user_id._is_public()"
                     >
                         <span class="navbar-toggler-icon" />
                     </button>
-                    <div class="collapse navbar-collapse" id="top_menu_collapse">
+                    <!--                    <ul class="nav navbar-nav text-right " id="top_menu" t-if="user_id._is_public()">-->
+                    <!--                        <li class="nav-item dropdown" t-ignore="true">-->
+                    <!--                            <a class="nav-link" data-toggle="dropdown" role="menu_item" style="cursor:pointer">-->
+                    <!--                                <span-->
+                    <!--                                    class="fa fa-2x fa-share-alt text-beta"-->
+                    <!--                                    data-oe-model="website.menu"-->
+                    <!--                                    data-oe-id="13"-->
+                    <!--                                    data-oe-field="name"-->
+                    <!--                                    data-oe-type="char"-->
+                    <!--                                    data-oe-expression="submenu.name"-->
+                    <!--                                />-->
+                    <!--                            </a>-->
+                    <!--                            <div class="dropdown-menu submenu shadow" role="menu">-->
+                    <!--                                <div-->
+                    <!--                                    role="menuitem"-->
+                    <!--                                    class="dropdown-item"-->
+                    <!--                                    style="cursor:pointer"-->
+                    <!--                                    ng-click="copy_clipboard_url()"-->
+                    <!--                                >-->
+                    <!--                                    <p>-->
+                    <!--                                        <i class="fa fa-files-o" />-->
+                    <!--                                        <span ng-if="is_copied_url" style="color:green;">Copié!</span>-->
+                    <!--                                        <span ng-if="_.isEmpty(error_copy) &amp;&amp; !is_copied_url">-->
+                    <!--                                            Copier le lien-->
+                    <!--                                        </span>-->
+                    <!--                                        <span ng-if="!_.isEmpty(error_copy)" style="color:red;" ng-cloak="">-->
+                    <!--                                            Erreur : {{error_copy}}-->
+                    <!--                                        </span>-->
+                    <!--                                    </p>-->
+                    <!--                                </div>-->
+                    <!--                                <div-->
+                    <!--                                    role="menuitem"-->
+                    <!--                                    class="dropdown-item"-->
+                    <!--                                    style="cursor:pointer"-->
+                    <!--                                    ng-click="show_and_generate_qrcode()"-->
+                    <!--                                >-->
+                    <!--                                    <p>-->
+                    <!--                                        <i class="fa fa-qrcode" />-->
+                    <!--                                        Code QR-->
+                    <!--                                    </p>-->
+                    <!--                                </div>-->
+                    <!--                                <div-->
+                    <!--                                    role="menuitem"-->
+                    <!--                                    class="dropdown-item"-->
+                    <!--                                    style="cursor:pointer"-->
+                    <!--                                    ng-click="show_camera_qrcode()"-->
+                    <!--                                >-->
+                    <!--                                    <p>-->
+                    <!--                                        <i class="fa fa-camera" />-->
+                    <!--                                        Lecteur Code QR-->
+                    <!--                                    </p>-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </li>-->
+                    <!--                    </ul>-->
+
+                    <a t-attf-href="/web/login" class="nav-link" t-if="user_id._is_public()">
+                        <b>Se connecter</b>
+                    </a>
+                    <div class="collapse navbar-collapse" id="top_menu_collapse" t-if="not user_id._is_public()">
                         <!-- FIXME We want menu to open to the right by default (except cases handled in JS) -->
                         <ul class="nav navbar-nav text-right " id="top_menu">
                             <li
@@ -226,7 +286,7 @@
                             <!--                                    </span>-->
                             <!--                                </a>-->
                             <!--                            </li>-->
-                            <li class="nav-item" t-ignore="true" />
+                            <!--                            <li class="nav-item" t-ignore="true" />-->
                             <span ng-controller="AnimationController">
                                 <li
                                     class="nav-item dropdown"
@@ -311,6 +371,7 @@
                                             style="cursor:pointer; background-color: unset"
                                             ng-style="animation_controller_enable &amp;&amp; {'background-color':'lightgrey'}"
                                             ng-click="toggle_animation_record_show()"
+                                            ng-cloak=""
                                         >
                                             <p ng-show="!animation_controller_enable">Afficher l'enregistrement</p>
                                             <p ng-show="animation_controller_enable">Cacher l'enregistrement</p>
@@ -352,14 +413,13 @@
                                         class="dropdown-item"
                                         ng-style="is_share_enable() &amp;&amp; {'cursor':'pointer'}"
                                         ng-click="share_link()"
+                                        ng-if="is_share_enable()"
+                                        ng-cloak=""
                                     >
                                         <p>
                                             <i class="fa fa-share-alt" />
-                                            <span ng-if="_.isEmpty(error_share)">
-                                                <span ng-if="!is_share_enable()">Non supporté</span>
-                                                <span ng-if="is_share_enable()">Partager le lien</span>
-                                            </span>
-                                            <span ng-if="!_.isEmpty(error_share)" style="color:red;" ng-cloak="">
+                                            <span ng-if="_.isEmpty(error_share)">Partager le lien</span>
+                                            <span ng-if="!_.isEmpty(error_share)" style="color:red;">
                                                 Erreur : {{error_share}}
                                             </span>
                                         </p>
