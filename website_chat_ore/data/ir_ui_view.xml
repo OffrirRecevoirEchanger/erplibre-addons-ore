@@ -60,7 +60,7 @@
                                         </div>
                                         <div class="chat_footer">
                                             <div class="input_container">
-                                                <span class="fa fa-camera debug_unimplemented" />
+                                                <span class="fa fa-camera debug_unimplemented ng-cloak" />
                                                 <input id="input_text_chat" type="text" placeholder="Écrire un message" ng-keypress="$parent.press_enter_send_chat_msg($event)" />
                                                 <span class="fa fa-send" ng-click="$parent.send_chat_msg()" />
                                             </div>
@@ -109,7 +109,7 @@
                                         </div>
                                         <div class="chat_footer">
                                             <div class="input_container">
-                                                <span class="fa fa-camera debug_unimplemented" />
+                                                <span class="fa fa-camera debug_unimplemented ng-cloak" />
                                                 <input id="input_text_chat" type="text" placeholder="Écrire un message" ng-keypress="$parent.press_enter_send_chat_msg($event)" />
                                                 <span class="fa fa-send" ng-click="$parent.send_chat_msg()" />
                                             </div>
@@ -145,7 +145,7 @@
                                                 <h4 class="message_auteur">{{msg.name}}</h4>
                                                 <p class="message">{{msg.resume_msg}}</p>
                                             </div>
-                                            <span class="debug_unimplemented">{{msg.last_date}}</span>
+                                            <span class="debug_unimplemented ng-cloak">{{msg.last_date}}</span>
                                         </div>
                                     </a>
                                 </div>
@@ -161,7 +161,7 @@
                                                 <h4 class="message_auteur">{{msg.name}}</h4>
                                                 <p class="message">{{msg.resume_msg}}</p>
                                             </div>
-                                            <span class="debug_unimplemented">{{msg.last_date}}</span>
+                                            <span class="debug_unimplemented ng-cloak">{{msg.last_date}}</span>
                                         </div>
                                     </a>
                                 </div>

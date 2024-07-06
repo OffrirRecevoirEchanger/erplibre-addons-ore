@@ -27,11 +27,11 @@
                             Voir toutes mes annonces publiées
                         </a>
                         <div class="actions">
-                            <div class="debug_unimplemented" style="cursor:pointer">
+                            <div class="debug_unimplemented ng-cloak" style="cursor:pointer">
                                 <i class="fa fa-pencil text-primary icon_padding_right" />
                                 Modifier mon offre de service
                             </div>
-                            <divider class="debug_unimplemented" />
+                            <divider class="debug_unimplemented ng-cloak" />
                             <div ng-click="supprimer_offre_service(offre_service_info.id)" style="cursor:pointer">
                                 <i class="fa fa-trash text-primary icon_padding_right" />
                                 Supprimer
@@ -130,27 +130,27 @@
                                             <t t-raw="ore_offre_service_id.quoi_apporter" />
                                         </div>
                                         <div
-                                            class="conditions debug_unimplemented"
+                                            class="conditions debug_unimplemented ng-cloak"
                                             t-if="ore_offre_service_id.condition"
                                         >
                                             <h2>Conditions</h2>
                                             <t t-raw="ore_offre_service_id.condition" />
                                         </div>
                                         <div
-                                            class="deplacement debug_unimplemented"
+                                            class="deplacement debug_unimplemented ng-cloak"
                                             t-if="ore_offre_service_id.deplacement"
                                         >
                                             <h2>D&#233;placement</h2>
                                             <t t-raw="ore_offre_service_id.deplacement" />
                                         </div>
                                         <div
-                                            class="tarif debug_unimplemented"
+                                            class="tarif debug_unimplemented ng-cloak"
                                             t-if="ore_offre_service_id.entente_tarifiaire"
                                         >
                                             <h2>Entente tarifiaire</h2>
                                             <t t-raw="ore_offre_service_id.entente_tarifiaire" />
                                         </div>
-                                        <div class="dispo debug_unimplemented">
+                                        <div class="dispo debug_unimplemented ng-cloak">
                                             <h2>Disponilibités</h2>
                                             <div class="dates_container">
                                                 <p>LUNDI</p>
@@ -169,7 +169,7 @@
                                                 <p>08H00 - 19H00</p>
                                             </div>
                                         </div>
-                                        <div class="signaler debug_unimplemented">
+                                        <div class="signaler debug_unimplemented ng-cloak">
                                             <p>
                                                 <i class="fa fa-flag-o" />
                                                 &amp;nbsp <a href="">
@@ -417,11 +417,11 @@
                             Voir toutes mes annonces publiées
                         </a>
                         <div class="actions">
-                            <div class="debug_unimplemented" style="cursor:pointer">
+                            <div class="debug_unimplemented ng-cloak" style="cursor:pointer">
                                 <i class="fa fa-pencil text-primary icon_padding_right" />
                                 Modifier ma demande de service
                             </div>
-                            <divider class="debug_unimplemented" />
+                            <divider class="debug_unimplemented ng-cloak" />
                             <div ng-click="supprimer_demande_service(demande_service_info.id)" style="cursor:pointer">
                                 <i class="fa fa-trash text-primary icon_padding_right" />
                                 Supprimer
@@ -520,27 +520,27 @@
                                         <!--                                            <t t-raw="ore_demande_service_id.quoi_apporter" />-->
                                         <!--                                        </div>-->
                                         <!--                                        <div-->
-                                        <!--                                            class="conditions debug_unimplemented"-->
+                                        <!--                                            class="conditions debug_unimplemented ng-cloak"-->
                                         <!--                                            t-if="ore_demande_service_id.condition"-->
                                         <!--                                        >-->
                                         <!--                                            <h2>Conditions</h2>-->
                                         <!--                                            <t t-raw="ore_demande_service_id.condition" />-->
                                         <!--                                        </div>-->
                                         <!--                                        <div-->
-                                        <!--                                            class="deplacement debug_unimplemented"-->
+                                        <!--                                            class="deplacement debug_unimplemented ng-cloak"-->
                                         <!--                                            t-if="ore_demande_service_id.deplacement"-->
                                         <!--                                        >-->
                                         <!--                                            <h2>D&#233;placement</h2>-->
                                         <!--                                            <t t-raw="ore_demande_service_id.deplacement" />-->
                                         <!--                                        </div>-->
                                         <!--                                        <div-->
-                                        <!--                                            class="tarif debug_unimplemented"-->
+                                        <!--                                            class="tarif debug_unimplemented ng-cloak"-->
                                         <!--                                            t-if="ore_demande_service_id.entente_tarifiaire"-->
                                         <!--                                        >-->
                                         <!--                                            <h2>Entente tarifiaire</h2>-->
                                         <!--                                            <t t-raw="ore_demande_service_id.entente_tarifiaire" />-->
                                         <!--                                        </div>-->
-                                        <div class="dispo debug_unimplemented">
+                                        <div class="dispo debug_unimplemented ng-cloak">
                                             <h2>Disponilibités</h2>
                                             <div class="dates_container">
                                                 <p>LUNDI</p>
@@ -559,7 +559,7 @@
                                                 <p>08H00 - 19H00</p>
                                             </div>
                                         </div>
-                                        <div class="signaler debug_unimplemented">
+                                        <div class="signaler debug_unimplemented ng-cloak">
                                             <p>
                                                 <i class="fa fa-flag-o" />
                                                 &amp;nbsp <a href="">
@@ -862,10 +862,10 @@
     </template>
     <template id="ore_type_service_categorie_list_liste_type_service_categorie" name="Type Service Categorie List">
         <t t-ignore="true">
-            <div t-if="not type_service_categories" class="debug_unimplemented">
+            <div t-if="not type_service_categories" class="debug_unimplemented ng-cloak">
                 <div class="row">Aucune catégorie de service est disponible.</div>
             </div>
-            <div t-if="type_service_categories" class="debug_unimplemented">
+            <div t-if="type_service_categories" class="debug_unimplemented ng-cloak">
                 <div class="list_title s_title">
                     <div class="title">
                         <h1>Explorer les offres</h1>
@@ -961,7 +961,7 @@
                                         <div
                                             ng-repeat="option in state.data"
                                             class="button_form"
-                                            ng-class="{'debug_unimplemented': is_not_implemented(option)}"
+                                            ng-class="{'debug_unimplemented ng-cloak': is_not_implemented(option)}"
                                             ng-if="!state.list_is_first_position &amp;&amp; _.isObject(state.data)"
                                         >
                                             <div
@@ -989,7 +989,7 @@
                                         </div>
                                         <div
                                             ng-repeat="option in state.list"
-                                            ng-class="{'debug_unimplemented': is_not_implemented(option)}"
+                                            ng-class="{'debug_unimplemented ng-cloak': is_not_implemented(option)}"
                                             class="button_form"
                                         >
                                             <label
@@ -1105,11 +1105,11 @@
                                         <!-- Photo header -->
                                         <section
                                             ng-if="form_is_offre_demande_service(state)"
-                                            class="s_event_banner oe_img_bg oe_custom_bg debug_unimplemented"
+                                            class="s_event_banner oe_img_bg oe_custom_bg debug_unimplemented ng-cloak"
                                             style="background-image: url(&quot;/web/image/website_ore.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;);"
                                         >
                                             <!-- TODO fill image with model -->
-                                            <div style="text-align:center" class="debug_unimplemented">
+                                            <div style="text-align:center" class="debug_unimplemented ng-cloak">
                                                 <div class="btn btn-primary adapt-text-primary-color">
                                                     <i class="fa fa-edit icon_padding_right" />
                                                     Remplacer la photo
@@ -1238,7 +1238,7 @@
                                         />
 
                                         <div
-                                            class="debug_unimplemented"
+                                            class="debug_unimplemented ng-cloak"
                                             ng-if="['init.pos.single.form', 'init.pds.single.form', 'init.saa.offrir.nouveau.cat.form'].includes(state.id)"
                                         >
                                             <div>
@@ -1599,9 +1599,9 @@
 
                                         <!-- Coût possible -->
                                         <!--                                        <span-->
-                                        <!--                                            ng-class="{'debug_unimplemented': ['init.saa.recevoir.choix.existant.time.form'].includes(state.id)}"-->
+                                        <!--                                            ng-class="{'debug_unimplemented ng-cloak': ['init.saa.recevoir.choix.existant.time.form'].includes(state.id)}"-->
                                         <!--                                        >-->
-                                        <span class="debug_unimplemented">
+                                        <span class="debug_unimplemented ng-cloak">
                                             <h2
                                                 ng-if="'init.saa.offrir.nouveau.cat.form' === state.id || form_is_service_to_modify(state)"
                                             >
@@ -1675,12 +1675,12 @@
 
                                             <div
                                                 ng-if="form_is_frais_import_list_without_modify(state)"
-                                                class="debug_unimplemented"
+                                                class="debug_unimplemented ng-cloak"
                                             >
                                                 <h4>Frais pour le matériel nécessaire à l'échange de service</h4>
                                             </div>
                                             <div
-                                                class="form_box debug_unimplemented"
+                                                class="form_box debug_unimplemented ng-cloak"
                                                 style="width:fit-content;"
                                                 ng-if="form_is_frais_import_list_without_modify(state)"
                                             >
@@ -1690,7 +1690,10 @@
                                                 </span>
                                             </div>
 
-                                            <div ng-if="form_is_service_to_modify(state)" class="debug_unimplemented">
+                                            <div
+                                                ng-if="form_is_service_to_modify(state)"
+                                                class="debug_unimplemented ng-cloak"
+                                            >
                                                 <h4>
                                                     Frais pour le matériel nécessaire à l'échange de service
                                                     <a href="" class="text-primary modifier">
@@ -1771,7 +1774,7 @@
                                         />
 
                                         <span
-                                            ng-class="{'debug_unimplemented': ['init.saa.recevoir.choix.existant.time.form'].includes(state.id)}"
+                                            ng-class="{'debug_unimplemented ng-cloak': ['init.saa.recevoir.choix.existant.time.form'].includes(state.id)}"
                                         >
                                             <!-- Durée de service -->
                                             <div ng-if="form_is_service_to_modify(state)">
@@ -1811,7 +1814,10 @@
                                         </span>
 
                                         <!-- Respecter les conditions suivantes -->
-                                        <span ng-if="form_is_service_to_modify(state)" class="debug_unimplemented">
+                                        <span
+                                            ng-if="form_is_service_to_modify(state)"
+                                            class="debug_unimplemented ng-cloak"
+                                        >
                                             <div class="divider" />
                                             <!-- TODO button send form need to click to accept this condition -->
                                             <h3>
@@ -2365,7 +2371,7 @@
                             <!--                                                    </div>-->
                         </nav>
                         <!--                        <nav class="profil_right">-->
-                        <!--                                                    <div class="profil profil_right rounded-circle btn btn-primary btn_do_echange debug_unimplemented adapt-text-primary-color" ng-if="!_.isUndefined(page_communaute_clan_info.is_clan_admin) &amp;&amp; !page_communaute_clan_info.is_clan_admin" ng-cloak="">Échanger avec {{page_presentation_membre_info.full_name}}</div>-->
+                        <!--                                                    <div class="profil profil_right rounded-circle btn btn-primary btn_do_echange debug_unimplemented ng-cloak adapt-text-primary-color" ng-if="!_.isUndefined(page_communaute_clan_info.is_clan_admin) &amp;&amp; !page_communaute_clan_info.is_clan_admin" ng-cloak="">Échanger avec {{page_presentation_membre_info.full_name}}</div>-->
                         <!--                        </nav>-->
                     </div>
                 </div>

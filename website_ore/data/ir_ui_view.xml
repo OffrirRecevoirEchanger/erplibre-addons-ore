@@ -36,14 +36,14 @@
                                                 <span>Échanges</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented" ng-if="personal.my_clan.id > 0">
+                                        <li class="nav-item debug_unimplemented ng-cloak" ng-if="personal.my_clan.id > 0">
                                             <a class="nav-link" role="menu_item" href="/monactivite/monreseau">
                                                 <span>
                                                     Mon r&#233;seau
                                                 </span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented" ng-if="personal.my_clan.id > 0">
+                                        <li class="nav-item debug_unimplemented ng-cloak" ng-if="personal.my_clan.id > 0">
                                             <a class="nav-link" role="menu_item" href="/monactivite/mesgroupes">
                                                 <span>Mes groupes</span>
                                             </a>
@@ -64,7 +64,7 @@
                                 <section class="s_activites_recentes lg">
                                     <div class="container_lists">
                                         <div class="row activites_list lg">
-                                            <section class="s_mobile_filter debug_unimplemented">
+                                            <section class="s_mobile_filter debug_unimplemented ng-cloak">
                                                 <div class="btn">
                                                     Voir mes favoris
                                                     <i class="fa fa-chevron-down" />
@@ -110,7 +110,7 @@
                                                     <p class="status" ng-class="{'red': echange.estAcheteur, 'blue': !echange.estAcheteur}" ng-if="echange.transaction_valide" ng-cloak="">{{echange.show_duree_total}}</p>
                                                 </a>
                                             </div>
-                                            <div class="medium-btn btn btn-primary debug_unimplemented">Voir les transactions plus anciennes</div>
+                                            <div class="medium-btn btn btn-primary debug_unimplemented ng-cloak">Voir les transactions plus anciennes</div>
                                         </div>
                                     </div>
                                 </section>
@@ -167,7 +167,7 @@
                                                 <span>Membres</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item debug_unimplemented ng-cloak">
                                             <a class="nav-link" role="menu_item" href="/communaute/groupes">
                                                 <span>Groupes</span>
                                             </a>
@@ -568,7 +568,7 @@
                                                 <span>Membres</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item debug_unimplemented ng-cloak">
                                             <a class="nav-link" role="menu_item" href="/communaute/groupes">
                                                 <span>Groupes</span>
                                             </a>
@@ -586,18 +586,18 @@
                                             <div class="list_title s_title">
                                                 <h1>
                                                     Évènements
-                                                    <span class="filter_btn btn debug_unimplemented">
+                                                    <span class="filter_btn btn debug_unimplemented ng-cloak">
                                                     <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                     Filtrer et trier
                                                 </span>
-                                                    <span class="filter_btn btn debug_unimplemented" style="margin-right:15px">
+                                                    <span class="filter_btn btn debug_unimplemented ng-cloak" style="margin-right:15px">
                                                     Catégorie &amp;nbsp;
                                                     <icon class="fa fa-chevron-up text-epsilon" />
                                                 </span>
                                                 </h1>
                                             </div>
                                         </div>
-                                        <div class="actualite_search d-none debug_unimplemented">
+                                        <div class="actualite_search d-none debug_unimplemented ng-cloak">
                                             <div class="search_bar_rectangle">
                                                 <i class="fa fa-search" />
                                                 <input type="text" placeholder="Chercher un évènement" />
@@ -698,7 +698,7 @@
                                                 <span>Membres</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item debug_unimplemented ng-cloak">
                                             <a class="nav-link active" role="menu_item" href="/communaute/groupes">
                                                 <span>Groupes</span>
                                             </a>
@@ -710,7 +710,7 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_event_list lg debug_unimplemented">
+                                <section class="s_event_list lg debug_unimplemented ng-cloak">
                                     <div class="list_head mobile-display-none">
                                         <div class="list_title s_title">
                                             <h1>Groupes</h1>
@@ -882,7 +882,7 @@
                                                 <span>Membres</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item debug_unimplemented ng-cloak">
                                             <a class="nav-link" role="menu_item" href="/communaute/groupes">
                                                 <span>Groupes</span>
                                             </a>
@@ -1379,7 +1379,7 @@
                         <div id="wrap">
                             <div class="oe_structure">
                                 <div class="debug_debug" />
-                                <section class="s_search_short debug_unimplemented">
+                                <section class="s_search_short debug_unimplemented ng-cloak">
                                     <div class="container">
                                         <div class="row s_nb_column_fixed">
                                             <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
@@ -1407,7 +1407,7 @@
                                     <div class="container_lists">
                                         <div class="row vertical_list">
                                             <div class="list_title s_title pb24">
-                                                <section class="s_mobile_filter debug_unimplemented">
+                                                <section class="s_mobile_filter debug_unimplemented ng-cloak">
                                                     <div class="btn">
                                                         Catégorie
                                                         <i class="fa fa-chevron-down" />
@@ -1419,11 +1419,11 @@
                                                 </section>
                                                 <div class="title">
                                                     <h1>Liste des clans</h1>
-                                                    <span class="filter_btn btn debug_unimplemented" style="margin:auto 15px auto auto">
+                                                    <span class="filter_btn btn debug_unimplemented ng-cloak" style="margin:auto 15px auto auto">
                                                         Catégorie &amp;nbsp;
                                                         <icon class="fa fa-chevron-up text-epsilon" />
                                                     </span>
-                                                    <span class="filter_btn btn debug_unimplemented">
+                                                    <span class="filter_btn btn debug_unimplemented ng-cloak">
                                                         <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                         Filtrer et trier
                                                     </span>
@@ -1462,7 +1462,7 @@
                                 Mobile :
                                 <a href="https://marvelapp.com/prototype/6dbaaf8/screen/84804840">https://marvelapp.com/prototype/6dbaaf8/screen/84804840</a>
                             </div>
-                            <section class="s_search oe_img_bg oe_custom_bg pt16 debug_unimplemented" style="background-image: url(&quot;/website_ore/static/src/img/bas_vague_TTC_bleue_background_transparent_3841X250px.svg&quot;);">
+                            <section class="s_search oe_img_bg oe_custom_bg pt16 debug_unimplemented ng-cloak" style="background-image: url(&quot;/website_ore/static/src/img/bas_vague_TTC_bleue_background_transparent_3841X250px.svg&quot;);">
                                 <div class="container">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
@@ -1493,7 +1493,7 @@
                             <section class="s_activites_recentes o_ore_liste_offre_et_demande_service">
                                 <div class="container" />
                             </section>
-                            <section class="s_banner parallax s_parallax_no_overflow_hidden pb184 pt160 debug_unimplemented" data-scroll-background-ratio="0" style="background-image: none;">
+                            <section class="s_banner parallax s_parallax_no_overflow_hidden pb184 pt160 debug_unimplemented ng-cloak" data-scroll-background-ratio="0" style="background-image: none;">
                                 <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="" />
                                 <div class="banner-bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_adobestock_309423704_preview_jpeg/AdobeStock_309423704_Preview.jpeg&quot;); background-position: 50% 0px; background-size:cover">
                                     <div class="container">
@@ -1539,7 +1539,7 @@
                                                             <font class="adapt-text-gamma-color">Publier une offre</font>
                                                         </a>
                                                     </div>
-                                                    <div class="banner_btn s_btn text-center col-lg-5 debug_unimplemented" data-name="Button">
+                                                    <div class="banner_btn s_btn text-center col-lg-5 debug_unimplemented ng-cloak" data-name="Button">
                                                         <a href="#" class="btn btn-gamma rounded-circle">
                                                             <font class="adapt-text-gamma-color">En savoir plus</font>
                                                         </a>
@@ -1636,7 +1636,7 @@
                                     </div>
                                 </div>
                             </section>
-                            <section id="banner_communaute" class="s_banner parallax s_parallax_no_overflow_hidden pt200 debug_unimplemented" data-scroll-background-ratio="0" style="background-image: none;">
+                            <section id="banner_communaute" class="s_banner parallax s_parallax_no_overflow_hidden pt200 debug_unimplemented ng-cloak" data-scroll-background-ratio="0" style="background-image: none;">
                                 <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="padding-bottom:16px;background-image: url(&quot;/web/image/website_ore.ir_attachment_map_02_png/Map-02.png&quot;);" />
                                 <div class="container container_communaute">
                                     <div class="row s_nb_column_fixed">
@@ -1696,8 +1696,8 @@
                                                 Voir Tout
                                                 (+{{nb_event_info}})
                                             </a>
-                                            <div class="nav_btn mobile-display-none debug_unimplemented">❮</div>
-                                            <div class="nav_btn mobile-display-none debug_unimplemented">❯</div>
+                                            <div class="nav_btn mobile-display-none debug_unimplemented ng-cloak">❮</div>
+                                            <div class="nav_btn mobile-display-none debug_unimplemented ng-cloak">❯</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1738,7 +1738,7 @@
                                     </div>
                                 </div>
                             </section>
-                            <section id="banner_aide" class="s_cover parallax s_parallax_no_overflow_hidden pb192 pt184 debug_unimplemented" data-scroll-background-ratio="0" style="background-image: none;">
+                            <section id="banner_aide" class="s_cover parallax s_parallax_no_overflow_hidden pb192 pt184 debug_unimplemented ng-cloak" data-scroll-background-ratio="0" style="background-image: none;">
                                 <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_adobestock_250064219_preview_jpeg/AdobeStock_250064219_Preview.jpeg&quot;); background-position: bottom right" />
                                 <div class="container">
                                     <div class="row s_nb_column_fixed">
@@ -1881,7 +1881,7 @@
                                             <span class="txt">R&#233;sum&#233;</span>
                                             <br />
                                             <br />
-                                            <span class="desc-3 debug_unimplemented">
+                                            <span class="desc-3 debug_unimplemented ng-cloak">
                                                 <i class="fa fa-map-marker" />
                                                 <span style="position: relative; left: -25px;">Habite &#224; 1.2km de votre domicile</span>
                                             </span>
@@ -1955,7 +1955,7 @@
                                                 </div>
                                             </div>
 
-                                            <div ng-if="_.isEmpty(page_presentation_membre_info.dct_offre_service)" class="debug_unimplemented">
+                                            <div ng-if="_.isEmpty(page_presentation_membre_info.dct_offre_service)" class="debug_unimplemented ng-cloak">
                                                 <span class="txt" ng-if="page_presentation_membre_info.estPersonnel">Mes offres de service</span>
                                                 <span class="txt" ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel">Ses offres de service</span>
                                                 <span>Aucune offre de service en cours actuellement.</span>
@@ -1964,7 +1964,7 @@
                                                 <span class="txt">
                                                     <span ng-if="page_presentation_membre_info.estPersonnel">Mes offres de service</span>
                                                     <span ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel">Ses offres de service</span>
-                                                    <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
+                                                    <a href="" class="debug_unimplemented ng-cloak" style="float:right; font-weight:lighter">
                                                         <u ng-cloak="">Voir tout ({{page_presentation_membre_info.dct_offre_service | lengthKeys}})</u>
                                                     </a>
                                                 </span>
@@ -1985,7 +1985,7 @@
                                                 </div>
                                             </div>
 
-                                            <div ng-if="_.isEmpty(page_presentation_membre_info.dct_demande_service)" class="debug_unimplemented">
+                                            <div ng-if="_.isEmpty(page_presentation_membre_info.dct_demande_service)" class="debug_unimplemented ng-cloak">
                                                 <span class="txt" ng-if="page_presentation_membre_info.estPersonnel">Mes demandes de service</span>
                                                 <span class="txt" ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel">Ses demandes de service</span>
                                                 <span>Aucune demande de service en cours actuellement.</span>
@@ -1994,7 +1994,7 @@
                                                 <span class="txt">
                                                     <span ng-if="page_presentation_membre_info.estPersonnel">Mes demandes de service</span>
                                                     <span ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel">Ses demandes de service</span>
-                                                    <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
+                                                    <a href="" class="debug_unimplemented ng-cloak" style="float:right; font-weight:lighter">
                                                         <u ng-cloak="">Voir tout ({{page_presentation_membre_info.dct_demande_service | lengthKeys}})</u>
                                                     </a>
                                                 </span>
@@ -2014,7 +2014,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="debug_unimplemented">
+                                            <div class="debug_unimplemented ng-cloak">
                                                 <p>
                                                     <icon class="fa fa-flag-o" />
                                                     &amp;nbsp
@@ -2079,7 +2079,7 @@
                                                 <span>Membres</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented">
+                                        <li class="nav-item debug_unimplemented ng-cloak">
                                             <a class="nav-link" role="menu_item" href="/communaute/groupes">
                                                 <span>Groupes</span>
                                             </a>
@@ -2112,17 +2112,17 @@
                                     <div class="list_head mobile-display-none">
                                         <div class="list_title s_title">
                                             <font style="font-size:2rem;">Membres de la communaut&#233;</font>
-                                            <span class="filter_btn btn debug_unimplemented">
+                                            <span class="filter_btn btn debug_unimplemented ng-cloak">
                                                 <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                 Filtrer et trier
                                             </span>
-                                            <span class="filter_btn btn debug_unimplemented" style="margin-right:15px">
+                                            <span class="filter_btn btn debug_unimplemented ng-cloak" style="margin-right:15px">
                                                 Catégorie &amp;nbsp;
                                                 <icon class="fa fa-chevron-up text-epsilon" />
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="actualite_search d-none debug_unimplemented">
+                                    <div class="actualite_search d-none debug_unimplemented ng-cloak">
                                         <div class="search_bar_rectangle">
                                             <i class="fa fa-search" />
                                             <input type="text" placeholder="Chercher un membre" />
@@ -2305,13 +2305,13 @@
                                 <section class="s_vertical_list_lg pt0">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
-                                            <div class="list_title s_title pb40 debug_unimplemented">
+                                            <div class="list_title s_title pb40 debug_unimplemented ng-cloak">
                                                 <h5>
                                                     <font style="font-size: 1.5rem;">Les offres de service</font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn debug_unimplemented" ng-if="_.isEmpty(personal.dct_offre_service_favoris)">Aucune offre de services favoris dans votre liste.</div>
-                                            <div class="buttons_form_container activite btn boite debug_unimplemented" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service_favoris" ng-cloak="">
+                                            <div class="activite btn debug_unimplemented ng-cloak" ng-if="_.isEmpty(personal.dct_offre_service_favoris)">Aucune offre de services favoris dans votre liste.</div>
+                                            <div class="buttons_form_container activite btn boite debug_unimplemented ng-cloak" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service_favoris" ng-cloak="">
                                                 <a class="label" ng-href="/ore/ore_offre_service/{{offre_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
@@ -2326,13 +2326,13 @@
                                                     <h2 class="fa text-epsilon coeur" ng-class="{'fa-heart': offre_service.is_favorite, 'fa-heart-o': !offre_service.is_favorite}" ng-click="add_to_my_favorite('ore.offre.service', offre_service)" />
                                                 </div>
                                             </div>
-                                            <div class="list_title s_title pb40 debug_unimplemented">
+                                            <div class="list_title s_title pb40 debug_unimplemented ng-cloak">
                                                 <h5>
                                                     <font style="font-size: 1.5rem;">Les demandes de service</font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn debug_unimplemented" ng-if="_.isEmpty(personal.dct_demande_service_favoris)">Aucune demande de services favoris dans votre liste.</div>
-                                            <div class="buttons_form_container activite btn boite debug_unimplemented" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service_favoris" ng-cloak="">
+                                            <div class="activite btn debug_unimplemented ng-cloak" ng-if="_.isEmpty(personal.dct_demande_service_favoris)">Aucune demande de services favoris dans votre liste.</div>
+                                            <div class="buttons_form_container activite btn boite debug_unimplemented ng-cloak" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service_favoris" ng-cloak="">
                                                 <a class="label" ng-href="/ore/ore_demande_service/{{demande_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
@@ -2412,19 +2412,19 @@
                                                 <span>Échanges</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented" ng-if="personal.my_clan.id > 0">
+                                        <li class="nav-item debug_unimplemented ng-cloak" ng-if="personal.my_clan.id > 0">
                                             <a class="nav-link" role="menu_item" href="/monactivite/monreseau">
                                                 <span>Mon r&#233;seau</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented" ng-if="personal.my_clan.id > 0">
+                                        <li class="nav-item debug_unimplemented ng-cloak" ng-if="personal.my_clan.id > 0">
                                             <a class="nav-link active" role="menu_item" href="/monactivite/mesgroupes">
                                                 <span>Mes groupes</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_event_list lg debug_unimplemented" ng-if="personal.my_clan.id > 0">
+                                <section class="s_event_list lg debug_unimplemented ng-cloak" ng-if="personal.my_clan.id > 0">
                                     <div class="list_head mobile-display-none">
                                         <div class="list_title s_title text-bold">
                                             <h1>
@@ -2689,7 +2689,7 @@
                                                 <br />
                                                 <div class="btn btn-primary adapt-text-primary-color" ng-if="ask_modification_profile_street" ng-click="change_profile_street(false)">Enregistrer</div>
                                             </div>
-                                            <div class="activite debug_unimplemented">
+                                            <div class="activite debug_unimplemented ng-cloak">
                                                 <a class="modif btn btn-primary adapt-text-primary-color" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">V&#233;rification de vs ant&#233;c&#233;dents
@@ -2723,7 +2723,7 @@
                                     Lien mobile :
                                     <a href="https://marvelapp.com/prototype/6dbaaf8/screen/84805003">https://marvelapp.com/prototype/6dbaaf8/screen/84805003</a>
                                 </div>
-                                <section class="s_page_title pb24 pt88 s debug_unimplemented" style="margin-left:14%;">
+                                <section class="s_page_title pb24 pt88 s debug_unimplemented ng-cloak" style="margin-left:14%;">
                                     <p>Mon profil > Mes préférences générales</p>
                                     <div class="pt8 pb4 " style="text-align: center;" ng-init="get_list_langue()">
                                         <h1 class="s_title_default text-bold" style="text-align: left;">Mes préférences générales</h1>
@@ -2739,7 +2739,7 @@
                                                     <button class="modif btn btn-primary adapt-text-primary-color" ng-class="{'disabled': language.selected.default}" ng-click="changeLanguage()">Changer la langue</button>
                                                 </div>
                                             </div>
-                                            <div class="activite debug_unimplemented">
+                                            <div class="activite debug_unimplemented ng-cloak">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">???????</h4>
@@ -2803,7 +2803,7 @@
                                                             <h4 class="message_auteur" ng-cloak="">{{notif.type_notification}}</h4>
                                                             <p class="message" ng-cloak="">{{notif.name}}</p>
                                                         </div>
-                                                        <span class="debug_unimplemented">5 min</span>
+                                                        <span class="debug_unimplemented ng-cloak">5 min</span>
                                                     </div>
                                                 </a>
                                             </div>
@@ -2878,7 +2878,7 @@
                                             <br />
                                             <span class="txt">Modifier mes informations personnelles et vérifier mes antécédents judiciaires</span>
                                         </a>
-                                        <a class="information information-3 btn label debug_unimplemented" href="monprofil/mesannonces">
+                                        <a class="information information-3 btn label debug_unimplemented ng-cloak" href="monprofil/mesannonces">
                                             <img src="/web/image/website_ore.ir_attachment_profil_annonces_png/Profil-Annonces.png" />
                                             <br />
                                             <span class="nbr">Mes annonces publi&#233;es</span>
@@ -2900,7 +2900,7 @@
                                             <br />
                                             <span class="txt">Voir mes notifications</span>
                                         </a>
-                                        <a class="information information-6 btn label debug_unimplemented" href="monprofil/mespreferences">
+                                        <a class="information information-6 btn label debug_unimplemented ng-cloak" href="monprofil/mespreferences">
                                             <img src="/web/image/website_ore.ir_attachment_profil_preferences_png/Profil-Preferences.png" />
                                             <br />
                                             <span class="nbr">Mes pr&#233;f&#233;rences g&#233;n&#233;rales</span>
@@ -2942,7 +2942,7 @@
                                         <div class="solde_container text-color-title">
                                             <div class="txt">
                                                 Solde de mon compte
-                                                <i class="fa fa-question-circle-o debug_unimplemented" />
+                                                <i class="fa fa-question-circle-o debug_unimplemented ng-cloak" />
                                             </div>
                                             <div class="solde text-color-title" ng-class="{neg_time: !personal.actual_bank_sign}" ng-cloak="">{{personal.actual_bank_time_human_short | uppercase}}</div>
                                         </div>
@@ -2963,14 +2963,14 @@
                                                 <span>Échanges</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented" ng-if="personal.my_clan.id > 0">
+                                        <li class="nav-item debug_unimplemented ng-cloak" ng-if="personal.my_clan.id > 0">
                                             <a class="nav-link" role="menu_item" href="/monactivite/monreseau">
                                                 <span>
                                                     Mon r&#233;seau
                                                 </span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented" ng-if="personal.my_clan.id > 0">
+                                        <li class="nav-item debug_unimplemented ng-cloak" ng-if="personal.my_clan.id > 0">
                                             <a class="nav-link" role="menu_item" href="/monactivite/mesgroupes">
                                                 <span>Mes groupes</span>
                                             </a>
@@ -2993,7 +2993,7 @@
                                             <span class="nbr-activite" ng-cloak="">{{personal.actual_month_bank_time_human_short | uppercase}}</span>
                                             <span class="txt-activite">ce mois-ci</span>
                                         </a>
-                                        <a href="/monprofil/mapresentation" class="bilan_main bilan-3 btn debug_unimplemented">
+                                        <a href="/monprofil/mapresentation" class="bilan_main bilan-3 btn debug_unimplemented ng-cloak">
                                             <span class="nbr-activite">1</span>
                                             <span class="txt-activite">nouveau contact</span>
                                         </a>
@@ -3003,14 +3003,14 @@
                                             <span class="nbr-activite" ng-cloak="">{{personal.nb_echange_en_cours}}</span>
                                             <span class="txt-activite">échange en cours</span>
                                         </a>
-                                        <a href="/evenement" class="bilan_right bilan-5 btn debug_unimplemented">
+                                        <a href="/evenement" class="bilan_right bilan-5 btn debug_unimplemented ng-cloak">
                                             <span class="nbr-activite">1</span>
                                             <span class="txt-activite">évènement</span>
                                         </a>
                                     </nav>
                                 </div>
 
-                                <section class="s_activites_recentes debug_unimplemented">
+                                <section class="s_activites_recentes debug_unimplemented ng-cloak">
                                     <div class="container_lists">
                                         <div class="row activites_list">
                                             <div class="list_title s_title">
@@ -3138,14 +3138,14 @@
                                                 <span>Échanges</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented" ng-if="personal.my_clan.id > 0">
+                                        <li class="nav-item debug_unimplemented ng-cloak" ng-if="personal.my_clan.id > 0">
                                             <a class="nav-link active" role="menu_item" href="/monactivite/monreseau">
                                                 <span>
                                                     Mon r&#233;seau
                                                 </span>
                                             </a>
                                         </li>
-                                        <li class="nav-item debug_unimplemented" ng-if="personal.my_clan.id > 0">
+                                        <li class="nav-item debug_unimplemented ng-cloak" ng-if="personal.my_clan.id > 0">
                                             <a class="nav-link" role="menu_item" href="/monactivite/mesgroupes">
                                                 <span>Mes groupes</span>
                                             </a>
@@ -3156,17 +3156,17 @@
                                     <div class="list_head mobile-display-none">
                                         <div class="list_title s_title text-bold">
                                             <font style="font-size:2rem;">Mon r&#233;seau</font>
-                                            <span class="filter_btn btn debug_unimplemented">
+                                            <span class="filter_btn btn debug_unimplemented ng-cloak">
                                                 <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                 Filtrer et trier
                                             </span>
-                                            <span class="filter_btn btn debug_unimplemented" style="margin-right:15px">
+                                            <span class="filter_btn btn debug_unimplemented ng-cloak" style="margin-right:15px">
                                                 Catégorie &amp;nbsp;
                                                 <icon class="fa fa-chevron-up text-epsilon" />
                                             </span>
                                         </div>
                                     </div>
-                                    <section class="s_mobile_filter debug_unimplemented">
+                                    <section class="s_mobile_filter debug_unimplemented ng-cloak">
                                         <div class="btn">
                                             Voir mes favoris
                                             <i class="fa fa-chevron-down" />
@@ -3321,7 +3321,7 @@
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/chercher_clan" class="img bottom_menu_icon fa fa-search" style="text-decoration:none;" />
                                             <h5>Explorer</h5>
-                                            <span class="debug_unimplemented">
+                                            <span class="debug_unimplemented ng-cloak">
                                                 <a href="/explorer" class="footer_link">Accueil</a>
                                                 <br />
                                                 <a href="/offresservice" class="footer_link">Les offres de services</a>
@@ -3341,7 +3341,7 @@
                                             <a href="/communaute/clan" class="footer_link">Information du clan</a>
                                             <br />
                                             <a href="/communaute/membres" class="footer_link">Membres</a>
-                                            <span class="debug_unimplemented">
+                                            <span class="debug_unimplemented ng-cloak">
                                                 <br />
                                                 <a href="/communaute/groupes" class="footer_link">Groupes</a>
                                             </span>
@@ -3353,7 +3353,7 @@
                                             <h5 id="participer_footer_ore">
                                                 <a href="/participer">Participer</a>
                                             </h5>
-                                            <span class="debug_unimplemented">
+                                            <span class="debug_unimplemented ng-cloak">
                                                 <a href="/participer#!?state=init.pos" class="footer_link">Publier une offre de service</a>
                                                 <br />
                                                 <a href="/participer#!?state=init.pds" class="footer_link">Publier une demande de service</a>
@@ -3367,7 +3367,7 @@
                                             <a href="/monprofil" class="img bottom_menu_icon fa fa-user-circle-o" style="text-decoration:none;" />
                                             <h5>Mon profil</h5>
                                             <a href="/monprofil/mapresentation" class="footer_link">Ma pr&#233;sentation publique</a>
-                                            <span class="debug_unimplemented">
+                                            <span class="debug_unimplemented ng-cloak">
                                                 <br />
                                                 <a href="/monprofil/mesinfos" class="footer_link">Mes informations personnelles</a>
                                             </span>
@@ -3375,7 +3375,7 @@
                                             <a href="/monprofil/mesannonces" class="footer_link">Mes annonces</a>
                                             <br />
                                             <a href="/monprofil/mesfavoris" class="footer_link">Mes favoris</a>
-                                            <span class="debug_unimplemented">
+                                            <span class="debug_unimplemented ng-cloak">
                                                 <br />
                                                 <a href="/monprofil/mespreferences" class="footer_link">Param&#232;tres</a>
                                             </span>
@@ -3386,29 +3386,29 @@
                                             <a href="/monactivite" class="footer_link">Bilan</a>
                                             <br />
                                             <a href="/monactivite/echanges" class="footer_link">Échanges</a>
-                                            <span class="debug_unimplemented" ng-if="personal.my_clan.id > 0">
+                                            <span class="debug_unimplemented ng-cloak" ng-if="personal.my_clan.id > 0">
                                                 <br />
                                                 <a href="/monactivite/monreseau" class="footer_link">Mon r&#233;seau</a>
                                                 <br />
                                                 <a href="/monactivite/mesgroupes" class="footer_link">Mes groupes</a>
                                             </span>
                                         </div>
-                                        <div class="col-lg-2 footer_menu div_footer_link">
+                                        <div class="col-lg-2 footer_menu debug_unimplemented ng-cloak">
                                             <!--                                            <a href="/aide" class="img bottom_menu_icon fa fa-question-circle" style="text-decoration:none;" />-->
                                             <h5>Aide</h5>
                                             <span>
                                                 <a href="/aide#!?section=guide_utilisation" class="footer_link">Guides d'utilisation</a>
                                                 <br />
                                             </span>
-                                            <span class="debug_unimplemented">
+                                            <span class="debug_unimplemented ng-cloak">
                                                 <a href="/aide#!?section=contacter_ore" class="footer_link">Contacter le réseau</a>
                                                 <br />
                                             </span>
-                                            <span class="debug_unimplemented">
+                                            <span class="debug_unimplemented ng-cloak">
                                                 <a href="/aide#!?section=mentor" class="footer_link">Mentor</a>
                                                 <br />
                                             </span>
-                                            <span class="debug_unimplemented">
+                                            <span class="debug_unimplemented ng-cloak">
                                                 <a href="/aide#!?section=tutoriel" class="footer_link">Tutoriel</a>
                                                 <br />
                                             </span>
@@ -3458,11 +3458,11 @@
                                             <a ng-href="/participer#!?state=init.va.non.recu.choix.ignore_nouveau.form&amp;membre={{page_presentation_membre_info.id}}" class="btn btn-gamma rounded-circle">
                                                 <font class="adapt-text-gamma-color">Valider avoir reçu un service</font>
                                             </a>
-                                            <hr class="debug_unimplemented" />
-                                            <a ng-href="/participer#!?state=init.saa.offrir&amp;membre={{page_presentation_membre_info.id}}" class="btn btn-gamma rounded-circle debug_unimplemented">
+                                            <hr class="debug_unimplemented ng-cloak" />
+                                            <a ng-href="/participer#!?state=init.saa.offrir&amp;membre={{page_presentation_membre_info.id}}" class="btn btn-gamma rounded-circle debug_unimplemented ng-cloak">
                                                 <font class="adapt-text-gamma-color">Planifier un échange à donner</font>
                                             </a>
-                                            <a ng-href="/participer#!?state=init.saa.recevoir.choix&amp;membre={{page_presentation_membre_info.id}}" class="btn btn-gamma rounded-circle debug_unimplemented">
+                                            <a ng-href="/participer#!?state=init.saa.recevoir.choix&amp;membre={{page_presentation_membre_info.id}}" class="btn btn-gamma rounded-circle debug_unimplemented ng-cloak">
                                                 <font class="adapt-text-gamma-color">Planifier un échange à recevoir</font>
                                             </a>
                                             <hr />
@@ -3493,7 +3493,7 @@
                             <section class="s_cover parallax s_parallax_is_fixed s_parallax_no_overflow_hidden pt152 pb152" data-scroll-background-ratio="1" style="background-image: none;">
                                 <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/538/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;); background-position: 50% 0px;" />
                             </section>
-                            <section id="pub_form" class="s_pub_offre_desc pb80 debug_unimplemented">
+                            <section id="pub_form" class="s_pub_offre_desc pb80 debug_unimplemented ng-cloak">
                                 <div class="desc_container">
                                     <h3>Titre</h3>
                                     <textarea />
@@ -3688,7 +3688,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                <section class="s_evenement pt80 pb160 debug_unimplemented">
+                                <section class="s_evenement pt80 pb160 debug_unimplemented ng-cloak">
                                     <div class="event_container">
                                         <div class="informations_container">
                                             <div class="event_info info-2">
@@ -3837,7 +3837,7 @@
                                     Lien mobile :
                                     <a href="https://marvelapp.com/prototype/6dbaaf8/screen/84804842">https://marvelapp.com/prototype/6dbaaf8/screen/84804842</a>
                                 </div>
-                                <section class="s_search_short debug_unimplemented">
+                                <section class="s_search_short debug_unimplemented ng-cloak">
                                     <div class="container">
                                         <div class="row s_nb_column_fixed">
                                             <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
@@ -3866,7 +3866,7 @@
                                     <div class="container_lists">
                                         <div class="row vertical_list">
                                             <div class="list_title s_title pb24">
-                                                <section class="s_mobile_filter debug_unimplemented">
+                                                <section class="s_mobile_filter debug_unimplemented ng-cloak">
                                                     <div class="btn">
                                                         Catégorie
                                                         <i class="fa fa-chevron-down" />
@@ -3878,18 +3878,18 @@
                                                 </section>
                                                 <div class="title">
                                                     <h1>Offres de service</h1>
-                                                    <span class="filter_btn btn debug_unimplemented" style="margin:auto 15px auto auto">
+                                                    <span class="filter_btn btn debug_unimplemented ng-cloak" style="margin:auto 15px auto auto">
                                                         Catégorie &amp;nbsp;
                                                         <icon class="fa fa-chevron-up text-epsilon" />
                                                     </span>
-                                                    <span class="filter_btn btn debug_unimplemented">
+                                                    <span class="filter_btn btn debug_unimplemented ng-cloak">
                                                         <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                         Filtrer et trier
                                                     </span>
                                                 </div>
                                             </div>
                                             <div ng-repeat="(service_id, service) in dct_offre_service_info" ng-include="'/ore/template/offre_ou_demande_de_service_generic'" ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'offre'; " />
-                                            <!--                                            <div class="activite btn debug_unimplemented">-->
+                                            <!--                                            <div class="activite btn debug_unimplemented ng-cloak">-->
                                             <!--                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />-->
                                             <!--                                                <div class="infos">-->
                                             <!--                                                    <h4 class="activite_title">-->
@@ -3926,7 +3926,7 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="s_search_short debug_unimplemented">
+                                <section class="s_search_short debug_unimplemented ng-cloak">
                                     <div class="container">
                                         <div class="row s_nb_column_fixed">
                                             <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
@@ -3955,7 +3955,7 @@
                                     <div class="container_lists">
                                         <div class="row vertical_list">
                                             <div class="list_title s_title pb24">
-                                                <section class="s_mobile_filter debug_unimplemented">
+                                                <section class="s_mobile_filter debug_unimplemented ng-cloak">
                                                     <div class="btn">
                                                         Catégorie
                                                         <i class="fa fa-chevron-down" />
@@ -3967,11 +3967,11 @@
                                                 </section>
                                                 <div class="title">
                                                     <h1>Demandes de service</h1>
-                                                    <span class="filter_btn btn debug_unimplemented" style="margin:auto 15px auto auto">
+                                                    <span class="filter_btn btn debug_unimplemented ng-cloak" style="margin:auto 15px auto auto">
                                                         Catégorie &amp;nbsp;
                                                         <icon class="fa fa-chevron-up text-epsilon" />
                                                     </span>
-                                                    <span class="filter_btn btn debug_unimplemented">
+                                                    <span class="filter_btn btn debug_unimplemented ng-cloak">
                                                         <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                         Filtrer et trier
                                                     </span>
@@ -4013,7 +4013,7 @@
                                         <i class="fa fa-arrow-left text-primary" />
                                         Voir tous mes échanges
                                     </a>
-                                    <div class="actions debug_unimplemented">
+                                    <div class="actions debug_unimplemented ng-cloak">
                                         <div>
                                             <i class="fa fa-phone text-primary icon_padding_right" />
                                             Contacter le réseau
@@ -4039,7 +4039,7 @@
                                                 <br />
                                                 {{contact_info.full_name}}
                                             </span>
-                                            <div class="btn btn-primary adapt-text-primary-color debug_unimplemented">
+                                            <div class="btn btn-primary adapt-text-primary-color debug_unimplemented ng-cloak">
                                                 <!--                                                <a ng-href="{{get_href_participer_service_effectue(echange_service_info)}}">-->
                                                 <i class="fa fa-thumbs-up" />
                                                 <!-- TODO faire apparaitre un formulaire pour demander des commentaires et informer l'autre utilisateur d'avoir accepter. Quel est la prochaine étape? -->
@@ -4053,12 +4053,12 @@
                                                     <span>Service effectué</span>
                                                 </a>
                                             </div>
-                                            <div class="btn btn-epsilon adapt-text-primary-color debug_unimplemented">
+                                            <div class="btn btn-epsilon adapt-text-primary-color debug_unimplemented ng-cloak">
                                                 <i class="fa fa-pencil" />
                                                 <!-- TODO faire apparaitre un formulaire pour que l'autre utilisateur change une information DEMANDE DE RÉVISION ou modifier soi même une information -->
                                                 <span>Modifier l'entente</span>
                                             </div>
-                                            <div class="btn btn-epsilon adapt-text-primary-color debug_unimplemented">
+                                            <div class="btn btn-epsilon adapt-text-primary-color debug_unimplemented ng-cloak">
                                                 <i class="fa fa-times-circle" />
                                                 <!-- TODO faire apparaitre un formulaire pour demander des commentaires et informer l'autre utilisateur du refus -->
                                                 <span>Annuler l'entente</span>
@@ -4116,20 +4116,20 @@
                                             </div>
                                         </div>
                                         <div class="information information-5" ng-if="!echange_service_info.transaction_valide">
-                                            <span class="info_title debug_unimplemented">
+                                            <span class="info_title debug_unimplemented ng-cloak">
                                                 <font style="font-weight:bold;">Conditions de l'entente</font>
                                             </span>
-                                            <div class="condition debug_unimplemented">
+                                            <div class="condition debug_unimplemented ng-cloak">
                                                 <b class="nbr">Coût possible supplémentaire à prévoir</b>
                                                 <p class="condition_desc">Frais pour trajet de</p>
                                                 <p ng-cloak="">{{echange_service_info.distance_trajet}} km</p>
-                                                <p class="condition_desc debug_unimplemented">
+                                                <p class="condition_desc debug_unimplemented ng-cloak">
                                                     Frais pour le matériel nécessaire à l'échange
                                                     de service
                                                     <a href="" class="ml-auto text-primary">Voir la liste</a>
                                                 </p>
                                             </div>
-                                            <divider class="debug_unimplemented" />
+                                            <divider class="debug_unimplemented ng-cloak" />
                                             <div class="condition">
                                                 <b class="nbr">Estimation de la durée de service</b>
                                                 <p class="condition_desc">Nombre d'heures estimé pour le service</p>
@@ -4141,7 +4141,7 @@
                                                     <span ng-cloak="">{{echange_service_info.show_total_dure_estime_pos}}</span>
                                                 </div>
                                             </div>
-                                            <span class="debug_unimplemented">
+                                            <span class="debug_unimplemented ng-cloak">
                                                 <divider />
                                                 <div class="condition">
                                                     <b class="nbr">Respectez-vous les conditions suivantes :</b>
@@ -4289,7 +4289,7 @@
                                         </h1>
                                     </div>
                                 </section>
-                                <section class="s_activites_recentes lg debug_unimplemented">
+                                <section class="s_activites_recentes lg debug_unimplemented ng-cloak">
                                     <div class="container_lists">
                                         <div class="row activites_list lg">
                                             <section class="s_mobile_filter">
@@ -4408,7 +4408,7 @@
                                                     <u>Voir les détails</u>
                                                 </a>
                                             </div>
-                                            <div class="medium-btn btn btn-primary debug_unimplemented">Voir les transactions plus anciennes</div>
+                                            <div class="medium-btn btn btn-primary debug_unimplemented ng-cloak">Voir les transactions plus anciennes</div>
                                         </div>
                                     </div>
                                 </section>
@@ -4434,17 +4434,17 @@
                                             <span>Guides d'utilisation</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item debug_unimplemented" t-if="not user_id._is_public()">
+                                    <li class="nav-item debug_unimplemented ng-cloak" t-if="not user_id._is_public()">
                                         <a href="/aide#!?section=contacter_ore" class="nav-link" role="menu_item" ng-class="{'active': section=='contacter_ore'}">
                                             <span>Contacter le réseau</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item debug_unimplemented" t-if="not user_id._is_public()">
+                                    <li class="nav-item debug_unimplemented ng-cloak" t-if="not user_id._is_public()">
                                         <a href="/aide#!?section=mentor" class="nav-link" role="menu_item" ng-class="{'active': section=='mentor'}">
                                             <span>Mentor</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item debug_unimplemented" t-if="not user_id._is_public()">
+                                    <li class="nav-item debug_unimplemented ng-cloak" t-if="not user_id._is_public()">
                                         <a href="/aide#!?section=tutoriel" class="nav-link" role="menu_item" ng-class="{'active': section=='tutoriel'}">
                                             <span>Tutoriel</span>
                                         </a>
@@ -4535,7 +4535,7 @@
                                             <table style="border:1px solid black">
                                                 <tr>
                                                     <th style="border:1px solid black">Caractéristiques</th>
-                                                    <th ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}" ng-cloak="">
+                                                    <th ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black" ng-class="{'debug_unimplemented ng-cloak': state.not_implemented, 'help_show_col': state.table_col_check}" ng-cloak="">
                                                         {{state.title}}
                                                         <br />
                                                         <span style="color:#00FF00" ng-cloak="">{{state.key_space}}</span>
@@ -4548,7 +4548,7 @@
                                                 </tr>
                                                 <tr ng-repeat="(caract, caract_info) in (guide_user_show_is_concat === 'normal' ? data.dct_unique_caract: data.dct_unique_caract_concat)" ng-style="{'background-color': $even ? '#FFFFFF' : '#888888'}" style="text-align: center;">
                                                     <td style="border:1px solid black" ng-bind-html="caract | unsafe" />
-                                                    <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
+                                                    <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black" ng-class="{'debug_unimplemented ng-cloak': state.not_implemented, 'help_show_col': state.table_col_check}">
                                                         <span ng-if="caract_info !== false">
                                                             <i class="fa" ng-repeat="icon_name in getIconCaract(state, caract_info)" ng-class="icon_name" ng-style="{'color': icon_name.includes('fa-inverse') ? '#00FF00' : 'inherit'}" />
                                                         </span>
@@ -4558,14 +4558,14 @@
                                                 </tr>
                                                 <tr>
                                                     <td style="border:1px solid black">Champs requis</td>
-                                                    <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;vertical-align:top;" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
+                                                    <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;vertical-align:top;" ng-class="{'debug_unimplemented ng-cloak': state.not_implemented, 'help_show_col': state.table_col_check}">
                                                         <span ng-if="!_.isEmpty(state.model_field_depend)" ng-bind-html="state.model_field_depend | unsafe" style="font-size:xx-small;" />
                                                     </td>
                                                 </tr>
                                                 <footer>
                                                     <tr>
                                                         <td style="border:1px solid black">Exécuter</td>
-                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented ng-cloak': state.not_implemented, 'help_show_col': state.table_col_check}">
                                                             <a href="{{state.fast_btn_url}}" ng-if="!_.isEmpty(state.fast_btn_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">
                                                                 <i class="fa fa-clock-o" />
                                                             </a>
@@ -4578,7 +4578,7 @@
                                                                 <i class="fa fa-clock-o" />
                                                             </a>
                                                         </td>
-                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented ng-cloak': state.not_implemented, 'help_show_col': state.table_col_check}">
                                                             <a href="{{state.fast_btn_guide_url}}" ng-if="!_.isEmpty(state.fast_btn_guide_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">
                                                                 <i class="fa fa-clock-o" />
                                                             </a>
@@ -4586,7 +4586,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td style="border:1px solid black">Lien direct</td>
-                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented ng-cloak': state.not_implemented, 'help_show_col': state.table_col_check}">
                                                             <a href="{{state.fast_btn_form_url}}" ng-if="!_.isEmpty(state.fast_btn_form_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">
                                                                 <i class="fa fa-clock-o" />
                                                             </a>
@@ -4594,7 +4594,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td style="border:1px solid black">Lien maquette</td>
-                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented ng-cloak': state.not_implemented, 'help_show_col': state.table_col_check}">
                                                             <a href="{{state.maquette_link}}" ng-if="!_.isEmpty(state.maquette_link)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">
                                                                 <i class="fa fa-clock-o" />
                                                             </a>
@@ -4602,13 +4602,13 @@
                                                     </tr>
                                                     <tr>
                                                         <td style="border:1px solid black">Date update</td>
-                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}" style="border:1px solid black;text-align: center;">
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" ng-class="{'debug_unimplemented ng-cloak': state.not_implemented, 'help_show_col': state.table_col_check}" style="border:1px solid black;text-align: center;">
                                                             <span ng-if="!_.isEmpty(state.date_last_update)" ng-cloak="">{{state.date_last_update}}</span>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td style="border:1px solid black">Status</td>
-                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}" style="border:1px solid black;text-align: center;">
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" ng-class="{'debug_unimplemented ng-cloak': state.not_implemented, 'help_show_col': state.table_col_check}" style="border:1px solid black;text-align: center;">
                                                             <span ng-if="!_.isEmpty(state.validate_bug)" ng-bind-html="state.validate_bug | unsafe" />
                                                         </td>
                                                     </tr>
@@ -4637,7 +4637,7 @@
                                                     </h1>
                                                 </div>
                                             </div>
-                                            <div class="row align-items-center" ng-repeat="state in lst_sub_section" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
+                                            <div class="row align-items-center" ng-repeat="state in lst_sub_section" ng-class="{'debug_unimplemented ng-cloak': state.not_implemented, 'help_show_col': state.table_col_check}">
                                                 <div class="col-lg-6 pt16 pb16" ng-cloak="">
                                                     <h2 ng-cloak="">{{state.title}}</h2>
                                                     {{state.description}}
