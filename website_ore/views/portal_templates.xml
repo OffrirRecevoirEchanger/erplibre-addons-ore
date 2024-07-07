@@ -328,7 +328,8 @@
                                     </div>
                                 </li>
                             </span>
-                            <li class="nav-item dropdown debug-item" t-ignore="true">
+                            <li class="nav-item dropdown" t-ignore="true" />
+                            <li class="nav-item dropdown debug-item debug_debug" t-ignore="true">
                                 <t t-if="not user_id._is_public()">
                                     <a class="nav-link" data-toggle="dropdown" role="menu_item" style="cursor:pointer">
                                         <span
