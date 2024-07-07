@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="3830.7812"
+   width="3825.7815"
    zoomAndPan="magnify"
-   viewBox="0 0 2873.0859 187"
+   viewBox="0 0 2869.3361 187"
    height="249.33334"
    preserveAspectRatio="xMidYMid meet"
    version="1.0"
@@ -37,15 +37,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="3440"
-     inkscape:window-height="1403"
+     inkscape:window-width="3840"
+     inkscape:window-height="1536"
      id="namedview696"
      showgrid="false"
-     inkscape:zoom="0.75058578"
-     inkscape:cx="1915.5573"
-     inkscape:cy="124.33334"
-     inkscape:window-x="400"
-     inkscape:window-y="0"
+     inkscape:zoom="0.5307443"
+     inkscape:cx="2487.5702"
+     inkscape:cy="-350.28571"
+     inkscape:window-x="0"
+     inkscape:window-y="1467"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg694"
      fit-margin-top="0"
@@ -106,7 +106,7 @@
   <g
      clip-path="url(#43f3157866)"
      id="g680"
-     transform="translate(-3.707031)">
+     transform="translate(-6.707031)">
     <g
        clip-path="url(#f85df1d76b)"
        id="g678">
@@ -120,7 +120,7 @@
   <g
      clip-path="url(#1d5876428c)"
      id="g686"
-     transform="translate(-3.707031)">
+     transform="translate(-6.707031)">
     <g
        clip-path="url(#d5b8bbc38b)"
        id="g684">
@@ -134,7 +134,7 @@
   <g
      clip-path="url(#8903e9368e)"
      id="g692"
-     transform="translate(-3.707031)">
+     transform="translate(-6.707031)">
     <g
        clip-path="url(#b0b28025aa)"
        id="g690">

@@ -137,13 +137,11 @@
 
 .bar_time {
     align-items: center;
-    background-color: $gamma;
     border-radius: 5px;
     display: flex;
     font-size: 1.5rem;
     margin-top: 3rem;
     padding: 1rem 5%;
-    background-color: $secondary-color;
 
     :last-child {
         margin-left: auto;

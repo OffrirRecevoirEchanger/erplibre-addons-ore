@@ -26,11 +26,11 @@
         <record id="ore_workflow_clan_relation_init_create" model="ore.workflow.relation">
             <field name="name">Créer un clan</field>
             <field name="body_html" type="html">
-                <img style="float: right;" src="/website_ore/static/src/img/O.svg" />
+                <!--                <img style="float: right;" src="/website_ore/static/src/img/O.svg" />-->
                 <p>
-                    Vous avez besoin de créer un nouveau groupe?
+                    Fonde un clan à ton image.
                     <br />
-                    Cliquez ici permettre de créer un clan.
+                    Invite des gens, gère ton clan, publie des évènements, clavarde, échange du temps comme si c'était de l'argent
                 </p>
             </field>
             <field name="state_src" ref="ore_workflow_state_init" />
@@ -282,13 +282,9 @@
             <field name="diagram_id" ref="ore_workflow_participer" />
         </record>
         <record id="ore_workflow_relation_init_va_non_offert_ignore_nouveau_direct_workflow" model="ore.workflow.relation">
-            <field name="name">Valider un échange que vous avez offert</field>
+            <field name="name">Recevoir du temps pour un service rendu</field>
             <field name="body_html" type="html">
-                <p>
-                    Un échange avec une offre non spécifié
-                    <br />
-                    Il s'agissait d'un service offert spécifiquement par vous.
-                </p>
+                <p>Transaction sous forme de dépôt en minute(s) ou en heure(s) de votre banque de temps.</p>
             </field>
             <field name="state_src" ref="ore_workflow_state_init" />
             <field name="state_dst" ref="ore_workflow_state_va_non_offert_ignore_nouveau_membre" />
@@ -359,13 +355,9 @@
             <field name="diagram_id" ref="ore_workflow_participer" />
         </record>
         <record id="ore_workflow_relation_init_va_non_recu_choix_ignore_nouveau_direct_workflow" model="ore.workflow.relation">
-            <field name="name">Valider un échange que vous avez reçu</field>
+            <field name="name">Donner du temps pour un service obtenu</field>
             <field name="body_html" type="html">
-                <p>
-                    Un échange avec une demande de service non spécifié.
-                    <br />
-                    Il s'agissait d'un service offert spécifiquement pour vous.
-                </p>
+                <p>Transaction sous forme de retrait en minute(s) ou en heure(s) de votre banque de temps.</p>
             </field>
             <field name="state_src" ref="ore_workflow_state_init" />
             <field name="state_dst" ref="ore_workflow_state_va_non_recu_copy_temp" />

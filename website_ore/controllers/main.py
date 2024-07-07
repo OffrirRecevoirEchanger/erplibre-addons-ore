@@ -1393,7 +1393,7 @@ class OREController(http.Controller):
                 "membre_list_count": membre_id.clan_principal_id.membre_list_count,
                 "is_clan_admin": membre_id.id
                 in membre_id.clan_principal_id.membre_admin_ids.ids,
-                "str_diff_time_creation": self._transform_str_diff_time_creation(
+                "diff_create_date": self._transform_str_diff_time_creation(
                     membre_id.clan_principal_id.create_date
                 ),
             }
@@ -1418,7 +1418,7 @@ class OREController(http.Controller):
                     "membre_list_count": clan_id.membre_list_count,
                     "is_clan_admin": membre_id.id
                     in clan_id.membre_admin_ids.ids,
-                    "str_diff_time_creation": self._transform_str_diff_time_creation(
+                    "diff_create_date": self._transform_str_diff_time_creation(
                         clan_id.create_date
                     ),
                 }
@@ -1446,7 +1446,7 @@ class OREController(http.Controller):
                 "membre_list_count": invitation_id.clan_id.membre_list_count,
                 "is_clan_admin": membre_id.id
                 in invitation_id.clan_id.membre_admin_ids.ids,
-                "str_diff_time_creation": self._transform_str_diff_time_creation(
+                "diff_create_date": self._transform_str_diff_time_creation(
                     invitation_id.clan_id.create_date
                 ),
             }
@@ -1467,7 +1467,7 @@ class OREController(http.Controller):
                 "membre_list_count": invitation_id.clan_id.membre_list_count,
                 "is_clan_admin": membre_id.id
                 in invitation_id.clan_id.membre_admin_ids.ids,
-                "str_diff_time_creation": self._transform_str_diff_time_creation(
+                "diff_create_date": self._transform_str_diff_time_creation(
                     invitation_id.clan_id.create_date
                 ),
             }

@@ -824,7 +824,7 @@
             <field name="message">Déclaration du service effectué</field>
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
-            <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
+            <field name="submit_button_text">Dépôt à ma banque d'heures</field>
             <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
             <field name="submit_response_description">Merci de contribuer continuellement à la communauté. Que souhaitez-vous faire maintenant?</field>
             <field name="model_field_depend">membre_id</field>
@@ -891,7 +891,7 @@
             <field name="message">Déclaration du service effectué</field>
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
-            <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
+            <field name="submit_button_text">Retrait de ma banque d'heures</field>
             <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
             <field name="submit_response_description">Merci de contribuer continuellement à la communauté. Que souhaitez-vous faire maintenant?</field>
             <field name="model_field_depend">membre_id</field>

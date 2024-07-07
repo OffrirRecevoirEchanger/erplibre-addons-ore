@@ -49,23 +49,24 @@ class OREChatMessage(models.Model):
                 data["clan_id"] = rec.msg_group_id.clan_id.id
             if rec.msg_group_id.group_clan_id:
                 data["group_clan_id"] = rec.msg_group_id.group_clan_id.id
-            for membre_id in rec.msg_group_id.membre_ids:
+            membre_ids = rec.msg_group_id.membre_ids
+            if not membre_ids:
+                membre_ids = rec.msg_group_id.clan_id.membre_list_ids
+            for membre_id in membre_ids:
                 # Update value for the other member
-                if len(rec.msg_group_id.membre_ids) > 1:
+                if len(membre_ids) > 1:
                     other_membre_id = [
-                        a
-                        for a in rec.msg_group_id.membre_ids
-                        if a.id != membre_id.id
+                        a for a in membre_ids if a.id != membre_id.id
                     ][0]
                     data["membre_id"] = other_membre_id.id
                     data["membre_name"] = other_membre_id.name
-                elif len(rec.msg_group_id.membre_ids) == 1:
-                    data["membre_id"] = rec.msg_group_id.membre_ids[0].id
-                    data["membre_name"] = rec.msg_group_id.membre_ids[0].name
+                elif len(membre_ids) == 1:
+                    data["membre_id"] = membre_ids[0].id
+                    data["membre_name"] = membre_ids[0].name
                 else:
                     _logger.warning(
                         "Why message is missing members, len member is"
-                        f" '{len(rec.msg_group_id.membre_ids)}'?"
+                        f" '{len(membre_ids)}'?"
                     )
 
                 canal = f'["{self._cr.dbname}","{self._name}",{membre_id.id}]'

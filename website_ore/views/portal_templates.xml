@@ -133,9 +133,9 @@
                     </button>
                     <div class="collapse navbar-collapse" id="top_menu_collapse">
                         <!-- FIXME We want menu to open to the right by default (except cases handled in JS) -->
-                        <ul class="nav navbar-nav text-right" id="top_menu">
-                            <li class="nav-item" t-ignore="true" t-if="not user_id._is_public()">
-                                <a class="nav-link" role="menu_item" href="/explorer">
+                        <ul class="nav navbar-nav text-right " id="top_menu">
+                            <li class="nav-item debug_unimplemented" t-ignore="true" t-if="not user_id._is_public()">
+                                <a class="nav-link adapt-text-primary-color" role="menu_item" href="/explorer">
                                     <span
                                         data-oe-model="website.menu"
                                         data-oe-id="1"
@@ -153,7 +153,11 @@
                                 t-if="not user_id._is_public()"
                                 ng-if="personal.my_clan.id > 0"
                             >
-                                <a class="nav-link" role="menu_item" href="/communaute/actualite">
+                                <a
+                                    class="nav-link adapt-text-primary-color"
+                                    role="menu_item"
+                                    href="/communaute/actualite"
+                                >
                                     <span
                                         data-oe-model="website.menu"
                                         data-oe-id="2"
@@ -165,7 +169,7 @@
                                 </a>
                             </li>
                             <li class="nav-item" t-ignore="true" t-if="not user_id._is_public()">
-                                <a class="nav-link" role="menu_item" href="/participer">
+                                <a class="nav-link adapt-text-primary-color" role="menu_item" href="/participer">
                                     <span
                                         data-oe-model="website.menu"
                                         data-oe-id="3"
@@ -179,19 +183,20 @@
                                 </a>
                             </li>
                             <li class="nav-item" t-ignore="true" t-if="not user_id._is_public()">
-                                <a class="nav-link" role="menu_item" href="/monactivite">
+                                <a class="nav-link adapt-text-primary-color" role="menu_item" href="/monactivite">
                                     <span
                                         data-oe-model="website.menu"
                                         data-oe-id="4"
                                         data-oe-field="name"
                                         data-oe-type="char"
                                         data-oe-expression="submenu.name"
-                                    >Mon activit&#233;
+                                    >
+                                        Tableau de bord
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item" t-ignore="true" t-if="not user_id._is_public()">
-                                <a class="nav-link" role="menu_item" href="/monprofil">
+                                <a class="nav-link adapt-text-primary-color" role="menu_item" href="/monprofil">
                                     <span
                                         data-oe-model="website.menu"
                                         data-oe-id="5"
@@ -227,7 +232,7 @@
                                 >
                                     <a class="nav-link" data-toggle="dropdown" role="menu_item" style="cursor:pointer">
                                         <span
-                                            class="fa fa-2x fa-video-camera text-primary"
+                                            class="fa fa-2x fa-video-camera text-beta"
                                             data-oe-model="website.menu"
                                             data-oe-id="10"
                                             data-oe-field="name"
@@ -263,7 +268,7 @@
                                 <t t-if="not user_id._is_public()">
                                     <a class="nav-link" data-toggle="dropdown" role="menu_item" style="cursor:pointer">
                                         <span
-                                            class="fa fa-2x fa-bug text-primary"
+                                            class="fa fa-2x fa-bug text-beta"
                                             data-oe-model="website.menu"
                                             data-oe-id="10"
                                             data-oe-field="name"
@@ -312,7 +317,7 @@
                             <li class="nav-item dropdown" t-ignore="true">
                                 <a class="nav-link" data-toggle="dropdown" role="menu_item" style="cursor:pointer">
                                     <span
-                                        class="fa fa-2x fa-share-alt text-primary"
+                                        class="fa fa-2x fa-share-alt text-beta"
                                         data-oe-model="website.menu"
                                         data-oe-id="13"
                                         data-oe-field="name"
@@ -382,7 +387,7 @@
                             <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
                                 <a class="nav-link" data-toggle="dropdown" role="menu_item" style="cursor:pointer">
                                     <span
-                                        class="fa fa-2x fa-heart text-primary"
+                                        class="fa fa-2x fa-heart text-beta"
                                         data-oe-model="website.menu"
                                         data-oe-id="7"
                                         data-oe-field="name"
@@ -394,12 +399,16 @@
                                 <div class="dropdown-menu submenu shadow" role="menu">
                                     <p style="font-size: 1.5rem;">Mes favoris</p>
                                     <div class="dropdown-nav">
-                                        <button id="BtnTabOffres">Offres</button>
-                                        <button id="BtnTabDemandes">Demandes</button>
+                                        <button id="BtnTabOffres" class="debug_unimplemented">Offres</button>
+                                        <button id="BtnTabDemandes" class="debug_unimplemented">Demandes</button>
                                         <button id="BtnTabMembres">Membres</button>
                                     </div>
                                     <div class="dropdown-cat">
-                                        <div id="tabOffres" class="navbar-tab">
+                                        <div
+                                            id="tabOffres"
+                                            class="navbar-tab debug_unimplemented"
+                                            style="display:none;"
+                                        >
                                             <div class="tab-items-container">
                                                 <a
                                                     role="menuitem"
@@ -436,7 +445,11 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div id="tabDemandes" class="navbar-tab" style="display:none;">
+                                        <div
+                                            id="tabDemandes"
+                                            class="navbar-tab debug_unimplemented"
+                                            style="display:none;"
+                                        >
                                             <div class="tab-items-container">
                                                 <a
                                                     role="menuitem"
@@ -484,7 +497,7 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div id="tabMembres" class="navbar-tab" style="display:none;">
+                                        <div id="tabMembres" class="navbar-tab">
                                             <div class="tab-items-container">
                                                 <a
                                                     role="menuitem"
@@ -531,7 +544,7 @@
                             <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
                                 <a class="nav-link" role="menu_item" data-toggle="dropdown" style="cursor:pointer">
                                     <span
-                                        class="fa fa-2x fa-comments-o text-primary"
+                                        class="fa fa-2x fa-comments-o text-epsilon"
                                         data-oe-model="website.menu"
                                         data-oe-id="8"
                                         data-oe-field="name"
@@ -591,7 +604,7 @@
                             <li class="nav-item dropdown" t-ignore="true">
                                 <a class="nav-link" data-toggle="dropdown" role="menu_item" style="cursor:pointer">
                                     <span
-                                        class="fa fa-2x fa-question-circle-o text-primary"
+                                        class="fa fa-2x fa-question-circle-o text-beta"
                                         data-oe-model="website.menu"
                                         data-oe-id="9"
                                         data-oe-field="name"
@@ -604,7 +617,7 @@
                                         class="nav-link dropdown-item"
                                         href="/aide#!?section=guide_utilisation"
                                         role="menu_item"
-                                        style="cursor:pointer"
+                                        style="cursor:pointer;color:black"
                                     >
                                         <p>Guides d'utilisation</p>
                                     </a>
@@ -640,7 +653,7 @@
                                         class="nav-link dropdown-item"
                                         href="/aide#!?section=amelioration"
                                         role="menu_item"
-                                        style="cursor:pointer"
+                                        style="cursor:pointer;color:black"
                                     >
                                         <p>Amélioration</p>
                                     </a>
@@ -648,43 +661,71 @@
                             </li>
                             <li class="nav-item dropdown bg-primary" t-ignore="true" t-if="not user_id._is_public()">
                                 <a
-                                    class="nav-link adapt-text-secondary-color"
+                                    class="nav-link adapt-text-primary-color"
                                     data-toggle="dropdown"
                                     role="menu_item"
                                     style="cursor:pointer"
                                 >
                                     <span
-                                        class="fa fa-2x fa-edit"
+                                        class="fa fa-2x fa-donate"
                                         data-oe-model="website.menu"
                                         data-oe-id="10"
                                         data-oe-field="name"
                                         data-oe-type="char"
                                         data-oe-expression="submenu.name"
                                     />
-                                    <span style="font-size:15px;margin-left: 10px;float:right">Publier</span>
+                                    <span style="font-size:15px;margin-left: 10px;float:right">Transactions</span>
                                 </a>
                                 <div class="dropdown-menu submenu shadow" role="menu">
-                                    <h2>Publier</h2>
-                                    <a role="menuitem" href="/participer#!?state=init.pos" class="dropdown-item pub">
-                                        <h4>Publier une offre de service</h4>
-                                        Vous souhaitez offrir vos services?
-                                        <br />
-                                        Cliquez ici pour publier votre offre en ligne.
+                                    <h2>Échange de temps</h2>
+                                    <!--                                    <a role="menuitem" href="/participer#!?state=init.pos" class="dropdown-item pub">-->
+                                    <!--                                        <h4>Publier une offre de service</h4>-->
+                                    <!--                                        Vous souhaitez offrir vos services?-->
+                                    <!--                                        <br />-->
+                                    <!--                                        Cliquez ici pour publier votre offre en ligne.-->
+                                    <!--                                    </a>-->
+                                    <!--                                    <a role="menuitem" href="/participer#!?state=init.pds" class="dropdown-item pub">-->
+                                    <!--                                        <h4>Publier une demande de service</h4>-->
+                                    <!--                                        Vous avez besoin d'un service? Faites part de votre besoin aux membres de-->
+                                    <!--                                        le réseau en créant une demande ici.-->
+                                    <!--                                    </a>-->
+                                    <!--                                    <a role="menuitem" href="/participer#!?state=init.saa" class="dropdown-item pub">-->
+                                    <!--                                        <h4>Faire un échange avec un autre membre</h4>-->
+                                    <!--                                        Mettez vous d'accord à l'avance sur les modalités exactes du service à donner ou-->
+                                    <!--                                        recevoir.-->
+                                    <!--                                    </a>-->
+                                    <!--                                    <a role="menuitem" href="/participer#!?state=init.va" class="dropdown-item pub">-->
+                                    <!--                                        <h4>Valider un échange</h4>-->
+                                    <!--                                        Vous avez donné ou reçu un service? Déclarer ici la transaction pour donner ou-->
+                                    <!--                                        percevoir les heures dues.-->
+                                    <!--                                    </a>-->
+                                    <a
+                                        role="menuitem"
+                                        href="/participer#!?state=init.va.non.offert.ignore_nouveau.membre"
+                                        class="dropdown-item pub"
+                                    >
+                                        <h4>
+                                            <b>Recevoir</b>
+                                            du temps pour un service
+                                            <b>rendu</b>
+                                        </h4>
+                                        Transaction sous forme de
+                                        <b>dépôt</b>
+                                        en minute(s) ou en heure(s) de votre banque de temps.
                                     </a>
-                                    <a role="menuitem" href="/participer#!?state=init.pds" class="dropdown-item pub">
-                                        <h4>Publier une demande de service</h4>
-                                        Vous avez besoin d'un service? Faites part de votre besoin aux membres de
-                                        le réseau en créant une demande ici.
-                                    </a>
-                                    <a role="menuitem" href="/participer#!?state=init.saa" class="dropdown-item pub">
-                                        <h4>Faire un échange avec un autre membre</h4>
-                                        Mettez vous d'accord à l'avance sur les modalités exactes du service à donner ou
-                                        recevoir.
-                                    </a>
-                                    <a role="menuitem" href="/participer#!?state=init.va" class="dropdown-item pub">
-                                        <h4>Valider un échange</h4>
-                                        Vous avez donné ou reçu un service? Déclarer ici la transaction pour donner ou
-                                        percevoir les heures dues.
+                                    <a
+                                        role="menuitem"
+                                        href="/participer#!?state=init.va.non.recu_short"
+                                        class="dropdown-item pub"
+                                    >
+                                        <h4>
+                                            <b>Donner</b>
+                                            du temps pour un service
+                                            <b>obtenu</b>
+                                        </h4>
+                                        Transaction sous forme de
+                                        <b>retrait</b>
+                                        en minute(s) ou en heure(s) de votre banque de temps.
                                     </a>
                                 </div>
                             </li>
@@ -714,13 +755,17 @@
                                 <div class="dropdown-menu js_usermenu" role="menu">
                                     <a class="dropdown-item" t-attf-href="/monactivite" role="menuitem">
                                         <i class="fa fa-signal icon_padding_right" />
-                                        Mon activité
+                                        Tableau de bord
                                     </a>
                                     <a class="dropdown-item" t-attf-href="/monprofil/mapresentation" role="menuitem">
                                         <i class="fa fa-user-circle icon_padding_right" />
                                         Ma présentation
                                     </a>
-                                    <a class="dropdown-item" t-attf-href="/monprofil/mesannonces" role="menuitem">
+                                    <a
+                                        class="dropdown-item debug_unimplemented"
+                                        t-attf-href="/monprofil/mesannonces"
+                                        role="menuitem"
+                                    >
                                         <i class="fa fa-newspaper-o icon_padding_right" />
                                         Mes annonces publiées
                                     </a>
@@ -728,7 +773,11 @@
                                         <i class="fa fa-eye icon_padding_right" />
                                         Mon clan
                                     </a>
-                                    <a class="dropdown-item" t-attf-href="/monprofil/mespreferences" role="menuitem">
+                                    <a
+                                        class="dropdown-item debug_unimplemented"
+                                        t-attf-href="/monprofil/mespreferences"
+                                        role="menuitem"
+                                    >
                                         <i class="fa fa-gear icon_padding_right" />
                                         Mes préférences générales
                                     </a>

@@ -58,7 +58,7 @@ class OREChatGroup(models.Model):
             ]
         else:
             lst_other_membre_id = []
-        if not obj.membre_ids:
+        if not obj.membre_ids and not obj.clan_id:
             _logger.warning("Why members is empty?")
             data = {}
         else:
@@ -78,12 +78,14 @@ class OREChatGroup(models.Model):
             data = {
                 # "id": obj.id,
                 "id_group": obj.id,
-                "clan_id": obj.clan_id.id,
-                "group_clan_id": obj.group_clan_id.id,
                 "name": name,
                 "resume_msg": last_msg,
                 "lst_msg": [a.first_to_json() for a in obj.msg_ids],
             }
+            if obj.clan_id:
+                data["clan_id"] = obj.clan_id.id
+            if obj.group_clan_id:
+                data["group_clan_id"] = obj.group_clan_id.id
             if actual_membre_id:
                 data["ma_photo"] = other_membre_id.get_image_url()
                 data["id"] = other_membre_id.id

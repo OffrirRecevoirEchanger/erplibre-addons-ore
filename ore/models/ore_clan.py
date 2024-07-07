@@ -135,7 +135,7 @@ class OreClan(models.Model):
             if not chat_group_ids:
                 chat_group_value = {
                     "clan_id": val.id,
-                    "membre_ids": val.membre_list_ids.ids,
+                    # "membre_ids": val.membre_list_ids.ids,
                 }
                 chat_group_id = self.env["ore.chat.group"].create(
                     chat_group_value

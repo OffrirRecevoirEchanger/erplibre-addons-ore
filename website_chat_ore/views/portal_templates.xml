@@ -6,7 +6,7 @@
                 ng-href="/notification#!?section=message&amp;membre={{contact_info.id}}"
                 ng-if="!hide_votre_contact_to_contact"
             >
-                <div class="btn btn-primary rounded-circle">
+                <div class="btn btn-beta rounded-circle">
                     <span ng-if="contact_info.genre === 'femme'">La</span>
                     <span ng-if="contact_info.genre !== 'femme'">Le</span>
                     contacter
@@ -16,8 +16,14 @@
     </template>
     <template id="template_clan_details_generic_inherit" inherit_id="website_ore.template_clan_details_generic">
         <xpath expr="//nav[hasclass('profil_left')]" position="inside">
-            <a ng-href="/notification#!?section=message&amp;clan={{page_communaute_clan_info.id}}">
-                <div class="btn btn-primary rounded-circle">Clavardage</div>
+            <a
+                ng-href="/notification#!?section=message&amp;clan={{page_communaute_clan_info.id}}"
+                ng-if="page_communaute_clan_info_is_into_clan"
+            >
+                <div class="profil btn btn-epsilon rounded-circle adapt-text-epsilon-color">
+                    <span class="fa fa-comments-o adapt-text-epsilon-color" />
+                    Clavardage
+                </div>
             </a>
         </xpath>
     </template>

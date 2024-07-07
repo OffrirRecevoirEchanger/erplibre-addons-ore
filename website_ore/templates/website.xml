@@ -70,7 +70,7 @@
                         </section>
                         <section
                             class="s_event_banner oe_img_bg oe_custom_bg"
-                            style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_finale_1521_x_980.png&quot;);"
+                            style="background-image: url(&quot;/website_ore/static/src/img/bas_vague_TTC_bleue_background_transparent_3841X250px.svg&quot;);"
                         >
                             <div class="event_banner_action bg-primary">
                                 <div class="btn btn-primary" ng-if="is_share_enable()" ng-click="share_link()">
@@ -329,7 +329,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="row" t-if="not ore_clan_ids">Aucune clan ne sont disponibles pour le moment.</div>
+                    <!--                    <div class="row" t-if="not ore_clan_ids">Aucun clan n'est disponible pour le moment.</div>-->
                 </div>
             </div>
         </t>
@@ -460,7 +460,7 @@
                         </section>
                         <section
                             class="s_event_banner oe_img_bg oe_custom_bg"
-                            style="background-image: url(&quot;/website_ore/static/src/img/image_ORE_finale_1521_x_980.png&quot;);"
+                            style="background-image: url(&quot;/website_ore/static/src/img/bas_vague_TTC_bleue_background_transparent_3841X250px.svg&quot;);"
                         >
                             <div class="event_banner_action bg-primary">
                                 <div class="btn btn-primary" ng-if="is_share_enable()" ng-click="share_link()">
@@ -1176,7 +1176,9 @@
                                         />
 
                                         <!-- Destinataire du service -->
-                                        <h2 ng-if="form_is_destinataire_du_service(state)">Destinataire du service</h2>
+                                        <h2 ng-if="form_is_destinataire_du_service(state)">
+                                            Membre qui a reçu le service
+                                        </h2>
                                         <h2 ng-if="form_is_destinataire_du_service_de_qui(state)">
                                             De qui avez-vous reçu le service?
                                         </h2>
@@ -1596,9 +1598,10 @@
                                         <div class="divider" ng-if="form_is_service_and_service_prevu(state)" />
 
                                         <!-- Coût possible -->
-                                        <span
-                                            ng-class="{'debug_unimplemented': ['init.saa.recevoir.choix.existant.time.form'].includes(state.id)}"
-                                        >
+                                        <!--                                        <span-->
+                                        <!--                                            ng-class="{'debug_unimplemented': ['init.saa.recevoir.choix.existant.time.form'].includes(state.id)}"-->
+                                        <!--                                        >-->
+                                        <span class="debug_unimplemented">
                                             <h2
                                                 ng-if="'init.saa.offrir.nouveau.cat.form' === state.id || form_is_service_to_modify(state)"
                                             >
@@ -1799,7 +1802,7 @@
 
                                             <!-- Montant à transférer -->
                                             <div
-                                                class="bar_time bg-beta adapt-text-beta-color"
+                                                class="bar_time bg-epsilon adapt-text-epsilon-color"
                                                 ng-if="form_is_service_and_service_prevu(state) &amp;&amp; !['init.saa.offrir.demande.existante.date.time.form'].includes(state.id)"
                                             >
                                                 <b>Montant total de temps à transférer</b>
@@ -1949,6 +1952,7 @@
                                 class="modal fade modal_pub_offre modal_shown show"
                                 style="display:block"
                                 ng-show="show_submit_modal"
+                                ng-cloak=""
                             >
                                 <div class="modal-dialog">
                                     <div id="s_media_block_modal" class="modal-content">
@@ -1956,7 +1960,7 @@
                                         <!--                                            <button ng-click="closeModalForm()"><i class="fa fa-x" /></button>-->
                                         <!--&lt;!&ndash;                                            <button ng-click="show_submit_modal=false"><i class="fa fa-x" /></button>&ndash;&gt;-->
                                         <!--                                        </div>-->
-                                        <span style="font-size: 7rem;" class="fa fa-check-circle-o text-epsilon" />
+                                        <span style="font-size: 7rem;" class="fa fa-check-circle-o text-delta" />
                                         <div class="modal-body" ng-if="!_.isUndefined(state.submit_response_title)">
                                             <h2 ng-cloak="">{{state.submit_response_title}}</h2>
                                         </div>
@@ -2016,22 +2020,19 @@
                                                 Configurer mon clan
                                             </button>
                                         </a>
-                                        <a href="monprofil/mesannonces" ng-if="form_is_offre_demande_service(state)">
+                                        <a href="/monprofil/mesannonces" ng-if="form_is_offre_demande_service(state)">
                                             <button class="btn btn-primary adapt-text-primary-color">
-                                                Voir toutes mes
-                                                annonces
+                                                Voir toutes mes annonces
                                             </button>
                                         </a>
-                                        <a href="monactivite/echanges" ng-if="form_is_valider_echange(state)">
+                                        <a href="/monactivite/echanges" ng-if="form_is_valider_echange(state)">
                                             <button class="btn btn-primary adapt-text-primary-color">
-                                                Voir tous mes
-                                                échanges
+                                                Voir tous mes échanges
                                             </button>
                                         </a>
-                                        <a href="explorer">
+                                        <a href="/explorer" ng-if="!form_is_ttc(state)">
                                             <button class="btn btn-primary adapt-text-primary-color">
-                                                Retourner à
-                                                l'accueil
+                                                Retourner à l'accueil
                                             </button>
                                         </a>
                                     </div>
@@ -2117,7 +2118,7 @@
             </div>
             <div class="buttons">
                 <a class="no-underline" ng-href="/monprofil/mapresentation#!?membre_id={{contact_info.id}}">
-                    <div class="btn btn-primary rounded-circle">
+                    <div class="btn btn-beta rounded-circle">
                         <span>En savoir plus</span>
                         <span ng-if="!_.isUndefined(contact_info.full_name)" ng-cloak="">
                             sur {{contact_info.full_name}}
@@ -2242,11 +2243,12 @@
                             onchange="angular.element(this).scope().updateImageClan(this)"
                         />
                         <label for="file-input" class="file-label">
-                            <i
-                                class="white_box"
-                                style="padding-bottom: 1px; padding-right: 1px; border-radius: 10px; left: 55px; top: 50px; width: 40px; height: 40px"
-                                ng-if="ask_modification_clan"
-                            />
+                            <i class="white_box" ng-if="ask_modification_clan" />
+                            <!--                            <i-->
+                            <!--                                class="white_box"-->
+                            <!--                                style="padding-bottom: 1px; padding-right: 1px; border-radius: 10px; left: 55px; top: 50px; width: 40px; height: 40px"-->
+                            <!--                                ng-if="ask_modification_clan"-->
+                            <!--                            />-->
                             <i
                                 class="fa fa-pencil-square text-primary"
                                 id="submitBtn"
@@ -2262,6 +2264,7 @@
                         class="modal fade modal_pub_offre modal_shown"
                         backdrop="static"
                         aria-hidden="true"
+                        ng-cloak=""
                     >
                         <div class="modal-dialog">
                             <div id="s_media_block_modal" class="modal-content">
@@ -2309,30 +2312,30 @@
                     <div class="container_profil">
                         <nav class="profil_left">
                             <div
-                                class="profil profil_left profil_box btn btn-primary adapt-text-primary-color"
+                                class="profil rounded-circle btn btn-primary adapt-text-primary-color"
                                 ng-if="page_communaute_clan_info.is_clan_admin &amp;&amp; !ask_modification_clan"
                                 ng-click="mode_edit_clan()"
                             >
-                                <span class="img img-fluid mx-auto fa fa-pencil" />
+                                <span class="fa fa-pencil adapt-text-primary-color" />
                                 Modifier le clan
                             </div>
                             <div
-                                class="profil profil_right profil_box btn btn-primary adapt-text-primary-color"
+                                class="profil rounded-circle btn btn-primary adapt-text-primary-color"
                                 ng-if="page_communaute_clan_info.is_clan_admin &amp;&amp; ask_modification_clan"
                                 ng-click="annuler_ask_modification_clan()"
                             >
-                                <span class="img img-fluid mx-auto fa fa-close" />
+                                <span class="fa fa-close adapt-text-primary-color" />
                                 Annuler les modifications
                             </div>
-                        </nav>
-                        <nav class="profil_main">
+                            <!--                        </nav>-->
+                            <!--                        <nav class="profil_main">-->
                             <div
-                                class="profil profil_left profil_box btn btn-primary adapt-text-primary-color"
+                                class="profil rounded-circle btn btn-primary adapt-text-primary-color"
                                 ng-if="!ask_modification_clan &amp;&amp; !page_communaute_clan_info_is_into_clan"
                                 ng-click="request_join_clan()"
                             >
                                 <span
-                                    class="img img-fluid mx-auto fa"
+                                    class="fa"
                                     ng-class="{'fa-pencil': !page_communaute_clan_info_is_waiting_invitation_to_clan, 'fa-times-circle': page_communaute_clan_info_is_waiting_invitation_to_clan}"
                                 />
                                 <span ng-if="!page_communaute_clan_info_is_invite_to_clan">
@@ -2347,23 +2350,23 @@
                                     Accepter l'invitation pour rejoindre le clan
                                 </span>
                             </div>
-                            <!--                                                    <div class="profil profil_main profil_box btn btn-primary adapt-text-primary-color" style="right: 50px;" ng-click="add_to_my_favorite('ore.membre', page_presentation_membre_info)">-->
+                            <div
+                                class="profil rounded-circle btn btn-primary adapt-text-primary-color"
+                                ng-if="page_communaute_clan_info.is_clan_admin &amp;&amp; ask_modification_clan"
+                                ng-click="mode_save_clan()"
+                            >
+                                <span class="fa fa-save adapt-text-primary-color" />
+                                Enregistrer le clan
+                            </div>
+                            <!--                                                    <div class="profil profil_main rounded-circle btn btn-primary adapt-text-primary-color" style="right: 50px;" ng-click="add_to_my_favorite('ore.membre', page_presentation_membre_info)">-->
                             <!--                                                        <span class="img img-fluid mx-auto fa coeur" ng-class="{'fa-heart': page_presentation_membre_info.is_favorite, 'fa-heart-o': !page_presentation_membre_info.is_favorite}" />-->
                             <!--                                                        <span class="adapt-text-primary-color" ng-if="!page_presentation_membre_info.is_favorite">Ajouter à mes favoris</span>-->
                             <!--                                                        <span class="adapt-text-primary-color" ng-if="page_presentation_membre_info.is_favorite">Retirer de mes favoris</span>-->
                             <!--                                                    </div>-->
                         </nav>
-                        <nav class="profil_right">
-                            <div
-                                class="profil profil_left profil_box btn btn-primary adapt-text-primary-color"
-                                ng-if="page_communaute_clan_info.is_clan_admin &amp;&amp; ask_modification_clan"
-                                ng-click="mode_save_clan()"
-                            >
-                                <span class="img img-fluid mx-auto fa fa-save" />
-                                Enregistrer le clan
-                            </div>
-                            <!--                                                    <div class="profil profil_right profil_box btn btn-primary btn_do_echange debug_unimplemented adapt-text-primary-color" ng-if="!_.isUndefined(page_communaute_clan_info.is_clan_admin) &amp;&amp; !page_communaute_clan_info.is_clan_admin" ng-cloak="">Échanger avec {{page_presentation_membre_info.full_name}}</div>-->
-                        </nav>
+                        <!--                        <nav class="profil_right">-->
+                        <!--                                                    <div class="profil profil_right rounded-circle btn btn-primary btn_do_echange debug_unimplemented adapt-text-primary-color" ng-if="!_.isUndefined(page_communaute_clan_info.is_clan_admin) &amp;&amp; !page_communaute_clan_info.is_clan_admin" ng-cloak="">Échanger avec {{page_presentation_membre_info.full_name}}</div>-->
+                        <!--                        </nav>-->
                     </div>
                 </div>
                 <div class="information information-2">
@@ -2436,7 +2439,7 @@
                         ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.message_accueil)}"
                         ng-show="ask_modification_clan"
                     >
-                        <span class="txt">Message d'acceuil</span>
+                        <span class="txt">Message d'accueil</span>
                         <q
                             ng-if="ask_modification_clan"
                             class="editable-content-blue"
