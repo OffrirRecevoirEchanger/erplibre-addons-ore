@@ -328,6 +328,8 @@
                                     </div>
                                 </li>
                             </span>
+                            <!-- add li for UI css navbar -->
+                            <li class="nav-item dropdown" t-ignore="true" />
                             <li class="nav-item dropdown" t-ignore="true" />
                             <li class="nav-item dropdown debug-item debug_debug" t-ignore="true">
                                 <t t-if="not user_id._is_public()">
