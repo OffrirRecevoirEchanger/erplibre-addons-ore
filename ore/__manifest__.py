@@ -9,13 +9,18 @@
     "depends": [
         "mail",
         "web_timeline",
+        "website",
     ],
     "data": [
         "security/ir.model.access.csv",
         "security/ore.xml",
         "views/ore_arrondissement.xml",
+        "views/ore_clan.xml",
+        "views/ore_clan_group.xml",
+        "views/ore_clan_invitation.xml",
         "views/ore_commentaire.xml",
         "views/ore_demande_adhesion.xml",
+        "views/ore_echange_service_notification.xml",
         "views/ore_demande_service.xml",
         "views/ore_echange_service.xml",
         "views/res_partner.xml",
@@ -39,6 +44,7 @@
         "views/res_config_settings_views.xml",
         "views/menu.xml",
         "data/ir_attachment.xml",
+        "data/ore_data.xml",
     ],
     "installable": True,
 }

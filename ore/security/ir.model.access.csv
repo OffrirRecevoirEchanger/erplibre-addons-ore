@@ -1,6 +1,12 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 ore_arrondissement_access_user_types_/_internal_user,ore_arrondissement Access User types / Internal User,model_ore_arrondissement,base.group_user,1,1,1,1
 ore_arrondissement_access_user_types_/_portal,ore_arrondissement Access User types / Portal,model_ore_arrondissement,base.group_portal,1,1,1,1
+ore_clan_access_user_types_/_internal_user,ore_clan Access User types / Internal User,model_ore_clan,base.group_user,1,1,1,1
+ore_clan_group_access_user_types_/_internal_user,ore_clan_group Access User types / Internal User,model_ore_clan_group,base.group_user,1,1,1,1
+ore_clan_invitation_access_user_types_/_internal_user,ore_clan_invitation Access User types / Internal User,model_ore_clan_invitation,base.group_user,1,1,1,1
+ore_clan_access_user_types_/_portal,ore_clan Access User types / Portal,model_ore_clan,base.group_portal,1,1,1,1
+ore_clan_group_access_user_types_/_portal,ore_clan_group Access User types / Portal,model_ore_clan_group,base.group_portal,1,1,1,1
+ore_clan_invitation_access_user_types_/_portal,ore_clan_invitation Access User types / Portal,model_ore_clan_invitation,base.group_portal,1,1,1,1
 ore_commentaire_access_user_types_/_internal_user,ore_commentaire Access User types / Internal User,model_ore_commentaire,base.group_user,1,1,1,1
 ore_commentaire_access_user_types_/_portal,ore_commentaire Access User types / Portal,model_ore_commentaire,base.group_portal,1,1,1,1
 ore_demande_adhesion_access_user_types_/_internal_user,ore_demande_adhesion Access User types / Internal User,model_ore_demande_adhesion,base.group_user,1,1,1,1

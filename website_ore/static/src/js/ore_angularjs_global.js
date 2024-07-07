@@ -131,10 +131,13 @@ odoo.define('website.ore_angularjs_global', function (require) {
             street: "",
             diff_humain_creation_membre: "",
             antecedent_judiciaire_verifier: false,
-            my_network: {
+            my_clan: {
                 name: "-",
                 id: 0,
             },
+            all_my_clan: [],
+            all_my_invited_clan: [],
+            all_my_waiting_invitation_clan: [],
             dct_offre_service: {},
             dct_demande_service: {},
             dct_offre_service_favoris: {},
@@ -164,6 +167,10 @@ odoo.define('website.ore_angularjs_global', function (require) {
         }
         $scope.membre_info = {}
         $scope.page_presentation_membre_info = {}
+        $scope.page_communaute_clan_info = {}
+        $scope.page_communaute_clan_info_is_into_clan = false;
+        $scope.page_communaute_clan_info_is_invite_to_clan = false;
+        $scope.force_clan_id = 0;
         $scope.dct_membre = {}
         $scope.contact_info = {}
         $scope.offre_service_info = {}
@@ -173,6 +180,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.echange_service_info = {}
         $scope.dct_echange_service_info = {}
         $scope.nb_offre_service = 0;
+        $scope.dct_clan_info = {}
         $scope.animation_controller_enable = false;
         $scope.url_debug = "";
         $scope.modify_label_when_empty = "Modifiez moi!"
@@ -181,11 +189,32 @@ odoo.define('website.ore_angularjs_global', function (require) {
             list: [],
         }
 
+        $scope.txt_input_email_member = "";
+        $scope.send_invitation_loading = false;
+        $scope.send_invitation_error = false;
+        $scope.send_invitation_msg_error = "";
+        $scope.send_invitation_msg_success = "";
+
+        $scope.show_echange_membre = false;
+
+        $scope.show_change_clan = false;
+        $scope.change_clan_is_loading = false;
+        $scope.change_clan_is_error = false;
         // TODO créer environnement modification
         $scope.show_croppie = false;
-        $scope.ask_modification = false;
+        $scope.ask_modification_clan = false;
+        $scope.ask_modif_clan_copy = {
+            name: "",
+            description: "",
+            valeur_clan: "",
+            ville_region: "",
+            message_accueil: "",
+            organisation: "",
+            besoin_comble: "",
+            ma_photo: "",
+        };
         $scope.ask_modification_profile = false;
-        $scope.ask_modif_copy = {
+        $scope.ask_modif_profile_copy = {
             membre_info: {},
             introduction: "",
             full_name: "",
@@ -208,7 +237,58 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.interetsCount = 0;
         $scope.languesCount = 0;
 
+        $scope.generate_url_notification = function(notif) {
+            if (["Nouvelle demande de service","Réponse à votre demande", "Demande de service", ""].includes(notif.type_notification)) {
+                return "/monactivite/echange" + $scope.url_debug + "#!?echange=" + notif.echange_service_id;
+            } else if (notif.type_notification === "Invitation clan") {
+                return "/ore/ore_clan/" + notif.clan_invited_id;
+            }
+            return "#"
+        }
+
+        $scope.open_echange_membre = function () {
+            $scope.show_echange_membre = true;
+        }
+
+        $scope.close_echange_membre = function () {
+            $scope.show_echange_membre = false;
+        }
+
+        $scope.open_change_clan = function () {
+            $scope.show_change_clan = true;
+        }
+
+        $scope.close_change_clan = function () {
+            $scope.show_change_clan = false;
+        }
+
+        $scope.change_clan = function (clan_id) {
+            $scope.change_clan_is_loading = true;
+            let url = "/ore/set_clan_actual_member/" + clan_id
+            ajax.jsonRpc(url, "call", {}).then(function (data) {
+                    console.debug("AJAX receive set_clan_actual_member");
+                    console.debug(data);
+
+                    if (data.error) {
+                        $scope.error = data.error;
+                        $scope.change_clan_is_error = true;
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty data - " + url;
+                        $scope.change_clan_is_error = true;
+                    } else {
+                        window.location.reload();
+                    }
+                    // Process all the angularjs watchers
+                    $scope.$digest();
+                }
+            ).fail(function (error, ev) {
+                console.error(error);
+                $scope.change_clan_is_error = true;
+            })
+        }
+
         $scope.check_need_login = function (error) {
+            // TODO this is a hack, this is suppose to be manage from server
             if (window.location.pathname !== "" &&
                 window.location.pathname !== "/" &&
                 window.location.pathname !== "/aide" &&
@@ -216,29 +296,15 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 window.location.pathname !== "/privacy-policy" &&
                 window.location.pathname !== "/web/login" &&
                 window.location.pathname !== "/web/reset_password" &&
+                window.location.pathname !== "/chercher_clan" &&
                 error.data.name === "odoo.http.SessionExpiredException") {
                 console.warn("Relocation");
                 window.location.href = `/web/login?redirect=${window.location.href}`
             }
         }
 
-        $scope.shouldHideBorder = function (titre) {
-            if (titre === "description") {
-                return !(
-                    !_.isUndefined($scope.membre_info.description) &&
-                    !_.isEmpty($scope.membre_info.description)
-                );
-            } else if (titre === "motivation_membre") {
-                return !(
-                    !_.isUndefined($scope.membre_info.motivation_membre) &&
-                    !_.isEmpty($scope.membre_info.motivation_membre)
-                );
-            } else if (titre === "interet") {
-                return !(
-                    !_.isUndefined($scope.membre_info.interet) &&
-                    !_.isEmpty($scope.membre_info.interet)
-                );
-            }
+        $scope.shouldHideBorder = function (variable) {
+            return !(!_.isUndefined(variable) && !_.isEmpty(variable));
         };
 
         $scope.ajouterInteret = function () {
@@ -383,7 +449,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
             });
         });
 
-        $scope.updateImage = function (input) {
+        $scope.updateImageProfile = function (input) {
             let reader = new FileReader();
             reader.onload = function () {
                 $scope.$apply(function () {
@@ -405,7 +471,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                             }
                         }
                         $scope.clearData = function () {
-                            $scope.membre_info.ma_photo = $scope.ask_modif_copy.membre_info.ma_photo;
+                            $scope.membre_info.ma_photo = $scope.ask_modif_profile_copy.membre_info.ma_photo;
                         }
                         $scope.closeModalForm = function () {
                             let modal = document.getElementsByClassName("modal_pub_offre");
@@ -436,15 +502,250 @@ odoo.define('website.ore_angularjs_global', function (require) {
             reader.readAsDataURL(input.files[0]);
         };
 
+        $scope.updateImageClan = function (input) {
+            let reader = new FileReader();
+            reader.onload = function () {
+                $scope.$apply(function () {
+                    $scope.page_communaute_clan_info.ma_photo = reader.result;
+                    $scope.show_croppie = true;
+                    if ($scope.show_croppie) {
+                        let croppie = new Croppie(document.getElementById('profile-picture'), {
+                            viewport: {width: 300, height: 300},
+                            boundary: {width: 300, height: 300},
+                            enableOrientation: true,
+                        });
+                        croppie.bind({
+                            url: $scope.page_communaute_clan_info.ma_photo,
+                            orientation: 1
+                        });
+                        $scope.destroyCroppie = function () {
+                            if (croppie) {
+                                croppie.destroy();
+                            }
+                        }
+                        $scope.clearData = function () {
+                            // TODO bug need to have ask_modif_clan_copy
+                            $scope.page_communaute_clan_info.ma_photo = $scope.ask_modif_clan_copy.ma_photo;
+                        }
+                        $scope.closeModalForm = function () {
+                            let modal = document.getElementsByClassName("modal_pub_offre");
+                            if (!_.isUndefined(modal) && !_.isEmpty(modal)) {
+                                modal[0].setAttribute('aria-hidden', 'true');
+                                // c'est nécessaire pour fermer le dialog
+                                modal[0].classList.remove('modal_shown');
+                                let backdrop = angular.element(document.querySelector(".modal-backdrop"));
+                                backdrop.remove();
+                                $scope.destroyCroppie();
+                            }
+                        }
+                        $scope.cropProfilePicture = function () {
+                            croppie.result('base64', {
+                                size: {width: 300, height: 300},
+                                type: 'base64',
+                                format: 'jpeg',
+                                quality: 1
+                            }).then(function (result) {
+                                console.debug(result);
+                                $scope.page_communaute_clan_info.ma_photo = result;
+                                $scope.show_croppie = false;
+                                $scope.closeModalForm();
+                            });
+                        };
+                    }
+                });
+            };
+            reader.readAsDataURL(input.files[0]);
+        };
+
+        // Changement des pages de Clan
+        $scope.annuler_ask_modification_clan = function () {
+            // revert
+            $scope.ask_modification_clan = false;
+            $scope.page_communaute_clan_info.name = $scope.ask_modif_clan_copy.name;
+            $scope.page_communaute_clan_info.valeur_clan = $scope.ask_modif_clan_copy.valeur_clan;
+            $scope.page_communaute_clan_info.ville_region = $scope.ask_modif_clan_copy.ville_region;
+            $scope.page_communaute_clan_info.message_accueil = $scope.ask_modif_clan_copy.message_accueil;
+            $scope.page_communaute_clan_info.organisation = $scope.ask_modif_clan_copy.organisation;
+            $scope.page_communaute_clan_info.besoin_comble = $scope.ask_modif_clan_copy.besoin_comble;
+            $scope.page_communaute_clan_info.description = $scope.ask_modif_clan_copy.description;
+            $scope.page_communaute_clan_info.ma_photo = $scope.ask_modif_clan_copy.ma_photo;
+        };
+
+        $scope.mode_edit_clan = function () {
+            $scope.ask_modification_clan = true;
+
+            if (!_.isUndefined($scope.page_communaute_clan_info.name)) {
+                if (_.isEmpty($scope.page_communaute_clan_info.name)) {
+                    $scope.page_communaute_clan_info.name = $scope.modify_label_when_empty;
+                    $scope.ask_modif_clan_copy.name = "";
+                } else {
+                    $scope.ask_modif_clan_copy.name = JSON.parse(JSON.stringify($scope.page_communaute_clan_info.name));
+                }
+            } else {
+                $scope.ask_modif_clan_copy.name = undefined;
+            }
+
+            if (!_.isUndefined($scope.page_communaute_clan_info.valeur_clan)) {
+                if (_.isEmpty($scope.page_communaute_clan_info.valeur_clan)) {
+                    $scope.page_communaute_clan_info.valeur_clan = $scope.modify_label_when_empty;
+                    $scope.ask_modif_clan_copy.valeur_clan = "";
+                } else {
+                    $scope.ask_modif_clan_copy.valeur_clan = JSON.parse(JSON.stringify($scope.page_communaute_clan_info.valeur_clan));
+                }
+            } else {
+                $scope.ask_modif_clan_copy.valeur_clan = undefined;
+            }
+
+            if (!_.isUndefined($scope.page_communaute_clan_info.ville_region)) {
+                if (_.isEmpty($scope.page_communaute_clan_info.ville_region)) {
+                    $scope.page_communaute_clan_info.ville_region = $scope.modify_label_when_empty;
+                    $scope.ask_modif_clan_copy.ville_region = "";
+                } else {
+                    $scope.ask_modif_clan_copy.ville_region = JSON.parse(JSON.stringify($scope.page_communaute_clan_info.ville_region));
+                }
+            } else {
+                $scope.ask_modif_clan_copy.ville_region = undefined;
+            }
+
+            if (!_.isUndefined($scope.page_communaute_clan_info.message_accueil)) {
+                if (_.isEmpty($scope.page_communaute_clan_info.message_accueil)) {
+                    $scope.page_communaute_clan_info.message_accueil = $scope.modify_label_when_empty;
+                    $scope.ask_modif_clan_copy.message_accueil = "";
+                } else {
+                    $scope.ask_modif_clan_copy.message_accueil = JSON.parse(JSON.stringify($scope.page_communaute_clan_info.message_accueil));
+                }
+            } else {
+                $scope.ask_modif_clan_copy.message_accueil = undefined;
+            }
+
+            if (!_.isUndefined($scope.page_communaute_clan_info.organisation)) {
+                if (_.isEmpty($scope.page_communaute_clan_info.organisation)) {
+                    $scope.page_communaute_clan_info.organisation = $scope.modify_label_when_empty;
+                    $scope.ask_modif_clan_copy.organisation = "";
+                } else {
+                    $scope.ask_modif_clan_copy.organisation = JSON.parse(JSON.stringify($scope.page_communaute_clan_info.organisation));
+                }
+            } else {
+                $scope.ask_modif_clan_copy.organisation = undefined;
+            }
+
+            if (!_.isUndefined($scope.page_communaute_clan_info.besoin_comble)) {
+                if (_.isEmpty($scope.page_communaute_clan_info.besoin_comble)) {
+                    $scope.page_communaute_clan_info.besoin_comble = $scope.modify_label_when_empty;
+                    $scope.ask_modif_clan_copy.besoin_comble = "";
+                } else {
+                    $scope.ask_modif_clan_copy.besoin_comble = JSON.parse(JSON.stringify($scope.page_communaute_clan_info.besoin_comble));
+                }
+            } else {
+                $scope.ask_modif_clan_copy.besoin_comble = undefined;
+            }
+
+            if (!_.isUndefined($scope.page_communaute_clan_info.description)) {
+                if (_.isEmpty($scope.page_communaute_clan_info.description)) {
+                    $scope.page_communaute_clan_info.description = $scope.modify_label_when_empty;
+                    $scope.ask_modif_clan_copy.description = "";
+                } else {
+                    $scope.ask_modif_clan_copy.description = JSON.parse(JSON.stringify($scope.page_communaute_clan_info.description));
+                }
+            } else {
+                $scope.ask_modif_clan_copy.description = undefined;
+            }
+
+            if (!_.isUndefined($scope.page_communaute_clan_info.ma_photo)) {
+                $scope.ask_modif_clan_copy.ma_photo = JSON.parse(JSON.stringify($scope.page_communaute_clan_info.ma_photo));
+            } else {
+                $scope.ask_modif_clan_copy.ma_photo = undefined;
+            }
+
+        }
+
+        $scope.mode_save_clan = function () {
+            $scope.ask_modification_clan = false;
+            let form = {};
+            if ($scope.page_communaute_clan_info.name === $scope.modify_label_when_empty) {
+                $scope.page_communaute_clan_info.name = "";
+            }
+            if ($scope.ask_modif_clan_copy.name !== $scope.page_communaute_clan_info.name) {
+                form["name"] = $scope.page_communaute_clan_info.name;
+            }
+
+            if ($scope.page_communaute_clan_info.description === $scope.modify_label_when_empty) {
+                $scope.page_communaute_clan_info.description = "";
+            }
+            if ($scope.ask_modif_clan_copy.description !== $scope.page_communaute_clan_info.description) {
+                form["description"] = $scope.page_communaute_clan_info.description;
+            }
+
+            if ($scope.page_communaute_clan_info.valeur_clan === $scope.modify_label_when_empty) {
+                $scope.page_communaute_clan_info.valeur_clan = "";
+            }
+            if ($scope.ask_modif_clan_copy.valeur_clan !== $scope.page_communaute_clan_info.valeur_clan) {
+                form["valeur_clan"] = $scope.page_communaute_clan_info.valeur_clan;
+            }
+
+            if ($scope.page_communaute_clan_info.ville_region === $scope.modify_label_when_empty) {
+                $scope.page_communaute_clan_info.ville_region = "";
+            }
+            if ($scope.ask_modif_clan_copy.ville_region !== $scope.page_communaute_clan_info.ville_region) {
+                form["ville_region"] = $scope.page_communaute_clan_info.ville_region;
+            }
+
+            if ($scope.page_communaute_clan_info.message_accueil === $scope.modify_label_when_empty) {
+                $scope.page_communaute_clan_info.message_accueil = "";
+            }
+            if ($scope.ask_modif_clan_copy.message_accueil !== $scope.page_communaute_clan_info.message_accueil) {
+                form["message_accueil"] = $scope.page_communaute_clan_info.message_accueil;
+            }
+
+            if ($scope.page_communaute_clan_info.organisation === $scope.modify_label_when_empty) {
+                $scope.page_communaute_clan_info.organisation = "";
+            }
+            if ($scope.ask_modif_clan_copy.organisation !== $scope.page_communaute_clan_info.organisation) {
+                form["organisation"] = $scope.page_communaute_clan_info.organisation;
+            }
+
+            if ($scope.page_communaute_clan_info.besoin_comble === $scope.modify_label_when_empty) {
+                $scope.page_communaute_clan_info.besoin_comble = "";
+            }
+            if ($scope.ask_modif_clan_copy.besoin_comble !== $scope.page_communaute_clan_info.besoin_comble) {
+                form["besoin_comble"] = $scope.page_communaute_clan_info.besoin_comble;
+            }
+
+            if ($scope.ask_modif_clan_copy.ma_photo !== $scope.page_communaute_clan_info.ma_photo) {
+                form["ma_photo"] = $scope.page_communaute_clan_info.ma_photo;
+            }
+
+            if (!_.isEmpty(form)) {
+                let url = "/ore/clan_information/submit"
+                ajax.jsonRpc(url, "call", form).then(function (data) {
+                    console.debug("AJAX receive submit_form clan_information");
+                    console.debug(data);
+
+                    if (data.error) {
+                        $scope.error = data.error;
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty data - " + url;
+                    } else {
+                    }
+                    // Process all the angularjs watchers
+                    $scope.$digest();
+                }
+                ).fail(function (error, ev) {
+                    console.error(error);
+                    $scope.check_need_login(error);
+                })
+            }
+        }
+
         //Changement des pages de Profil
         $scope.annuler_ask_modification_profile = function () {
             // revert
-            $scope.membre_info.ma_photo = $scope.ask_modif_copy.membre_info.ma_photo;
-            $scope.membre_info.introduction = $scope.ask_modif_copy.membre_info.introduction;
-            $scope.membre_info.description = $scope.ask_modif_copy.membre_info.description;
-            $scope.membre_info.interet = $scope.ask_modif_copy.membre_info.interet;
-            $scope.membre_info.motivation_membre = $scope.ask_modif_copy.membre_info.motivation_membre;
-            $scope.membre_info.langue = $scope.ask_modif_copy.membre_info.langue;
+            $scope.membre_info.ma_photo = $scope.ask_modif_profile_copy.membre_info.ma_photo;
+            $scope.membre_info.introduction = $scope.ask_modif_profile_copy.membre_info.introduction;
+            $scope.membre_info.description = $scope.ask_modif_profile_copy.membre_info.description;
+            $scope.membre_info.interet = $scope.ask_modif_profile_copy.membre_info.interet;
+            $scope.membre_info.motivation_membre = $scope.ask_modif_profile_copy.membre_info.motivation_membre;
+            $scope.membre_info.langue = $scope.ask_modif_profile_copy.membre_info.langue;
             $scope.ask_modification_profile = false;
             $scope.afficherAjoutLangue = false;
             $scope.afficherSupprimerLangue = false;
@@ -453,140 +754,72 @@ odoo.define('website.ore_angularjs_global', function (require) {
             $scope.enleverDernieresLangues();
             $scope.enleverDernieresInterets()
             $scope.show_croppie = false;
+            $scope.destroyCroppie();
         };
 
-        $scope.change_ask_modification_profile = function (enable) {
-            console.debug(enable);
-            $scope.ask_modification_profile = enable;
-            if (!enable) {
-                // Recording, check diff and rpc to server
-                let form = {};
-                if ($scope.ask_modif_copy.membre_info.ma_photo !== $scope.membre_info.ma_photo) {
-                    form["ma_photo"] = $scope.membre_info.ma_photo;
-                }
-                if ($scope.membre_info.introduction === $scope.modify_label_when_empty) {
-                    $scope.membre_info.introduction = "";
-                }
-                if ($scope.ask_modif_copy.membre_info.introduction !== $scope.membre_info.introduction) {
-                    form["introduction"] = $scope.membre_info.introduction;
-                }
-                if ($scope.membre_info.description === $scope.modify_label_when_empty) {
-                    $scope.membre_info.description = "";
-                }
-                if ($scope.ask_modif_copy.membre_info.description !== $scope.membre_info.description) {
-                    form["description"] = $scope.membre_info.description;
-                }
-                if ($scope.membre_info.interet === $scope.modify_label_when_empty) {
-                    $scope.membre_info.interet = [];
-                }
-                if ($scope.ask_modif_copy.membre_info.interet !== $scope.membre_info.interet) {
-                    form["interets"] = $scope.list_interets;
-                }
-                if ($scope.supprimeInteret) {
-                    form["supprimeInteret"] = $scope.supprimeInteret;
-                }
-                if ($scope.membre_info.motivation_membre === $scope.modify_label_when_empty) {
-                    $scope.membre_info.motivation_membre = "";
-                }
-                if ($scope.ask_modif_copy.membre_info.motivation_membre !== $scope.membre_info.motivation_membre) {
-                    form["motivation_membre"] = $scope.membre_info.motivation_membre;
-                }
-                if ($scope.membre_info.langue === $scope.modify_label_when_empty) {
-                    $scope.membre_info.langue = [];
-                }
-                if ($scope.ask_modif_copy.membre_info.langue !== $scope.membre_info.langue) {
-                    form["langues"] = $scope.languesParlees;
-                }
-                if ($scope.supprimeLangue) {
-                    form["supprimeLangue"] = $scope.supprimeLangue;
-                }
-                if (!_.isEmpty(form)) {
-                    let url = "/ore/personal_information/submit"
-                    ajax.jsonRpc(url, "call", form).then(function (data) {
-                            console.debug("AJAX receive submit_form personal_information");
-                            console.debug(data);
-
-                            if (data.error) {
-                                $scope.error = data.error;
-                            } else if (_.isEmpty(data)) {
-                                $scope.error = "Empty data - " + url;
-                            } else {
-                            }
-                            // Process all the angularjs watchers
-                            $scope.$digest();
-                        }
-                    ).fail(function (error, ev) {
-                        console.error(error);
-                        $scope.check_need_login(error);
-                    })
-                }
-                $scope.show_croppie = false;
-                $scope.afficherAjoutLangue = false;
-                $scope.afficherSupprimerLangue = false;
-                $scope.afficherSupprimerInteret = false;
-                $scope.afficherAjoutInteret = false;
-            } else {
-                // Modification, make copy
+        $scope.mode_edit_profile = function () {
+            $scope.ask_modification_profile = true;
+            // Modification, make copy
                 // let file = $scope.membre_info.ma_photo;
                 if (!_.isUndefined($scope.membre_info.ma_photo)) {
-                    $scope.ask_modif_copy.membre_info.ma_photo = JSON.parse(JSON.stringify($scope.membre_info.ma_photo));
+                    $scope.ask_modif_profile_copy.membre_info.ma_photo = JSON.parse(JSON.stringify($scope.membre_info.ma_photo));
                 } else {
-                    $scope.ask_modif_copy.membre_info.ma_photo = undefined;
+                    $scope.ask_modif_profile_copy.membre_info.ma_photo = undefined;
                 }
 
                 if (!_.isUndefined($scope.membre_info.introduction)) {
                     if (_.isEmpty($scope.membre_info.introduction)) {
                         $scope.membre_info.introduction = $scope.modify_label_when_empty;
-                        $scope.ask_modif_copy.membre_info.introduction = "";
+                        $scope.ask_modif_profile_copy.membre_info.introduction = "";
                     } else {
-                        $scope.ask_modif_copy.membre_info.introduction = JSON.parse(JSON.stringify($scope.membre_info.introduction));
+                        $scope.ask_modif_profile_copy.membre_info.introduction = JSON.parse(JSON.stringify($scope.membre_info.introduction));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.introduction = undefined;
+                    $scope.ask_modif_profile_copy.membre_info.introduction = undefined;
                 }
 
                 if (!_.isUndefined($scope.membre_info.description)) {
                     if (_.isEmpty($scope.membre_info.description)) {
                         $scope.membre_info.description = $scope.modify_label_when_empty;
-                        $scope.ask_modif_copy.membre_info.description = "";
+                        $scope.ask_modif_profile_copy.membre_info.description = "";
                     } else {
-                        $scope.ask_modif_copy.membre_info.description = JSON.parse(JSON.stringify($scope.membre_info.description));
+                        $scope.ask_modif_profile_copy.membre_info.description = JSON.parse(JSON.stringify($scope.membre_info.description));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.description = undefined;
+                    $scope.ask_modif_profile_copy.membre_info.description = undefined;
                 }
 
                 if (!_.isUndefined($scope.membre_info.interet)) {
                     if (_.isEmpty($scope.membre_info.interet)) {
                         $scope.membre_info.interet = [];
-                        $scope.ask_modif_copy.membre_info.interet = [];
+                        $scope.ask_modif_profile_copy.membre_info.interet = [];
                     } else {
-                        $scope.ask_modif_copy.membre_info.interet = JSON.parse(JSON.stringify($scope.membre_info.interet));
+                        $scope.ask_modif_profile_copy.membre_info.interet = JSON.parse(JSON.stringify($scope.membre_info.interet));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.interet = undefined;
+                    $scope.ask_modif_profile_copy.membre_info.interet = undefined;
                 }
 
                 if (!_.isUndefined($scope.membre_info.motivation_membre)) {
                     if (_.isEmpty($scope.membre_info.motivation_membre)) {
                         $scope.membre_info.motivation_membre = $scope.modify_label_when_empty;
-                        $scope.ask_modif_copy.membre_info.motivation_membre = "";
+                        $scope.ask_modif_profile_copy.membre_info.motivation_membre = "";
                     } else {
-                        $scope.ask_modif_copy.membre_info.motivation_membre = JSON.parse(JSON.stringify($scope.membre_info.motivation_membre));
+                        $scope.ask_modif_profile_copy.membre_info.motivation_membre = JSON.parse(JSON.stringify($scope.membre_info.motivation_membre));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.motivation_membre = undefined;
+                    $scope.ask_modif_profile_copy.membre_info.motivation_membre = undefined;
                 }
 
                 if (!_.isUndefined($scope.membre_info.langue)) {
                     if (_.isEmpty($scope.membre_info.langue)) {
                         $scope.membre_info.langue = [];
-                        $scope.ask_modif_copy.membre_info.langue = [];
+                        $scope.ask_modif_profile_copy.membre_info.langue = [];
                     } else {
-                        $scope.ask_modif_copy.membre_info.langue = JSON.parse(JSON.stringify($scope.membre_info.langue));
+                        $scope.ask_modif_profile_copy.membre_info.langue = JSON.parse(JSON.stringify($scope.membre_info.langue));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.langue = undefined;
+                    $scope.ask_modif_profile_copy.membre_info.langue = undefined;
                 }
                 $scope.show_croppie = false;
                 $scope.afficherAjoutLangue = false;
@@ -595,8 +828,59 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 $scope.afficherAjoutInteret = false;
                 $scope.languesCount = 0;
                 $scope.interetsCount = 0;
-            }
-        };
+        }
+
+        $scope.mode_save_profile = function () {
+            $scope.ask_modification_profile = false;
+            // Recording, check diff and rpc to server
+                let form = {};
+                if ($scope.ask_modif_profile_copy.membre_info.ma_photo !== $scope.membre_info.ma_photo) {
+                    form["ma_photo"] = $scope.membre_info.ma_photo;
+                }
+                if ($scope.membre_info.introduction === $scope.modify_label_when_empty) {
+                    $scope.membre_info.introduction = "";
+                }
+                if ($scope.ask_modif_profile_copy.membre_info.introduction !== $scope.membre_info.introduction) {
+                    form["introduction"] = $scope.membre_info.introduction;
+                }
+                if ($scope.membre_info.description === $scope.modify_label_when_empty) {
+                    $scope.membre_info.description = "";
+                }
+                if ($scope.ask_modif_profile_copy.membre_info.description !== $scope.membre_info.description) {
+                    form["description"] = $scope.membre_info.description;
+                }
+                if ($scope.membre_info.interet === $scope.modify_label_when_empty) {
+                    $scope.membre_info.interet = [];
+                }
+                if ($scope.ask_modif_profile_copy.membre_info.interet !== $scope.membre_info.interet) {
+                    form["interets"] = $scope.list_interets;
+                }
+                if ($scope.supprimeInteret) {
+                    form["supprimeInteret"] = $scope.supprimeInteret;
+                }
+                if ($scope.membre_info.motivation_membre === $scope.modify_label_when_empty) {
+                    $scope.membre_info.motivation_membre = "";
+                }
+                if ($scope.ask_modif_profile_copy.membre_info.motivation_membre !== $scope.membre_info.motivation_membre) {
+                    form["motivation_membre"] = $scope.membre_info.motivation_membre;
+                }
+                if ($scope.membre_info.langue === $scope.modify_label_when_empty) {
+                    $scope.membre_info.langue = [];
+                }
+                if ($scope.ask_modif_profile_copy.membre_info.langue !== $scope.membre_info.langue) {
+                    form["langues"] = $scope.languesParlees;
+                }
+                if ($scope.supprimeLangue) {
+                    form["supprimeLangue"] = $scope.supprimeLangue;
+                }
+                $scope.send_form_personal_profile(form);
+                $scope.show_croppie = false;
+                $scope.afficherAjoutLangue = false;
+                $scope.afficherSupprimerLangue = false;
+                $scope.afficherSupprimerInteret = false;
+                $scope.afficherAjoutInteret = false;
+                $scope.destroyCroppie();
+        }
 
         //Page d'Information
         $scope.change_profile_name = function (nom) {
@@ -604,43 +888,26 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
             if (!nom) {
                 let form = {};
-                if ($scope.ask_modif_copy.membre_info.full_name !== $scope.membre_info.full_name) {
+                if ($scope.ask_modif_profile_copy.membre_info.full_name !== $scope.membre_info.full_name) {
                     form["full_name"] = $scope.membre_info.full_name;
                 }
-                if (!_.isEmpty(form)) {
-                    let url = "/ore/personal_information/submit";
-                    ajax.jsonRpc(url, "call", form).then(function (data) {
-                        console.debug("AJAX receive submit_form personal_information");
-                        console.debug(data);
-
-                        if (data.error) {
-                            $scope.error = data.error;
-                        } else if (_.isEmpty(data)) {
-                            $scope.error = "Empty data - " + url;
-                        }
-                        // Process all the angularjs watchers
-                        $scope.$digest();
-                    }).fail(function (error, ev) {
-                        console.error(error);
-                        $scope.check_need_login(error);
-                    })
-                }
+                $scope.send_form_personal_profile(form);
             } else {
                 if (!_.isUndefined($scope.membre_info.full_name)) {
                     if (_.isEmpty($scope.membre_info.full_name)) {
                         $scope.membre_info.full_name = "";
-                        $scope.ask_modif_copy.membre_info.full_name = "";
+                        $scope.ask_modif_profile_copy.membre_info.full_name = "";
                     } else {
-                        $scope.ask_modif_copy.membre_info.full_name = JSON.parse(JSON.stringify($scope.membre_info.full_name));
+                        $scope.ask_modif_profile_copy.membre_info.full_name = JSON.parse(JSON.stringify($scope.membre_info.full_name));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.full_name = undefined;
+                    $scope.ask_modif_profile_copy.membre_info.full_name = undefined;
                 }
             }
         };
 
         $scope.annuler_profile_name = function () {
-            $scope.membre_info.full_name = $scope.ask_modif_copy.membre_info.full_name;
+            $scope.membre_info.full_name = $scope.ask_modif_profile_copy.membre_info.full_name;
             $scope.ask_modification_profile_nom = false;
         };
 
@@ -649,44 +916,27 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
             if (!genre) {
                 let form = {};
-                if ($scope.ask_modif_copy.membre_info.genre !== $scope.membre_info.genre) {
+                if ($scope.ask_modif_profile_copy.membre_info.genre !== $scope.membre_info.genre) {
                     let selectedOption = document.getElementById("genre").value;
                     form["genre"] = selectedOption;
                 }
-                if (!_.isEmpty(form)) {
-                    let url = "/ore/personal_information/submit";
-                    ajax.jsonRpc(url, "call", form).then(function (data) {
-                        console.debug("AJAX receive submit_form personal_information");
-                        console.debug(data);
-
-                        if (data.error) {
-                            $scope.error = data.error;
-                        } else if (_.isEmpty(data)) {
-                            $scope.error = "Empty data - " + url;
-                        }
-                        // Process all the angularjs watchers
-                        $scope.$digest();
-                    }).fail(function (error, ev) {
-                        console.error(error);
-                        $scope.check_need_login(error);
-                    })
-                }
+                $scope.send_form_personal_profile(form);
             } else {
                 if (!_.isUndefined($scope.membre_info.genre)) {
                     if (_.isEmpty($scope.membre_info.genre)) {
                         $scope.membre_info.genre = "";
-                        $scope.ask_modif_copy.membre_info.genre = "";
+                        $scope.ask_modif_profile_copy.membre_info.genre = "";
                     } else {
-                        $scope.ask_modif_copy.membre_info.genre = JSON.parse(JSON.stringify($scope.membre_info.genre));
+                        $scope.ask_modif_profile_copy.membre_info.genre = JSON.parse(JSON.stringify($scope.membre_info.genre));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.genre = undefined;
+                    $scope.ask_modif_profile_copy.membre_info.genre = undefined;
                 }
             }
         };
 
         $scope.annuler_profile_gender = function () {
-            $scope.membre_info.genre = $scope.ask_modif_copy.membre_info.genre;
+            $scope.membre_info.genre = $scope.ask_modif_profile_copy.membre_info.genre;
             $scope.ask_modification_profile_genre = false;
         };
 
@@ -698,43 +948,26 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 if ($scope.membre_info.date_naissance === "") {
                     $scope.membre_info.date_naissance = "";
                 }
-                if ($scope.ask_modif_copy.membre_info.date_naissance !== $scope.membre_info.date_naissance) {
+                if ($scope.ask_modif_profile_copy.membre_info.date_naissance !== $scope.membre_info.date_naissance) {
                     form["date_naissance"] = $scope.membre_info.date_naissance;
                 }
-                if (!_.isEmpty(form)) {
-                    let url = "/ore/personal_information/submit";
-                    ajax.jsonRpc(url, "call", form).then(function (data) {
-                        console.debug("AJAX receive submit_form personal_information");
-                        console.debug(data);
-
-                        if (data.error) {
-                            $scope.error = data.error;
-                        } else if (_.isEmpty(data)) {
-                            $scope.error = "Empty data - " + url;
-                        }
-                        // Process all the angularjs watchers
-                        $scope.$digest();
-                    }).fail(function (error, ev) {
-                        console.error(error);
-                        $scope.check_need_login(error);
-                    })
-                }
+                $scope.send_form_personal_profile(form);
             } else {
                 if (!_.isUndefined($scope.membre_info.date_naissance)) {
                     if (_.isEmpty($scope.membre_info.date_naissance)) {
                         $scope.membre_info.date_naissance = "";
-                        $scope.ask_modif_copy.membre_info.date_naissance = "";
+                        $scope.ask_modif_profile_copy.membre_info.date_naissance = "";
                     } else {
-                        $scope.ask_modif_copy.membre_info.date_naissance = JSON.parse(JSON.stringify($scope.membre_info.date_naissance));
+                        $scope.ask_modif_profile_copy.membre_info.date_naissance = JSON.parse(JSON.stringify($scope.membre_info.date_naissance));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.date_naissance = undefined;
+                    $scope.ask_modif_profile_copy.membre_info.date_naissance = undefined;
                 }
             }
         };
 
         $scope.annuler_profile_date = function () {
-            $scope.membre_info.date_naissance = $scope.ask_modif_copy.membre_info.date_naissance;
+            $scope.membre_info.date_naissance = $scope.ask_modif_profile_copy.membre_info.date_naissance;
             $scope.ask_modification_profile_date = false;
         };
 
@@ -743,48 +976,30 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
             if (!email) {
                 let form = {};
-                if ($scope.ask_modif_copy.membre_info.email !== $scope.membre_info.email) {
+                if ($scope.ask_modif_profile_copy.membre_info.email !== $scope.membre_info.email) {
                     if (!$scope.membre_info.email) {
                         return;
                     } else {
                         form["email"] = $scope.membre_info.email;
                     }
                 }
-                if (!_.isEmpty(form)) {
-                    let url = "/ore/personal_information/submit";
-                    ajax.jsonRpc(url, "call", form).then(function (data) {
-                        console.debug("AJAX receive submit_form personal_information");
-                        console.debug(data);
-
-                        if (data.error) {
-                            $scope.error = data.error;
-                        } else if (_.isEmpty(data)) {
-                            $scope.error = "Empty data - " + url;
-                        }
-                        // Process all the angularjs watchers
-                        $scope.$digest();
-                    }).fail(function (error, ev) {
-                        console.error(error);
-                        $scope.check_need_login(error);
-                    })
-                }
+                $scope.send_form_personal_profile(form);
             } else {
                 if (!_.isUndefined($scope.membre_info.email)) {
                     if (_.isEmpty($scope.membre_info.email)) {
                         $scope.membre_info.email = "";
-                        $scope.ask_modif_copy.membre_info.email = "";
+                        $scope.ask_modif_profile_copy.membre_info.email = "";
                     } else {
-                        $scope.ask_modif_copy.membre_info.email = JSON.parse(JSON.stringify($scope.membre_info.email));
+                        $scope.ask_modif_profile_copy.membre_info.email = JSON.parse(JSON.stringify($scope.membre_info.email));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.email = undefined;
+                    $scope.ask_modif_profile_copy.membre_info.email = undefined;
                 }
             }
         };
 
         $scope.annuler_profile_email = function () {
-            console.log("TEST");
-            $scope.membre_info.email = $scope.ask_modif_copy.membre_info.email;
+            $scope.membre_info.email = $scope.ask_modif_profile_copy.membre_info.email;
             $scope.ask_modification_profile_email = false;
         };
 
@@ -793,44 +1008,27 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
             if (!telephone) {
                 let form = {};
-                if ($scope.ask_modif_copy.membre_info.phone !== $scope.membre_info.phone) {
+                if ($scope.ask_modif_profile_copy.membre_info.phone !== $scope.membre_info.phone) {
                     form["phone"] = $scope.membre_info.phone;
                 }
-                if (!_.isEmpty(form)) {
-                    let url = "/ore/personal_information/submit";
-                    ajax.jsonRpc(url, "call", form).then(function (data) {
-                        console.debug("AJAX receive submit_form personal_information");
-                        console.debug(data);
-
-                        if (data.error) {
-                            $scope.error = data.error;
-                        } else if (_.isEmpty(data)) {
-                            $scope.error = "Empty data - " + url;
-                        }
-                        // Process all the angularjs watchers
-                        $scope.$digest();
-                    }).fail(function (error, ev) {
-                        console.error(error);
-                        $scope.check_need_login(error);
-                    })
-                }
+                $scope.send_form_personal_profile(form);
             } else {
                 if (!_.isUndefined($scope.membre_info.phone)) {
                     if (_.isEmpty($scope.membre_info.phone)) {
                         $scope.membre_info.phone = "";
-                        $scope.ask_modif_copy.membre_info.phone = "";
+                        $scope.ask_modif_profile_copy.membre_info.phone = "";
                     } else {
-                        $scope.ask_modif_copy.membre_info.phone = JSON.parse(JSON.stringify($scope.membre_info.phone));
+                        $scope.ask_modif_profile_copy.membre_info.phone = JSON.parse(JSON.stringify($scope.membre_info.phone));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.phone = undefined;
+                    $scope.ask_modif_profile_copy.membre_info.phone = undefined;
                 }
             }
         };
 
         $scope.annuler_profile_telephone = function () {
 
-            $scope.membre_info.phone = $scope.ask_modif_copy.membre_info.phone;
+            $scope.membre_info.phone = $scope.ask_modif_profile_copy.membre_info.phone;
             $scope.ask_modification_profile_telephone = false;
         };
 
@@ -839,45 +1037,119 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
             if (!street) {
                 let form = {};
-                if ($scope.ask_modif_copy.membre_info.street !== $scope.membre_info.street) {
+                if ($scope.ask_modif_profile_copy.membre_info.street !== $scope.membre_info.street) {
                     form["street"] = $scope.membre_info.street;
                 }
-                if (!_.isEmpty(form)) {
-                    let url = "/ore/personal_information/submit";
-                    ajax.jsonRpc(url, "call", form).then(function (data) {
-                        console.debug("AJAX receive submit_form personal_information");
-                        console.debug(data);
-
-                        if (data.error) {
-                            $scope.error = data.error;
-                        } else if (_.isEmpty(data)) {
-                            $scope.error = "Empty data - " + url;
-                        }
-                        // Process all the angularjs watchers
-                        $scope.$digest();
-                    }).fail(function (error, ev) {
-                        console.error(error);
-                        $scope.check_need_login(error);
-                    })
-                }
+                $scope.send_form_personal_profile(form);
             } else {
                 if (!_.isUndefined($scope.membre_info.street)) {
                     if (_.isEmpty($scope.membre_info.street)) {
                         $scope.membre_info.street = "";
-                        $scope.ask_modif_copy.membre_info.street = "";
+                        $scope.ask_modif_profile_copy.membre_info.street = "";
                     } else {
-                        $scope.ask_modif_copy.membre_info.street = JSON.parse(JSON.stringify($scope.membre_info.street));
+                        $scope.ask_modif_profile_copy.membre_info.street = JSON.parse(JSON.stringify($scope.membre_info.street));
                     }
                 } else {
-                    $scope.ask_modif_copy.membre_info.street = undefined;
+                    $scope.ask_modif_profile_copy.membre_info.street = undefined;
                 }
             }
         };
 
         $scope.annuler_profile_street = function () {
-            $scope.membre_info.street = $scope.ask_modif_copy.membre_info.street;
+            $scope.membre_info.street = $scope.ask_modif_profile_copy.membre_info.street;
             $scope.ask_modification_profile_street = false;
         };
+
+        $scope.send_form_personal_profile = function(form) {
+            if (!_.isEmpty(form)) {
+                let url = "/ore/personal_information/submit";
+                ajax.jsonRpc(url, "call", form).then(function (data) {
+                    console.debug("AJAX receive submit_form personal_information");
+                    console.debug(data);
+
+                    if (data.error) {
+                        $scope.error = data.error;
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty data - " + url;
+                    }
+                    // Process all the angularjs watchers
+                    $scope.$digest();
+                }).fail(function (error, ev) {
+                    console.error(error);
+                    $scope.check_need_login(error);
+                })
+            }
+        }
+
+        $scope.request_join_clan = function() {
+            let form = {};
+            form["clan_id"] = $scope.page_communaute_clan_info.id;
+            if (!_.isEmpty(form)) {
+                let url = "/ore/request_join_clan/submit";
+                ajax.jsonRpc(url, "call", form).then(function (data) {
+                    console.debug("AJAX receive submit_form request_join_clan");
+                    console.debug(data);
+
+                    if (data.error) {
+                        $scope.error = data.error;
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty data - " + url;
+                    } else {
+                        // Force to reload, more easy!
+                        window.location.reload();
+                    }
+                    console.error("miss");
+                    // Process all the angularjs watchers
+                    $scope.$digest();
+                }).fail(function (error, ev) {
+                    console.error(error);
+                    $scope.check_need_login(error);
+                })
+            }
+        }
+
+        $scope.invite_from_email_to_join_clan = function() {
+            let form = {
+                "clan_id": $scope.personal.my_clan.id,
+                "email": $scope.txt_input_email_member,
+            };
+            $scope.send_invitation_loading = true;
+            $scope.send_invitation_error = false;
+            $scope.send_invitation_msg_error = "";
+            $scope.send_invitation_msg_success = "";
+            if (!_.isEmpty(form)) {
+                let url = "/ore/invite_member_to_clan/submit";
+                ajax.jsonRpc(url, "call", form).then(function (data) {
+                    console.debug("AJAX receive submit_form ore_invite_member_to_clan_form_submit");
+                    console.debug(data);
+                    $scope.send_invitation_loading = false;
+
+                    if (data.error) {
+                        $scope.error = data.error;
+                        $scope.send_invitation_error = true;
+                        $scope.send_invitation_msg_success = "";
+                        $scope.send_invitation_msg_error = data.error;
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty data - " + url;
+                        $scope.send_invitation_error = false;
+                        $scope.send_invitation_msg_success = "";
+                        $scope.send_invitation_msg_error = "";
+                    } else {
+                        $scope.send_invitation_msg_success = "Invitation envoyé au courriel «" + $scope.txt_input_email_member + "»!";
+                        $scope.txt_input_email_member = "";
+                    }
+                    // Process all the angularjs watchers
+                    $scope.$digest();
+                }).fail(function (error, ev) {
+                    console.error(error);
+                    $scope.check_need_login(error);
+                    $scope.send_invitation_loading = false;
+                    $scope.send_invitation_error = true;
+                    $scope.send_invitation_msg_error = error.message;
+                    $scope.send_invitation_msg_success = "";
+                })
+            }
+        }
         //END
 
         $scope.isEmailEmpty = function () {
@@ -1321,8 +1593,30 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     $scope.update_personal_data();
                     console.debug($scope.personal);
 
-                    if (!_.isUndefined($scope.personal.my_network)) {
-                        $scope.update_db_list_membre($scope.personal.my_network.id);
+                    // check if input name force_clan_id exist
+                    let widget_force_clan_id = document.getElementById("force_clan_id");
+                    if (!_.isNull(widget_force_clan_id) && _.isNumber(parseInt(widget_force_clan_id.value))) {
+                        $scope.force_clan_id = parseInt(widget_force_clan_id.value);
+                    } else {
+                        $scope.force_clan_id = 0;
+                    }
+                    $scope.page_communaute_clan_info_is_into_clan = false;
+                    $scope.page_communaute_clan_info_is_invite_to_clan = false;
+                    if ($scope.force_clan_id > 0) {
+                        $scope.update_db_list_membre($scope.force_clan_id);
+                        $scope.page_communaute_clan_info = $scope.dct_clan_info[$scope.force_clan_id];
+                        console.debug("Information from force_clan_id");
+                        console.debug($scope.page_communaute_clan_info);
+                        $scope.page_communaute_clan_info_is_into_clan = $scope.personal.all_my_clan.filter((word) => word.id === $scope.force_clan_id).length > 0;
+                        $scope.page_communaute_clan_info_is_invite_to_clan = $scope.personal.all_my_invited_clan.filter((word) => word.id === $scope.force_clan_id).length > 0;
+                        $scope.page_communaute_clan_info_is_waiting_invitation_to_clan = $scope.personal.all_my_waiting_invitation_clan.filter((word) => word.id === $scope.force_clan_id).length > 0;
+                    } else if (!_.isUndefined($scope.personal.my_clan)) {
+                        $scope.update_db_list_membre($scope.personal.my_clan.id);
+                        $scope.page_communaute_clan_info = $scope.personal.my_clan;
+                        console.debug("Information page_communaute_clan_info");
+                        console.debug($scope.page_communaute_clan_info);
+                        $scope.page_communaute_clan_info_is_into_clan = true;
+                        $scope.page_communaute_clan_info_is_invite_to_clan = false;
                     } else {
                         console.error("Cannot associate personal variable with his network data. " +
                             "Talk to an administrator, your are lost!");
@@ -1461,6 +1755,25 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 console.error(error);
                 $scope.check_need_login(error);
             })
+            ajax.jsonRpc("/ore/get_info/all_clan", "call", {}).then(function (data) {
+                console.debug("AJAX receive /ore/get_info/all_clan");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty '/ore/get_info/all_clan' data";
+                    console.error($scope.error);
+                } else {
+                    $scope.dct_clan_info = data;
+                    console.debug(data);
+                }
+
+                // Process all the angularjs watchers
+                $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
+            })
             // }
             // key = "/demandesservice";
             // if (window.location.pathname.indexOf(key) === 0) {
@@ -1566,8 +1879,8 @@ odoo.define('website.ore_angularjs_global', function (require) {
 
         $scope.load_page_offre_demande_echange_service();
 
-        $scope.update_db_list_membre = function (reseau_ore_id) {
-            ajax.jsonRpc("/ore/get_info/list_membre", "call", {"reseau_ore_id": reseau_ore_id}).then(function (data) {
+        $scope.update_db_list_membre = function (clan_id) {
+            ajax.jsonRpc("/ore/get_info/list_membre", "call", {"clan_id": clan_id}).then(function (data) {
                 console.debug("AJAX receive /ore/get_info/list_membre");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -1773,11 +2086,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 value.show_sum_time = $scope.convertNumToTime(value.sum_time, 3);
             }
             console.debug($scope.personal.dct_echange_mensuel);
-        }
-
-        $scope.echange_click_redirect = function (echange) {
-            // TODO no need this, use instead <a href and not ng-click
-            window.location.href = `/monactivite/echange${$scope.url_debug}#!?echange=${echange.id}`;
         }
 
         $scope.removeSpace = function () {

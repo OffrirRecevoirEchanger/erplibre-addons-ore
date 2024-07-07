@@ -6,10 +6,23 @@
                 ng-href="/notification#!?section=message&amp;membre={{contact_info.id}}"
                 ng-if="!hide_votre_contact_to_contact"
             >
-                <div class="btn btn-primary rounded-circle">
+                <div class="btn btn-beta rounded-circle">
                     <span ng-if="contact_info.genre === 'femme'">La</span>
                     <span ng-if="contact_info.genre !== 'femme'">Le</span>
                     contacter
+                </div>
+            </a>
+        </xpath>
+    </template>
+    <template id="template_clan_details_generic_inherit" inherit_id="website_ore.template_clan_details_generic">
+        <xpath expr="//nav[hasclass('profil_left')]" position="inside">
+            <a
+                ng-href="/notification#!?section=message&amp;clan={{page_communaute_clan_info.id}}"
+                ng-if="page_communaute_clan_info_is_into_clan"
+            >
+                <div class="profil btn btn-epsilon rounded-circle adapt-text-epsilon-color">
+                    <span class="fa fa-comments-o adapt-text-epsilon-color" />
+                    Clavardage
                 </div>
             </a>
         </xpath>
@@ -47,6 +60,23 @@
                     class="dropdown-item"
                     ng-href="/notification#!?section=message&amp;membre={{msg.id}}"
                     ng-repeat="msg in lst_membre_message"
+                >
+                    <div class="cat activite btn">
+                        <img class="activite_img img-fluid rounded-circle" ng-src="{{ msg.ma_photo }}" />
+                        <div class="infos">
+                            <span class="activite_title">{{msg.resume_msg}}</span>
+                            <span class="activite_auteur">{{msg.name}}</span>
+                        </div>
+                        <div class="infos right">
+                            <span>{{msg.last_date}}</span>
+                        </div>
+                    </div>
+                </a>
+                <a
+                    role="menuitem"
+                    class="dropdown-item"
+                    ng-href="/notification#!?section=message&amp;clan={{msg.clan_id}}"
+                    ng-repeat="msg in lst_clan_message"
                 >
                     <div class="cat activite btn">
                         <img class="activite_img img-fluid rounded-circle" ng-src="{{ msg.ma_photo }}" />

@@ -6,7 +6,9 @@
         <field name="inherit_id" ref="base.view_partner_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='type']" position="before">
-                <field name="reseau_ore_id" widget="res_partner_many2one" placeholder="Réseau ORE" />
+                <!--                <field name="reseau_ore_id" widget="res_partner_many2one" placeholder="Réseau ORE" />-->
+                <!--                <field name="clan_principal_id" />-->
+                <!--                <field name="clan_participe_ids" widget="many2many_tags" />-->
                 <field name="ore_membre_id" groups="base.group_no_one" />
             </xpath>
             <!--            <xpath expr="//div[hasclass('oe_title')]" position="after">-->
@@ -99,14 +101,18 @@
         </field>
     </record>
 
-    <record id="view_res_partner_filter_inherit" model="ir.ui.view">
-        <field name="name">res.partner.select.ore.inherit</field>
-        <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_res_partner_filter" />
-        <field name="arch" type="xml">
-            <xpath expr="//group[@name='group_by']" position="inside">
-                <filter name="group_network_ore" string="Réseau ORE" context="{'group_by': 'reseau_ore_id'}" />
-            </xpath>
-        </field>
-    </record>
+    <!--    <record id="view_res_partner_filter_inherit" model="ir.ui.view">-->
+    <!--        <field name="name">res.partner.select.ore.inherit</field>-->
+    <!--        <field name="model">res.partner</field>-->
+    <!--        <field name="inherit_id" ref="base.view_res_partner_filter" />-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <xpath expr="//group[@name='group_by']" position="inside">-->
+    <!--                <filter-->
+    <!--                    name="group_clan_principal"-->
+    <!--                    string="Clan principal"-->
+    <!--                    context="{'group_by': 'clan_principal_id'}"-->
+    <!--                />-->
+    <!--            </xpath>-->
+    <!--        </field>-->
+    <!--    </record>-->
 </odoo>

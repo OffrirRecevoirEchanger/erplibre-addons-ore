@@ -126,6 +126,7 @@ class OREWorkflowState(models.Model):
             ("Nouvelle demande", "Nouvelle demande"),
             ("Offre existante", "Offre existante"),
             ("Demande existante", "Demande existante"),
+            ("Ignore offre", "Ignore l'offre"),
         ],
         help="Fonctionnalité un choix pour un état",
     )
@@ -136,6 +137,15 @@ class OREWorkflowState(models.Model):
             ("Échange existant", "Échange existant"),
         ],
         help="Fonctionnalité un choix pour un état",
+    )
+
+    caract_workflow = fields.Selection(
+        selection=[
+            ("ORE", "Offrir Recevoir Echanger"),
+            ("TTC", "Trouve ton clan"),
+        ],
+        default="ORE",
+        help="Type de worklflow",
     )
 
     caract_service_offrir_recevoir = fields.Selection(

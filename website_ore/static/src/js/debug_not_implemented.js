@@ -48,7 +48,9 @@ odoo.define("website.ore.debug_not_implemented", function (require) {
                     self.LoadCss(debugDebug, uniqueIdDebugDebug, debugDebugCSS)
                     self.ActivateDebug(debugDebugClass, debugDebug, true);
                 }
-                if (!session.is_admin && !is_debug) {
+                // Automatic accept admin
+                // if (!session.is_admin && !is_debug) {
+                if (!is_debug) {
                     debugHide = true;
                     self.LoadCss(debugHide, uniqueIdHideNotImplemented, debugHideCSS)
                     self.ActivateDebug(debugHideClass, debugHide);

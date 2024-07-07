@@ -85,6 +85,17 @@ class OREMembre(models.Model):
     #     track_visibility="onchange",
     # )
 
+    clan_principal_id = fields.Many2one(
+        string="Clan principal", comodel_name="ore.clan"
+    )
+
+    clan_participe_ids = fields.Many2many(
+        string="Clan participants",
+        comodel_name="ore.clan",
+        relation="membre_clan_participe_rel",
+        help="Liste des clans que le membre participe.",
+    )
+
     date_adhesion = fields.Date(
         string="Date de l'adhésion",
         track_visibility="onchange",
@@ -305,17 +316,17 @@ class OREMembre(models.Model):
         help="Vérifier par l'organisation",
     )
 
-    introduction = fields.Char(
+    introduction = fields.Html(
         help="Un petit texte qui décrit le membre.",
         track_visibility="onchange",
     )
 
-    description = fields.Char(
+    description = fields.Html(
         help="Un petit texte qui décrit le membre.",
         track_visibility="onchange",
     )
 
-    motivation_membre = fields.Char(
+    motivation_membre = fields.Html(
         track_visibility="onchange",
         help="Pourquoi devenir un membre de réseau.",
     )
@@ -351,7 +362,8 @@ class OREMembre(models.Model):
     def create(self, vals_list):
         status = super().create(vals_list)
         for stat in status:
-            stat.partner_id.ore_membre_id = stat.id
+            if not stat.partner_id.ore_membre_id:
+                stat.partner_id.ore_membre_id = stat.id
         return status
 
     @api.multi
@@ -370,6 +382,8 @@ class OREMembre(models.Model):
                     "canal": f'["{self._cr.dbname}","{self._name}",{rec.id}]',
                 },
             )
+            # if rec.clan_participe_ids and not rec.clan_principal_id:
+            #     rec.clan_principal_id = rec.clan_participe_ids[0].id
         return status
 
     def get_image_url(self, field="image"):

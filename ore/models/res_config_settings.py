@@ -17,6 +17,14 @@ class ResConfigSettings(models.TransientModel):
         config_parameter="ore.ore_default_societe",
     )
 
+    ore_default_website_invitation_adhesion = fields.Many2one(
+        string="Default ORE website for invitation adhesion",
+        comodel_name="website",
+        help="Default website for invitation",
+        config_parameter="ore.ore_default_website_invitation_adhesion",
+        default=lambda self: self.env.ref("website.default_website"),
+    )
+
     ore_default_free_time = fields.Float(
         string="Default ORE time",
         help="The user receive the default time.",

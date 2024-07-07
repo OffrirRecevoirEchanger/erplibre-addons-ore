@@ -7,7 +7,7 @@ import humanize
 import pytz
 import requests
 
-from odoo import _, fields, http
+from odoo import _, exceptions, fields, http
 from odoo.http import request
 from odoo.tools.image import image_data_uri
 
@@ -119,6 +119,42 @@ class OREController(http.Controller):
         )
 
     @http.route(
+        ["/ore/ore_clan/<int:ore_clan>"],
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def get_page_ore_clan(self, ore_clan=None):
+        env = request.env(context=dict(request.env.context))
+
+        ore_clan_cls = env["ore.clan"]
+        if ore_clan:
+            ore_clan_id = ore_clan_cls.sudo().browse(ore_clan).exists()
+        else:
+            ore_clan_id = None
+        dct_value = {"ore_clan_id": ore_clan_id}
+
+        # Render page
+        return request.render("website_ore.ore_clan_unit", dct_value)
+
+    @http.route(
+        [
+            "/ore/set_clan_actual_member/<model('ore.clan'):clan_id>",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def set_clan_principal_id_actual_member(self, clan_id, **kw):
+        me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
+        if clan_id.id in me_membre_id.clan_participe_ids.ids:
+            me_membre_id.clan_principal_id = clan_id.id
+        return {"status": True}
+
+    @http.route(
         [
             "/ore/get_info/get_offre_service/<model('ore.offre.service'):offre_id>",
         ],
@@ -128,6 +164,9 @@ class OREController(http.Controller):
     )
     def get_info_offre_service(self, offre_id, **kw):
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         return {
             "id": offre_id.id,
             "description": offre_id.description,
@@ -155,6 +194,9 @@ class OREController(http.Controller):
     )
     def get_all_offre_service(self, **kw):
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         # don't return not website_published if not same member
         value = {
             a.id: {
@@ -180,6 +222,174 @@ class OREController(http.Controller):
 
     @http.route(
         [
+            "/ore/get_info/all_clan",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_all_clan(self, **kw):
+        # don't return not website_published if not same member
+        value = {
+            a.id: {
+                "id": a.id,
+                "name": a.name,
+                "description": a.description,
+                "besoin_comble": a.besoin_comble,
+                "organisation": a.organisation,
+                "ville_region": a.ville_region,
+                "message_accueil": a.message_accueil,
+                "valeur_clan": a.valeur_clan,
+                "ma_photo": a.get_image_url(),
+                "membre_list_count": a.membre_list_count,
+                "website_published": a.website_published,
+                "distance": "8m",
+                "membre_create_id": a.membre_create_id.id,
+                "membre_create": {
+                    "id": a.membre_create_id.id,
+                    "name": a.membre_create_id.name,
+                },
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+            }
+            for a in http.request.env["ore.clan"]
+            .sudo()
+            .search([("website_published", "=", True)])
+        }
+        return value
+
+    @http.route(
+        ["/ore/ore_clan_list"], type="json", auth="public", website=True
+    )
+    def get_ore_clan_list(self):
+        env = request.env(context=dict(request.env.context))
+
+        ore_clan_cls = env["ore.clan"]
+        ore_clan_ids = ore_clan_cls.sudo().search(
+            [("website_published", "=", True)]
+        )
+        demande_services_count = ore_clan_cls.sudo().search_count(
+            [("website_published", "=", True)]
+        )
+
+        lst_clan_photo = [a.get_image_url() for a in ore_clan_ids]
+
+        lst_time_diff_clan = []
+        timedate_now = datetime.now()
+        # fr_CA not exist
+        # check .venv/lib/python3.7/site-packages/humanize/locale/
+        _t = humanize.i18n.activate("fr_FR")
+        for ore_clan_id in ore_clan_ids:
+            diff_time = timedate_now - ore_clan_id.create_date
+            str_diff_time = humanize.naturaltime(diff_time).capitalize() + "."
+            lst_time_diff_clan.append(str_diff_time)
+        humanize.i18n.deactivate()
+
+        dct_value = {
+            "ore_clan_ids": ore_clan_ids,
+            "lst_clan_photo": lst_clan_photo,
+            "clan_count": demande_services_count,
+            "lst_time_clan": lst_time_diff_clan,
+        }
+
+        # Render page
+        return request.env["ir.ui.view"].render_template(
+            "website_ore.ore_clan_list", dct_value
+        )
+
+    @http.route(
+        [
+            "/ore/get_info/events",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_all_events(self, **kw):
+        # me_membre_id = self.get_membre_id()
+        # don't return not website_published if not same member
+        value = {
+            a.id: {
+                "id": a.id,
+                "description": a.description,
+                "short_description": "",
+                "date_begin": self.datetime_to_local(a.date_begin).strftime(
+                    "%Y-%m-%d"
+                ),
+                "date_short_html_begin": self.datetime_to_local(a.date_begin)
+                .strftime("%a. %-d %b.")
+                .replace(" ", "<br/>"),
+                "time_begin": self.datetime_to_local(a.date_begin).strftime(
+                    "%H:%M:%S"
+                ),
+                "date_end": self.datetime_to_local(a.date_end).strftime(
+                    "%Y-%m-%d"
+                ),
+                "date_short_html_end": self.datetime_to_local(a.date_end)
+                .strftime("%a. %-d %b.")
+                .replace(" ", "<br/>"),
+                "time_end": self.datetime_to_local(a.date_end).strftime(
+                    "%H:%M:%S"
+                ),
+                "titre": a.name,
+                # "is_favorite": me_membre_id.id in a.membre_favoris_ids.ids,
+                "distance": "8m",
+                "website_url": a.website_url,
+                "address": "123 street test, QC",
+                # "membre_id": a.organizer_id.id,
+                # "membre": {
+                #     "id": a.organizer_id.id,
+                #     "full_name": a.organizer_id.name,
+                # },
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+            }
+            for a in http.request.env["event.event"].sudo().search([], limit=6)
+            if a.is_published
+        }
+        return value
+
+    @http.route(
+        [
+            "/ore/get_info/news",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_all_news(self, **kw):
+        value = {}
+        for a in http.request.env["blog.post"].sudo().search([], limit=6):
+            if not a.is_published:
+                continue
+            blog_comment_ids = http.request.env["mail.message"].search(
+                [("model", "=", "blog.post"), ("res_id", "=", a.id)]
+            )
+            value[a.id] = {
+                "id": a.id,
+                "sub_title": "" if a.subtitle is False else a.subtitle,
+                "author_name": a.author_id.name,
+                "author_photo_url": self.get_membre_id(
+                    partner_id=a.author_id
+                ).get_image_url(),
+                "titre": a.name,
+                "nb_comments": len(blog_comment_ids),
+                "teaser_manual": ""
+                if a.teaser_manual is False
+                else a.teaser_manual,
+                "visits": a.visits,
+                "website_url": "/blog/%s/post/%s" % (a.blog_id.id, a.id),
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+            }
+
+        return value
+
+    @http.route(
+        [
             "/ore/get_info/all_demande_service",
         ],
         type="json",
@@ -188,6 +398,9 @@ class OREController(http.Controller):
     )
     def get_all_demande_service(self, **kw):
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         # don't return not website_published if not same member
         value = {
             a.id: {
@@ -220,6 +433,9 @@ class OREController(http.Controller):
     )
     def get_info_demande_service(self, demande_id, **kw):
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         return {
             "id": demande_id.id,
             "description": demande_id.description,
@@ -248,6 +464,9 @@ class OREController(http.Controller):
     )
     def get_info_echange_service(self, echange_id, **kw):
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         # me_membre_id = http.request.env.user.partner_id
         if (
             me_membre_id.id not in echange_id.membre_vendeur.ids
@@ -605,6 +824,15 @@ class OREController(http.Controller):
         return request.env.ref("website_ore.ir_ui_view_explorer").render()
 
     @http.route(
+        ["/chercher_clan"],
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def get_chercher_clan(self, **kw):
+        return request.env.ref("website_ore.ir_ui_view_chercher_clan").render()
+
+    @http.route(
         ["/monactivite/mesgroupes"],
         type="http",
         auth="user",
@@ -661,6 +889,17 @@ class OREController(http.Controller):
         return request.env.ref("website_ore.ir_ui_view_membres").render()
 
     @http.route(
+        ["/communaute/clan"],
+        type="http",
+        auth="user",
+        website=True,
+    )
+    def get_communaute_clan(self, **kw):
+        return request.env.ref(
+            "website_ore.ir_ui_view_communaute_clan"
+        ).render()
+
+    @http.route(
         ["/monprofil/mesinfos"],
         type="http",
         auth="user",
@@ -688,6 +927,16 @@ class OREController(http.Controller):
     )
     def get_monprofil(self, **kw):
         return request.env.ref("website_ore.ir_ui_view_mon_profil").render()
+
+    @http.route(
+        ["/ctc"],
+        type="http",
+        auth="user",
+        website=True,
+    )
+    def get_ctc(self, **kw):
+        # return self.get_page_participer()
+        return request.redirect("/participer#!?state=init.ctc.form")
 
     @http.route(
         ["/monactivite/echanges"],
@@ -778,8 +1027,11 @@ class OREController(http.Controller):
         return str_diff_time_creation
 
     @staticmethod
-    def get_membre_id():
-        membre_id = http.request.env.user.partner_id
+    def get_membre_id(partner_id=None):
+        if partner_id is None:
+            membre_id = http.request.env.user.partner_id
+        else:
+            membre_id = partner_id
         # TODO wrong algorithm, but use instead 'auth="user",'
         if not membre_id or http.request.auth_method == "public":
             return {"error": _("User not connected")}
@@ -1042,6 +1294,22 @@ class OREController(http.Controller):
             .search([("membre_id", "=", membre_id.id)])
         ]
 
+        if membre_id.introduction and membre_id.introduction != "<p><br></p>":
+            introduction = membre_id.introduction
+        else:
+            introduction = ""
+        if membre_id.description and membre_id.description != "<p><br></p>":
+            description = membre_id.description
+        else:
+            description = ""
+        if (
+            membre_id.motivation_membre
+            and membre_id.motivation_membre != "<p><br></p>"
+        ):
+            motivation_membre = membre_id.motivation_membre
+        else:
+            motivation_membre = ""
+
         personnal_data = {
             "id": membre_id.id,
             "full_name": membre_id.name,
@@ -1056,9 +1324,9 @@ class OREController(http.Controller):
             # "actual_month_bank_hours": month_bank_time,
             "actual_month_bank_hours": membre_id.bank_month_time,
             "is_favorite": is_favorite,
-            "introduction": membre_id.introduction,
-            "description": membre_id.description,
-            "motivation_membre": membre_id.motivation_membre,
+            "introduction": introduction,
+            "description": description,
+            "motivation_membre": motivation_membre,
             "interet": [
                 {"name": rec.name, "id": rec.id} for rec in membre_id.interet
             ],
@@ -1067,7 +1335,7 @@ class OREController(http.Controller):
                 for rec in membre_id.langue_parle
             ],
             "diff_humain_creation_membre": str_diff_time_creation,
-            "location": membre_id.ville.nom,
+            "location": membre_id.ville.nom if membre_id.ville else "",
             "antecedent_judiciaire_verifier": membre_id.antecedent_judiciaire_verifier,
             "dct_offre_service": dct_offre_service,
             "dct_demande_service": dct_demande_service,
@@ -1076,11 +1344,136 @@ class OREController(http.Controller):
             "dct_membre_favoris": dct_membre_favoris,
             "dct_echange": dct_echange,
         }
-        if membre_id.reseau_ore_id:
-            personnal_data["my_network"] = {
-                "name": membre_id.reseau_ore_id.name,
-                "id": membre_id.reseau_ore_id.id,
+        if membre_id.clan_principal_id:
+            description = (
+                membre_id.clan_principal_id.description
+                if membre_id.clan_principal_id.description
+                else ""
+            )
+            besoin_comble = (
+                membre_id.clan_principal_id.besoin_comble
+                if membre_id.clan_principal_id.besoin_comble
+                else ""
+            )
+            organisation = (
+                membre_id.clan_principal_id.organisation
+                if membre_id.clan_principal_id.organisation
+                else ""
+            )
+            ville_region = (
+                membre_id.clan_principal_id.ville_region
+                if membre_id.clan_principal_id.ville_region
+                else ""
+            )
+            message_accueil = (
+                membre_id.clan_principal_id.message_accueil
+                if membre_id.clan_principal_id.message_accueil
+                else ""
+            )
+            valeur_clan = (
+                membre_id.clan_principal_id.valeur_clan
+                if membre_id.clan_principal_id.valeur_clan
+                else ""
+            )
+            name = (
+                membre_id.clan_principal_id.name
+                if membre_id.clan_principal_id.name
+                else ""
+            )
+            personnal_data["my_clan"] = {
+                "name": name,
+                "id": membre_id.clan_principal_id.id,
+                "description": description,
+                "besoin_comble": besoin_comble,
+                "organisation": organisation,
+                "ville_region": ville_region,
+                "message_accueil": message_accueil,
+                "valeur_clan": valeur_clan,
+                "ma_photo": membre_id.clan_principal_id.get_image_url(),
+                "membre_list_count": membre_id.clan_principal_id.membre_list_count,
+                "is_clan_admin": membre_id.id
+                in membre_id.clan_principal_id.membre_admin_ids.ids,
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    membre_id.clan_principal_id.create_date
+                ),
             }
+
+        else:
+            personnal_data["my_clan"] = {
+                "name": "",
+                "id": 0,
+            }
+        if membre_id.clan_participe_ids:
+            personnal_data["all_my_clan"] = [
+                {
+                    "name": clan_id.name,
+                    "id": clan_id.id,
+                    "description": clan_id.description,
+                    "besoin_comble": clan_id.besoin_comble,
+                    "organisation": clan_id.organisation,
+                    "ville_region": clan_id.ville_region,
+                    "message_accueil": clan_id.message_accueil,
+                    "valeur_clan": clan_id.valeur_clan,
+                    "ma_photo": clan_id.get_image_url(),
+                    "membre_list_count": clan_id.membre_list_count,
+                    "is_clan_admin": membre_id.id
+                    in clan_id.membre_admin_ids.ids,
+                    "diff_create_date": self._transform_str_diff_time_creation(
+                        clan_id.create_date
+                    ),
+                }
+                for clan_id in membre_id.clan_participe_ids
+            ]
+        else:
+            personnal_data["all_my_clan"] = []
+
+        invitation_ids = (
+            request.env["ore.clan.invitation"]
+            .sudo()
+            .search([("email", "=", membre_id.email)])
+        )
+        personnal_data["all_my_invited_clan"] = [
+            {
+                "name": invitation_id.clan_id.name,
+                "id": invitation_id.clan_id.id,
+                "description": invitation_id.clan_id.description,
+                "besoin_comble": invitation_id.clan_id.besoin_comble,
+                "organisation": invitation_id.clan_id.organisation,
+                "ville_region": invitation_id.clan_id.ville_region,
+                "message_accueil": invitation_id.clan_id.message_accueil,
+                "valeur_clan": invitation_id.clan_id.valeur_clan,
+                "ma_photo": invitation_id.clan_id.get_image_url(),
+                "membre_list_count": invitation_id.clan_id.membre_list_count,
+                "is_clan_admin": membre_id.id
+                in invitation_id.clan_id.membre_admin_ids.ids,
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    invitation_id.clan_id.create_date
+                ),
+            }
+            for invitation_id in invitation_ids
+            if invitation_id.invite_by_admin_clan
+        ]
+        personnal_data["all_my_waiting_invitation_clan"] = [
+            {
+                "name": invitation_id.clan_id.name,
+                "id": invitation_id.clan_id.id,
+                "description": invitation_id.clan_id.description,
+                "besoin_comble": invitation_id.clan_id.besoin_comble,
+                "organisation": invitation_id.clan_id.organisation,
+                "ville_region": invitation_id.clan_id.ville_region,
+                "message_accueil": invitation_id.clan_id.message_accueil,
+                "valeur_clan": invitation_id.clan_id.valeur_clan,
+                "ma_photo": invitation_id.clan_id.get_image_url(),
+                "membre_list_count": invitation_id.clan_id.membre_list_count,
+                "is_clan_admin": membre_id.id
+                in invitation_id.clan_id.membre_admin_ids.ids,
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    invitation_id.clan_id.create_date
+                ),
+            }
+            for invitation_id in invitation_ids
+            if invitation_id.ask_join_clan
+        ]
 
         data = {
             "global": {
@@ -1090,6 +1483,191 @@ class OREController(http.Controller):
             "personal": personnal_data,
         }
         return data
+
+    @http.route(
+        "/ore/clan_information/submit",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def ore_clan_information_form_submit(self, **kw):
+        membre_id = self.get_membre_id()
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
+        principal_clan_id = membre_id.clan_principal_id
+        if not principal_clan_id:
+            return {"error": "No principal clan is associate to this user."}
+        if membre_id.id not in principal_clan_id.membre_admin_ids.ids:
+            return {
+                "error": (
+                    "Missing admin clan permission to edit a clan information."
+                )
+            }
+
+        # TODO maybe use clan_id to be sure to update the right clan and not the principal
+        status = True
+        name = kw.get("name")
+        if "name" in kw.keys():
+            principal_clan_id.name = name
+
+        description = kw.get("description")
+        if "description" in kw.keys():
+            principal_clan_id.description = description
+
+        valeur_clan = kw.get("valeur_clan")
+        if "valeur_clan" in kw.keys():
+            principal_clan_id.valeur_clan = valeur_clan
+
+        ma_photo = kw.get("ma_photo")
+        if "ma_photo" in kw.keys():
+            # TODO do we need validation? like extension or supported file
+            principal_clan_id.image = ma_photo.split(",")[1].encode("utf-8")
+
+        ville_region = kw.get("ville_region")
+        if "ville_region" in kw.keys():
+            principal_clan_id.ville_region = ville_region
+
+        message_accueil = kw.get("message_accueil")
+        if "message_accueil" in kw.keys():
+            principal_clan_id.message_accueil = message_accueil
+
+        organisation = kw.get("organisation")
+        if "organisation" in kw.keys():
+            principal_clan_id.organisation = organisation
+
+        besoin_comble = kw.get("besoin_comble")
+        if "besoin_comble" in kw.keys():
+            principal_clan_id.besoin_comble = besoin_comble
+
+        return status
+
+    @http.route(
+        "/ore/invite_member_to_clan/submit",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def ore_invite_member_to_clan_form_submit(self, **kw):
+        membre_id = self.get_membre_id()
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
+        email = kw.get("email")
+        if not email:
+            return {"error": "Email is empty"}
+        status, msg = request.env["ore.demande.adhesion"].validate_email(email)
+        if not status:
+            return {"error": msg}
+        email_normalized = msg
+        # msg contain normalize email
+        value_adhesion = {
+            "courriel": email_normalized,
+            "invitation_from_membre_id": membre_id.id,
+            "only_invitation": True,
+        }
+        clan_id = kw.get("clan_id")
+        if clan_id:
+            value_adhesion["clan_id"] = clan_id
+            value_invitation = {
+                "email": email_normalized,
+                "clan_id": clan_id,
+                "invite_by_admin_clan": True,
+            }
+            request.env["ore.clan.invitation"].sudo().create(value_invitation)
+        adhesion_id = request.env["ore.demande.adhesion"].create(
+            value_adhesion
+        )
+        adhesion_id.send_invitation_per_email_to_adhesion()
+        return {"data": True}
+
+    @http.route(
+        "/ore/request_join_clan/submit",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def ore_request_join_clan_form_submit(self, clan_id, **kw):
+        membre_id = self.get_membre_id()
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
+        # TODO implement logic depend on configuration of the clan
+        invitation_ids = (
+            request.env["ore.clan.invitation"]
+            .sudo()
+            .search(
+                [
+                    ("email", "=", membre_id.email),
+                    ("clan_id", "=", clan_id),
+                    ("invite_by_admin_clan", "=", True),
+                ]
+            )
+        )
+        status = True
+        if invitation_ids:
+            # Was invite by admin clan
+            for invitation_id in invitation_ids:
+                invitation_id.active = False
+                invitation_id.clan_id.membre_list_ids = [(4, membre_id.id)]
+        else:
+            invitation_ids = (
+                request.env["ore.clan.invitation"]
+                .sudo()
+                .search(
+                    [
+                        ("email", "=", membre_id.email),
+                        ("clan_id", "=", clan_id),
+                        ("ask_join_clan", "=", True),
+                    ]
+                )
+            )
+            if invitation_ids:
+                # Cancel it
+                for invitation_id in invitation_ids:
+                    invitation_id.active = False
+            else:
+                # Check if already exist to not duplicate
+                invitation_ids = (
+                    request.env["ore.clan.invitation"]
+                    .sudo()
+                    .search(
+                        [
+                            ("email", "=", membre_id.email),
+                            ("clan_id", "=", clan_id),
+                            ("active", "=", False),
+                        ]
+                    )
+                )
+                if invitation_ids:
+                    for invitation_id in invitation_ids:
+                        invitation_id.active = True
+                        invitation_id.invite_by_admin_clan = False
+                        invitation_id.ask_join_clan = True
+                else:
+                    # Ask to join the clan
+                    value_invitation = {
+                        "email": membre_id.email,
+                        "clan_id": clan_id,
+                        "ask_join_clan": True,
+                    }
+                    request.env["ore.clan.invitation"].sudo().create(
+                        value_invitation
+                    )
+        # Search associate notification to remove it
+        notif_id = request.env["ore.echange.service.notification"].search(
+            [
+                ("is_read", "=", False),
+                ("type_notification", "=", "Invitation clan"),
+                ("clan_invited_id", "!=", False),
+            ]
+        )
+        if notif_id:
+            notif_id.is_read = True
+        return {"status": status}
 
     @http.route(
         "/ore/personal_information/submit",
@@ -1212,7 +1790,6 @@ class OREController(http.Controller):
         #     # This is an error
         #     return membre_id
 
-        me_membre_id = self.get_membre_id()
         actual_membre_id = self.get_membre_id()
         if type(actual_membre_id) is dict:
             # This is an error
@@ -1228,7 +1805,7 @@ class OREController(http.Controller):
                 "description": a.description,
                 "titre": a.titre,
                 "website_published": a.website_published,
-                "is_favorite": me_membre_id.id in a.membre_favoris_ids.ids,
+                "is_favorite": actual_membre_id.id in a.membre_favoris_ids.ids,
                 "diff_create_date": self._transform_str_diff_time_creation(
                     a.create_date
                 ),
@@ -1246,7 +1823,7 @@ class OREController(http.Controller):
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
-                "is_favorite": me_membre_id.id in a.membre_favoris_ids.ids,
+                "is_favorite": actual_membre_id.id in a.membre_favoris_ids.ids,
                 "diff_create_date": self._transform_str_diff_time_creation(
                     a.create_date
                 ),
@@ -1264,6 +1841,22 @@ class OREController(http.Controller):
             a.id for a in actual_membre_id.membre_favoris_ids
         ]
 
+        if membre_id.introduction and membre_id.introduction != "<p><br></p>":
+            introduction = membre_id.introduction
+        else:
+            introduction = ""
+        if membre_id.description and membre_id.description != "<p><br></p>":
+            description = membre_id.description
+        else:
+            description = ""
+        if (
+            membre_id.motivation_membre
+            and membre_id.motivation_membre != "<p><br></p>"
+        ):
+            motivation_membre = membre_id.motivation_membre
+        else:
+            motivation_membre = ""
+
         data_membre_info = {
             "id": membre_id.id,
             "full_name": membre_id.name,
@@ -1276,9 +1869,9 @@ class OREController(http.Controller):
             "actual_bank_hours": membre_id.bank_time,
             "actual_month_bank_hours": membre_id.bank_month_time,
             "is_favorite": is_favorite,
-            "introduction": membre_id.introduction,
-            "description": membre_id.description,
-            "motivation_membre": membre_id.motivation_membre,
+            "introduction": introduction,
+            "description": description,
+            "motivation_membre": motivation_membre,
             "interet": [
                 {"name": rec.name, "id": rec.id} for rec in membre_id.interet
             ],
@@ -1296,11 +1889,49 @@ class OREController(http.Controller):
             "dct_demande_service": dct_demande_service,
             "len_demande_service": len(dct_demande_service),
         }
-        if membre_id.reseau_ore_id:
-            data_membre_info["my_network"] = {
-                "name": membre_id.reseau_ore_id.name,
-                "id": membre_id.reseau_ore_id.id,
-            }
+        # if membre_id.clan_principal_id:
+        #     data_membre_info["my_clan"] = {
+        #         "name": membre_id.clan_principal_id.name,
+        #         "id": membre_id.clan_principal_id.id,
+        #     }
+        # else:
+        #     data_membre_info["my_clan"] = {
+        #         "name": "",
+        #         "id": 0,
+        #     }
+
+        # if membre_id.clan_participe_ids:
+        #     data_membre_info["all_my_clan"] = [
+        #         {
+        #             "name": clan_id.name,
+        #             "id": clan_id.id,
+        #         }
+        #         for clan_id in membre_id.clan_participe_ids
+        #     ]
+        # else:
+        #     data_membre_info["all_my_clan"] = []
+        # invitation_ids = (
+        #     request.env["ore.clan.invitation"]
+        #     .sudo()
+        #     .search([("email", "=", membre_id.email)])
+        # )
+        # data_membre_info["all_my_invited_clan"] = [
+        #     {
+        #         "name": invitation_id.clan_id.name,
+        #         "id": invitation_id.clan_id.id,
+        #     }
+        #     for invitation_id in invitation_ids
+        #     if invitation_id.invite_by_admin_clan
+        # ]
+        # data_membre_info["all_my_waiting_invitation_clan"] = [
+        #     {
+        #         "name": invitation_id.clan_id.name,
+        #         "id": invitation_id.clan_id.id,
+        #     }
+        #     for invitation_id in invitation_ids
+        #     if invitation_id.ask_join_clan
+        # ]
+
         return {"membre_info": data_membre_info}
 
     @http.route(
@@ -1357,7 +1988,7 @@ class OREController(http.Controller):
         auth="user",
         website=True,
     )
-    def get_info_list_membre(self, reseau_ore_id, **kw):
+    def get_info_list_membre(self, clan_id, **kw):
         membre_id = self.get_membre_id()
         if type(membre_id) is dict:
             # This is an error
@@ -1369,14 +2000,37 @@ class OREController(http.Controller):
             .sudo()
             .search(
                 [
-                    ("reseau_ore_id", "=", reseau_ore_id),
+                    ("clan_participe_ids", "in", [clan_id]),
                     ("profil_approuver", "=", True),
                     ("website_published", "=", True),
                 ]
             )
         )
-        dct_membre = {
-            a.id: {
+        dct_membre = {}
+        for a in lst_membre:
+            if (
+                membre_id.introduction
+                and membre_id.introduction != "<p><br></p>"
+            ):
+                introduction = membre_id.introduction
+            else:
+                introduction = ""
+            if (
+                membre_id.description
+                and membre_id.description != "<p><br></p>"
+            ):
+                description = membre_id.description
+            else:
+                description = ""
+            if (
+                membre_id.motivation_membre
+                and membre_id.motivation_membre != "<p><br></p>"
+            ):
+                motivation_membre = membre_id.motivation_membre
+            else:
+                motivation_membre = ""
+
+            value = {
                 "age": a.age,
                 "ma_photo": a.get_image_url(),
                 "full_name": a.name,
@@ -1390,11 +2044,9 @@ class OREController(http.Controller):
                 "bank_time": a.bank_time,
                 "bank_month_time": a.bank_month_time,
                 "date_adhesion": a.date_adhesion,
-                "introduction": a.introduction if a.introduction else "",
-                "description": a.description if a.description else "",
-                "motivation_membre": a.motivation_membre
-                if a.motivation_membre
-                else "",
+                "introduction": introduction,
+                "description": description,
+                "motivation_membre": motivation_membre,
                 "interet": [
                     {"name": rec.name, "id": rec.id} for rec in a.interet
                 ],
@@ -1403,8 +2055,7 @@ class OREController(http.Controller):
                 ],
                 "is_favorite": a.id in my_favorite_membre_id,
             }
-            for a in lst_membre
-        }
+            dct_membre[a.id] = value
         return {"dct_membre": dct_membre}
 
     @http.route(
@@ -1416,8 +2067,10 @@ class OREController(http.Controller):
         website=True,
     )
     def get_nb_offre_service(self, **kw):
-        nb_offre_service = http.request.env["ore.offre.service"].search_count(
-            [("website_published", "=", True)]
+        nb_offre_service = (
+            http.request.env["ore.offre.service"]
+            .sudo()
+            .search_count([("website_published", "=", True)])
         )
         return {"nb_offre_service": nb_offre_service}
 
@@ -1484,6 +2137,53 @@ class OREController(http.Controller):
                 "ses_temps_disponibles": lst_mes_echanges_de_service_recu_sans_demande_non_valide
             }
         }
+
+    @http.route(
+        [
+            "/ore/get_trouvetonclan_workflow_data",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_trouvetonclan_workflow_data(self, **kw):
+        membre_id = self.get_membre_id()
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
+
+        env = request.env(context=dict(request.env.context))
+
+        dct_workflow_empty = (
+            {
+                "init": {
+                    "id": "init",
+                    "message": (
+                        "La procédure de Trouve ton clan est actuellement non"
+                        " disponible. Veuillez informer votre administrateur."
+                    ),
+                    "type": "selection_static",
+                },
+            },
+        )
+
+        json_data = {
+            "data": {
+                # "type_service_categorie": lst_type_service_categorie,
+                # "membre": lst_membre,
+                # "mes_offres_de_service": lst_mes_offre_de_service,
+                # "mes_echanges_de_service_non_valide": lst_mes_echanges_de_service_non_valide,
+                # "mes_echanges_de_service_avec_demande_non_valide": lst_mes_echanges_de_service_avec_demande_non_valide,
+                # "mes_echanges_de_service_offert_sans_demande_non_valide": lst_mes_echanges_de_service_offert_sans_demande_non_valide,
+            },
+            "data_inner": {
+                # "type_service_categorie": dct_data_inner_type_service_categorie
+            },
+        }
+        workflow_ids = env["ore.workflow"].sudo().browse(3)
+        return self.create_request_ore_workflow(
+            env, json_data, dct_workflow_empty, workflow_ids
+        )
 
     @http.route(
         [
@@ -1622,7 +2322,7 @@ class OREController(http.Controller):
                 "init": {
                     "id": "init",
                     "message": (
-                        "La procédure de participation est actuelle non"
+                        "La procédure de participation est actuellement non"
                         " disponible. Veuillez informer votre administrateur."
                     ),
                     "type": "selection_static",
@@ -1643,15 +2343,22 @@ class OREController(http.Controller):
                 "type_service_categorie": dct_data_inner_type_service_categorie
             },
         }
+        workflow_ids = env["ore.workflow"].sudo().browse((1, 3))
+        json_data = self.create_request_ore_workflow(
+            env, json_data, dct_workflow_empty, workflow_ids
+        )
+        return json_data
 
-        workflow_ids = env["ore.workflow"].sudo().search([], limit=1)
+    def create_request_ore_workflow(
+        self, env, json_data, dct_workflow_empty, workflow_ids
+    ):
 
         if not workflow_ids:
             json_data["workflow"] = dct_workflow_empty
-        else:
-            dct_workflow = {}
-
-            for state_id in workflow_ids.diagram_state_ids:
+            return json_data
+        dct_workflow = {}
+        for workflow_id in workflow_ids:
+            for state_id in workflow_id.diagram_state_ids:
                 dct_state = {"id": state_id.key}
                 if state_id.message:
                     dct_state["message"] = state_id.message
@@ -1703,6 +2410,8 @@ class OREController(http.Controller):
                     dct_state[
                         "caract_offre_demande_nouveau_existante"
                     ] = state_id.caract_offre_demande_nouveau_existante
+                if state_id.caract_workflow:
+                    dct_state["caract_workflow"] = state_id.caract_workflow
                 if state_id.caract_echange_nouvel_existant:
                     dct_state[
                         "caract_echange_nouvel_existant"
@@ -1763,7 +2472,6 @@ class OREController(http.Controller):
                             0
                         ].state_dst.key
                 dct_workflow[state_id.key] = dct_state
-
             json_data["workflow"] = dct_workflow
         return json_data
 
@@ -2159,6 +2867,66 @@ class OREController(http.Controller):
         return {"data": data}
 
     @http.route(
+        "/ore/ctc/form/submit",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def ore_ctc_form_submit(self, **kw):
+        # Send from participer website
+        vals = {}
+        status = {}
+        str_state_id = kw.get("state_id")
+        state_id = (
+            http.request.env["ore.workflow.state"]
+            .sudo()
+            .search([("key", "=", str_state_id)], limit=1)
+        )
+        if not state_id:
+            status["error"] = "Cannot find state_id from state.key"
+            _logger.error(status["error"])
+            return status
+
+        membre_id = self.get_membre_id()
+        if not membre_id:
+            status["error"] = "Cannot find member id, are you a member?"
+            _logger.error(status["error"])
+            return status
+
+        if kw.get("clan_name"):
+            name = kw.get("clan_name")
+            value_clan = {
+                "name": name,
+                "membre_admin_ids": [(6, 0, [membre_id.id])],
+                "membre_create_id": membre_id.id,
+                "membre_list_ids": [(6, 0, [membre_id.id])],
+            }
+            if kw.get("clan_valeur"):
+                value_clan["valeur_clan"] = kw.get("clan_valeur")
+            ma_photo = kw.get("ma_photo")
+            if "ma_photo" in kw.keys():
+                # TODO do we need validation? like extension or supported file
+                value_clan["image"] = ma_photo.split(",")[1].encode("utf-8")
+            if kw.get("clan_besoin_comble"):
+                value_clan["besoin_comble"] = kw.get("clan_besoin_comble")
+            if kw.get("clan_ville_region"):
+                value_clan["ville_region"] = kw.get("clan_ville_region")
+            # if kw.get("clan_message_accueil"):
+            #     value_clan["message_accueil"] = kw.get("clan_message_accueil")
+            if kw.get("clan_organisation"):
+                value_clan["organisation"] = kw.get("clan_organisation")
+            if kw.get("clan_description"):
+                value_clan["description"] = kw.get("clan_description")
+            clan_id = http.request.env["ore.clan"].sudo().create(value_clan)
+            status["clan_id"] = clan_id.id
+            # if not membre_id.clan_principal_id:
+            #     membre_id.clan_principal_id = clan_id.id
+            # Force update principal clan for the creator
+            membre_id.clan_principal_id = clan_id.id
+        return status
+
+    @http.route(
         "/ore/participer/form/submit",
         type="json",
         auth="user",
@@ -2181,6 +2949,9 @@ class OREController(http.Controller):
             return status
 
         membre_id = self.get_membre_id().id
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
 
         demande_service_id = None
         offre_service_id = None
@@ -2297,6 +3068,9 @@ class OREController(http.Controller):
             vals["type_echange"] = "offre_special"
 
             membre_id = self.get_membre_id().id
+            if type(membre_id) is dict:
+                # This is an error
+                return membre_id
             # if str_state_id in (
             #     "init.saa.recevoir.choix.existant.time.form",
             #     "init.saa.recevoir.choix.nouveau.form",
@@ -2433,6 +3207,9 @@ class OREController(http.Controller):
         status = {}
         website_published = kw.get("website_published")
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         if demande_id.membre.id != me_membre_id.id:
             status["error"] = (
                 "You don't have permission to change publish state of this"
@@ -2454,6 +3231,9 @@ class OREController(http.Controller):
     def ore_demande_supprimer_submit(self, demande_id, **kw):
         status = {}
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         if demande_id.membre.id != me_membre_id.id:
             status[
                 "error"
@@ -2475,6 +3255,9 @@ class OREController(http.Controller):
         status = {}
         website_published = kw.get("website_published")
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         if offre_id.membre.id != me_membre_id.id:
             status["error"] = (
                 "You don't have permission to change publish state of this"
@@ -2496,6 +3279,9 @@ class OREController(http.Controller):
     def ore_offre_supprimer_submit(self, offre_id, **kw):
         status = {}
         me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
         if offre_id.membre.id != me_membre_id.id:
             status["error"] = "You don't have permission to delete this offre."
         else:
@@ -2516,6 +3302,9 @@ class OREController(http.Controller):
         status = {}
 
         membre_id = self.get_membre_id()
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
 
         id_record = kw.get("id_record")
         model_name = kw.get("model")
@@ -2670,6 +3459,34 @@ class OREController(http.Controller):
         # Render page
         return request.env["ir.ui.view"].render_template(
             "website_ore.template_offre_ou_demande_de_service_generic",
+        )
+
+    @http.route(
+        [
+            "/ore/template/clan_generic",
+        ],
+        type="http",
+        auth="user",
+        website=True,
+    )
+    def get_template_clan_generic(self, **kw):
+        # Render page
+        return request.env["ir.ui.view"].render_template(
+            "website_ore.template_clan_generic",
+        )
+
+    @http.route(
+        [
+            "/ore/template/clan_details_generic",
+        ],
+        type="http",
+        auth="user",
+        website=True,
+    )
+    def get_template_clan_generic_generic(self, **kw):
+        # Render page
+        return request.env["ir.ui.view"].render_template(
+            "website_ore.template_clan_details_generic",
         )
 
     @http.route(

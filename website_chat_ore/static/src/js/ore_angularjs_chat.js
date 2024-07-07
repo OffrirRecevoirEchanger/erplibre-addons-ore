@@ -17,6 +17,12 @@ odoo.define('website.ore_angularjs_chat', function (require) {
         // Inherit MainController
         // $controller('MainController', {$scope: $scope});
         $scope.$scope_main.enable_chat = false
+
+        $scope.$scope_main.lst_clan_message = [];
+        $scope.$scope_main.section_clan = "";
+        $scope.$scope_main.default_section_clan = "";
+        $scope.$scope_main.section_clan_dct = undefined;
+
         $scope.$scope_main.lst_membre_message = [];
         $scope.$scope_main.section_membre = "";
         $scope.$scope_main.default_section_membre = "";
@@ -35,6 +41,7 @@ odoo.define('website.ore_angularjs_chat', function (require) {
                 } else {
                     $scope.error = "";
                     $scope.$scope_main.lst_membre_message = data.lst_membre_message;
+                    $scope.$scope_main.lst_clan_message = data.lst_clan_message;
                 }
 
                 // Process all the angularjs watchers
@@ -60,6 +67,7 @@ odoo.define('website.ore_angularjs_chat', function (require) {
                 }
                 $scope.$scope_main.hide_votre_contact_to_contact = section !== 'membre';
                 $scope.updateMembreFromLocation();
+                $scope.updateClanFromLocation();
             } else {
                 console.error("Cannot find controller NotificationController");
             }
@@ -91,7 +99,7 @@ odoo.define('website.ore_angularjs_chat', function (require) {
                             "id": membre_id,
                             "lst_msg": [],
                         };
-                        // TODO missing "name" of user_name member
+                        // TODO missing "name" of user_name membre
                         // TODO create service to fetch user_name member and picture
                         $scope.$scope_main.lst_membre_message.push($scope.$scope_main.section_membre_dct)
                         setTimeout(function () {
@@ -109,6 +117,50 @@ odoo.define('website.ore_angularjs_chat', function (require) {
             }
         }
 
+        $scope.$scope_main.$watch('lst_clan_message', function (value) {
+            // TODO bad design
+            if (!_.isEmpty(value) && !_.isUndefined($scope.$scope_main.section_clan_dct)) {
+                $scope.updateClanFromLocation();
+            }
+        });
+
+        $scope.updateClanFromLocation = function () {
+            let section_clan = $location.search()["clan"];
+            let isEmpty = true;
+            console.debug("Load chat clan");
+            if (!_.isEmpty(section_clan)) {
+                let clan_id = parseInt(section_clan);
+                if (Number.isInteger(clan_id)) {
+                    isEmpty = false;
+                    $scope.$scope_main.section_clan = clan_id;
+                    // $scope.update_clan_info(clan_id, "contact_info");
+
+                    let clan_dct = $scope.$scope_main.lst_clan_message.find(ele => ele.clan_id === clan_id)
+                    if (!_.isUndefined(clan_dct)) {
+                        $scope.$scope_main.section_clan_dct = clan_dct;
+                    } else {
+                        $scope.$scope_main.section_clan_dct = {
+                            "id": clan_id,
+                            "lst_msg": [],
+                        };
+                        // TODO missing "name" of user_name clan
+                        // TODO create service to fetch user_name member and picture
+                        $scope.$scope_main.lst_clan_message.push($scope.$scope_main.section_clan_dct)
+                        setTimeout(function () {
+                            $(".chat_body").animate({scrollTop: 20000000}, "slow");
+                        }, 125);
+                        // $scope.error = "Cannot find this member of id '" + clan_id + "'.";
+                    }
+                } else {
+                    $scope.error = "Parameter 'clan' is not an integer.";
+                }
+            }
+            if (isEmpty) {
+                $scope.$scope_main.section_clan = $scope.$scope_main.default_section_clan;
+                $scope.$scope_main.section_clan_dct = undefined;
+            }
+        }
+
         $scope.$scope_main.send_chat_msg = function () {
             let ele = document.getElementById("input_text_chat");
             let msg = ele.value;
@@ -118,12 +170,22 @@ odoo.define('website.ore_angularjs_chat', function (require) {
             }
             console.debug("Send msg : '" + msg + "'");
             ele.value = "";
-            // let msg = $scope.chat_msg;
-            ajax.jsonRpc('/ore/submit/chat_msg', "call", {
+            let form_value = {
                 "msg": msg,
-                "group_id": $scope.$scope_main.section_membre_dct.id_group,
-                "membre_id": $scope.$scope_main.section_membre,
-            }).then(function (data) {
+            }
+            if (!_.isUndefined($scope.$scope_main.section_membre_dct)) {
+                form_value["group_id"] = $scope.$scope_main.section_membre_dct.id_group
+            } else if (!_.isUndefined($scope.$scope_main.section_clan_dct)) {
+                form_value["group_id"] = $scope.$scope_main.section_clan_dct.id_group
+            }
+            if (!_.isUndefined($scope.$scope_main.section_membre) && $scope.$scope_main.section_membre !== "") {
+                form_value["membre_id"] = $scope.$scope_main.section_membre
+            }
+            if (!_.isUndefined($scope.$scope_main.section_clan)) {
+                form_value["clan_id"] = $scope.$scope_main.section_clan
+            }
+            // let msg = $scope.chat_msg;
+            ajax.jsonRpc('/ore/submit/chat_msg', "call", form_value).then(function (data) {
                 console.debug("AJAX receive send_chat_msg");
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
@@ -240,13 +302,15 @@ odoo.define('website.ore_angularjs_chat', function (require) {
                             "name": data.name,
                         };
                         // Find group
-                        let membre_dct = $scope.lst_membre_message.find(ele => ele.id_group === data.group_id)
-                        if (!_.isUndefined(membre_dct)) {
+                        let membre_dct_by_group = $scope.lst_membre_message.find(ele => ele.id_group === data.group_id)
+                        let membre_dct_by_clan = $scope.lst_clan_message.find(ele => ele.id_group === data.group_id)
+                        let membre_dct_by_membre = $scope.lst_membre_message.find(ele => ele.id === data.membre_id)
+                        if (!_.isUndefined(membre_dct_by_group)) {
                             // find if message already, or add it!
-                            let existing_msg = membre_dct.lst_msg.find(ele => ele.id === data.id)
+                            let existing_msg = membre_dct_by_group.lst_msg.find(ele => ele.id === data.id)
                             if (_.isUndefined(existing_msg)) {
-                                membre_dct.lst_msg.push(msg_dct);
-                                membre_dct.resume_msg = data.name;
+                                membre_dct_by_group.lst_msg.push(msg_dct);
+                                membre_dct_by_group.resume_msg = data.name;
                                 // Update scroll
                                 // let chatBody = document.getElementsByClassName("chat_body");
                                 // if (!_.isUndefined(chatBody)) {
@@ -258,9 +322,19 @@ odoo.define('website.ore_angularjs_chat', function (require) {
                                 console.warn("Receive message duplicated, check next msg");
                                 console.warn(data);
                             }
-                        } else {
+                        } else if (!_.isUndefined(membre_dct_by_clan)) {
+                            // find if message already, or add it!
+                            let existing_msg = membre_dct_by_clan.lst_msg.find(ele => ele.id === data.id)
+                            if (_.isUndefined(existing_msg)) {
+                                membre_dct_by_clan.lst_msg.push(msg_dct);
+                                membre_dct_by_clan.resume_msg = data.name;
+                                $(".chat_body").animate({scrollTop: 20000000}, "slow");
+                            } else {
+                                console.warn("Receive message duplicated, check next msg");
+                                console.warn(data);
+                            }
+                        } else if (!_.isUndefined(membre_dct_by_membre)) {
                             // Check if temporary exist
-                            let membre_dct = $scope.lst_membre_message.find(ele => ele.id === data.membre_id)
                             let group_data = {
                                 "id": data.membre_id,
                                 "id_group": data.group_id,
@@ -268,13 +342,13 @@ odoo.define('website.ore_angularjs_chat', function (require) {
                                 "resume_msg": data.name,
                                 "lst_msg": [msg_dct]
                             }
-                            if (!_.isUndefined(membre_dct)) {
+                            if (!_.isUndefined(membre_dct_by_membre)) {
                                 // update it
-                                membre_dct["id"] = group_data.id
-                                membre_dct["id_group"] = group_data.id_group
-                                membre_dct["name"] = group_data.name
-                                membre_dct["resume_msg"] = group_data.resume_msg
-                                membre_dct["lst_msg"] = group_data.lst_msg
+                                membre_dct_by_membre["id"] = group_data.id
+                                membre_dct_by_membre["id_group"] = group_data.id_group
+                                membre_dct_by_membre["name"] = group_data.name
+                                membre_dct_by_membre["resume_msg"] = group_data.resume_msg
+                                membre_dct_by_membre["lst_msg"] = group_data.lst_msg
                                 // TODO never use this case
                                 console.debug("We use this case, update existing membre_message.")
                             } else {

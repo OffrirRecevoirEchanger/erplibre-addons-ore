@@ -2,6 +2,9 @@
 
 from . import (
     ore_arrondissement,
+    ore_clan,
+    ore_clan_group,
+    ore_clan_invitation,
     ore_commentaire,
     ore_demande_adhesion,
     ore_demande_service,

@@ -24,19 +24,7 @@ class ResPartner(models.Model):
 
     est_un_point_service = fields.Boolean(string="Est un point de service")
 
-    # TODO compute si contient des échanges?
-    est_un_membre_ore = fields.Boolean(string="Est un membre du réseau ORE")
-
-    reseau_ore_id = fields.Many2one(
-        comodel_name="ore.membre",
-        string="Réseau ORE",
-        index=True,
-        help="Relation d'un réseau ORE, les responsables du membre.",
-    )
-
-    ore_client_key = fields.Char(
-        help="Unique key to represent member.", default=uuid.uuid4().hex
-    )
+    ore_client_key = fields.Char(help="Unique key to represent member.")
 
     ore_membre_id = fields.Many2one(
         comodel_name="ore.membre",

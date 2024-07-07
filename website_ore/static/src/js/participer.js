@@ -274,6 +274,9 @@ odoo.define("website.ore.participer", function (require) {
         $scope.has_init = false;
         $scope.error = "";
         $scope.workflow = {};
+        $scope.default_flow_id = 1;
+        $scope.flow_info = {"id": 0};
+        $scope.has_init_workflow = false;
         $scope.data = {};
         $scope.data_inner = {};
         $scope.state = {
@@ -301,6 +304,7 @@ odoo.define("website.ore.participer", function (require) {
             submit_button_text: undefined,
             submit_response_title: undefined,
             submit_response_description: undefined,
+            caract_workflow: undefined,
             selected_value: undefined,
             selected_obj_value: undefined,
             selected_id: undefined,
@@ -379,65 +383,74 @@ odoo.define("website.ore.participer", function (require) {
             return !($scope.form_is_modifying_date_service || $scope.form_is_modifying_time_service)
         }
 
-        let url = "/ore/get_participer_workflow_data/";
-        ajax.jsonRpc(url, "call", {}).then(function (data) {
-            console.debug("AJAX receive get_participer_workflow_data");
-            if (data.error) {
-                $scope.error = data.error;
-            } else if (_.isEmpty(data)) {
-                $scope.error = "Empty data - " + url;
-            } else if (!data.workflow.hasOwnProperty(INIT_STATE)) {
-                let str_error = "Missing state '" + INIT_STATE + "'.";
-                console.error(str_error);
-                $scope.error = str_error;
-                $scope.workflow = {};
-                $scope.state = {};
-                $scope.data = {};
-                $scope.data_inner = {};
-            } else {
-                // Init controller or call change_state_name(name)
-                $scope.error = "";
-                $scope.workflow = data.workflow;
-                $scope.data = data.data;
-                $scope.data_inner = data.data_inner;
+        $scope.init_workflow = function () {
+            let url = "/ore/get_participer_workflow_data/";
+            if ($scope.flow_info.id === 1) {
+                // ore_workflow_participer
+                url = "/ore/get_participer_workflow_data/";
+            } else if ($scope.flow_info.id === 3) {
+                // ore_workflow_trouvetonclan
+                url = "/ore/get_trouvetonclan_workflow_data/";
+            }
+            ajax.jsonRpc(url, "call", {}).then(function (data) {
+                console.debug("AJAX receive get_participer_workflow_data");
+                if (data.error) {
+                    $scope.error = data.error;
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty data - " + url;
+                } else if (!data.workflow.hasOwnProperty(INIT_STATE)) {
+                    let str_error = "Missing state '" + INIT_STATE + "'.";
+                    console.error(str_error);
+                    $scope.error = str_error;
+                    $scope.workflow = {};
+                    $scope.state = {};
+                    $scope.data = {};
+                    $scope.data_inner = {};
+                } else {
+                    // Init controller or call change_state_name(name)
+                    $scope.error = "";
+                    $scope.workflow = data.workflow;
+                    $scope.data = data.data;
+                    $scope.data_inner = data.data_inner;
 
-                // Update relation workflow with data, use by click_inner_state
-                for (const [key, value] of Object.entries($scope.workflow)) {
-                    if (!_.isEmpty(value.data_name)) {
-                        let data_name = value.data_name;
+                    // Update relation workflow with data, use by click_inner_state
+                    for (const [key, value] of Object.entries($scope.workflow)) {
+                        if (!_.isEmpty(value.data_name)) {
+                            let data_name = value.data_name;
 
-                        // data
-                        let lst_data = $scope.data[data_name]
-                        if (_.isUndefined(lst_data)) {
-                            console.warn("Cannot find database '" + data_name + "'.");
-                            $scope.workflow[key].data = undefined;
-                            continue;
-                        }
-                        $scope.workflow[key].data = lst_data;
-                        let dct_data = {};
-                        for (let i = 0; i < lst_data.length; i++) {
-                            dct_data[lst_data[i].id] = lst_data[i];
-                        }
-                        $scope.workflow[key].dct_data = dct_data;
+                            // data
+                            let lst_data = $scope.data[data_name]
+                            if (_.isUndefined(lst_data)) {
+                                console.warn("Cannot find database '" + data_name + "'.");
+                                $scope.workflow[key].data = undefined;
+                                continue;
+                            }
+                            $scope.workflow[key].data = lst_data;
+                            let dct_data = {};
+                            for (let i = 0; i < lst_data.length; i++) {
+                                dct_data[lst_data[i].id] = lst_data[i];
+                            }
+                            $scope.workflow[key].dct_data = dct_data;
 
-                        // data_inner
-                        let dct_data_inner = $scope.data_inner[data_name];
-                        if (!_.isUndefined(dct_data_inner)) {
-                            $scope.workflow[key].dct_data_inner = dct_data_inner;
+                            // data_inner
+                            let dct_data_inner = $scope.data_inner[data_name];
+                            if (!_.isUndefined(dct_data_inner)) {
+                                $scope.workflow[key].dct_data_inner = dct_data_inner;
+                            }
                         }
                     }
+
+                    // fill $scope.state with change_from_url
+                    $scope.change_from_url($location.search());
                 }
 
-                // fill $scope.state with change_from_url
-                $scope.change_from_url($location.search());
-            }
-
-            // Process all the angularjs watchers
-            $scope.$digest();
-        }).fail(function (error, ev) {
-            console.error(error);
-            $scope.check_need_login(error);
-        })
+                // Process all the angularjs watchers
+                $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
+            })
+        }
 
         $scope.init_controller = function (state = INIT_STATE) {
             // $scope.has_init = true;
@@ -604,6 +617,19 @@ odoo.define("website.ore.participer", function (require) {
             if (window.location.pathname !== "/participer") {
                 return;
             }
+
+            let flow_id = $location.search()["flow_id"];
+            if (!_.isEmpty(flow_id)) {
+                $scope.flow_info = {"id": parseInt(flow_id)};
+            } else {
+                $scope.flow_info = {"id": $scope.default_flow_id};
+            }
+
+            if (!$scope.has_init_workflow) {
+                $scope.init_workflow();
+                $scope.has_init_workflow = true;
+            }
+
             // Check this is not call before ajax to fill $scope.workflow
             // TODO has_init is always false
             // TODO optimization, each time click next, $locationChangeSuccess and init_controller is recall
@@ -639,18 +665,20 @@ odoo.define("website.ore.participer", function (require) {
         $scope.form_is_nouveau_except_pos = function (state) {
             // nouvelle offre/demande sur un échange
             return !_.isUndefined(state.caract_echange_nouvel_existant) &&
-                ["Nouvelle offre", "Nouvelle demande"].includes(state.caract_offre_demande_nouveau_existante);
+                ["Nouvelle offre", "Nouvelle demande"].includes(state.caract_offre_demande_nouveau_existante) &&
+                state.caract_workflow !== "TTC";
         }
 
         $scope.form_is_nouveau = function (state) {
             // nouvelle offre/demande
-            return ["Nouvelle offre", "Nouvelle demande"].includes(state.caract_offre_demande_nouveau_existante);
+            return ["Nouvelle offre", "Nouvelle demande"].includes(state.caract_offre_demande_nouveau_existante) &&
+                state.caract_workflow !== "TTC";
         }
 
         $scope.form_is_offre_demande_service = function (state) {
             return !_.isUndefined(state.caract_offre_demande_nouveau_existante) &&
                 _.isUndefined(state.caract_service_offrir_recevoir) &&
-                _.isUndefined(state.caract_echange_nouvel_existant);
+                _.isUndefined(state.caract_echange_nouvel_existant) && state.caract_workflow !== "TTC";
         }
 
         $scope.form_is_service = function (state) {
@@ -664,36 +692,37 @@ odoo.define("website.ore.participer", function (require) {
         $scope.form_is_nouvelle_offre = function (state) {
             return state.caract_offre_demande_nouveau_existante === "Nouvelle offre" &&
                 _.isUndefined(state.caract_service_offrir_recevoir) &&
-                _.isUndefined(state.caract_echange_nouvel_existant);
+                _.isUndefined(state.caract_echange_nouvel_existant) && state.caract_workflow !== "TTC";
         }
 
         $scope.form_is_demande_existante = function (state) {
-            return state.caract_offre_demande_nouveau_existante === "Demande existante";
+            return state.caract_offre_demande_nouveau_existante === "Demande existante" &&
+                state.caract_workflow !== "TTC";
         }
 
         $scope.form_is_nouvelle_demande = function (state) {
             return state.caract_offre_demande_nouveau_existante === "Nouvelle demande" &&
                 _.isUndefined(state.caract_service_offrir_recevoir) &&
-                _.isUndefined(state.caract_echange_nouvel_existant);
+                _.isUndefined(state.caract_echange_nouvel_existant) && state.caract_workflow !== "TTC";
         }
 
         $scope.form_is_service_to_modify = function (state) {
             return state.caract_offre_demande_nouveau_existante === "Offre existante" &&
                 state.caract_service_offrir_recevoir === "Service à recevoir" &&
-                _.isUndefined(state.caract_valider_echange);
+                _.isUndefined(state.caract_valider_echange) && state.caract_workflow !== "TTC";
         }
 
         $scope.form_is_service_and_service_prevu = function (state) {
             // TODO this is a hack because calling {{load_date()}} in page not working some time
             // Est échange
             $scope.load_date();
-            return !_.isUndefined(state.caract_echange_nouvel_existant);
+            return !_.isUndefined(state.caract_echange_nouvel_existant) && state.caract_workflow !== "TTC";
         }
 
         $scope.form_is_nouvel_echange_service_offrir_offre_existante = function (state) {
             return state.caract_echange_nouvel_existant === "Nouvel échange" &&
                 state.caract_service_offrir_recevoir === "Service à offrir" &&
-                state.caract_offre_demande_nouveau_existante === "Offre existante";
+                state.caract_offre_demande_nouveau_existante === "Offre existante" && state.caract_workflow !== "TTC";
         }
 
         // $scope.form_is_offre_existante = function (state) {
@@ -706,22 +735,33 @@ odoo.define("website.ore.participer", function (require) {
 
         $scope.form_is_echange_pas_valider = function (state) {
             return _.isUndefined(state.caract_valider_echange) &&
-                !_.isUndefined(state.caract_echange_nouvel_existant);
+                !_.isUndefined(state.caract_echange_nouvel_existant) && state.caract_workflow !== "TTC";
+        }
+
+        $scope.form_is_ttc = function (state) {
+            return !_.isUndefined(state.caract_workflow) && state.caract_workflow === "TTC";
+        }
+
+        $scope.form_is_ctc_form = function (state) {
+            return !_.isUndefined(state.caract_workflow) && state.caract_workflow === "TTC" && [
+                'init.ctc.form',
+            ].includes(state.id);
         }
 
         $scope.form_is_recevoir_not_valider = function (state) {
             return _.isUndefined(state.caract_valider_echange) &&
-                state.caract_service_offrir_recevoir === "Service à recevoir";
+                state.caract_service_offrir_recevoir === "Service à recevoir" && state.caract_workflow !== "TTC";
         }
 
         $scope.form_is_exist_echange_to_validate = function (state) {
             return !_.isUndefined(state.caract_valider_echange) &&
-                state.caract_echange_nouvel_existant === "Échange existant";
+                state.caract_echange_nouvel_existant === "Échange existant" && state.caract_workflow !== "TTC";
         }
 
         $scope.form_is_echange_sur_offre_demande_existante = function (state) {
             return !_.isUndefined(state.caract_echange_nouvel_existant) &&
-                ["Offre existante", "Demande existante"].includes(state.caract_offre_demande_nouveau_existante);
+                ["Offre existante", "Demande existante"].includes(state.caract_offre_demande_nouveau_existante) &&
+                state.caract_workflow !== "TTC";
         }
 
         $scope.form_is_frais_trajet_distance = function (state) {
@@ -731,7 +771,7 @@ odoo.define("website.ore.participer", function (require) {
                 'init.saa.offrir.nouveau.cat.form',
                 'init.saa.recevoir.choix.nouveau.form',
                 'init.saa.recevoir.choix.existant.time.form'
-            ].includes(state.id)
+            ].includes(state.id) && state.caract_workflow !== "TTC"
         }
 
         $scope.form_is_frais_trajet_prix = function (state) {
@@ -739,7 +779,7 @@ odoo.define("website.ore.participer", function (require) {
             // TODO ou service - form_frais_trajet_distance()
             return !_.isUndefined(state.caract_valider_echange) || [
                 'init.saa.offrir.existant.form',
-            ].includes(state.id)
+            ].includes(state.id) && state.caract_workflow !== "TTC"
         }
 
         $scope.form_is_commentaire = function (state) {
@@ -747,7 +787,7 @@ odoo.define("website.ore.participer", function (require) {
             return !_.isUndefined(state.caract_valider_echange) || [
                 'init.saa.offrir.existant.form',
                 'init.saa.recevoir.choix.nouveau.form',
-            ].includes(state.id)
+            ].includes(state.id) && state.caract_workflow !== "TTC"
         }
 
         $scope.form_is_destinataire_du_service = function (state) {
@@ -756,20 +796,23 @@ odoo.define("website.ore.participer", function (require) {
                 'init.saa.offrir.existant.form',
                 'init.saa.recevoir.choix.nouveau.form',
                 'init.va.non.offert.nouveau.cat.form',
+                'init.va.non.offert.ignore_nouveau.membre.form',
                 'init.va.non.offert.existant.form'
-            ].includes(state.id)
+            ].includes(state.id) && state.caract_workflow !== "TTC"
         }
 
         $scope.form_is_destinataire_du_service_de_qui = function (state) {
             return [
                 'init.va.non.recu.choix.nouveau.form',
-            ].includes(state.id)
+                'init.va.non.recu.choix.ignore_nouveau.form',
+            ].includes(state.id) && state.caract_workflow !== "TTC"
         }
 
         $scope.form_is_frais_import_list_without_modify = function (state) {
             return _.isUndefined(state.caract_valider_echange) &&
                 !_.isUndefined(state.caract_echange_nouvel_existant) &&
-                ["Nouvelle offre", "Nouvelle demande"].includes(state.caract_offre_demande_nouveau_existante);
+                ["Nouvelle offre", "Nouvelle demande"].includes(state.caract_offre_demande_nouveau_existante) &&
+                state.caract_workflow !== "TTC";
         }
 
 
@@ -786,6 +829,7 @@ odoo.define("website.ore.participer", function (require) {
             form_is_nouvel_echange_service_offrir_offre_existante: $scope.form_is_nouvel_echange_service_offrir_offre_existante,
             form_is_valider_echange: $scope.form_is_valider_echange,
             form_is_echange_pas_valider: $scope.form_is_echange_pas_valider,
+            form_is_ttc: $scope.form_is_ttc,
             form_is_recevoir_not_valider: $scope.form_is_recevoir_not_valider,
             form_is_exist_echange_to_validate: $scope.form_is_exist_echange_to_validate,
             form_is_echange_sur_offre_demande_existante: $scope.form_is_echange_sur_offre_demande_existante,
@@ -869,6 +913,32 @@ odoo.define("website.ore.participer", function (require) {
 
         $scope.submit_form = function () {
             $scope.form.state_id = $scope.state.id;
+
+            if (!_.isUndefined($scope.state.caract_workflow) && $scope.state.caract_workflow === "TTC") {
+                $scope.submit_ctc_form();
+            } else {
+                $scope.submit_participer_form();
+            }
+        }
+
+        $scope.submit_ctc_form = function () {
+            let copiedForm = JSON.parse(JSON.stringify($scope.form));
+            console.log(copiedForm);
+            let url = "/ore/ctc/form/submit"
+            ajax.jsonRpc(url, "call", copiedForm).then(function (data) {
+                if (data.error) {
+                    $scope.error = data.error;
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty data - " + "/ore/ctc/form/submit";
+                } else {
+                    $scope.show_submit_modal = true;
+                    $scope.submitted_url = "";
+                }
+            })
+            console.debug("AJAX receive submit_form");
+        }
+
+        $scope.submit_participer_form = function () {
             let copiedForm = JSON.parse(JSON.stringify($scope.form));
             // Transform all date
             // if (!_.isUndefined(copiedForm.time_service)) {

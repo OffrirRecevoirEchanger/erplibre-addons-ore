@@ -9,18 +9,24 @@ _logger = logging.getLogger(__name__)
 class OREEchangeServiceNotification(models.Model):
     _name = "ore.echange.service.notification"
     _description = "ORE Echange Service Notification"
+    _inherit = ["mail.thread", "mail.activity.mixin"]
     _order = "create_date desc"
 
     name = fields.Char(
         compute="_compute_name",
         store=True,
+        track_visibility="onchange",
     )
 
-    active = fields.Boolean(default=True)
+    active = fields.Boolean(
+        default=True,
+        track_visibility="onchange",
+    )
 
     is_read = fields.Boolean(
         string="Is read",
         help="La notification a été lu par le membre.",
+        track_visibility="onchange",
     )
 
     type_notification = fields.Selection(
@@ -31,27 +37,39 @@ class OREEchangeServiceNotification(models.Model):
             ("Proposition de service", "Proposition de service"),
             # ("Réponse à votre offre", "Réponse à votre offre"),
             ("Transaction validée", "Transaction validée"),
-        ]
+            ("Invitation clan", "Invitation clan"),
+        ],
+        track_visibility="onchange",
     )
 
     echange_service_id = fields.Many2one(
         comodel_name="ore.echange.service",
         string="Échange de service",
+        track_visibility="onchange",
     )
 
     membre_id = fields.Many2one(
         comodel_name="ore.membre",
         string="Membre notifié",
+        track_visibility="onchange",
     )
 
     membre_name = fields.Char(
         compute="_compute_membre_name",
         store=True,
+        track_visibility="onchange",
     )
 
     membre_logo = fields.Char(
         compute="_compute_name",
         store=True,
+        track_visibility="onchange",
+    )
+
+    clan_invited_id = fields.Many2one(
+        comodel_name="ore.clan",
+        string="Invitation au clan",
+        track_visibility="onchange",
     )
 
     def first_to_json(self):
@@ -65,10 +83,11 @@ class OREEchangeServiceNotification(models.Model):
             "membre_id": obj.membre_id.id,
             "membre_name": obj.membre_name,
             "membre_photo": obj.membre_logo,
+            "clan_invited_id": obj.clan_invited_id.id,
         }
         return data
 
-    @api.depends("echange_service_id", "membre_id")
+    @api.depends("echange_service_id", "membre_id", "clan_invited_id")
     def _compute_name(self):
         for rec in self:
             lst_msg = []
@@ -103,6 +122,11 @@ class OREEchangeServiceNotification(models.Model):
                     "Demande :"
                     f" '{rec.echange_service_id.demande_service.titre}'"
                 )
+            if rec.clan_invited_id:
+                lst_msg.append(
+                    f"Invitation au clan : '{rec.clan_invited_id.name}'"
+                )
+                rec.membre_logo = rec.clan_invited_id.get_image_url()
             rec.name = " - ".join(lst_msg)
 
     @api.depends("membre_id")

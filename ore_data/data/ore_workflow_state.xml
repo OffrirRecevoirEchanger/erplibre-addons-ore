@@ -38,6 +38,23 @@
             <field name="model_field_name">type_service_id</field>
             <field name="diagram_id" ref="ore_workflow_participer" />
         </record>
+        <record id="ore_workflow_state_ctc_form" model="ore.workflow.state">
+            <field name="name">Formulaire nouveau service privé échange</field>
+            <field name="key">init.ctc.form</field>
+            <field name="message">Crée ton clan</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">False</field>
+            <field name="submit_button_text">Créer mon clan</field>
+            <field name="submit_response_title">Votre clan a bien été créé.</field>
+            <field name="submit_response_description">Vous pouvez maintenant aller inviter des membres.</field>
+            <field name="caract_workflow">TTC</field>
+            <field name="help_section">Créer un clan</field>
+            <field name="help_sub_section">Créer son clan dans sa région</field>
+            <field name="help_fast_btn_title">Créer un clan</field>
+            <field name="help_fast_btn_url">participer#!?state=init.ctc.form</field>
+            <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="diagram_id" ref="ore_workflow_trouvetonclan" />
+        </record>
         <record id="ore_workflow_state_pos_individuelle_form" model="ore.workflow.state">
             <field name="name">Formulaire Créer une offre de service publique individuelle</field>
             <field name="key">init.pos.single.form</field>
@@ -676,6 +693,18 @@
             <field name="data">membre</field>
             <field name="diagram_id" ref="ore_workflow_participer" />
         </record>
+        <record id="ore_workflow_state_va_non_recu_copy_temp" model="ore.workflow.state">
+            <field name="name">Choisir un membre</field>
+            <field name="key">init.va.non.recu_short</field>
+            <field name="message">Qui vous a offert le service?</field>
+            <field name="type">choix_membre</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Service reçu</field>
+            <field name="model_field_name_alias">membre</field>
+            <field name="model_field_name">membre_id</field>
+            <field name="data">membre</field>
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
         <record id="ore_workflow_state_va_non_recu_choix" model="ore.workflow.state">
             <field name="name">Choisir un échange ou en créer</field>
             <field name="key">init.va.non.recu.choix</field>
@@ -789,6 +818,45 @@
             <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
             <field name="diagram_id" ref="ore_workflow_participer" />
         </record>
+        <record id="ore_workflow_state_va_non_offert_ignore_nouveau_membre_formulaire" model="ore.workflow.state">
+            <field name="name">Formulaire valider transaction sans demande service nouveau offert en ignorant l'offre</field>
+            <field name="key">init.va.non.offert.ignore_nouveau.membre.form</field>
+            <field name="message">Déclaration du service effectué</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">False</field>
+            <field name="submit_button_text">Dépôt à ma banque d'heures</field>
+            <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
+            <field name="submit_response_description">Merci de contribuer continuellement à la communauté. Que souhaitez-vous faire maintenant?</field>
+            <field name="model_field_depend">membre_id</field>
+            <field name="help_section">Échange de service</field>
+            <field name="help_sub_section">Valider un échange</field>
+            <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a offert le service en ignorant l'offre</field>
+            <field name="help_description">Permettre de faire la déclaration d’une transaction suite à un échange de service qui n’a pas encore été créé, lorsqu’on est la personne qui a offert le service et que l’offre est à ignoré.</field>
+            <field name="help_caract_lst">Valider échange;Nouvel échange;Ignore offre;Service à offrir;Offre ponctuelle;Offre privée</field>
+            <field name="caract_valider_echange">True</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_offre_demande_nouveau_existante">Ignore offre</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_service_offrir_recevoir">Service à offrir</field>
+            <field name="help_fast_btn_title">Valider un échange</field>
+            <field name="help_fast_btn_url">participer#!?state=init.va.non.offert.ignore_nouveau.form</field>
+            <field name="help_fast_btn_guide_url">participer#!?animation=Valider un échange inexistant lorsqu’on est la personne qui a offert le service sur une offre à ignorer</field>
+            <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_state_va_non_offert_ignore_nouveau_membre" model="ore.workflow.state">
+            <field name="name">Choisir un membre</field>
+            <field name="key">init.va.non.offert.ignore_nouveau.membre</field>
+            <field name="message">Qui est le destinataire de ce service?</field>
+            <field name="type">choix_membre</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Privé</field>
+            <field name="model_field_name_alias">membre</field>
+            <field name="model_field_name">membre_id</field>
+            <field name="data">membre</field>
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
         <record id="ore_workflow_state_va_non_recu_choix_nouveau_formulaire" model="ore.workflow.state">
             <field name="name">Formulaire valider transaction sans demande service nouveau reçu</field>
             <field name="key">init.va.non.recu.choix.nouveau.form</field>
@@ -813,6 +881,33 @@
             <field name="help_fast_btn_title">Valider un échange</field>
             <field name="help_fast_btn_url">participer#!?state=init.va.non.recu</field>
             <field name="help_fast_btn_guide_url">participer#!?animation=Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une demande qui doit être créée</field>
+            <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
+            <field name="diagram_id" ref="ore_workflow_participer" />
+        </record>
+        <record id="ore_workflow_state_va_non_recu_choix_ignore_nouveau_formulaire" model="ore.workflow.state">
+            <field name="name">Formulaire valider transaction sans demande service nouveau reçu</field>
+            <field name="key">init.va.non.recu.choix.ignore_nouveau.form</field>
+            <field name="message">Déclaration du service effectué</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">False</field>
+            <field name="submit_button_text">Retrait de ma banque d'heures</field>
+            <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
+            <field name="submit_response_description">Merci de contribuer continuellement à la communauté. Que souhaitez-vous faire maintenant?</field>
+            <field name="model_field_depend">membre_id</field>
+            <field name="help_section">Échange de service</field>
+            <field name="help_sub_section">Valider un échange</field>
+            <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une demande qui n'est pas nécessaire de créer</field>
+            <field name="help_description">Permettre de faire la déclaration d’une transaction suite à un échange de service qui n’a pas être créé, lorsqu’on est la personne qui a demandé le service et que l’offre n’a pas été créée, sans qu'il soit créé.</field>
+            <field name="help_caract_lst">Valider échange;Nouvel échange;Ignore offre;Demande privée;Demande ponctuelle;Service à recevoir</field>
+            <field name="caract_valider_echange">True</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_offre_demande_nouveau_existante">Ignore offre</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_service_offrir_recevoir">Service à recevoir</field>
+            <field name="help_fast_btn_title">Valider un échange</field>
+            <field name="help_fast_btn_url">participer#!?state=init.va.non.recu</field>
+            <field name="help_fast_btn_guide_url">participer#!?animation=Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une demande qui n'a pas besoin d'être créé</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
             <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
             <field name="diagram_id" ref="ore_workflow_participer" />

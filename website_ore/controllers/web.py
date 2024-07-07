@@ -3,7 +3,7 @@ from odoo.addons.portal.controllers.web import Home
 from odoo.addons.website.controllers.main import Website
 from odoo.http import request
 
-DEFAULT_REDIRECT = "/explorer"
+DEFAULT_REDIRECT = "/monprofil"
 
 
 class CustomHome(Home):

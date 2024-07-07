@@ -13,7 +13,7 @@
         </record>
 
         <record id="societe_sainte_rose_du_nord" model="ore.membre">
-            <field name="reseau_ore_id" ref="demo_ore.base_main_partner" />
+            <!--            <field name="reseau_ore_id" ref="demo_ore.base_main_partner" />-->
             <field name="parent_id" ref="base.main_partner" />
             <field name="partner_id" ref="partner_societe_sainte_rose_du_nord" />
             <field name="image" type="base64" file="demo_ore/static/src/img/logo_sainte_rose_du_nord.jpg" />
@@ -22,7 +22,7 @@
         </record>
 
         <record id="societe_province_quebec_pays_canada" model="ore.membre">
-            <field name="reseau_ore_id" ref="demo_ore.base_main_partner" />
+            <!--            <field name="reseau_ore_id" ref="demo_ore.base_main_partner" />-->
             <field name="parent_id" ref="base.main_partner" />
             <field name="image" type="base64" file="demo_ore/static/src/img/quebec-logo.jpg" />
             <field name="partner_id" ref="partner_societe_province_quebec_pays_canada" />
@@ -32,7 +32,7 @@
             <field name="partner_id" ref="base.partner_admin" />
             <field name="parent_id" ref="base.main_partner" />
             <field name="name">Mathieu Benoit</field>
-            <field name="reseau_ore_id" ref="societe_province_quebec_pays_canada" />
+            <!--            <field name="reseau_ore_id" ref="societe_province_quebec_pays_canada" />-->
             <field name="annee_naissance">1989</field>
             <field name="image" type="base64" file="website_ore/static/src/img/Mathieu-Benoit-Logo.jpg" />
             <field name="region" ref="ore_data.ore_region_saguenay_lac_saint_jean" />
@@ -44,7 +44,7 @@
             <field name="company_id" ref="base.main_company" />
             <field name="parent_id" ref="base.main_partner" />
             <field name="partner_id" ref="partner_demo_alice_poitier" />
-            <field name="reseau_ore_id" ref="societe_sainte_rose_du_nord" />
+            <!--            <field name="reseau_ore_id" ref="societe_sainte_rose_du_nord" />-->
             <field name="street">Résidence étudiante du collège de Rosemont, Rue de Bellechasse, Étienne-Desmarteau, Rosemont–La Petite-Patrie</field>
             <field name="city">Montréal</field>
             <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />
@@ -64,7 +64,7 @@
             <field name="company_id" ref="base.main_company" />
             <field name="parent_id" ref="base.main_partner" />
             <field name="partner_id" ref="partner_demo_martin_petit" />
-            <field name="reseau_ore_id" ref="societe_sainte_rose_du_nord" />
+            <!--            <field name="reseau_ore_id" ref="societe_sainte_rose_du_nord" />-->
             <field name="street">3800 Queen Mary Rd, Montreal, Quebec H3V 1H6</field>
             <field name="city">Montréal</field>
             <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />
@@ -83,7 +83,7 @@
             <field name="company_id" ref="base.main_company" />
             <field name="parent_id" ref="base.main_partner" />
             <field name="partner_id" ref="partner_demo_denis_lemarchand" />
-            <field name="reseau_ore_id" ref="societe_sainte_rose_du_nord" />
+            <!--            <field name="reseau_ore_id" ref="societe_sainte_rose_du_nord" />-->
             <field name="street">2150 Autoroute des Laurentides laval</field>
             <field name="city">Montréal</field>
             <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />
@@ -102,7 +102,7 @@
             <field name="company_id" ref="base.main_company" />
             <field name="parent_id" ref="base.main_partner" />
             <field name="partner_id" ref="partner_demo_martin_bergeron" />
-            <field name="reseau_ore_id" ref="societe_sainte_rose_du_nord" />
+            <!--            <field name="reseau_ore_id" ref="societe_sainte_rose_du_nord" />-->
             <field name="street">4777 Pierre-de Coubertin Ave, Montreal, Quebec H1V 1B3</field>
             <field name="city">Montréal</field>
             <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />

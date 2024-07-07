@@ -21,7 +21,7 @@
                         </div>
                     </xpath>
                     <xpath expr="//span[hasclass('span_section_message_and_notification_body')]" position="attributes">
-                        <attribute name="ng-if">$parent.section_membre===''</attribute>
+                        <attribute name="ng-if">$parent.section_membre==='' &amp;&amp; $parent.section_clan===''</attribute>
                     </xpath>
                     <xpath expr="//span[hasclass('span_section_message_and_notification_body')]" position="before">
                         <span ng-if="$parent.section_membre!==''">
@@ -60,7 +60,7 @@
                                         </div>
                                         <div class="chat_footer">
                                             <div class="input_container">
-                                                <span class="fa fa-camera debug_unimplemented" />
+                                                <span class="fa fa-camera debug_unimplemented ng-cloak" />
                                                 <input id="input_text_chat" type="text" placeholder="Écrire un message" ng-keypress="$parent.press_enter_send_chat_msg($event)" />
                                                 <span class="fa fa-send" ng-click="$parent.send_chat_msg()" />
                                             </div>
@@ -70,6 +70,55 @@
                                     <div class="right_cards_container">
                                         <div class="card info-4" ng-include="'/ore/template/votre_contact_full'" />
                                     </div>
+                                </div>
+                            </section>
+                        </span>
+                        <span ng-if="$parent.section_clan!==''">
+                            <section class="s_back">
+                                <a href="/notification#!?section=message">
+                                    <i class="fa fa-arrow-left text-primary" />
+                                    Revenir à mes messages
+                                </a>
+                                <div class="actions">
+                                    <a ng-if="!_.isUndefined($parent.section_clan_dct) &amp;&amp; _.isNumber($parent.section_clan_dct.id_group)" ng-href="https://meet.jit.si/ore_conference_{{$parent.section_clan_dct.id_group}}_jitsi">
+                                        <div>
+                                            <i class="fa fa-video text-primary icon_padding_right" />
+                                            Vidéoconférence
+                                        </div>
+                                    </a>
+                                </div>
+                            </section>
+                            <section class="s_chat pt80 pb160">
+                                <div class="chat_container">
+                                    <div class="chat_box">
+                                        <div class="chat_header">
+                                            <img ng-if="!_.isUndefined($parent.section_clan_dct.ma_photo)" ng-src="{{ $parent.section_clan_dct.ma_photo }}" />
+                                            <div class="header_info">
+                                                <p class="chat_contact">{{$parent.section_clan_dct.name}}</p>
+                                                <!--                                                        <p class="chat_title">Aide au déménagement</p>-->
+                                                <!--                                                        <p class="chat_desc">J'ai des bras fort et des sourires à partager-->
+                                                <!--                                                        </p>-->
+                                            </div>
+                                        </div>
+                                        <div class="chat_body">
+                                            <div class="chat_msg" ng-repeat="msg in $parent.section_clan_dct.lst_msg">
+                                                <img ng-if="$parent.section_clan_dct.id===msg.m_id &amp;&amp; personal.id!==$parent.section_clan_dct.id" class="contact_pic rounded-circle" ng-src="{{ $parent.section_clan_dct.ma_photo }}" />
+                                                <div class="msg" ng-class="{'my_msg': personal.id===msg.m_id, 'their_msg': $parent.section_clan_dct.id===msg.m_id &amp;&amp; personal.id!==$parent.section_clan_dct.id}">{{msg.name}}</div>
+                                                <!--                                                        <div class="msg_time">5 minutes</div>-->
+                                            </div>
+                                        </div>
+                                        <div class="chat_footer">
+                                            <div class="input_container">
+                                                <span class="fa fa-camera debug_unimplemented ng-cloak" />
+                                                <input id="input_text_chat" type="text" placeholder="Écrire un message" ng-keypress="$parent.press_enter_send_chat_msg($event)" />
+                                                <span class="fa fa-send" ng-click="$parent.send_chat_msg()" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--                                    <div class="right_cards_container">-->
+                                    <!--                                        <div class="card info-4" ng-include="'/ore/template/votre_contact_full'" />-->
+                                    <!--                                    </div>-->
                                 </div>
                             </section>
                         </span>
@@ -85,6 +134,7 @@
                         <section class="s_vertical_list_lg pt0" ng-if="section==='message' &amp;&amp; section_membre===''">
                             <div class="container_lists">
                                 <div class="row vertical_list">
+                                    <h2>Membres</h2>
                                     <a class="container_explorer" ng-href="/notification#!?section=message&amp;membre={{msg.id}}" ng-repeat="msg in lst_membre_message">
                                         <div class="activite message btn" ng-class="{'read':msg.is_read}">
                                             <div class="activite_img img-fluid rounded-circle" ng-style="{'background-image': 'url(' + msg.ma_photo + ')'}">
@@ -95,7 +145,23 @@
                                                 <h4 class="message_auteur">{{msg.name}}</h4>
                                                 <p class="message">{{msg.resume_msg}}</p>
                                             </div>
-                                            <span class="debug_unimplemented">{{msg.last_date}}</span>
+                                            <span class="debug_unimplemented ng-cloak">{{msg.last_date}}</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="row vertical_list">
+                                    <h2>Clans</h2>
+                                    <a class="container_explorer" ng-href="/notification#!?section=message&amp;clan={{msg.clan_id}}" ng-repeat="msg in lst_clan_message">
+                                        <div class="activite message btn" ng-class="{'read':msg.is_read}">
+                                            <div class="activite_img img-fluid rounded-circle" ng-style="{'background-image': 'url(' + msg.ma_photo + ')'}">
+                                                <div class="unread rounded-circle" ng-if="!msg.is_read" />
+                                            </div>
+
+                                            <div class="infos">
+                                                <h4 class="message_auteur">{{msg.name}}</h4>
+                                                <p class="message">{{msg.resume_msg}}</p>
+                                            </div>
+                                            <span class="debug_unimplemented ng-cloak">{{msg.last_date}}</span>
                                         </div>
                                     </a>
                                 </div>
@@ -132,7 +198,10 @@
             <field name="arch" type="xml">
                 <data inherit_id="website_ore.ir_ui_view_ma_presentation">
                     <xpath expr="//div[hasclass('btn_do_echange')]" position="after">
-                        <a class="profil profil_right profil_box modif_btn btn btn-primary adapt-text-primary-color" ng-if="!membre_info.estPersonnel" ng-href="/notification#!?section=message&amp;membre={{membre_info.id}}">Contacter {{membre_info.prenom}}</a>
+                        <a class="profil rounded-circle modif_btn btn btn-epsilon adapt-text-epsilon-color" ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel" ng-href="/notification#!?section=message&amp;membre={{page_presentation_membre_info.id}}">
+                            <span class="fa fa-comments-o adapt-text-epsilon-color" />
+                            Clavarder
+                        </a>
                     </xpath>
                 </data>
             </field>

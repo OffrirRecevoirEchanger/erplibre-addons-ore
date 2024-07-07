@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--Sub menu-->
+
+    <menuitem id="group_message" name="Message" sequence="6" parent="ore.ore" />
+
+    <!--Child menu-->
+
+    <menuitem
+        id="menu_chat_message"
+        name="Message"
+        action="ore_chat_message_chat_message_action_window"
+        sequence="1"
+        parent="group_message"
+    />
+
+    <menuitem
+        id="menu_chat_group"
+        name="Groupe"
+        action="ore_chat_group_chat_group_action_window"
+        sequence="2"
+        parent="group_message"
+    />
+
+    <menuitem
+        id="menu_notification"
+        name="Notification"
+        action="ore.ore_echange_service_notification_clan_action_window"
+        sequence="3"
+        parent="group_message"
+    />
+</odoo>

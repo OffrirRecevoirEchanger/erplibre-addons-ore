@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="ore_chat_group_view_form" model="ir.ui.view">
+        <field name="name">ore_chat_group_form</field>
+        <field name="model">ore.chat.group</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-archive" name="toggle_active" type="object">
+                            <field name="active" widget="boolean_button" />
+                        </button>
+                    </div>
+                    <group>
+                        <field name="name" />
+                    </group>
+                    <group>
+                        <field name="clan_id" />
+                    </group>
+                    <group>
+                        <field name="group_clan_id" />
+                    </group>
+                    <group>
+                        <field name="membre_ids" />
+                    </group>
+                    <group>
+                        <field name="msg_ids" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ore_chat_group_view_graph" model="ir.ui.view">
+        <field name="name">ore_chat_group_graph</field>
+        <field name="model">ore.chat.group</field>
+        <field name="arch" type="xml">
+            <graph string="Ore chat group">
+                <field name="name" type="row" />
+                <field name="clan_id" type="row" />
+                <field name="group_clan_id" type="row" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="ore_chat_group_view_kanban" model="ir.ui.view">
+        <field name="name">ore_chat_group_kanban</field>
+        <field name="model">ore.chat.group</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name" />
+                <field name="clan_id" />
+                <field name="group_clan_id" />
+                <field name="membre_ids" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="name" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="clan_id" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="group_clan_id" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre_ids" />
+                                        </strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="ore_chat_group_view_pivot" model="ir.ui.view">
+        <field name="name">ore_chat_group_pivot</field>
+        <field name="model">ore.chat.group</field>
+        <field name="arch" type="xml">
+            <pivot string="Ore chat group">
+                <field name="name" type="row" />
+                <field name="clan_id" type="row" />
+                <field name="group_clan_id" type="row" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="ore_chat_group_view_search" model="ir.ui.view">
+        <field name="name">ore_chat_group_search</field>
+        <field name="model">ore.chat.group</field>
+        <field name="arch" type="xml">
+            <search string="Ore chat group">
+                <filter domain="[('name','!=',False)]" name="name" string="Name" />
+                <filter domain="[('active','=',False)]" name="Inactive" string="Inactive Ore chat group" />
+                <filter domain="[('clan_id','!=',False)]" name="clan_id" string="Clan" />
+                <filter domain="[('group_clan_id','!=',False)]" name="group_clan_id" string="Group Clan" />
+                <filter domain="[('membre_ids','!=',False)]" name="membre_ids" string="Membres" />
+            </search>
+        </field>
+    </record>
+
+    <record id="ore_chat_group_view_tree" model="ir.ui.view">
+        <field name="name">ore_chat_group_tree</field>
+        <field name="model">ore.chat.group</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="clan_id" />
+                <field name="group_clan_id" />
+                <field name="membre_ids" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="ore_chat_group_chat_group_action_window"
+        name="Chat group"
+        res_model="ore.chat.group"
+        view_mode="kanban,tree,pivot,graph,form"
+    />
+</odoo>
