@@ -1335,7 +1335,7 @@ class OREController(http.Controller):
                 for rec in membre_id.langue_parle
             ],
             "diff_humain_creation_membre": str_diff_time_creation,
-            "location": membre_id.ville.nom,
+            "location": membre_id.ville.nom if membre_id.ville else "",
             "antecedent_judiciaire_verifier": membre_id.antecedent_judiciaire_verifier,
             "dct_offre_service": dct_offre_service,
             "dct_demande_service": dct_demande_service,

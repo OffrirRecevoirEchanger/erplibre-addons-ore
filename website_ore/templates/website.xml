@@ -2435,7 +2435,7 @@
                     <span class="desc-3">
                         <i class="fa fa-calendar" />
                         <span style="position: relative; left: -25px;" ng-cloak="">
-                            Clan créé depuis {{page_communaute_clan_info.diff_create_date}}
+                            Clan créé {{page_communaute_clan_info.diff_create_date}}
                         </span>
                     </span>
                 </div>

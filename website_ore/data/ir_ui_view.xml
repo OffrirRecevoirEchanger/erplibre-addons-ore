@@ -186,7 +186,7 @@
                                     <div class="container_actualite">
                                         <div class="title">
                                             <h1 style="margin-left:10%">Message d'accueil</h1>
-                                            <pre style="margin-left:10%" ng-cloak="" ng-bind-html="page_communaute_clan_info.message_accueil | unsafe" />
+                                            <span style="margin-left:10%" ng-cloak="" ng-bind-html="page_communaute_clan_info.message_accueil | unsafe" />
                                         </div>
                                     </div>
                                 </section>
@@ -1892,24 +1892,24 @@
                                         <div class="information information-3">
                                             <span class="txt">R&#233;sum&#233;</span>
                                             <br />
-                                            <br />
                                             <span class="desc-3 debug_unimplemented ng-cloak">
+                                                <br />
                                                 <i class="fa fa-map-marker" />
                                                 <span style="position: relative; left: -25px;">Habite &#224; 1.2km de votre domicile</span>
                                             </span>
-                                            <br />
-                                            <span class="desc-3">
+                                            <span class="desc-3" ng-if="page_presentation_membre_info.location != ''" ng-cloak="">
+                                                <br />
                                                 <i class="fa fa-home" />
                                                 <span style="position: relative; left: -25px;" ng-cloak="">{{page_presentation_membre_info.location}}</span>
                                             </span>
-                                            <br />
                                             <span class="desc-3">
+                                                <br />
                                                 <i class="fa fa-shield" />
                                                 <span style="position: relative; left: -25px;" ng-if="page_presentation_membre_info.antecedent_judiciaire_verifier">Utilisateur v&#233;rifi&#233;</span>
                                                 <span style="position: relative; left: -25px;" ng-if="!page_presentation_membre_info.antecedent_judiciaire_verifier">Utilisateur non v&#233;rifi&#233;</span>
                                             </span>
-                                            <br />
                                             <span class="desc-3">
+                                                <br />
                                                 <i class="fa fa-calendar" />
                                                 <span style="position: relative; left: -25px;" ng-cloak="">Membre depuis {{page_presentation_membre_info.diff_humain_creation_membre}}</span>
                                             </span>

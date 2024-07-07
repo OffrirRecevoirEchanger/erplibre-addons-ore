@@ -116,9 +116,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="right_cards_container">
-                                        <div class="card info-4" ng-include="'/ore/template/votre_contact_full'" />
-                                    </div>
+                                    <!--                                    <div class="right_cards_container">-->
+                                    <!--                                        <div class="card info-4" ng-include="'/ore/template/votre_contact_full'" />-->
+                                    <!--                                    </div>-->
                                 </div>
                             </section>
                         </span>
@@ -150,7 +150,7 @@
                                     </a>
                                 </div>
                                 <div class="row vertical_list">
-                                    <h2>Clan</h2>
+                                    <h2>Clans</h2>
                                     <a class="container_explorer" ng-href="/notification#!?section=message&amp;clan={{msg.clan_id}}" ng-repeat="msg in lst_clan_message">
                                         <div class="activite message btn" ng-class="{'read':msg.is_read}">
                                             <div class="activite_img img-fluid rounded-circle" ng-style="{'background-image': 'url(' + msg.ma_photo + ')'}">
