@@ -768,7 +768,7 @@
                                     <a
                                         role="menuitem"
                                         href="/participer#!?state=init.va.non.offert.ignore_nouveau.membre"
-                                        class="dropdown-item pub"
+                                        class="dropdown-item pub debug_unimplemented ng-cloak"
                                     >
                                         <h4>
                                             <b>Recevoir</b>

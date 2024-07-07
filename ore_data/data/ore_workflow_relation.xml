@@ -289,6 +289,7 @@
             <field name="state_src" ref="ore_workflow_state_init" />
             <field name="state_dst" ref="ore_workflow_state_va_non_offert_ignore_nouveau_membre" />
             <field name="diagram_id" ref="ore_workflow_participer" />
+            <field name="not_implemented">true</field>
         </record>
         <record id="ore_workflow_relation_init_va_non_offert_ignore_nouveau_membre" model="ore.workflow.relation">
             <field name="state_src" ref="ore_workflow_state_va_non_offert_ignore_nouveau_membre" />

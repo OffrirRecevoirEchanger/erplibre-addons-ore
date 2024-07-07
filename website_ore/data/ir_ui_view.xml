@@ -3473,7 +3473,7 @@
                                             <a ng-href="/participer#!?state=init.va.non.offert.ignore_nouveau.membre.form&amp;membre={{page_presentation_membre_info.id}}" class="btn btn-gamma rounded-circle">
                                                 <font class="adapt-text-gamma-color">Valider avoir offert un service</font>
                                             </a>
-                                            <a ng-href="/participer#!?state=init.va.non.recu.choix.ignore_nouveau.form&amp;membre={{page_presentation_membre_info.id}}" class="btn btn-gamma rounded-circle">
+                                            <a ng-href="/participer#!?state=init.va.non.recu.choix.ignore_nouveau.form&amp;membre={{page_presentation_membre_info.id}}" class="btn btn-gamma rounded-circle debug_unimplemented ng-cloak">
                                                 <font class="adapt-text-gamma-color">Valider avoir reçu un service</font>
                                             </a>
                                             <hr class="debug_unimplemented ng-cloak" />
