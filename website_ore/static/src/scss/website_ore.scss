@@ -82,6 +82,46 @@ $bg-green-alert: #70a6a8;
         display: none !important;
     }
 }
+.scroll-modal-content {
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 600px;
+}
+@media only screen and (max-height: 1200px) {
+    .scroll-modal-content {
+        height: 400px;
+    }
+}
+@media only screen and (max-height: 1020px) {
+    .scroll-modal-content {
+        height: 350px;
+    }
+}
+@media only screen and (max-height: 972px) {
+    .scroll-modal-content {
+        height: 200px;
+    }
+}
+@media only screen and (max-height: 793px) {
+    .scroll-modal-content {
+        height: 150px;
+    }
+}
+@media only screen and (max-height: 735px) {
+    .scroll-modal-content {
+        height: 100px;
+    }
+}
+@media only screen and (max-height: 635px) {
+    .scroll-modal-content {
+        height: 50px;
+    }
+}
+@media only screen and (max-height: 605px) {
+    .scroll-modal-content {
+        height: 30px;
+    }
+}
 
 .cursor-pointer {
     cursor: pointer;

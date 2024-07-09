@@ -3453,7 +3453,9 @@
                                             <p>Appuyez sur le nom du clan que vous voulez sélectionner.</p>
                                             <p>Vous aurez accès au tableau de bord du clan sélectionné et devrez changer de clan pour afficher d'autres tableaux de bord.</p>
                                             <!--                                            <button class="btn btn-delta rounded-circle " ng-click="change_clan(clan_id.id)" ng-repeat="clan_id in personal.all_my_clan" ng-style="{'color': clan_id.id == personal.my_clan.id ? '#023047' : 'inherit'}">{{clan_id.name}}</button>-->
-                                            <button class="btn rounded-circle " ng-click="change_clan(clan_id.id)" ng-repeat="clan_id in personal.all_my_clan" ng-class="{'btn-beta': clan_id.id == personal.my_clan.id, 'adapt-text-beta-color': clan_id.id == personal.my_clan.id, 'btn-delta': clan_id.id != personal.my_clan.id, 'adapt-text-delta-color': clan_id.id != personal.my_clan.id}">{{clan_id.name}}</button>
+                                            <div class="scroll-modal-content">
+                                                <button class="btn rounded-circle " ng-click="change_clan(clan_id.id)" ng-repeat="clan_id in personal.all_my_clan" ng-class="{'btn-beta': clan_id.id == personal.my_clan.id, 'adapt-text-beta-color': clan_id.id == personal.my_clan.id, 'btn-delta': clan_id.id != personal.my_clan.id, 'adapt-text-delta-color': clan_id.id != personal.my_clan.id}">{{clan_id.name}}</button>
+                                            </div>
                                             <hr />
                                             <div>
                                                 <button class="cancel btn btn-delta rounded-circle" ng-click="close_change_clan()">Annuler</button>
