@@ -38,6 +38,7 @@ class OREEchangeServiceNotification(models.Model):
             # ("Réponse à votre offre", "Réponse à votre offre"),
             ("Transaction validée", "Transaction validée"),
             ("Invitation clan", "Invitation clan"),
+            ("Clan creation", "Création d'un nouveau clan"),
         ],
         track_visibility="onchange",
     )
@@ -52,6 +53,14 @@ class OREEchangeServiceNotification(models.Model):
         comodel_name="ore.membre",
         string="Membre notifié",
         track_visibility="onchange",
+    )
+
+    broadcast_membre = fields.Boolean(
+        help="If True, will send message for all member"
+    )
+
+    broadcast_public = fields.Boolean(
+        help="If True, will send message for all public"
     )
 
     membre_name = fields.Char(
@@ -72,6 +81,12 @@ class OREEchangeServiceNotification(models.Model):
         track_visibility="onchange",
     )
 
+    clan_new_id = fields.Many2one(
+        comodel_name="ore.clan",
+        string="Nouveau clan",
+        track_visibility="onchange",
+    )
+
     def first_to_json(self):
         obj = self[0]
         data = {
@@ -84,10 +99,13 @@ class OREEchangeServiceNotification(models.Model):
             "membre_name": obj.membre_name,
             "membre_photo": obj.membre_logo,
             "clan_invited_id": obj.clan_invited_id.id,
+            "clan_new_id": obj.clan_new_id.id,
         }
         return data
 
-    @api.depends("echange_service_id", "membre_id", "clan_invited_id")
+    @api.depends(
+        "echange_service_id", "membre_id", "clan_invited_id", "clan_new_id"
+    )
     def _compute_name(self):
         for rec in self:
             lst_msg = []
@@ -127,6 +145,9 @@ class OREEchangeServiceNotification(models.Model):
                     f"Invitation au clan : '{rec.clan_invited_id.name}'"
                 )
                 rec.membre_logo = rec.clan_invited_id.get_image_url()
+            if rec.clan_new_id:
+                lst_msg.append(rec.clan_new_id.name)
+                rec.membre_logo = rec.clan_new_id.get_image_url()
             rec.name = " - ".join(lst_msg)
 
     @api.depends("membre_id")
@@ -139,6 +160,21 @@ class OREEchangeServiceNotification(models.Model):
         res = super().create(vals_list)
         for rec in res:
             data = rec.first_to_json()
+            if rec.broadcast_public:
+                canal = f'["{rec.type_notification}","PUBLIC"]'
+            elif rec.broadcast_membre:
+                # TODO not supported
+                canal = f'["{self._cr.dbname}","{self._name}","MEMBRE"]'
+            elif rec.membre_id:
+                canal = (
+                    f'["{self._cr.dbname}","{self._name}",{rec.membre_id.id}]'
+                )
+            else:
+                _logger.error(
+                    f"Cannot send notification id '{rec.id}' name '{rec.name}'"
+                    " because missing membre_id or broadcast option."
+                )
+                continue
             self.env["bus.bus"].sendone(
                 # f'["{self._cr.dbname}","{self._name}",{rec.id}]',
                 "ore.notification.echange",
@@ -146,7 +182,7 @@ class OREEchangeServiceNotification(models.Model):
                     "timestamp": str(datetime.now()),
                     "data": data,
                     "field_id": rec.id,
-                    "canal": f'["{self._cr.dbname}","{self._name}",{rec.membre_id.id}]',
+                    "canal": canal,
                 },
             )
         return res

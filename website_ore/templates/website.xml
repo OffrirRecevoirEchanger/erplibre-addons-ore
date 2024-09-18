@@ -2337,6 +2337,7 @@
                             <!--                        <nav class="profil_main">-->
                             <div
                                 class="profil rounded-circle btn btn-primary adapt-text-primary-color"
+                                id="btn_ask_join_clan"
                                 ng-if="!ask_modification_clan &amp;&amp; !page_communaute_clan_info_is_into_clan"
                                 ng-click="request_join_clan()"
                             >

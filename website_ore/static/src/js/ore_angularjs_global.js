@@ -245,7 +245,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.generate_url_notification = function(notif) {
             if (["Nouvelle demande de service","Réponse à votre demande", "Demande de service", ""].includes(notif.type_notification)) {
                 return "/monactivite/echange" + $scope.url_debug + "#!?echange=" + notif.echange_service_id;
-            } else if (notif.type_notification === "Invitation clan") {
+            } else if (["Clan creation", "Invitation clan", "Invitation clan update"].includes(notif.type_notification)) {
                 return "/ore/ore_clan/" + notif.clan_invited_id;
             }
             return "#"

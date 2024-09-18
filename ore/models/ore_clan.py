@@ -146,6 +146,18 @@ class OreClan(models.Model):
                     "msg_group_id": chat_group_id.id,
                 }
                 self.env["ore.chat.message"].create(chat_msg_value)
+                # notify
+                # Create notification
+                value_notif = {
+                    "clan_new_id": val.id,
+                    "date_created": val.create_date,
+                    "membre_id": val.membre_create_id.id,
+                    "broadcast_public": True,
+                    "type_notification": "Clan creation",
+                }
+                notif_id = self.env["ore.echange.service.notification"].create(
+                    value_notif
+                )
         return vals
 
     @api.multi
