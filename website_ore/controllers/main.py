@@ -1612,6 +1612,7 @@ class OREController(http.Controller):
             # Was invite by admin clan
             for invitation_id in invitation_ids:
                 invitation_id.active = False
+                # TODO wrong, need to switch state to approuve and will be auto add
                 invitation_id.clan_id.membre_list_ids = [(4, membre_id.id)]
         else:
             invitation_ids = (
@@ -1982,6 +1983,57 @@ class OREController(http.Controller):
 
     @http.route(
         [
+            "/ore/set_info/invitation_membre",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def set_info_invitation_membre(
+        self, invitation_id, is_accept=False, is_refuse=False, **kw
+    ):
+        membre_id = self.get_membre_id()
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
+        obj_invitation_id = http.request.env["ore.clan.invitation"].search(
+            [("id", "=", invitation_id)]
+        )
+        # Valid permission to do this action
+        if membre_id not in obj_invitation_id.clan_id.membre_admin_ids:
+            return {
+                "status": False,
+                "msg_error": "You are not an administrator of this clan.",
+            }
+        if (
+            obj_invitation_id.invite_by_admin_clan
+            and obj_invitation_id.stage_id
+            == http.request.env.ref("ore.ore_clan_invitation_stage_refuse")
+        ):
+            stage_id = (
+                http.request.env.ref("ore.ore_clan_invitation_stage_init")
+                if is_accept
+                else http.request.env.ref(
+                    "ore.ore_clan_invitation_stage_refuse"
+                )
+            )
+        else:
+            stage_id = (
+                http.request.env.ref("ore.ore_clan_invitation_stage_refuse")
+                if is_refuse
+                else http.request.env.ref(
+                    "ore.ore_clan_invitation_stage_approuve"
+                )
+            )
+        obj_invitation_id.write(
+            {
+                "stage_id": stage_id.id,
+            }
+        )
+        return {"status": True}
+
+    @http.route(
+        [
             "/ore/get_info/list_membre",
         ],
         type="json",
@@ -2056,7 +2108,39 @@ class OREController(http.Controller):
                 "is_favorite": a.id in my_favorite_membre_id,
             }
             dct_membre[a.id] = value
-        return {"dct_membre": dct_membre}
+        invitation_ids = http.request.env["ore.clan.invitation"].search(
+            [("clan_id", "=", clan_id)]
+        )
+        dct_demande_adhesion = {}
+        dct_demande_adhesion_refuse = {}
+        for inv_id in invitation_ids:
+            dct_value = {"id": inv_id.id, "email": inv_id.email}
+            partner_ids = http.request.env["res.partner"].search(
+                [("email", "=", inv_id.email)]
+            )
+            membre_ids = http.request.env["ore.membre"].search(
+                [("partner_id", "in", partner_ids.ids)]
+            )
+            dct_value["ask_join_clan"] = inv_id.ask_join_clan
+            dct_value["invite_by_admin_clan"] = inv_id.invite_by_admin_clan
+            dct_value["date_invitation"] = self.datetime_to_local(
+                inv_id.create_date
+            )
+            dct_value["lst_membre"] = membre_ids.ids
+            if inv_id.stage_id in (
+                http.request.env.ref("ore.ore_clan_invitation_stage_init"),
+            ):
+                dct_demande_adhesion[inv_id.id] = dct_value
+            elif inv_id.stage_id in (
+                http.request.env.ref("ore.ore_clan_invitation_stage_refuse"),
+            ):
+                dct_demande_adhesion_refuse[inv_id.id] = dct_value
+
+        return {
+            "dct_membre": dct_membre,
+            "dct_demande_adhesion": dct_demande_adhesion,
+            "dct_demande_adhesion_refuse": dct_demande_adhesion_refuse,
+        }
 
     @http.route(
         [

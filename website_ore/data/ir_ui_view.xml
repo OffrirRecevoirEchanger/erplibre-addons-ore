@@ -2147,7 +2147,15 @@
                                             Filtrer et trier
                                         </div>
                                     </div>
-                                    <div class="horizontal_list">
+                                    <div ng-if="page_communaute_clan_info.is_clan_admin">
+                                        <label for="member_type_select">Afficher :</label>
+                                        <select name="lst_show_list_member" id="member_type_select" ng-model="page_communaute_clan_info_select_member.info_select">
+                                            <option value="membre_actif">Membres actifs</option>
+                                            <option value="demande_adhesion">Demande d'adhésion</option>
+                                            <option value="demande_adhesion_refuse">Demande d'adhésion refusé</option>
+                                        </select>
+                                    </div>
+                                    <div class="horizontal_list" ng-if="page_communaute_clan_info_select_member.info_select == 'membre_actif'">
                                         <div class="list_item" ng-repeat="(membre_id, membre) in dct_membre" style="height: 600px; width: 300px;">
                                             <div class="buttons_form_container item_card btn shadow">
                                                 <a class="label" ng-href="/monprofil/mapresentation#!?membre_id={{membre_id}}">
@@ -2175,11 +2183,35 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div ng-if="page_communaute_clan_info_select_member.info_select == 'demande_adhesion'">
+                                        <div ng-repeat="(invitation_id, invitation) in dct_demande_adhesion">
+                                            {{invitation.date_invitation}}
+                                            <button ng-if="!invitation.invite_by_admin_clan" ng-click="set_info_invitation(invitation_id, invitation, true)" ng-disabled="invitation.loading">
+                                                Accepter
+                                                <i class="fa fa-spin fa-spinner fa-pulse" ng-if="invitation.loading" />
+                                            </button>
+                                            {{invitation.email}}
+                                            <button ng-click="set_info_invitation(invitation_id, invitation, false)" ng-disabled="invitation.loading">
+                                                Refuser
+                                                <i class="fa fa-spin fa-spinner fa-pulse" ng-if="invitation.loading" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div ng-if="page_communaute_clan_info_select_member.info_select == 'demande_adhesion_refuse'">
+                                        <div ng-repeat="(invitation_id, invitation) in dct_demande_adhesion_refuse">
+                                            {{invitation.date_invitation}}
+                                            <button ng-click="set_info_invitation(invitation_id, invitation, true)" ng-disabled="invitation.loading">
+                                                Accepter
+                                                <i class="fa fa-spin fa-spinner fa-pulse" ng-if="invitation.loading" />
+                                            </button>
+                                            {{invitation.email}}
+                                        </div>
+                                    </div>
                                 </section>
                                 <section class="s_map_btn pt32 pb32">
                                     <div class="btn_map btn btn-primary rounded-circle adapt-text-primary-color pt16 pb16" ng-click="show_map_member=!show_map_member">
                                         <icon class="fa fa-map" />
-                                        &amp;nbsp; Voir la carte
+                                        Voir la carte
                                     </div>
                                 </section>
                                 <section class="demo_website_leaflet" ng-show="show_map_member">

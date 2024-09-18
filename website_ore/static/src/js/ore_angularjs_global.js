@@ -170,8 +170,13 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.page_communaute_clan_info = {}
         $scope.page_communaute_clan_info_is_into_clan = false;
         $scope.page_communaute_clan_info_is_invite_to_clan = false;
+        $scope.page_communaute_clan_info_select_member = {
+            "info_select": "membre_actif",
+        }
         $scope.force_clan_id = 0;
         $scope.dct_membre = {}
+        $scope.dct_demande_adhesion = {}
+        $scope.dct_demande_adhesion_refuse = {}
         $scope.contact_info = {}
         $scope.offre_service_info = {}
         $scope.dct_offre_service_info = {}
@@ -1891,6 +1896,38 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 } else {
                     console.debug(data.dct_membre);
                     $scope.dct_membre = data.dct_membre;
+                    $scope.dct_demande_adhesion = data.dct_demande_adhesion;
+                    $scope.dct_demande_adhesion_refuse = data.dct_demande_adhesion_refuse;
+                }
+
+                // Process all the angularjs watchers
+                $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
+            })
+        }
+
+        $scope.set_info_invitation = function(invitation_id, invitation, accept) {
+            invitation.loading = true;
+            ajax.jsonRpc("/ore/set_info/invitation_membre", "call", {"invitation_id": invitation_id, "is_accept": accept, "is_refuse": !accept}).then(function (data) {
+                console.debug("AJAX receive /ore/set_info/invitation_membre");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty '/ore/set_info/invitation_membre' data";
+                    console.error($scope.error);
+                } else {
+                    if (data.status) {
+                        console.debug(data.dct_membre);
+                        // TODO move item from list
+                        // TODO support notification
+                        window.location.reload();
+                    } else {
+                        invitation.error = data.msg_error;
+                    }
+                    invitation.loading = false;
                 }
 
                 // Process all the angularjs watchers

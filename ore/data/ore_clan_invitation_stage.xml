@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="ore_clan_invitation_stage_init" model="ore.clan.invitation.stage">
+            <field name="description">New invitation, waiting</field>
+            <field name="name">New</field>
+        </record>
+        <record id="ore_clan_invitation_stage_approuve" model="ore.clan.invitation.stage">
+            <field name="description">Approuve the candidate to this clan</field>
+            <field name="name">Approuve</field>
+            <field name="sequence">11</field>
+        </record>
+        <record id="ore_clan_invitation_stage_refuse" model="ore.clan.invitation.stage">
+            <field name="description">Refuse the candidate to this clan</field>
+            <field name="name">Refuse</field>
+            <field name="sequence">12</field>
+        </record>
+    </data>
+</odoo>
