@@ -293,9 +293,21 @@ class OREController(http.Controller):
             "lst_time_clan": lst_time_diff_clan,
         }
 
+        lst_data = []
+        for index, ore_clan_id in enumerate(ore_clan_ids):
+            data = {
+                "name": ore_clan_id.name,
+                "url": f"/ore/ore_clan/{ore_clan_id.id}",
+                "img": lst_clan_photo[index],
+            }
+            lst_data.append(data)
+
         # Render page
-        return request.env["ir.ui.view"].render_template(
-            "website_ore.ore_clan_list", dct_value
+        return (
+            request.env["ir.ui.view"].render_template(
+                "website_ore.ore_clan_list", dct_value
+            ),
+            lst_data,
         )
 
     @http.route(
