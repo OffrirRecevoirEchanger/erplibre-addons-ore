@@ -1,6 +1,8 @@
 import logging
 from datetime import datetime
 
+import pytz
+
 from odoo import _, api, fields, models
 
 _logger = logging.getLogger(__name__)
@@ -36,8 +38,19 @@ class OREChatMessage(models.Model):
             "name": obj.name,
             "is_read": obj.is_read,
             "m_id": obj.membre_writer_id.id,
+            "m_name": obj.membre_writer_id.name,
+            "date_create": self.datetime_to_local(obj.create_date),
         }
         return data
+
+    def datetime_to_local(self, field_input):
+        # Source 'def datetime(self, field_label, field_input):'
+        user_tz = pytz.timezone(self.env.user.tz or "UTC")
+        if field_input is False:
+            _logger.error("Field value is empty.")
+            return None
+        local_time = pytz.utc.localize(field_input).astimezone(user_tz)
+        return local_time
 
     @api.model_create_multi
     def create(self, vals_list):

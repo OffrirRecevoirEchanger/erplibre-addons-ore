@@ -299,6 +299,8 @@ odoo.define('website.ore_angularjs_chat', function (require) {
                             "id": data.id,
                             "is_read": data.is_read,
                             "m_id": data.m_id,
+                            "m_name": data.m_name,
+                            "date_create": data.date_create,
                             "name": data.name,
                         };
                         // Find group

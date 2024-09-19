@@ -103,8 +103,13 @@
                                         <div class="chat_body">
                                             <div class="chat_msg" ng-repeat="msg in $parent.section_clan_dct.lst_msg">
                                                 <img ng-if="$parent.section_clan_dct.id===msg.m_id &amp;&amp; personal.id!==$parent.section_clan_dct.id" class="contact_pic rounded-circle" ng-src="{{ $parent.section_clan_dct.ma_photo }}" />
-                                                <div class="msg" ng-class="{'my_msg': personal.id===msg.m_id, 'their_msg': $parent.section_clan_dct.id===msg.m_id &amp;&amp; personal.id!==$parent.section_clan_dct.id}">{{msg.name}}</div>
-                                                <!--                                                        <div class="msg_time">5 minutes</div>-->
+                                                <div class="msg" ng-class="{'my_msg': personal.id===msg.m_id, 'their_msg': $parent.section_clan_dct.id===msg.m_id &amp;&amp; personal.id!==$parent.section_clan_dct.id}">
+                                                    {{msg.date_create}}
+                                                    <u>{{msg.m_name}}</u>
+                                                    <br />
+                                                    <b>{{msg.name}}</b>
+                                                </div>
+                                                <!--<div class="msg_time">{{msg.date_create}}</div>-->
                                             </div>
                                         </div>
                                         <div class="chat_footer">
