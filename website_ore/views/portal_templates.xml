@@ -620,6 +620,9 @@
                                         data-oe-type="char"
                                         data-oe-expression="submenu.name"
                                     />
+                                    <span class="badge-over-fa" ng-if="lst_notification.length > 0">
+                                        {{lst_notification.length}}
+                                    </span>
                                 </a>
                                 <div class="dropdown-menu submenu shadow menu_message_and_notification" role="menu">
                                     <p style="font-size: 1.5rem;">Notifications</p>
@@ -634,7 +637,7 @@
                                                     role="menuitem"
                                                     ng-href="{{generate_url_notification(notif)}}"
                                                     class="dropdown-item"
-                                                    ng-repeat="notif in lst_notification | filter:notif_filter_unread | limitTo:5"
+                                                    ng-repeat="notif in lst_notification_unread | limitTo:5"
                                                 >
                                                     <div class="cat activite btn">
                                                         <img

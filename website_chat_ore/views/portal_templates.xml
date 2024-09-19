@@ -53,8 +53,27 @@
             <attribute name="style">display: none</attribute>
         </xpath>
 
+        <xpath expr="//span[hasclass('badge-over-fa')]" position="replace">
+            <span
+                class="badge-over-fa"
+                ng-if="lst_notification.length > 0 || lst_membre_message.length > 0 || lst_clan_message.length > 0"
+            >
+                {{lst_notification_unread.length + lst_membre_message.length + lst_clan_message.length}}
+            </span>
+            <span style="display:none;">
+                {{lst_notification.length}}
+                {{lst_notification_unread.length}}
+                {{lst_membre_message.length}}
+                {{lst_clan_message.length}}
+            </span>
+        </xpath>
+
+        <xpath expr="//div[hasclass('menu_chat')]/../../.." position="attributes">
+            <attribute name="ng-controller">ChatController</attribute>
+        </xpath>
+
         <xpath expr="//div[hasclass('menu_chat')]" position="inside">
-            <div class="tab-items-container" ng-controller="ChatController">
+            <div class="tab-items-container">
                 <a
                     role="menuitem"
                     class="dropdown-item"

@@ -243,10 +243,12 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.languesCount = 0;
 
         $scope.generate_url_notification = function(notif) {
-            if (["Nouvelle demande de service","Réponse à votre demande", "Demande de service", ""].includes(notif.type_notification)) {
+            if (["Nouvelle demande de service","Réponse à votre demande", "Demande de service", "Transaction validée"].includes(notif.type_notification)) {
                 return "/monactivite/echange" + $scope.url_debug + "#!?echange=" + notif.echange_service_id;
-            } else if (["Clan creation", "Invitation clan", "Invitation clan update"].includes(notif.type_notification)) {
+            } else if (["Invitation clan", "Invitation clan update"].includes(notif.type_notification)) {
                 return "/ore/ore_clan/" + notif.clan_invited_id;
+            } else if (["Clan creation"].includes(notif.type_notification)) {
+                return "/ore/ore_clan/" + notif.clan_new_id;
             }
             return "#"
         }
@@ -1179,6 +1181,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         });
 
         $scope.lst_notification = [];
+        $scope.lst_notification_unread = [];
 
         $scope.notif_filter_unread = function (notif) {
             return !_.isUndefined(notif.is_read) && !notif.is_read;
@@ -1594,6 +1597,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     $scope.global = data.global;
                     $scope.personal = data.personal;
                     $scope.lst_notification = data.lst_notification;
+                    $scope.lst_notification_unread = data.lst_notification.filter(item => $scope.notif_filter_unread(item) === true);
 
                     $scope.update_personal_data();
                     console.debug($scope.personal);
