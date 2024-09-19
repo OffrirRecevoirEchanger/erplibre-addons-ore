@@ -253,6 +253,7 @@
         <t t-ignore="true">
             <div class="container_lists">
                 <div class="row activites_list col-lg-12">
+                    <b style="font-size: 24px; font-weight: normal;">Les 5 derniers clans :</b>
                     <!--                    <div class="list_title s_title">-->
                     <!--                        <div class="title">-->
                     <!--                            <img-->
@@ -269,7 +270,7 @@
                     <!--                        </div>-->
                     <!--                    </div>-->
                     <div t-if="ore_clan_ids">
-                        <div class="container_explorer" t-foreach="ore_clan_ids" t-as="ore_clan_id">
+                        <div class="container_explorer" t-foreach="ore_clan_ids[-5:]" t-as="ore_clan_id">
                             <a class="activite btn" t-if="ore_clan_id" t-att-href="'/ore/ore_clan/%d' % ore_clan_id.id">
                                 <!--                                <img-->
                                 <!--                                    t-if="lst_icon_offre_service[offre_service_index]"-->
@@ -282,9 +283,9 @@
                                 <!--                                    class="activite_img fa fa-calendar-plus-o bg-epsilon text-center adapt-text-epsilon-color"-->
                                 <!--                                />-->
                                 <img
-                                    t-if="len(lst_time_clan) >= ore_clan_id_index"
+                                    t-if="len(lst_time_clan[-5:]) >= ore_clan_id_index"
                                     class="activite_img img-fluid"
-                                    t-att-src="lst_clan_photo[ore_clan_id_index]"
+                                    t-att-src="lst_clan_photo[-5:][ore_clan_id_index]"
                                     style="flex: 0 0 auto; margin-right: 1em; width: 100px;"
                                 />
                                 <div class="infos">
@@ -321,8 +322,8 @@
                                 </div>
                                 <div class="infos right">
                                     <div
-                                        t-if="len(lst_time_clan) >= ore_clan_id_index"
-                                        t-raw="lst_time_clan[ore_clan_id_index]"
+                                        t-if="len(lst_time_clan[-5:]) >= ore_clan_id_index"
+                                        t-raw="lst_time_clan[-5:][ore_clan_id_index]"
                                     />
                                     <!--<i class="fa fa-heart-o text-epsilon" />-->
                                 </div>
