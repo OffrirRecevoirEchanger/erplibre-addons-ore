@@ -1583,12 +1583,30 @@ class OREController(http.Controller):
         clan_id = kw.get("clan_id")
         if clan_id:
             value_adhesion["clan_id"] = clan_id
-            value_invitation = {
-                "email": email_normalized,
-                "clan_id": clan_id,
-                "invite_by_admin_clan": True,
-            }
-            request.env["ore.clan.invitation"].sudo().create(value_invitation)
+            invitation_exist_ids = (
+                request.env["ore.clan.invitation"]
+                .sudo()
+                .search(
+                    [
+                        ("email", "=", email_normalized),
+                        ("clan_id", "=", clan_id),
+                    ]
+                )
+            )
+            if invitation_exist_ids:
+                for invitation_exist_id in invitation_exist_ids:
+                    invitation_exist_id.write(
+                        {"active": True, "invite_by_admin_clan": True}
+                    )
+            else:
+                value_invitation = {
+                    "email": email_normalized,
+                    "clan_id": clan_id,
+                    "invite_by_admin_clan": True,
+                }
+                request.env["ore.clan.invitation"].sudo().create(
+                    value_invitation
+                )
         adhesion_id = request.env["ore.demande.adhesion"].create(
             value_adhesion
         )
@@ -1657,9 +1675,9 @@ class OREController(http.Controller):
                 )
                 if invitation_ids:
                     for invitation_id in invitation_ids:
-                        invitation_id.active = True
-                        invitation_id.invite_by_admin_clan = False
-                        invitation_id.ask_join_clan = True
+                        invitation_id.write(
+                            {"active": True, "ask_join_clan": True}
+                        )
                 else:
                     # Ask to join the clan
                     value_invitation = {
