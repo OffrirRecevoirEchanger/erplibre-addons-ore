@@ -17,6 +17,7 @@
     <template id="template_clan_details_generic_inherit" inherit_id="website_ore.template_clan_details_generic">
         <xpath expr="//nav[hasclass('profil_left')]" position="inside">
             <a
+                id="btn_start_clavardage_from_clan"
                 ng-href="/notification#!?section=message&amp;clan={{page_communaute_clan_info.id}}"
                 ng-if="page_communaute_clan_info_is_into_clan"
             >
@@ -55,6 +56,7 @@
 
         <xpath expr="//span[hasclass('badge-over-fa')]" position="replace">
             <span
+                id="badge_notification_all_count"
                 class="badge-over-fa"
                 ng-if="lst_notification.length > 0 || lst_membre_message.length > 0 || lst_clan_message.length > 0"
             >

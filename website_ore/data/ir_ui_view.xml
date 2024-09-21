@@ -161,7 +161,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/communaute/clan">
+                                            <a id="sub_menu_communaute_clan" class="nav-link" role="menu_item" href="/communaute/clan">
                                                 <span>Clan</span>
                                             </a>
                                         </li>
@@ -565,7 +565,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/communaute/clan">
+                                            <a id="sub_menu_communaute_clan" class="nav-link" role="menu_item" href="/communaute/clan">
                                                 <span>Clan</span>
                                             </a>
                                         </li>
@@ -698,7 +698,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/communaute/clan">
+                                            <a id="sub_menu_communaute_clan" class="nav-link" role="menu_item" href="/communaute/clan">
                                                 <span>Clan</span>
                                             </a>
                                         </li>
@@ -885,7 +885,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link active" role="menu_item" href="/communaute/clan">
+                                            <a id="sub_menu_communaute_clan" class="nav-link active" role="menu_item" href="/communaute/clan">
                                                 <span>Clan</span>
                                             </a>
                                         </li>
@@ -2085,7 +2085,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/communaute/clan">
+                                            <a id="sub_menu_communaute_clan" class="nav-link" role="menu_item" href="/communaute/clan">
                                                 <span>Clan</span>
                                             </a>
                                         </li>
@@ -2186,12 +2186,12 @@
                                     <div ng-if="page_communaute_clan_info_select_member.info_select == 'demande_adhesion'">
                                         <div ng-repeat="(invitation_id, invitation) in dct_demande_adhesion">
                                             {{invitation.date_invitation}}
-                                            <button ng-if="!invitation.invite_by_admin_clan" ng-click="set_info_invitation(invitation_id, invitation, true)" ng-disabled="invitation.loading">
+                                            <button name="btn_accept_membre_demande_adhesion_clan" ng-if="!invitation.invite_by_admin_clan" ng-click="set_info_invitation(invitation_id, invitation, true)" ng-disabled="invitation.loading">
                                                 Accepter
                                                 <i class="fa fa-spin fa-spinner fa-pulse" ng-if="invitation.loading" />
                                             </button>
                                             {{invitation.email}}
-                                            <button ng-click="set_info_invitation(invitation_id, invitation, false)" ng-disabled="invitation.loading">
+                                            <button name="btn_refuse_membre_demande_adhesion_clan" ng-click="set_info_invitation(invitation_id, invitation, false)" ng-disabled="invitation.loading">
                                                 Refuser
                                                 <i class="fa fa-spin fa-spinner fa-pulse" ng-if="invitation.loading" />
                                             </button>
@@ -2200,7 +2200,7 @@
                                     <div ng-if="page_communaute_clan_info_select_member.info_select == 'demande_adhesion_refuse'">
                                         <div ng-repeat="(invitation_id, invitation) in dct_demande_adhesion_refuse">
                                             {{invitation.date_invitation}}
-                                            <button ng-click="set_info_invitation(invitation_id, invitation, true)" ng-disabled="invitation.loading">
+                                            <button name="btn_accept_membre_demande_adhesion_clan_from_refuse" ng-click="set_info_invitation(invitation_id, invitation, true)" ng-disabled="invitation.loading">
                                                 Accepter
                                                 <i class="fa fa-spin fa-spinner fa-pulse" ng-if="invitation.loading" />
                                             </button>

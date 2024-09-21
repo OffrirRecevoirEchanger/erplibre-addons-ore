@@ -247,6 +247,8 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 return "/monactivite/echange" + $scope.url_debug + "#!?echange=" + notif.echange_service_id;
             } else if (["Invitation clan", "Invitation clan update"].includes(notif.type_notification)) {
                 return "/ore/ore_clan/" + notif.clan_invited_id;
+            } else if (["Demande adhésion clan"].includes(notif.type_notification)) {
+                return "/communaute/membres#!?action_membre=demande_adhesion";
             } else if (["Clan creation"].includes(notif.type_notification)) {
                 return "/ore/ore_clan/" + notif.clan_new_id;
             }
@@ -1169,19 +1171,28 @@ odoo.define('website.ore_angularjs_global', function (require) {
             if (window.location.search === "?debug=assets") {
                 $scope.url_debug = "?debug=assets";
             }
-            if (window.location.pathname !== "/monactivite/echange") {
-                return;
-            }
-            if (newLocation !== previousLocation) {
-                let new_echange_id = $location.search()["echange"];
-                if (!_.isUndefined(new_echange_id)) {
-                    $scope.update_echange_service();
+            if (window.location.pathname === "/monactivite/echange") {
+                if (newLocation !== previousLocation) {
+                    let new_echange_id = $location.search()["echange"];
+                    if (!_.isUndefined(new_echange_id)) {
+                        $scope.update_echange_service();
+                    }
+                }
+            } else if (window.location.pathname === "/communaute/membres") {
+                console.error("outch")
+                let action_membre = $location.search()["action_membre"];
+                console.error($scope.page_communaute_clan_info_select_member);
+                if (!_.isUndefined(action_membre)) {
+                    $scope.page_communaute_clan_info_select_member.info_select = action_membre;
                 }
             }
         });
 
         $scope.lst_notification = [];
         $scope.lst_notification_unread = [];
+        $scope.refresh_lst_notification = function () {
+            $scope.lst_notification_unread = $scope.lst_notification.filter(item => $scope.notif_filter_unread(item) === true);
+        }
 
         $scope.notif_filter_unread = function (notif) {
             return !_.isUndefined(notif.is_read) && !notif.is_read;
@@ -1597,7 +1608,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     $scope.global = data.global;
                     $scope.personal = data.personal;
                     $scope.lst_notification = data.lst_notification;
-                    $scope.lst_notification_unread = data.lst_notification.filter(item => $scope.notif_filter_unread(item) === true);
+                    $scope.refresh_lst_notification();
 
                     $scope.update_personal_data();
                     console.debug($scope.personal);

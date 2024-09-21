@@ -38,6 +38,8 @@ class OREEchangeServiceNotification(models.Model):
             # ("Réponse à votre offre", "Réponse à votre offre"),
             ("Transaction validée", "Transaction validée"),
             ("Invitation clan", "Invitation clan"),
+            ("Demande adhésion clan", "Demande d'adhésion clan"),
+            ("Invitation clan update", "Invitation clan update"),
             ("Clan creation", "Création d'un nouveau clan"),
         ],
         track_visibility="onchange",
@@ -141,9 +143,14 @@ class OREEchangeServiceNotification(models.Model):
                     f" '{rec.echange_service_id.demande_service.titre}'"
                 )
             if rec.clan_invited_id:
-                lst_msg.append(
-                    f"Invitation au clan : '{rec.clan_invited_id.name}'"
-                )
+                if rec.type_notification == "Demande adhésion clan":
+                    lst_msg.append(
+                        f"Adhésion au clan : '{rec.clan_invited_id.name}'"
+                    )
+                else:
+                    lst_msg.append(
+                        f"Invitation au clan : '{rec.clan_invited_id.name}'"
+                    )
                 rec.membre_logo = rec.clan_invited_id.get_image_url()
             if rec.clan_new_id:
                 lst_msg.append(rec.clan_new_id.name)

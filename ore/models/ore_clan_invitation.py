@@ -53,35 +53,97 @@ class OreClanInvitation(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         vals = super().create(vals_list)
-        return vals
-
-    @api.multi
-    def write(self, vals):
-        res = super().write(vals)
-        if "stage_id" in vals.keys():
-            for rec in self:
-                membre_list_ids = rec.clan_id.membre_list_ids
+        # Create notification
+        for rec in vals:
+            if rec.ask_join_clan:
+                for admin_id in rec.clan_id.membre_admin_ids:
+                    # TODO change Invitation clan pour Request join clan, les informations de la notifications ne sont pas bonne
+                    value_notif = {
+                        "clan_invited_id": rec.clan_id.id,
+                        "membre_id": admin_id.id,
+                        "type_notification": "Demande adhésion clan",
+                    }
+                    notif_id = self.env[
+                        "ore.echange.service.notification"
+                    ].create(value_notif)
+            if rec.invite_by_admin_clan:
                 partner_ids = self.env["res.partner"].search(
                     [("email", "=", rec.email)]
                 )
                 membre_ids = self.env["ore.membre"].search(
                     [("partner_id", "in", partner_ids.ids)]
                 )
-                lst_membre_list_edit = []
-                if rec.stage_id in (
-                    self.env.ref("ore.ore_clan_invitation_stage_init"),
-                    self.env.ref("ore.ore_clan_invitation_stage_refuse"),
-                ):
-                    for membre_id in membre_ids:
+                for membre_id in membre_ids:
+                    value_notif = {
+                        "clan_invited_id": rec.clan_id.id,
+                        "membre_id": membre_id.id,
+                        "type_notification": "Invitation clan",
+                    }
+                    notif_id = self.env[
+                        "ore.echange.service.notification"
+                    ].create(value_notif)
+        return vals
+
+    @api.multi
+    def write(self, vals):
+        res = super().write(vals)
+        for rec in self:
+            membre_list_ids = rec.clan_id.membre_list_ids
+            partner_ids = self.env["res.partner"].search(
+                [("email", "=", rec.email)]
+            )
+            membre_ids = self.env["ore.membre"].search(
+                [("partner_id", "in", partner_ids.ids)]
+            )
+            lst_membre_list_edit = []
+            for membre_id in membre_ids:
+                if "stage_id" in vals.keys():
+                    if rec.stage_id in (
+                        self.env.ref("ore.ore_clan_invitation_stage_init"),
+                        self.env.ref("ore.ore_clan_invitation_stage_refuse"),
+                    ):
                         if membre_id in membre_list_ids:
                             lst_membre_list_edit.append((3, membre_id.id))
-                elif rec.stage_id == self.env.ref(
-                    "ore.ore_clan_invitation_stage_approuve"
-                ):
-                    for membre_id in membre_ids:
+                    elif rec.stage_id == self.env.ref(
+                        "ore.ore_clan_invitation_stage_approuve"
+                    ):
                         if membre_id not in membre_list_ids:
                             lst_membre_list_edit.append((4, membre_id.id))
-                if lst_membre_list_edit:
-                    rec.clan_id.membre_list_ids = lst_membre_list_edit
-                # TODO notification
+                # Notification
+                notif_exist_id = self.env[
+                    "ore.echange.service.notification"
+                ].search(
+                    [
+                        ("clan_invited_id", "=", rec.clan_id.id),
+                        ("membre_id", "=", membre_id.id),
+                    ]
+                )
+                if not notif_exist_id:
+                    if rec.active:
+                        value_notif = {
+                            "clan_invited_id": rec.clan_id.id,
+                            "membre_id": membre_id.id,
+                            "date_created": rec.create_date,
+                            "type_notification": "Invitation clan",
+                        }
+                        notif_id = self.env[
+                            "ore.echange.service.notification"
+                        ].create(value_notif)
+                else:
+                    # TODO update it
+                    # TODO enlever la notification s'il a été accepté, quand le stage est rendu à approuve ou refusé
+                    print("update")
+                print("ok")
+                # value_notif = {
+                #     "clan_invited_id": rec.clan_id.id,
+                #     "membre_id": membre_id.id,
+                #     "date_created": rec.create_date,
+                #     "type_notification": "Invitation clan",
+                # }
+                # notif_id = self.env[
+                #     "ore.echange.service.notification"
+                # ].create(value_notif)
+            if lst_membre_list_edit:
+                rec.clan_id.membre_list_ids = lst_membre_list_edit
+                # TODO mettre les clan par défaut si c'est son premier clan, devrait être mis dans la gestion du membre au write
         return res

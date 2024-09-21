@@ -171,6 +171,7 @@ odoo.define('website.ore_notification', function (require) {
                     let data = message.data;
                     if (data.hasOwnProperty("type_notification")) {
                         $scope.lst_notification.unshift(data);
+                        $scope.refresh_lst_notification();
                         if (!has_beep) {
                             this._beep();
                             has_beep = true;
@@ -189,6 +190,7 @@ odoo.define('website.ore_notification', function (require) {
                                 break;
                             }
                         }
+                        $scope.refresh_lst_notification();
                         has_update = true;
                     }
                 } else if (channel === canal_offre_service_update) {

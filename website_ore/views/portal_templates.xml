@@ -365,6 +365,13 @@
                                         >
                                             <p>Afficher le déverminage</p>
                                         </div>
+                                        <div
+                                            role="menuitem"
+                                            class="dropdown-item btn_force_refresh_UI"
+                                            style="cursor:pointer"
+                                        >
+                                            <p>Force refresh UI</p>
+                                        </div>
                                         <!--                                    <div role="menuitem" class="dropdown-item" ng-click="forceRefreshAngularJS()">-->
                                         <!--                                        <p>Refresh AngularJS</p>-->
                                         <!--                                    </div>-->
@@ -637,6 +644,7 @@
                                                     role="menuitem"
                                                     ng-href="{{generate_url_notification(notif)}}"
                                                     class="dropdown-item"
+                                                    name="url_link_notification"
                                                     ng-repeat="notif in lst_notification_unread | limitTo:5"
                                                 >
                                                     <div class="cat activite btn">
