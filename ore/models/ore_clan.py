@@ -160,6 +160,19 @@ class OreClan(models.Model):
                 )
         return vals
 
+    @api.multi
+    def write(self, vals):
+        status = super().write(vals)
+        if "membre_list_ids" in vals.keys():
+            # Because we change the list, just check everything is fine
+            for rec in self:
+                for membre_id in rec.membre_list_ids:
+                    if not membre_id.clan_principal_id:
+                        # Force update clan principal
+                        # TODO support to remove clan principal
+                        membre_id.clan_principal_id = rec.id
+        return status
+
     def get_image_url(self, field="image"):
         # field can be image_medium or image_small
         # website_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
