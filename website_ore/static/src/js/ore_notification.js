@@ -177,6 +177,12 @@ odoo.define('website.ore_notification', function (require) {
                             has_beep = true;
                         }
                         has_update = true;
+                        // Special case action about clan acceptation
+                        if (["Demande adhésion clan accepté", "Demande adhésion clan refusé"].includes(data.type_notification)) {
+                            if (window.location.pathname.startsWith("/ore/ore_clan/")) {
+                                window.location.reload();
+                            }
+                        }
                     }
                 } else if (channel === canal_notif_echange_update) {
                     let data = message.data;

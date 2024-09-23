@@ -245,7 +245,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.generate_url_notification = function(notif) {
             if (["Nouvelle demande de service","Réponse à votre demande", "Demande de service", "Transaction validée"].includes(notif.type_notification)) {
                 return "/monactivite/echange" + $scope.url_debug + "#!?echange=" + notif.echange_service_id;
-            } else if (["Invitation clan", "Invitation clan update"].includes(notif.type_notification)) {
+            } else if (["Demande adhésion clan accepté", "Demande adhésion clan refusé", "Invitation clan", "Invitation clan update"].includes(notif.type_notification)) {
                 return "/ore/ore_clan/" + notif.clan_invited_id;
             } else if (["Demande adhésion clan"].includes(notif.type_notification)) {
                 return "/communaute/membres#!?action_membre=demande_adhesion";
@@ -1107,7 +1107,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
                         // Force to reload, more easy!
                         window.location.reload();
                     }
-                    console.error("miss");
                     // Process all the angularjs watchers
                     $scope.$digest();
                 }).fail(function (error, ev) {
@@ -1179,7 +1178,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     }
                 }
             } else if (window.location.pathname === "/communaute/membres") {
-                console.error("outch")
                 let action_membre = $location.search()["action_membre"];
                 console.error($scope.page_communaute_clan_info_select_member);
                 if (!_.isUndefined(action_membre)) {

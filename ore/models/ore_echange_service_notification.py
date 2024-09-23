@@ -39,7 +39,11 @@ class OREEchangeServiceNotification(models.Model):
             ("Transaction validée", "Transaction validée"),
             ("Invitation clan", "Invitation clan"),
             ("Demande adhésion clan", "Demande d'adhésion clan"),
-            ("Invitation clan update", "Invitation clan update"),
+            (
+                "Demande adhésion clan accepté",
+                "Demande d'adhésion accepté clan",
+            ),
+            ("Demande adhésion clan refusé", "Demande d'adhésion refusé clan"),
             ("Clan creation", "Création d'un nouveau clan"),
         ],
         track_visibility="onchange",
@@ -54,6 +58,12 @@ class OREEchangeServiceNotification(models.Model):
     membre_id = fields.Many2one(
         comodel_name="ore.membre",
         string="Membre notifié",
+        track_visibility="onchange",
+    )
+
+    membre_from_id = fields.Many2one(
+        comodel_name="ore.membre",
+        string="Membre concerné",
         track_visibility="onchange",
     )
 
@@ -145,7 +155,8 @@ class OREEchangeServiceNotification(models.Model):
             if rec.clan_invited_id:
                 if rec.type_notification == "Demande adhésion clan":
                     lst_msg.append(
-                        f"Adhésion au clan : '{rec.clan_invited_id.name}'"
+                        f"«{rec.membre_from_id.name}» voudrait rejoindre le"
+                        f" clan «{rec.clan_invited_id.name}»"
                     )
                 else:
                     lst_msg.append(

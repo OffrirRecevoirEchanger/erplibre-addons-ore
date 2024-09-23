@@ -20,6 +20,7 @@
                     <group>
                         <field name="echange_service_id" />
                         <field name="membre_id" />
+                        <field name="membre_from_id" />
                         <field name="type_notification" />
                         <field name="is_read" />
                         <field name="clan_invited_id" />
