@@ -1192,6 +1192,32 @@ odoo.define('website.ore_angularjs_global', function (require) {
             $scope.lst_notification_unread = $scope.lst_notification.filter(item => $scope.notif_filter_unread(item) === true);
         }
 
+        $scope.notification_make_is_read = function (notif) {
+            ajax.jsonRpc("/ore/set_notif_read", "call", {
+                "notif_id": notif.id,
+            }).then(function (data) {
+                console.debug("AJAX receive /ore/set_notif_read");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty '/ore/set_notif_read' data";
+                    console.error($scope.error);
+                } else {
+                    notif.is_read = data.is_read;
+                }
+
+                // Process all the angularjs watchers
+                $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
+            })
+            // notif.is_read = true;
+            $scope.refresh_lst_notification();
+            // console.error(notif)
+        }
+
         $scope.notif_filter_unread = function (notif) {
             return !_.isUndefined(notif.is_read) && !notif.is_read;
         }

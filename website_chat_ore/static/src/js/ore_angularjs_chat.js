@@ -222,6 +222,32 @@ odoo.define('website.ore_angularjs_chat', function (require) {
             }
         }
 
+        $scope.$scope_main.message_make_is_read = function (msg) {
+            console.error(msg)
+            // ajax.jsonRpc("/ore/set_message_read", "call", {
+            //     "id_group": msg.id_group,
+            // }).then(function (data) {
+            //     console.debug("AJAX receive /ore/set_message_read");
+            //     if (data.error || !_.isUndefined(data.error)) {
+            //         $scope.$scope_main.error = data.error;
+            //         console.error($scope.$scope_main.error);
+            //     } else if (_.isEmpty(data)) {
+            //         $scope.$scope_main.error = "Empty '/ore/set_message_read' data";
+            //         console.error($scope.$scope_main.error);
+            //     } else {
+            //         msg.is_read = data.is_read;
+            //     }
+            //
+            //     // Process all the angularjs watchers
+            //     $scope.$digest();
+            // }).fail(function (error, ev) {
+            //     console.error(error);
+            //     $scope.$scope_main.check_need_login(error);
+            // })
+            msg.is_read = !msg.is_read;
+            // $scope.refresh_lst_notification();
+            // console.error(notif)
+        }
     }])
 
     let OREAngularJSChat = Widget.extend({

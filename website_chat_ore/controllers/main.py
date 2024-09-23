@@ -137,3 +137,17 @@ class OREController(http.Controller):
 
         status = {"msg_id": message_id.id, "msg": msg}
         return status
+
+    @http.route(
+        "/ore/set_message_read",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def ore_set_message_read(self, **kw):
+        # Set read or unread a message
+        i_msg_id = kw.get("id_group")
+        msg_id = http.request.env["ore.chat.group"].browse(i_msg_id)
+        msg_id.is_read = not msg_id.is_read
+        return {"is_read": msg_id.is_read}

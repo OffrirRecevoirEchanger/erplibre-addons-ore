@@ -44,6 +44,7 @@ class OREEchangeServiceNotification(models.Model):
                 "Demande d'adhésion accepté clan",
             ),
             ("Demande adhésion clan refusé", "Demande d'adhésion refusé clan"),
+            # ("Invitation clan update", "Invitation clan update"),
             ("Clan creation", "Création d'un nouveau clan"),
         ],
         track_visibility="onchange",

@@ -3641,3 +3641,19 @@ class OREController(http.Controller):
             raise Exception(
                 f"The requested language code '{lang_code}' does not exist."
             )
+
+    @http.route(
+        "/ore/set_notif_read",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def ore_set_notif_read(self, **kw):
+        # Set read or unread a notification
+        i_notif_id = kw.get("notif_id")
+        notif_id = http.request.env["ore.echange.service.notification"].browse(
+            i_notif_id
+        )
+        notif_id.is_read = not notif_id.is_read
+        return {"is_read": notif_id.is_read}

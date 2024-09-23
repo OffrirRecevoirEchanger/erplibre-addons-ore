@@ -140,35 +140,51 @@
                             <div class="container_lists">
                                 <div class="row vertical_list">
                                     <h2>Membres</h2>
-                                    <a class="container_explorer" ng-href="/notification#!?section=message&amp;membre={{msg.id}}" ng-repeat="msg in lst_membre_message">
+                                    <div class="container_explorer" ng-repeat="msg in lst_membre_message">
                                         <div class="activite message btn" ng-class="{'read':msg.is_read}">
-                                            <div class="activite_img img-fluid rounded-circle" ng-style="{'background-image': 'url(' + msg.ma_photo + ')'}">
-                                                <div class="unread rounded-circle" ng-if="!msg.is_read" />
-                                            </div>
+                                            <a ng-href="/notification#!?section=message&amp;membre={{msg.id}}">
+                                                <div class="activite_img img-fluid rounded-circle" ng-style="{'background-image': 'url(' + msg.ma_photo + ')'}">
+                                                    <div class="unread rounded-circle" ng-if="!msg.is_read" />
+                                                </div>
 
-                                            <div class="infos">
-                                                <h4 class="message_auteur">{{msg.name}}</h4>
-                                                <p class="message">{{msg.resume_msg}}</p>
-                                            </div>
-                                            <span class="debug_unimplemented ng-cloak">{{msg.last_date}}</span>
+                                                <div class="infos">
+                                                    <h4 class="message_auteur">{{msg.name}}</h4>
+                                                    <p class="message">{{msg.resume_msg}}</p>
+                                                </div>
+                                                <span class="debug_unimplemented ng-cloak">{{msg.last_date}}</span>
+                                            </a>
+                                            <span class="infos right ng-cloak debug_unimplemented">
+                                                <button ng-click="message_make_is_read(msg)">
+                                                    <span ng-if="!msg.is_read">Lu</span>
+                                                    <span ng-if="msg.is_read">Non lu</span>
+                                                </button>
+                                            </span>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
                                 <div class="row vertical_list">
                                     <h2>Clans</h2>
-                                    <a class="container_explorer" ng-href="/notification#!?section=message&amp;clan={{msg.clan_id}}" ng-repeat="msg in lst_clan_message">
-                                        <div class="activite message btn" ng-class="{'read':msg.is_read}">
-                                            <div class="activite_img img-fluid rounded-circle" ng-style="{'background-image': 'url(' + msg.ma_photo + ')'}">
-                                                <div class="unread rounded-circle" ng-if="!msg.is_read" />
-                                            </div>
+                                    <div class="container_explorer">
+                                        <div class="activite message btn" ng-class="{'read':msg.is_read}" ng-repeat="msg in lst_clan_message">
+                                            <a ng-href="/notification#!?section=message&amp;clan={{msg.clan_id}}">
+                                                <div class="activite_img img-fluid rounded-circle" ng-style="{'background-image': 'url(' + msg.ma_photo + ')'}">
+                                                    <div class="unread rounded-circle" ng-if="!msg.is_read" />
+                                                </div>
 
-                                            <div class="infos">
-                                                <h4 class="message_auteur">{{msg.name}}</h4>
-                                                <p class="message">{{msg.resume_msg}}</p>
-                                            </div>
-                                            <span class="debug_unimplemented ng-cloak">{{msg.last_date}}</span>
+                                                <div class="infos">
+                                                    <h4 class="message_auteur">{{msg.name}}</h4>
+                                                    <p class="message">{{msg.resume_msg}}</p>
+                                                </div>
+                                                <span class="debug_unimplemented ng-cloak">{{msg.last_date}}</span>
+                                            </a>
+                                            <span class="infos right ng-cloak debug_unimplemented">
+                                                <button ng-click="message_make_is_read(msg)">
+                                                    <span ng-if="!msg.is_read">Lu</span>
+                                                    <span ng-if="msg.is_read">Non lu</span>
+                                                </button>
+                                            </span>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
                             </div>
                         </section>

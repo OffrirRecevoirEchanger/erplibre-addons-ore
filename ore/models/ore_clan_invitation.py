@@ -141,7 +141,7 @@ class OreClanInvitation(models.Model):
                             value_notif = {
                                 "clan_invited_id": rec.clan_id.id,
                                 "membre_id": id_membre_id,
-                                "date_created": rec.create_date,
+                                # "date_created": rec.create_date,
                                 "type_notification": type_notification,
                             }
                             notif_id = self.env[
@@ -150,8 +150,9 @@ class OreClanInvitation(models.Model):
                     else:
                         # TODO update it
                         # TODO enlever la notification s'il a été accepté, quand le stage est rendu à approuve ou refusé
-                        print("update")
-                    print("ok")
+                        pass
+                        # print("update")
+                    # print("ok")
                 # value_notif = {
                 #     "clan_invited_id": rec.clan_id.id,
                 #     "membre_id": membre_id.id,

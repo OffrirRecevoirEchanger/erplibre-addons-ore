@@ -2841,18 +2841,26 @@
                                     <section class="s_vertical_list_lg pt0 section_notification" ng-if="section=='notification'">
                                         <div class="container_lists">
                                             <div class="row vertical_list">
-                                                <a class="container_explorer" ng-href="{{generate_url_notification(notif)}}" ng-repeat="notif in lst_notification">
+                                                <div class="container_explorer" ng-repeat="notif in lst_notification">
                                                     <div class="activite message btn" ng-class="{'read':notif.is_read}">
-                                                        <div class="activite_img img-fluid rounded-circle" ng-style="{'background-image': 'url(' + notif.membre_photo + ')'}">
-                                                            <div class="unread rounded-circle" ng-if="!notif.is_read" />
-                                                        </div>
-                                                        <div class="infos">
-                                                            <h4 class="message_auteur" ng-cloak="">{{notif.type_notification}}</h4>
-                                                            <p class="message" ng-cloak="">{{notif.name}}</p>
-                                                        </div>
+                                                        <a ng-href="{{generate_url_notification(notif)}}">
+                                                            <div class="activite_img img-fluid rounded-circle" ng-style="{'background-image': 'url(' + notif.membre_photo + ')'}">
+                                                                <div class="unread rounded-circle" ng-if="!notif.is_read" />
+                                                            </div>
+                                                            <div class="infos">
+                                                                <h4 class="message_auteur" ng-cloak="">{{notif.type_notification}}</h4>
+                                                                <p class="message" ng-cloak="">{{notif.name}}</p>
+                                                            </div>
+                                                        </a>
                                                         <span class="debug_unimplemented ng-cloak">5 min</span>
+                                                        <span class="infos right ng-cloak">
+                                                            <button ng-click="notification_make_is_read(notif)">
+                                                                <span ng-if="!notif.is_read">Lu</span>
+                                                                <span ng-if="notif.is_read">Non lu</span>
+                                                            </button>
+                                                        </span>
                                                     </div>
-                                                </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </section>

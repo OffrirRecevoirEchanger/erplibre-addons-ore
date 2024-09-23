@@ -150,7 +150,7 @@ class OreClan(models.Model):
                 # Create notification
                 value_notif = {
                     "clan_new_id": val.id,
-                    "date_created": val.create_date,
+                    # "date_created": val.create_date,
                     "membre_id": val.membre_create_id.id,
                     "broadcast_public": True,
                     "type_notification": "Clan creation",
