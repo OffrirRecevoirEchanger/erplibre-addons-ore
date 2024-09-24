@@ -100,12 +100,14 @@ class OreClanInvitation(models.Model):
             )
             lst_membre_list_edit = []
             for membre_id in membre_ids:
+                remove_notif_invitation = False
                 is_refuse = False
                 if "stage_id" in vals.keys():
                     if rec.stage_id in (
                         self.env.ref("ore.ore_clan_invitation_stage_refuse"),
                     ):
                         is_refuse = True
+                        remove_notif_invitation = True
                     if rec.stage_id in (
                         self.env.ref("ore.ore_clan_invitation_stage_init"),
                         self.env.ref("ore.ore_clan_invitation_stage_refuse"),
@@ -117,9 +119,27 @@ class OreClanInvitation(models.Model):
                     elif rec.stage_id == self.env.ref(
                         "ore.ore_clan_invitation_stage_approuve"
                     ):
+                        remove_notif_invitation = True
                         if membre_id not in membre_list_ids:
                             lst_membre_list_edit.append((4, membre_id.id))
                             dct_notification["accept"].append(membre_id.id)
+                if remove_notif_invitation:
+                    notif_ids = self.env[
+                        "ore.echange.service.notification"
+                    ].search(
+                        [
+                            (
+                                "type_notification",
+                                "=",
+                                "Demande adhésion clan",
+                            ),
+                            ("membre_from_id", "=", membre_id.id),
+                            ("clan_invited_id", "=", rec.clan_id.id),
+                        ]
+                    )
+                    for notif_id in notif_ids:
+                        notif_id.write({"is_read": True, "active": False})
+
             for status_str, lst_membre in dct_notification.items():
                 for id_membre_id in lst_membre:
                     # Notification

@@ -17,6 +17,7 @@
         "data/ir_ui_view.xml",
         "views/ore_chat_group.xml",
         "views/ore_chat_message.xml",
+        "views/ore_notification_chat.xml",
         "views/menu.xml",
     ],
     "installable": True,

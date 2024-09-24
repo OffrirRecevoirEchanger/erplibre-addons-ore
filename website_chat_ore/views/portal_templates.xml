@@ -58,15 +58,17 @@
             <span
                 id="badge_notification_all_count"
                 class="badge-over-fa"
-                ng-if="lst_notification.length > 0 || lst_membre_message.length > 0 || lst_clan_message.length > 0"
+                ng-if="(lst_notification_unread.length + lst_membre_message_unread.length + lst_clan_message_unread.length) > 0"
             >
-                {{lst_notification_unread.length + lst_membre_message.length + lst_clan_message.length}}
+                {{lst_notification_unread.length + lst_membre_message_unread.length + lst_clan_message_unread.length}}
             </span>
             <span style="display:none;">
                 {{lst_notification.length}}
                 {{lst_notification_unread.length}}
                 {{lst_membre_message.length}}
+                {{lst_membre_message_unread.length}}
                 {{lst_clan_message.length}}
+                {{lst_clan_message_unread.length}}
             </span>
         </xpath>
 
@@ -82,13 +84,15 @@
                     ng-href="/notification#!?section=message&amp;membre={{msg.id}}"
                     ng-repeat="msg in lst_membre_message"
                 >
-                    <div class="cat activite btn">
+                    <div class="cat activite btn" ng-class="{'read':msg.is_read}">
                         <img class="activite_img img-fluid rounded-circle" ng-src="{{ msg.ma_photo }}" />
                         <div class="infos">
                             <span class="activite_title">{{msg.resume_msg}}</span>
                             <span class="activite_auteur">{{msg.name}}</span>
                         </div>
                         <div class="infos right">
+                            <span ng-if="!msg.is_read">Non lu</span>
+                            <span ng-if="msg.is_read">Lu</span>
                             <span>{{msg.last_date}}</span>
                         </div>
                     </div>
@@ -99,13 +103,15 @@
                     ng-href="/notification#!?section=message&amp;clan={{msg.clan_id}}"
                     ng-repeat="msg in lst_clan_message"
                 >
-                    <div class="cat activite btn">
+                    <div class="cat activite btn" ng-class="{'read':msg.is_read}">
                         <img class="activite_img img-fluid rounded-circle" ng-src="{{ msg.ma_photo }}" />
                         <div class="infos">
                             <span class="activite_title">{{msg.resume_msg}}</span>
                             <span class="activite_auteur">{{msg.name}}</span>
                         </div>
                         <div class="infos right">
+                            <span ng-if="!msg.is_read">Non lu</span>
+                            <span ng-if="msg.is_read">Lu</span>
                             <span>{{msg.last_date}}</span>
                         </div>
                     </div>

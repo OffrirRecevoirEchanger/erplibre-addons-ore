@@ -3,3 +3,5 @@ ore_chat_group_access_user_types_/_internal_user,ore_chat_group Access User type
 ore_chat_group_access_user_types_/_portal,ore_chat_group Access User types / Portal,model_ore_chat_group,base.group_portal,1,1,1,1
 ore_chat_message_access_user_types_/_internal_user,ore_chat_message Access User types / Internal User,model_ore_chat_message,base.group_user,1,1,1,1
 ore_chat_message_access_user_types_/_portal,ore_chat_message Access User types / Portal,model_ore_chat_message,base.group_portal,1,1,1,1
+ore_notification_chat_access_user_types_/_internal_user,ore_notification_chat Access User types / Internal User,model_ore_notification_chat,base.group_user,1,1,1,1
+ore_notification_chat_access_user_types_/_portal,ore_notification_chat Access User types / Portal,model_ore_notification_chat,base.group_portal,1,1,1,1

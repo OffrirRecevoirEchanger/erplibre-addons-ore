@@ -2855,7 +2855,7 @@
                                                         <span class="debug_unimplemented ng-cloak">5 min</span>
                                                         <span class="infos right ng-cloak">
                                                             <button ng-click="notification_make_is_read(notif)">
-                                                                <span ng-if="!notif.is_read">Lu</span>
+                                                                <span ng-if="!notif.is_read">J'ai lu</span>
                                                                 <span ng-if="notif.is_read">Non lu</span>
                                                             </button>
                                                         </span>

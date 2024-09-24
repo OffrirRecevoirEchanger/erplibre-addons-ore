@@ -19,15 +19,25 @@ odoo.define('website.ore_angularjs_chat', function (require) {
         $scope.$scope_main.enable_chat = false
 
         $scope.$scope_main.lst_clan_message = [];
+        $scope.$scope_main.lst_clan_message_unread = [];
         $scope.$scope_main.section_clan = "";
         $scope.$scope_main.default_section_clan = "";
         $scope.$scope_main.section_clan_dct = undefined;
 
         $scope.$scope_main.lst_membre_message = [];
+        $scope.$scope_main.lst_membre_message_unread = [];
         $scope.$scope_main.section_membre = "";
         $scope.$scope_main.default_section_membre = "";
         $scope.$scope_main.section_membre_dct = undefined;
         $scope.$scope_main.hide_votre_contact_to_contact = false;
+
+        $scope.$scope_main.refresh_lst_clan_message = function () {
+            $scope.$scope_main.lst_clan_message_unread = $scope.$scope_main.lst_clan_message.filter(item => $scope.$scope_main.notif_filter_unread(item) === true);
+        }
+
+        $scope.$scope_main.refresh_lst_membre_message = function () {
+            $scope.$scope_main.lst_membre_message_unread = $scope.$scope_main.lst_membre_message.filter(item => $scope.$scope_main.notif_filter_unread(item) === true);
+        }
 
         $scope.update_db_my_personal_chat = function () {
             ajax.jsonRpc("/ore/get_personal_chat_information", "call", {}).then(function (data) {
@@ -41,7 +51,9 @@ odoo.define('website.ore_angularjs_chat', function (require) {
                 } else {
                     $scope.error = "";
                     $scope.$scope_main.lst_membre_message = data.lst_membre_message;
+                    $scope.$scope_main.refresh_lst_membre_message()
                     $scope.$scope_main.lst_clan_message = data.lst_clan_message;
+                    $scope.$scope_main.refresh_lst_clan_message()
                 }
 
                 // Process all the angularjs watchers
@@ -223,30 +235,31 @@ odoo.define('website.ore_angularjs_chat', function (require) {
         }
 
         $scope.$scope_main.message_make_is_read = function (msg) {
-            console.error(msg)
-            // ajax.jsonRpc("/ore/set_message_read", "call", {
-            //     "id_group": msg.id_group,
-            // }).then(function (data) {
-            //     console.debug("AJAX receive /ore/set_message_read");
-            //     if (data.error || !_.isUndefined(data.error)) {
-            //         $scope.$scope_main.error = data.error;
-            //         console.error($scope.$scope_main.error);
-            //     } else if (_.isEmpty(data)) {
-            //         $scope.$scope_main.error = "Empty '/ore/set_message_read' data";
-            //         console.error($scope.$scope_main.error);
-            //     } else {
-            //         msg.is_read = data.is_read;
-            //     }
-            //
-            //     // Process all the angularjs watchers
-            //     $scope.$digest();
-            // }).fail(function (error, ev) {
-            //     console.error(error);
-            //     $scope.$scope_main.check_need_login(error);
-            // })
-            msg.is_read = !msg.is_read;
+            // console.error(msg)
+            ajax.jsonRpc("/ore/set_message_read", "call", {
+                "notif_id": msg.notif_id,
+            }).then(function (data) {
+                console.debug("AJAX receive /ore/set_message_read");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.$scope_main.error = data.error;
+                    console.error($scope.$scope_main.error);
+                } else if (_.isEmpty(data)) {
+                    $scope.$scope_main.error = "Empty '/ore/set_message_read' data";
+                    console.error($scope.$scope_main.error);
+                } else {
+                    msg.is_read = data.is_read;
+                    $scope.$scope_main.refresh_lst_clan_message()
+                    $scope.$scope_main.refresh_lst_membre_message()
+                }
+
+                // Process all the angularjs watchers
+                $scope.$scope_main.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.$scope_main.check_need_login(error);
+            })
+            // msg.is_read = !msg.is_read;
             // $scope.refresh_lst_notification();
-            // console.error(notif)
         }
     }])
 

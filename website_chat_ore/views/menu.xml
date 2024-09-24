@@ -29,4 +29,12 @@
         sequence="3"
         parent="group_message"
     />
+
+    <menuitem
+        id="notification_chat"
+        name="Notification chat"
+        action="ore_notification_chat_notification_chat_action_window"
+        sequence="4"
+        parent="group_message"
+    />
 </odoo>

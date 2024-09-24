@@ -63,8 +63,9 @@ class OREChatMessage(models.Model):
             if rec.msg_group_id.group_clan_id:
                 data["group_clan_id"] = rec.msg_group_id.group_clan_id.id
             membre_ids = rec.msg_group_id.membre_ids
-            if not membre_ids:
-                membre_ids = rec.msg_group_id.clan_id.membre_list_ids
+            for membre_id in rec.msg_group_id.clan_id.membre_list_ids:
+                if membre_id not in membre_ids:
+                    membre_ids += membre_id
             for membre_id in membre_ids:
                 # Update value for the other member
                 if len(membre_ids) > 1:

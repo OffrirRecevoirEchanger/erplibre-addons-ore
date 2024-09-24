@@ -54,21 +54,63 @@ class OREController(http.Controller):
             # This is an error
             return membre_id
 
-        lst_membre_message = [
-            a.first_to_json(membre_id.id)
-            for a in http.request.env["ore.chat.group"].search(
-                [("membre_ids", "in", [membre_id.id])]
+        lst_membre_message = []
+        membre_message_ids = http.request.env["ore.chat.group"].search(
+            [("membre_ids", "in", [membre_id.id])]
+        )
+        for membre_message_id in membre_message_ids:
+            if membre_message_id.clan_id or membre_message_id.group_clan_id:
+                continue
+            dct_membre_message = membre_message_id.first_to_json(membre_id.id)
+            notif_membre_id = http.request.env["ore.notification.chat"].search(
+                [
+                    ("group_id", "=", membre_message_id.id),
+                    ("membre_notify_id", "=", membre_id.id),
+                ]
             )
-            if not a.clan_id and not a.group_clan_id
-        ]
+            # Add notification
+            if not notif_membre_id:
+                # Create new notification
+                value_notif = {
+                    "group_id": membre_message_id.id,
+                    "membre_notify_id": membre_id.id,
+                    "is_read": False,
+                }
+                notif_membre_id = http.request.env[
+                    "ore.notification.chat"
+                ].create(value_notif)
+            dct_membre_message["is_read"] = notif_membre_id.is_read
+            dct_membre_message["notif_id"] = notif_membre_id.id
+            lst_membre_message.append(dct_membre_message)
 
-        lst_clan_message = [
-            a.first_to_json()
-            for a in http.request.env["ore.chat.group"].search(
-                [("clan_id", "in", membre_id.clan_participe_ids.ids)]
+        lst_clan_message = []
+        clan_message_ids = http.request.env["ore.chat.group"].search(
+            [("clan_id", "in", membre_id.clan_participe_ids.ids)]
+        )
+        for clan_message_id in clan_message_ids:
+            if not clan_message_id.clan_id:
+                continue
+            dct_clan_message = clan_message_id.first_to_json()
+            notif_clan_id = http.request.env["ore.notification.chat"].search(
+                [
+                    ("group_id", "=", clan_message_id.id),
+                    ("membre_notify_id", "=", membre_id.id),
+                ]
             )
-            if a.clan_id
-        ]
+            # Add notification
+            if not notif_clan_id:
+                # Create new notification
+                value_notif = {
+                    "group_id": clan_message_id.id,
+                    "membre_notify_id": membre_id.id,
+                    "is_read": False,
+                }
+                notif_clan_id = http.request.env[
+                    "ore.notification.chat"
+                ].create(value_notif)
+            dct_clan_message["is_read"] = notif_clan_id.is_read
+            dct_clan_message["notif_id"] = notif_clan_id.id
+            lst_clan_message.append(dct_clan_message)
 
         return {
             "lst_membre_message": lst_membre_message,
@@ -135,6 +177,38 @@ class OREController(http.Controller):
         }
         message_id = http.request.env["ore.chat.message"].create(value)
 
+        # Remove notification for this user
+        notif_ids = http.request.env["ore.notification.chat"].search(
+            [
+                ("group_id", "=", group_id),
+                ("is_read", "=", False),
+                ("membre_notify_id", "=", me_membre_id.id),
+            ]
+        )
+        for notif_id in notif_ids:
+            notif_id.write({"is_read": True})
+
+        # Update notification for other users
+        group_obj_id = http.request.env["ore.chat.group"].browse(group_id)
+        if group_obj_id:
+            lst_membre_to_notify = [a for a in group_obj_id.membre_ids]
+            if not lst_membre_to_notify and group_obj_id.clan_id:
+                lst_membre_to_notify = [
+                    a for a in group_obj_id.clan_id.membre_list_ids
+                ]
+            if me_membre_id in lst_membre_to_notify:
+                lst_membre_to_notify.remove(me_membre_id)
+            for membre_obj_id in lst_membre_to_notify:
+                notif_ids = http.request.env["ore.notification.chat"].search(
+                    [
+                        ("group_id", "=", group_id),
+                        ("is_read", "=", True),
+                        ("membre_notify_id", "=", membre_obj_id.id),
+                    ]
+                )
+                for notif_id in notif_ids:
+                    notif_id.write({"is_read": False})
+
         status = {"msg_id": message_id.id, "msg": msg}
         return status
 
@@ -147,7 +221,10 @@ class OREController(http.Controller):
     )
     def ore_set_message_read(self, **kw):
         # Set read or unread a message
-        i_msg_id = kw.get("id_group")
-        msg_id = http.request.env["ore.chat.group"].browse(i_msg_id)
-        msg_id.is_read = not msg_id.is_read
-        return {"is_read": msg_id.is_read}
+        # TODO better to force goal value and not only switch
+        notif_id_i = kw.get("notif_id")
+        msg_id = http.request.env["ore.notification.chat"].browse(notif_id_i)
+        if msg_id:
+            msg_id.is_read = not msg_id.is_read
+            return {"is_read": msg_id.is_read}
+        return {"error": f"Cannot find notif id '{notif_id_i}'"}

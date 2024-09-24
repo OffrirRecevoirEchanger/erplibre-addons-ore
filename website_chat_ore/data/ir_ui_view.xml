@@ -153,9 +153,9 @@
                                                 </div>
                                                 <span class="debug_unimplemented ng-cloak">{{msg.last_date}}</span>
                                             </a>
-                                            <span class="infos right ng-cloak debug_unimplemented">
+                                            <span class="infos right ng-cloak">
                                                 <button ng-click="message_make_is_read(msg)">
-                                                    <span ng-if="!msg.is_read">Lu</span>
+                                                    <span ng-if="!msg.is_read">J'ai lu</span>
                                                     <span ng-if="msg.is_read">Non lu</span>
                                                 </button>
                                             </span>
@@ -177,9 +177,9 @@
                                                 </div>
                                                 <span class="debug_unimplemented ng-cloak">{{msg.last_date}}</span>
                                             </a>
-                                            <span class="infos right ng-cloak debug_unimplemented">
+                                            <span class="infos right ng-cloak">
                                                 <button ng-click="message_make_is_read(msg)">
-                                                    <span ng-if="!msg.is_read">Lu</span>
+                                                    <span ng-if="!msg.is_read">J'ai lu</span>
                                                     <span ng-if="msg.is_read">Non lu</span>
                                                 </button>
                                             </span>
