@@ -91,8 +91,8 @@
                                         class="fa icon_padding_right"
                                         ng-class="{'fa-heart': offre_service_info.is_favorite, 'fa-heart-o': !offre_service_info.is_favorite}"
                                     />
-                                    <span ng-show="!offre_service_info.is_favorite">Ajouter à mes favoris</span>
-                                    <span ng-show="offre_service_info.is_favorite">Retirer de mes favoris</span>
+                                    <span ng-if="!offre_service_info.is_favorite">Ajouter à mes favoris</span>
+                                    <span ng-if="offre_service_info.is_favorite">Retirer de mes favoris</span>
                                 </div>
                             </div>
                         </section>
@@ -498,8 +498,8 @@
                                         class="fa icon_padding_right"
                                         ng-class="{'fa-heart': demande_service_info.is_favorite, 'fa-heart-o': !demande_service_info.is_favorite}"
                                     />
-                                    <span ng-show="!demande_service_info.is_favorite">Ajouter à mes favoris</span>
-                                    <span ng-show="demande_service_info.is_favorite">Retirer de mes favoris</span>
+                                    <span ng-if="!demande_service_info.is_favorite">Ajouter à mes favoris</span>
+                                    <span ng-if="demande_service_info.is_favorite">Retirer de mes favoris</span>
                                 </div>
                             </div>
                         </section>
@@ -961,9 +961,9 @@
                                             ng-if="!_.isEmpty(link.html)"
                                             ng-bind-html="link.html | unsafe"
                                         />
-                                        <h1 ng-show="state.message" ng-cloak="">{{state.message}}</h1>
+                                        <h1 ng-if="state.message" ng-cloak="">{{state.message}}</h1>
                                     </div>
-                                    <div ng-show="!_.isEmpty(error)">
+                                    <div ng-if="!_.isEmpty(error)">
                                         <br />
                                         <span style="color:red;" ng-cloak="">Erreur : {{error}}</span>
                                     </div>
@@ -2461,7 +2461,7 @@
                     <div
                         class="nbr"
                         ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.message_accueil)}"
-                        ng-show="ask_modification_clan || page_communaute_clan_info.is_clan_admin"
+                        ng-if="ask_modification_clan || page_communaute_clan_info.is_clan_admin"
                     >
                         <span class="txt">Message d'accueil</span>
                         <q
@@ -2475,7 +2475,7 @@
                     <div
                         class="nbr"
                         ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.description)}"
-                        ng-show="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.description) &amp;&amp; !_.isEmpty(page_communaute_clan_info.description)"
+                        ng-if="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.description) &amp;&amp; !_.isEmpty(page_communaute_clan_info.description)"
                     >
                         <span class="txt">Description</span>
                         <div
@@ -2495,7 +2495,7 @@
                     <div
                         class="nbr"
                         ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.besoin_comble)}"
-                        ng-show="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.besoin_comble) &amp;&amp; !_.isEmpty(page_communaute_clan_info.besoin_comble)"
+                        ng-if="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.besoin_comble) &amp;&amp; !_.isEmpty(page_communaute_clan_info.besoin_comble)"
                     >
                         <span class="txt">Besoin(s) commun(s)</span>
                         <div

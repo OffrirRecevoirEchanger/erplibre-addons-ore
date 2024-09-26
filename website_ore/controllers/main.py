@@ -124,7 +124,7 @@ class OREController(http.Controller):
         auth="public",
         website=True,
     )
-    def get_page_ore_clan(self, ore_clan=None):
+    def get_page_ore_clan(self, ore_clan=None, **kw):
         env = request.env(context=dict(request.env.context))
 
         ore_clan_cls = env["ore.clan"]
@@ -262,7 +262,7 @@ class OREController(http.Controller):
     @http.route(
         ["/ore/ore_clan_list"], type="json", auth="public", website=True
     )
-    def get_ore_clan_list(self):
+    def get_ore_clan_list(self, **kw):
         env = request.env(context=dict(request.env.context))
 
         ore_clan_cls = env["ore.clan"]
