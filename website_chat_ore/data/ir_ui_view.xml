@@ -30,6 +30,11 @@
                                     <i class="fa fa-arrow-left text-primary" />
                                     Revenir à mes messages
                                 </a>
+                                <button ng-click="message_make_is_read($parent.section_membre_dct)" ng-if="!_.isUndefined($parent.section_membre_dct) &amp;&amp; _.isNumber($parent.section_membre_dct.id_group)">
+                                    Mettre notification du message à
+                                    <span ng-if="!$parent.section_membre_dct.is_read">lu</span>
+                                    <span ng-if="$parent.section_membre_dct.is_read">non lu</span>
+                                </button>
                                 <div class="actions">
                                     <a ng-if="!_.isUndefined($parent.section_membre_dct) &amp;&amp; _.isNumber($parent.section_membre_dct.id_group)" ng-href="https://meet.jit.si/ore_conference_{{$parent.section_membre_dct.id_group}}_jitsi">
                                         <div>
@@ -79,6 +84,11 @@
                                     <i class="fa fa-arrow-left text-primary" />
                                     Revenir à mes messages
                                 </a>
+                                <button ng-click="message_make_is_read($parent.section_clan_dct)" ng-if="!_.isUndefined($parent.section_clan_dct) &amp;&amp; _.isNumber($parent.section_clan_dct.id_group)">
+                                    Mettre notification du message à
+                                    <span ng-if="!$parent.section_clan_dct.is_read">lu</span>
+                                    <span ng-if="$parent.section_clan_dct.is_read">non lu</span>
+                                </button>
                                 <div class="actions">
                                     <a ng-if="!_.isUndefined($parent.section_clan_dct) &amp;&amp; _.isNumber($parent.section_clan_dct.id_group)" ng-href="https://meet.jit.si/ore_conference_{{$parent.section_clan_dct.id_group}}_jitsi">
                                         <div>
@@ -140,6 +150,7 @@
                             <div class="container_lists">
                                 <div class="row vertical_list">
                                     <h2>Membres</h2>
+                                    <button ng-click="notification_toute_lu('membre')">Marquer toutes les notifications de membres comme lues.</button>
                                     <div class="container_explorer" ng-repeat="msg in lst_membre_message">
                                         <div class="activite message btn" ng-class="{'read':msg.is_read}">
                                             <a ng-href="/notification#!?section=message&amp;membre={{msg.id}}">
@@ -164,6 +175,7 @@
                                 </div>
                                 <div class="row vertical_list">
                                     <h2>Clans</h2>
+                                    <button ng-click="notification_toute_lu('group')">Marquer toutes les notifications de clans comme lues.</button>
                                     <div class="container_explorer">
                                         <div class="activite message btn" ng-class="{'read':msg.is_read}" ng-repeat="msg in lst_clan_message">
                                             <a ng-href="/notification#!?section=message&amp;clan={{msg.clan_id}}">

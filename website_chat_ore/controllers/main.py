@@ -228,3 +228,44 @@ class OREController(http.Controller):
             msg_id.is_read = not msg_id.is_read
             return {"is_read": msg_id.is_read}
         return {"error": f"Cannot find notif id '{notif_id_i}'"}
+
+    @http.route(
+        "/ore/notification_toute_lu",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def ore_notification_toute_lu(self, **kw):
+        # Set read or unread a message
+        membre_id_i = kw.get("membre_id_i")
+        type_notif = kw.get("type")
+        if type_notif == "membre":
+            msg_ids = http.request.env["ore.notification.chat"].search(
+                [
+                    ("membre_notify_id", "=", membre_id_i),
+                    ("group_id.clan_id", "=", False),
+                ]
+            )
+        elif type_notif == "group":
+            msg_ids = http.request.env["ore.notification.chat"].search(
+                [
+                    ("membre_notify_id", "=", membre_id_i),
+                    ("group_id.clan_id", "!=", False),
+                ]
+            )
+        elif type_notif == "notif":
+            # TODO Need to be into module website_ore or ore, not website_chat_ore
+            msg_ids = http.request.env[
+                "ore.echange.service.notification"
+            ].search([("membre_id", "=", membre_id_i)])
+        else:
+            return {
+                "error": (
+                    "Cannot find notification type to set as read. Receive"
+                    f" notif type {type_notif}"
+                )
+            }
+        for msg_id in msg_ids:
+            msg_id.is_read = True
+        return {"status": True}

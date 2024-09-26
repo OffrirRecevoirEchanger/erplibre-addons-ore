@@ -31,6 +31,45 @@ odoo.define('website.ore_angularjs_chat', function (require) {
         $scope.$scope_main.section_membre_dct = undefined;
         $scope.$scope_main.hide_votre_contact_to_contact = false;
 
+        $scope.$scope_main.notification_toute_lu = function (type) {
+            ajax.jsonRpc("/ore/notification_toute_lu", "call",
+                {"type": type,
+                "membre_id_i": $scope.$scope_main.membre_info.id}
+            ).then(function (data) {
+                console.debug("AJAX receive notification_toute_lu");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty 'notification_toute_lu' data";
+                    console.error($scope.error);
+                } else {
+                    $scope.error = "";
+                    // TODO this is a missing feature, the server need to inform what is read
+                    // Force to read
+                    if (type === "membre") {
+                        for (let i = 0; i < $scope.$scope_main.lst_membre_message.length; i++) {
+                            let msg = $scope.$scope_main.lst_membre_message[i];
+                            msg.is_read = true;
+                        }
+                        $scope.$scope_main.refresh_lst_membre_message()
+                    } else if (type === "group") {
+                        for (let i = 0; i < $scope.$scope_main.lst_clan_message.length; i++) {
+                            let msg = $scope.$scope_main.lst_clan_message[i];
+                            msg.is_read = true;
+                        }
+                        $scope.$scope_main.refresh_lst_clan_message()
+                    }
+                }
+
+                // Process all the angularjs watchers
+                $scope.$scope_main.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
+            })
+        }
+
         $scope.$scope_main.refresh_lst_clan_message = function () {
             $scope.$scope_main.lst_clan_message_unread = $scope.$scope_main.lst_clan_message.filter(item => $scope.$scope_main.notif_filter_unread(item) === true);
         }
@@ -316,6 +355,7 @@ odoo.define('website.ore_angularjs_chat', function (require) {
             let $scope = angular.element($("[ng-app]")).scope();
             let has_beep = false;
             let has_update = false;
+            let is_refresh_is_read = false;
             let canal_notif_chat_msg_update = JSON.stringify([$scope.global.dbname, "ore.chat.message", $scope.personal.id]);
             for (let i = 0; i < notifications.length; i++) {
                 let notification = notifications[i];
@@ -347,6 +387,9 @@ odoo.define('website.ore_angularjs_chat', function (require) {
                         let membre_dct_by_clan = $scope.lst_clan_message.find(ele => ele.id_group === data.group_id)
                         let membre_dct_by_membre = $scope.lst_membre_message.find(ele => ele.id === data.membre_id)
                         if (!_.isUndefined(membre_dct_by_group)) {
+                            // Notification is read
+                            membre_dct_by_group.is_read = data.m_id === $scope.personal.id;
+                            is_refresh_is_read = true;
                             // find if message already, or add it!
                             let existing_msg = membre_dct_by_group.lst_msg.find(ele => ele.id === data.id)
                             if (_.isUndefined(existing_msg)) {
@@ -364,6 +407,9 @@ odoo.define('website.ore_angularjs_chat', function (require) {
                                 console.warn(data);
                             }
                         } else if (!_.isUndefined(membre_dct_by_clan)) {
+                            // Notification is read
+                            membre_dct_by_clan.is_read = data.m_id === $scope.personal.id;
+                            is_refresh_is_read = true;
                             // find if message already, or add it!
                             let existing_msg = membre_dct_by_clan.lst_msg.find(ele => ele.id === data.id)
                             if (_.isUndefined(existing_msg)) {
@@ -375,6 +421,9 @@ odoo.define('website.ore_angularjs_chat', function (require) {
                                 console.warn(data);
                             }
                         } else if (!_.isUndefined(membre_dct_by_membre)) {
+                            // Notification is read
+                            membre_dct_by_membre.is_read = data.m_id === $scope.personal.id;
+                            is_refresh_is_read = true;
                             // Check if temporary exist
                             let group_data = {
                                 "id": data.membre_id,
@@ -404,6 +453,10 @@ odoo.define('website.ore_angularjs_chat', function (require) {
                         has_update = true;
                     }
                 }
+            }
+            if (is_refresh_is_read) {
+                $scope.refresh_lst_clan_message()
+                $scope.refresh_lst_membre_message()
             }
             if (has_update) {
                 // $scope.$apply();

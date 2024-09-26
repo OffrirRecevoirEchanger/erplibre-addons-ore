@@ -635,6 +635,17 @@
                                     <div class="dropdown-cat">
                                         <div id="tabMessages" class="navbar-tab menu_chat" style="display:none;" />
                                         <div id="tabNotifications" class="navbar-tab">
+                                            <a
+                                                role="menuitem"
+                                                href="/notification#!?section=notification"
+                                                class="dropdown-item"
+                                            >
+                                                <div class="cat activite btn btn-primary">
+                                                    <font class="adapt-text-primary-color" style="font-size: 1rem;">
+                                                        Voir toutes les notifications
+                                                    </font>
+                                                </div>
+                                            </a>
                                             <div class="tab-items-container">
                                                 <a
                                                     role="menuitem"
@@ -665,17 +676,6 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <a
-                                                role="menuitem"
-                                                href="/notification#!?section=notification"
-                                                class="dropdown-item"
-                                            >
-                                                <div class="cat activite btn btn-primary">
-                                                    <font class="adapt-text-primary-color" style="font-size: 1rem;">
-                                                        Voir toutes les notifications
-                                                    </font>
-                                                </div>
-                                            </a>
                                         </div>
                                     </div>
                                 </div>

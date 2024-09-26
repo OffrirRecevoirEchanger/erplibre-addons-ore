@@ -77,6 +77,11 @@
         </xpath>
 
         <xpath expr="//div[hasclass('menu_chat')]" position="inside">
+            <a role="menuitem" href="/notification#!?section=message" class="dropdown-item">
+                <div class="cat activite btn btn-primary">
+                    <font class="adapt-text-primary-color" style="font-size: 1rem;">Voir tous les messages</font>
+                </div>
+            </a>
             <div class="tab-items-container">
                 <a
                     role="menuitem"
@@ -117,11 +122,6 @@
                     </div>
                 </a>
             </div>
-            <a role="menuitem" href="/notification#!?section=message" class="dropdown-item">
-                <div class="cat activite btn btn-primary">
-                    <font class="adapt-text-primary-color" style="font-size: 1rem;">Voir tous les messages</font>
-                </div>
-            </a>
         </xpath>
     </template>
 </odoo>
