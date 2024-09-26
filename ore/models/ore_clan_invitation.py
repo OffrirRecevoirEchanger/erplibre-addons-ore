@@ -154,9 +154,9 @@ class OreClanInvitation(models.Model):
                     if not notif_exist_id:
                         if rec.active:
                             type_notification = (
-                                "Demande adhésion clan accepté"
+                                "Demande adhésion clan acceptée"
                                 if status_str == "accept"
-                                else "Demande adhésion clan refusé"
+                                else "Demande adhésion clan refusée"
                             )
                             value_notif = {
                                 "clan_invited_id": rec.clan_id.id,

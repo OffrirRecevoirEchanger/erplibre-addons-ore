@@ -327,6 +327,7 @@ odoo.define("website.ore.participer", function (require) {
         $scope.form_time_service = "";
         $scope.form_copy_date_service = "";
         $scope.form_copy_time_service = "";
+        $scope.form_click_submit = false;
         $scope.form_is_modifying_date_service = false;
         $scope.form_is_modifying_time_service = false;
         $scope.tmpForm = {
@@ -380,7 +381,7 @@ odoo.define("website.ore.participer", function (require) {
         }
 
         $scope.formCanSend = function () {
-            return !($scope.form_is_modifying_date_service || $scope.form_is_modifying_time_service)
+            return !($scope.form_is_modifying_date_service || $scope.form_is_modifying_time_service || $scope.form_click_submit)
         }
 
         $scope.init_workflow = function () {
@@ -453,6 +454,7 @@ odoo.define("website.ore.participer", function (require) {
         }
 
         $scope.init_controller = function (state = INIT_STATE) {
+            $scope.form_click_submit = false;
             // $scope.has_init = true;
             $scope.stack_breadcrumb_state = [];
             if (state !== INIT_STATE) {
@@ -924,6 +926,7 @@ odoo.define("website.ore.participer", function (require) {
         $scope.submit_ctc_form = function () {
             let copiedForm = JSON.parse(JSON.stringify($scope.form));
             console.log(copiedForm);
+            $scope.form_click_submit = true;
             let url = "/ore/ctc/form/submit"
             ajax.jsonRpc(url, "call", copiedForm).then(function (data) {
                 if (data.error) {
@@ -981,6 +984,7 @@ odoo.define("website.ore.participer", function (require) {
             }
 
             console.log(copiedForm);
+            $scope.form_click_submit = true;
             let url = "/ore/participer/form/submit"
             ajax.jsonRpc(url, "call", copiedForm).then(function (data) {
                     console.debug("AJAX receive submit_form");

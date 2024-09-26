@@ -2152,7 +2152,7 @@
                                         <select name="lst_show_list_member" id="member_type_select" ng-model="page_communaute_clan_info_select_member.info_select">
                                             <option value="membre_actif">Membres actifs</option>
                                             <option value="demande_adhesion">Demande d'adhésion</option>
-                                            <option value="demande_adhesion_refuse">Demande d'adhésion refusé</option>
+                                            <option value="demande_adhesion_refuse">Demande d'adhésion refusée</option>
                                         </select>
                                     </div>
                                     <div class="horizontal_list" ng-if="page_communaute_clan_info_select_member.info_select == 'membre_actif'">
@@ -4109,7 +4109,7 @@
                                                 <span>Accepter</span>
                                                 <!--                                                </a>-->
                                             </div>
-                                            <div class="btn btn-primary adapt-text-primary-color">
+                                            <div class="btn btn-primary adapt-text-primary-color" ng-if="!echange_service_info.estAcheteur">
                                                 <a ng-href="{{get_href_participer_service_effectue(echange_service_info)}}" class="adapt-text-primary-color">
                                                     <i class="fa fa-check" />
                                                     <span>Service effectué</span>

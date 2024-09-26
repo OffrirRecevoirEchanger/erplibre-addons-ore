@@ -243,9 +243,9 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.languesCount = 0;
 
         $scope.generate_url_notification = function(notif) {
-            if (["Nouvelle demande de service","Réponse à votre demande", "Demande de service", "Transaction validée"].includes(notif.type_notification)) {
+            if (["Nouvelle demande de service","Réponse à votre demande", "Demande de service", "Transaction validée", "Proposition de service"].includes(notif.type_notification)) {
                 return "/monactivite/echange" + $scope.url_debug + "#!?echange=" + notif.echange_service_id;
-            } else if (["Demande adhésion clan accepté", "Demande adhésion clan refusé", "Invitation clan", "Invitation clan update"].includes(notif.type_notification)) {
+            } else if (["Demande adhésion clan acceptée", "Demande adhésion clan refusée", "Invitation clan", "Invitation clan update"].includes(notif.type_notification)) {
                 return "/ore/ore_clan/" + notif.clan_invited_id;
             } else if (["Demande adhésion clan"].includes(notif.type_notification)) {
                 return "/communaute/membres#!?action_membre=demande_adhesion";
