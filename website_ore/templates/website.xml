@@ -991,7 +991,7 @@
                                                 <!--                                            <i class="fa {{option.icon}}" ng-if="option.icon"/>-->
                                                 <!--                                            <img-->
                                                 <!--                                                class="activite_img img-fluid"-->
-                                                <!--                                                src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"-->
+                                                <!--                                                src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg"-->
                                                 <!--                                            />-->
                                                 <h5 ng-if="option.title" ng-cloak="">{{option.title}}</h5>
                                                 <p
@@ -1041,7 +1041,7 @@
                                                 <!--                                            <i class="fa {{option.icon}}" ng-if="option.icon"/>-->
                                                 <!--                                            <img-->
                                                 <!--                                                class="activite_img img-fluid"-->
-                                                <!--                                                src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"-->
+                                                <!--                                                src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg"-->
                                                 <!--                                            />-->
                                                 <h5 ng-if="option.title" ng-cloak="">{{option.title}}</h5>
                                                 <p
@@ -2165,7 +2165,7 @@
             >
                 <img
                     class="activite_img img-fluid"
-                    src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
+                    src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg"
                     style="flex: 0 0 auto; margin-right: 1em; width: 100px;"
                 />
                 <div class="infos" style="flex: 1;">

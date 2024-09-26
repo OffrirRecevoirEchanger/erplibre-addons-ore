@@ -491,7 +491,7 @@
                                                     <div class="cat activite btn" ng-class="{'read':notif.is_read}">
                                                         <img
                                                             class="activite_img img-fluid"
-                                                            src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
+                                                            src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg"
                                                         />
                                                         <div class="infos">
                                                             <span class="activite_title" ng-cloak="">
@@ -532,7 +532,7 @@
                                                     <div class="cat activite btn" ng-class="{'read':notif.is_read}">
                                                         <img
                                                             class="activite_img img-fluid"
-                                                            src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
+                                                            src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg"
                                                         />
                                                         <div class="infos">
                                                             <span class="activite_title" ng-cloak="">

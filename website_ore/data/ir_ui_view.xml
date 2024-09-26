@@ -90,7 +90,7 @@
                                                 </div>
                                                 <div ng-if="_.isEmpty(echange_info.lst_echange)">Aucun échange ce mois-ci</div>
                                                 <a ng-repeat="echange in echange_info.lst_echange" class="activite btn container_explorer" ng-href="/monactivite/echange#!?echange={{echange.id}}" ng-cloak="">
-                                                    <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                    <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />
                                                     <div class="activite_infos">
                                                         <div class="activite_title">
                                                             <p ng-cloak="">{{echange.show_date | toTitleCase}}</p>
@@ -1983,7 +1983,7 @@
                                                 <div class="row vertical_list">
                                                     <div class="container_explorer activite btn" ng-repeat="(offre_id, offre) in page_presentation_membre_info.dct_offre_service">
                                                         <a ng-href="/ore/ore_offre_service/{{offre.id}}" style="text-decoration: none;">
-                                                            <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                            <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />
                                                             <div class="infos">
                                                                 <p class="activite_title" ng-cloak="">{{offre.titre}}</p>
                                                                 <p class="activite_desc" ng-if="!_.isEmpty(offre.description)" ng-bind-html="offre.description | unsafe" />
@@ -2013,7 +2013,7 @@
                                                 <div class="row vertical_list">
                                                     <div class="container_explorer activite btn" ng-repeat="(demande_id, demande) in page_presentation_membre_info.dct_demande_service">
                                                         <a ng-href="/ore/ore_demande_service/{{demande.id}}" style="text-decoration: none;">
-                                                            <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                            <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />
                                                             <div class="infos">
                                                                 <p class="activite_title" ng-cloak="">{{demande.titre}}</p>
                                                                 <p class="activite_desc" ng-if="!_.isEmpty(demande.description)" ng-bind-html="demande.description | unsafe" />
@@ -2267,7 +2267,7 @@
                                             <!--                                            <div ng-repeat="(service_id, service) in personal.dct_offre_service" ng-include="'/ore/template/offre_ou_demande_de_service_generic'" ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'offre'; " />-->
                                             <div class="container_explorer activite btn" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service">
                                                 <a ng-href="/ore/ore_offre_service/{{offre_service.id}}" style="text-decoration: none;" ng-cloak="">
-                                                    <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                    <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />
                                                     <div class="infos">
                                                         <h4 class="activite_title" ng-if="!_.isEmpty(offre_service.titre)" ng-cloak="">{{offre_service.titre}}</h4>
                                                         <h4 class="activite_title" ng-if="_.isEmpty(offre_service.titre)">Aucun titre</h4>
@@ -2293,7 +2293,7 @@
                                             <!--                                            <div ng-repeat="(service_id, service) in personal.dct_demande_service" ng-include="'/ore/template/offre_ou_demande_de_service_generic'"  ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'demande'; " />-->
                                             <div class="flex container_explorer activite btn" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service">
                                                 <a ng-href="/ore/ore_demande_service/{{demande_service.id}}" ng-cloak="" style="text-decoration: none;">
-                                                    <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                    <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />
                                                     <div class="infos">
                                                         <h4 class="activite_title" ng-if="!_.isEmpty(demande_service.titre)" ng-cloak="">{{demande_service.titre}}</h4>
                                                         <h4 class="activite_title" ng-if="_.isEmpty(demande_service.titre)">Aucun titre</h4>
@@ -2360,7 +2360,7 @@
                                             <div class="activite btn debug_unimplemented ng-cloak" ng-if="_.isEmpty(personal.dct_offre_service_favoris)">Aucune offre de services favoris dans votre liste.</div>
                                             <div class="buttons_form_container activite btn boite debug_unimplemented ng-cloak" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service_favoris" ng-cloak="">
                                                 <a class="label" ng-href="/ore/ore_offre_service/{{offre_service.id}}">
-                                                    <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                    <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />
                                                     <div class="infos">
                                                         <h4 class="activite_title" ng-cloak="">{{offre_service.titre}}</h4>
                                                         <p class="activite_desc" ng-if="!_.isEmpty(offre_service.description)" ng-bind-html="offre_service.description | unsafe" />
@@ -2381,7 +2381,7 @@
                                             <div class="activite btn debug_unimplemented ng-cloak" ng-if="_.isEmpty(personal.dct_demande_service_favoris)">Aucune demande de services favoris dans votre liste.</div>
                                             <div class="buttons_form_container activite btn boite debug_unimplemented ng-cloak" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service_favoris" ng-cloak="">
                                                 <a class="label" ng-href="/ore/ore_demande_service/{{demande_service.id}}">
-                                                    <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                    <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />
                                                     <div class="infos">
                                                         <h4 class="activite_title" ng-cloak="">{{demande_service.titre}}</h4>
                                                         <p class="activite_desc" ng-if="!_.isEmpty(demande_service.description)" ng-bind-html="demande_service.description | unsafe" />
@@ -3081,7 +3081,7 @@
                                                 </div>
                                             </div>
                                             <div class="activite btn">
-                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Soirée au café Baobab</h4>
                                                     <h5 class="activite_auteur">19h00 - 22h00</h5>
@@ -3090,7 +3090,7 @@
                                                 <div class="status red-o">- 3H00</div>
                                             </div>
                                             <div class="activite btn">
-                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Soirée au café Baobab</h4>
                                                     <h5 class="activite_auteur">19h00 - 22h00</h5>
@@ -3099,7 +3099,7 @@
                                                 <div class="event">ÉVÈNEMENT</div>
                                             </div>
                                             <div class="activite btn">
-                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Soirée au café Baobab</h4>
                                                     <h5 class="activite_auteur">19h00 - 22h00</h5>
@@ -3952,7 +3952,7 @@
                                             </div>
                                             <div ng-repeat="(service_id, service) in dct_offre_service_info" ng-include="'/ore/template/offre_ou_demande_de_service_generic'" ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'offre'; " />
                                             <!--                                            <div class="activite btn debug_unimplemented ng-cloak">-->
-                                            <!--                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />-->
+                                            <!--                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />-->
                                             <!--                                                <div class="infos">-->
                                             <!--                                                    <h4 class="activite_title">-->
                                             <!--                                                        Vous souhaitez acheter une maison à-->
@@ -4379,7 +4379,7 @@
                                                 </div>
                                             </div>
                                             <div class="activite btn">
-                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />
                                                 <div class="activite_infos">
                                                     <div class="activite_title">
                                                         <p>Mercredi 16 août</p>
@@ -4401,7 +4401,7 @@
                                                 </div>
                                             </div>
                                             <div class="activite btn">
-                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />
                                                 <div class="activite_infos">
                                                     <div class="activite_title">
                                                         <p>Mercredi 16 août</p>
@@ -4417,7 +4417,7 @@
                                                 </a>
                                             </div>
                                             <div class="activite btn">
-                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />
                                                 <div class="activite_infos">
                                                     <div class="activite_title">
                                                         <p>Mercredi 16 août</p>
@@ -4439,7 +4439,7 @@
                                                 </div>
                                             </div>
                                             <div class="activite btn">
-                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />
                                                 <div class="activite_infos">
                                                     <div class="activite_title">
                                                         <p>Mercredi 16 août</p>
@@ -4455,7 +4455,7 @@
                                                 </a>
                                             </div>
                                             <div class="activite btn">
-                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />
                                                 <div class="activite_infos">
                                                     <div class="activite_title">
                                                         <p>Mercredi 16 août</p>
