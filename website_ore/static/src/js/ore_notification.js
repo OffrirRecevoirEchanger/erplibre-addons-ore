@@ -105,7 +105,7 @@ odoo.define('website.ore_notification', function (require) {
             let canal_clan_creation_public = JSON.stringify(["Clan creation", "PUBLIC"]);
             let canal_notif_echange_membre = JSON.stringify([$scope.global.dbname, "ore.echange.service.notification", "MEMBRE"]);
             let canal_notif_echange_update = JSON.stringify([$scope.global.dbname, "ore.echange.service.notification", "UPDATE", $scope.personal.id]);
-            console.debug(notifications);
+            // console.debug(notifications);
             // Cannot use each, because need to update scope at the end for optimisation
             // _.each(notifications, function (notification) {
             for (let i = 0; i < notifications.length; i++) {
