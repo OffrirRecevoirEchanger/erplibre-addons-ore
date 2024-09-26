@@ -194,11 +194,7 @@
                     <div class="collapse navbar-collapse" id="top_menu_collapse" t-if="not user_id._is_public()">
                         <!-- FIXME We want menu to open to the right by default (except cases handled in JS) -->
                         <ul class="nav navbar-nav text-right " id="top_menu">
-                            <li
-                                class="nav-item debug_unimplemented ng-cloak"
-                                t-ignore="true"
-                                t-if="not user_id._is_public()"
-                            >
+                            <li class="nav-item ng-cloak" t-ignore="true" t-if="not user_id._is_public()">
                                 <a class="nav-link adapt-text-primary-color" role="menu_item" href="/explorer">
                                     <span
                                         data-oe-model="website.menu"

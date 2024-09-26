@@ -3382,13 +3382,15 @@
                                             <span class="debug_unimplemented ng-cloak">
                                                 <a href="/explorer" class="footer_link">Accueil</a>
                                                 <br />
-                                                <a href="/offresservice" class="footer_link">Les offres de services</a>
+                                            </span>
+                                            <a href="/offresservice" class="footer_link">Les offres de services</a>
+                                            <span class="debug_unimplemented ng-cloak">
                                                 <br />
                                                 <a href="/demandesservice" class="footer_link">Les demandes de service</a>
                                                 <br />
                                                 <a href="#" class="footer_link">Les cat&#233;gories d'offres de service</a>
-                                                <br />
                                             </span>
+                                            <br />
                                             <a href="/chercher_clan" class="footer_link">Les clans</a>
                                         </div>
                                         <div class="col-lg-2 footer_menu" ng-if="personal.my_clan.id > 0">

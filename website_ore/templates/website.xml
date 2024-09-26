@@ -701,7 +701,7 @@
                         Aucune offre de services sont disponibles pour cette ore.
                     </div>
                 </div>
-                <div class="row activites_list col-lg-6">
+                <div class="row activites_list col-lg-6 debug_unimplemented">
                     <div class="list_title s_title">
                         <div class="title">
                             <img
@@ -2461,11 +2461,11 @@
                     <div
                         class="nbr"
                         ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.message_accueil)}"
-                        ng-show="ask_modification_clan"
+                        ng-show="ask_modification_clan || page_communaute_clan_info.is_clan_admin"
                     >
                         <span class="txt">Message d'accueil</span>
                         <q
-                            ng-if="ask_modification_clan"
+                            ng-if="ask_modification_clan || page_communaute_clan_info.is_clan_admin"
                             class="editable-content-blue"
                             contenteditable="true"
                             ng-model="page_communaute_clan_info.message_accueil"
