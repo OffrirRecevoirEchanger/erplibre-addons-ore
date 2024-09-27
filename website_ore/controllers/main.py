@@ -124,7 +124,7 @@ class OREController(http.Controller):
         auth="public",
         website=True,
     )
-    def get_page_ore_clan(self, ore_clan=None):
+    def get_page_ore_clan(self, ore_clan=None, **kw):
         env = request.env(context=dict(request.env.context))
 
         ore_clan_cls = env["ore.clan"]
@@ -262,7 +262,7 @@ class OREController(http.Controller):
     @http.route(
         ["/ore/ore_clan_list"], type="json", auth="public", website=True
     )
-    def get_ore_clan_list(self):
+    def get_ore_clan_list(self, **kw):
         env = request.env(context=dict(request.env.context))
 
         ore_clan_cls = env["ore.clan"]
@@ -293,9 +293,21 @@ class OREController(http.Controller):
             "lst_time_clan": lst_time_diff_clan,
         }
 
+        lst_data = []
+        for index, ore_clan_id in enumerate(ore_clan_ids):
+            data = {
+                "name": ore_clan_id.name,
+                "url": f"/ore/ore_clan/{ore_clan_id.id}",
+                "img": lst_clan_photo[index],
+            }
+            lst_data.append(data)
+
         # Render page
-        return request.env["ir.ui.view"].render_template(
-            "website_ore.ore_clan_list", dct_value
+        return (
+            request.env["ir.ui.view"].render_template(
+                "website_ore.ore_clan_list", dct_value
+            ),
+            lst_data,
         )
 
     @http.route(
@@ -1571,12 +1583,30 @@ class OREController(http.Controller):
         clan_id = kw.get("clan_id")
         if clan_id:
             value_adhesion["clan_id"] = clan_id
-            value_invitation = {
-                "email": email_normalized,
-                "clan_id": clan_id,
-                "invite_by_admin_clan": True,
-            }
-            request.env["ore.clan.invitation"].sudo().create(value_invitation)
+            invitation_exist_ids = (
+                request.env["ore.clan.invitation"]
+                .sudo()
+                .search(
+                    [
+                        ("email", "=", email_normalized),
+                        ("clan_id", "=", clan_id),
+                    ]
+                )
+            )
+            if invitation_exist_ids:
+                for invitation_exist_id in invitation_exist_ids:
+                    invitation_exist_id.write(
+                        {"active": True, "invite_by_admin_clan": True}
+                    )
+            else:
+                value_invitation = {
+                    "email": email_normalized,
+                    "clan_id": clan_id,
+                    "invite_by_admin_clan": True,
+                }
+                request.env["ore.clan.invitation"].sudo().create(
+                    value_invitation
+                )
         adhesion_id = request.env["ore.demande.adhesion"].create(
             value_adhesion
         )
@@ -1612,6 +1642,7 @@ class OREController(http.Controller):
             # Was invite by admin clan
             for invitation_id in invitation_ids:
                 invitation_id.active = False
+                # TODO wrong, need to switch state to approuve and will be auto add
                 invitation_id.clan_id.membre_list_ids = [(4, membre_id.id)]
         else:
             invitation_ids = (
@@ -1644,9 +1675,9 @@ class OREController(http.Controller):
                 )
                 if invitation_ids:
                     for invitation_id in invitation_ids:
-                        invitation_id.active = True
-                        invitation_id.invite_by_admin_clan = False
-                        invitation_id.ask_join_clan = True
+                        invitation_id.write(
+                            {"active": True, "ask_join_clan": True}
+                        )
                 else:
                     # Ask to join the clan
                     value_invitation = {
@@ -1658,15 +1689,15 @@ class OREController(http.Controller):
                         value_invitation
                     )
         # Search associate notification to remove it
-        notif_id = request.env["ore.echange.service.notification"].search(
-            [
-                ("is_read", "=", False),
-                ("type_notification", "=", "Invitation clan"),
-                ("clan_invited_id", "!=", False),
-            ]
-        )
-        if notif_id:
-            notif_id.is_read = True
+        # notif_id = request.env["ore.echange.service.notification"].search(
+        #     [
+        #         ("is_read", "=", False),
+        #         ("type_notification", "=", "Invitation clan"),
+        #         ("clan_invited_id", "!=", False),
+        #     ]
+        # )
+        # if notif_id:
+        #     notif_id.is_read = True
         return {"status": status}
 
     @http.route(
@@ -1982,6 +2013,57 @@ class OREController(http.Controller):
 
     @http.route(
         [
+            "/ore/set_info/invitation_membre",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def set_info_invitation_membre(
+        self, invitation_id, is_accept=False, is_refuse=False, **kw
+    ):
+        membre_id = self.get_membre_id()
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
+        obj_invitation_id = http.request.env["ore.clan.invitation"].search(
+            [("id", "=", invitation_id)]
+        )
+        # Valid permission to do this action
+        if membre_id not in obj_invitation_id.clan_id.membre_admin_ids:
+            return {
+                "status": False,
+                "msg_error": "You are not an administrator of this clan.",
+            }
+        if (
+            obj_invitation_id.invite_by_admin_clan
+            and obj_invitation_id.stage_id
+            == http.request.env.ref("ore.ore_clan_invitation_stage_refuse")
+        ):
+            stage_id = (
+                http.request.env.ref("ore.ore_clan_invitation_stage_init")
+                if is_accept
+                else http.request.env.ref(
+                    "ore.ore_clan_invitation_stage_refuse"
+                )
+            )
+        else:
+            stage_id = (
+                http.request.env.ref("ore.ore_clan_invitation_stage_refuse")
+                if is_refuse
+                else http.request.env.ref(
+                    "ore.ore_clan_invitation_stage_approuve"
+                )
+            )
+        obj_invitation_id.write(
+            {
+                "stage_id": stage_id.id,
+            }
+        )
+        return {"status": True}
+
+    @http.route(
+        [
             "/ore/get_info/list_membre",
         ],
         type="json",
@@ -2056,7 +2138,39 @@ class OREController(http.Controller):
                 "is_favorite": a.id in my_favorite_membre_id,
             }
             dct_membre[a.id] = value
-        return {"dct_membre": dct_membre}
+        invitation_ids = http.request.env["ore.clan.invitation"].search(
+            [("clan_id", "=", clan_id)]
+        )
+        dct_demande_adhesion = {}
+        dct_demande_adhesion_refuse = {}
+        for inv_id in invitation_ids:
+            dct_value = {"id": inv_id.id, "email": inv_id.email}
+            partner_ids = http.request.env["res.partner"].search(
+                [("email", "=", inv_id.email)]
+            )
+            membre_ids = http.request.env["ore.membre"].search(
+                [("partner_id", "in", partner_ids.ids)]
+            )
+            dct_value["ask_join_clan"] = inv_id.ask_join_clan
+            dct_value["invite_by_admin_clan"] = inv_id.invite_by_admin_clan
+            dct_value["date_invitation"] = self.datetime_to_local(
+                inv_id.create_date
+            )
+            dct_value["lst_membre"] = membre_ids.ids
+            if inv_id.stage_id in (
+                http.request.env.ref("ore.ore_clan_invitation_stage_init"),
+            ):
+                dct_demande_adhesion[inv_id.id] = dct_value
+            elif inv_id.stage_id in (
+                http.request.env.ref("ore.ore_clan_invitation_stage_refuse"),
+            ):
+                dct_demande_adhesion_refuse[inv_id.id] = dct_value
+
+        return {
+            "dct_membre": dct_membre,
+            "dct_demande_adhesion": dct_demande_adhesion,
+            "dct_demande_adhesion_refuse": dct_demande_adhesion_refuse,
+        }
 
     @http.route(
         [
@@ -3527,3 +3641,19 @@ class OREController(http.Controller):
             raise Exception(
                 f"The requested language code '{lang_code}' does not exist."
             )
+
+    @http.route(
+        "/ore/set_notif_read",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def ore_set_notif_read(self, **kw):
+        # Set read or unread a notification
+        i_notif_id = kw.get("notif_id")
+        notif_id = http.request.env["ore.echange.service.notification"].browse(
+            i_notif_id
+        )
+        notif_id.is_read = not notif_id.is_read
+        return {"is_read": notif_id.is_read}

@@ -91,4 +91,6 @@ class OREChatGroup(models.Model):
                 data["id"] = other_membre_id.id
             elif obj.clan_id:
                 data["ma_photo"] = obj.clan_id.get_image_url()
+            # TODO missing field is_read
+            # data["is_read"] = True
         return data

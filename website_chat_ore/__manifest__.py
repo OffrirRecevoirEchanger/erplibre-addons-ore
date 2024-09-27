@@ -1,7 +1,7 @@
 {
     "name": "ORE website chat",
     "category": "Website",
-    "version": "12.0.1.0",
+    "version": "12.0.2.0",
     "author": "TechnoLibre",
     "license": "AGPL-3",
     "website": "https://technolibre.ca",
@@ -17,6 +17,7 @@
         "data/ir_ui_view.xml",
         "views/ore_chat_group.xml",
         "views/ore_chat_message.xml",
+        "views/ore_notification_chat.xml",
         "views/menu.xml",
     ],
     "installable": True,

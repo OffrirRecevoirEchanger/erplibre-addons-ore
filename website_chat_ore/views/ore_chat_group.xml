@@ -11,19 +11,16 @@
                             <field name="active" widget="boolean_button" />
                         </button>
                     </div>
-                    <group>
-                        <field name="name" />
-                    </group>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
                     <group>
                         <field name="clan_id" />
-                    </group>
-                    <group>
                         <field name="group_clan_id" />
-                    </group>
-                    <group>
                         <field name="membre_ids" />
-                    </group>
-                    <group>
                         <field name="msg_ids" />
                     </group>
                 </sheet>

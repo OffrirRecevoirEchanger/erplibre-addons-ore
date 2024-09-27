@@ -170,8 +170,13 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.page_communaute_clan_info = {}
         $scope.page_communaute_clan_info_is_into_clan = false;
         $scope.page_communaute_clan_info_is_invite_to_clan = false;
+        $scope.page_communaute_clan_info_select_member = {
+            "info_select": "membre_actif",
+        }
         $scope.force_clan_id = 0;
         $scope.dct_membre = {}
+        $scope.dct_demande_adhesion = {}
+        $scope.dct_demande_adhesion_refuse = {}
         $scope.contact_info = {}
         $scope.offre_service_info = {}
         $scope.dct_offre_service_info = {}
@@ -238,10 +243,14 @@ odoo.define('website.ore_angularjs_global', function (require) {
         $scope.languesCount = 0;
 
         $scope.generate_url_notification = function(notif) {
-            if (["Nouvelle demande de service","Réponse à votre demande", "Demande de service", ""].includes(notif.type_notification)) {
+            if (["Nouvelle demande de service","Réponse à votre demande", "Demande de service", "Transaction validée", "Proposition de service"].includes(notif.type_notification)) {
                 return "/monactivite/echange" + $scope.url_debug + "#!?echange=" + notif.echange_service_id;
-            } else if (notif.type_notification === "Invitation clan") {
+            } else if (["Demande adhésion clan acceptée", "Demande adhésion clan refusée", "Invitation clan", "Invitation clan update"].includes(notif.type_notification)) {
                 return "/ore/ore_clan/" + notif.clan_invited_id;
+            } else if (["Demande adhésion clan"].includes(notif.type_notification)) {
+                return "/communaute/membres#!?action_membre=demande_adhesion";
+            } else if (["Clan creation"].includes(notif.type_notification)) {
+                return "/ore/ore_clan/" + notif.clan_new_id;
             }
             return "#"
         }
@@ -1098,7 +1107,6 @@ odoo.define('website.ore_angularjs_global', function (require) {
                         // Force to reload, more easy!
                         window.location.reload();
                     }
-                    console.error("miss");
                     // Process all the angularjs watchers
                     $scope.$digest();
                 }).fail(function (error, ev) {
@@ -1162,18 +1170,53 @@ odoo.define('website.ore_angularjs_global', function (require) {
             if (window.location.search === "?debug=assets") {
                 $scope.url_debug = "?debug=assets";
             }
-            if (window.location.pathname !== "/monactivite/echange") {
-                return;
-            }
-            if (newLocation !== previousLocation) {
-                let new_echange_id = $location.search()["echange"];
-                if (!_.isUndefined(new_echange_id)) {
-                    $scope.update_echange_service();
+            if (window.location.pathname === "/monactivite/echange") {
+                if (newLocation !== previousLocation) {
+                    let new_echange_id = $location.search()["echange"];
+                    if (!_.isUndefined(new_echange_id)) {
+                        $scope.update_echange_service();
+                    }
+                }
+            } else if (window.location.pathname === "/communaute/membres") {
+                let action_membre = $location.search()["action_membre"];
+                console.error($scope.page_communaute_clan_info_select_member);
+                if (!_.isUndefined(action_membre)) {
+                    $scope.page_communaute_clan_info_select_member.info_select = action_membre;
                 }
             }
         });
 
         $scope.lst_notification = [];
+        $scope.lst_notification_unread = [];
+        $scope.refresh_lst_notification = function () {
+            $scope.lst_notification_unread = $scope.lst_notification.filter(item => $scope.notif_filter_unread(item) === true);
+        }
+
+        $scope.notification_make_is_read = function (notif) {
+            ajax.jsonRpc("/ore/set_notif_read", "call", {
+                "notif_id": notif.id,
+            }).then(function (data) {
+                console.debug("AJAX receive /ore/set_notif_read");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty '/ore/set_notif_read' data";
+                    console.error($scope.error);
+                } else {
+                    notif.is_read = data.is_read;
+                }
+
+                // Process all the angularjs watchers
+                $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
+            })
+            // notif.is_read = true;
+            $scope.refresh_lst_notification();
+            // console.error(notif)
+        }
 
         $scope.notif_filter_unread = function (notif) {
             return !_.isUndefined(notif.is_read) && !notif.is_read;
@@ -1589,6 +1632,7 @@ odoo.define('website.ore_angularjs_global', function (require) {
                     $scope.global = data.global;
                     $scope.personal = data.personal;
                     $scope.lst_notification = data.lst_notification;
+                    $scope.refresh_lst_notification();
 
                     $scope.update_personal_data();
                     console.debug($scope.personal);
@@ -1891,6 +1935,38 @@ odoo.define('website.ore_angularjs_global', function (require) {
                 } else {
                     console.debug(data.dct_membre);
                     $scope.dct_membre = data.dct_membre;
+                    $scope.dct_demande_adhesion = data.dct_demande_adhesion;
+                    $scope.dct_demande_adhesion_refuse = data.dct_demande_adhesion_refuse;
+                }
+
+                // Process all the angularjs watchers
+                $scope.$digest();
+            }).fail(function (error, ev) {
+                console.error(error);
+                $scope.check_need_login(error);
+            })
+        }
+
+        $scope.set_info_invitation = function(invitation_id, invitation, accept) {
+            invitation.loading = true;
+            ajax.jsonRpc("/ore/set_info/invitation_membre", "call", {"invitation_id": invitation_id, "is_accept": accept, "is_refuse": !accept}).then(function (data) {
+                console.debug("AJAX receive /ore/set_info/invitation_membre");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty '/ore/set_info/invitation_membre' data";
+                    console.error($scope.error);
+                } else {
+                    if (data.status) {
+                        console.debug(data.dct_membre);
+                        // TODO move item from list
+                        // TODO support notification
+                        window.location.reload();
+                    } else {
+                        invitation.error = data.msg_error;
+                    }
+                    invitation.loading = false;
                 }
 
                 // Process all the angularjs watchers

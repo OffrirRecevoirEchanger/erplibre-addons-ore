@@ -225,6 +225,14 @@
             <field name="type">url</field>
             <field name="url">/website_ore/static/src/img/meritt-thomas-u-Hb93V6IWI-unsplash.jpg</field>
         </record>
+        <record id="ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px" model="ir.attachment">
+            <field name="datas_fname">logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg</field>
+            <field name="name">logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg</field>
+            <field name="public">True</field>
+            <field name="res_model">ir.ui.view</field>
+            <field name="type">url</field>
+            <field name="url">/website_ore/static/src/img/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg</field>
+        </record>
         <record id="ir_attachment_jean_louis_aubert_l49iaamlmdc_unsplash_jpg" model="ir.attachment">
             <field name="datas_fname">jean-louis-aubert-L49iaAmLMDc-unsplash.jpg</field>
             <field name="name">jean-louis-aubert-L49iaAmLMDc-unsplash.jpg</field>

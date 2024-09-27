@@ -382,8 +382,6 @@ class OREMembre(models.Model):
                     "canal": f'["{self._cr.dbname}","{self._name}",{rec.id}]',
                 },
             )
-            # if rec.clan_participe_ids and not rec.clan_principal_id:
-            #     rec.clan_principal_id = rec.clan_participe_ids[0].id
         return status
 
     def get_image_url(self, field="image"):

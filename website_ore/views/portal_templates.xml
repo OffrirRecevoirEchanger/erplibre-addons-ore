@@ -194,11 +194,7 @@
                     <div class="collapse navbar-collapse" id="top_menu_collapse" t-if="not user_id._is_public()">
                         <!-- FIXME We want menu to open to the right by default (except cases handled in JS) -->
                         <ul class="nav navbar-nav text-right " id="top_menu">
-                            <li
-                                class="nav-item debug_unimplemented ng-cloak"
-                                t-ignore="true"
-                                t-if="not user_id._is_public()"
-                            >
+                            <li class="nav-item ng-cloak" t-ignore="true" t-if="not user_id._is_public()">
                                 <a class="nav-link adapt-text-primary-color" role="menu_item" href="/explorer">
                                     <span
                                         data-oe-model="website.menu"
@@ -365,6 +361,13 @@
                                         >
                                             <p>Afficher le déverminage</p>
                                         </div>
+                                        <div
+                                            role="menuitem"
+                                            class="dropdown-item btn_force_refresh_UI"
+                                            style="cursor:pointer"
+                                        >
+                                            <p>Force refresh UI</p>
+                                        </div>
                                         <!--                                    <div role="menuitem" class="dropdown-item" ng-click="forceRefreshAngularJS()">-->
                                         <!--                                        <p>Refresh AngularJS</p>-->
                                         <!--                                    </div>-->
@@ -485,10 +488,10 @@
                                                     class="dropdown-item"
                                                     ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service_favoris"
                                                 >
-                                                    <div class="cat activite btn">
+                                                    <div class="cat activite btn" ng-class="{'read':notif.is_read}">
                                                         <img
                                                             class="activite_img img-fluid"
-                                                            src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
+                                                            src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg"
                                                         />
                                                         <div class="infos">
                                                             <span class="activite_title" ng-cloak="">
@@ -526,10 +529,10 @@
                                                     class="dropdown-item"
                                                     ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service_favoris"
                                                 >
-                                                    <div class="cat activite btn">
+                                                    <div class="cat activite btn" ng-class="{'read':notif.is_read}">
                                                         <img
                                                             class="activite_img img-fluid"
-                                                            src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
+                                                            src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg"
                                                         />
                                                         <div class="infos">
                                                             <span class="activite_title" ng-cloak="">
@@ -574,7 +577,7 @@
                                                     class="dropdown-item"
                                                     ng-repeat="(membre_id, membre_favoris) in personal.dct_membre_favoris"
                                                 >
-                                                    <div class="cat activite btn">
+                                                    <div class="cat activite btn" ng-class="{'read':notif.is_read}">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             ng-src="{{ membre_favoris.ma_photo }}"
@@ -620,6 +623,9 @@
                                         data-oe-type="char"
                                         data-oe-expression="submenu.name"
                                     />
+                                    <span class="badge-over-fa ng-cloak" ng-if="lst_notification.length > 0">
+                                        {{lst_notification.length}}
+                                    </span>
                                 </a>
                                 <div class="dropdown-menu submenu shadow menu_message_and_notification" role="menu">
                                     <p style="font-size: 1.5rem;">Notifications</p>
@@ -629,32 +635,6 @@
                                     <div class="dropdown-cat">
                                         <div id="tabMessages" class="navbar-tab menu_chat" style="display:none;" />
                                         <div id="tabNotifications" class="navbar-tab">
-                                            <div class="tab-items-container">
-                                                <a
-                                                    role="menuitem"
-                                                    ng-href="{{generate_url_notification(notif)}}"
-                                                    class="dropdown-item"
-                                                    ng-repeat="notif in lst_notification | filter:notif_filter_unread | limitTo:5"
-                                                >
-                                                    <div class="cat activite btn">
-                                                        <img
-                                                            class="activite_img img-fluid rounded-circle"
-                                                            ng-src="{{ notif.membre_photo }}"
-                                                        />
-                                                        <div class="infos">
-                                                            <span class="activite_title" ng-cloak="">
-                                                                {{notif.type_notification}}
-                                                            </span>
-                                                            <span class="activite_auteur" ng-cloak="">
-                                                                {{notif.name}}
-                                                            </span>
-                                                        </div>
-                                                        <div class="infos right">
-                                                            <span>5m</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
                                             <a
                                                 role="menuitem"
                                                 href="/notification#!?section=notification"
@@ -666,6 +646,36 @@
                                                     </font>
                                                 </div>
                                             </a>
+                                            <div class="tab-items-container">
+                                                <a
+                                                    role="menuitem"
+                                                    ng-href="{{generate_url_notification(notif)}}"
+                                                    class="dropdown-item"
+                                                    name="url_link_notification"
+                                                    ng-repeat="notif in lst_notification_unread | limitTo:5"
+                                                >
+                                                    <div class="cat activite btn" ng-class="{'read':notif.is_read}">
+                                                        <img
+                                                            class="activite_img img-fluid rounded-circle"
+                                                            ng-src="{{ notif.membre_photo }}"
+                                                        />
+                                                        <div class="unread rounded-circle" ng-if="!notif.is_read" />
+                                                        <div class="infos">
+                                                            <span class="activite_title" ng-cloak="">
+                                                                {{notif.type_notification}}
+                                                            </span>
+                                                            <span class="activite_auteur" ng-cloak="">
+                                                                {{notif.name}}
+                                                            </span>
+                                                        </div>
+                                                        <div class="infos right">
+                                                            <!--                                                            <span ng-if="!notif.is_read">Lu</span>-->
+                                                            <!--                                                            <span ng-if="notif.is_read">Non lu</span>-->
+                                                            <span class="debug_unimplemented">5m</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -838,7 +848,12 @@
                                         <i class="fa fa-newspaper-o icon_padding_right" />
                                         Mes annonces publiées
                                     </a>
-                                    <a class="dropdown-item" t-attf-href="/communaute/clan" role="menuitem">
+                                    <a
+                                        class="dropdown-item ng-cloak"
+                                        ng-if="personal.my_clan.id > 0"
+                                        t-attf-href="/communaute/clan"
+                                        role="menuitem"
+                                    >
                                         <i class="fa fa-eye icon_padding_right" />
                                         Mon clan
                                     </a>

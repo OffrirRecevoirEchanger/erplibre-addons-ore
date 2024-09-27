@@ -1,7 +1,7 @@
 {
     "name": "ORE",
     "category": "Uncategorized",
-    "version": "12.0.1.1",
+    "version": "12.0.1.2",
     "author": "TechnoLibre",
     "license": "AGPL-3",
     "website": "https://technolibre.ca",
@@ -14,6 +14,7 @@
     "data": [
         "security/ir.model.access.csv",
         "security/ore.xml",
+        "data/ore_clan_invitation_stage.xml",
         "views/ore_arrondissement.xml",
         "views/ore_clan.xml",
         "views/ore_clan_group.xml",

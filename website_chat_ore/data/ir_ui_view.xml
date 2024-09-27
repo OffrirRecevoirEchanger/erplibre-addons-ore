@@ -8,11 +8,11 @@
                         <p class="s_title_default text-bold text-color-title titre_message_and_notification">Messages et notifications</p>
                     </xpath>
                     <xpath expr="//div[hasclass('debug_debug')]" position="inside">
-                        <div ng-if="section==='message' &amp;&amp; $parent.section_membre===''">
+                        <div class="ng-cloak" ng-if="section==='message' &amp;&amp; $parent.section_membre===''">
                             Lien maquette :
                             <a href="https://marvelapp.com/prototype/1773h559/screen/86371550">https://marvelapp.com/prototype/1773h559/screen/86371550</a>
                         </div>
-                        <div ng-if="section==='message' &amp;&amp; $parent.section_membre!==''">
+                        <div class="ng-cloak" ng-if="section==='message' &amp;&amp; $parent.section_membre!==''">
                             Lien maquette :
                             <a href="https://marvelapp.com/prototype/1773h559/screen/86371581">https://marvelapp.com/prototype/1773h559/screen/86371581</a>
                             <br />
@@ -24,14 +24,19 @@
                         <attribute name="ng-if">$parent.section_membre==='' &amp;&amp; $parent.section_clan===''</attribute>
                     </xpath>
                     <xpath expr="//span[hasclass('span_section_message_and_notification_body')]" position="before">
-                        <span ng-if="$parent.section_membre!==''">
+                        <span class="ng-cloak" ng-if="$parent.section_membre!==''">
                             <section class="s_back">
                                 <a href="/notification#!?section=message">
                                     <i class="fa fa-arrow-left text-primary" />
                                     Revenir à mes messages
                                 </a>
+                                <button class="ng-cloak" ng-click="message_make_is_read($parent.section_membre_dct)" ng-if="!_.isUndefined($parent.section_membre_dct) &amp;&amp; _.isNumber($parent.section_membre_dct.id_group)">
+                                    Mettre notification du message à
+                                    <span class="ng-cloak" ng-if="!$parent.section_membre_dct.is_read">lu</span>
+                                    <span class="ng-cloak" ng-if="$parent.section_membre_dct.is_read">non lu</span>
+                                </button>
                                 <div class="actions">
-                                    <a ng-if="!_.isUndefined($parent.section_membre_dct) &amp;&amp; _.isNumber($parent.section_membre_dct.id_group)" ng-href="https://meet.jit.si/ore_conference_{{$parent.section_membre_dct.id_group}}_jitsi">
+                                    <a class="ng-cloak" ng-if="!_.isUndefined($parent.section_membre_dct) &amp;&amp; _.isNumber($parent.section_membre_dct.id_group)" ng-href="https://meet.jit.si/ore_conference_{{$parent.section_membre_dct.id_group}}_jitsi">
                                         <div>
                                             <i class="fa fa-video text-primary icon_padding_right" />
                                             Vidéoconférence
@@ -43,7 +48,7 @@
                                 <div class="chat_container">
                                     <div class="chat_box">
                                         <div class="chat_header">
-                                            <img ng-if="!_.isUndefined($parent.section_membre_dct.ma_photo)" ng-src="{{ $parent.section_membre_dct.ma_photo }}" />
+                                            <img class="ng-cloak" ng-if="!_.isUndefined($parent.section_membre_dct.ma_photo)" ng-src="{{ $parent.section_membre_dct.ma_photo }}" />
                                             <div class="header_info">
                                                 <p class="chat_contact">{{$parent.section_membre_dct.name}}</p>
                                                 <!--                                                        <p class="chat_title">Aide au déménagement</p>-->
@@ -53,7 +58,7 @@
                                         </div>
                                         <div class="chat_body">
                                             <div class="chat_msg" ng-repeat="msg in $parent.section_membre_dct.lst_msg">
-                                                <img ng-if="$parent.section_membre_dct.id===msg.m_id &amp;&amp; personal.id!==$parent.section_membre_dct.id" class="contact_pic rounded-circle" ng-src="{{ $parent.section_membre_dct.ma_photo }}" />
+                                                <img ng-if="$parent.section_membre_dct.id===msg.m_id &amp;&amp; personal.id!==$parent.section_membre_dct.id" class="contact_pic rounded-circle ng-cloak" ng-src="{{ $parent.section_membre_dct.ma_photo }}" />
                                                 <div class="msg" ng-class="{'my_msg': personal.id===msg.m_id, 'their_msg': $parent.section_membre_dct.id===msg.m_id &amp;&amp; personal.id!==$parent.section_membre_dct.id}">{{msg.name}}</div>
                                                 <!--                                                        <div class="msg_time">5 minutes</div>-->
                                             </div>
@@ -73,14 +78,19 @@
                                 </div>
                             </section>
                         </span>
-                        <span ng-if="$parent.section_clan!==''">
+                        <span class="ng-cloak" ng-if="$parent.section_clan!==''">
                             <section class="s_back">
                                 <a href="/notification#!?section=message">
                                     <i class="fa fa-arrow-left text-primary" />
                                     Revenir à mes messages
                                 </a>
+                                <button class="ng-cloak" ng-click="message_make_is_read($parent.section_clan_dct)" ng-if="!_.isUndefined($parent.section_clan_dct) &amp;&amp; _.isNumber($parent.section_clan_dct.id_group)">
+                                    Mettre notification du message à
+                                    <span class="ng-cloak" ng-if="!$parent.section_clan_dct.is_read">lu</span>
+                                    <span class="ng-cloak" ng-if="$parent.section_clan_dct.is_read">non lu</span>
+                                </button>
                                 <div class="actions">
-                                    <a ng-if="!_.isUndefined($parent.section_clan_dct) &amp;&amp; _.isNumber($parent.section_clan_dct.id_group)" ng-href="https://meet.jit.si/ore_conference_{{$parent.section_clan_dct.id_group}}_jitsi">
+                                    <a class="ng-cloak" ng-if="!_.isUndefined($parent.section_clan_dct) &amp;&amp; _.isNumber($parent.section_clan_dct.id_group)" ng-href="https://meet.jit.si/ore_conference_{{$parent.section_clan_dct.id_group}}_jitsi">
                                         <div>
                                             <i class="fa fa-video text-primary icon_padding_right" />
                                             Vidéoconférence
@@ -92,7 +102,7 @@
                                 <div class="chat_container">
                                     <div class="chat_box">
                                         <div class="chat_header">
-                                            <img ng-if="!_.isUndefined($parent.section_clan_dct.ma_photo)" ng-src="{{ $parent.section_clan_dct.ma_photo }}" />
+                                            <img class="ng-cloak" ng-if="!_.isUndefined($parent.section_clan_dct.ma_photo)" ng-src="{{ $parent.section_clan_dct.ma_photo }}" />
                                             <div class="header_info">
                                                 <p class="chat_contact">{{$parent.section_clan_dct.name}}</p>
                                                 <!--                                                        <p class="chat_title">Aide au déménagement</p>-->
@@ -102,9 +112,14 @@
                                         </div>
                                         <div class="chat_body">
                                             <div class="chat_msg" ng-repeat="msg in $parent.section_clan_dct.lst_msg">
-                                                <img ng-if="$parent.section_clan_dct.id===msg.m_id &amp;&amp; personal.id!==$parent.section_clan_dct.id" class="contact_pic rounded-circle" ng-src="{{ $parent.section_clan_dct.ma_photo }}" />
-                                                <div class="msg" ng-class="{'my_msg': personal.id===msg.m_id, 'their_msg': $parent.section_clan_dct.id===msg.m_id &amp;&amp; personal.id!==$parent.section_clan_dct.id}">{{msg.name}}</div>
-                                                <!--                                                        <div class="msg_time">5 minutes</div>-->
+                                                <img ng-if="$parent.section_clan_dct.id===msg.m_id &amp;&amp; personal.id!==$parent.section_clan_dct.id" class="contact_pic rounded-circle ng-cloak" ng-src="{{ $parent.section_clan_dct.ma_photo }}" />
+                                                <div class="msg" ng-class="{'my_msg': personal.id===msg.m_id, 'their_msg': $parent.section_clan_dct.id===msg.m_id &amp;&amp; personal.id!==$parent.section_clan_dct.id}">
+                                                    {{msg.date_create}}
+                                                    <u>{{msg.m_name}}</u>
+                                                    <br />
+                                                    <b>{{msg.name}}</b>
+                                                </div>
+                                                <!--<div class="msg_time">{{msg.date_create}}</div>-->
                                             </div>
                                         </div>
                                         <div class="chat_footer">
@@ -131,39 +146,57 @@
                         </li>
                     </xpath>
                     <xpath expr="//section[hasclass('section_notification')]" position="before">
-                        <section class="s_vertical_list_lg pt0" ng-if="section==='message' &amp;&amp; section_membre===''">
+                        <section class="s_vertical_list_lg pt0 ng-cloak" ng-if="section==='message' &amp;&amp; section_membre===''">
                             <div class="container_lists">
                                 <div class="row vertical_list">
                                     <h2>Membres</h2>
-                                    <a class="container_explorer" ng-href="/notification#!?section=message&amp;membre={{msg.id}}" ng-repeat="msg in lst_membre_message">
+                                    <button ng-click="notification_toute_lu('membre')">Marquer toutes les notifications de membres comme lues.</button>
+                                    <div class="container_explorer" ng-repeat="msg in lst_membre_message">
                                         <div class="activite message btn" ng-class="{'read':msg.is_read}">
-                                            <div class="activite_img img-fluid rounded-circle" ng-style="{'background-image': 'url(' + msg.ma_photo + ')'}">
-                                                <div class="unread rounded-circle" ng-if="!msg.is_read" />
-                                            </div>
+                                            <a ng-href="/notification#!?section=message&amp;membre={{msg.id}}">
+                                                <div class="activite_img img-fluid rounded-circle" ng-style="{'background-image': 'url(' + msg.ma_photo + ')'}">
+                                                    <div class="unread rounded-circle ng-cloak" ng-if="!msg.is_read" />
+                                                </div>
 
-                                            <div class="infos">
-                                                <h4 class="message_auteur">{{msg.name}}</h4>
-                                                <p class="message">{{msg.resume_msg}}</p>
-                                            </div>
-                                            <span class="debug_unimplemented ng-cloak">{{msg.last_date}}</span>
+                                                <div class="infos">
+                                                    <h4 class="message_auteur">{{msg.name}}</h4>
+                                                    <p class="message">{{msg.resume_msg}}</p>
+                                                </div>
+                                                <span class="debug_unimplemented ng-cloak">{{msg.last_date}}</span>
+                                            </a>
+                                            <span class="infos right ng-cloak">
+                                                <button ng-click="message_make_is_read(msg)">
+                                                    <span class="ng-cloak" ng-if="!msg.is_read">J'ai lu</span>
+                                                    <span class="ng-cloak" ng-if="msg.is_read">Non lu</span>
+                                                </button>
+                                            </span>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
                                 <div class="row vertical_list">
                                     <h2>Clans</h2>
-                                    <a class="container_explorer" ng-href="/notification#!?section=message&amp;clan={{msg.clan_id}}" ng-repeat="msg in lst_clan_message">
-                                        <div class="activite message btn" ng-class="{'read':msg.is_read}">
-                                            <div class="activite_img img-fluid rounded-circle" ng-style="{'background-image': 'url(' + msg.ma_photo + ')'}">
-                                                <div class="unread rounded-circle" ng-if="!msg.is_read" />
-                                            </div>
+                                    <button ng-click="notification_toute_lu('group')">Marquer toutes les notifications de clans comme lues.</button>
+                                    <div class="container_explorer">
+                                        <div class="activite message btn" ng-class="{'read':msg.is_read}" ng-repeat="msg in lst_clan_message">
+                                            <a ng-href="/notification#!?section=message&amp;clan={{msg.clan_id}}">
+                                                <div class="activite_img img-fluid rounded-circle" ng-style="{'background-image': 'url(' + msg.ma_photo + ')'}">
+                                                    <div class="unread rounded-circle ng-cloak" ng-if="!msg.is_read" />
+                                                </div>
 
-                                            <div class="infos">
-                                                <h4 class="message_auteur">{{msg.name}}</h4>
-                                                <p class="message">{{msg.resume_msg}}</p>
-                                            </div>
-                                            <span class="debug_unimplemented ng-cloak">{{msg.last_date}}</span>
+                                                <div class="infos">
+                                                    <h4 class="message_auteur">{{msg.name}}</h4>
+                                                    <p class="message">{{msg.resume_msg}}</p>
+                                                </div>
+                                                <span class="debug_unimplemented ng-cloak">{{msg.last_date}}</span>
+                                            </a>
+                                            <span class="infos right">
+                                                <button ng-click="message_make_is_read(msg)">
+                                                    <span class="ng-cloak" ng-if="!msg.is_read">J'ai lu</span>
+                                                    <span class="ng-cloak" ng-if="msg.is_read">Non lu</span>
+                                                </button>
+                                            </span>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
                             </div>
                         </section>
@@ -198,7 +231,7 @@
             <field name="arch" type="xml">
                 <data inherit_id="website_ore.ir_ui_view_ma_presentation">
                     <xpath expr="//div[hasclass('btn_do_echange')]" position="after">
-                        <a class="profil rounded-circle modif_btn btn btn-epsilon adapt-text-epsilon-color" ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel" ng-href="/notification#!?section=message&amp;membre={{page_presentation_membre_info.id}}">
+                        <a class="profil rounded-circle modif_btn btn btn-epsilon adapt-text-epsilon-color ng-cloak" ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel" ng-href="/notification#!?section=message&amp;membre={{page_presentation_membre_info.id}}">
                             <span class="fa fa-comments-o adapt-text-epsilon-color" />
                             Clavarder
                         </a>

@@ -34,6 +34,8 @@ odoo.define("website.ore.debug_not_implemented", function (require) {
     const debugDebugClass = "btn_debug_debug";
     const debugDebugCSS = "website_debugger_debug_debug.css";
 
+    const forceRefreshUICLass = "btn_force_refresh_UI";
+
     let Debug = Widget.extend({
         start: function () {
             let self = this;
@@ -95,6 +97,15 @@ odoo.define("website.ore.debug_not_implemented", function (require) {
                 debugDebug = !debugDebug;
                 self.LoadCss(debugDebug, uniqueIdDebugDebug, debugDebugCSS)
                 self.ActivateDebug(debugDebugClass, debugDebug, true);
+            })
+
+            $(document).on("click", "." + forceRefreshUICLass, function (ev) {
+                console.debug("Click " + forceRefreshUICLass);
+                ev.preventDefault();
+                ev.stopPropagation();
+                let $scope = angular.element($("[ng-app]")).scope();
+                $scope.$apply();
+                console.error("refresh dead");
             })
         },
         LoadCss: function (isLoad, uniqueIdName, cssName) {

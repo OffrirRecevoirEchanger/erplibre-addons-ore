@@ -146,26 +146,31 @@ class OreClan(models.Model):
                     "msg_group_id": chat_group_id.id,
                 }
                 self.env["ore.chat.message"].create(chat_msg_value)
+                # notify
+                # Create notification
+                value_notif = {
+                    "clan_new_id": val.id,
+                    # "date_created": val.create_date,
+                    "membre_id": val.membre_create_id.id,
+                    "broadcast_public": True,
+                    "type_notification": "Clan creation",
+                }
+                notif_id = self.env["ore.echange.service.notification"].create(
+                    value_notif
+                )
         return vals
 
     @api.multi
     def write(self, vals):
         status = super().write(vals)
-
-        # Detect user
-        if "membre_list_ids" in vals:
+        if "membre_list_ids" in vals.keys():
+            # Because we change the list, just check everything is fine
             for rec in self:
-                # We know the list of member has update, check if all members has principal clan
-                chat_group_id = self.env["ore.chat.group"].search(
-                    [("clan_id", "=", rec.id)], limit=1
-                )
                 for membre_id in rec.membre_list_ids:
-                    # Validate clan principal is set
                     if not membre_id.clan_principal_id:
+                        # Force update clan principal
+                        # TODO support to remove clan principal
                         membre_id.clan_principal_id = rec.id
-                    # Force to add into clan chat
-                    if membre_id.id not in chat_group_id.membre_ids.ids:
-                        chat_group_id.membre_ids = [(4, membre_id.id)]
         return status
 
     def get_image_url(self, field="image"):

@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="ore_chat_message_view_form" model="ir.ui.view">
-        <field name="name">ore_chat_message_form</field>
-        <field name="model">ore.chat.message</field>
+    <record id="ore_notification_chat_view_form" model="ir.ui.view">
+        <field name="name">ore_notification_chat_form</field>
+        <field name="model">ore.notification.chat</field>
         <field name="arch" type="xml">
             <form string="Titre">
                 <sheet>
-                    <div class="oe_button_box" name="button_box">
-                        <button class="oe_stat_button" icon="fa-archive" name="toggle_active" type="object">
-                            <field name="active" widget="boolean_button" />
-                        </button>
-                    </div>
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only" />
                         <h1>
@@ -18,37 +13,37 @@
                         </h1>
                     </div>
                     <group>
+                        <field name="group_id" />
+                        <field name="membre_notify_id" />
                         <field name="is_read" />
-                        <field name="membre_writer_id" />
-                        <field name="msg_group_id" />
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
-    <record id="ore_chat_message_view_graph" model="ir.ui.view">
-        <field name="name">ore_chat_message_graph</field>
-        <field name="model">ore.chat.message</field>
+    <record id="ore_notification_chat_view_graph" model="ir.ui.view">
+        <field name="name">ore_notification_chat_graph</field>
+        <field name="model">ore.notification.chat</field>
         <field name="arch" type="xml">
-            <graph string="Ore chat message">
+            <graph string="Ore notification chat">
                 <field name="name" type="row" />
+                <field name="group_id" type="row" />
                 <field name="is_read" type="row" />
-                <field name="membre_writer_id" type="row" />
-                <field name="msg_group_id" type="row" />
+                <field name="membre_notify_id" type="row" />
             </graph>
         </field>
     </record>
 
-    <record id="ore_chat_message_view_kanban" model="ir.ui.view">
-        <field name="name">ore_chat_message_kanban</field>
-        <field name="model">ore.chat.message</field>
+    <record id="ore_notification_chat_view_kanban" model="ir.ui.view">
+        <field name="name">ore_notification_chat_kanban</field>
+        <field name="model">ore.notification.chat</field>
         <field name="arch" type="xml">
             <kanban class="o_kanban_mobile">
                 <field name="name" />
+                <field name="group_id" />
                 <field name="is_read" />
-                <field name="membre_writer_id" />
-                <field name="msg_group_id" />
+                <field name="membre_notify_id" />
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click">
@@ -59,6 +54,11 @@
                                             <field name="name" />
                                         </strong>
                                     </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="group_id" />
+                                        </strong>
+                                    </li>
                                     <li class="text-success float-right mb4" t-if="record.is_read.raw_value">
                                         <i aria-label="Ok" class="fa fa-circle" role="img" title="Ok" />
                                     </li>
@@ -67,12 +67,7 @@
                                     </li>
                                     <li class="mb4">
                                         <strong>
-                                            <field name="membre_writer_id" />
-                                        </strong>
-                                    </li>
-                                    <li class="mb4">
-                                        <strong>
-                                            <field name="msg_group_id" />
+                                            <field name="membre_notify_id" />
                                         </strong>
                                     </li>
                                 </ul>
@@ -84,50 +79,49 @@
         </field>
     </record>
 
-    <record id="ore_chat_message_view_pivot" model="ir.ui.view">
-        <field name="name">ore_chat_message_pivot</field>
-        <field name="model">ore.chat.message</field>
+    <record id="ore_notification_chat_view_pivot" model="ir.ui.view">
+        <field name="name">ore_notification_chat_pivot</field>
+        <field name="model">ore.notification.chat</field>
         <field name="arch" type="xml">
-            <pivot string="Ore chat message">
+            <pivot string="Ore notification chat">
                 <field name="name" type="row" />
+                <field name="group_id" type="row" />
                 <field name="is_read" type="row" />
-                <field name="membre_writer_id" type="row" />
-                <field name="msg_group_id" type="row" />
+                <field name="membre_notify_id" type="row" />
             </pivot>
         </field>
     </record>
 
-    <record id="ore_chat_message_view_search" model="ir.ui.view">
-        <field name="name">ore_chat_message_search</field>
-        <field name="model">ore.chat.message</field>
+    <record id="ore_notification_chat_view_search" model="ir.ui.view">
+        <field name="name">ore_notification_chat_search</field>
+        <field name="model">ore.notification.chat</field>
         <field name="arch" type="xml">
-            <search string="Ore chat message">
+            <search string="Ore notification chat">
                 <filter domain="[('name','!=',False)]" name="name" string="Name" />
-                <filter domain="[('active','=',False)]" name="Inactive" string="Inactive Ore chat message" />
-                <filter domain="[('is_read','=',True)]" name="is_read" string="Is read" />
-                <filter domain="[('membre_writer_id','!=',False)]" name="membre_writer_id" string="Membre writer" />
-                <filter domain="[('msg_group_id','!=',False)]" name="msg_group_id" string="Groupe" />
+                <filter domain="[('group_id','!=',False)]" name="group_id" string="Group" />
+                <filter domain="[('is_read','=',True)]" name="is_read" string="Is Read" />
+                <filter domain="[('membre_notify_id','!=',False)]" name="membre_notify_id" string="Membre Notify" />
             </search>
         </field>
     </record>
 
-    <record id="ore_chat_message_view_tree" model="ir.ui.view">
-        <field name="name">ore_chat_message_tree</field>
-        <field name="model">ore.chat.message</field>
+    <record id="ore_notification_chat_view_tree" model="ir.ui.view">
+        <field name="name">ore_notification_chat_tree</field>
+        <field name="model">ore.notification.chat</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name" />
+                <field name="group_id" />
                 <field name="is_read" />
-                <field name="membre_writer_id" />
-                <field name="msg_group_id" />
+                <field name="membre_notify_id" />
             </tree>
         </field>
     </record>
 
     <act_window
-        id="ore_chat_message_chat_message_action_window"
-        name="Chat message"
-        res_model="ore.chat.message"
+        id="ore_notification_chat_notification_chat_action_window"
+        name="Notification chat"
+        res_model="ore.notification.chat"
         view_mode="kanban,tree,pivot,graph,form"
     />
 </odoo>

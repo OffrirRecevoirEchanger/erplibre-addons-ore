@@ -91,8 +91,8 @@
                                         class="fa icon_padding_right"
                                         ng-class="{'fa-heart': offre_service_info.is_favorite, 'fa-heart-o': !offre_service_info.is_favorite}"
                                     />
-                                    <span ng-show="!offre_service_info.is_favorite">Ajouter à mes favoris</span>
-                                    <span ng-show="offre_service_info.is_favorite">Retirer de mes favoris</span>
+                                    <span ng-if="!offre_service_info.is_favorite">Ajouter à mes favoris</span>
+                                    <span ng-if="offre_service_info.is_favorite">Retirer de mes favoris</span>
                                 </div>
                             </div>
                         </section>
@@ -253,6 +253,23 @@
         <t t-ignore="true">
             <div class="container_lists">
                 <div class="row activites_list col-lg-12">
+                    <div class="search_member_container">
+                        <i class="fa fa-search" ng-if="_.isUndefined($parent.state.selected_id)" />
+                        <input
+                            id="chooseClan"
+                            type="search"
+                            dir="ltr"
+                            spellcheck="false"
+                            autocorrect="off"
+                            autocomplete="off"
+                            autocapitalize="off"
+                            maxlength="2048"
+                            tabindex="1"
+                            placeholder="Écrit un clan et clique dessus"
+                            ng-model="tmpForm.modelChooseMember"
+                        />
+                    </div>
+                    <b style="font-size: 24px; font-weight: normal;">Les 3 derniers clans :</b>
                     <!--                    <div class="list_title s_title">-->
                     <!--                        <div class="title">-->
                     <!--                            <img-->
@@ -269,7 +286,7 @@
                     <!--                        </div>-->
                     <!--                    </div>-->
                     <div t-if="ore_clan_ids">
-                        <div class="container_explorer" t-foreach="ore_clan_ids" t-as="ore_clan_id">
+                        <div class="container_explorer" t-foreach="ore_clan_ids[-3:]" t-as="ore_clan_id">
                             <a class="activite btn" t-if="ore_clan_id" t-att-href="'/ore/ore_clan/%d' % ore_clan_id.id">
                                 <!--                                <img-->
                                 <!--                                    t-if="lst_icon_offre_service[offre_service_index]"-->
@@ -282,9 +299,9 @@
                                 <!--                                    class="activite_img fa fa-calendar-plus-o bg-epsilon text-center adapt-text-epsilon-color"-->
                                 <!--                                />-->
                                 <img
-                                    t-if="len(lst_time_clan) >= ore_clan_id_index"
+                                    t-if="len(lst_time_clan[-3:]) >= ore_clan_id_index"
                                     class="activite_img img-fluid"
-                                    t-att-src="lst_clan_photo[ore_clan_id_index]"
+                                    t-att-src="lst_clan_photo[-3:][ore_clan_id_index]"
                                     style="flex: 0 0 auto; margin-right: 1em; width: 100px;"
                                 />
                                 <div class="infos">
@@ -321,8 +338,8 @@
                                 </div>
                                 <div class="infos right">
                                     <div
-                                        t-if="len(lst_time_clan) >= ore_clan_id_index"
-                                        t-raw="lst_time_clan[ore_clan_id_index]"
+                                        t-if="len(lst_time_clan[-3:]) >= ore_clan_id_index"
+                                        t-raw="lst_time_clan[-3:][ore_clan_id_index]"
                                     />
                                     <!--<i class="fa fa-heart-o text-epsilon" />-->
                                 </div>
@@ -481,8 +498,8 @@
                                         class="fa icon_padding_right"
                                         ng-class="{'fa-heart': demande_service_info.is_favorite, 'fa-heart-o': !demande_service_info.is_favorite}"
                                     />
-                                    <span ng-show="!demande_service_info.is_favorite">Ajouter à mes favoris</span>
-                                    <span ng-show="demande_service_info.is_favorite">Retirer de mes favoris</span>
+                                    <span ng-if="!demande_service_info.is_favorite">Ajouter à mes favoris</span>
+                                    <span ng-if="demande_service_info.is_favorite">Retirer de mes favoris</span>
                                 </div>
                             </div>
                         </section>
@@ -684,7 +701,7 @@
                         Aucune offre de services sont disponibles pour cette ore.
                     </div>
                 </div>
-                <div class="row activites_list col-lg-6">
+                <div class="row activites_list col-lg-6 debug_unimplemented">
                     <div class="list_title s_title">
                         <div class="title">
                             <img
@@ -944,9 +961,9 @@
                                             ng-if="!_.isEmpty(link.html)"
                                             ng-bind-html="link.html | unsafe"
                                         />
-                                        <h1 ng-show="state.message" ng-cloak="">{{state.message}}</h1>
+                                        <h1 ng-if="state.message" ng-cloak="">{{state.message}}</h1>
                                     </div>
-                                    <div ng-show="!_.isEmpty(error)">
+                                    <div ng-if="!_.isEmpty(error)">
                                         <br />
                                         <span style="color:red;" ng-cloak="">Erreur : {{error}}</span>
                                     </div>
@@ -974,7 +991,7 @@
                                                 <!--                                            <i class="fa {{option.icon}}" ng-if="option.icon"/>-->
                                                 <!--                                            <img-->
                                                 <!--                                                class="activite_img img-fluid"-->
-                                                <!--                                                src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"-->
+                                                <!--                                                src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg"-->
                                                 <!--                                            />-->
                                                 <h5 ng-if="option.title" ng-cloak="">{{option.title}}</h5>
                                                 <p
@@ -1024,7 +1041,7 @@
                                                 <!--                                            <i class="fa {{option.icon}}" ng-if="option.icon"/>-->
                                                 <!--                                            <img-->
                                                 <!--                                                class="activite_img img-fluid"-->
-                                                <!--                                                src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"-->
+                                                <!--                                                src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg"-->
                                                 <!--                                            />-->
                                                 <h5 ng-if="option.title" ng-cloak="">{{option.title}}</h5>
                                                 <p
@@ -2148,7 +2165,7 @@
             >
                 <img
                     class="activite_img img-fluid"
-                    src="/web/image/website_ore.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
+                    src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg"
                     style="flex: 0 0 auto; margin-right: 1em; width: 100px;"
                 />
                 <div class="infos" style="flex: 1;">
@@ -2337,6 +2354,7 @@
                             <!--                        <nav class="profil_main">-->
                             <div
                                 class="profil rounded-circle btn btn-primary adapt-text-primary-color"
+                                id="btn_ask_join_clan"
                                 ng-if="!ask_modification_clan &amp;&amp; !page_communaute_clan_info_is_into_clan"
                                 ng-click="request_join_clan()"
                             >
@@ -2443,11 +2461,11 @@
                     <div
                         class="nbr"
                         ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.message_accueil)}"
-                        ng-show="ask_modification_clan"
+                        ng-if="ask_modification_clan || page_communaute_clan_info.is_clan_admin"
                     >
                         <span class="txt">Message d'accueil</span>
                         <q
-                            ng-if="ask_modification_clan"
+                            ng-if="ask_modification_clan || page_communaute_clan_info.is_clan_admin"
                             class="editable-content-blue"
                             contenteditable="true"
                             ng-model="page_communaute_clan_info.message_accueil"
@@ -2457,7 +2475,7 @@
                     <div
                         class="nbr"
                         ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.description)}"
-                        ng-show="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.description) &amp;&amp; !_.isEmpty(page_communaute_clan_info.description)"
+                        ng-if="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.description) &amp;&amp; !_.isEmpty(page_communaute_clan_info.description)"
                     >
                         <span class="txt">Description</span>
                         <div
@@ -2477,7 +2495,7 @@
                     <div
                         class="nbr"
                         ng-class="{'hide-border': shouldHideBorder(page_communaute_clan_info.besoin_comble)}"
-                        ng-show="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.besoin_comble) &amp;&amp; !_.isEmpty(page_communaute_clan_info.besoin_comble)"
+                        ng-if="ask_modification_clan || !_.isUndefined(page_communaute_clan_info.besoin_comble) &amp;&amp; !_.isEmpty(page_communaute_clan_info.besoin_comble)"
                     >
                         <span class="txt">Besoin(s) commun(s)</span>
                         <div

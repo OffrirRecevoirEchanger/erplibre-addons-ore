@@ -5,6 +5,14 @@
         <field name="model">ore.clan.invitation</field>
         <field name="arch" type="xml">
             <form string="Titre">
+                <header>
+                    <field
+                        name="stage_id"
+                        widget="statusbar"
+                        clickable="True"
+                        options="{'clickable': '1', 'fold_field': 'fold'}"
+                    />
+                </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button class="oe_stat_button" icon="fa-archive" name="toggle_active" type="object">
