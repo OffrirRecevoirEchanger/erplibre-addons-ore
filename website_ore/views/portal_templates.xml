@@ -623,7 +623,7 @@
                                         data-oe-type="char"
                                         data-oe-expression="submenu.name"
                                     />
-                                    <span class="badge-over-fa" ng-if="lst_notification.length > 0">
+                                    <span class="badge-over-fa ng-cloak" ng-if="lst_notification.length > 0">
                                         {{lst_notification.length}}
                                     </span>
                                 </a>

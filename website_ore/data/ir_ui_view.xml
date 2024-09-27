@@ -77,25 +77,25 @@
                                             <div ng-repeat="(month_key, echange_info) in personal.dct_echange_mensuel">
                                                 <div class="list_title s_title">
                                                     <div class="title">
-                                                        <h1 ng-cloak="">{{month_key | toTitleCase}}</h1>
-                                                        <a class="text-epsilon" style="font-size:1.25rem;" ng-if="!echange_info.containTransactionValide">
+                                                        <h1 class="ng-cloak">{{month_key | toTitleCase}}</h1>
+                                                        <a class="text-epsilon ng-cloak" style="font-size:1.25rem;" ng-if="!echange_info.containTransactionValide">
                                                             <i class="fa fa-clock-o icon_padding_right" />
                                                             À venir
                                                         </a>
-                                                        <a style="font-size:1.25rem;" ng-if="echange_info.containTransactionValide" ng-cloak="">
+                                                        <a style="font-size:1.25rem;" ng-if="echange_info.containTransactionValide" class="ng-cloak">
                                                             <i class="fa fa-clock-o icon_padding_right" />
                                                             {{echange_info.show_sum_time}}
                                                         </a>
                                                     </div>
                                                 </div>
-                                                <div ng-if="_.isEmpty(echange_info.lst_echange)">Aucun échange ce mois-ci</div>
+                                                <div class="ng-cloak" ng-if="_.isEmpty(echange_info.lst_echange)">Aucun échange ce mois-ci</div>
                                                 <a ng-repeat="echange in echange_info.lst_echange" class="activite btn container_explorer" ng-href="/monactivite/echange#!?echange={{echange.id}}" ng-cloak="">
                                                     <img class="activite_img img-fluid" src="/web/image/website_ore.ir_attachment_logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px/logo_trouve_ton_clan_rond_bg_transparent_500px_X_500px.svg" />
                                                     <div class="activite_infos">
                                                         <div class="activite_title">
                                                             <p ng-cloak="">{{echange.show_date | toTitleCase}}</p>
-                                                            <p class="time" ng-if="echange.show_start_time !== echange.show_end_time" ng-cloak="">{{echange.show_start_time}} - {{echange.show_end_time}}</p>
-                                                            <p class="time" ng-if="echange.show_start_time === echange.show_end_time" ng-cloak="">{{echange.show_start_time}}</p>
+                                                            <p class="time ng-cloak" ng-if="echange.show_start_time !== echange.show_end_time" ng-cloak="">{{echange.show_start_time}} - {{echange.show_end_time}}</p>
+                                                            <p class="time ng-cloak" ng-if="echange.show_start_time === echange.show_end_time" ng-cloak="">{{echange.show_start_time}}</p>
                                                         </div>
                                                         <div class="details">
                                                             <span class="activite_auteur mt-auto" ng-cloak="">{{echange.membre.full_name}}</span>
@@ -103,11 +103,11 @@
                                                             <span class="mb-auto" ng-show="!_.isEmpty(echange.sujet_demande_service)" ng-cloak="">{{echange.sujet_demande_service}}</span>
                                                         </div>
                                                     </div>
-                                                    <p class="status" ng-class="{'red-o': echange.estAcheteur, 'blue-o': !echange.estAcheteur}" ng-if="!echange.transaction_valide" ng-cloak="">
+                                                    <p class="status ng-cloak" ng-class="{'red-o': echange.estAcheteur, 'blue-o': !echange.estAcheteur}" ng-if="!echange.transaction_valide" ng-cloak="">
                                                         {{echange.show_duree_total_estime}} à valider
                                                         <i class="fa fa-chevron-right" />
                                                     </p>
-                                                    <p class="status" ng-class="{'red': echange.estAcheteur, 'blue': !echange.estAcheteur}" ng-if="echange.transaction_valide" ng-cloak="">{{echange.show_duree_total}}</p>
+                                                    <p class="status ng-cloak" ng-class="{'red': echange.estAcheteur, 'blue': !echange.estAcheteur}" ng-if="echange.transaction_valide" ng-cloak="">{{echange.show_duree_total}}</p>
                                                 </a>
                                             </div>
                                             <div class="medium-btn btn btn-primary debug_unimplemented ng-cloak">Voir les transactions plus anciennes</div>
@@ -143,11 +143,11 @@
                                                 <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
                                             </div>
                                         </div>
-                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.all_my_clan.length > 0">
+                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title ng-cloak" style="background-color: white; border-radius: 15px;" ng-if="personal.all_my_clan.length > 0">
                                             <i class="fa fa-smile-o" />
                                             <span id="mon_reseau" ng-cloak="">
-                                                <span ng-if="personal.all_my_clan.length == 1">Mon clan</span>
-                                                <span ng-if="personal.all_my_clan.length > 1">Mes clans</span>
+                                                <span class="ng-cloak" ng-if="personal.all_my_clan.length == 1">Mon clan</span>
+                                                <span class="ng-cloak" ng-if="personal.all_my_clan.length > 1">Mes clans</span>
                                                 : {{personal.my_clan.name}}
                                             </span>
                                         </div>
@@ -175,14 +175,14 @@
                                                 <span>Groupes</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item" ng-if="nb_event_info > 0">
+                                        <li class="nav-item ng-cloak" ng-if="nb_event_info > 0">
                                             <a class="nav-link" role="menu_item" href="/communaute/evenements">
                                                 <span>&#201;v&#232;nements</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_actualite" ng-if="page_communaute_clan_info.message_accueil">
+                                <section class="s_actualite ng-cloak" ng-if="page_communaute_clan_info.message_accueil">
                                     <div class="container_actualite">
                                         <div class="title">
                                             <h1 style="margin-left:10%">Message d'accueil</h1>
@@ -190,7 +190,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                <section class="s_actualite" ng-controller="NewsController" ng-if="nb_news_info > 0">
+                                <section class="s_actualite ng-cloak" ng-controller="NewsController" ng-if="nb_news_info > 0">
                                     <div class="container_actualite">
                                         <div class="list_title s_title">
                                             <div class="title">
@@ -203,8 +203,8 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="box_actualite" ng-if="nb_news_info == 0">Aucune actualité</div>
-                                        <a ng-href="{{news_value.website_url}}" ng-repeat="(news_id, news_value) in dct_news_info" ng-if="nb_news_info > 0">
+                                        <div class="box_actualite ng-cloak" ng-if="nb_news_info == 0">Aucune actualité</div>
+                                        <a class="ng-cloak" ng-href="{{news_value.website_url}}" ng-repeat="(news_id, news_value) in dct_news_info" ng-if="nb_news_info > 0">
                                             <div class="box_actualite">
                                                 <div class="actualite_head">
                                                     <img class="pub_pfp rounded-circle" ng-src="{{ news_value.author_photo_url }}" />
@@ -219,16 +219,12 @@
                                                     <!--                                                <i class="fa fa-thumb-tack mobile-display-none" />-->
                                                 </div>
                                                 <div class="actualite_content">
-                                                    <div class="pub_title" ng-if="news_value.titre.length">
-                                                        <h4>
-                                                            <font style="">{{ news_value.titre }}</font>
-                                                        </h4>
+                                                    <div class="pub_title ng-cloak" ng-if="news_value.titre.length">
+                                                        <h4>{{ news_value.titre }}</h4>
                                                     </div>
                                                     <div class="pub_desc">
-                                                        <h5 ng-if="news_value.sub_title.length">
-                                                            <font style="">{{ news_value.sub_title }}</font>
-                                                        </h5>
-                                                        <p ng-if="news_value.teaser_manual.length">{{ news_value.teaser_manual }}</p>
+                                                        <h5 class="ng-cloak" ng-if="news_value.sub_title.length">{{ news_value.sub_title }}</h5>
+                                                        <p class="ng-cloak" ng-if="news_value.teaser_manual.length">{{ news_value.teaser_manual }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="actualite_stats">
@@ -547,11 +543,11 @@
                                                 <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
                                             </div>
                                         </div>
-                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.all_my_clan.length > 0">
+                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title ng-cloak" style="background-color: white; border-radius: 15px;" ng-if="personal.all_my_clan.length > 0">
                                             <i class="fa fa-smile-o" />
                                             <span id="mon_reseau" ng-cloak="">
-                                                <span ng-if="personal.all_my_clan.length == 1">Mon clan</span>
-                                                <span ng-if="personal.all_my_clan.length > 1">Mes clans</span>
+                                                <span class="ng-cloak" ng-if="personal.all_my_clan.length == 1">Mon clan</span>
+                                                <span class="ng-cloak" ng-if="personal.all_my_clan.length > 1">Mes clans</span>
                                                 : {{personal.my_clan.name}}
                                             </span>
                                         </div>
@@ -579,7 +575,7 @@
                                                 <span>Groupes</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item" ng-if="nb_event_info > 0">
+                                        <li class="nav-item ng-cloak" ng-if="nb_event_info > 0">
                                             <a class="nav-link active" role="menu_item" href="/communaute/evenements">
                                                 <span>&#201;v&#232;nements</span>
                                             </a>
@@ -615,8 +611,8 @@
                                         </div>
                                         <div class="horizontal_list">
                                             <div class="list_item">
-                                                <div class="item_card btn shadow" ng-if="nb_event_info == 0">Aucun événement</div>
-                                                <div class="item_card btn shadow" ng-repeat="(event_id, event_value) in dct_event_info" ng-if="nb_event_info > 0">
+                                                <div class="item_card btn shadow ng-cloak" ng-if="nb_event_info == 0">Aucun événement</div>
+                                                <div class="item_card btn shadow ng-cloak" ng-repeat="(event_id, event_value) in dct_event_info" ng-if="nb_event_info > 0">
                                                     <a ng-href="{{event_value.website_url}}">
                                                         <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_miti_vsws0g1kjxi_unsplash_jpg/miti-vSws0g1KjxI-unsplash.jpg&quot;">
                                                             <div class="event_date_container lg">
@@ -680,11 +676,11 @@
                                                 <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
                                             </div>
                                         </div>
-                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.all_my_clan.length > 0">
+                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title ng-cloak" style="background-color: white; border-radius: 15px;" ng-if="personal.all_my_clan.length > 0">
                                             <i class="fa fa-smile-o" />
                                             <span id="mon_reseau" ng-cloak="">
-                                                <span ng-if="personal.all_my_clan.length == 1">Mon clan</span>
-                                                <span ng-if="personal.all_my_clan.length > 1">Mes clans</span>
+                                                <span class="ng-cloak" ng-if="personal.all_my_clan.length == 1">Mon clan</span>
+                                                <span class="ng-cloak" ng-if="personal.all_my_clan.length > 1">Mes clans</span>
                                                 : {{personal.my_clan.name}}
                                             </span>
                                         </div>
@@ -712,7 +708,7 @@
                                                 <span>Groupes</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item" ng-if="nb_event_info > 0">
+                                        <li class="nav-item ng-cloak" ng-if="nb_event_info > 0">
                                             <a class="nav-link" role="menu_item" href="/communaute/evenements">
                                                 <span>&#201;v&#232;nements</span>
                                             </a>
@@ -867,11 +863,11 @@
                                                 <p class="s_title_default text-bold text-bold text-color-title" ng-cloak="">{{personal.my_clan.name}}</p>
                                             </div>
                                         </div>
-                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title" style="background-color: white; border-radius: 15px;" ng-if="personal.all_my_clan.length > 0">
+                                        <div id="btn_ore_profil" ng-click="open_change_clan()" class="profile_btn btn ore text-color-title ng-cloak" style="background-color: white; border-radius: 15px;" ng-if="personal.all_my_clan.length > 0">
                                             <i class="fa fa-smile-o" />
                                             <span id="mon_reseau" ng-cloak="">
-                                                <span ng-if="personal.all_my_clan.length == 1">Mon clan</span>
-                                                <span ng-if="personal.all_my_clan.length > 1">Mes clans</span>
+                                                <span class="ng-cloak" ng-if="personal.all_my_clan.length == 1">Mon clan</span>
+                                                <span class="ng-cloak" ng-if="personal.all_my_clan.length > 1">Mes clans</span>
                                                 : {{personal.my_clan.name}}
                                             </span>
                                         </div>
@@ -899,7 +895,7 @@
                                                 <span>Groupes</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item" ng-if="nb_event_info > 0">
+                                        <li class="nav-item ng-cloak" ng-if="nb_event_info > 0">
                                             <a class="nav-link" role="menu_item" href="/communaute/evenements">
                                                 <span>&#201;v&#232;nements</span>
                                             </a>
@@ -1562,7 +1558,7 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="s_actualite" ng-controller="NewsController" ng-if="nb_news_info > 0">
+                            <section class="s_actualite ng-cloak" ng-controller="NewsController" ng-if="nb_news_info > 0">
                                 <div class="container_actualite">
                                     <div class="list_title s_title">
                                         <div class="title">
@@ -1575,8 +1571,8 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="box_actualite" ng-if="nb_news_info == 0">Aucune actualité</div>
-                                    <a ng-href="{{news_value.website_url}}" ng-repeat="(news_id, news_value) in dct_news_info" ng-if="nb_news_info > 0">
+                                    <div class="box_actualite ng-cloak" ng-if="nb_news_info == 0">Aucune actualité</div>
+                                    <a class="ng-cloak" ng-href="{{news_value.website_url}}" ng-repeat="(news_id, news_value) in dct_news_info" ng-if="nb_news_info > 0">
                                         <div class="box_actualite">
                                             <div class="actualite_head">
                                                 <img class="pub_pfp rounded-circle" ng-src="{{ news_value.author_photo_url }}" />
@@ -1591,16 +1587,12 @@
                                                 <!--                                                <i class="fa fa-thumb-tack mobile-display-none" />-->
                                             </div>
                                             <div class="actualite_content">
-                                                <div class="pub_title" ng-if="news_value.titre.length">
-                                                    <h4>
-                                                        <font style="">{{ news_value.titre }}</font>
-                                                    </h4>
+                                                <div class="pub_title ng-cloak" ng-if="news_value.titre.length">
+                                                    <h4>{{ news_value.titre }}</h4>
                                                 </div>
                                                 <div class="pub_desc">
-                                                    <h5 ng-if="news_value.sub_title.length">
-                                                        <font style="">{{ news_value.sub_title }}</font>
-                                                    </h5>
-                                                    <p ng-if="news_value.teaser_manual.length">{{ news_value.teaser_manual }}</p>
+                                                    <h5 class="ng-cloak" ng-if="news_value.sub_title.length">{{ news_value.sub_title }}</h5>
+                                                    <p class="ng-cloak" ng-if="news_value.teaser_manual.length">{{ news_value.teaser_manual }}</p>
                                                 </div>
                                             </div>
                                             <div class="actualite_stats">
@@ -1699,7 +1691,7 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="s_event_list" ng-controller="EventController" ng-if="nb_event_info > 0">
+                            <section class="s_event_list ng-cloak" ng-controller="EventController" ng-if="nb_event_info > 0">
                                 <div class="list_head">
                                     <div class="list_title s_title">
                                         <div style="display:flex;gap:1%;align-items:center;">
@@ -1715,8 +1707,8 @@
                                 </div>
                                 <div class="horizontal_list">
                                     <div class="list_item">
-                                        <div class="item_card btn shadow" ng-if="nb_event_info == 0">Aucun événement</div>
-                                        <div class="item_card btn shadow" ng-repeat="(event_id, event_value) in dct_event_info" ng-if="nb_event_info > 0">
+                                        <div class="item_card btn shadow ng-cloak" ng-if="nb_event_info == 0">Aucun événement</div>
+                                        <div class="item_card btn shadow ng-cloak" ng-repeat="(event_id, event_value) in dct_event_info" ng-if="nb_event_info > 0">
                                             <a ng-href="{{event_value.website_url}}">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/website_ore.ir_attachment_miti_vsws0g1kjxi_unsplash_jpg/miti-vSws0g1KjxI-unsplash.jpg&quot;">
                                                     <div class="event_date_container lg">
@@ -1821,11 +1813,11 @@
                                         <div class="information information-1">
                                             <div class="profile_pic" style="width: 200px; height: 150px; position: relative; top: -1px;">
                                                 <img class="img img-fluid rounded-circle" ng-src="{{ page_presentation_membre_info.ma_photo }}" alt="Ma photo" style="position:relative; left:5px;" />
-                                                <input id="file-input" style="opacity:0;" ng-if="ask_modification_profile" type="file" ng-model="myImage" accept="image/*" onchange="angular.element(this).scope().updateImageProfile(this)" />
+                                                <input class="ng-cloak" id="file-input" style="opacity:0;" ng-if="ask_modification_profile" type="file" ng-model="myImage" accept="image/*" onchange="angular.element(this).scope().updateImageProfile(this)" />
                                                 <label for="file-input" class="file-label">
-                                                    <i class="white_box" style="padding-bottom: 1px; padding-right: 1px; border-radius: 10px; left: 55px; top: 50px; width: 40px; height: 40px" ng-if="ask_modification_profile" />
-                                                    <i class="fa fa-pencil-square text-primary" id="submitBtn" data-toggle="modal" data-target=".modal_pub_offre" style="padding-bottom: 50px; cursor: pointer;" ng-if="ask_modification_profile" />
-                                                    <i class="fa fa-shield text-epsilon" ng-if="page_presentation_membre_info.antecedent_judiciaire_verifier" />
+                                                    <i class="white_box ng-cloak" style="padding-bottom: 1px; padding-right: 1px; border-radius: 10px; left: 55px; top: 50px; width: 40px; height: 40px" ng-if="ask_modification_profile" />
+                                                    <i class="fa fa-pencil-square text-primary ng-cloak" id="submitBtn" data-toggle="modal" data-target=".modal_pub_offre" style="padding-bottom: 50px; cursor: pointer;" ng-if="ask_modification_profile" />
+                                                    <i class="fa fa-shield text-epsilon ng-cloak" ng-if="page_presentation_membre_info.antecedent_judiciaire_verifier" />
                                                 </label>
                                             </div>
                                             <div t-name="ore.ore_pub_offre_modal" class="modal fade modal_pub_offre modal_shown" backdrop="static" aria-hidden="true" ng-cloak="">
@@ -1835,8 +1827,8 @@
                                                             <!-- modal-body -->
                                                             <div style="text-align: center;">
                                                                 <span id="profile-picture" />
-                                                                <button id="confirm-crop-btn" ng-click="cropProfilePicture()" data-toggle="modal" data-target=".modal_pub_offre" ng-if="show_croppie">Recadrer</button>
-                                                                <button id="cancel-crop-btn" ng-click="closeModalForm(); clearData()" data-toggle="modal" data-target=".modal_pub_offre">Annuler</button>
+                                                                <button id="confirm-crop-btn" class="ng-cloak" ng-click="cropProfilePicture()" data-toggle="modal" data-target=".modal_pub_offre" ng-if="show_croppie">Recadrer</button>
+                                                                <button id="cancel-crop-btn" class="ng-cloak" ng-click="closeModalForm(); clearData()" data-toggle="modal" data-target=".modal_pub_offre">Annuler</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1849,26 +1841,26 @@
                                             </span>
                                             <div class="container_profil">
                                                 <nav class="profil_left">
-                                                    <div class="profil rounded-circle btn btn-primary adapt-text-primary-color" ng-if="page_presentation_membre_info.estPersonnel &amp;&amp; !ask_modification_profile" ng-click="mode_edit_profile()">
+                                                    <div class="profil rounded-circle btn btn-primary adapt-text-primary-color ng-cloak" ng-if="page_presentation_membre_info.estPersonnel &amp;&amp; !ask_modification_profile" ng-click="mode_edit_profile()">
                                                         <span class="fa fa-pencil adapt-text-primary-color" />
                                                         Modifier mon profil
                                                     </div>
-                                                    <div class="profil rounded-circle btn btn-primary adapt-text-primary-color" ng-if="page_presentation_membre_info.estPersonnel &amp;&amp; ask_modification_profile" ng-click="annuler_ask_modification_profile()">
+                                                    <div class="profil rounded-circle btn btn-primary adapt-text-primary-color ng-cloak" ng-if="page_presentation_membre_info.estPersonnel &amp;&amp; ask_modification_profile" ng-click="annuler_ask_modification_profile()">
                                                         <span class="fa fa-close adapt-text-primary-color" />
                                                         Annuler les modifications
                                                     </div>
-                                                    <div class="profil rounded-circle btn btn-primary adapt-text-primary-color" ng-if="page_presentation_membre_info.estPersonnel &amp;&amp; ask_modification_profile" ng-click="mode_save_profile()">
+                                                    <div class="profil rounded-circle btn btn-primary adapt-text-primary-color ng-cloak" ng-if="page_presentation_membre_info.estPersonnel &amp;&amp; ask_modification_profile" ng-click="mode_save_profile()">
                                                         <span class="fa fa-save" />
                                                         Enregistrer le profil
                                                     </div>
-                                                    <div class="profil rounded-circle btn btn-primary btn_do_echange adapt-text-primary-color" ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel" ng-cloak="" ng-click="open_echange_membre()">
+                                                    <div class="profil rounded-circle btn btn-primary btn_do_echange adapt-text-primary-color ng-cloak" ng-if="!_.isUndefined(page_presentation_membre_info.estPersonnel) &amp;&amp; !page_presentation_membre_info.estPersonnel" ng-cloak="" ng-click="open_echange_membre()">
                                                         <span class="fa fa-2x fa-donate adapt-text-primary-color" />
                                                         Transactions
                                                     </div>
                                                     <div class="profil rounded-circle btn btn-gamma adapt-text-gamma-color" ng-click="add_to_my_favorite('ore.membre', page_presentation_membre_info)">
                                                         <span class="fa coeur" ng-class="{'fa-heart': page_presentation_membre_info.is_favorite, 'fa-heart-o': !page_presentation_membre_info.is_favorite}" />
-                                                        <span class="adapt-text-gamma-color" ng-if="!page_presentation_membre_info.is_favorite">Ajouter aux favoris</span>
-                                                        <span class="adapt-text-gamma-color" ng-if="page_presentation_membre_info.is_favorite">Retirer des favoris</span>
+                                                        <span class="adapt-text-gamma-color ng-cloak" ng-if="!page_presentation_membre_info.is_favorite">Ajouter aux favoris</span>
+                                                        <span class="adapt-text-gamma-color ng-cloak" ng-if="page_presentation_membre_info.is_favorite">Retirer des favoris</span>
                                                     </div>
                                                 </nav>
                                                 <!--                                                <nav class="profil_main">-->
@@ -1882,10 +1874,10 @@
                                             <span class="txt">Intro</span>
                                             <br />
                                             <br />
-                                            <span class="nbr" ng-if="!ask_modification_profile &amp;&amp; !_.isUndefined(page_presentation_membre_info.introduction) &amp;&amp; !_.isEmpty(page_presentation_membre_info.introduction)">
-                                                <q ng-cloak="" ng-bind-html="page_presentation_membre_info.introduction | unsafe" />
+                                            <span class="nbr ng-cloak" ng-if="!ask_modification_profile &amp;&amp; !_.isUndefined(page_presentation_membre_info.introduction) &amp;&amp; !_.isEmpty(page_presentation_membre_info.introduction)">
+                                                <q ng-bind-html="page_presentation_membre_info.introduction | unsafe" />
                                             </span>
-                                            <span class="nbr" ng-if="ask_modification_profile">
+                                            <span class="nbr ng-cloak" ng-if="ask_modification_profile">
                                                 <q class="editable-content-blue" contenteditable="true" ng-model="page_presentation_membre_info.introduction" />
                                             </span>
                                         </div>
@@ -1897,7 +1889,7 @@
                                                 <i class="fa fa-map-marker" />
                                                 <span style="position: relative; left: -25px;">Habite &#224; 1.2km de votre domicile</span>
                                             </span>
-                                            <span class="desc-3" ng-if="page_presentation_membre_info.location != ''" ng-cloak="">
+                                            <span class="desc-3 ng-cloak" ng-if="page_presentation_membre_info.location != ''">
                                                 <br />
                                                 <i class="fa fa-home" />
                                                 <span style="position: relative; left: -25px;" ng-cloak="">{{page_presentation_membre_info.location}}</span>
@@ -1905,8 +1897,8 @@
                                             <span class="desc-3">
                                                 <br />
                                                 <i class="fa fa-shield" />
-                                                <span style="position: relative; left: -25px;" ng-if="page_presentation_membre_info.antecedent_judiciaire_verifier">Utilisateur v&#233;rifi&#233;</span>
-                                                <span style="position: relative; left: -25px;" ng-if="!page_presentation_membre_info.antecedent_judiciaire_verifier">Utilisateur non v&#233;rifi&#233;</span>
+                                                <span style="position: relative; left: -25px;" class="ng-cloak" ng-if="page_presentation_membre_info.antecedent_judiciaire_verifier">Utilisateur v&#233;rifi&#233;</span>
+                                                <span style="position: relative; left: -25px;" class="ng-cloak" ng-if="!page_presentation_membre_info.antecedent_judiciaire_verifier">Utilisateur non v&#233;rifi&#233;</span>
                                             </span>
                                             <span class="desc-3">
                                                 <br />
@@ -1917,7 +1909,7 @@
                                         <div class="information information-4">
                                             <div class="nbr" ng-class="{'hide-border': shouldHideBorder(membre_info.description)}" ng-show="ask_modification_profile || !_.isUndefined(page_presentation_membre_info.description) &amp;&amp; !_.isEmpty(page_presentation_membre_info.description)">
                                                 <span class="txt">Ma description</span>
-                                                <div ng-if="!ask_modification_profile" ng-cloak="" ng-bind-html="page_presentation_membre_info.description | unsafe" />
+                                                <div ng-if="!ask_modification_profile" ng-bind-html="page_presentation_membre_info.description | unsafe" />
                                                 <q ng-if="ask_modification_profile" class="editable-content-blue" contenteditable="true" ng-model="page_presentation_membre_info.description" />
                                             </div>
 

@@ -4,11 +4,12 @@
         <xpath expr="//div[hasclass('buttons')]" position="inside">
             <a
                 ng-href="/notification#!?section=message&amp;membre={{contact_info.id}}"
+                class="ng-cloak"
                 ng-if="!hide_votre_contact_to_contact"
             >
                 <div class="btn btn-beta rounded-circle">
-                    <span ng-if="contact_info.genre === 'femme'">La</span>
-                    <span ng-if="contact_info.genre !== 'femme'">Le</span>
+                    <span class="ng-cloak" ng-if="contact_info.genre === 'femme'">La</span>
+                    <span class="ng-cloak" ng-if="contact_info.genre !== 'femme'">Le</span>
                     contacter
                 </div>
             </a>
@@ -19,6 +20,7 @@
             <a
                 id="btn_start_clavardage_from_clan"
                 ng-href="/notification#!?section=message&amp;clan={{page_communaute_clan_info.id}}"
+                class="ng-cloak"
                 ng-if="page_communaute_clan_info_is_into_clan"
             >
                 <div class="profil btn btn-epsilon rounded-circle adapt-text-epsilon-color">
@@ -57,7 +59,7 @@
         <xpath expr="//span[hasclass('badge-over-fa')]" position="replace">
             <span
                 id="badge_notification_all_count"
-                class="badge-over-fa"
+                class="badge-over-fa ng-cloak"
                 ng-if="(lst_notification_unread.length + lst_membre_message_unread.length + lst_clan_message_unread.length) > 0"
             >
                 {{lst_notification_unread.length + lst_membre_message_unread.length + lst_clan_message_unread.length}}
@@ -96,8 +98,8 @@
                             <span class="activite_auteur">{{msg.name}}</span>
                         </div>
                         <div class="infos right">
-                            <span ng-if="!msg.is_read">Non lu</span>
-                            <span ng-if="msg.is_read">Lu</span>
+                            <span class="ng-cloak" ng-if="!msg.is_read">Non lu</span>
+                            <span class="ng-cloak" ng-if="msg.is_read">Lu</span>
                             <span>{{msg.last_date}}</span>
                         </div>
                     </div>
@@ -115,8 +117,8 @@
                             <span class="activite_auteur">{{msg.name}}</span>
                         </div>
                         <div class="infos right">
-                            <span ng-if="!msg.is_read">Non lu</span>
-                            <span ng-if="msg.is_read">Lu</span>
+                            <span class="ng-cloak" ng-if="!msg.is_read">Non lu</span>
+                            <span class="ng-cloak" ng-if="msg.is_read">Lu</span>
                             <span>{{msg.last_date}}</span>
                         </div>
                     </div>
