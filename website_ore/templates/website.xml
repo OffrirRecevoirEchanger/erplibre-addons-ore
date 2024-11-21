@@ -265,7 +265,7 @@
                             autocapitalize="off"
                             maxlength="2048"
                             tabindex="1"
-                            placeholder="Écrit un clan et clique dessus"
+                            placeholder="Recherche par nom de clan"
                             ng-model="tmpForm.modelChooseMember"
                         />
                     </div>
@@ -973,6 +973,9 @@
                                         class="buttons_form_container tab"
                                         ng-if="state.type == 'selection_static' || state.type == 'selection_dynamique'"
                                     >
+                                        <div class="button_form" ng-if="!state.data.length || !state.list.length">
+                                            Rien à sélectionner!
+                                        </div>
                                         <!-- !list_is_first_position -->
                                         <!-- Update the duplicate, check ng-if="state.list_is_first_position" -->
                                         <div
@@ -2107,7 +2110,7 @@
                     <i class="fa fa-user-circle" />
                     Membre depuis {{contact_info.show_date_creation}}
                 </p>
-                <p>
+                <p class="debug_unimplemented ng-cloak">
                     <i class="fa fa-shield" ng-class="{'neg_time': !contact_info.antecedent_judiciaire_verifier}" />
                     Antécédents judiciaires
                     <span ng-if="!contact_info.antecedent_judiciaire_verifier">non</span>
